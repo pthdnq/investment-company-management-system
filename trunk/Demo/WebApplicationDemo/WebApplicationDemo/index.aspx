@@ -31,7 +31,7 @@
                         $('#pageFrame').attr('src', 'WebForm2.aspx');
                         break;
                     default:
-                        alert('别点了，压根就没有页面3');
+                        alert('别点了!压根就没有页面3');
                 }
 
                 return false;
