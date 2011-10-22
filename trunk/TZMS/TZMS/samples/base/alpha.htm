@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>设置元素的透明度</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+
+    <script type="text/javascript">
+        function fn1(is)
+        {
+            if (is) $("#dv1").alpha(0.5);
+            else $("#dv1").alpha(1);
+        }
+    </script>
+
+</head>
+<body>
+    <ul>
+        <li>功能：设置元素的透明度<a href="javascript:void(viewsource('../../','samples/base/alpha.htm'))"
+            style="margin-left: 10px;">查看示例源码</a></li>
+        <li>方法：{jQuery}.alpha(degree)</li>
+        <li>说明：
+            <ul>
+                <li>根据参数degree的值设置元素的透明度，degree介于0－1之间，当为1时为不透明，为0时为全透明</li>
+            </ul>
+        </li>
+        <li>示例：
+            <div style="width: 200px; height: 60px; position: relative; color: Red;">
+                我在下方,当上方元素不透明度时，我是看不到的^_^
+                <div id="dv1" style="width: 200px; height: 20px; background-color: #000; position: absolute;
+                    top: 0px; left: 0px; padding: 20px;" align="center">
+                    哈哈哈
+                </div>
+            </div>
+            <input type="button" onclick="fn1(true);" value="设置元素透明度为0.5" />
+            <input type="button" onclick="fn1(false);" value="设置元素透明度为不透明" />
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>自定义二级导航内容</title>
+<script id="jart_js" type="text/javascript"
+	src="../../resources/jart/jart.js"></script>
+<script type="text/javascript" src="../../js/share.js"></script>
+</head>
+<body>
+	包含自定义内容并固定高度互斥显示的导航控件。其中导航条一下的内容直接渲染为tree，而非导航项
+	<div art="navbar" height="300" exclude="true">
+		<div text="导航条一" iconurl="search.png" original="true"
+			style="overflow: auto;">
+			<div art="tree" fastexpand="true" borders="0">
+				<div text="安徽省">
+					<div text="合肥市">
+						<div text="蜀山区"></div>
+						<div text="政务区"></div>
+						<div text="瑶海区"></div>
+						<div text="包河区"></div>
+						<div text="肥东县"></div>
+						<div text="肥西县"></div>
+					</div>
+					<div text="芜湖市" style="display: none;">
+						<div text="镜湖区"></div>
+						<div text="鸠江区"></div>
+						<div text="繁昌县"></div>
+						<div text="南陵县"></div>
+					</div>
+					<div text="安庆市"></div>
+					<div text="巢湖市"></div>
+					<div text="六安市"></div>
+				</div>
+				<div text="江苏省">
+					<div text="南京市"></div>
+					<div text="苏州市"></div>
+					<div text="无锡市"></div>
+					<div text="常州市"></div>
+				</div>
+			</div>
+		</div>
+		<div text="导航条二" original="true" iconurl="search.png"
+			style="overflow: auto;">
+			<p>
+				近日，由安徽省经信委、省发改委、省财政厅、省商务厅、省工商局、省质监局六家联合公布了“安徽省首批自主创新品牌示范企业”名单，科大讯飞和奇瑞、江淮等12家创新骨干企业共同入选。
+				作为安徽省自主创新方面最具权威的评选之一，“安徽省自主创新品牌示范企业”的认定必须满足“产业发展影响力大、地区经济发展带动力强、市场扩张能力强、自主创新能力强、产品质量诚信度高”等标准要求。对于获得认定的企业，安徽省将在省级财政专项资金项目安排上给予重点扶持，并积极争取国家级专项资金支持，推动社会资源和生产要素向省品牌示范企业集聚。
+			</p>
+		</div>
+		<div text="导航条三" iconurl="search.png">
+			<div>第二层导航5</div>
+			<div>第二层导航6</div>
+		</div>
+	</div>
+</body>
+</html>

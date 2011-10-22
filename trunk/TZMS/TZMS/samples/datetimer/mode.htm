@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>支持日期或时间或混合选择模式</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+</head>
+<body>
+    <ul>
+        <li>功能：支持日期或时间或混合选择模式<a href="javascript:void(viewsource('../../','samples/datetimer/mode.htm'))"
+            style="margin-left: 10px;">查看示例源码</a></li>
+        <li>属性：selectmode（enum）</li>
+        <li>说明：设置控件的日期选择模式，支持单独选日期、时间或日期时间的混合模式，枚举值：{日期（0、date），日期时间（1、datetime），时间（2、time）}</li>
+        <li>示例：<br />
+            <br />
+            带选择类型的时间选择框：
+            <input type="text" art="datetimer" emptytext="只能选择日期" selectmode="0" />
+            <input type="text" art="datetimer" emptytext="可以选择日期加时间" selectmode="1" />
+            <input type="text" art="datetimer" emptytext="只能选择时间" selectmode="2" />
+        </li>
+    </ul>
+</body>
+</html>

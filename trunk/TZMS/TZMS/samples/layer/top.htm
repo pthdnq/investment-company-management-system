@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>从最上层窗口弹出层</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+</head>
+<body>
+
+	<br />
+	<span art="button" onclick="test3();">在顶层窗口居中弹出一个层</span>
+	<br />
+	<div art="layer" id="layer3" width="600" height="400" url="samples/layer/pop.htm"
+	    title="弹出窗口" oncallback="callback" target="top" iframe="true">
+	</div>
+
+    <script type="text/javascript" language="javascript" charset="utf-8">
+        function test3()
+        {
+            $("#layer3").layer().open();
+        }
+        function callback()
+        {
+            alert("我接收到弹出层的回调了，哈哈!");
+        }
+    </script>
+
+</body>
+</html>

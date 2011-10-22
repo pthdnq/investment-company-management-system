@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>含有多行表头的表格</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+    <script type="text/javascript">
+	    $(function ()
+	    {
+	        $("#grid1").grid({ rownumbers: true, url: "griddata.txt",pagemode:"local",remoteSort:true,sortable:true,
+	        	rowline:'true',
+	        	columns:
+	            [[
+	                    { title: "建筑编号", field: "id", width: "100px", align: "center",sortfield:"id",rowspan:2 },
+	                    { title: "建筑名称", field: "name",colspan:2,width:"300px"},
+	                    { title: "结构形式", field: "mode", width: "100px", align: "center",rowspan:2 }
+	            ],
+	            [
+	             	{ title: "建筑地址", field: "address",width:"200px" },
+                    { title: "建筑类型", field: "type", width: "100px", align: "center" }
+	            ]]
+	        });
+	    });
+    </script>
+</head>
+<body>
+	<div id="grid1">
+	</div>
+</body>
+</html>

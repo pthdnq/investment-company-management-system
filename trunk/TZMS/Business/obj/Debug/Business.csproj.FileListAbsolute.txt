@@ -1,0 +1,16 @@
+E:\项目\A项目\TZMS\TZMS\Business\obj\Debug\ResolveAssemblyReference.cache
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\Business.dll
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\Business.pdb
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\DataAccess.dll
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\iFlytek.BaseClass.dll
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\iFlytek.Common.dll
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\iFlytek.DbAccess.dll
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\Model.dll
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\log4net.dll
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\Com.iFlytek.LicenseService.dll
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\Com.iFlytek.CachingService.dll
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\DataAccess.pdb
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\Model.pdb
+E:\项目\A项目\TZMS\TZMS\Business\bin\Debug\log4net.xml
+E:\项目\A项目\TZMS\TZMS\Business\obj\Debug\Business.dll
+E:\项目\A项目\TZMS\TZMS\Business\obj\Debug\Business.pdb

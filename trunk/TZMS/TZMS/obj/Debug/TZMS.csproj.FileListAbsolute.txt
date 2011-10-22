@@ -1,0 +1,15 @@
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\TZMS.dll
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\TZMS.pdb
+E:\项目\A项目\TZMS\TZMS\TZMS\obj\Debug\ResolveAssemblyReference.cache
+E:\项目\A项目\TZMS\TZMS\TZMS\obj\Debug\TZMS.dll
+E:\项目\A项目\TZMS\TZMS\TZMS\obj\Debug\TZMS.pdb
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\Business.dll
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\Model.dll
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\DataAccess.dll
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\iFlytek.DbAccess.dll
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\iFlytek.Common.dll
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\log4net.dll
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\Business.pdb
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\Model.pdb
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\DataAccess.pdb
+E:\项目\A项目\TZMS\TZMS\TZMS\bin\log4net.xml

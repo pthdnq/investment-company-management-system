@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>修改文本框的值</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+        	$('#txt').textbox({ 
+        		text:'文本框'
+        	}); 
+        			        	
+       	});
+
+       	function changeText(){
+           	$('#txt').textbox({
+               	text:'修改成功'
+           	});
+       	}
+    </script>
+</head>
+<body>
+	<input id="txt" type='text'/>
+	<span art="button" onclick="changeText();">修改文本框的值</span>
+</body>
+</html>

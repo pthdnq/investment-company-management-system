@@ -1,0 +1,165 @@
+﻿[
+{ text: "基础功能演示", nodes:
+    [
+    { text: "设置元素的透明度", url: "samples/base/alpha.htm", target: "fm" },
+    { text: "设置元素工具条提示", url: "samples/base/tooltip.htm", target: "fm" },
+    { text: "鼠标移入和点击样式", url: "samples/base/hover.htm", target: "fm" },
+    { text: "遮罩层效果", url: "samples/base/block.htm", target: "fm" },
+    { text: "获取浏览器属性", url: "samples/base/browser.htm", target: "fm" },
+    { text: "自定义消息框", url: "samples/base/alert.htm", target: "fm" },
+    { text: "自定义确认框", url: "samples/base/confirm.htm", target: "fm" }
+    ]
+},
+{ text: "组件功能演示",expanded:true, nodes:
+    [
+    { nid: "preview", text: "写在最前（一定要先看）", url: "samples/preview.htm", target: "fm" },
+    { text: "按钮控件", nstyle: "color:red;", nodes:
+        [
+        { text: "修改按钮的文本", url: "samples/button/text.htm", target: "fm" },
+        { text: "给按钮添加图标", url: "samples/button/icon.htm", target: "fm" },
+        { text: "点击按钮触发事件", url: "samples/button/click.htm", target: "fm" }
+        ]
+    },
+    { text: "文本框控件", nodes:
+        [
+        { text: "修改文本框的值", url: "samples/textbox/text.htm", target: "fm" },
+        { text: "给文本框加上水印提示", url: "samples/textbox/empty.htm", target: "fm" },
+        { text: "限制文本框输入长度", url: "samples/textbox/maxlength.htm", target: "fm" },
+        { text: "限制文本框输入类型", url: "samples/textbox/textmode.htm", target: "fm" },
+        { text: "文本框内容发生变化事件", url: "samples/textbox/change.htm", target: "fm" }
+        ]
+    },
+    { text: "组合框控件", nodes:
+        [
+        { text: "创建基本的组合框", url: "samples/droplist/common.htm", target: "fm" },
+        { text: "带水印提示的组合框", url: "samples/droplist/dropheight.htm", target: "fm" },
+        { text: "将数据绑定到组合框", url: "samples/droplist/bind.htm", target: "fm" },
+        { text: "让下拉框支持多选", url: "samples/droplist/mulselect.htm", target: "fm" },
+        { text: "扩展的组合框（暂不做演示）", url: "samples/droplist/extend.htm", target: "fm" }
+        ]
+    },
+    { text: "时间选择框控件", nodes:
+        [
+        { text: "创建时间选择框", url: "samples/datetimer/common.htm", target: "fm" },
+        { text: "带水印提示的时间选择框", url: "samples/datetimer/mode.htm", target: "fm" },
+        { text: "支持日期或时间或混合选择模式", url: "samples/datetimer/mode.htm", target: "fm" },
+        { text: "限制选择范围的时间控件", url: "samples/datetimer/scope.htm", target: "fm" },
+        { text: "配置时间控件的显示格式", url: "samples/datetimer/textmode.htm", target: "fm" }
+        ]
+    },
+    { text: "表单控件及验证", nodes:
+        [
+        { text: "创建表单控件", url: "samples/form/create.htm", target: "fm" },
+        { text: "表单自适应窗口大小", url: "samples/form/auto.htm", target: "fm" },
+        { text: "表单的标签", url: "samples/form/label.htm", target: "fm" },
+        { text: "对各种控件进行验证", url: "samples/validator/ctls.htm", target: "fm" },
+        { text: "已实现的验证规则", url: "samples/validator/rules.htm", target: "fm" },
+        { text: "同时使用多个验证规则", url: "samples/validator/multirule.htm", target: "fm" },
+        { text: "分组验证", url: "samples/validator/group.htm", target: "fm" },
+        { text: "自定义验证规则", url: "samples/validator/selfrule.htm", target: "fm" },
+        { text: "提示消息显示", url: "samples/validator/msg.htm", target: "fm" },
+        { text: "自定义提示消息显示", url: "samples/validator/selfmsg.htm", target: "fm" }
+        ]
+    },
+    { text: "面板控件", nodes:
+        [
+        { text: "创建面板控件", url: "samples/panel/create.htm", target: "fm" },
+        { text: "可折叠的面板控件", url: "samples/panel/fold.htm", target: "fm" },
+        { text: "可关闭的面板控件", url: "samples/panel/fold.htm", target: "fm" },
+        { text: "修改面板控件的标题", url: "samples/panel/title.htm", target: "fm" },
+        { text: "给标题前添加图标", url: "samples/panel/icon.htm", target: "fm" },
+        { text: "扩展的右上角工具条", url: "samples/panel/tool.htm", target: "fm" },
+        { text: "修改面板控件标题的显示状态", url: "samples/panel/showhead.htm", target: "fm" }
+        ]
+    },
+    { text: "内嵌页面控件", nodes:
+        [
+        { text: "修改内嵌页面控件地址", url: "samples/iframe/create.htm", target: "fm" },
+        { text: "自适应内容大小的内页控件", url: "samples/iframe/auto.htm", target: "fm" },
+        { text: "内页控件与面板组合", url: "samples/iframe/panel.htm", target: "fm" },
+        { text: "加载页面时的遮罩开关", url: "samples/iframe/mask.htm", target: "fm" }
+        ]
+    },
+    { text: "布局控件", nodes:
+        [
+        { text: "基本的布局控件", url: "samples/layout/create.htm", target: "fm" },
+        { text: "设置区域尺寸", url: "samples/layout/fold.htm", target: "fm" },
+        { text: "设置是否可以折叠", url: "samples/layout/fold.htm", target: "fm" },
+        { text: "设置是否拖动改变大小", url: "samples/layout/drag.htm", target: "fm" }
+        ]
+    },
+    { text: "树控件", nodes:
+        [
+        { text: "如何创建一个树", url: "samples/tree/common.htm", target: "fm" },
+        { text: "绑定数据到树节点", url: "samples/tree/bind.htm", target: "fm" },
+        { text: "异步加载树节点", url: "samples/tree/ajaxload.htm", target: "fm" },
+        { text: "树的三种风格", url: "samples/tree/style.htm", target: "fm" },
+        { text: "单击目录节点快速展开的树", url: "samples/tree/fast.htm", target: "fm" },
+        { text: "目录节点不可选中的树", url: "samples/tree/folder.htm", target: "fm" },
+        { text: "支持多选的树", url: "samples/tree/multi.htm", target: "fm" },
+        { text: "禁止选中的树节点", url: "samples/tree/unselectable.htm", target: "fm" },
+        { text: "树节点事件和跳转地址设定", url: "samples/tree/node.htm", target: "fm" },
+        { text: "支持复选框选择的树", url: "samples/tree/checkbox.htm", target: "fm" },
+        { text: "复选框三态选择树", url: "samples/tree/three.htm", target: "fm" },
+        { text: "树节点文本样式设定（暂不做）", url: "samples/tree/ns.htm", target: "fm" }
+        ]
+    },
+    { text: "导航控件", nstyle: "color:red;", nodes:
+        [
+        { text: "如何创建导航控件", url: "samples/navbar/common.htm", target: "fm" },
+        { text: "导航文本前加入图标", url: "samples/navbar/icon.htm", target: "fm" },
+        { text: "二级导航菜单互斥显示", url: "samples/navbar/exclude.htm", target: "fm" },
+        { text: "自定义二级导航内容", url: "samples/navbar/custom.htm", target: "fm" },
+        { text: "二级导航事件和跳转地址设定", url: "samples/navbar/event.htm", target: "fm" }
+        ]
+    },
+	{ text: "工具条控件", nodes:
+		[
+        { text: "创建工具条控件并绑定工具项", url: "samples/toolbar/common.htm", target: "fm" },
+        { text: "添加和删除工具项", url: "samples/toolbar/item.htm", target: "fm" },
+        { text: "修改工具项的文本和图标", url: "samples/toolbar/icontext.htm", target: "fm" },
+        { text: "修改工具项的状态", url: "samples/toolbar/status.htm", target: "fm" },
+        { text: "自定义工具条内容（暂不做）", url: "samples/toolbar/custom.htm", target: "fm" }
+		]
+	},
+    { text: "翻页控件", nodes:
+        [
+        { text: "如何创建翻页控件", url: "samples/pager/common.htm", target: "fm" },
+        { text: "翻页控件各种属性", url: "samples/pager/attribute.htm", target: "fm" },
+        { text: "自定义翻页控件模板", url: "samples/pager/templater.htm", target: "fm" }
+        ]
+    },
+    { text: "表格控件", nodes:
+        [
+        { text: "创建表格并绑定数据", url: "samples/grid/bind.htm", target: "fm" },
+        { text: "从远程加载数据到表格", url: "samples/grid/remote.htm", target: "fm" },
+        { text: "表格的冻结列和非冻结列", url: "samples/grid/frozen.htm", target: "fm" },
+        { text: "奇偶行样式区分", url: "samples/grid/striped.htm", target: "fm" },
+        { text: "表格的行选中模式", url: "samples/grid/select.htm", target: "fm" },
+        { text: "表格的复选框选中模式", url: "samples/grid/chkselect.htm", target: "fm" },
+        { text: "表格的单选框选中模式", url: "samples/grid/radioselect.htm", target: "fm" },
+        { text: "表格控件的网格线设置", url: "samples/grid/gridline.htm", target: "fm" },
+        { text: "对表格的数据进行分页", url: "samples/grid/page.htm", target: "fm" },
+        { text: "对表格的数据进行排序", url: "samples/grid/sort.htm", target: "fm" },
+        { text: "含有多行表头的表格", url: "samples/grid/head.htm", target: "fm" },
+        { text: "对表格的单条记录项多行显示", url: "samples/grid/multi.htm", target: "fm" }
+        ]
+    },
+    { text: "弹出层控件", nstyle: "color:green;", nodes:
+        [
+        { text: "如何创建弹出层控件", url: "samples/layer/create.htm", target: "fm" },
+        { text: "从最上层窗口弹出层", url: "samples/layer/top.htm", target: "fm" },
+        { text: "从父窗口弹出层", url: "samples/layer/parent.htm", target: "fm" },
+        { text: "弹出层内容为一个内嵌网页", url: "samples/layer/inline.htm", target: "fm" },
+        { text: "弹出层折叠、最大化、移动功能", url: "samples/layer/foldmaxdrag.htm", target: "fm" },
+        { text: "弹出层回调到父页面", url: "samples/layer/callbackparent.htm", target: "fm" }
+        ]
+    }
+    ]
+},
+{ text: "综合应用演示", nstyle: "color:green;", nodes:
+    [
+        { text: "数据的增删改查功能界面", url: "application/gotoList.do", target: "fm" }
+    ]
+}
+]

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content= "text/html;charset=utf-8" http-equiv="Content-Type"/> 
+    <title>提示消息显示</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+    <script type="text/javascript">
+	    function submit(){
+			if(!$.isValid()){
+				return;
+			}
+			
+			alert('验证通过，我要提交了！');
+		}
+    </script>
+</head>
+<body>
+	<p>
+		提示消息有三种显示方式：右边、下边、滑过提示。
+	</p>
+	显示在右边：<input type="text" art="textbox" required="true" display="right"/>
+	<br/>
+	显示在下边：<input type="text" art="textbox" required="true" display="below"/>
+	<br/>
+	滑过提示：<input type="text" art="textbox" required="true" display="tip"/>
+	<br/>
+	<span art="button" onclick="submit();">提交</span>
+</body>
+</html>

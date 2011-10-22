@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>普通的按钮控件</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+
+    <script type="text/javascript">
+        function test1()
+        {
+            $("#sp1").button();
+        }
+
+        function test2()
+        {
+            $("<span>我出来啦^_^</span>)").insertAfter($("#btn1")).button(true);
+        }
+    </script>
+
+</head>
+<body>
+    <ul>
+        <li>功能：普通的按钮控件<a href="javascript:void(viewsource('../../','samples/button/common.htm'))"
+            style="margin-left: 10px;">查看示例源码</a></li>
+        <li>方法：art=button，支持标签span、input:button</li>
+        <li>说明：
+            <ul>
+                <li>请参阅“<a href="javascript:void(top.selectnode('preview'));">写在最前（一定要先看）</a>”</li>
+            </ul>
+        </li>
+        <li>示例：<br />
+            <span art="button">我是iGeli按钮</span>
+            <input type="button" art="button" value="我是原生按钮附上iGeli按钮特性" />
+            <span id="sp1" onclick="test1();">点我，我就会变成iGeli按钮</span>
+            <input id="btn1" type="button" value="点我，我的后边就会多出iGeli按钮" onclick="test2();" />
+        </li>
+    </ul>
+</body>
+</html>

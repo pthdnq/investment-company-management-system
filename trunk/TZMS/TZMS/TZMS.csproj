@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A61DF4D8-D39C-4426-B85F-769EFBD34195}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TZMS</RootNamespace>
+    <AssemblyName>TZMS</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Business">
+      <HintPath>..\Business\bin\Debug\Business.dll</HintPath>
+    </Reference>
+    <Reference Include="Model">
+      <HintPath>..\Business\bin\Debug\Model.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="about\members.htm" />
+    <Content Include="api\layer.htm" />
+    <Content Include="BaseWebPage.aspx" />
+    <Content Include="data\api\layer.js" />
+    <Content Include="data\demo_tree.txt" />
+    <Content Include="images\btn_06.jpg" />
+    <Content Include="images\btn_06_hover.jpg" />
+    <Content Include="images\copyright_bg.jpg" />
+    <Content Include="images\edit.gif" />
+    <Content Include="images\information.gif" />
+    <Content Include="images\login1.GIF" />
+    <Content Include="images\login_bg.jpg" />
+    <Content Include="images\pkg.gif" />
+    <Content Include="images\rose.gif" />
+    <Content Include="images\search.png" />
+    <Content Include="images\smile.gif" />
+    <Content Include="images\top_bg.jpg" />
+    <Content Include="images\view.gif" />
+    <Content Include="index.aspx" />
+    <Content Include="js\share.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Pages\adminManage\WorkerManage.aspx" />
+    <Content Include="Pages\adminManage\WorkerManage.htm" />
+    <Content Include="Pages\attendance\AttendApprove.aspx" />
+    <Content Include="Pages\attendance\DayOffApply.aspx" />
+    <Content Include="Pages\attendance\LeaveApply.aspx" />
+    <Content Include="Pages\attendance\MyAttend.aspx" />
+    <Content Include="Pages\attendance\WorkerAttend.aspx" />
+    <Content Include="Pages\system\changePsw.aspx" />
+    <Content Include="Pages\system\MyMessage.aspx" />
+    <Content Include="Pages\system\MyWeb.aspx" />
+    <Content Include="resources\jart\jart.all.js" />
+    <Content Include="resources\jart\jart.const.js" />
+    <Content Include="resources\jart\jart.js" />
+    <Content Include="resources\jart\jquery-1.4.4.min.js" />
+    <Content Include="resources\jart\jquery-1.6.2.min.js" />
+    <Content Include="resources\jart\themes\black\icons.css" />
+    <Content Include="resources\jart\themes\black\icons\back.png" />
+    <Content Include="resources\jart\themes\black\icons\cancel.png" />
+    <Content Include="resources\jart\themes\black\icons\cut.png" />
+    <Content Include="resources\jart\themes\black\icons\edit_add.png" />
+    <Content Include="resources\jart\themes\black\icons\edit_remove.png" />
+    <Content Include="resources\jart\themes\black\icons\filesave.png" />
+    <Content Include="resources\jart\themes\black\icons\help.png" />
+    <Content Include="resources\jart\themes\black\icons\no.png" />
+    <Content Include="resources\jart\themes\black\icons\ok.png" />
+    <Content Include="resources\jart\themes\black\icons\pencil.png" />
+    <Content Include="resources\jart\themes\black\icons\print.png" />
+    <Content Include="resources\jart\themes\black\icons\redo.png" />
+    <Content Include="resources\jart\themes\black\icons\reload.png" />
+    <Content Include="resources\jart\themes\black\icons\save.gif" />
+    <Content Include="resources\jart\themes\black\icons\search.png" />
+    <Content Include="resources\jart\themes\black\icons\undo.png" />
+    <Content Include="resources\jart\themes\black\img\alert\error.png" />
+    <Content Include="resources\jart\themes\black\img\alert\info.png" />
+    <Content Include="resources\jart\themes\black\img\alert\question.png" />
+    <Content Include="resources\jart\themes\black\img\alert\warning.png" />
+    <Content Include="resources\jart\themes\black\img\bubble-arrow.png" />
+    <Content Include="resources\jart\themes\black\img\form\btn-sprite.gif" />
+    <Content Include="resources\jart\themes\black\img\form\calendar_top.gif" />
+    <Content Include="resources\jart\themes\black\img\form\datePicker.gif" />
+    <Content Include="resources\jart\themes\black\img\form\exclamation.gif" />
+    <Content Include="resources\jart\themes\black\img\form\icon_date.png" />
+    <Content Include="resources\jart\themes\black\img\form\left-btn.gif" />
+    <Content Include="resources\jart\themes\black\img\form\left-btn2.gif" />
+    <Content Include="resources\jart\themes\black\img\form\redwave.gif" />
+    <Content Include="resources\jart\themes\black\img\form\right-btn.gif" />
+    <Content Include="resources\jart\themes\black\img\form\right-btn2.gif" />
+    <Content Include="resources\jart\themes\black\img\form\text-bg.gif" />
+    <Content Include="resources\jart\themes\black\img\form\timerbtn.png" />
+    <Content Include="resources\jart\themes\black\img\form\trigger.gif" />
+    <Content Include="resources\jart\themes\black\img\grid\head-bg.png" />
+    <Content Include="resources\jart\themes\black\img\grid\sort-sprites.gif" />
+    <Content Include="resources\jart\themes\black\img\layer\left-corners.gif" />
+    <Content Include="resources\jart\themes\black\img\layer\left-right.gif" />
+    <Content Include="resources\jart\themes\black\img\layer\right-corners.gif" />
+    <Content Include="resources\jart\themes\black\img\layer\tool-sprites.gif" />
+    <Content Include="resources\jart\themes\black\img\layer\top-bottom.gif" />
+    <Content Include="resources\jart\themes\black\img\layout\bottom.gif" />
+    <Content Include="resources\jart\themes\black\img\layout\left.gif" />
+    <Content Include="resources\jart\themes\black\img\layout\right.gif" />
+    <Content Include="resources\jart\themes\black\img\layout\top.gif" />
+    <Content Include="resources\jart\themes\black\img\loading.gif" />
+    <Content Include="resources\jart\themes\black\img\navbar\group-bg.png" />
+    <Content Include="resources\jart\themes\black\img\navbar\group-open-bg.png" />
+    <Content Include="resources\jart\themes\black\img\pager\btn-first.gif" />
+    <Content Include="resources\jart\themes\black\img\pager\btn-last.gif" />
+    <Content Include="resources\jart\themes\black\img\pager\btn-load.png" />
+    <Content Include="resources\jart\themes\black\img\pager\btn-next.gif" />
+    <Content Include="resources\jart\themes\black\img\pager\btn-prev.gif" />
+    <Content Include="resources\jart\themes\black\img\tab\tabs_active.png" />
+    <Content Include="resources\jart\themes\black\img\tab\tabs_enabled.png" />
+    <Content Include="resources\jart\themes\black\img\title-bg.png" />
+    <Content Include="resources\jart\themes\black\img\toolbar\toolbar_bg.jpg" />
+    <Content Include="resources\jart\themes\black\img\tree\elbow-line.gif" />
+    <Content Include="resources\jart\themes\black\img\tree\tree-arrow-sprites.gif" />
+    <Content Include="resources\jart\themes\black\img\tree\tree-icon-sprites.gif" />
+    <Content Include="resources\jart\themes\black\img\tree\tree-sprites.gif" />
+    <Content Include="resources\jart\themes\black\main.css" />
+    <Content Include="resources\jart\themes\default\icons.css" />
+    <Content Include="resources\jart\themes\default\icons\back.png" />
+    <Content Include="resources\jart\themes\default\icons\cancel.png" />
+    <Content Include="resources\jart\themes\default\icons\cut.png" />
+    <Content Include="resources\jart\themes\default\icons\edit_add.png" />
+    <Content Include="resources\jart\themes\default\icons\edit_remove.png" />
+    <Content Include="resources\jart\themes\default\icons\filesave.png" />
+    <Content Include="resources\jart\themes\default\icons\help.png" />
+    <Content Include="resources\jart\themes\default\icons\no.png" />
+    <Content Include="resources\jart\themes\default\icons\ok.png" />
+    <Content Include="resources\jart\themes\default\icons\pencil.png" />
+    <Content Include="resources\jart\themes\default\icons\print.png" />
+    <Content Include="resources\jart\themes\default\icons\redo.png" />
+    <Content Include="resources\jart\themes\default\icons\reload.png" />
+    <Content Include="resources\jart\themes\default\icons\save.gif" />
+    <Content Include="resources\jart\themes\default\icons\search.png" />
+    <Content Include="resources\jart\themes\default\icons\undo.png" />
+    <Content Include="resources\jart\themes\default\img\alert\error.png" />
+    <Content Include="resources\jart\themes\default\img\alert\info.png" />
+    <Content Include="resources\jart\themes\default\img\alert\question.png" />
+    <Content Include="resources\jart\themes\default\img\alert\warning.png" />
+    <Content Include="resources\jart\themes\default\img\bubble-arrow.png" />
+    <Content Include="resources\jart\themes\default\img\form\btn-sprite.gif" />
+    <Content Include="resources\jart\themes\default\img\form\calendar_top.gif" />
+    <Content Include="resources\jart\themes\default\img\form\checkbox.png" />
+    <Content Include="resources\jart\themes\default\img\form\datePicker.gif" />
+    <Content Include="resources\jart\themes\default\img\form\exclamation.gif" />
+    <Content Include="resources\jart\themes\default\img\form\icon_date.png" />
+    <Content Include="resources\jart\themes\default\img\form\left-btn.gif" />
+    <Content Include="resources\jart\themes\default\img\form\left-btn2.gif" />
+    <Content Include="resources\jart\themes\default\img\form\redwave.gif" />
+    <Content Include="resources\jart\themes\default\img\form\right-btn.gif" />
+    <Content Include="resources\jart\themes\default\img\form\right-btn2.gif" />
+    <Content Include="resources\jart\themes\default\img\form\text-bg.gif" />
+    <Content Include="resources\jart\themes\default\img\form\timerbtn.png" />
+    <Content Include="resources\jart\themes\default\img\form\trigger.gif" />
+    <Content Include="resources\jart\themes\default\img\grid\head-bg.gif" />
+    <Content Include="resources\jart\themes\default\img\grid\sort-sprites.gif" />
+    <Content Include="resources\jart\themes\default\img\layer\left-corners.gif" />
+    <Content Include="resources\jart\themes\default\img\layer\left-right.gif" />
+    <Content Include="resources\jart\themes\default\img\layer\right-corners.gif" />
+    <Content Include="resources\jart\themes\default\img\layer\tool-sprites.gif" />
+    <Content Include="resources\jart\themes\default\img\layer\top-bottom.gif" />
+    <Content Include="resources\jart\themes\default\img\layout\bottom.gif" />
+    <Content Include="resources\jart\themes\default\img\layout\left.gif" />
+    <Content Include="resources\jart\themes\default\img\layout\right.gif" />
+    <Content Include="resources\jart\themes\default\img\layout\top.gif" />
+    <Content Include="resources\jart\themes\default\img\loading.gif" />
+    <Content Include="resources\jart\themes\default\img\navbar\group-bg.gif" />
+    <Content Include="resources\jart\themes\default\img\navbar\group-open-bg.jpg" />
+    <Content Include="resources\jart\themes\default\img\pager\btn-first.gif" />
+    <Content Include="resources\jart\themes\default\img\pager\btn-last.gif" />
+    <Content Include="resources\jart\themes\default\img\pager\btn-load.png" />
+    <Content Include="resources\jart\themes\default\img\pager\btn-next.gif" />
+    <Content Include="resources\jart\themes\default\img\pager\btn-prev.gif" />
+    <Content Include="resources\jart\themes\default\img\tab\tabs_active.png" />
+    <Content Include="resources\jart\themes\default\img\tab\tabs_enabled.png" />
+    <Content Include="resources\jart\themes\default\img\title-bg.png" />
+    <Content Include="resources\jart\themes\default\img\toolbar\toolbar_bg.jpg" />
+    <Content Include="resources\jart\themes\default\img\tree\elbow-line.gif" />
+    <Content Include="resources\jart\themes\default\img\tree\tree-arrow-sprites.gif" />
+    <Content Include="resources\jart\themes\default\img\tree\tree-icon-sprites.gif" />
+    <Content Include="resources\jart\themes\default\img\tree\tree-sprites.gif" />
+    <Content Include="resources\jart\themes\default\main.css" />
+    <Content Include="resources\jart\themes\yellow\icons.css" />
+    <Content Include="resources\jart\themes\yellow\icons\back.png" />
+    <Content Include="resources\jart\themes\yellow\icons\cancel.png" />
+    <Content Include="resources\jart\themes\yellow\icons\cut.png" />
+    <Content Include="resources\jart\themes\yellow\icons\edit_add.png" />
+    <Content Include="resources\jart\themes\yellow\icons\edit_remove.png" />
+    <Content Include="resources\jart\themes\yellow\icons\filesave.png" />
+    <Content Include="resources\jart\themes\yellow\icons\help.png" />
+    <Content Include="resources\jart\themes\yellow\icons\no.png" />
+    <Content Include="resources\jart\themes\yellow\icons\ok.png" />
+    <Content Include="resources\jart\themes\yellow\icons\pencil.png" />
+    <Content Include="resources\jart\themes\yellow\icons\print.png" />
+    <Content Include="resources\jart\themes\yellow\icons\redo.png" />
+    <Content Include="resources\jart\themes\yellow\icons\reload.png" />
+    <Content Include="resources\jart\themes\yellow\icons\save.gif" />
+    <Content Include="resources\jart\themes\yellow\icons\search.png" />
+    <Content Include="resources\jart\themes\yellow\icons\undo.png" />
+    <Content Include="resources\jart\themes\yellow\img\alert\error.png" />
+    <Content Include="resources\jart\themes\yellow\img\alert\info.png" />
+    <Content Include="resources\jart\themes\yellow\img\alert\question.png" />
+    <Content Include="resources\jart\themes\yellow\img\alert\warning.png" />
+    <Content Include="resources\jart\themes\yellow\img\bubble-arrow.png" />
+    <Content Include="resources\jart\themes\yellow\img\form\btn-sprite.gif" />
+    <Content Include="resources\jart\themes\yellow\img\form\calendar_top.gif" />
+    <Content Include="resources\jart\themes\yellow\img\form\checkbox.png" />
+    <Content Include="resources\jart\themes\yellow\img\form\datePicker.gif" />
+    <Content Include="resources\jart\themes\yellow\img\form\exclamation.gif" />
+    <Content Include="resources\jart\themes\yellow\img\form\icon_date.png" />
+    <Content Include="resources\jart\themes\yellow\img\form\left-btn.gif" />
+    <Content Include="resources\jart\themes\yellow\img\form\left-btn2.gif" />
+    <Content Include="resources\jart\themes\yellow\img\form\redwave.gif" />
+    <Content Include="resources\jart\themes\yellow\img\form\right-btn.gif" />
+    <Content Include="resources\jart\themes\yellow\img\form\right-btn2.gif" />
+    <Content Include="resources\jart\themes\yellow\img\form\text-bg.gif" />
+    <Content Include="resources\jart\themes\yellow\img\form\timerbtn.png" />
+    <Content Include="resources\jart\themes\yellow\img\form\trigger.gif" />
+    <Content Include="resources\jart\themes\yellow\img\grid\head-bg.gif" />
+    <Content Include="resources\jart\themes\yellow\img\grid\sort-sprites.gif" />
+    <Content Include="resources\jart\themes\yellow\img\layer\left-corners.gif" />
+    <Content Include="resources\jart\themes\yellow\img\layer\left-right.gif" />
+    <Content Include="resources\jart\themes\yellow\img\layer\right-corners.gif" />
+    <Content Include="resources\jart\themes\yellow\img\layer\tool-sprites.gif" />
+    <Content Include="resources\jart\themes\yellow\img\layer\top-bottom.gif" />
+    <Content Include="resources\jart\themes\yellow\img\layout\bottom.gif" />
+    <Content Include="resources\jart\themes\yellow\img\layout\left.gif" />
+    <Content Include="resources\jart\themes\yellow\img\layout\right.gif" />
+    <Content Include="resources\jart\themes\yellow\img\layout\top.gif" />
+    <Content Include="resources\jart\themes\yellow\img\loading.gif" />
+    <Content Include="resources\jart\themes\yellow\img\navbar\group-bg.gif" />
+    <Content Include="resources\jart\themes\yellow\img\navbar\group-open-bg.jpg" />
+    <Content Include="resources\jart\themes\yellow\img\pager\btn-first.gif" />
+    <Content Include="resources\jart\themes\yellow\img\pager\btn-last.gif" />
+    <Content Include="resources\jart\themes\yellow\img\pager\btn-load.png" />
+    <Content Include="resources\jart\themes\yellow\img\pager\btn-next.gif" />
+    <Content Include="resources\jart\themes\yellow\img\pager\btn-prev.gif" />
+    <Content Include="resources\jart\themes\yellow\img\tab\tabs_active.png" />
+    <Content Include="resources\jart\themes\yellow\img\tab\tabs_enabled.png" />
+    <Content Include="resources\jart\themes\yellow\img\title-bg.png" />
+    <Content Include="resources\jart\themes\yellow\img\toolbar\toolbar_bg.jpg" />
+    <Content Include="resources\jart\themes\yellow\img\tree\elbow-line.gif" />
+    <Content Include="resources\jart\themes\yellow\img\tree\tree-arrow-sprites.gif" />
+    <Content Include="resources\jart\themes\yellow\img\tree\tree-icon-sprites.gif" />
+    <Content Include="resources\jart\themes\yellow\img\tree\tree-sprites.gif" />
+    <Content Include="resources\jart\themes\yellow\main.css" />
+    <Content Include="samples\base\alert.htm" />
+    <Content Include="samples\base\alpha.htm" />
+    <Content Include="samples\base\block.htm" />
+    <Content Include="samples\base\browser.htm" />
+    <Content Include="samples\base\confirm.htm" />
+    <Content Include="samples\base\hover.htm" />
+    <Content Include="samples\base\tooltip.htm" />
+    <Content Include="samples\button\click.htm" />
+    <Content Include="samples\button\icon.htm" />
+    <Content Include="samples\button\text.htm" />
+    <Content Include="samples\datetimer\common.htm" />
+    <Content Include="samples\datetimer\mode.htm" />
+    <Content Include="samples\datetimer\scope.htm" />
+    <Content Include="samples\datetimer\textmode.htm" />
+    <Content Include="samples\droplist\bind.htm" />
+    <Content Include="samples\droplist\common.htm" />
+    <Content Include="samples\droplist\dropheight.htm" />
+    <Content Include="samples\droplist\mulselect.htm" />
+    <Content Include="samples\form\auto.htm" />
+    <Content Include="samples\form\create.htm" />
+    <Content Include="samples\form\label.htm" />
+    <Content Include="samples\grid\bind.htm" />
+    <Content Include="samples\grid\chkselect.htm" />
+    <Content Include="samples\grid\frozen.htm" />
+    <Content Include="samples\grid\griddata.txt" />
+    <Content Include="samples\grid\gridline.htm" />
+    <Content Include="samples\grid\head.htm" />
+    <Content Include="samples\grid\multi.htm" />
+    <Content Include="samples\grid\page.htm" />
+    <Content Include="samples\grid\radioselect.htm" />
+    <Content Include="samples\grid\remote.htm" />
+    <Content Include="samples\grid\select.htm" />
+    <Content Include="samples\grid\sort.htm" />
+    <Content Include="samples\grid\striped.htm" />
+    <Content Include="samples\iframe\auto.htm" />
+    <Content Include="samples\iframe\common.htm" />
+    <Content Include="samples\iframe\create.htm" />
+    <Content Include="samples\iframe\mask.htm" />
+    <Content Include="samples\iframe\panel.htm" />
+    <Content Include="samples\layer\callbackparent.htm" />
+    <Content Include="samples\layer\common.htm" />
+    <Content Include="samples\layer\create.htm" />
+    <Content Include="samples\layer\foldmaxdrag.htm" />
+    <Content Include="samples\layer\inline.htm" />
+    <Content Include="samples\layer\parent.htm" />
+    <Content Include="samples\layer\pop.htm" />
+    <Content Include="samples\layer\top.htm" />
+    <Content Include="samples\layout\common.htm" />
+    <Content Include="samples\layout\create.htm" />
+    <Content Include="samples\layout\drag.htm" />
+    <Content Include="samples\layout\fold.htm" />
+    <Content Include="samples\navbar\common.htm" />
+    <Content Include="samples\navbar\custom.htm" />
+    <Content Include="samples\navbar\event.htm" />
+    <Content Include="samples\navbar\exclude.htm" />
+    <Content Include="samples\navbar\icon.htm" />
+    <Content Include="samples\navbar\search.png" />
+    <Content Include="samples\pager\attribute.htm" />
+    <Content Include="samples\pager\common.htm" />
+    <Content Include="samples\pager\templater.htm" />
+    <Content Include="samples\panel\common.htm" />
+    <Content Include="samples\panel\create.htm" />
+    <Content Include="samples\panel\fold.htm" />
+    <Content Include="samples\panel\icon.htm" />
+    <Content Include="samples\panel\showhead.htm" />
+    <Content Include="samples\panel\title.htm" />
+    <Content Include="samples\panel\tool.htm" />
+    <Content Include="samples\preview.htm" />
+    <Content Include="samples\tab\common.htm" />
+    <Content Include="samples\textbox\change.htm" />
+    <Content Include="samples\textbox\empty.htm" />
+    <Content Include="samples\textbox\maxlength.htm" />
+    <Content Include="samples\textbox\text.htm" />
+    <Content Include="samples\textbox\textmode.htm" />
+    <Content Include="samples\toolbar\common.htm" />
+    <Content Include="samples\toolbar\icontext.htm" />
+    <Content Include="samples\toolbar\item.htm" />
+    <Content Include="samples\toolbar\status.htm" />
+    <Content Include="samples\tree\ajaxload.htm" />
+    <Content Include="samples\tree\bind.htm" />
+    <Content Include="samples\tree\checkbox.htm" />
+    <Content Include="samples\tree\common.htm" />
+    <Content Include="samples\tree\fast.htm" />
+    <Content Include="samples\tree\folder.htm" />
+    <Content Include="samples\tree\multi.htm" />
+    <Content Include="samples\tree\node.htm" />
+    <Content Include="samples\tree\ns.htm" />
+    <Content Include="samples\tree\style.htm" />
+    <Content Include="samples\tree\three.htm" />
+    <Content Include="samples\tree\unselectable.htm" />
+    <Content Include="samples\validator\ctls.htm" />
+    <Content Include="samples\validator\group.htm" />
+    <Content Include="samples\validator\msg.htm" />
+    <Content Include="samples\validator\multirule.htm" />
+    <Content Include="samples\validator\rules.htm" />
+    <Content Include="samples\validator\selfmsg.htm" />
+    <Content Include="samples\validator\selfrule.htm" />
+    <Content Include="Test.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseWebPage.aspx.cs">
+      <DependentUpon>BaseWebPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaseWebPage.aspx.designer.cs">
+      <DependentUpon>BaseWebPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageServer\Common.ashx.cs">
+      <DependentUpon>Common.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\WorkerManage.aspx.cs">
+      <DependentUpon>WorkerManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\WorkerManage.aspx.designer.cs">
+      <DependentUpon>WorkerManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\attendance\AttendApprove.aspx.cs">
+      <DependentUpon>AttendApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\attendance\AttendApprove.aspx.designer.cs">
+      <DependentUpon>AttendApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\attendance\DayOffApply.aspx.cs">
+      <DependentUpon>DayOffApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\attendance\DayOffApply.aspx.designer.cs">
+      <DependentUpon>DayOffApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\attendance\LeaveApply.aspx.cs">
+      <DependentUpon>LeaveApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\attendance\LeaveApply.aspx.designer.cs">
+      <DependentUpon>LeaveApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\attendance\MyAttend.aspx.cs">
+      <DependentUpon>MyAttend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\attendance\MyAttend.aspx.designer.cs">
+      <DependentUpon>MyAttend.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\attendance\WorkerAttend.aspx.cs">
+      <DependentUpon>WorkerAttend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\attendance\WorkerAttend.aspx.designer.cs">
+      <DependentUpon>WorkerAttend.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\system\changePsw.ashx.cs">
+      <DependentUpon>changePsw.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\system\changePsw.aspx.cs">
+      <DependentUpon>changePsw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\system\changePsw.aspx.designer.cs">
+      <DependentUpon>changePsw.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\system\MyMessage.aspx.cs">
+      <DependentUpon>MyMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\system\MyMessage.aspx.designer.cs">
+      <DependentUpon>MyMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\system\MyWeb.aspx.cs">
+      <DependentUpon>MyWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\system\MyWeb.aspx.designer.cs">
+      <DependentUpon>MyWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="samples\senior\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PageServer\Common.ashx" />
+    <Content Include="Pages\system\changePsw.ashx" />
+    <None Include="samples\application\crud.jsp" />
+    <None Include="samples\application\edit.jsp" />
+    <None Include="samples\application\json.jsp" />
+    <None Include="samples\grid\page.jsp" />
+    <None Include="samples\grid\sort.jsp" />
+    <None Include="samples\tree\treeNode.jsp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>15887</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

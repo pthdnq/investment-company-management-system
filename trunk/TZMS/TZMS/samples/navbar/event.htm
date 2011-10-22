@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>二级导航事件和跳转地址设定</title>
+<script id="jart_js" type="text/javascript"
+	src="../../resources/jart/jart.js"></script>
+<script type="text/javascript" src="../../js/share.js"></script>
+</head>
+<body>
+	<table class="x-table-fixed" style="width: 95%">
+		<tr>
+			<td valign="top" width="200">带事件和跳转地址的导航控件
+				<div art="navbar">
+					<div text="大导航条">
+						<div onclick="alert('你单击了带事件的节点');">带事件的导航</div>
+						<div url="http://www.baidu.com" target="_blank">弹出新窗口指向百度首页
+						</div>
+						<div url="http://www.baidu.com">本窗口指向百度首页</div>
+						<div url="http://www.baidu.com" target="fm">右侧内嵌网页指向百度首页</div>
+					</div>
+					<div text="大导航条">
+						<div onclick="alert('你单击了带事件的节点');">带事件的导航</div>
+						<div url="http://www.baidu.com" target="_blank">弹出新窗口指向百度首页
+						</div>
+						<div url="http://www.baidu.com">本窗口指向百度首页</div>
+						<div url="http://www.baidu.com" target="fm">右侧内嵌网页指向百度首页</div>
+					</div>
+				</div></td>
+			<td valign="top">
+				<div id="panel1" art="panel" height="400" title="面板里的内嵌页面">
+					<iframe id="fm" name="fm" art="iframe" frameborder="0" filly="true"
+						width="100%"> </iframe>
+				</div></td>
+		</tr>
+	</table>
+</body>
+</html>

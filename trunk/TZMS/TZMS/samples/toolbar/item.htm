@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta content= "text/html;charset=utf-8" http-equiv="Content-Type"/>
+	    <title>添加和删除工具项</title>
+	    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+	    <script type="text/javascript" src="../../js/share.js"></script>
+	    <script type="text/javascript">
+	    	var index=1;
+	    	function add(){
+		    	var attrs={id:index,text:'添加'+index};
+		    	index++;
+	    		$('#t').toolbar().insertItem(attrs);
+	    		$('#t').toolbar().insertSplit();
+	    	}
+	    	function del(){
+	    		$('#t').toolbar().litems.removeAt(0);
+	    	}
+	    </script>
+	</head>
+	<body>
+		<div id="t" art='toolbar'></div>
+		<span art='button' onclick="add();">添加工具项</span>
+		<span art='button' onclick="del();">删除工具项</span>
+	</body>
+</html>

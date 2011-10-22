@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>限制选择范围的时间控件</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+</head>
+<body>
+    <ul>
+        <li>功能：限制选择范围的时间控件<a href="javascript:void(viewsource('../../','samples/datetimer/scope.htm'))"
+            style="margin-left: 10px;">查看示例源码</a></li>
+        <li>属性：mintime，maxtime</li>
+        <li>说明：
+            <ul>
+                <li>maxtime（datetime | {ID}）：设置日期的上限值或上限日期控件的ID，具体日期只支持2011/1/1这种格式</li>
+                <li>mintime（datetime | {ID}）：设置日期的下限值或下限日期控件的ID，具体日期只支持2011/1/1这种格式</li>
+            </ul>
+        </li>
+        <li>示例：<br />
+            <br />
+            限制选择范围的时间选择框（2011/9/20~2011/12/20）：
+            <input type="text" art="datetimer" mintime="2011/9/20" maxtime="2011/12/20" />
+            <br />
+            <br />
+            多个时间选择框相互限制，第一个时间框不能大于第二个时间框内容：
+            <input id="t1" type="text" art="datetimer" maxtime="{t2}" />至
+            <input id="t2" type="text" art="datetimer" mintime="{t1}" />
+        </li>
+    </ul>
+</body>
+</html>

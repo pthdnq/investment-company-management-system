@@ -1,0 +1,40 @@
+﻿.x-icon-save
+{
+	background-image: url(icons/save.gif);
+}
+.x-icon-ok
+{
+	background-image: url(icons/ok.png);
+}
+.x-icon-no
+{
+	background-image: url(icons/no.png);
+}
+.x-icon-reload
+{
+	background-image: url(icons/reload.png);
+}
+.x-icon-search
+{
+	background-image: url(icons/search.png);
+}
+.x-icon-undo
+{
+	background-image: url(icons/undo.png);
+}
+.x-icon-add
+{
+	background-image: url(icons/edit_add.png);
+}
+.x-icon-remove
+{
+	background-image: url(icons/edit_remove.png);
+}
+.x-icon-cancel
+{
+	background-image: url(icons/cancel.png);
+}
+.x-icon-help
+{
+	background-image: url(icons/help.png);
+}

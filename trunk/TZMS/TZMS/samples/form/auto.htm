@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>表单自适应窗口大小</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+</head>
+<body>
+    <ul>
+        <li>功能：表单自适应窗口大小<a href="javascript:void(viewsource('../../','samples/form/auto.htm'))"
+            style="margin-left: 10px;">查看示例源码</a></li>
+        <li>属性：input:fillx</li>
+        <li>说明：
+            <ul>
+                <li>fillx（enum）：设置表单单元格输入项长度是否自适应，枚举值：{true：自适应，false：非自适应}</li>
+            </ul>
+        </li>
+        <li>示例：<br />
+            <table art="form" columns="60,*,10,60,*">
+                <tr>
+                    <td>
+                        姓名：
+                    </td>
+                    <td>
+                        <input type="text" art="textbox" fillx="true" />
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        密码：
+                    </td>
+                    <td>
+                        <input type="text" art="textbox" fillx="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        电话：
+                    </td>
+                    <td>
+                        <input type="text" art="textbox" fillx="true" />
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        年龄：
+                    </td>
+                    <td>
+                        <input type="text" art="textbox" fillx="true" />
+                    </td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+</body>
+</html>

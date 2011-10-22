@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta content= "text/html;charset=utf-8" http-equiv="Content-Type"/> 
+    <title>自定义验证规则</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+    <script type="text/javascript">
+    	var minLength={  
+	        validate: function(value, param){  
+	            return value.length >= param;
+	        },  
+	        errorMsg: '长度至少为{0}个字符！'  
+	    };
+
+    
+	    function submit(){
+			if(!$.isValid()){
+				return;
+			}
+			
+			alert('验证通过，我要提交了！');
+		}
+    </script>
+</head>
+<body>
+	<p>
+		除了已实现的验证规则外，还可以扩展自定义的验证规则。
+	</p>
+	长度要至少为5：<input type="text" art="textbox" validType="minLength[5]"/>
+	<span art="button" onclick="submit();">提交</span>
+</body>
+</html>

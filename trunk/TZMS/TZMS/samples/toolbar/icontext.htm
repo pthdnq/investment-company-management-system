@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta content= "text/html;charset=utf-8" http-equiv="Content-Type"/>
+	    <title>修改工具项的文本和图标</title>
+	    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+	    <script type="text/javascript" src="../../js/share.js"></script>
+	    <script type="text/javascript">
+	    	$(function(){
+		    	var data=[[
+	  		    	{id:'item1',text:'信息',iconurl:'../../images/information.gif'},
+	  		    	null,
+	  		    	{id:'item2',text:'编辑',iconurl:'../../images/edit.gif'}
+  		    	]];
+  		    	$('#t').toolbar().bind(data);
+	    	});
+	    </script>
+	</head>
+	<body>
+		<div id="t" art='toolbar'></div>
+	</body>
+</html>

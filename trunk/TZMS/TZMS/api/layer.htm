@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../resources/jart/themes/default/main.css" rel="Stylesheet" />
+    <link href="../resources/jart/themes/default/icons.css" rel="Stylesheet" />
+
+    <script type="text/javascript" src="../resources/jart/jquery-1.4.4.min.js"></script>
+
+    <script type="text/javascript" src="../resources/jart/jart.const.js"></script>
+
+    <script type="text/javascript" src="../resources/jart/jart.all.js"></script>
+
+    <script type="text/javascript" src="../data/api/layer.js"></script>
+
+</head>
+<body style="margin: 0px;">
+    <div id="tool" art="toolbar" borders="0,0,1,0">
+    </div>
+    <div id="list" filly="{padding:$(this).prev('div').outerHeight(true)}" borders="0"
+        art="grid" rownumbers="true" pagesize="20" columns="[[{title:'归属',field:'belong',width:'100px'},{title:'类型',field:'type',width:'100px',align:'center'},{title:'名称',field:'name',width:'200px'},{title:'描述',field:'desc'},{title:'默认值',field:'defaultValue',width:'200px'}]]">
+    </div>
+    <div id="lySearch" art="layer" width="270" maxable="false" title="查询">
+        <table style="margin: 10px;" cellpadding="10">
+            <tr>
+                <td>
+                    归属：
+                </td>
+                <td>
+                    <input type="text" id="cbBelong" art="combobox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    类型：
+                </td>
+                <td>
+                    <input type="text" id="cbType" art="combobox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <span id="btnOK" art="button" icon="ok">确定</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content= "text/html;charset=utf-8" http-equiv="Content-Type"/> 
+    <title>分组验证</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+    <script type="text/javascript">
+	    function submit1(){
+			if(!$.isValid()){
+				return;
+			}
+			
+			alert('验证通过，我要提交了！');
+		}
+	    
+	    function submit2(){
+			if(!$.isValid('group1')){
+				return;
+			}
+			
+			alert('验证通过，我要提交了！');
+		}
+	    
+	    function submit3(){
+			if(!$.isValid('group2')){
+				return;
+			}
+			
+			alert('验证通过，我要提交了！');
+		}
+    </script>
+</head>
+<body>
+	<p>
+		分组解发控件的验证。
+	</p>
+	<div art="panel" title="未分组" style="height:100px;">
+		<input type="text" art="textbox" required="true"/>
+		<span art="button" onclick="submit1();">提交未分组</span>
+	</div>
+	<br/>
+	<div art="panel" title="组一" style="height:100px;">
+		<input type="text" art="textbox" required="true" validGroup="group1"/>
+		<span art="button" onclick="submit2();">提交组一</span>
+	</div>
+	<br/>
+	<div art="panel" title="组二" style="height:100px;">
+		<input type="text" art="textbox" required="true" validGroup="group2"/>
+		<span art="button" onclick="submit3();">提交组二</span>
+	</div>
+	<br/>
+</body>
+</html>

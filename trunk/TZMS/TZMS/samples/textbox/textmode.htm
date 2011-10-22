@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>限制文本框输入类型</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+    只能输入整数的文本框：
+    <input type="text" art="textbox" textmode="1" />
+    <input type="password" art="textbox" textmode="1" />
+    <br />
+    <br />
+    只能输入小数的文本框：
+    <input type="text" art="textbox" textmode="2" />
+    <input type="password" art="textbox" textmode="2" />
+    <br />
+    <br />
+    只能输入数字且限制最大值的文本框：
+    <input type="text" art="textbox" textmode="1" maxnum="123" emptytext="不能大于123" />
+    <input type="text" art="textbox" textmode="2" maxnum="123.5" emptytext="不能大于123.5" />
+    <input type="password" art="textbox" textmode="1" maxnum="123" emptytext="不能大于123" />
+</body>
+</html>

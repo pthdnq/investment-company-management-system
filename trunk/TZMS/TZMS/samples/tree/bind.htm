@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>绑定数据到树节点</title>
+    <script id="jart_js" type="text/javascript" src="../../resources/jart/jart.js"></script>
+    <script type="text/javascript" src="../../js/share.js"></script>
+
+    <script type="text/javascript">
+    $(function()
+            {
+                var data =
+                [
+                { text: "安徽省", nodes:
+                    [
+                    { text: "合肥市", nodes:
+                        [
+                        { text: "蜀山区" },
+                        { text: "政务区" },
+                        { text: "瑶海区" },
+                        { text: "包河区" },
+                        { text: "肥东县" },
+                        { text: "肥西县" }
+                        ]
+                    },
+                    { text: "芜湖市", nodes:
+                        [
+                        { text: "镜湖区" },
+                        { text: "鸠江区" },
+                        { text: "繁昌县" },
+                        { text: "南陵县" }
+                        ]
+                    },
+                    { text: "安庆市" },
+                    { text: "巢湖市" },
+                    { text: "六安市" }
+                    ]
+                },
+                { text: "江苏省", nodes:
+                    [
+                    { text: "南京市" },
+                    { text: "苏州市" },
+                    { text: "无锡市" },
+                    { text: "常州市" }
+                    ]
+                }
+                ];
+                $("#tree1").tree().bind(data);
+            });
+    </script>
+</head>
+<body>
+	 <div id="tree1" art="tree" style="border: solid 1px #99bbe8" >
+     </div>
+	
+</body>
+</html>

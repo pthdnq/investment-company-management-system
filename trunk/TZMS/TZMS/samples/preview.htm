@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http：//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http：//www.w3.org/1999/xhtml">
+<head>
+    <title>写在最前（一定要先看）</title>
+    <script id="jart_js" type="text/javascript" src="../resources/jart/jart.js"></script>
+	<script type="text/javascript" src="../../js/share.js"></script>
+    <script type="text/javascript">
+        function test1()
+        {
+            $("#sp1").button({ icon: "save" });
+        }
+
+        function test2()
+        {
+            $("#sp2").button(true);
+        }
+
+        function test3()
+        {
+            $("#sp3").button(false);
+        }
+
+        function test4()
+        {
+            $("#sp4").button({ iconurl: "../images/information.gif" });
+        }
+    </script>
+
+</head>
+<body style="font-size: 13px; line-height: 20px;">
+    此页将会展示我们控件的基本渲染和获取方式，仅以按钮控件为例，其它控件类似
+    <ul>
+        <li><b>控件根据元素属性自动渲染</b>：如果元素加上扩展标签art的值，则在页面加载时会自动渲染此元素成art值对应的控件，art值为控件的类型名（如button），同时元素的属性将会映射到控件上（如元素加了属性icon且控件有icon这个属性，则元素的icon属性会被移到控件上），以按钮控件为例：按钮控件的类型名为button，且有个属性iconurl指示其图标地址，则此段html标记“&lt;span
+            art="button" icon="save"&gt;测试按钮&lt;/span&gt;”会被渲染成
+            <span art="button" icon="save">测试按钮</span>
+        </li>
+        <li><b>元素手动渲染成控件</b>：对于元素，我们可以手动将其渲染成控件，方法是对此元素的jquery对象调用对应的控件方法，通常此方法名和控件类型名相同，如按钮控件类型名为button，则按钮控件的手动渲染方法为：{jQuery}.button(arg)，当arg参数是对象时，则此对象的属性将映射到控件上，当arg参数为true时，将会把元素的属性映射到控件上，当arg为空时只渲染控件不映射属性，以按钮控件为例：存在一个已有的元素“&lt;span
+            icon="../../images/pkg.gif"&gt;&lt;/span&gt;”，对其进行三种方式渲染分别得到的结果如下（请点击对应的文字）：<br />
+            <span id="sp1" iconurl="../images/pkg.gif" onclick="test1();">点击我查看第一种方式生成的按钮</span>
+            <span id="sp2" iconurl="../images/pkg.gif" onclick="test2();">点击我查看第二种方式生成的按钮</span>
+            <span id="sp3" iconurl="../images/pkg.gif" onclick="test3();">点击我查看第三种方式生成的按钮</span>
+        </li>
+        <li><b>获取已有控件和修改控件属性</b>：获取已有控件的方法是对控件所在元素调用对应有控件方法，通常此方法名和控件类型名相同，如按钮控件类型名为button，则按钮控件的手获取方法为：{jQuery}.button(arg)，此方法返回控件对象，当arg为对象是，将映射此对象属性到控件上，否则不做任何处理，以按钮控件为例：获取按钮控件并修改其属性
+            <span id="sp4" art="button" iconurl="../images/pkg.gif" onclick="test4();">点击我修改图标</span>
+        </li>
+    </ul>
+</body>
+</html>
