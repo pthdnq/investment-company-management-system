@@ -34,10 +34,10 @@ namespace com.TZMS.Model
 
         #region Field
         private Guid _userObjectId;
-        private string _accountNo;
-        private string _jobNo;
-        private string _name;
-        private string _roles;
+        private string _accountNo = string.Empty;
+        private string _jobNo = string.Empty;
+        private string _name = string.Empty;
+        private string _roles = string.Empty;
         #endregion
 
         #region Property
