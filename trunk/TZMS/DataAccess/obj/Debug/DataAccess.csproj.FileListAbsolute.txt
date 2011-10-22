@@ -12,3 +12,14 @@ E:\项目\A项目\TZMS\TZMS\DataAccess\bin\Debug\log4net.xml
 E:\项目\A项目\TZMS\TZMS\DataAccess\obj\Debug\ResolveAssemblyReference.cache
 E:\项目\A项目\TZMS\TZMS\DataAccess\obj\Debug\DataAccess.dll
 E:\项目\A项目\TZMS\TZMS\DataAccess\obj\Debug\DataAccess.pdb
+C:\项目\投资公司管理系统\TZMS\DataAccess\bin\Debug\DataAccess.dll
+C:\项目\投资公司管理系统\TZMS\DataAccess\bin\Debug\DataAccess.pdb
+C:\项目\投资公司管理系统\TZMS\DataAccess\bin\Debug\Model.dll
+C:\项目\投资公司管理系统\TZMS\DataAccess\bin\Debug\log4net.dll
+C:\项目\投资公司管理系统\TZMS\DataAccess\bin\Debug\Com.iFlytek.LicenseService.dll
+C:\项目\投资公司管理系统\TZMS\DataAccess\bin\Debug\Com.iFlytek.CachingService.dll
+C:\项目\投资公司管理系统\TZMS\DataAccess\bin\Debug\Model.pdb
+C:\项目\投资公司管理系统\TZMS\DataAccess\bin\Debug\log4net.xml
+C:\项目\投资公司管理系统\TZMS\DataAccess\obj\Debug\ResolveAssemblyReference.cache
+C:\项目\投资公司管理系统\TZMS\DataAccess\obj\Debug\DataAccess.dll
+C:\项目\投资公司管理系统\TZMS\DataAccess\obj\Debug\DataAccess.pdb

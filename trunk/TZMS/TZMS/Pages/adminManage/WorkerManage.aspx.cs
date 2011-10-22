@@ -30,6 +30,12 @@ namespace TZMS.Pages.adminManage
                         LoadUsers(strDept, strState, strSearchText);
                     }
                     break;
+                case "userLeave":
+                    {
+                        string strUserID = Page.Request.QueryString["ID"];
+                        UserLeave(strUserID);
+                    }
+                    break;
                 default:
                     break;
             }
@@ -66,41 +72,68 @@ namespace TZMS.Pages.adminManage
             //获得员工
             List<UserInfo> lstUserInfo = new UserManage().GetUsersByCondtion(strCondtion.ToString());
 
+            //[{JobNo:'2001',Name:'测试1',AccountNo:'test1',Sex:'男',Dept:'行政部',PhoneNumber:'',State:'在职', ID:'d0cc3885-64b4-4099-aed1-045658cc910a'}]
+
             if (lstUserInfo.Count == 0)
             {
+                Response.Write("{total:0,rows: undefined}");
+                //Response.Write("{total:undefined,rows:undefined}");
+                Response.End();
+            }
+            else
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.Append("{total:" + lstUserInfo.Count + ",rows: [");
+                int index = 0;
+
+                string simpleInfo = string.Empty;
+                foreach (UserInfo info in lstUserInfo)
+                {
+                    index++;
+                    // 关于隐藏列，源码中将数据解析成Table，
+                    // 故无需修改前台页面，在后台输出中添加1列即可达到隐藏列的效果.
+                    simpleInfo = String.Format("JobNo:'{0}',Name:'{1}',AccountNo:'{2}',Sex:'{3}',Dept:'{4}',PhoneNumber:'{5}',State:'{6}', ID:'{7}'",
+                        info.JobNo,
+                        info.Name,
+                        info.AccountNo,
+                        (info.Sex == true ? "男" : "女"),
+                        info.Dept,
+                        info.PhoneNumber,
+                        (info.State == 1 ? "在职" : "离职"),
+                        info.ObjectId.ToString());
+                    if (index == lstUserInfo.Count)
+                    {
+                        stringBuilder.Append("{" + simpleInfo + "}");
+                        break;
+                    }
+                    stringBuilder.Append("{" + simpleInfo + "},");
+                }
+
+                stringBuilder.Append("]}");
+
+                Response.Write(stringBuilder.ToString());
                 Response.Write("");
                 Response.End();
-                return;
             }
+        }
 
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("{total:" + lstUserInfo.Count + ",rows: [");
-            int index = 0;
-
-            string simpleInfo = string.Empty;
-            foreach (UserInfo info in lstUserInfo)
+        /// <summary>
+        /// 员工离职事件.
+        /// </summary>
+        /// <param name="strUserID">员工</param>
+        public void UserLeave(string strUserID)
+        {
+            if (string.IsNullOrEmpty(strUserID))
             {
-                index++;
-                simpleInfo = String.Format("JobNo:'{0}',Name:'{1}',AccountNo:'{2}',Sex:'{3}',Dept:'{4}',PhoneNumber:'{5}',State:'{6}'",
-                    info.JobNo,
-                    info.Name,
-                    info.AccountNo,
-                    (info.Sex == true ? "男" : "女"),
-                    info.Dept,
-                    info.PhoneNumber,
-                    (info.State == 1 ? "在职" : "离职"));
-                if (index == lstUserInfo.Count)
-                {
-                    stringBuilder.Append("{" + simpleInfo + "}");
-                    break;
-                }
-                stringBuilder.Append("{"+simpleInfo+"},");
+                Response.End();
             }
 
-            stringBuilder.Append("]}");
+            UserManage userManage = new UserManage();
 
-            Response.Write(stringBuilder.ToString());
-            Response.Write("");
+            // 获取离职的员工实例.
+            UserInfo leaveUser = userManage.GetUserByObjectID(strUserID);
+            leaveUser.State = 0;
+            Response.Write((userManage.UpdateUser(leaveUser)).ToString());
             Response.End();
         }
     }
