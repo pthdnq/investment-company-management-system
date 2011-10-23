@@ -7,22 +7,73 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" />
-    <ext:Toolbar ID="toolUser" runat="server">
+    <ext:PageManager ID="PageManager1" AutoSizePanelID="pelMain" HideScrollbar="true"
+        runat="server" />
+    <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
+        EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
+        Layout="Anchor">
         <Items>
-            <ext:Button ID="btnNewUser" Text="新增员工"  runat="server">
-            </ext:Button>
+            <ext:Form ID="Form2" ShowBorder="False" BodyPadding="5px" AnchorValue="100%" EnableBackgroundColor="true"
+                ShowHeader="False" runat="server">
+                <Rows>
+                    <ext:FormRow>
+                        <Items>
+                            <ext:TwinTriggerBox runat="server" EmptyText="请输入姓名或账号查询" ShowLabel="false" ID="ttbSearch"
+                                Width="200px" Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click">
+                            </ext:TwinTriggerBox>
+                            <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门" Width="100px"
+                                OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged">
+                            </ext:DropDownList>
+                            <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Width="100px"
+                                Label="员工状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
+                                <ext:ListItem Text="在职" Value="1" Selected="true" />
+                                <ext:ListItem Text="离职" Value="0" />
+                            </ext:DropDownList>
+                        </Items>
+                    </ext:FormRow>
+                </Rows>
+            </ext:Form>
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+                Layout="Fit" runat="server">
+                <Toolbars>
+                    <ext:Toolbar ID="toolUser" runat="server">
+                        <Items>
+                            <ext:Button ID="btnNewUser" Text="新增员工" runat="server">
+                            </ext:Button>
+                        </Items>
+                    </ext:Toolbar>
+                </Toolbars>
+                <Items>
+                    <ext:Grid ID="gridUser" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
+                        PageSize="1" runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                        OnPageIndexChange="gridUser_PageIndexChange" OnRowCommand="gridUser_RowCommand">
+                        <Columns>
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField DataField="JobNo" HeaderText="工号" ExpandUnusedSpace="True" />
+                            <ext:BoundField Width="200px" DataField="Name" HeaderText="姓名" />
+                            <ext:BoundField Width="60px" DataField="AccountNo" HeaderText="账号" />
+                            <ext:TemplateField Width="60px" HeaderText="性别">
+                                <ItemTemplate>
+                                    <%# (Convert.ToBoolean(DataBinder.Eval(Container.DataItem,"Sex")) == true) ? "男" : "女" %>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:BoundField Width="60px" DataField="Dept" HeaderText="部门" />
+                            <ext:BoundField Width="100px" DataField="PhoneNumber" HeaderText="联系电话" />
+                            <ext:TemplateField Width="60px" HeaderText="员工状态">
+                                <ItemTemplate>
+                                    <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:LinkButtonField Width="40px" Text="编辑" />
+                            <ext:LinkButtonField Width="40px" Text="权限" />
+                            <ext:LinkButtonField Width="40px" Text="离职" ConfirmText="确定该员工离职?" CommandName="Leave" />
+                            <ext:LinkButtonField Width="40px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
+                        </Columns>
+                    </ext:Grid>
+                </Items>
+            </ext:Panel>
         </Items>
-    </ext:Toolbar>
-    <ext:Grid ID="gridUser" Title="Grid1" PageSize="15" ShowBorder="true" ShowHeader="false"
-        AutoHeight="true" AllowPaging="true" runat="server" IsDatabasePaging="true" EnableRowNumber="True"
-        OnPageIndexChange="gridUser_PageIndexChange">
-        <Columns>
-            <ext:BoundField DataField="JobNo" HeaderText="MyText" ExpandUnusedSpace="True" />
-            <ext:BoundField Width="200px" DataField="Name" HeaderText="MyValue" />
-            <ext:BoundField Width="60px" DataField="AccountNo" HeaderText="Year" />
-        </Columns>
-    </ext:Grid>
+    </ext:Panel>
     </form>
 </body>
 </html>
