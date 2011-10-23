@@ -1,0 +1,1209 @@
+﻿ExtAspNet - ExtJS based ASP.NET Controls with Full AJAX Support
+	
+ExtAspNet是一组专业的Asp.net控件库，拥有原生的AJAX支持和丰富的UI效果，
+目标是创建没有ViewState，没有JavaScript，没有CSS，没有UpdatePanel，没有WebServices的Web应用程序。
+
+支持的浏览器: IE 7.0+, Firefox 3.6+, Chrome 3.0+, Opera 10.5+, Safari 3.0+
+
+注：ExtAspNet基于一些开源的程序ExtJS, HtmlAgilityPack, Nii.JSON, YUICompressor。
+
+示例: http://extasp.net/
+开源: http://extaspnet.codeplex.com/
+博客: http://sanshi.cnblogs.com/
+邮箱: sanshi.ustc@gmail.com
+
+
+发布历史：
+
++2011-05-09 v2.3.5
+	-大部分控件的设计时支持。
+	-从下个版本开始，我将会启动本地化战略调整方案，简体中文将会作为官方支持语言。
+
+
+
++2011-05-02 v2.3.4
+	-更新extjs版本至v3.3.3(feedback:GMz)。
+	-修正问题#9869(feedback:Pablogrind)。
+	-为Region控件增加CMargins属性 - issue #9597(feedback:ronnieoverby)。
+	+修正问题#9448(feedback:tonyredondo).
+		-这个问题仅在树控件中出现，需要在客户端回发时使用UniqueID。
+	-修正Grid控件排序图标显示的问题。
+	-修正X.utils.updateViewState中存在的问题，它导致Grid的第一个示例在回发两次后出错。
+
+
+
++2011-02-22 v2.3.3
+	-更新extjs版本至v3.3.1。
+	-更新Ext.ux.TabCloseMenu的多语言支持(en, zh_CN, zh_TW)。
+
+
+
++2010-09-29 v2.3.2
+	-不绑定任何数据到Grid时，确保页面不会出错。
+	-修正了Grid列属性DataFormatString的一个bug,比如设置{0:yy-MM-dd HH:mm}时没有效果。
+	-修正下拉列表控件不能绑定DataTable的BUG(feedback:RedOcean)。
+	-增加土耳其语言资料文件(feedback:abdullaharslan)。
+	-Grid的BoundField增加NullDisplayText属性，用于处理数据库中的null值，如果没有设置则默认为空字符串。
+	-修正DatePicker中的一个bug(31/01/2010将会返回NULL)使用DateFormatString来生成SelectedDate属性(feedback:OktaEndy)。
+	-修正extjs最新版本(v3.2.2)中的一个bug，如果下拉列表中存在两个相同的Text，则SelectedValue返回值永远是第一个Text的值(feedback:ben.zhou)。
+	-应用补丁#6593, #6621(feedback:vbelyaev)。
+	+修正IE7下Grid分页速度慢(feedback:youwei, StevenGuan, hazardvn, gavindou, ttjacky)。
+		-实际上IE7下所以的回发都慢，原因是客户端的Base64编码速度慢，已经使用encodeURIComponent来代替Base64编码。
+	-俄语翻译(feedback:vbelyaev)。
+	
+	
+
++2010-06-30 v2.3.1
+	-ExtAspNet控件将不在依赖ViewState，减少1/4左右的HTTP数据传输量。
+	-控件和示例的增强。
+	
+	
+
++2010-03-28 v2.2.1
+	+为TabStrip的GetAddTabReference函数增加重载方法，以便指定Tab的图标(feedback:mmdcup)。 
+		-修正此函数通过PageContext.RegisterStartupScript调用时不能正确显示Icon的BUG(feedback:zhaowenke)。
+	-修正basic/hello.aspx示例在单独浏览器打开后，不能弹出对话框的BUG。
+	-隐藏示例首页最外层RegionPanel的边框ShowBorder="false"。
+	+集成Extjs最新版本v3.1.1。
+		-增加一个新的Theme - Access。
+		-修正了Firefox下Zoom In/Out时页面消失的BUG。
+		-删除Panel的EnableLightBackgroundColor属性，同时EnableBackgroundColor只支持Blue和Gray两种Theme。
+
+
+
++2010-01-31 v2.2.0
+	-使得Asp.net的控件ImageButton具有和Asp.net的Button控件类似的行为（Ajax提交）(feedback:261629698)。
+	+TabStrip增加GetAddTabReference和GetRemoveTabReference两个函数，用来向TabStrip控件动态增加删除Tab。
+		-增加示例tabstrip/tabstrip_addtab.aspx。
+	-重构了示例网站的架构，目前只有一层IFrame结构。
+	-为TabStrip增加EnableTabCloseMenu属性，是否启用右键菜单，可用来关闭当前Tab和所有其他Tab。
+	-为NumberBox增加DecimalPrecision属性，用来控制小数点后的位数（需要设置NoDecimal="false"）(feedback:zqmars)。
+	-Window控件更新。
+		-关闭按钮默认直接关闭，不会弹出确认对话框。
+		-GetConfirmFormModifiedHideReference的函数中的ConfirmFormModified简化为Confirm，所以此函数更名为GetConfirmHideReference。
+		-增加两个属性EnableConfirmOnClose（默认false），CloseAction（Hide, HideRefresh, HidePostBack）。
+		-修正EnableMaximize属性不能使Window最大化的BUG，修正了双击标题栏不能最大化的BUG。
+	-删除Button控件的SystemIcon属性，比如以前这样定义SystemIcon="Close"，现在需要这样定义Icon="SystemClose"。
+	-WindowPosition默认居中，而不是黄金分割位置。
+	+Button, Window等控件弹出位置属性的变化。
+		-Window的Target属性由字符串类型变为枚举类型，注意更新以前的代码：Target="_self" -> Target="Self", Target="_parent" -> Target="Parent"。
+		-MenuButton, LinkButton, Button, LinkButtonField的ConfirmTarget属性由字符串变为枚举类型，可以取三个枚举值Self, Parent, Top。
+		-Confirm.GetShowReference的最后一个参数target变为枚举类型。
+		-Alert.GetShowReference中的showInParent参数也变为Target枚举类型。
+		-MenuButton, LinkButton, Button, LinkButtonField增加ValidateTarget用来控制表单验证失败时提示对话框的显示位置。
+
+
+
++2010-01-06 v2.1.9
+	-集成Extjs最新版本v3.1.0。
+	-修正灰色皮肤的CSS问题。
+	-修正Grid的列名中不能包含中文字符的BUG(feedback:davidwen)。
+	-为Web.config和PageManager增加属性AjaxTimeout(单位秒，默认30秒)。
+	-修正了在Grid的PageIndexChange事件中不能获取SelectedRowIndexArray属性的BUG(feedback:Violet)。
+	-Button控件将不再自动拥有display:inline属性，如果希望两个按钮在一行显示，请为第一个按钮设置CssStyle="float:left;"属性。
+	-修正了弹出菜单的位置在Firefox下不正确的BUG(feedback:eroach)。
+	-为TriggerBox和TwinTriggerBox增加EnableEdit属性。
+	-使用Hidden来显示隐藏ExtAspNet控件，而不是使用Visible属性（Visible目前设置为只读属性）。
+	-使用Hidden控制Window控件的显示隐藏，Popup已经标记为Obsolete属性。
+	-Window的实例方法GetCloseReference等以及ActiveWindow的静态方法GetCloseReference等，其中的Close全部改为Hide。
+	-增加TabStrip中Tab控件可关闭属性EnableClose(默认为false)以及两个方法GetShowReference和GetHideReference(feedback:anson)。
+	-修正绑定到Tree的XMLDocument中Icon属性映射错误(feedback:nopnop9)。
+	-修正HtmlEditor不能编辑的BUG(feedback:TheBox)。
+	-修正IE下有时会出现空白页面的情况(feedback:olivia919)。
+	
+	
+
++2009-12-06 v2.1.8
+	-修正了使用IFrame的Window关闭后不能再次打开的BUG(feedback:alexa99)。
+	-修正了IE下Grid中的一个JS问题(feedback:lqm4108)。
+	-修正Alert消息中引号未编码导致的JS错误(feedback:sun1299shine)。
+	+集成extjs3.0.3。
+		-修正弹出对话框的宽度计算错误(会保持最小的状态)。
+		-增加新的皮肤Gray。
+	-为示例工程添加改变语言和皮肤的下拉列表。
+	-为PageContext增加静态函数Refresh，在切换语言和皮肤时使用。	
+
+
+
++2009-12-01 v2.1.7
+	-增加示例(iframe/parent_postback_run3.aspx)，如何通过简单的Javascript代码回发父页面(feedback:eroach)。
+	-修正一些书写错误(feedback:bmck)。
+	-从Region控件中删除SplitColor属性，增加CollapseMode, EnableSplitTip, SplitTip, CollapsibleSplitTip属性(feedback:bmck)。
+	-BorderPanel更名为RegionPanel。
+	-DropDownList拥有MarkInvalid方法(feedback:sun1299shine)。
+	-增加中国的省市县三级联动示例(data/shengshixian.aspx)(feedback:Blues T)。
+	-修正了使用IFrameUrl的Tab在切换过程中会重复加载的问题，这是一个在v2.1.6引入的问题(feedback:eroach)。
+	-修正了启用AutoPostBack的Grid，其RowClick会覆盖LinkButtonField, HyperLinkField, CheckBoxField的点击事件(feedback:yymaoji)。
+	
+	
+	
++2009-11-26 v2.1.6
+	+修正动态创建Grid列的BUG(feedback:gxpan)。
+		-增加示例(data/grid_dynamic_columns.aspx)。
+	-修正Form不能自适应浏览器大小的改变(feedback:kaywood)(WorkItem#6309)。
+	-增加重载方法Alert.Show(message, title, icon)(feedback:TheBox)(WorkItem#6353)。
+	-为容器控件（比如Panel,Region,Tab等）增加AJAX属性IFrameUrl(feedback:BluesT)。
+	-重新设计模拟树的下拉列表的实现，避免选中某项后的闪烁。
+			
+
+
++2009-11-21 v2.1.5
+	+Tree优化。
+		-修正Expanded项和Checked项的状态在回发改变后不能保持的BUG。
+		-GetNodeById更名为FindNode，保持和FindControl一致命名。
+		-删除CheckedNodeIDArray属性，增加GetCheckedNodes和GetCheckedNodeIDs函数。
+		-删除ExpandedNodeIDArray属性，增加GetExpandedNodes和GetExpandedNodeIDs函数。
+		-增加示例(data/tree_select_run.aspx)，如何选中当前节点的所有子节点(feedback:wjl_wjl520)。
+		+TreeNode的属性NodeId被重命名为NodeID，这是ExtAspNet中的一个命名约定。
+			-同时更名的还有GridColumn的ColumnId->ColumnID，GetColumnId->GetColumnID。
+			-Grid1.Columns.FindColumnById函数被Grid1.FindColumn所替代。
+		-为TreeCheckEventArgs,TreeExpandEventArgs,TreeCommandEventArgs增加Node属性。
+	-为所有控件增加Focus(覆盖Control默认的Focus函数)和GetFocusReference函数。
+	-增加示例(other/custom_postback.aspx)(feedback:thebox)。
+		-如何自定义Javascript脚本和C#处理函数来响应键盘事件。
+	-为Tree增加AutoLeafIdentification属性。
+		-增加示例(tree_auto_leaf_identification.aspx)(feedback:wdrabbit)。
+	
+	
+
++2009-11-17 v2.1.4
+	-修正Window的关闭按钮提示信息一直是中文的BUG(feedback:thebox)。
+	-部分ExtAspNet控件的设计时支持（会在后续版本中逐步完善）。
+	-v0.2beta2版本中关于PersistChildren(true)的描述有误，这个是设计时属性，和运行时是否保持状态没有关系。
+	-修正CheckBox控件的CheckedChanged事件会被触发两次的BUG（Data PostBack->AutoPostBack, Event PostBack->EnablePostBack）。
+	-为TextBox,TextArea,DatePicker,NumberBox,TriggerBox等控件增加AutoPostBack属性(feedback:dk3214)。
+	+为表单字段增加RequiredMessage,MaxLengthMessage,MinLengthMessage属性，用于指定验证失败时提示信息。
+		-为空则使用默认的提示信息，默认的提示信息支持多语言，建议一般情况下使用默认信息。
+	+为表单字段增加MarkInvalid和GetMarkInvalidReference函数(feedback:sun1299shine)。
+		-增加示例：form/form_validate.aspx
+	
+	
+
++2009-10-19 v2.1.3
+	+增加支持在AJAX时改变的控件属性列表(/ajax.aspx)。
+		-ExtAspNet支持原生的AJAX，也就是说控件的属性改变在AJAX过程中会反映到页面中，但并不是所有的控件属性都支持AJAX改变。
+	-加载s.gif图片在本机进行，不会请求extjs.com远程资源(feedback:efrigate43,abaocoole)。
+	-在AJAX回发后确保Asp.net的按钮控件仍然具有AJAX的特性。
+	-更新/basic/login.aspx示例，使用验证图片(feedback:kedee)。
+	-为Grid增加AutoPostBack属性和RowClick事件，示例在/data/grid_autopostback.aspx(feedback:chenguizhu2006)。
+	-为所有的表单字段增加AJAX属性ReadOnly(feedback:skydb)。
+	-Grid中TemplateField生成到页面中控件具有唯一ID，例如Grid1_ct5_Label2,Grid1_ct6_Label2(feedback:geruger)。
+	
+	
+
++2009-09-27 v2.1.2
+	-为Tree控件增加GetExpandAllNodesReference和GetCollapseAllNodesReference两个函数。
+	-修正RELEASE版本下多语言加载的BUG(feedback:yigehaoren)。
+	-增加pt_BR语言，由Ujvari提供。
+	+为所有Panel（包括Grid,Tree,Form等）增加枚举类型Icon，其中包含1700多个小图标。
+		-如果Panel具有IconUrl属性，则IconUrl优先于Icon。
+		-所有Icon的列表在icon.aspx。
+	-为Button,MenuItem(MenuButton,MenuHyperLink),AccordionLink,TreeNode,Image(如果ImageUrl为空，则取Icon的值)增加Icon属性。
+	
+	
+
++2009-09-15 v2.1.1
+	-修正不能动态修改AccordionPane属性Items的BUG。
+	+为Button, MenuButton, LinkButton, LinkButtonField增加ConfirmTarget。
+		-如果需要在父页面弹出确认对话框，需要设置ConfirmTarget="_parent"（类似Window控件的Target="_parent"）。
+	+为ExtAspNet.Alert.Show增加点击确定的JavaScript回调函数。
+		-一个典型应用，在Window控件中打开新页面，如果传递的参数不正确，则首先提示参数不对然后关闭此弹出窗口。
+		-ExtAspNet.Alert.Show("参数错误！", String.Empty, ExtAspNet.ActiveWindow.GetCloseReference());
+	+TreeNode的前面的多选框可以自动回发了。
+		-为TreeNode增加AutoPostBack属性，增加事件数据类TreeCheckEventArgs，为Tree增加事件NodeCheck。
+		-示例在：http://extasp.net/data/tree_run.aspx
+	-Grid增加GetNoSelectionAlertInParentReference函数，用来表示没有选中任何一项时在父页面弹出对话框的JS代码。
+	-修正IE7下不能以下划线作为CSS中类名的前缀的BUG(feedback:Steve.Wei)。
+	-添加定时器控件Timer，用来定时发起AJAX请求。
+	
+	
+
++2009-09-06 v2.1.0
+	-Button的Pressed属性值能够正确的反映客户端的变化。
+	-优化Tree控件的AJAX实现。
+	+为页面的Form添加autocomplete="off"属性。
+		-参考http://www.cnblogs.com/sanshi/archive/2009/09/04/1560146.html#1635830
+	+添加对extjs3.0中所有语言的支持。
+		-ExtAspNet扩展的多语言包在js\languages\extaspnet目录下，目前只有en,zh_CN,zh_TW三种实现
+		-你可以向其中添加自己的语言版本，并执行js\languages下的pack.bat打包，最后编译工程。
+	
+	
+	
++2009-09-01 v2.0.9
+	-为ExtAspNet.Alert添加两个静态方法ShowInParent和GetShowInParentReference，用于在父页面弹出窗口。
+	+在aspx页面中必须显示的声明控件的集合属性（比如Tabs(TabStrip), Items(PanelBase), Nodes(TreeNode)）。
+		-这将会影响所有的aspx页面，所以要特别关注。
+	-重命名AccordionPanel为AccordionPane (这也是在Asp.net AJAX中使用的名称).
+	+所有的面板默认有两个集合属性（Toolbars和Items）.
+		-尽管TabStrip, From, Tree, Accordion继承了Items属性，但是你并不能对其设置（此时Items是只读的）.
+		-这将会影响所有的aspx页面，一定要将工具条（Toolbars）和Items区分开来。
+	-祝你生日快乐 - 小师妹妹。
+
+
+
++2009-08-29 v2.0.8
+	-ExtAspNet支持多语言（en,zh_CN,zh_TW），可以在Web.config中修改。
+	-将所有的示例转化为英语版本。
+	-修正Tree控件的一个BUG（定义Mappings属性时）。
+	+PageManager.Instance应该存在于HttpContext.Current，而不是一个全局变量。
+	    -这个BUG导致Asp.net compatibility中的示例无法完成，现在已经修正。
+	+去除PageManager中方法AddAjaxAspnetControls，增加属性AjaxAspnetControls。
+	    -这个属性和Button得ValidateForms属性类似，可以查看Asp.net compatibility中的示例。
+	
+	
+
++2009-08-25 v2.0.7
+    -为按钮增加DisableControlBeforePostBack属性 - 回发之前是否禁用按钮，防止重复提交 - 默认为true。
+    -Grid的Values属性访问限制由internal改为public，这就意味这可以自由改变Grid中每个单元格的值了。
+    -增加示例-如何将Grid控件导出为Excel(data\grid_excel_run.aspx)(feedback:503684912)。
+    -如果TreeNode的属性Enabled="false"，则此项变灰并且不会被选中(feedback:your568)。
+    -修正TreeNode的属性NavigateUrl不接受服务器端URL（以~/开头）的BUG。
+    -增加Accordion和Tree配合使用的示例(other\accordion_tree_run.aspx)。
+    -修正Panel图标不能显示的BUG(CSS中class名不能有$字符)。
+    +去除PageLayout控件，此控件可以使用BorderLayout和指定PageManager的AutoSizePanelID属性来代替。
+		-这样所有需要占据全屏的Panel（不管你是Accordion,Panel,ContentPanel,Form,GroupPanel,SimpleForm,Tree还是Grid,TabStrip）都可以通过这种方式全屏。
+		-简单方便，示例可以参考 default.aspx 或者 other\accordion_tree_run.aspx。
+    
+    
+
++2009-08-14 v2.0.6
+	-动态生成菜单实例(other\menu_dynamic_run.aspx和other\menu_dynamic2_run.aspx)(feedback:shguo)。
+	-优化AJAX的内部实现，每个页面保存的ViewState现在减少1/3左右（重要更新）。
+	-优化Tree节点的NodeId自动生成，减少ViewState占用。
+	
+
+
++2009-08-09 v2.0 beta5
+	+ExtAspNet和Asp.net的提交按钮兼容问题(feedback:千帆)。
+		-在2009-03-03 v1.3.0曾经提到这个兼容问题，并有这样的规则，如果Asp.net的按钮AJAX提交，必须设置UseSubmitBehavior="false"
+		--也就是说生成的input的type不能是"submit"，而这个限制在有些情况下是不可原谅的。
+		--我们做了优化，现在要使一个Asp.net的按钮能够AJAX提交，你不需要做任何设置（PageManager的属性EnableAjax为true即可，这是默认属性）。
+	+PageManager的实例方法AddAjaxUpdateControl改名为AddAjaxAspnetControls，现在可以在Page_Load中设置需要在AJAX中需要更新的Asp.net控件了。
+		-在Page_Load中设置了哪些需要在AJAX中更新的Asp.net控件会在回发时保持状态，可以通过RemoveAjaxAspnetControls来去除不需要更新的控件。
+		-示例在aspnet\fckeditor_run.aspx和aspnet\aspnet_run.aspx。
+		-FCKEditor和上传控件兼容。示例在aspnet\fileupload_run.aspx。
+	-修正ToolbarText的文本在AJAX下更新的BUG。
+	-Button的Pressed属性在AJAX可更新(feedback:mgzhenhong)。
+	-更新所有示例。在IE7.0，IE8.0，Firefox3.5，Chrome2.0下测试通过。
+	
+
+
++2009-08-02 v2.0 beta4
+	+和Asp.Net的Forms Authentication兼容[feedback:mgzhenhong]。
+		-采用和Asp.Net Ajax类似的处理方式，需要在配置文件Web.config增加一个httpModules。
+		-现在支持Response.Redirect，你可以选择Response.Redirect或者ExtAspNet.PageContext.Redirect重定向页面，两者效果一样。
+		-支持FormsAuthentication.RedirectFromLoginPage(accountID, false);这样的方法。
+	-Button增加Type属性（button,reset,submit）[feedback:mgzhenhong]。
+	-修正Alert.Show方法不能指定文本前图片的BUG[feedback:xmq&mgzhenhong]。
+	-修正IE下某些弹出窗口的IFrame第一次不能加载的BUG。
+	-增加Menu和Accordion的示例。
+	-修正Window控件的IconUrl有时不显示（Target="_parent"）的BUG[feedback:xmq&mgzhenhong]。
+	
+
+
++2009-07-22 v2.0 beta3
+	-兼容FCKEditor。
+	-在IE8.0,Firefox3.5下测试通过。以后ExtAspNet将不会对IE6.0提供支持。
+	
+
+
++2009-07-13 v2.0 beta2
+	-集成extjs最新版本v3.0。
+	+兼容IE6.0-7.0-8.0。
+		-这应该是Extjs3.0的一个BUG，在IE6.0-7.0下面设置Ext.QuickTips.init();会导致button的click事件无法响应(IE8下无此问题)。
+		-目前先禁用IE6.0-7.0的QuickTips。
+	-优化底层JavaScript。
+	
+	
+	
++2009-07-05 v2.0 beta1
+	-更新extjs库到最新版本v3.0 RC2; 目前只有一个缺省皮肤（Theme）。
+	-使用YUI Compressor压缩JavaScript和CSS文件。
+	-Release版本每个页面只包含一个JavaScript文件（语言文件除外）和一个CSS文件。
+	-ExtAspNet自身的CSS会紧挨着页面<title>标签引入，这样在<head>中自定义的样式可以覆盖ExtAspNet缺省样式。
+	+Alert对话框会遮挡所有的Window窗口。
+		-使用一个变通的方法解决，因为无法改变Ext.Message的默认z-index（9000）所以将box.window_default_group的zseed调整为6000。	
+	-为所有按钮的左右增加5px的空白边距：.x-btn button { margin: 0 5px !important; }。
+	-因为下拉列表不可编辑，所以不能为空，如果不设置SelectedIndex或SelectedValue，则默认选中第一项。
+	-重新绑定模拟树的下拉列表后，选中项的前面有图片的HTML标签的BUG。
+	-更新自定义JavaScript组件Ext.ux.SimplePagingToolbar。
+	-更新示例工程。
+	
+	
+
++2009-03-25 v1.3.1
+	-Tree在AJAX回发展开节点时JS错误[feedback:xlli]。[fixed]
+	-Window中的EnableIFrame==false，则点击关闭按钮时报JS错误。[fixed]
+	-页面包含FileUpload控件，需要点击按钮回发并上传文件，则不能采用原生AJAX方式。（参见示例aspnet/fileupload.aspx）[fixed]
+	-HtmlEditor显示隐藏工具栏按钮不起作用，HtmlEditor目前不支持Enabled和Readonly两个属性。[fixed]
+	
+	
+
++2009-03-03 v1.3.0
+	-如果弹出的窗口（Ext-Window）含有ASP.NET控件FileUpload，则此弹出窗口在关闭时出现JS错误（http://extjs.com/forum/showthread.php?t=8129）[feedback:xlli]。[fixed]
+	-如果页面中存在ASP.NET控件（TextBox），则第二次提交表单就会报错（视图状态不对，其实时没有更新EventValidation隐藏字段导致的问题）。[fixed]
+	-页面上放置ExtAspNet-Button和ASP.NET-Button，则点击ExtAspNet-Button时激发的是ASP.NET-Button的事件，这个BUG和Extjs2.2.1中Ext.Ajax.serializeForm的实现有关。[fixed]
+	-ExtAspNet内部包含HtmlAgilityPack和Nii.JSON两个开源的第三方类库。[added]
+	+如果以前你听过不要在ExtAspNet工程中使用ASP.NET标准控件的忠告，那么从v1.3.0版本开始，你可以忘掉这个说法，现在ExtAspNet控件和ASP.NET标准控件和平共处了。[fixed]
+		-如果一个ASP.NET按钮控件要使用ExtAspNet的原生AJAX，只需要设置属性 UseSubmitBehavior="false" 即可。
+		-如果要在一次ExtAspNet的原生AJAX回发时更新ASP.NET控件的值，只需要调用PageManager的公共方法AddAjaxUpdateControl即可（示例：aspnet/aspnet.aspx）。
+
+
+
++2009-02-27 v1.2 beta9
+	-网络连接出错时的“Ajax Error”改成更加友好的提示信息“本次连接失败！可能是网络连接出错，请刷新页面重试。”。[fixed]
+	-自动测试功能会在以后版本中逐步完善。这个版本完成测试框架，采用Extjs中JS函数进行大部分的测试，对于一些难以测试的地方借助jQuery完成。[fixed]
+	+系统底层代码优化（主要是Javascript的封装和BUG修复）。[fixed]
+		-底层使用Javascript创建一个Window控件的代码由原来的2000字符减少为500个字符。	
+		-PageContext静态类中的GetPageStateChangedFunction改名为GetConfirmFormModifiedReference，底层代码优化。表示“获取当前页面中表单修改的确认提示框的脚本”。
+		---[updated]删除PageContext中的GetConfirmFormModifiedReference，使用CurrentActiveWindow中的GetConfirmFormModifiedCloseReference/GetConfirmFormModifiedCloseRefreshReference/GetConfirmFormModifiedClosePostBackReference三个方法代替。
+		-不会修改弹出页面的URL（Ext-Window中的IFrame），以前为了实现功能为每个弹出页面添加box_parent_client_id查询字符串
+		-去除PageManager的RegisterPageStateChangedScript属性，现在已经将这个功能实现为静态的JS方法。可以通过PageContext.GetFormModifiedConfirmReference获取此方法的客户端脚本。
+		---注意：以前的项目需要在所有的ASPX页面中查找RegisterPageStateChangedScript属性，并删除，否则会运行错误！
+		-A页面有Ext-Window控件弹出B页面，B页面有Ext-Window控件弹出C页面，B页面的Ext-Window控件设置Target='_parent'，则弹出的Ext-Window（C页面）会覆盖整个A页面，这是正确的。
+		---当时如果用户直接访问B页面，就会报JS错误，因为此时找不到B页面的父页面A了。现在的版本修正为如果找不到父页面，则就在当前页面弹出窗口，这样用户直接访问B页面也不会出错了。
+		-Window控件的GetIFramePageStateChangedFunction函数改名为GetConfirmFormModifiedCloseReference，表示“获取先确认IFrame的页面中表单改变，然后关闭弹出窗口的客户端脚本”。
+		---为Window控件增加如下两个方法GetConfirmFormModifiedCloseRefreshReference和GetConfirmFormModifiedClosePostBackReference，表示“先确认表单改变，然后关闭弹出Ext-Window，再然后刷新父页面或回发父页面”。
+		---Window控件的OnClientCloseButtonClick属性如果不设置，则默认采用GetConfirmFormModifiedCloseReference，也即是先判断表单是否更新，然后在关闭窗口。
+		---现在可以很方便的为Window控件的关闭按钮添加关闭后刷新父页面或者关闭后回发父页面的行为。
+		-如果弹出窗口（Window控件）中IFrame的页面不能正常加载（网络暂时出错或页面抛出异常），则此时点击右上角的关闭按钮会报JS错误，因为此时页面尚未加载完毕。
+		---此版本修正了这个BUG，即时页面不能加载完全，也能通过右上角的关闭按钮关闭弹出含IFrame的窗体。
+		-Window控件的IFrameName属性是自动生成的，只读属性。（因为有可能所有的Ext-Window最终都渲染到最外层的页面，为了保证这些IFrame的name不同，IFrameName使用的是GUID，内部处理）。
+		-CurrentActiveWindow改名为ActiveWindow。
+		-[特别注意]GetWriteBackValueReference(string controlClientIds, string value, params string[] values)函数现在的定义是GetWriteBackValueReference(params string[] values)
+		---所有调用GetWriteBackValueReference的地方，需要删除第一个参数（一般是ActiveWindow.GetLoadStateReference()）。
+		
+	
+
++2009-02-23 v1.2 beta8
+	-ContentPanel中内容不能自动扩展高度的BUG[feedback:huihuang]。[fixed]
+	-DropDownList在Ajax回发时不能计算模拟树的数据[feedback:huihuang]。[fixed]
+	-DropDownList在页面第一次加载时没有不可选择项，则回发时也不会有不可选择项的BUG。[fixed]
+	-升级底层ExtJS类库为v2.2.1（此版本主要是Chrome的支持和部分内存泄漏问题的修正）。[fixed]
+	-页面加载过程中的时间信息保存在Javascript变量window.box.timeInfo中。[added]
+	+增加部分自动测试支持（使用WatiN和NUnit），下个版本将会提供完整的自动测试支持。[fixed]
+	
+	
+
++2008-10-28 v1.2 beta7
+	-DropDownList没有选中任何一项，回发时报错[feedback:huihuang]。[fixed]
+	-Window显示位置不对，以及不能拖动的BUG[feedback:huihuang]。[fixed]
+	+PageContext优化。[fixed]
+		-去除RegisterExclusiveScript静态函数（这是没有原生ajax之前的产物），使用RegisterStartupScript替代。
+		-去除RegisterStartupScript的重载函数，只保留最简单的PageContext.RegisterStartupScript(string script)函数。
+		-Resirect增加重载函数Redirect(string url, string target)，其中target可能的取值为_self,_parent,_top，分别表示在当前窗口，父窗口，顶级窗口重定向[feedback:jqpeng]。
+	-Image控件增加ImageWidth/ImageHeight/ImageCssStyle/ImageCssClass/ImageAlt属性[feedback:jqpeng]。[fixed]
+	-发布包中增加一个Web.config.txt，这是一个空的Web.config文件，包含BOX基本的配置信息。[fixed]
+	-ContentPanel的ShowHeader和ShowBorder属性默认也是true（注意更新以前的应用）。[fixed]
+	-Row和Column布局时，修正IE下设置RowHeight="100%"时显示不正确的BUG。[fixed]
+	-AccordionLink当鼠标移上和移开时，有背景色的变化效果[feedback:huihuang]。[fixed]
+	+TabStrip的Tab控件的EnablePostBack属性会在回发时保持（也即是说如果EnablePostBack=true，回发时没改变EnablePostBack的值，则每次切换到此Tab都会回发）。[fixed]
+		-有这样一个效果，如果Tab1默认显示，Tab1的EnablePostBack=true，则页面加载完毕后会回发Tab1一次。
+	
+	
+
++2008-10-20 v1.2 beta6
+	+使用控件的站点必须建立虚拟目录，否则会报JS错误（即是脚本资源没有加载），却原来是HTTPCompress组件的问题。[fixed]
+		-需要替换新的blowery.Web.HttpCompress.dll，解决方案见http://pohee.com/it/http-compression-in-aspnet-20/。
+	+DropDownList优化。[fixed]
+		-去除EnableFirstItem/FirstItemText/FirstItemValue，这个并不能带来很大的好处，反而容易让开发人员困惑。
+		 现在可以方便的在后台DropDownList1.Items.Insert(0, new ExtAspNet.ListItem("全部", "-1"));来达到同样的效果。
+		+如果某项（ListItem）的Value为空字符串，则通过SelectedIndex和SelectedValue不能选中[feedback:jqpeng]。
+			-和Asp.net中的保持一致，ListItem的Value值可以为空字符串。 也就是可以这样写DropDownList1.SelectedValue = "";
+		-ListItemCollection增加重载函数Add(string text, string value)，这样方便后台添加列表项。
+	-处于布局内的容器控件（Layout!=LayoutType.Container），AutoHeight会自动设置为false（避免开发人员发生此类错误）。[fixed]
+	-注意，控件的高度指的是整个控件的高度，包含BodyPadding（这和CSS中的height不同，CSS中的height是指内容的高度，除去padding/border-width/margin）。[fixed]
+	+为所有控件属性增加在VS中的智能提示。[fixed]
+		-需要将ExtAspNet.XML和ExtAspNet.dll放在一起，这样引用dll时xml会被拷贝到bin目录下，提供VS的智能提示。
+	+控件的属性如果是枚举类型，如果此属性可以不取值，则默认为None。[fixed]
+		-TriggerIconType.Default -> TriggerIconType.None
+		-SystemIconType.Empty -> SystemIconType.None
+		-RegexPattern.USER_DEFINED -> RegexPattern.None
+	-表单验证属性名称变化（ValueToCompare->CompareValue,ControlToCompare->CompareControl）。[fixed]
+	+注意：一个属性可以拥有多个值的情况。[fixed]
+		-属性和CSS相关则用空格分隔（比如ColumnWidths,BodyPadding）。
+		-其他的都是逗号分隔（比如ValidateForms,DataKeyNames,DataNavigateUrlFields）。
+	+AccordionLink实现为控件。[fixed]
+		-可以方便的在子页面（iframe）中通过js切换父页面中选中的菜单项（Accordion->AccordionLink）（示例在other/accordion_links_run.aspx,other/accordion_links_run_iframe_htm）[feedback:jima]。
+	+确认：可以方便的动态添加控件，并且可以给控件添加服务器端事件（示例在form/form_dynamic_run.aspx）。[fixed]
+	
+	
+	
++2008-10-15 v1.2 beta5
+	-验证表单字段的ValueToCompare属性，为字符串时会出错的BUG。[fixed]
+	+优化下拉列表。[fixed]
+		-验证下拉列表时，应该取ListItem的Value属性进行验证，而不是Text属性。
+		-DropDownList的Items增加Insert方法（可方便的下拉列表选项添加“全部”）。
+		-DropDownList不支持EmptyText属性。
+		-ListItem启用EnableSelect和SimulateTreeLevel属性，这样就可以直接在前台（ASPX）中设置哪些项不可选择，以及创建模拟下拉树。
+		-DropDownList增加EnableSimulateTree属性（默认为false），如果设置了DataSimulateTreeLevelField，则自动将EnableSimulateTree设置为true。
+	
+	
+
++2008-09-27 v1.2 beta4
+	+EnableLargeHeader属性对所有容器的效果一样，Accordion的属性EnableLargeHeader只会改变Accordion的标题大小，而不会对AccordionPanel起作用（示例见other/accordion_run.aspx）。[fixed]
+		-Accordion去除EnableHightlight属性，AccordionPanel增加EnableHightlight属性。
+		-影响以前使用Box的应用，需要将Accordion的属性去掉，然后为每个AccordionPanel增加EnableLargeHeader和EnableHightlight属性。
+	-AccordionPanel鼠标移上去的样式调整（现在没有下面的一条白线了）。[fixed]
+	+AccordionPanel增加Links属性，可以绑定列表数据到AccordionPanel，呈现的是链接的列表（示例在other/accordion_links_run.aspx）。[fixed]
+		-原来放置在AccordionPanel中的容器，比如ContentPanel需要在外层加上<Items>标签。
+		-适当增大AccordionPanel中链接的高度20px->22px，同时对链接的样式也做了微调。
+		-通过BodyPadding控制链接列表的边距。
+		-这样能大大减少ASPX中HTML代码和Javascript代码的书写，可以在后台动态添加链接，效果很赞，此需求由马季提出。
+	
+	
+	
++2008-09-25 v1.2 beta3
+	+代码优化与设计时支持(尚需要不断完善，目前可以在ASPX页切换到“设计时”，方便属性的更改和事件处理函数的添加)。[fixed]
+		-Panel/GroupPanel/ContentPanel/Tree/HiddenField/PageLoading
+		-TabStrip/Toolbar
+	-TabStrip去除Plain属性，增加EnableTitleBackgroundColor（默认为true）。[fixed]
+	-向Form中动态添加控件的BUG，现在form/form_dynamic_run.aspx示例已经能正确运行。[fixed]
+	+大部分容器的子控件集合更正为Items（以前有些是Rows）。[fixed]
+		-影响的控件包括Toolbar/Accordion/AccordionPanel/GroupPanel/Panel/SimpleForm/Window等。
+		-保留Form的Rows(FormRowCollection)属性和Grid的Rows属性(GridRowCollection)。
+		-保留TabStrip的Tabs(TabCollection)属性。
+		-保留PageLayout/BorderLayout的Regions(RegionCollection)属性。
+	-预祝今晚神七发射成功。
+	
+	
+	
++2008-09-22 v1.2 beta2
+	+Grid选中项（SelectedRowIndexArray）在ajax回发过程中存在BUG [feedback:xmzhu]。[fixed]
+		-表现为对Grid进行多次删除添加操作后，SelectedRowIndexArray选中项中会存在当前不存在的行序号，导致服务器端遍历选中项时数组越界。所有使用box控件的应用程序都受到此BUG的影响，需尽快更新到新版本。
+	+代码优化与设计时支持（示例中表单控件都已支持设计）。[fixed]
+		-PageManager/SimpleForm/Button/HyperLink/Label/Image/LinkButton/TextBox
+		-TriggerBox/TwinTriggerBox/Window/TextArea/HtmlEditor/DatePicker/NumberBox
+		-CheckBox/RadioButton/RadioButtonList/DropDownList
+		-Grid
+
+
+
++2008-09-19 v1.2 beta1
+	-Image/LinkButton/HyperLink增加一些Ajax可更新属性。[fixed]
+	+隐藏的方式由HideMode属性控制Visibility/Offsets/Display。[fixed]
+		-修正Form/SimpleForm中隐藏一个表单字段（Hidden=false）会占据页面空间的BUG。
+	-ToolbarText/ToolbarFill/ToolbarSeparator在ASPX中设置Hidden=true不起作用的BUG [feedback:jbzhang]。[fixed]
+	-Button去除MarginRight属性（可以通过CssStyle="margin-right:5px;"达到相同的效果）[fixed]
+	
+	
+	
++2008-09-09 v1.1
+	+Toolbar去除IsPageMenu属性，在网报中可以用自定义样式实现，而不应该写在控件中。[fixed]
+		-网报：CssClass="toolbar-pagemenu" CssStyle="border:0px;"，同时定义样式：.toolbar-pagemenu{ background: rgb(208, 222, 240) url(../images/pagemenu_toolbar_background.gif) repeat-x left top;}。
+	-Region去除默认的Layout=Fit，如果希望Region使用Fit/Anchor/Column/Row等布局的话，需要手工指定。[fixed]
+	-ToolbarSeparator/ToolbarFill在Ajax更新Hidden属性的BUG。[fixed]
+	+布局整理。[fixed]
+		-新增Column/Absolute/Row三种布局，加上以前的Container/Fit/Anchor/Accordion/Border/Form六种布局，总共有9中布局可供使用。
+		-其中一些控件默认使用一种布局：SimpleForm(Form)/Form(Form)/Panel-GroupPanel(Container)/Accordion(Accordion)/PageLayout(Border)/BorderLayout(Border)/TabStrip(Card)，所有布局控件默认的布局是Container。
+		-经常用到的布局控件：SimpleForm/Form/Accordion/TabStrip/BorderLayout，经常用到的布局：Fit/Row/Anchor
+	
+	
+	
++2008-09-08 v1.1 beta7
+	-MenuButton/MenuHyperLink增加HideOnClick属性，如果一个菜单项的作用仅仅为了弹出下级菜单，点击没反应，则可以这样设置HideOnClick="false" CssStyle="cursor:default;" [feedback:huayu]。[fixed]
+	-MenuButton/MenuHyperLink/MenuSeparator/MenuText增加Hidden属性（此属性是Ajax可更新属性，如果需要在Ajax时显示隐藏菜单，请使用此属性而不是Visible属性）。[fixed]
+	+大部分的ExtAspNet控件增加Hidden属性（少数几个控件没有此属性：Menu），这样在Ajax时可以显示隐藏控件。[fixed]
+		-注意Visible和Hidden的区别：Visible=false的属性不会渲染到客户端，Hidden=true的控件渲染到客户端但是隐藏。
+		-US的ExtAspNet改造强烈依赖于此属性，这个版本发布后可以继续。
+		-网报中唯一没有用到ExtAspNetAjax的地方就是显示隐藏表单字段，现在也可以使用Ajax了。
+
+
+
++2008-09-04 v1.1 beta6
+	-PageContext.Redirect支持普通页面转向和ExtAspNetAjax下页面转向。[fixed]
+	+模拟树的下拉列表的BUG（会使一些可选项变成不可选项）[feedback:xmzhu]。[fixed]
+		-因为if("0,2,9,11,".indexOf('1,')>=0){ok}，这显然是不对的，此BUG涉及很多控件（Grid,DropDownList,TabStrip）。
+		-解决方法：testValue += '';if(domValue.split(',').indexOf(testValue) >= 0){ok}。
+	-DropDownList在Ajax时应该先更新数据再设置选定项 [feedback:xmzhu]。[fixed]
+	-Button/MenuButton增加Ajax可更新属性OnClientClick [feedback:xmzhu]。[fixed]
+	-Tree的Ajax支持（尚需优化）。[fixed]
+	
+	
+
++2008-09-02 v1.1 beta5
+	-DropDownList如果第一次没有绑定值，应该绑定到[[]]（二维数组），而不是[]（一维数组）。[fixed]
+	-模拟树的DropDownList，在Ajax重新绑定DataSource后，保持项是否可选状态是最新的（页面第一次加载时，即使没有数据也需要设置DataTextField/DataValueField/DataSimulateTreeLevelField/DataEnableSelectField等属性的值，否则Ajax回发时会出错）。[fixed]
+	-UserControlConnector导致的Ajax错误，去除UpdatePanelConnector控件（以后不会用AspnetAjax，这个控件已经完成使命）。[fixed]
+	-不要使用Asp.net的控件HiddenField，而是使用ExtAspNet的HiddenField，因为Asp.net的控件在Ajax不会被更新，所以会导致视图状态不一致的错误。[fixed]
+	-网报Ajax整合基本完成（除了待审批->下一步[审核/归档/出纳]操作，由于需要显示隐藏表单字段，目前Ajax不支持，使用的还是普通的PostBack）。[fixed]
+	-IE下，RadioButtonList中项如果存在汉字，则会换行的BUG。[fixed]
+	-增加两个Theme[Slate/Black]（样式尚需完善）。[fixed]
+	
+	
+	
++2008-09-01 v1.1 beta4
+	-非当前Tab中如果有ContentPanel，则在页面上方会有空白（可以通过设置EnableDeferredRender=false解决，但会减慢页面的加载速度），现在已经解决这个问题。[fixed]
+	-RadioButtonList去除EnableBackgroundColor/EnableLightBackgroundColor属性，背景色是透明的，也就是和父控件（SimpleForm/Form）的背景色一致。[fixed]
+	-TwinTriggerBox的第一个Trigger图标不会先显示再隐藏，而是直接隐藏掉（如果用户设置ShowTrigger1=false）。[fixed]
+	-Web.config中增加配置项FormLabelWidth="80"（默认为80）,同时PageManager增加FormLabelWidth属性用来控制页面上所有SimpleForm/Form的表单字段标题的宽度。[fixed]
+	+完善Ajax。[fixed]
+		-RadioButtonList增加Ajax可更新属性SelectedIndex(SelectedValue/SelectedItem)。
+		-DropDownList增加Ajax可更新属性Enable/SelectedIndex(SelectedValue/SelectedItem)/DataSource。
+		-Grid增加Ajax可更新属性Columns（也就是说Grid列在回发时隐藏显示了一些，也能正确的Ajax）。
+		-ToolbarText增加Ajax可更新属性Text。
+		
+		
+		
++2008-08-31 v1.1 beta3
+	-TabStrip增加EnableDeferredRender属性（是否启用延迟加载Tab，默认启用）。[fixed]
+	-重定向页面，使用系统的方法 PageContext.Redirect(string url)，使用Response.Redirect方法会出错。[fixed]
+	+安全的Ajax设计。[fixed]
+		-这个版本Ajax和上个版本(v1.1beta1)在设计思路上有很大区别，同时在速度上会有进一步的提升。
+		-基本思想：安全的Ajax交互，明确Ajax回发时支持控件哪些属性的改变，这将适合90%的应用场景（并且具有极快的反应速度），对于需要UI大改动的可采用常规回发，系统提供控件级别的EnableAjax属性。
+		-整理支持Ajax的控件属性改变列表（所有被支持的属性改变都是安全的、快速的，所有不被支持的属性改变不会对UI起作用，同时是安全的，不会有js错误）。
+	-网报Ajax整合（目前只支持所有的列表页面）(v0.8.1)。[fixed]
+	
+	
+	
++2008-08-29 v1.1 beta1
+	+Window控件是否弹出的状态在回发时维持。[fixed]
+		-控件设计的一个原则，凡是可以在客户端改变的属性都应该在回发时保持属性的状态。
+	+完全抛弃Asp.NetAjax，ExtAspNet控件内置Ajax支持。[fixed]
+		-这是一个值得骄傲的设计，可以明显提高页面回发的速度（相比普通的回发和Asp.netAjax的回发），对于IFrame框架的交互也起到很好的加速效果。
+		-不需要做任何配置，所有的回发都是Ajax（在Web.config和PageManager中有设置启用Ajax回发的属性-EnableAjax-默认为true）。
+		+在这种设计下，其实可以完全抛弃Javascript。
+			-比如简单的点击一个按钮弹出窗口，可以在Button的OnClick事件中设置Window1.Popup=true，也可以注册Button的OnClientClick=Window1.GetShowReference()。
+			-第一种方法需要回发，但是我们内置的Ajax支持能很快的返回需要的结果并解析，在网络速度很快的情况下和第二种方法差别不是很大。
+			-推荐的做法是尽量用客户端实现，客户端实现复杂的直接用服务器端实现。
+		+目前ExtAspNetAjax的限制。
+			-只对ExtAspNet控件起作用，对Asp.net控件不起作用。
+			-对容器控件（有子控件的控件）不起作用，只对最底层的控件起作用。
+			-对改变控件的Visible属性会有错误。
+			-Window控件的属性改变只有少数几个起作用（Popup，IFrameUrl）。
+	-PageManager增加属性EnablePageLoading和EnableAjaxLoading（启用页面第一次加载标示和Ajax加载标示，默认都为true），所以如果使用系统默认的加载标示就不必每个页面都添加PageLoading控件。[fixed]
+	-Grid中的回发事件（主要是LinkButtonField和CheckBoxField(RenderAsStaticField=false)）要延迟0ms执行，这样当前行被选中的状态在回发后会得到保持。[fixed]
+	-Grid选中行的状态在第一次回发时不能保持的BUG。[fixed]
+	
+	
+	
++2008-08-26 v1.0
+	+已知问题：IE的ActiveX插件IE Developer Toolbar会对IFrame的加载造成0.5m左右的延迟。
+		-主要是父页面加载一个比较大的css文件（~100k），则每次打开iframe页面，onload事件的调用都会有500ms左右的延迟，在测试IE性能时要禁用此插件。
+	+优化弹出窗口中IFrame的显示速度。[fixed]
+		-在当前页面弹出窗口需要~20ms，在父页面弹出窗口需要100~300ms。通过缓存弹出的窗口实例，从而第二次弹出窗口不再需要创建时间。
+	-PageLayout的Region增加SplitColor属性，默认的背景色是透明的。（在网报中需要设置SplitColor="#CADDF7"，以便分隔符的颜色和Toolbar的颜色一致）[fixed]
+	+PageManager增加属性Theme、Language、FormMessageTarget、FormOffsetRight等属性，这些属性可以在Web.config中设置（推荐方法），也可以为每个页面设置。[fixed]
+		-一个典型的应用是为每个用户设置不同的皮肤（根据用户浏览器中Cookie设置的值）（示例在default.aspx）。
+	-TreeNode增加属性SingleClickExpand，表示点击可切换节点的折叠展开状态。[fixed]
+	+TabStrip中非当前Tab会延迟渲染。[fixed]
+		-这会明显加快页面的渲染速度，网报中一个典型的费用审批页面可以减少200ms的渲染时间。
+		-由于非当前Tab不会在页面加载时渲染，所以那些Tab中的节点在页面加载后也是不可见的，需要将相关的脚本移动到控件的render事件中。
+	-不能比较两个DataPicker大小的BUG。[fixed]
+	-TabStrip延迟加载引起的BUG（非当前Tab中的ContentPanel会占据页面空间，已修正）。[fixed]
+	-全新的ExtAspNet.Examples（基础知识/表单控件/数据绑定/容器布局/IFrame框架）。[fixed]
+	
+	
+	
++2008-08-19 v0.4 beta6
+	+PageManager增加两个属性（EnableInlineStyleJavascript/ApplyParentStyleJavascript），可以在IFrame页面中使用父页面的脚本和样式（示例在iframe/default.aspx和iframe/page3.aspx）。[fixed]
+		-测试发现，IFrame页面的加载速度并没有明显加快，可以先不使用此属性。
+	-RadioButtonList放在在BorderLayout中显示不了的BUG [feedback:zgjiang2]。[fixed]
+	+extjs的BUG，当页面中含有iframe时，Ext.onReady会被调用两次（IE6/IE7）（http://www.extjs.net/forum/showthread.php?t=43246）（示例在test.aspx）[fixed]
+		-现在的解决方法是在初始化时：if(this.initialized){return;}this.initialized=true;
+	+需要先回发页面再弹出IFrame窗口。[fixed]
+		-在回发时设置窗口的Popup和IFrameUrl属性，因为这些属性是可以保持状态的，所以在关闭窗口时要注意设置Popup=false。
+		-另一种做法（推荐）：PageContext.RegisterStartupScript(Window99.GetShowReference("./simpleform.aspx"));。
+	
+		
+	
++2008-08-15 v0.4 beta5
+	-点击关闭窗口的按钮，在IE6下会有JS错误。[fixed]
+	-增加BorderLayout控件，示例在iframe/borderlayout.aspx。[fixed]
+	+Radiobuttonlist显示有重影（示例在radio.aspx）。[fixed]
+		-全新的样式。
+		-去除Horizontal属性，增加ColumnNumber（可以设置渲染成几列）。
+		-GetValueReference取得的值不正确的BUG。
+	-动态向Form中添加FormRow，并动态的向FormRow中添加表单字段，以及如何取得表单字段的值。（示例在form_dynamic.aspx）[fixed]
+	+IFrame弹出窗口关闭后回发父页面，则会多加载IFrame一次，再次打开窗口会重复加载IFrame2-3次[feedback:xmzhu]。[fixed]
+		-这是一个重要的BUG，会严重影响页面的加载速度。原因是通过脚本改变的IFrameUrl会在回发时保持状态，从而回发父页面后Window中的IFrame被添加到页面，而这是不需要的。
+		-现在"是否弹出窗口、窗口标题、IFrameUrl"在客户端的改变，不会影响服务器端的属性，也即是不保持状态。此问题解决。（示例在button_iframe.aspx）
+	
+	
+	
++2008-08-13 v0.4 beta4
+	-点击关闭窗口的按钮，在IE下会有JS错误。[fixed]
+	-Window的右上角关闭图标增加提示，优化事件响应。[fixed]	
+	-Window的代码重构。[fixed]	
+	+修正一个的内存泄漏。[fixed]
+		-IE7下测试，打开iframe/default.aspx页面，iexplorer占内存68.368M。
+		-内存存在泄漏时，点击iframe/page3.aspx页面8次后iexplorer占118.792M内存。
+		-修正后，点击iframe/page3.aspx页面8次后iexplorer占76.492M内存。
+		-IE窗口最小化时，IE会自动进行垃圾回收。
+	
+	
+	
++2008-08-12 v0.4 beta3
+	-底层的javascript框架Extjs升级为v2.2，Grid的渲染速度有很大提升。[fixed]
+	-Grid的EnableDelayRender默认为true（如果没有设置Grid的高度或通过布局间接设置高度，则行不可见，可以通过AutoHeight="true"解决）。[fixed]
+	+页面正在加载的提示尽早的显示出来。[fixed]
+		-首先在执行js来完成页面渲染之前延迟5ms，以便浏览器把当前页面内容显示出来。
+		-加载js脚本的script标签放置在页面的最后，放置加载js而阻塞PageLoading的显示。
+	
+	
+	
++2008-08-08 v0.4 beta2
+	-TabStrip延时加载出错。[fixed]
+	-Window的IFrameUrl处理的BUG，比如Pages_ExtAspNet目录下的页面应该为./FE_ApplyEditor.aspx或~/Pages_ExtAspNet/FE_ApplyEditor.aspx。[fixed]
+	-Window的WindowPosition="Center"并且Target="_parent"，则会JS错误。[fixed]
+	-实现网报首页下拉菜单和左侧菜单的导航功能。[fixed]
+	-Window的创建在页面显示后进行，不计算在js渲染时间内。[fixed]
+	-优化费用申请页面（尽量减少不必要的层次嵌套）。[fixed]
+	-button_iframe.aspx默认会加载form.aspx页面(Window控件的BUG)。[fixed]
+	-Window中的保存并关闭按钮和Asp.netAjax冲突。[fixed]
+	-优化关闭Window的js脚本，减少写到页面的js大小。[fixed]
+	-加快“保存并关闭”按钮关闭窗口的速度，使用PageContext.RegisterExclusiveScript(CurrentActiveWindow.GetClosePostBackReference());，示例在(simpleform.aspx)。[fixed]
+	
+	
+	
++2008-08-05 v0.4 beta1
+	-DropDownList去除Traditional属性，和传统的Asp.net控件一样不可编辑。[fixed]
+	-DropDownList增加SelectedText属性（去除了模拟树时通过SelectedItem.Text的多余html字符）。[fixed]
+	-为了加快渲染速度，去掉一些特效（比如Panel的折叠效果，Grid的拖动列效果等）[feedback:dcding]。[fixed]
+	-将生成的js对象的名称简单化，这样可以减少生成的js内容，加快页面加载速度（一个典型页面的js由原来的33.0k降低为21.4k）。[fixed]
+	+弹出窗口中，点击按钮回发然后点击关闭按钮，出现js错误 [feedback:xmzhu]。[fixed]
+		-因为在页面的Page_Load中，if (!IsPostBack){PageContext.RegisterPageStateChangedStartupScript();}通过这样方法向页面注册了一段脚本，但是这段脚本在回发时没有注册到页面，因为js调用此脚本时报错。
+		-一种解决方法是将向页面注册脚本的函数移动到if语句的外面，即每次都向页面注册此脚本。
+		-另一种办法就是在PageManager控件中增加RegisterPageStateChangedScript（向页面注册监视页面中表单内容改变的脚本）的属性（会在每次页面回发(包含ajax回发)时注册脚本）（示例在button_iframe.aspx/simpleform.aspx）。
+	+PageManager控件增加ExecuteOnReadyWhenPostBack属性（示例在onreadyscript.aspx）。[fixed]
+		-这个手工添加onReady函数能够在每次页面回发时都注册脚本（包括Ajax局部回发），这就避免了手工去做的麻烦（已经在网报中遇到这种情况）。
+	-每个页面必须添加一个PageManager控件，否则会出错，同时去除DesignTimeStyle控件（作为PageManager的属性出现）。[fixed]
+	-TextField等表单字段增加Readonly属性。[fixed]
+	+全新设计的IFrame的架构（尽可能和基于MasterPage的架构保持兼容，和Asp.net Ajax保持兼容）。[fixed]
+		-最大的好处是可以减少页面下载完毕后Javascript渲染时间（可以节约一般的渲染时间）。（所有示例在iframe文件夹下）
+		+示例1，通过点击按钮弹出IFrame窗口，可直接关闭父页面，也可在关闭后刷新或回发父页面。（default.aspx/page2.aspx/simpleform.aspx）
+			-虽然IFrame和Master两种架构差异迥然，或许你以为需要修改一堆代码来完成这种转换，起初我也是这么认为的，但是现在你所要做的仅仅是为Window控件增加一个属性（Target="_parent"），就完成了两种框架的转换，是不是很酷。
+			-显然，控件本身封装了大量的代码，简单来看现在有三个页面（default.aspx(A)/page2.aspx(B)/simpleform.aspx(C)）,其中A包含B页面，当你在B中打开包含有页面C的窗口时，窗口不是在B中打开，而是在A中打开，这样才能保证窗口覆盖整个页面，当你从C中返回需要回发页面B时，却发现取得的是A页面，因为我们窗口是在A页面中创建的。我会通过一篇文章来揭示这一过程，敬请期待。
+		-示例2，Grid中弹出窗口。（default.aspx/page3.aspx/simpleform.aspx）	
+		+示例3，TriggerBox弹出窗口。（default.aspx/triggerbox.aspx/simpleform.aspx）	
+			-在整个页面弹出窗口或者在当前页面弹出窗口，仅仅设置Window的Target属性即可。
+		-示例4，弹出窗口中的弹出窗口。
+	-对整个Examples更新测试。[fixed]
+	
+	
+	
++2008-07-31 v0.3 beta12
+	-IE下TabStrip在Ajax回发后不会去掉x-hide-display样式，导致Tab显示为空的BUG。[fixed]
+	-对TabStrip/Panel/Window中的IFrame重新设计，如果设置IFrameUrl="#"或者"about:blank"，则不渲染iframe到页面节点，同时第二次打开Window中的IFrame不会有残影出现。[fixed]
+	-如果TabStrip的Tab不是激活Tab并且设置了IFrameUrl，则会延迟加载（示例在tabstrip_iframe.aspx）。[fixed]
+	-Tree控件，点击一个节点自动回发，则当前点击的那个节点的选中状态不会保持的BUG [feedback:zgjiang2]。[fixed]
+	+规范关闭窗口时提示用户保存已经修改的内容提示的调用方式（包含iframe中关闭按钮和window右上角关闭图标的调用方式）（示例在grid_iframe.aspx/simpleform.aspx）。[fixed]
+		-内部实现上，点击“保存并关闭按钮”，可以将关闭窗口的脚本更早的执行（在simpleform.aspx，PageContext.RegisterStartupScript增加重载函数），而不是原来的先创建整个页面UI，再关闭窗口。
+	-参照Yslow的评分规则，将JS文件引用由head移动到body中。[fixed]
+	-Firefox下，如果页面太长会出滚动条，原来在ViewPort样式中有body{overflow:hidden;}。[fixed]
+	+IFrame内的页面宽度和高度会自动设置（是不是还在为1px/2px的白边而烦恼，现在不用了:-）（示例在iframe_autosize.aspx/simpleform.aspx/simpleform2.aspx）[fixed]
+		-增加PageManager控件（需要指定AutoSizePanelID，即需要设置宽度和高度为整个页面的宽度和高度的Panel），HideScrollbar属性用于隐藏滚动条（IE/Firefox）。
+	
+	
+	
++2008-07-24 v0.3 beta11
+	-web.config配置信息中MessageTarget改名为FormMessageTarget，增加FormOffsetRight配置项，用来定义全局表单字段距离右边界的宽度，同时每个表单字段都增加OffsetRight属性 [feedback:jima]。[fixed]
+	-Window在回发时设置的Title不起作用的BUG。[fixed]
+	-增加Image控件 [feedback:jima]。[fixed]
+	-Tree控件，如果一个节点不是叶子节点并且没有子节点，则应把它的Expanded设置为false，否则会引起页面死循环回发 [feedback:zgjiang2]。[fixed]
+	-Image增加ToolTipTitle/ToolTipAutoHide两个属性，当提示信息特别长时，可以让用户阅读完毕之后手工关闭提示信息（示例在hyperlink.aspx）。[fixed]
+	-去掉DropDownList控件的Text属性(强制性)，可以通过设置SelectedValue来设置选中哪一项 [feedback:xmzhu]。[fixed]
+	-过滤提示消息中的换行符（转换为<br/>），否则提示信息可能导致页面渲染错误 [feedback:dcding]。[fixed]
+	
+	
+	
++2008-07-23 v0.3 beta10
+	+完善Tree控件。[fixed]
+		-如何将数据库中的数据绑定到Tree（示例在tree2_bind_database.aspx）。
+		-ajax加载树节点，放在UpdatePanel中才有ajax的效果（示例在tree2_ajax.aspx）。
+		-更改TreeNode的ID为NodeId，否则两个树中不能有相同ID的TreeNode，这是不合理的。
+	-Grid的GridColumn的ID改名成ColumnId，否则同一个页面放置两个Grid，它们的GridColumn的ID不能同名，这是不合理的。注意需要更新以前的代码！[fixed]
+	-Grid所有类型的列增加DataTooltipField/DataTooltipFormatString两个字段，以显示ToolTip（示例在grid.aspx）。[fixed]
+	
+	
+	
++2008-07-22 v0.3 beta9
+	+IE6下，左侧导航链接的选中样式，以及鼠标移上去和移开的样式不对。[fixed]
+		-发现原来ie6不能正确解析li的高度，必须手工设置才行（style="height:20px;"）。
+	+IE6/IE7下，模拟树的下拉列表如果文字长度太长，则显示的文字会换行，导致错位。[fixed]
+		-虽然最后未能解决<div style="width: 60px; white-space: nowrap; overflow: hidden; border: solid 1px red;"><div style="width: 16px; height: 18px; float: left;">##</div>差旅交通费</div>在IE和Firefox下显示的不同效果。
+		-但是通过用<img src="##" />来代替<div style="background:url(##)" />，从而实现FF和IE下样式的统一。
+		-刚看到old9的解决方案：把“差旅交通费”改成“<span style="margin-right: -1000px;">差旅交通费</span>”，在IE下和FF下的都不换行，:-)
+	-LinkButton增加OnClick事件 [feedback:huihuang]。[fixed]
+	-Window通过设置IFrameUrl和Popup不起作用的BUG。[feedback:xmzhu]。[fixed]
+	+增加树控件（Tree）（示例在tree2.aspx）。[fixed]
+		-可以在回发时维持树的状态（选中行，折叠/展开，CheckBox）。
+		-可以通过Inline的方式添加树节点，也可以绑定到XmlDocument/XmlDataSource/SiteMap。
+		-点击树节点可以链接到页面，也可以引发PostBack事件，可以添加自定义脚本。
+	
+	
+	
++2008-07-16 v0.3 beta8
+	+ContentPanel中放置ExtAspNet控件，则渲染时会出现各种问题，比如下拉列表显示样式出错，Grid没了滚动条等等。[fixed]
+		-隐蔽性非常强，原来在ContentPanel中渲染ExtAspNet控件，如果容器的display='none'，则会出现各种问题（主要是大小不对）。
+		 必须设置容器为visibility='hidden'，然后在渲染完成后显示容器。
+		-现在Grid只要显示的设置高度和宽度，或者隐式的设定宽度高度（通过Anchor或Fit布局实现），只要超过Grid容器就会显示滚动条。
+	+IE6下，在应用Asp.NetAjax后，Form中字段的宽度渲染不正确。[fixed]
+		-调试相当困难，如果你有过在IE下通过alert发现问题的经历，你就能明白。
+		-最后发现IE6下应用Asp.NetAjax后不仅Form中列的宽度设置不正确，而且主内容区域的宽度设置也不正确，不过最终我们还是顽强的修复了IE6下的这个BUG：
+		 在MasterPage的onReady函数中，首先修正内容区域的宽度（region3.setWidth(pageLayout1.getSize().width - region2.getSize().width - 5);region3.doLayout();），然后修正页面中所有表单的宽度（box_fixFormWidthInIE6();）：
+		 示例在 Site.Master 页面。
+	+集成的AspNetAjax有一个很大的BUG，只要你在页面上进行过ajax操作，当改变窗口大小时你会惊讶的发现内容区域的内容全部为空了！[fixed]
+		-解决方法相当怪异，经过一个下午的不断尝试，终于用一个怪异的方法解决（box.{0}.setSize(box.{0}.getSize());box.{0}.doLayout();），
+		 这样的代码让我想起刷新窗口时那个方法（window.location.href=window.location.href;），不管怎么说，我对能很好的解决这个重大的BUG很是欣喜。
+	
+	
+	
++2008-07-14 v0.3 beta6
+	-增加FlashObject控件。[fixed]
+	-PageLoading增加EnableFadeOut属性（默认false）,可以启用淡出效果。[fixed]
+	-Accordion选中样式微调。[fixed]
+	-预加载Form表单出错时提示信息的背景图片。[fixed]
+	+Grid增加EnableDelayRender属性（默认false），可以加快页面的渲染速度（一个典型的20个记录的页面，可提前0.7s-1s显示出来）。[fixed]
+		-因为延迟加载数据不会改变Grid的大小，所以对于非布局内或不设定高度宽度的Grid，需要设置"EnableDelayRender=false"。
+	-改变Grid中静态的CheckBoxField图片。[fixed]
+	-TabStrip增加TabIndexChanged事件，同时Tab增加EnablePostBack，可以在点击一个Tab时引起回发事件。这在延迟加载Tab的内容非常有用。（示例在tabstrip.aspx）[fixed]
+	
+	
+	
++2008-07-12 v0.3 beta5
+	-页面菜单Toolbar的分割符和背景不相融合。[fixed]
+	-表单字段之间可以比较大小，比如NumberBox可以和Label比较大小，同时增加CompareType，来指定比较的类型（示例在form_compare.aspx）。[fixed]
+		-如果是同种类型的表单字段，不需要指定CompareType，比如两个NumberBox比较值的大小不需要指定CompareType，而一个NumberBox和TextBox比较大小需要指定CompareType。
+	+如果在编辑页面使用AspNetAjax，则不能在回发时关闭当前窗口[feedback:huihuang]（示例在ajax_editor_main.aspx/ajax_editor.aspx）。[fixed]
+		-这是由于ajax后执行的javascript中不能有return false语句。
+	+在文本框失去焦点时，执行一些Javascript脚本（示例在textbox_blur.aspx） [feedback:xmzhu]。[fixed]
+		-在页面添加onReady函数（会被系统调用），然后用javascript监视文本框值的改变。
+	-弹出Window默认显示的错误页面，解决方法在当前目录添加一个空的html页面，然后把Window控件的IFrameUrl指向这个页面而不是"#"。[fixed]
+	+弹出的窗口中的弹出窗口的如果内容发生变化，则点击右上角的关闭按钮时会有提示用户先保存的对话框，但是这个对话框的被第二个弹出窗口覆盖了 [feedback:xmzhu]。[fixed]
+		-原来的调用方法太麻烦（见示例中alert\alert_1.aspx和alert\alert_2.aspx，总计 6 行代码），现在只需要 3 行代码就OK了。
+	-点击提交按钮后变成灰色不可再次点击（示例在button_click_gray.aspx）[feedback:jima]。[fixed]
+	+增加Menu、MenuText、MenuSeparator、MenuButton、MenuHyperLink控件，用于按钮的下拉菜单（示例在button_menu.aspx）。[fixed]
+	-增加SplitButton控件。[fixed]
+	
+	
+	
++2008-07-09 v0.3 beta4
+	-DataPicker默认的日期格式为（yyyy-MM-dd）。[fixed]
+	+Form表单字段（TextBox,DropDownList...）之间可以比较大小 [feedback:huihuang]。[fixed]
+		-增加ControlToCompare/ValueToCompare/CompareOperator/CompareMessage四个属性，示例在form_compare.aspx。
+	+TabStrip中放置IFrame会出现渲染错误 （示例在tabstrip_iframe.aspx）[feedback:jima]。[fixed]
+		-特殊处理，拥有IFrame的Tab如果不是激活Tab，则不设置Url，只有在激活时才设置Url。
+	-RadioButtonList增加AutoPostBack属性（示例在radio.aspx） [feedback:xmzhu]。[fixed]
+	-FormRow可以设置各列的宽度百分比 （示例在form_columnwidths.aspx）[feedback:jima]。[fixed]
+	+表单字段Enable=false时显示颜色太浅 [feedback:jima]。[fixed]
+		-覆盖缺省样式的.x-item-disabled，设置不透明。
+	
+	
+	
++2008-07-08 v0.3 beta3
+	-Grid没有数据，向后翻页按钮可以点击的BUG [feedback:huihuang]。[fixed]
+	+增加HiddenField控件。[fixed]
+		-其实用TextBox也能模拟HiddenField的行为，只需要设置CssStyle="display:none;"即可。
+	+TriggerBox 如果 EnableTextBox = true，则不能将Text回发（这是html的限制）。[fixed]
+		-最后的解决方案居然是设置 readonly=true，同时更改属性为 Readonly（示例在textbox2.aspx）。
+	-模拟树的下拉列表在失去焦点后显示的文字不对的BUG。[fixed]
+	+控制下拉列表某些项不可以选择（示例在dropdownlist2.aspx）。[fixed]
+		-增加 DataEnableSelectField 属性，不可选择的项变灰，并且鼠标经过时没有样式。
+	-LinkButton和Grid的LinkButtonField增加Enable属性（示例在hyperlink.aspx和grid.aspx）。[fixed]
+	
+	
+	
++2008-07-07 v0.3 beta2
+	+增加UpdatePanelConnector控件，支持在布局构建的页面使用Asp.net Ajax。[fixed]
+		-使用UpdatePanelConnector有一个要求：ContentTemplate下只能有一个子节点，比如box:Panel。
+		-示例在ajax3.aspx/content_page4.aspx。
+		-示例content_page3.aspx中，点击“Ajax查询”按钮和关闭弹出的窗口（点击右上角的叉）都引发异步更新。
+	  
+	   
+	
++2008-07-03 v0.3 beta1
+	+容器控件的AutoHeight/AutoWidth默认为false。[fixed]
+		-使用GroupPanel的地方需要手工添加AutoHeight="true"属性。
+	+增加UserControlConnector，可以在其中放置用户控件（示例在page_usercontrol.aspx）。[fixed]
+		-也可以在ContentPanel中放置用户控件，注意两者的区别。
+	+增加ContentPlaceHolderConnector，替换原来Region的ContentPlaceHolderId属性（示例在Site.master）。[fixed]
+	+支持Asp.net ajax异步加载。[fixed]
+		-有很大局限性，只能在ContentPanel中使用，示例在ajax1.aspx/content_ajax2.aspx中。
+		-对于使用布局构建的页面（比如content_page1.aspx）还不能使用Asp.net ajax，因为页面是整体渲染的，先放弃。
+	
+	
+	
++2008-07-02 v0.2 beta12
+	+关闭前提示当前页面已经被修改（示例在content_page1.aspx/simpleform.aspx）[fixed]
+		-支持Iframe内按钮和window右上角关闭按钮。
+		-删除CloseAction属性，可以在后台通过OnClientCloseButtonClick属性指定（为了和iframe中做法一致）。
+	+iframe中的alert/confirm要覆盖整个父页面，而不仅仅是iframe页面。[fixed]
+		-在Firefox下还有问题。[fix pending]
+	+排序时在标题栏显示排序箭头，可以排序的列标题光标为手形（示例在grid_sorting.aspx）。[fixed]
+		-可以通过设置Grid1.CurrentSortColumnIndex = 0;来强制某列显示排序箭头。
+		-可以通过 Grid1.Columns[Grid1.CurrentSortColumnIndex].SortExpression 的方式取得当前Grid的排序表达式。
+	+HyperLinkField/WindowField的链接地址支持服务器端格式（即是~/alert.aspx）。[fixed]
+	-TabStrip的Tab中如果放置ContentPanel，则内容渲染位置不正确。[fixed]
+	-可以在ContentPanel中放置用户控件（示例在page_usercontrol.aspx）。[fixed]
+		
+	
+	
++2008-06-30 v0.2 beta11
+	-增加TwinTriggerBox控件（示例在twintriggerbox.aspx）。[fixed]
+	-Grid的数据库分页需要增加属性IsDatabasePaging=true，以便普通分页和数据库分页，否则在添加删除记录时总记录数不会变化 [feedback:zgjiang2]。[fixed]
+	-关闭Window时PostBack事件OnClose可以指定参数，来区分是哪些操作引发的PostBack事件 [feedback:zgjiang2]（示例在window_postback.aspx）。[fixed]
+	-如果表单验证不通过，则需要弹出对话框提示（第一个没通过验证的字段）（目前还不能切换到相应的tab）。[fixed]
+	+页面中任意可输入表单字段发生变化，可提示先保存。（示例在content_page1.aspx/simpleform.aspx）[fixed]
+		-目前还不支持Window右上角关闭按钮的提示保存功能。
+	-Master/Content的内容页中Grid的Sort事件不起作用的BUG [feedback:zgjiang2]。[fixed]
+	-Grid中的LinkButtonField设置ConfirmText会出错 [feedback:huihuang]。[fixed]
+	-增加静态类Confirm。[fixed]
+	
+	
+	
++2008-06-27 v0.2 beta10
+	+Grid完善。[fixed]
+		-CheckBoxField在回发时不能保持状态的BUG （已经更新了grid_checkboxfield.aspx示例）。
+		-Grid中模拟树显示，GridColumn增加DataSimulateTreeLevelField属性（一个Grid只能有一个Column指定此属性），指定此列模拟树显示时的层次字段（0,1,2,...）（示例在grid_simulate_tree.aspx）。
+		-切换分页时清空选中的值 [feedback:jqpeng]。
+		-增加PreRowDataBound事件，可以在数据绑定之前设置某列的属性 [feedback:xmzhu] （示例在grid_prerowdatabound.aspx）。
+	-DropDownList模拟树的方式显示，增加DataSimulateTreeLevelField属性，使用方法和Grid的类似（示例在dropdownlist_simulate_tree.aspx）。
+	
+	
+	
++2008-06-25 v0.2 beta9
+	+Window窗体中的Iframe只让内容区域滚动，而Toolbar不滚动的规则。（示例在content_page2.aspx/simpleform.aspx）[fixed]
+		-在simpleform.aspx中：Panel[BodyPadding=5](Toolbar,Panel[Height=450 Layout=Fit](SimpleForm[AutoScroll=true]))，则外面窗口的高度=450 + 5*2 + 26 + 32，其中26是Toolbar的高度，32是窗口的标题栏和下边框的高度。
+	+关闭Iframe的LoadMask，所以需要Iframe页面添加PageLoading控件，这样效果统一。[fixed]
+	+Grid完善。
+		-去除EnableClientPaging和EnableClientSort属性，客户端排序和客户端分页在ASP.NET应用中会有很多问题（主要是状态保持的问题）。
+		+EnableServerSort改名AllowSorting。（示例在grid_sorting.aspx）
+			-使用非常简单：设置AllowSorting=true，注册OnSort事件，在事件处理函数中重新绑定数据。
+		+增加AllowPaging属性。（示例在grid_paging.aspx）
+			-使用非常简单：设置AllowPaging=true，PageSize=3，注册OnPageIndexChange事件，在事件处理函数中Grid1.PageIndex = e.NewPageIndex;OK。
+		+数据库分页支持。（示例在grid_database_paging.aspx）
+			-使用也非常简单：设置AllowPaging=true，PageSize=3，在绑定时设置RecordCount为总的记录数，在OnPageIndexChange事件处理函数中Grid1.PageIndex = e.NewPageIndex;LoadPageData(Grid1.PageIndex);OK。
+		-增加CheckBox绑定，可响应回发事件 [feedback:zgjiang2]（示例在grid.aspx）。  
+	
+	
+	
++2008-06-23 v0.2 beta8
+	-SimpleForm和Form可以在窗口大小发生变化时自动调整宽度。[fixed]
+	-Accordion右侧菜单增加鼠标hover的样式。[fixed]
+	+TriggerBox。[fixed]
+		-设置Enable=false，不会响应回车和点击事件。
+		-增加EnableTextBox属性，只禁用文本框，不禁用Trigger。
+	+向弹出的窗口动态传递页面数据。[fixed]
+		-解决方法和Button的ConfirmText的使用一样（<script>）。
+		-Window1.GetShowReference(String.Format("triggerbox_iframe2.aspx?param1=<script>{0}</script>", TriggerBox2.GetValueReference())) （示例在textbox.aspx/triggerbox_iframe2.aspx）。
+		-Grid的WindowField也支持将页面中的文本框等表单元素的值作为参数传递到Iframe页面 [feedback:zgjiang2]。（示例在grid_iframe.aspx/simpleform.aspx）
+	-Form中只有一行，并且某一列的字段设置Visible=false时会渲染出错的BUG [feedback:zgjiang2]。[fixed]
+	-Label/HyperLink在Form外面时不会占据一行的位置。[fixed]
+	-增加LinkButton控件。（示例在hyperlink.aspx）[fixed]
+	+Grid完善。[fixed]
+		-增加RowDataBound事件 [feedback:zgjiang2]。（示例在grid.aspx）
+		-增加LinkButtonField [feedback:zgjiang2]。（示例在grid.aspx）
+	
+	
+	
++2008-06-20 v0.2 beta7
+	-在链接中调用Window1.GetShowReference()出现js错误的BUG [feedback:clyin2]。[fixed]
+	-容器的EnableLightBackgroundColor在Form中有多列时渲染不正常 [feedback:zgjiang2]。[fixed]
+	-Button增加ConfirmIcon属性（默认MessageBoxIcon.Warning），两个按钮文本“确定”和“取消”[feedback:zgjiang2]。[fixed]
+	+Grid上面的Button要显示类似“你确定要删除 2 条信息吗？”这样的信息 [feedback:zgjiang2]（示例在content_page1.aspx中）。[fixed]
+		-btnConfirmButton.ConfirmText = String.Format("你确定要删除 <b><script>{0}</script></b> 条信息吗？<br/>这是不可恢复操作，确认删除请选择“确定”。", Grid2.GetSelectCountReference());，系统会把<script></script>之间的内容解析为js代码。
+	-TriggerBox响应回车按键 [feedback:zgjiang2]。[fixed]
+	+怎样查看Window中iframe页面的高度（示例在simpleform.aspx）。[fixed]
+		-在页面添加function onReady(){alert(Ext.get('<%= Panel1.ClientID %>').getSize().height);}脚本即可。
+		-如果iframe中页面高579，则要设置Window的高度为579+31=610px（ie和firefox下少有不同，以ie下为准）。
+	+Form中的表单字段不能设置Visible=false属性 [feedback:zgjiang2]。[fixed]
+	-Grid如果没有绑定数据，在回发时渲染出错 [feedback:zgjiang2]（示例在budget.aspx）。[fixed]
+	-参考Asp.net自身的控件，DropDownList的SelectedIndex属性只能在后台代码中设置（以前在ASPX代码中设置的都要改动），就好像使用Accordion的ActiveIndex一样。[fixed]
+	-HyperLink增加OnClientClick属性 [feedback:jima]（示例在hyperlink.aspx）。[fixed]
+	+增加RadioButton控件（可以模拟竖排RadioButtonList），在回发时保持状态 （示例在radio.aspx）。[fixed]
+	-增加RadioButtonList控件，可以在回发时保持状态，可以绑定数据（用法和DropDownList类似） （示例在radio.aspx）。[fixed]
+	-Grid在绑定DataBind()后的DataKeys还是空的BUG [feedback:zgjiang2]。[fixed]
+	-TabStrip中的Tab支持IFrame （IE下显示还有问题）。[fixed]
+	+已知问题（已经在v0.2 beta9中解决）
+		-Grid如果有选择框，则不能客户端排序，否则客户端排序后再回发取得的选中项不正确，目前是增加一个EnableClientSort属性，默认为false。
+	
+	
+	
++2008-06-19 v0.2 beta6
+	+Accordion完善。[fixed]
+		-ActiveIndex只能在代码中设置，不能在ASPX源码中设置。
+		-AccordionPanel选中时标题的背景是高亮的（参考CRM实现）[feedback:zgjiang2]。[fixed]
+	-TabStrip中有多个Tab时，只有当前显示的Tab内容布局正确，其他不正确 [feedback:jima]。[fixed]
+	-IE6下表单字段(比如TextBox)下面的线显示不了（每个页面都应该添加正确的DOCTYPE：xhtml1-transitional）。[fixed]
+	-Utility改名为PageContext，和关闭Window相关的代码移动到CurrentActiveWindow（表示当前激活的窗口）。[fixed]
+	+Window完善。[fixed]
+		-Firefox下，用服务器端隐藏窗体控件时还有问题（Window内部放置一个ContentPanel）的BUG。
+		-Window位置WindowPositionType（GoldenSection/Center）（默认使用黄金分割点）（如果不设置Top/Left），不会超出屏幕范围 [feedback:clyin2]。
+		-CloseAction仅仅是点击关闭按钮的动作（示例在textbox.aspx）。
+		-Window中网页的按钮动作通过注册特定的JS脚来实现（CurrentActiveWindow静态类下面的GetCloseReference/GetCloseRefreshReference/GetClosePostBackReference）（示例在textbox.aspx）。
+		-GetShowReference(string windowTitle, string iframeUrl)定义改变成GetShowReference(string iframeUrl, string windowTitle)，这个和以前的版本不兼容，需要注意！
+	-容器控件增加EnableLightBackgroundColor属性，此时背景色较浅。[fixed]
+	+增加TriggerBox。[fixed]
+		-服务器端事件TriggerClick。
+		+弹出Window，关闭返回值（示例在textbox.aspx/triggerbox_iframe2.aspx）。
+			+这个过程非常有意思：
+				-1.首先在弹出窗口之前，我们通过 TriggerBox1.OnClientTriggerClick = Window1.GetSaveStateReference(TriggerBox1.ClientID) + Window1.GetShowReference("", "triggerbox_iframe2.aspx") + "return false;"; 把TriggerBox1的客户端id保存在Window1的js对象中，然后弹出窗口。
+				-2.弹出窗口中点击一个按钮处理业务逻辑，并把结果返回给TriggerBox1的代码时：PageContext.RegisterStartupScript(CurrentActiveWindow.GetWriteBackValueReference(CurrentActiveWindow.GetLoadStateReference(), TextBox1.Text) + CurrentActiveWindow.GetClosePostBackReference());取得保存在Window1的js对象中的TriggerBox1的客户端id，然后把TextBox1的值赋给父页面的TriggerBox1，最后关闭Window。
+				-3.OK。
+			-如果弹出窗口时设置： TriggerBox1.OnClientTriggerClick = Window1.GetSaveStateReference(tbxName.ClientID) + Window1.GetShowReference("", "triggerbox_iframe2.aspx") + "return false;"; 则返回时会把内容写到tbxName的文本框中，:-)
+			-这种方式的扩展性也很好，我们可以点击任一个按钮，弹出窗口，然后把窗口的返回值赋给任意一个文本框。只需要在父页面中：btnSetValueToName.OnClientClick = Window1.GetSaveStateReference(tbxName.ClientID) + Window1.GetShowReference("", "triggerbox_iframe2.aspx");（注意：如果最后不加"return false;"，则需要设置按钮的EnablePostBack=false，否则点击按钮会回发页面。）
+			+还有一种常见的应用：从窗口需要返回两个值，一个是给用户看的值（Text），另一个是隐藏的值（Value）（当然也可以返回多个值）。
+				-1.首先在Window上下文中保存三个文本框的ClientID： TriggerBox2.OnClientTriggerClick = Window1.GetSaveStateReference(TriggerBox2.ClientID, TriggerBox2_TextBox.ClientID, TriggerBox2_TextBox2.ClientID) + Window1.GetShowReference("", "triggerbox_iframe2.aspx");
+				-2.然后在Window返回时向这三个文本框赋值：PageContext.RegisterStartupScript(CurrentActiveWindow.GetWriteBackValueReference(CurrentActiveWindow.GetLoadStateReference(), TextBox1.Text, TextBox1.Text + " 的值", TextBox1.Text + " 的值2") + CurrentActiveWindow.GetCloseReference());
+				-3.OK。
+				-4.实际执行的javascript代码还是蛮复杂的（if(!activeWindow){var activeWindow=parent.box.window_default_group.getActive();if(!activeWindow)return false;}var controlClientIds=(function(){return eval('parent.box.'+activeWindow.id+'.box_string_state');})();if(typeof(controlClientIds)=='string'){eval('parent.box.'+controlClientIds).setValue('这是返回的值');}else{eval('parent.box.'+controlClientIds[0]).setValue('这是返回的值');var controlValues=['这是返回的值 的值','这是返回的值 的值2'];var controlCount=Math.min(controlClientIds.length-1,controlValues.length);for(var i=0;i<controlCount;i++){eval('parent.box.'+controlClientIds[i+1]).setValue(controlValues[i]);}}if(!activeWindow){var activeWindow=parent.box.window_default_group.getActive();if(!activeWindow)return false;}eval('parent.box.'+activeWindow.id+'_hide();');），不过不用管它，呵呵。
+	-Button/TriggerBox增加EnablePostBack属性，EnablePostBack=false则点击按钮不会回发（这样OnClientClick时就不必写"return false;"）（示例在triggerbox_iframe2.aspx）。[fixed]
+	
+	
+	
++2008-06-17 v0.2 beta4
+	+Window完善。[fixed]
+		-标题前面的图标显示位置不正确（window.aspx）。
+		-Window窗体有背景色的BUG（应该为白色）（window.aspx）。
+		-Window的滚动条的颜色不对（button_iframe.aspx）。
+		-登陆页面脚本错误，去掉Window控件的DefaultButtonID属性。
+	+Grid，WindowField的DataWindowTitleFormatString属性有问题。[fixed]
+	-默认页面字体大小为12px。[fixed]
+	-容器控件（Panel，Accordion等）增加EnableLargeHeader属性（默认为false），同时删除Accordion的UsePanelHeaderStyle属性。[fixed]
+	-Form/SimpleForm的LabelWidth默认为80px（原来的是100px）。[fixed]
+	-表单字段控件增加FocusOnPageLoad属性，可以在页面加载完毕后获得焦点（示例在login.aspx）。[fixed]
+	-单行文本框（TextBox/NumberBox/DataPicker/DropDownList）增加NextFocusControlID属性，指定回车时获取焦点的控件（这样login.aspx可以实现两种效果：1.用户名框回车焦点到密码框，密码框回车提交页面；2.用户名框或密码框回车都提交页面）。[fixed]
+	-删除图标替换，按钮的关闭/删除/保存并继续等图标可以使用属性SystemIcon（枚举类型）来指定。[fixed]
+	
+	
+	
++2008-06-16 v0.2 beta3
+	+Accordion完善（示例在content_page1.aspx）。[fixed]
+		-名称变化，增加AccordionPanel子控件，增加属性（ShowCollapseTool/EnableActiveOnTop/EnableFill/EnableAnimate）。
+		-增加ActiveIndex属性，并在回发时保持状态。
+		-增加UsePanelHeaderStyle属性，将AccordionPanel的标题渲染成Panel的标题样式。
+		-标题前面的图标大小必须是：24*24，所有容器控件（Panel/Form等）的标题前面的图标都要求24*24。
+	-页面菜单样式调整（设置Toolbar的IsPageMenu="true"）。[fixed]
+	-滚动条和链接缺省样式的定义（在dll中定义）。[fixed]
+	
+	
+	
++2008-06-13 v0.2 beta2
+	+Master/Content完善。[fixed]
+		-Content中弹出的Window窗口只能在Content中移动的BUG [feedback:leizhang5&clyin2&jima]。
+		-Content下的最外层Panel不用设置AutoHeight=false&AutoWidth=false，这个是默认的 [feedback:leizhang5]。
+		-Grid的工具条上的新增按钮和检查是否选中按钮出错 [feedback:zgjiang2]。（示例在content_page1.aspx） 
+	+优化框架的视图状态（涉及所有的容器控件）。[fixed]
+		+参考Asp.net Ajax Extension对视图状态的处理方式。
+			-所有Box控件实现INamingContainer接口。
+			-对于像Panel这样的容器控件，设置[ParseChildren(true)] & [PersistChildren(true)]，也就是说把控件内容作为属性，但是把控件的子控件作为控件保持状态，这样就不用手工一层一层的向下维护属性的视图状态了。
+			-在控件的OnInit中，EnsureChildControls()，这样可以确保在Page_Load时引用的控件的ClientID是正确的（有层次结构）。
+			-修正“ContentPanel放置在Panel等控件中，不能在回发时保持状态”的BUG。
+			-pagelayout2.aspx中文本框的状态不能保持，其实时渲染时没有放在form中，参考extjs的开源实现FormViewport。
+			-Master/Content的Content中的控件可以保持状态。
+	-Grid中的WindowField，修改DataTitleField为DataWindowTitleField。[fixed]
+	-DropDownList的Traditional默认为true。[fixed]
+	
+	
+	
++2008-06-12 v0.2 beta1
+	+Grid完善。[fixed]
+		+Grid控件中的列增加Visible属性，可以隐藏/显示列，使用：Grid1.Columns[0].Hidden = false; （Grid前面的多选框列和序号列不计算在内） [feedback:zgjiang2]。
+		-CheckBoxField不使用CheckBox的图片，这样容易和Grid自身的多选框混淆 [feedback:zgjiang2]。
+		-如果DataSource是对象的集合，则支持复合对象，也即时可以绑定到UserInfo.UserName的形式（示例在grid_complex.aspx）[feedback:zgjiang2]。
+		-如果Grid放在Panel中，则WindowField不起作用，已经修正 [feedback:zgjiang2&jima]。
+	-ToolBar内的Button不能设置Visible=false的BUG（同时容器控件中的子控件也面临同样BUG，并修正）[feedback:zgjiang2]。
+	-Panel中只放置一个Toolbar，不放其他控件时会出错，已经修正 [feedback:zgjiang2]。[fixed]
+	+DropDownList完善。[fixed]
+		-和Grid的DataSource一样，DataTextField/DataValueField也支持复合对象的绑定。
+		-自动回发的事件被激发两次 [feedback:zgjiang2]。
+	+TabStrip中放置Form时显示不正确 [feedback:jima]。[fixed]
+	+页面布局完善。[fixed]
+		-容器控件增加属性（Layout=Anchor/Fit,AutoScroll,AutoHeight,AutoWidth,AnchorValue）。
+		-Layout=""，自动扩展的宽度和高度（autoHeight=true 并且 autoWidth=true）。
+		-Layout=Fit，容器控件A中只能有一个子控件B，并且B会填充整个A（示例在layout_fit.aspx）。
+		+Layout=Anchor，容器控件A可以包含很多子控件B1,B2,B3...通过B1,B2,B3的属性AnchorValue控制每个控件占据的宽度和高度（示例在layout_anchor.aspx）。
+			-常用数据（每行表单26px，如果有一个三行的表单，并且设置了BodyPadding="5px"，则此表单占据高度为 26px*3+5px*2=88px）。
+			-经典查询页面布局为：Panel(Layout=Anchor)[Form(AnchorValue='100%'), Panel(Layout=Fit & AnchorValue='100% -88')[Grid]]。
+			其中"100% -88"：第一个参数表示宽度，可以是百分比也可以是一个负整数（比如-56意思是距离右边框56px）；第二个参数表示高度，可以是百分比也可以是一个负整数（比如-88意思是距离下边框88px）；
+	+整体页面框架。[fixed]
+		-增加PageLayout控件，用于页面的整体布局（示例在pagelayout2.aspx）。
+		-支持MasterPage（示例在Site.master/content_page1.aspx）(VERY COOL~~~)。
+	-增加Accordin控件。[fixed]
+	
+	
+	
++2008-06-10 v0.1 beta12
+	+Grid完善。[fixed]
+		-如果没有选中任何一项，则弹出对话框提示（btn1.OnClientClick=String.Format("if(!{0}){{{1}return false;}}",grid1.GetHasSelectionReference(),Alert.GetShowReference('至少选中一项'));），太麻烦，封装成一个函数（btn1.OnClientClick=grid1.GetNoSelectionAlertReference('至少选中一项');）[feedback:zgjiang2]。	
+		-禁用客户端排序（在GridColumn中不设置SortField即可）[feedback:clyin2]。
+	+Button完善。[fixed]
+		-增加系统图标属性SystemIcon，并能自动设置ToolTip属性 [feedback:jima]。
+		-按钮可以按下（在Toolbar中使用），增加属性（EnablePress/Pressed）（例子在simpleform.aspx）。
+		-默认按钮的右侧不留任何空白，同时增加属性MarginRight来设置右侧空白。
+	+DropDownList完善。[fixed]
+		-增加验证（Required）[feedback:clyin2]。
+		-增加一些属性（Traditional将下拉框变成传统的不可编辑模式，Resizable下拉列表可以拖放大小）
+		-增加自动回发的支持（AutoPostBack属性和SelectedIndexChanged事件）[feedback:clyin2]。
+		-下拉列表中经常需要一项“全部”，增加默认支持（EnableFirstItem/FirstItemText(默认"全部")/FirstItemText(默认"-1")）[feedback:jima]。
+	+Form完善。[fixed]
+		-FormRow实现为控件。
+		-Form中两列的LabelWidth不起作用。
+		-Form中一列和两列的右侧对齐问题（全部距右边框25px）。
+	-很多控件（包括Form/Panel/SimpleForm）增加在源代码（HTML）视图下的自动排版功能（使用Ctrl+D+K自动格式化），这对ASPX源代码的清晰非常有好处。[fixed]
+	-增加HyperLink控件（使用类似Label） [feedback:jima]。[fixed]
+	-在web.config中增加一个配置项（MessageTarget=side/qtip），设置表单验证的提示信息的显示方式。[fixed]
+	-增加静态类Utility（GetCloseWindowReference/RegisterStartupScript）。[fixed]
+	+Window的IFrame网页中添加关闭Window的功能（可以指定关闭后刷新Window所在页面或者引发Window的回发事件，在Window中定义）。[fixed]
+		-关闭Window：btnClose.OnClientClick = ExtAspNet.PageContext.GetCloseWindowReference() + "return false;";（例子在button_iframe.aspx）
+		-保存后关闭Window：在按钮的回发事件最后注册脚本 ExtAspNet.PageContext.RegisterStartupScript(Page, ExtAspNet.PageContext.GetCloseWindowReference()); （示例在button_iframe.aspx）
+	+Toolbar完善（示例在simpleform.aspx）。[fixed]
+		-增加ToolbarSeparator，工具条分隔符。
+		-增加ToolbarText，可以在工具栏放置静态的文本内容。
+		-增加ToolbarFill，可以将工具栏分割成左右两部分。
+	-页面整体布局示例（在pagelayout.aspx）。[fixed]
+	+已知问题。[fix pending]
+		-有时设计时更改的内容不能保存到HTML源代码中，建议的做法是在HTML代码中修改，在设计时预览效果。
+	 
+	
+	
++2008-06-05 v0.1 beta10
+	-Button的 OnClientClick 容错处理，如果最后没有分号结束，添加分号结束 [feedback:zgjiang2]。[fixed]
+	+Grid完善。[fixed]
+		-Grid增加客户端脚本，判断是否有CheckBox被选中（GetHasSelectionReference/GetSelectCountReference）（示例在grid.aspx） [feedback:zgjiang2]。
+		-Grid如果不设置DataKeyNames会出错 [feedback:zgjiang2]。
+	+Window完善。[fixed]
+		-Window控件通过右上角的图标按钮关闭，不能在回发时保持状态 [feedback:zgjiang2]。
+		-关闭Window控件时的动作（CloseAction=None/Refresh/PostBack），并增加Close事件（示例在window.aspx）。
+	-增加一些控件的默认属性，在从工具栏拖放到代码区域时直接赋值（Panel/Form/Window等）。[fixed]
+	-所有容器的BodyPadding默认为"0px"。[fixed]
+	-容器增加背景色支持（EnableBackgroundColor/BackgroundColor）（每种主题的默认背景色是不同，可以自己设置背景色）（示例在grid.aspx）。[fixed]
+	+Form完善。[fixed]
+		-DropDownList如果放在Form中，则不能在回发时保持状态 [feedback:zgjiang2&jima]。
+		-Form中的FormRow不再是控件。
+	-Tree/DropDownTree控件原型（只是简单的渲染，没有绑定编辑功能）（示例在tree.aspx）。[fixed]
+	
+	
+	
++2008-06-03 v0.1 beta9
+	+增加IFrame支持。[fixed]
+		-Panel、Tab、Window、GroupPanel增加属性（EnableIFrame、IFrameUrl），用来指定iframe加载的网页地址。
+	-Button控件增加OnClientClick属性，可以设置点击按钮时需要执行的客户端脚本 [feedback:zgjiang2]。[fixed]
+	+Window完善。[fixed]
+		-增加 Popup 属性（默认为true），指定页面加载时显示窗口，注意和Visible=false的区别（不渲染），Popup=false（渲染但不弹出）。   
+		-回发时保持弹出窗体是否显示的状态。
+		-客户端（JavaScript）、服务器端代码（C#）显示隐藏弹出窗口的代码示例（window.aspx）。
+		-如果Window窗体中嵌套ContentPanel，则隐藏（Popup=false）窗体时ContentPanel任然显示的BUG。
+		-客户端改变IFrameUrl和窗体的Title，并在回发时保持状态（button_iframe.aspx）。
+	+Grid和IFrame的交互。[fixed]
+		-示例（grid_iframe.aspx）。
+	   
+	
+	
++2008-05-30 v0.1 beta8
+	+增加ContentPanel控件。[fixed]
+		-设计时支持，ContentPanel默认不显示边框和标题栏，并且BodyPadding为0。
+		-去掉容器的RenderChildrenAsContent属性（这是一个不易用的设计），增加的ContentPanel控件专门放置html/asp/box标签，我们的Panel/Window/Tab/GroupPanel中只能放置box标签。
+		-不向后兼容，这将影响所有的容器控件示例，已经更新工程。
+	-Window窗口居中显示时避免闪烁（其实是移动Window造成的，现在的做法是先移动再显示，就不会闪烁了）。[fixed]
+	+DropDownList[feedback:jima]。[fixed]
+		-可以绑定到简单/复杂类型的列表（比如：List<string>/List<MyClass>），如果未指定DataTextField/DataValueField，则取对象的ToString()值。
+		-Items集合增加 FindByText/FindByValue 方法。
+	-Button控件增加一个IconUrl属性，可以在按钮文字前面添加一个图标。[fixed]
+	+增加Toolbar控件。[fixed]
+		-这是一个很酷的效果，可以向Panel/Window/SimpleForm等容器控件中加入顶部工具栏或底部工具栏。[fixed]
+		-设计时支持。
+	
+	
+	
++2008-05-29 v0.1 beta7
+	+Grid完善。[fixed]
+		-支持DataKeyNames，DataKeys，SelectedRowIndexArray属性，方便对选中行进行控制。
+		-完善设计时支持，增加列编辑窗口。
+		-列类型增加ImageField。
+		-列增加Width属性，每列都应该指定列的宽度（除了设置ExpandUnusedSpace="True"的列）。
+		-列的ExpandUnusedSpace指定此列的宽度是否占用未使用的空间，每个Grid只能有一列的ExpandUnusedSpace为true。
+		-支持服务器端排序（列增加SortField属性，Grid增加EnableServerSort属性，Sort事件），客户端排序是默认支持的。
+		-支持客户端分页（EnableClientPaging，PageSize），不需要回发刷新，适合数据量比较小的情况（<500）。
+		-回发服务器过程中，能够保持客户端分页的状态和选中的状态。
+	+Grid已知问题。[fix pending]
+		-不支持行内按钮事件。
+		-TemplateField内不能包含服务器端控件。
+		-不支持服务器端分页。
+	-Form中的字段不会随着页面的缩放而缩放，目前没有找到解决方法 [feedback:jima]。[fix pending]
+	-Button不要占据一行，多个按钮排列成一行（并且默认margin-right:10px），现在不再需要table定位了 [feedback:jima]。[fixed]
+	
+	
+	
++2008-05-27 v0.1 beta6
+	+Grid功能增强（不支持分页）。[fixed]
+		-设计时支持。
+		-单选/多选，回发时保持状态。
+		-属性控制是否显示多选框。
+		-属性控制是否显示行序号。
+		-客户端排序。
+		-列类型可以为BoundField,CheckBoxField,HyperLinkField,TemplateField。
+		-TemplateField中可以自定义数据绑定，目前只支持Asp.Net1.1的绑定语法<%# DataBinder.Eval(Container.DataItem, "MyValue") %>，不支持Asp.Net2.0的语法<%# Eval("MyValue") %>。
+	-用户可以在function onReady(){}函数中，书写自定义Javascript代码块 [feedback:jqpeng]。[fixed]
+	-Button增加弹出Confirm对话框的功能（只需要设置属性ConfirmText）[feedback:jima]。[fixed]
+	-Window控件增加在窗体定位的属性（Top/Left）[feedback:jqpeng]。[fixed]
+	-容器控件增加IconUrl属性，可以在标题前面增加一个图标 [feedback:jqpeng]。[fixed]
+	
+	
+	
++2008-05-23 v0.1 beta5
+	-如果Button的ValidateForms指定的表单嵌套在其他容器里面，会渲染失败 [feedback:jqpeng]。[fixed]
+	-去除容器的RenderAsItems属性（字面意思难理解），增加RenderChildrenAsContent(默认为false，将容器子控件渲染为内容)，如果要在容器中放置System.Web.UI.HtmlControls和System.Web.UI.WebControls子控件，必须设置RenderChildrenAsContent="true"。[fixed]
+	-容器控件的内容只有在容器渲染完成后(RenderChildrenAsContent="true")，才会显示出来。[fixed]
+	-如果设置容器控件不可折叠，渲染时去掉保持折叠状态的隐藏字段。[fixed]
+	-在页面回发时保持可折叠容器的折叠状态 [feedback:jqpeng]。[fixed]
+	-在页面渲染时，Button的Text属性默认为"["+ID+"]"，容器的Title属性默认为"["+ID+"]"。[fixed]
+	-容器的BodyPadding实现为字符串，可以设置为"5px"或"5px 10px"或"5px 10px 10px 20px"，最终渲染为Style的padding属性。[fixed]
+	-PageLoading可以更改加载图片，可以设置回发时是否显示。[fixed]
+	-TextBox等表单控件放置在FromPanel中，其状态在回发过程中不能保持 [feedback:jqpeng]。[fixed]
+	-SimpleForm/Form的FormRow属性不再只能添加表单字段，而是和Panel一样可以添加任意的ExtAspNet控件，这就意味这可以很方便的把Panel/Button/GroupPanel/TabPanel添加到Form中。[fixed]
+	-SimpleForm/Form的设计时有很大变化，去除SimpleForm/Form的字段设计窗口（可以方便的从工具栏拖放），FormRow重新实现为控件。[fixed]
+	
+	
+	
++2008-05-20 v0.1 beta4
+	-修正表单字段的TabIndex属性，应该从1开始设置。[fixed]
+	-Button增加ValidateForms属性，可以执行提交之前对哪些表单进行有效性验证 [feedback:jima]。[fixed]
+	-表单嵌套在容器控件时，宽度和高度的自适应。Panel/GroupPanel/Window/Tab这几个控件增加RenderAsItems属性，表示将容器渲染为集合而非内容，其实FormPanel/SimpleFormPanel默认的就是把容器渲染为集合。[fixed]
+	-新增PageLoading控件，用于在页面尚未完成加载时显示Loading图标，完成加载后渐变到页面内容。[fixed]
+	-新增DropDownList控件。[fixed]
+	-新增Grid控件(原型阶段)。[fixed]
+	-改名:TabPanel->TabStrip,SimpleFormPanel->SimpleForm,FormPanel->Form,Row->FormRow。[fixed]
+	
+	
+	
++2008-05-14  v0.1 beta3
+	-TabPanel设计时样式修正。[fixed]
+	-TabPanel增加选项卡编辑窗口。[fixed]
+	-SimpleFormPanel/FormPanel编辑表单字段的窗体的易用性调整。[fixed]
+	-设计时，阻止拖放非表单字段控件到表单字段编辑区域。[fixed]
+	-所有表单字段的设计时样式调整，表单字段必须放置在SimpleFormPanel/FormPanel容器中，已更新示例工程。[fixed]
+	-SimpleFormPanel设计时的可编辑区域，最后增加一个空白行，方便从工具条拖放表单字段控件。[fixed]
+	-FormPanel设计时用Table组织一行的显示效果，可以方便在一行中增加删除表单字段，这个效果非常酷，可以在行之间增加删除调整控件，行的列数会自动调整。[fixed]
+	-FormPanel中的Row不再实现为控件，同时舍弃ColumnCount属性，降低复杂度。[fixed]
+	-兼容UTF-8和GB2312类型的网站。[fixed]
+	-DesignTimeControl改名为DesignTimeStyle，需要在设计时样式支持的页面需要添加此控件。[fixed]
+	-表单字段增加属性ShowRedStar，在Label后面显示一个红色的星号，用来标示关键字段。[fixed]
+	-HtmlEditor控件的高度设置没用，这个应该是extjs的bug（http://extjs.com/forum/showthread.php?t=28150）[feedback:jima]。[fix pending]
+	-允许自动回发的CheckBox放置在FormPanel中，在页面渲染时会回发到后台的BUG。[fixed]
+	
+	
+	
++2008-05-08  v0.1 beta2
+	-增加控件的设计时支持。舍弃FormPanel里面的RowSet控件，并增加 GroupPanel控件。
+	
+	
+	
++2008-04-30  v0.1 beta1
+	-共包含Button、TextBox、TextArea、DataPicker、NumberBox、HtmlEditor、CheckBox、Label、
+	Panel、Window、TabPanel、FormPanel、SimpleFormPanel 共 13 个服务器端控件和 Alert 一个静态帮助类。
+	
+	
+	
++2008-04-25  v0.1 preview2
+	-增加DropDownList,FormPanel,Label,CheckBox,RadioBox,Panel,TabPanel,TextArea,Window共 9 个服务端控件。
+	
+	
+	
++2008-04-11  v0.1 preview	
+	-包含Alert,Button,TextBox,DataBox,HtmlBox,Calendar,NumberBox共 7 个简单的控件。
+	
+	
+	
+Copyright 2008 sanshi.ustc@gmail.com, All rights reserved.

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<configuration>
+  <configSections>
+    <sectionGroup name="blowery.web">
+      <section name="httpCompress" type="blowery.Web.HttpCompress.SectionHandler, blowery.Web.HttpCompress"/>
+    </sectionGroup>
+    <section name="ExtAspNet" type="ExtAspNet.ConfigSection, ExtAspNet"/>
+  </configSections>
+
+  <!-- config section for my http module -->
+  <blowery.web>
+    <httpCompress preferredAlgorithm="gzip" compressionLevel="high">
+      <excludedMimeTypes>
+        <add type="image/jpeg"/>
+        <add type="image/gif"/>
+        <!-- Ajax不支持压缩格式的问题 -->
+        <add type="text/plain"/>
+      </excludedMimeTypes>
+      <excludedPaths>
+        <!--不支持资源文件的问题-->
+        <add path="WebResource.axd"/>
+        <add path="ScriptResource.axd"/>
+      </excludedPaths>
+    </httpCompress>
+  </blowery.web>
+
+  <!-- other config values: FormMessageTarget="qtip" FormOffsetRight="25" FormLabelWidth="80" -->
+  <ExtAspNet Theme="blue" Language="zh_CN" EnableAjax="true"/>
+
+  <appSettings/>
+  <connectionStrings/>
+  <system.web>
+    <pages>
+      <controls>
+        <add assembly="ExtAspNet" namespace="ExtAspNet" tagPrefix="ext"/>
+      </controls>
+    </pages>
+    <!--
+          Set compilation debug="true" to insert debugging
+          symbols into the compiled page. Because this
+          affects performance, set this value to true only
+          during development.
+    -->
+    <compilation debug="true">
+
+      <assemblies>
+        <add assembly="System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+      </assemblies>
+    </compilation>
+
+    <httpModules>
+      <add name="CompressionModule" type="blowery.Web.HttpCompress.HttpModule, blowery.web.HttpCompress"/>
+      <add name="ExtAspNetScriptModule" type="ExtAspNet.ScriptModule, ExtAspNet"/>
+    </httpModules>
+  </system.web>
+
+</configuration>

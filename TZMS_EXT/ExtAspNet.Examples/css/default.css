@@ -1,0 +1,40 @@
+﻿.header
+{
+    background-image: url(../images/logo/logo2.gif);
+    background-position: left 2px;
+    padding: 0px 50px;
+    margin: 4px 10px;
+    background-repeat: no-repeat;
+    font-size: 25px;
+    color: #fff;
+    font-weight: bold;
+    font-family: arial,tahoma,helvetica,sans-serif;
+}
+#logo
+{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+    z-index: 100000;
+}
+.intro
+{
+    font-family: arial,tahoma,helvetica,sans-serif;
+    font-size: 13px;
+    line-height: 1.5em;
+}
+.icon_aspx
+{
+    background-image: url(../images/filetype/vs_aspx.png) !important;
+}
+.icon_txt
+{
+    background-image: url(../images/filetype/vs_txt.png) !important;
+}
+.icon_htm
+{
+    background-image: url(../images/filetype/vs_htm.png) !important;
+}
