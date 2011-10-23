@@ -9,6 +9,7 @@ using System.Text;
 using ExtAspNet.Examples;
 using System.Data;
 using System.Web.Configuration;
+using com.TZMS.Model;
 
 namespace TZMS.Web
 {
@@ -42,6 +43,30 @@ namespace TZMS.Web
         }
         #endregion
 
+        /// <summary>
+        /// 当前登录用户
+        /// </summary>
+        public UserInfo CurrentUser
+        {
+            get
+            {
+                if (Session["CurrentUser%"] == null)
+                {
+                    return null;
+                }
+                return (UserInfo)Session["CurrentUser%"];
+            }
+            set
+            {
+                Session["CurrentUser%"] = value;
+            }
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
