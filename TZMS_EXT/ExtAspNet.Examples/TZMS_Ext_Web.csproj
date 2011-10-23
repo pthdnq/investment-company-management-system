@@ -40,18 +40,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="blowery.Web.HttpCompress, Version=6.0.2.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Business">
-      <HintPath>..\Business\bin\Debug\Business.dll</HintPath>
-    </Reference>
     <Reference Include="ExtAspNet, Version=2.3.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ExtAspNet_v2.3.5_dll\ExtAspNet.dll</HintPath>
     </Reference>
     <Reference Include="FredCK.FCKeditorV2">
       <HintPath>..\tools\FCKeditor.Net_2.6.3\bin\Debug\2.0\FredCK.FCKeditorV2.dll</HintPath>
-    </Reference>
-    <Reference Include="Model">
-      <HintPath>..\Business\bin\Debug\Model.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -89,6 +83,7 @@
       <DependentUpon>captcha.ashx</DependentUpon>
     </Compile>
     <Compile Include="basic\Captcha\CaptchaImage.cs" />
+    <Compile Include="Common.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -463,6 +458,20 @@
   <ItemGroup>
     <Folder Include="Pages\attendance\" />
     <Folder Include="Pages\system\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{8AD7E97C-6BE2-4A0C-8500-3B485E0F271F}</Project>
+      <Name>Business %28Business\Business%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{0537F543-2280-4751-9E8D-626AEEDCB921}</Project>
+      <Name>DataAccess %28DataAccess\DataAccess%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{F3BDD97F-4828-48BA-9220-B95E93ED1B94}</Project>
+      <Name>Model %28Model\Model%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
