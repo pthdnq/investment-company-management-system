@@ -6,6 +6,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Text;
 using ExtAspNet;
+using com.TZMS.Business;
+using com.TZMS.Model;
 
 namespace TZMS.Web
 {
@@ -59,18 +61,39 @@ namespace TZMS.Web
         {
             if (tbxCaptcha.Text != Session["CaptchaImageText"].ToString())
             {
-                Alert.ShowInParent("验证码输入有误!","提示",MessageBoxIcon.Information);
+                Alert.ShowInParent("验证码输入有误!", "登录", MessageBoxIcon.Information);
                 return;
             }
 
-            if (tbxUserName.Text == "admin" && tbxPassword.Text == "admin")
+            if (CheckUserLogin(tbxUserName.Text.Trim(), tbxPassword.Text.Trim()))
             {
-                Alert.ShowInParent("Login Successful!");
+                //Alert.ShowInParent("Login Successful!");
+                Response.Redirect("index.aspx");
             }
             else
             {
-                Alert.ShowInParent("Login Failed!");
+                Alert.ShowInParent("用户名或密码有误!", "登录", MessageBoxIcon.Information);
             }
+        }
+
+        /// <summary>
+        /// 用户验证
+        /// </summary>
+        /// <returns>true:验证通过 false:验证不通过</returns>
+        protected bool CheckUserLogin(string name, string psw)
+        {
+            UserManage um = new UserManage();
+            UserInfo user = um.GetUserByAccountNo(name);
+            if (user == null)
+            {
+                return false;
+            }
+            if (user.Password != psw)
+            {
+                return false;
+            }
+            CurrentUser = user;
+            return true;
         }
 
     }
