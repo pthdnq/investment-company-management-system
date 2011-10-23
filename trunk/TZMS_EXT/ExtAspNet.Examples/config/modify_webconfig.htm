@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        body
+        {
+            font-size: 13px;
+        }
+        ul li
+        {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Modify Web.config</div>
+    <ul>
+        <li>Open web.config, below the configuration section:
+            <br />
+            <pre style="font-style: italic;">
+    &lt;configSections&gt;
+        &lt;section name="ExtAspNet" type="ExtAspNet.ConfigSection, ExtAspNet"/&gt;
+    &lt;/configSections&gt;
+
+    &lt;!-- other config values: FormMessageTarget="qtip" FormOffsetRight="25" FormLabelWidth="80" --&gt;
+    &lt;ExtAspNet Theme="blue" Language="zh_CN" EnableAjax="true"/&gt;
+            </pre>
+            Parameters in the ExtAspNet section：
+            <br />
+            <ul>
+                <li>Theme: Current there are two themes (blue/gray, default:blue).</li>
+                <li>Language: Language (en/zh_CN/zh_TW, default: en).</li>
+                <li>FormMessageTarget: The location where form field error should display (side/qtip,
+                    default: side).</li>
+                <li>FormOffsetRight: The offset of form field from the right side (default: 25px).</li>
+                <li>EnableAjax: Whether to enable ExtAspNet Ajax feature(default: true).</li>
+                <li>AjaxTimeout: Ajax timeout(unit:second, default: 30s).</li>
+            </ul>
+            <br />
+            <br />
+        </li>
+        <li>Inside the system.web section:
+            <pre style="font-style: italic;">
+    &lt;pages&gt;
+      &lt;controls&gt;
+        &lt;add assembly="ExtAspNet" namespace="ExtAspNet" tagPrefix="ext"/&gt;
+      &lt;/controls&gt;
+    &lt;/pages&gt;
+    
+    &lt;httpModules&gt;
+      &lt;add name="ExtAspNetScriptModule" type="ExtAspNet.ScriptModule, ExtAspNet"/&gt;
+    &lt;/httpModules&gt;
+        </pre>
+        </li>
+        <li>done.</li>
+    </ul>
+</body>
+</html>

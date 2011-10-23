@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<configuration>
+  <configSections>
+    <section name="ExtAspNet" type="ExtAspNet.ConfigSection, ExtAspNet"/>
+  </configSections>
+
+  <!-- other config values: FormMessageTarget="qtip" FormOffsetRight="25" FormLabelWidth="80" AjaxTimeout="30" -->
+  <ExtAspNet Theme="blue" Language="zh_CN" EnableAjax="true"/>
+
+
+  <appSettings/>
+  <connectionStrings/>
+
+  <system.web>
+
+    <pages>
+      <controls>
+        <add assembly="ExtAspNet" namespace="ExtAspNet" tagPrefix="ext"/>
+      </controls>
+    </pages>
+
+    <httpModules>
+      <add name="ExtAspNetScriptModule" type="ExtAspNet.ScriptModule, ExtAspNet"/>
+    </httpModules>
+
+  </system.web>
+
+</configuration>
