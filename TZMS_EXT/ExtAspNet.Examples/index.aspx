@@ -38,7 +38,7 @@
                 Margins="0 0 0 0" ShowHeader="false" Title="Examples" Icon="Outline" EnableCollapse="true"
                 Layout="Fit" Position="Left" runat="server">
                 <Items>
-                    <ext:Accordion ID="Accordion1" Title="菜单" runat="server" Width="300px" EnableLargeHeader="false"
+                    <ext:Accordion ID="Accordion1"  Title="菜单" runat="server" Width="280px" EnableLargeHeader="false"
                         Height="450px" EnableFill="true" ShowBorder="True" ActiveIndex="0">
                         <Panes>
                             <ext:AccordionPane ID="AccordionPane1" runat="server" Title="系统管理" IconUrl="images/16/1.png"
@@ -71,6 +71,9 @@
                                     </ext:HyperLink>
                                     <ext:HyperLink ID="txsq" OnClientClick="return tabs('txsq');" NavigateUrl="#" runat="server"
                                         Text="调休申请">
+                                    </ext:HyperLink>
+                                    <ext:HyperLink ID="wdsp" OnClientClick="return tabs('wdsp');" NavigateUrl="#" runat="server"
+                                        Text="我的审批">
                                     </ext:HyperLink>
                                 </Items>
                             </ext:AccordionPane>
@@ -113,8 +116,27 @@
             }
             switch (keyIndex) {
                 case "yggl":
+                //行政管理
                     LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理");
                     break;
+
+                //假勤管理
+                case "ygkq":
+                    LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤");
+                    break;
+                case "wdkq":
+                    LoadTab("Pages/attendance/MyAttend.aspx", "我的考勤");
+                    break;
+                case "qjsq":
+                    LoadTab("Pages/attendance/LeaveApp.aspx", "请假申请");
+                    break;
+                case "txsq":
+                    LoadTab("Pages/attendance/WorkLeaveApp.aspx", "调休申请");
+                    break;
+                case "wdsp":
+                    LoadTab("Pages/attendance/MyCheckApp.aspx", "我的审批");
+                    break;
+
                 default:
                     braek;
             }
