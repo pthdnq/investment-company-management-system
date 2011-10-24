@@ -72,6 +72,7 @@
     <Content Include="images\love.jpg" />
     <Content Include="index.aspx" />
     <Content Include="library\blowery.Web.HttpCompress.dll" />
+    <Content Include="Pages\adminManage\RolesOfUser.aspx" />
     <Content Include="Pages\adminManage\WorkerManage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -104,6 +105,13 @@
     </Compile>
     <Compile Include="BsaePage.aspx.designer.cs">
       <DependentUpon>BsaePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\RolesOfUser.aspx.cs">
+      <DependentUpon>RolesOfUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\RolesOfUser.aspx.designer.cs">
+      <DependentUpon>RolesOfUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\WorkerManage.aspx.cs">
       <DependentUpon>WorkerManage.aspx</DependentUpon>
