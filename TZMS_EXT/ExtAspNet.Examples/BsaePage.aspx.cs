@@ -62,6 +62,91 @@ namespace TZMS.Web
             }
         }
 
+        /// <summary>
+        /// 本系统角色 枚举
+        /// </summary>
+        public enum RoleType
+        {
+            /// <summary>
+            /// 超级管理员
+            /// </summary>
+            CJGL = 0,
+
+            /// <summary>
+            /// 董事长
+            /// </summary>
+            DSZ = 1,
+            /// <summary>
+            /// 总经理
+            /// </summary>
+            ZJL = 2,
+
+            /// <summary>
+            /// 副总经理
+            /// </summary>
+            FZJL = 3,
+            /// <summary>
+            /// 行政部门总监
+            /// </summary>
+            XZZJ = 4,
+            /// <summary>
+            /// 财务部门总监
+            /// </summary>
+            CWZJ = 5,
+            /// <summary>
+            /// 投资部门总监
+            /// </summary>
+            TZZJ = 6,
+            /// <summary>
+            /// 业务部门总监
+            /// </summary>
+            YWZJ = 7,
+            /// <summary>
+            /// 行政部门主管
+            /// </summary>
+            XZZG = 8,
+            /// <summary>
+            /// 财务部门主管
+            /// </summary>
+            CWZG = 9,
+            /// <summary>
+            /// 投资部门主管
+            /// </summary>
+            TZZG = 10,
+            /// <summary>
+            /// 业务部门主管
+            /// </summary>
+            YWZG = 11,
+            /// <summary>
+            /// 普通员工
+            /// </summary>
+            PTYG = 12,
+            /// <summary>
+            /// 考勤员
+            /// </summary>
+            KQY = 13,
+            /// <summary>
+            /// 代账会计
+            /// </summary>
+            DZKJ = 14,
+            /// <summary>
+            /// 核算会计
+            /// </summary>
+            HSKJ = 15,
+            /// <summary>
+            /// 主办会计
+            /// </summary>
+            ZBKJ = 16,
+            /// <summary>
+            /// 出纳会计
+            /// </summary>
+            CNKJ = 17,
+
+            /// <summary>
+            /// 考勤归档
+            /// </summary>
+            KQGD = 18,
+        }
 
         /// <summary>
         /// 
