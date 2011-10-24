@@ -94,15 +94,6 @@ namespace TZMS.Web {
         protected global::ExtAspNet.AccordionPane AccordionPane1;
         
         /// <summary>
-        /// Label1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::ExtAspNet.Label Label1;
-        
-        /// <summary>
         /// das 控件。
         /// </summary>
         /// <remarks>
@@ -121,22 +112,58 @@ namespace TZMS.Web {
         protected global::ExtAspNet.AccordionPane AccordionPane2;
         
         /// <summary>
-        /// Label2 控件。
+        /// yggl 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Label Label2;
+        protected global::ExtAspNet.HyperLink yggl;
         
         /// <summary>
-        /// wkm 控件。
+        /// AccordionPane3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.HyperLink wkm;
+        protected global::ExtAspNet.AccordionPane AccordionPane3;
+        
+        /// <summary>
+        /// ygkq 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.HyperLink ygkq;
+        
+        /// <summary>
+        /// wdkq 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.HyperLink wdkq;
+        
+        /// <summary>
+        /// qjsq 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.HyperLink qjsq;
+        
+        /// <summary>
+        /// txsq 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.HyperLink txsq;
         
         /// <summary>
         /// mainRegion 控件。
@@ -148,22 +175,22 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Region mainRegion;
         
         /// <summary>
-        /// mainTabStrip1 控件。
+        /// tabManage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.TabStrip mainTabStrip1;
+        protected global::ExtAspNet.TabStrip tabManage;
         
         /// <summary>
-        /// Tab1 控件。
+        /// systemTab 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Tab Tab1;
+        protected global::ExtAspNet.Tab systemTab;
         
         /// <summary>
         /// ContentPanel1 控件。

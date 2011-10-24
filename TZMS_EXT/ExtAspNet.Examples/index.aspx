@@ -1,12 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="TZMS.Web.index" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title><%=SystemName %></title>
+    <title>
+        <%=SystemName %></title>
     <%--<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />--%>
-<%--    <meta name="Title" content="ExtJS based ASP.NET Controls with Full AJAX Support" />
+    <%--    <meta name="Title" content="ExtJS based ASP.NET Controls with Full AJAX Support" />
     <meta name="Description" content="ExtAspNet is a set of professional ASP.NET controls with native AJAX support and rich UI effect, which aim at No ViewState, No JavaScript, No CSS, No UpdatePanel and No WebServices." />--%>
     <link href="css/default.css" rel="stylesheet" type="text/css" />
 </head>
@@ -44,8 +44,6 @@
                             <ext:AccordionPane ID="AccordionPane1" runat="server" Title="系统管理" IconUrl="images/16/1.png"
                                 BodyPadding="2px 5px" ShowBorder="false">
                                 <Items>
-                                    <ext:Label ID="Label1" ShowRedStar="true" Text="Label inside AccordionPane1" runat="server">
-                                    </ext:Label>
                                     <ext:HyperLink ID="das" OnClientClick="return tabs();" NavigateUrl="#" runat="server"
                                         Text="菜单">
                                     </ext:HyperLink>
@@ -54,10 +52,25 @@
                             <ext:AccordionPane ID="AccordionPane2" runat="server" Title="行政管理" IconUrl="images/16/1.png"
                                 BodyPadding="2px 5px" ShowBorder="false">
                                 <Items>
-                                    <ext:Label ID="Label2" ShowRedStar="true" Text="Label inside AccordionPane1" runat="server">
-                                    </ext:Label>
-                                    <ext:HyperLink ID="wkm" OnClientClick="return tabs('wkm');" NavigateUrl="#" runat="server"
+                                    <ext:HyperLink ID="yggl" OnClientClick="return tabs('yggl');" NavigateUrl="#" runat="server"
                                         Text="员工管理">
+                                    </ext:HyperLink>
+                                </Items>
+                            </ext:AccordionPane>
+                            <ext:AccordionPane ID="AccordionPane3" runat="server" Title="假勤管理" IconUrl="images/16/1.png"
+                                BodyPadding="2px 5px" ShowBorder="false">
+                                <Items>
+                                    <ext:HyperLink ID="ygkq" OnClientClick="return tabs('ygkq');" NavigateUrl="#" runat="server"
+                                        Text="员工考勤">
+                                    </ext:HyperLink>
+                                    <ext:HyperLink ID="wdkq" OnClientClick="return tabs('wdkq');" NavigateUrl="#" runat="server"
+                                        Text="我的考勤">
+                                    </ext:HyperLink>
+                                    <ext:HyperLink ID="qjsq" OnClientClick="return tabs('qjsq');" NavigateUrl="#" runat="server"
+                                        Text="请假申请">
+                                    </ext:HyperLink>
+                                    <ext:HyperLink ID="txsq" OnClientClick="return tabs('txsq');" NavigateUrl="#" runat="server"
+                                        Text="调休申请">
                                     </ext:HyperLink>
                                 </Items>
                             </ext:AccordionPane>
@@ -68,9 +81,9 @@
             <ext:Region ID="mainRegion" IFrameName="_main" ShowHeader="false" Layout="Fit" Margins="0 0 0 0"
                 Position="Center" runat="server">
                 <Items>
-                    <ext:TabStrip ID="mainTabStrip1" EnableTabCloseMenu="false" ShowBorder="false" runat="server">
+                    <ext:TabStrip ID="tabManage" EnableTabCloseMenu="false" ShowBorder="false" runat="server">
                         <Tabs>
-                            <ext:Tab ID="Tab1" Title="Home" Layout="Fit" Icon="House" runat="server">
+                            <ext:Tab ID="systemTab" Title="我的首页" Layout="Fit" Icon="House" runat="server">
                                 <Items>
                                     <ext:ContentPanel ID="ContentPanel1" ShowBorder="false" BodyPadding="10px" ShowHeader="false"
                                         AutoScroll="true" CssClass="intro" runat="server">
@@ -93,14 +106,14 @@
         }
         //加载tab
         function tabs(keyIndex) {
-            var mainTabStrip = Ext.getCmp('<%= mainTabStrip1.ClientID %>');
+            var mainTabStrip = Ext.getCmp('<%= tabManage.ClientID %>');
             if (mainTabStrip.items.length > 1) {
-                var items = mainTabStrip.getComponent('Tab1');
+                var items = mainTabStrip.getComponent('functionTab');
                 mainTabStrip.remove(items);
             }
             switch (keyIndex) {
-                case "wkm":
-                    LoadTab("Pages/adminManage/WorkerManage.aspx","员工管理");
+                case "yggl":
+                    LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理");
                     break;
                 default:
                     braek;
@@ -108,11 +121,11 @@
 
             return false;
         }
-
+        //加载Tab
         function LoadTab(url, title) {
-            var mainTabStrip = Ext.getCmp('<%= mainTabStrip1.ClientID %>');
+            var mainTabStrip = Ext.getCmp('<%= tabManage.ClientID %>');
             mainTabStrip.addTab({
-                'id': 'Tab1',
+                'id': 'functionTab',
                 'url': url,
                 'title': title,
                 'closable': true,
