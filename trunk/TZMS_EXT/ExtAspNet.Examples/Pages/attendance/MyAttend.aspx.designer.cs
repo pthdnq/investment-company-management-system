@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace TZMS.Web.Pages.attendance {
+namespace TZMS.Web {
     
     
     public partial class MyAttend {
