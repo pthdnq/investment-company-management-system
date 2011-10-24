@@ -13,18 +13,16 @@
         EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
         Layout="Anchor">
         <Items>
-            <ext:Form ID="Form2" ShowBorder="False" BodyPadding="5px" AnchorValue="100%" EnableBackgroundColor="true"
-                ShowHeader="False" runat="server">
+            <ext:Form ID="Form2" ShowBorder="False" LabelWidth="55px" BodyPadding="5px" AnchorValue="100%"
+                EnableBackgroundColor="true" ShowHeader="False" runat="server">
                 <Rows>
                     <ext:FormRow>
                         <Items>
-                            <ext:DropDownList ID="ddlappState" AutoPostBack="true" runat="server" Width="100px"
-                                Label="状态">
+                            <ext:DropDownList ID="ddlappState" AutoPostBack="true" runat="server" Label="申请状态">
                                 <ext:ListItem Text="审批中" Value="1" Selected="true" />
                                 <ext:ListItem Text="已审批" Value="0" />
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddldateRange" AutoPostBack="true" runat="server" Width="100px"
-                                Label="日期范围">
+                            <ext:DropDownList ID="ddldateRange" AutoPostBack="true" runat="server" Label="日期范围">
                                 <ext:ListItem Text="全部" Value="0" />
                                 <ext:ListItem Text="一周内" Value="1" Selected="true" />
                                 <ext:ListItem Text="一月内" Value="2" />
@@ -32,6 +30,10 @@
                                 <ext:ListItem Text="半年内" Value="4" />
                                 <ext:ListItem Text="一年内" Value="5" />
                             </ext:DropDownList>
+                            <ext:Label runat="server">
+                            </ext:Label>
+                            <ext:Label runat="server">
+                            </ext:Label>
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -41,7 +43,7 @@
                 <Toolbars>
                     <ext:Toolbar ID="toolApp" runat="server">
                         <Items>
-                            <ext:Button ID="btnNewApp" Text="我要请假" ToolTip="我要请假" runat="server">
+                            <ext:Button ID="btnNewApp" Text="我要请假" ToolTip="我要请假" Icon="Add" runat="server">
                             </ext:Button>
                         </Items>
                     </ext:Toolbar>
