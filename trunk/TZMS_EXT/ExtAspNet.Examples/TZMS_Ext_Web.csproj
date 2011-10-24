@@ -151,12 +151,14 @@
     </Compile>
     <Compile Include="Pages\attendance\LeaveAppNew.aspx.cs">
       <DependentUpon>LeaveAppNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\attendance\LeaveAppNew.aspx.designer.cs">
       <DependentUpon>LeaveAppNew.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\attendance\MyCheckAppForm.aspx.cs">
       <DependentUpon>MyCheckAppForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\attendance\MyCheckAppForm.aspx.designer.cs">
       <DependentUpon>MyCheckAppForm.aspx</DependentUpon>

@@ -158,6 +158,12 @@ namespace TZMS.Web
                 // 删除
                 user.State = 2;
             }
+            else if (e.CommandName == "Role") {
+                //wndRolesForUser.GetShowReference("RolesOfUser.aspx?ID=" + userID);
+                wndRolesForUser.IFrameUrl = "RolesOfUser.aspx?ID=" + userID;
+                wndRolesForUser.Hidden = false;
+                return;
+            }
             userManage.UpdateUser(user);
 
             DataBindUsers(ViewState["Dept"].ToString(), ViewState["State"].ToString(), ViewState["SearchText"].ToString());
