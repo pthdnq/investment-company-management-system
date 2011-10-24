@@ -56,7 +56,8 @@
                             <ext:BoundField HeaderText="结束日期" />
                             <ext:BoundField HeaderText="请假类型" />
                             <ext:BoundField HeaderText="请假原因" />
-                            <ext:BoundField HeaderText="审批人" />
+                            <ext:BoundField HeaderText="当前审批人" />
+                            <ext:BoundField HeaderText="审批结果" />
                             <ext:BoundField HeaderText="申请状态" />
                             <ext:BoundField HeaderText="查看" />
                         </Columns>
@@ -65,7 +66,7 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="newWindow" Title="Edit" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="newWindow" Title="请假申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" OnClose="Window1_Close" IsModal="true" Width="750px"
         EnableConfirmOnClose="true" Height="550px">
     </ext:Window>

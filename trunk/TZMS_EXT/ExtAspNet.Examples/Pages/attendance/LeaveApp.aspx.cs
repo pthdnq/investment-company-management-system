@@ -9,11 +9,17 @@ namespace TZMS.Web
 {
     public partial class LeaveApp : BasePage
     {
+        /// <summary>
+        /// 页面加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
-                btnNewApp.OnClientClick = newWindow.GetShowReference("MyCheckApp.aspx") + "return false;";
+                //请假申请 新增按钮注册23:14
+                btnNewApp.OnClientClick = newWindow.GetShowReference("LeaveAppNew.aspx") + "return false;";
             }
         }
 

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TZMS.Web
 {
-    public partial class MyCheckAppForm : BsaePage
+    public partial class MyCheckAppForm : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
