@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LeaveApp.aspx.cs" Inherits="TZMS.Web.Pages.attendance.LeaveApp" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LeaveApp.aspx.cs" Inherits="TZMS.Web.LeaveApp" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,21 +43,32 @@
                 <Toolbars>
                     <ext:Toolbar ID="toolApp" runat="server">
                         <Items>
-                            <ext:Button ID="btnNewApp" Text="我要请假" ToolTip="我要请假" Icon="Add" runat="server">
+                            <ext:Button ID="btnNewApp" Text="请假申请" ToolTip="请假申请" Icon="Add" runat="server">
                             </ext:Button>
                         </Items>
                     </ext:Toolbar>
                 </Toolbars>
                 <Items>
                     <ext:Grid ID="gridUser" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
-                        PageSize="1" runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true">
+                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true">
                         <Columns>
+                            <ext:BoundField HeaderText="开始日期" />
+                            <ext:BoundField HeaderText="结束日期" />
+                            <ext:BoundField HeaderText="请假类型" />
+                            <ext:BoundField HeaderText="请假原因" />
+                            <ext:BoundField HeaderText="审批人" />
+                            <ext:BoundField HeaderText="申请状态" />
+                            <ext:BoundField HeaderText="查看" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
+    <ext:Window ID="newWindow" Title="Edit" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" OnClose="Window1_Close" IsModal="true" Width="750px"
+        EnableConfirmOnClose="true" Height="550px">
+    </ext:Window>
     </form>
 </body>
 </html>

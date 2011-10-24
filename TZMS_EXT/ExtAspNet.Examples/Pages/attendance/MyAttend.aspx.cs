@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace TZMS.Web.Pages.attendance
+namespace TZMS.Web
 {
-    public partial class MyAttend : System.Web.UI.Page
+    public partial class MyAttend : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
