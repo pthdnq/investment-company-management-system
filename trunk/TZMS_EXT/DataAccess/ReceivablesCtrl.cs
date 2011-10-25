@@ -262,70 +262,70 @@ namespace com.TZMS.DataAccess
         internal ReceivablesInfo ReceivablesInfoRowToInfo(DataRow ReceivablesInfoInfoDataRow)
         {
             ReceivablesInfo ReceivablesInfoInfo = new ReceivablesInfo();
-            //if (ReceivablesInfoInfoDataRow["ObjetctId"] != null)
-            //{
-            //    ReceivablesInfoInfo.ObjetctId = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "ObjetctId");
-            //}
-            //if (ReceivablesInfoInfoDataRow["ForId"] != null)
-            //{
-            //    ReceivablesInfoInfo.ForId = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "ForId");
-            //}
-            //if (ReceivablesInfoInfoDataRow["ProjectName"] != null)
-            //{
-            //    ReceivablesInfoInfo.ProjectName = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "ProjectName");
-            //}
-            //if (ReceivablesInfoInfoDataRow["DueDateForReceivables"] != null)
-            //{
-            //    ReceivablesInfoInfo.DueDateForReceivables = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "DueDateForReceivables");
-            //}
-            //if (ReceivablesInfoInfoDataRow["DateForReceivables"] != null)
-            //{
-            //    ReceivablesInfoInfo.DateForReceivables = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "DateForReceivables");
-            //}
-            //if (ReceivablesInfoInfoDataRow["AmountofpaidUp"] != null)
-            //{
-            //    ReceivablesInfoInfo.AmountofpaidUp = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "AmountofpaidUp");
-            //}
-            //if (ReceivablesInfoInfoDataRow["ReceivablesAccount"] != null)
-            //{
-            //    ReceivablesInfoInfo.ReceivablesAccount = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "ReceivablesAccount");
-            //}
-            //if (ReceivablesInfoInfoDataRow["Remark"] != null)
-            //{
-            //    ReceivablesInfoInfo.Remark = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "Remark");
-            //}
-            //if (ReceivablesInfoInfoDataRow["IsAccountingAudit"] != null)
-            //{
-            //    ReceivablesInfoInfo.IsAccountingAudit = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "IsAccountingAudit");
-            //}
-            //if (ReceivablesInfoInfoDataRow["AuditOpinion"] != null)
-            //{
-            //    ReceivablesInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "AuditOpinion");
-            //}
-            //if (ReceivablesInfoInfoDataRow["AccountingName"] != null)
-            //{
-            //    ReceivablesInfoInfo.AccountingName = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "AccountingName");
-            //}
-            //if (ReceivablesInfoInfoDataRow["AccountingAccount"] != null)
-            //{
-            //    ReceivablesInfoInfo.AccountingAccount = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "AccountingAccount");
-            //}
-            //if (ReceivablesInfoInfoDataRow["CreaterId"] != null)
-            //{
-            //    ReceivablesInfoInfo.CreaterId = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CreaterId");
-            //}
-            //if (ReceivablesInfoInfoDataRow["CreaterName"] != null)
-            //{
-            //    ReceivablesInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CreaterName");
-            //}
-            //if (ReceivablesInfoInfoDataRow["CteateTime"] != null)
-            //{
-            //    ReceivablesInfoInfo.CteateTime = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CteateTime");
-            //}
-            //if (ReceivablesInfoInfoDataRow["Status"] != null)
-            //{
-            //    ReceivablesInfoInfo.Status = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "Status");
-            //}
+            if (ReceivablesInfoInfoDataRow["ObjetctId"] != null)
+            {
+                ReceivablesInfoInfo.ObjetctId = new Guid(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "ObjetctId"));
+            }
+            if (ReceivablesInfoInfoDataRow["ForId"] != null)
+            {
+                ReceivablesInfoInfo.ForId = new Guid(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "ForId"));
+            }
+            if (ReceivablesInfoInfoDataRow["ProjectName"] != null)
+            {
+                ReceivablesInfoInfo.ProjectName = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "ProjectName");
+            }
+            if (ReceivablesInfoInfoDataRow["DueDateForReceivables"] != null)
+            {
+                ReceivablesInfoInfo.DueDateForReceivables = DateTime.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "DueDateForReceivables"));
+            }
+            if (ReceivablesInfoInfoDataRow["DateForReceivables"] != null)
+            {
+                ReceivablesInfoInfo.DateForReceivables = DateTime.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "DateForReceivables"));
+            }
+            if (ReceivablesInfoInfoDataRow["AmountofpaidUp"] != null)
+            {
+                ReceivablesInfoInfo.AmountofpaidUp = Decimal.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "AmountofpaidUp"));
+            }
+            if (ReceivablesInfoInfoDataRow["ReceivablesAccount"] != null)
+            {
+                ReceivablesInfoInfo.ReceivablesAccount = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "ReceivablesAccount");
+            }
+            if (ReceivablesInfoInfoDataRow["Remark"] != null)
+            {
+                ReceivablesInfoInfo.Remark = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "Remark");
+            }
+            if (ReceivablesInfoInfoDataRow["IsAccountingAudit"] != null)
+            {
+                ReceivablesInfoInfo.IsAccountingAudit = bool.Parse(ReceivablesInfoInfoDataRow["IsAccountingAudit"].ToString());
+            }
+            if (ReceivablesInfoInfoDataRow["AuditOpinion"] != null)
+            {
+                ReceivablesInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "AuditOpinion");
+            }
+            if (ReceivablesInfoInfoDataRow["AccountingName"] != null)
+            {
+                ReceivablesInfoInfo.AccountingName = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "AccountingName");
+            }
+            if (ReceivablesInfoInfoDataRow["AccountingAccount"] != null)
+            {
+                ReceivablesInfoInfo.AccountingAccount = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "AccountingAccount");
+            }
+            if (ReceivablesInfoInfoDataRow["CreaterId"] != null)
+            {
+                ReceivablesInfoInfo.CreaterId = new Guid(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CreaterId"));
+            }
+            if (ReceivablesInfoInfoDataRow["CreaterName"] != null)
+            {
+                ReceivablesInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CreaterName");
+            }
+            if (ReceivablesInfoInfoDataRow["CteateTime"] != null)
+            {
+                ReceivablesInfoInfo.CteateTime = DateTime.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CteateTime"));
+            }
+            if (ReceivablesInfoInfoDataRow["Status"] != null)
+            {
+                ReceivablesInfoInfo.Status = char.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "Status"));
+            }
 
             return ReceivablesInfoInfo;
         }
