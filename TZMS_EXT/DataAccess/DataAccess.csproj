@@ -52,7 +52,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttendInfoCtrl.cs" />
+    <Compile Include="BankLoanCtrl.cs" />
+    <Compile Include="BankLoanHistoryCtrl.cs" />
+    <Compile Include="BankLoanProjectProcessCtrl.cs" />
+    <Compile Include="BankLoanProjectProcessHistoryCtrl.cs" />
+    <Compile Include="CustomerCtrl.cs" />
+    <Compile Include="FinancingFeePaymentCtrl.cs" />
+    <Compile Include="FinancingFeePaymentHistoryCtrl.cs" />
+    <Compile Include="FolkFinancingCtrl.cs" />
+    <Compile Include="FolkFinancingHistoryCtrl.cs" />
+    <Compile Include="InvestmentLoanCtrl.cs" />
+    <Compile Include="InvestmentLoanHistoryCtrl.cs" />
+    <Compile Include="InvestmentProjectCtrl.cs" />
+    <Compile Include="InvestmentProjectHistoryCtrl.cs" />
     <Compile Include="LeaveApproveoCtrl.cs" />
+    <Compile Include="ProjectProcessCtrl.cs" />
+    <Compile Include="ProjectProcessHistoryCtrl.cs" />
+    <Compile Include="ReceivablesAuditHistoryCtrl.cs" />
+    <Compile Include="ReceivablesCtrl.cs" />
     <Compile Include="UserCtrl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRolesCtrl.cs" />
