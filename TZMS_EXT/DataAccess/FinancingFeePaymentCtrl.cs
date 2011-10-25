@@ -274,82 +274,82 @@ namespace com.TZMS.DataAccess
         internal FinancingFeePaymentInfo FinancingFeePaymentInfoRowToInfo(DataRow FinancingFeePaymentInfoInfoDataRow)
         {
             FinancingFeePaymentInfo FinancingFeePaymentInfoInfo = new FinancingFeePaymentInfo();
-            //if (FinancingFeePaymentInfoInfoDataRow["ObjetctId"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.ObjetctId = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "ObjetctId");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["ForId"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.ForId = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "ForId");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["DueDateForPay"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.DueDateForPay = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "DueDateForPay");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["DateForPay"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.DateForPay = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "DateForPay");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["AmountOfPayment"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.AmountOfPayment = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "AmountOfPayment");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["PaymentAccount"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.PaymentAccount = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "PaymentAccount");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["ReceivablesAccount"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.ReceivablesAccount = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "ReceivablesAccount");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["Remark"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.Remark = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "Remark");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["NextOperaterId"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.NextOperaterId = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "NextOperaterId");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["NextOperaterAccount"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.NextOperaterAccount = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "NextOperaterAccount");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["NextOperaterName"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.NextOperaterName = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "NextOperaterName");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["CreateTime"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.CreateTime = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "CreateTime");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["CreaterId"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.CreaterId = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "CreaterId");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["CreaterName"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "CreaterName");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["CreaterAccount"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.CreaterAccount = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "CreaterAccount");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["SubmitTime"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.SubmitTime = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "SubmitTime");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["AuditOpinion"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "AuditOpinion");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["AccountingRemark"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.AccountingRemark = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "AccountingRemark");
-            //}
-            //if (FinancingFeePaymentInfoInfoDataRow["Status"] != null)
-            //{
-            //    FinancingFeePaymentInfoInfo.Status = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "Status");
-            //}
+            if (FinancingFeePaymentInfoInfoDataRow["ObjetctId"] != null)
+            {
+                FinancingFeePaymentInfoInfo.ObjetctId = new Guid(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "ObjetctId"));
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["ForId"] != null)
+            {
+                FinancingFeePaymentInfoInfo.ForId = new Guid(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "ForId"));
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["DueDateForPay"] != null)
+            {
+                FinancingFeePaymentInfoInfo.DueDateForPay = DateTime.Parse(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "DueDateForPay"));
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["DateForPay"] != null)
+            {
+                FinancingFeePaymentInfoInfo.DateForPay = DateTime.Parse(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "DateForPay"));
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["AmountOfPayment"] != null)
+            {
+                FinancingFeePaymentInfoInfo.AmountOfPayment = Decimal.Parse(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "AmountOfPayment"));
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["PaymentAccount"] != null)
+            {
+                FinancingFeePaymentInfoInfo.PaymentAccount = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "PaymentAccount");
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["ReceivablesAccount"] != null)
+            {
+                FinancingFeePaymentInfoInfo.ReceivablesAccount = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "ReceivablesAccount");
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["Remark"] != null)
+            {
+                FinancingFeePaymentInfoInfo.Remark = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "Remark");
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["NextOperaterId"] != null)
+            {
+                FinancingFeePaymentInfoInfo.NextOperaterId = new Guid(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "NextOperaterId"));
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["NextOperaterAccount"] != null)
+            {
+                FinancingFeePaymentInfoInfo.NextOperaterAccount = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "NextOperaterAccount");
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["NextOperaterName"] != null)
+            {
+                FinancingFeePaymentInfoInfo.NextOperaterName = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "NextOperaterName");
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["CreateTime"] != null)
+            {
+                FinancingFeePaymentInfoInfo.CreateTime = DateTime.Parse(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "CreateTime"));
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["CreaterId"] != null)
+            {
+                FinancingFeePaymentInfoInfo.CreaterId = new Guid(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "CreaterId"));
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["CreaterName"] != null)
+            {
+                FinancingFeePaymentInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "CreaterName");
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["CreaterAccount"] != null)
+            {
+                FinancingFeePaymentInfoInfo.CreaterAccount = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "CreaterAccount");
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["SubmitTime"] != null)
+            {
+                FinancingFeePaymentInfoInfo.SubmitTime = DateTime.Parse(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "SubmitTime"));
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["AuditOpinion"] != null)
+            {
+                FinancingFeePaymentInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "AuditOpinion");
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["AccountingRemark"] != null)
+            {
+                FinancingFeePaymentInfoInfo.AccountingRemark = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "AccountingRemark");
+            }
+            if (FinancingFeePaymentInfoInfoDataRow["Status"] != null)
+            {
+                FinancingFeePaymentInfoInfo.Status = char.Parse(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "Status"));
+            }
 
             return FinancingFeePaymentInfoInfo;
         }

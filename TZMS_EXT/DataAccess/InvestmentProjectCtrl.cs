@@ -282,90 +282,90 @@ namespace com.TZMS.DataAccess
         internal InvestmentProjectInfo InvestmentProjectInfoRowToInfo(DataRow InvestmentProjectInfoInfoDataRow)
         {
             InvestmentProjectInfo InvestmentProjectInfoInfo = new InvestmentProjectInfo();
-            //if (InvestmentProjectInfoInfoDataRow["ObjetctId"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.ObjetctId = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ObjetctId");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["CustomerName"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.CustomerName = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CustomerName");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["CustomerId"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.CustomerId = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CustomerId");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["ProjectName"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.ProjectName = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ProjectName");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["ProjectOverview"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.ProjectOverview = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ProjectOverview");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["SignDate"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.SignDate = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "SignDate");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["Contact"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.Contact = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "Contact");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["ContactPhone"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.ContactPhone = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ContactPhone");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["ContractAmount"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.ContractAmount = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ContractAmount");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["DownPayment"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.DownPayment = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "DownPayment");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["Remark"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.Remark = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "Remark");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["Status"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.Status = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "Status");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["NextOperaterId"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.NextOperaterId = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "NextOperaterId");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["NextOperaterAccount"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.NextOperaterAccount = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "NextOperaterAccount");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["NextOperaterName"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.NextOperaterName = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "NextOperaterName");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["CreateTime"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.CreateTime = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CreateTime");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["CreaterId"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.CreaterId = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CreaterId");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["CreaterName"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CreaterName");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["CreaterAccount"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.CreaterAccount = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CreaterAccount");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["SubmitTime"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.SubmitTime = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "SubmitTime");
-            //}
-            //if (InvestmentProjectInfoInfoDataRow["AuditOpinion"] != null)
-            //{
-            //    InvestmentProjectInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "AuditOpinion");
-            //}
+            if (InvestmentProjectInfoInfoDataRow["ObjetctId"] != null)
+            {
+                InvestmentProjectInfoInfo.ObjetctId =    new Guid( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ObjetctId"));
+            }
+            if (InvestmentProjectInfoInfoDataRow["CustomerName"] != null)
+            {
+                InvestmentProjectInfoInfo.CustomerName = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CustomerName");
+            }
+            if (InvestmentProjectInfoInfoDataRow["CustomerId"] != null)
+            {
+                InvestmentProjectInfoInfo.CustomerId =  new Guid( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CustomerId"));
+            }
+            if (InvestmentProjectInfoInfoDataRow["ProjectName"] != null)
+            {
+                InvestmentProjectInfoInfo.ProjectName =char.Parse( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ProjectName"));
+            }
+            if (InvestmentProjectInfoInfoDataRow["ProjectOverview"] != null)
+            {
+                InvestmentProjectInfoInfo.ProjectOverview = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ProjectOverview");
+            }
+            if (InvestmentProjectInfoInfoDataRow["SignDate"] != null)
+            {
+                InvestmentProjectInfoInfo.SignDate =DateTime.Parse( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "SignDate"));
+            }
+            if (InvestmentProjectInfoInfoDataRow["Contact"] != null)
+            {
+                InvestmentProjectInfoInfo.Contact = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "Contact");
+            }
+            if (InvestmentProjectInfoInfoDataRow["ContactPhone"] != null)
+            {
+                InvestmentProjectInfoInfo.ContactPhone = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ContactPhone");
+            }
+            if (InvestmentProjectInfoInfoDataRow["ContractAmount"] != null)
+            {
+                InvestmentProjectInfoInfo.ContractAmount =Decimal.Parse( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ContractAmount"));
+            }
+            if (InvestmentProjectInfoInfoDataRow["DownPayment"] != null)
+            {
+                InvestmentProjectInfoInfo.DownPayment =Decimal.Parse( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "DownPayment"));
+            }
+            if (InvestmentProjectInfoInfoDataRow["Remark"] != null)
+            {
+                InvestmentProjectInfoInfo.Remark = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "Remark");
+            }
+            if (InvestmentProjectInfoInfoDataRow["Status"] != null)
+            {
+                InvestmentProjectInfoInfo.Status =char.Parse( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "Status"));
+            }
+            if (InvestmentProjectInfoInfoDataRow["NextOperaterId"] != null)
+            {
+                InvestmentProjectInfoInfo.NextOperaterId = new Guid(  DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "NextOperaterId"));
+            }
+            if (InvestmentProjectInfoInfoDataRow["NextOperaterAccount"] != null)
+            {
+                InvestmentProjectInfoInfo.NextOperaterAccount = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "NextOperaterAccount");
+            }
+            if (InvestmentProjectInfoInfoDataRow["NextOperaterName"] != null)
+            {
+                InvestmentProjectInfoInfo.NextOperaterName = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "NextOperaterName");
+            }
+            if (InvestmentProjectInfoInfoDataRow["CreateTime"] != null)
+            {
+                InvestmentProjectInfoInfo.CreateTime =DateTime.Parse( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CreateTime"));
+            }
+            if (InvestmentProjectInfoInfoDataRow["CreaterId"] != null)
+            {
+                InvestmentProjectInfoInfo.CreaterId = new Guid(  DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CreaterId"));
+            }
+            if (InvestmentProjectInfoInfoDataRow["CreaterName"] != null)
+            {
+                InvestmentProjectInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CreaterName");
+            }
+            if (InvestmentProjectInfoInfoDataRow["CreaterAccount"] != null)
+            {
+                InvestmentProjectInfoInfo.CreaterAccount = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "CreaterAccount");
+            }
+            if (InvestmentProjectInfoInfoDataRow["SubmitTime"] != null)
+            {
+                InvestmentProjectInfoInfo.SubmitTime =DateTime.Parse( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "SubmitTime"));
+            }
+            if (InvestmentProjectInfoInfoDataRow["AuditOpinion"] != null)
+            {
+                InvestmentProjectInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "AuditOpinion");
+            }
 
             return InvestmentProjectInfoInfo;
         }

@@ -290,98 +290,98 @@ namespace com.TZMS.DataAccess
         internal BankLoanProjectProcessInfo BankLoanProjectProcessInfoRowToInfo(DataRow BankLoanProjectProcessInfoInfoDataRow)
         {
             BankLoanProjectProcessInfo BankLoanProjectProcessInfoInfo = new BankLoanProjectProcessInfo();
-            //if (BankLoanProjectProcessInfoInfoDataRow["ObjetctId"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.ObjetctId = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ObjetctId");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["ForId"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.ForId = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ForId");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["ProjectName"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.ProjectName = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ProjectName");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["NeedImprest"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.NeedImprest = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NeedImprest");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["LoanBank"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.LoanBank = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "LoanBank");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["GuaranteeCompany"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.GuaranteeCompany = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "GuaranteeCompany");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["ImplementationPhase"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.ImplementationPhase = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImplementationPhase");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["ImprestAmount"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.ImprestAmount = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImprestAmount");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["AmountExpended"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.AmountExpended = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "AmountExpended");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["ExpendedTime"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.ExpendedTime = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ExpendedTime");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["ImprestAmountBalance"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.ImprestAmountBalance = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImprestAmountBalance");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["Remark"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.Remark = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "Remark");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["Status"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.Status = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "Status");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["NextOperaterId"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.NextOperaterId = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NextOperaterId");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["NextOperaterAccount"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.NextOperaterAccount = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NextOperaterAccount");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["NextOperaterName"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.NextOperaterName = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NextOperaterName");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["CreateTime"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.CreateTime = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreateTime");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["CreaterId"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.CreaterId = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreaterId");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["CreaterName"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreaterName");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["CreaterAccount"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.CreaterAccount = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreaterAccount");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["SubmitTime"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.SubmitTime = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "SubmitTime");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["AuditOpinion"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "AuditOpinion");
-            //}
-            //if (BankLoanProjectProcessInfoInfoDataRow["AccountingRemark"] != null)
-            //{
-            //    BankLoanProjectProcessInfoInfo.AccountingRemark = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "AccountingRemark");
-            //}
+            if (BankLoanProjectProcessInfoInfoDataRow["ObjetctId"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.ObjetctId =new Guid( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ObjetctId"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["ForId"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.ForId =new Guid( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ForId"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["ProjectName"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.ProjectName = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ProjectName");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["NeedImprest"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.NeedImprest =char.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NeedImprest"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["LoanBank"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.LoanBank = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "LoanBank");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["GuaranteeCompany"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.GuaranteeCompany = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "GuaranteeCompany");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["ImplementationPhase"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.ImplementationPhase = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImplementationPhase");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["ImprestAmount"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.ImprestAmount =Decimal.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImprestAmount"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["AmountExpended"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.AmountExpended =Decimal.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "AmountExpended"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["ExpendedTime"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.ExpendedTime = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ExpendedTime");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["ImprestAmountBalance"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.ImprestAmountBalance =Decimal.Parse (DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImprestAmountBalance"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["Remark"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.Remark = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "Remark");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["Status"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.Status =char.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "Status"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["NextOperaterId"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.NextOperaterId =new Guid( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NextOperaterId"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["NextOperaterAccount"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.NextOperaterAccount = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NextOperaterAccount");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["NextOperaterName"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.NextOperaterName = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NextOperaterName");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["CreateTime"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.CreateTime =DateTime.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreateTime"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["CreaterId"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.CreaterId =new Guid( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreaterId"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["CreaterName"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreaterName");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["CreaterAccount"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.CreaterAccount = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreaterAccount");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["SubmitTime"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.SubmitTime =DateTime.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "SubmitTime"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["AuditOpinion"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "AuditOpinion");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["AccountingRemark"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.AccountingRemark = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "AccountingRemark");
+            }
 
             return BankLoanProjectProcessInfoInfo;
         }

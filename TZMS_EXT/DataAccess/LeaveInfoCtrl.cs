@@ -250,58 +250,58 @@ namespace com.TZMS.DataAccess
         internal LeaveInfo LeaveInfoRowToInfo(DataRow LeaveInfoInfoDataRow)
         {
             LeaveInfo LeaveInfoInfo = new LeaveInfo();
-            //if (LeaveInfoInfoDataRow["ObjectId"] != null)
-            //{
-            //    LeaveInfoInfo.ObjectId = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "ObjectId");
-            //}
-            //if (LeaveInfoInfoDataRow["JobNo"] != null)
-            //{
-            //    LeaveInfoInfo.JobNo = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "JobNo");
-            //}
-            //if (LeaveInfoInfoDataRow["AccountNo"] != null)
-            //{
-            //    LeaveInfoInfo.AccountNo = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "AccountNo");
-            //}
-            //if (LeaveInfoInfoDataRow["Name"] != null)
-            //{
-            //    LeaveInfoInfo.Name = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "Name");
-            //}
-            //if (LeaveInfoInfoDataRow["Dept"] != null)
-            //{
-            //    LeaveInfoInfo.Dept = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "Dept");
-            //}
-            //if (LeaveInfoInfoDataRow["Type"] != null)
-            //{
-            //    LeaveInfoInfo.Type = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "Type");
-            //}
-            //if (LeaveInfoInfoDataRow["StartTime"] != null)
-            //{
-            //    LeaveInfoInfo.StartTime = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "StartTime");
-            //}
-            //if (LeaveInfoInfoDataRow["StopTime"] != null)
-            //{
-            //    LeaveInfoInfo.StopTime = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "StopTime");
-            //}
-            //if (LeaveInfoInfoDataRow["Reason"] != null)
-            //{
-            //    LeaveInfoInfo.Reason = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "Reason");
-            //}
-            //if (LeaveInfoInfoDataRow["WriteTime"] != null)
-            //{
-            //    LeaveInfoInfo.WriteTime = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "WriteTime");
-            //}
-            //if (LeaveInfoInfoDataRow["State"] != null)
-            //{
-            //    LeaveInfoInfo.State = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "State");
-            //}
-            //if (LeaveInfoInfoDataRow["ApproverId"] != null)
-            //{
-            //    LeaveInfoInfo.ApproverId = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "ApproverId");
-            //}
-            //if (LeaveInfoInfoDataRow["IsDelete"] != null)
-            //{
-            //    LeaveInfoInfo.IsDelete = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "IsDelete");
-            //}
+            if (LeaveInfoInfoDataRow["ObjectId"] != null)
+            {
+                LeaveInfoInfo.ObjectId = new Guid(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "ObjectId"));
+            }
+            if (LeaveInfoInfoDataRow["JobNo"] != null)
+            {
+                LeaveInfoInfo.JobNo = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "JobNo");
+            }
+            if (LeaveInfoInfoDataRow["AccountNo"] != null)
+            {
+                LeaveInfoInfo.AccountNo = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "AccountNo");
+            }
+            if (LeaveInfoInfoDataRow["Name"] != null)
+            {
+                LeaveInfoInfo.Name = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "Name");
+            }
+            if (LeaveInfoInfoDataRow["Dept"] != null)
+            {
+                LeaveInfoInfo.Dept = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "Dept");
+            }
+            if (LeaveInfoInfoDataRow["Type"] != null)
+            {
+                LeaveInfoInfo.Type = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "Type");
+            }
+            if (LeaveInfoInfoDataRow["StartTime"] != null)
+            {
+                LeaveInfoInfo.StartTime = DateTime.Parse(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "StartTime"));
+            }
+            if (LeaveInfoInfoDataRow["StopTime"] != null)
+            {
+                LeaveInfoInfo.StopTime = DateTime.Parse(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "StopTime"));
+            }
+            if (LeaveInfoInfoDataRow["Reason"] != null)
+            {
+                LeaveInfoInfo.Reason = DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "Reason");
+            }
+            if (LeaveInfoInfoDataRow["WriteTime"] != null)
+            {
+                LeaveInfoInfo.WriteTime = DateTime.Parse(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "WriteTime"));
+            }
+            if (LeaveInfoInfoDataRow["State"] != null)
+            {
+                LeaveInfoInfo.State = short.Parse(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "State"));
+            }
+            if (LeaveInfoInfoDataRow["ApproverId"] != null)
+            {
+                LeaveInfoInfo.ApproverId = new Guid(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "ApproverId"));
+            }
+            if (LeaveInfoInfoDataRow["IsDelete"] != null)
+            {
+                LeaveInfoInfo.IsDelete = bool.Parse(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "IsDelete"));
+            }
 
             return LeaveInfoInfo;
         }

@@ -230,38 +230,38 @@ namespace com.TZMS.DataAccess
         internal InvestmentLoanHistoryInfo InvestmentLoanHistoryInfoRowToInfo(DataRow InvestmentLoanHistoryInfoInfoDataRow)
         {
             InvestmentLoanHistoryInfo InvestmentLoanHistoryInfoInfo = new InvestmentLoanHistoryInfo();
-            //if (InvestmentLoanHistoryInfoInfoDataRow["Id"] != null)
-            //{
-            //    InvestmentLoanHistoryInfoInfo.Id = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "Id");
-            //}
-            //if (InvestmentLoanHistoryInfoInfoDataRow["ForId"] != null)
-            //{
-            //    InvestmentLoanHistoryInfoInfo.ForId = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "ForId");
-            //}
-            //if (InvestmentLoanHistoryInfoInfoDataRow["OperationerName"] != null)
-            //{
-            //    InvestmentLoanHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "OperationerName");
-            //}
-            //if (InvestmentLoanHistoryInfoInfoDataRow["OperationerAccount"] != null)
-            //{
-            //    InvestmentLoanHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "OperationerAccount");
-            //}
-            //if (InvestmentLoanHistoryInfoInfoDataRow["OperationTime"] != null)
-            //{
-            //    InvestmentLoanHistoryInfoInfo.OperationTime = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "OperationTime");
-            //}
-            //if (InvestmentLoanHistoryInfoInfoDataRow["OperationType"] != null)
-            //{
-            //    InvestmentLoanHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "OperationType");
-            //}
-            //if (InvestmentLoanHistoryInfoInfoDataRow["OperationDesc"] != null)
-            //{
-            //    InvestmentLoanHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "OperationDesc");
-            //}
-            //if (InvestmentLoanHistoryInfoInfoDataRow["Remark"] != null)
-            //{
-            //    InvestmentLoanHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "Remark");
-            //}
+            if (InvestmentLoanHistoryInfoInfoDataRow["Id"] != null)
+            {
+                InvestmentLoanHistoryInfoInfo.Id = new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "Id"));
+            }
+            if (InvestmentLoanHistoryInfoInfoDataRow["ForId"] != null)
+            {
+                InvestmentLoanHistoryInfoInfo.ForId = new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "ForId"));
+            }
+            if (InvestmentLoanHistoryInfoInfoDataRow["OperationerName"] != null)
+            {
+                InvestmentLoanHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "OperationerName");
+            }
+            if (InvestmentLoanHistoryInfoInfoDataRow["OperationerAccount"] != null)
+            {
+                InvestmentLoanHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "OperationerAccount");
+            }
+            if (InvestmentLoanHistoryInfoInfoDataRow["OperationTime"] != null)
+            {
+                InvestmentLoanHistoryInfoInfo.OperationTime = DateTime.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "OperationTime"));
+            }
+            if (InvestmentLoanHistoryInfoInfoDataRow["OperationType"] != null)
+            {
+                InvestmentLoanHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "OperationType");
+            }
+            if (InvestmentLoanHistoryInfoInfoDataRow["OperationDesc"] != null)
+            {
+                InvestmentLoanHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "OperationDesc");
+            }
+            if (InvestmentLoanHistoryInfoInfoDataRow["Remark"] != null)
+            {
+                InvestmentLoanHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(InvestmentLoanHistoryInfoInfoDataRow, "Remark");
+            }
 
             return InvestmentLoanHistoryInfoInfo;
         }

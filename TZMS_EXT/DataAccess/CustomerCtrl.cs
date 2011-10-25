@@ -258,66 +258,66 @@ namespace com.TZMS.DataAccess
         internal CustomerInfo CustomerInfoRowToInfo(DataRow CustomerInfoInfoDataRow)
         {
             CustomerInfo CustomerInfoInfo = new CustomerInfo();
-            //if (CustomerInfoInfoDataRow["ObjetctId"] != null)
-            //{
-            //    CustomerInfoInfo.ObjetctId = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "ObjetctId");
-            //}
-            //if (CustomerInfoInfoDataRow["Name"] != null)
-            //{
-            //    CustomerInfoInfo.Name = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Name");
-            //}
-            //if (CustomerInfoInfoDataRow["Sex"] != null)
-            //{
-            //    CustomerInfoInfo.Sex = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Sex");
-            //}
-            //if (CustomerInfoInfoDataRow["Birthday"] != null)
-            //{
-            //    CustomerInfoInfo.Birthday = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Birthday");
-            //}
-            //if (CustomerInfoInfoDataRow["CardId"] != null)
-            //{
-            //    CustomerInfoInfo.CardId = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "CardId");
-            //}
-            //if (CustomerInfoInfoDataRow["Address"] != null)
-            //{
-            //    CustomerInfoInfo.Address = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Address");
-            //}
-            //if (CustomerInfoInfoDataRow["OfficePhone"] != null)
-            //{
-            //    CustomerInfoInfo.OfficePhone = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "OfficePhone");
-            //}
-            //if (CustomerInfoInfoDataRow["MobilePhone"] != null)
-            //{
-            //    CustomerInfoInfo.MobilePhone = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "MobilePhone");
-            //}
-            //if (CustomerInfoInfoDataRow["Email"] != null)
-            //{
-            //    CustomerInfoInfo.Email = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Email");
-            //}
-            //if (CustomerInfoInfoDataRow["CreditScore"] != null)
-            //{
-            //    CustomerInfoInfo.CreditScore = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "CreditScore");
-            //}
-            //if (CustomerInfoInfoDataRow["Company"] != null)
-            //{
-            //    CustomerInfoInfo.Company = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Company");
-            //}
-            //if (CustomerInfoInfoDataRow["Position"] != null)
-            //{
-            //    CustomerInfoInfo.Position = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Position");
-            //}
-            //if (CustomerInfoInfoDataRow["HomeAddress"] != null)
-            //{
-            //    CustomerInfoInfo.HomeAddress = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "HomeAddress");
-            //}
-            //if (CustomerInfoInfoDataRow["HomePhone"] != null)
-            //{
-            //    CustomerInfoInfo.HomePhone = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "HomePhone");
-            //}
-            //if (CustomerInfoInfoDataRow["Remark"] != null)
-            //{
-            //    CustomerInfoInfo.Remark = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Remark");
-            //}
+            if (CustomerInfoInfoDataRow["ObjetctId"] != null)
+            {
+                CustomerInfoInfo.ObjetctId =new Guid( DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "ObjetctId"));
+            }
+            if (CustomerInfoInfoDataRow["Name"] != null)
+            {
+                CustomerInfoInfo.Name = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Name");
+            }
+            if (CustomerInfoInfoDataRow["Sex"] != null)
+            {
+                CustomerInfoInfo.Sex =bool.Parse( DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Sex"));
+            }
+            if (CustomerInfoInfoDataRow["Birthday"] != null)
+            {
+                CustomerInfoInfo.Birthday =DateTime.Parse( DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Birthday"));
+            }
+            if (CustomerInfoInfoDataRow["CardId"] != null)
+            {
+                CustomerInfoInfo.CardId = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "CardId");
+            }
+            if (CustomerInfoInfoDataRow["Address"] != null)
+            {
+                CustomerInfoInfo.Address = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Address");
+            }
+            if (CustomerInfoInfoDataRow["OfficePhone"] != null)
+            {
+                CustomerInfoInfo.OfficePhone = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "OfficePhone");
+            }
+            if (CustomerInfoInfoDataRow["MobilePhone"] != null)
+            {
+                CustomerInfoInfo.MobilePhone = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "MobilePhone");
+            }
+            if (CustomerInfoInfoDataRow["Email"] != null)
+            {
+                CustomerInfoInfo.Email = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Email");
+            }
+            if (CustomerInfoInfoDataRow["CreditScore"] != null)
+            {
+                CustomerInfoInfo.CreditScore =int.Parse( DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "CreditScore"));
+            }
+            if (CustomerInfoInfoDataRow["Company"] != null)
+            {
+                CustomerInfoInfo.Company = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Company");
+            }
+            if (CustomerInfoInfoDataRow["Position"] != null)
+            {
+                CustomerInfoInfo.Position = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Position");
+            }
+            if (CustomerInfoInfoDataRow["HomeAddress"] != null)
+            {
+                CustomerInfoInfo.HomeAddress = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "HomeAddress");
+            }
+            if (CustomerInfoInfoDataRow["HomePhone"] != null)
+            {
+                CustomerInfoInfo.HomePhone = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "HomePhone");
+            }
+            if (CustomerInfoInfoDataRow["Remark"] != null)
+            {
+                CustomerInfoInfo.Remark = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Remark");
+            }
 
             return CustomerInfoInfo;
         }

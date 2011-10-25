@@ -230,38 +230,38 @@ namespace com.TZMS.DataAccess
         internal ProjectProcessHistoryInfo ProjectProcessHistoryInfoRowToInfo(DataRow ProjectProcessHistoryInfoInfoDataRow)
         {
             ProjectProcessHistoryInfo ProjectProcessHistoryInfoInfo = new ProjectProcessHistoryInfo();
-            //if (ProjectProcessHistoryInfoInfoDataRow["Id"] != null)
-            //{
-            //    ProjectProcessHistoryInfoInfo.Id = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "Id");
-            //}
-            //if (ProjectProcessHistoryInfoInfoDataRow["ForId"] != null)
-            //{
-            //    ProjectProcessHistoryInfoInfo.ForId = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "ForId");
-            //}
-            //if (ProjectProcessHistoryInfoInfoDataRow["OperationDesc"] != null)
-            //{
-            //    ProjectProcessHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "OperationDesc");
-            //}
-            //if (ProjectProcessHistoryInfoInfoDataRow["OperationType"] != null)
-            //{
-            //    ProjectProcessHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "OperationType");
-            //}
-            //if (ProjectProcessHistoryInfoInfoDataRow["OperationTime"] != null)
-            //{
-            //    ProjectProcessHistoryInfoInfo.OperationTime = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "OperationTime");
-            //}
-            //if (ProjectProcessHistoryInfoInfoDataRow["OperationerAccount"] != null)
-            //{
-            //    ProjectProcessHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "OperationerAccount");
-            //}
-            //if (ProjectProcessHistoryInfoInfoDataRow["OperationerName"] != null)
-            //{
-            //    ProjectProcessHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "OperationerName");
-            //}
-            //if (ProjectProcessHistoryInfoInfoDataRow["Remark"] != null)
-            //{
-            //    ProjectProcessHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "Remark");
-            //}
+            if (ProjectProcessHistoryInfoInfoDataRow["Id"] != null)
+            {
+                ProjectProcessHistoryInfoInfo.Id = new Guid(DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "Id"));
+            }
+            if (ProjectProcessHistoryInfoInfoDataRow["ForId"] != null)
+            {
+                ProjectProcessHistoryInfoInfo.ForId = new Guid(DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "ForId"));
+            }
+            if (ProjectProcessHistoryInfoInfoDataRow["OperationDesc"] != null)
+            {
+                ProjectProcessHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "OperationDesc");
+            }
+            if (ProjectProcessHistoryInfoInfoDataRow["OperationType"] != null)
+            {
+                ProjectProcessHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "OperationType");
+            }
+            if (ProjectProcessHistoryInfoInfoDataRow["OperationTime"] != null)
+            {
+                ProjectProcessHistoryInfoInfo.OperationTime = DateTime.Parse(DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "OperationTime"));
+            }
+            if (ProjectProcessHistoryInfoInfoDataRow["OperationerAccount"] != null)
+            {
+                ProjectProcessHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "OperationerAccount");
+            }
+            if (ProjectProcessHistoryInfoInfoDataRow["OperationerName"] != null)
+            {
+                ProjectProcessHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "OperationerName");
+            }
+            if (ProjectProcessHistoryInfoInfoDataRow["Remark"] != null)
+            {
+                ProjectProcessHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(ProjectProcessHistoryInfoInfoDataRow, "Remark");
+            }
 
             return ProjectProcessHistoryInfoInfo;
         }

@@ -230,38 +230,38 @@ namespace com.TZMS.DataAccess
         internal ReceivablesAuditHistoryInfo ReceivablesAuditHistoryInfoRowToInfo(DataRow ReceivablesAuditHistoryInfoInfoDataRow)
         {
             ReceivablesAuditHistoryInfo ReceivablesAuditHistoryInfoInfo = new ReceivablesAuditHistoryInfo();
-            //if (ReceivablesAuditHistoryInfoInfoDataRow["Id"] != null)
-            //{
-            //    ReceivablesAuditHistoryInfoInfo.Id = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "Id");
-            //}
-            //if (ReceivablesAuditHistoryInfoInfoDataRow["ForId"] != null)
-            //{
-            //    ReceivablesAuditHistoryInfoInfo.ForId = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "ForId");
-            //}
-            //if (ReceivablesAuditHistoryInfoInfoDataRow["OperationerName"] != null)
-            //{
-            //    ReceivablesAuditHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "OperationerName");
-            //}
-            //if (ReceivablesAuditHistoryInfoInfoDataRow["OperationerAccount"] != null)
-            //{
-            //    ReceivablesAuditHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "OperationerAccount");
-            //}
-            //if (ReceivablesAuditHistoryInfoInfoDataRow["OperationTime"] != null)
-            //{
-            //    ReceivablesAuditHistoryInfoInfo.OperationTime = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "OperationTime");
-            //}
-            //if (ReceivablesAuditHistoryInfoInfoDataRow["OperationType"] != null)
-            //{
-            //    ReceivablesAuditHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "OperationType");
-            //}
-            //if (ReceivablesAuditHistoryInfoInfoDataRow["OperationDesc"] != null)
-            //{
-            //    ReceivablesAuditHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "OperationDesc");
-            //}
-            //if (ReceivablesAuditHistoryInfoInfoDataRow["Remark"] != null)
-            //{
-            //    ReceivablesAuditHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "Remark");
-            //}
+            if (ReceivablesAuditHistoryInfoInfoDataRow["Id"] != null)
+            {
+                ReceivablesAuditHistoryInfoInfo.Id = new Guid(DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "Id"));
+            }
+            if (ReceivablesAuditHistoryInfoInfoDataRow["ForId"] != null)
+            {
+                ReceivablesAuditHistoryInfoInfo.ForId = new Guid(DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "ForId"));
+            }
+            if (ReceivablesAuditHistoryInfoInfoDataRow["OperationerName"] != null)
+            {
+                ReceivablesAuditHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "OperationerName");
+            }
+            if (ReceivablesAuditHistoryInfoInfoDataRow["OperationerAccount"] != null)
+            {
+                ReceivablesAuditHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "OperationerAccount");
+            }
+            if (ReceivablesAuditHistoryInfoInfoDataRow["OperationTime"] != null)
+            {
+                ReceivablesAuditHistoryInfoInfo.OperationTime = DateTime.Parse(DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "OperationTime"));
+            }
+            if (ReceivablesAuditHistoryInfoInfoDataRow["OperationType"] != null)
+            {
+                ReceivablesAuditHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "OperationType");
+            }
+            if (ReceivablesAuditHistoryInfoInfoDataRow["OperationDesc"] != null)
+            {
+                ReceivablesAuditHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "OperationDesc");
+            }
+            if (ReceivablesAuditHistoryInfoInfoDataRow["Remark"] != null)
+            {
+                ReceivablesAuditHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(ReceivablesAuditHistoryInfoInfoDataRow, "Remark");
+            }
 
             return ReceivablesAuditHistoryInfoInfo;
         }

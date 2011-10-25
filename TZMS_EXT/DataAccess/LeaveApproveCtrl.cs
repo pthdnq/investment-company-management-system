@@ -23,14 +23,14 @@ namespace com.TZMS.DataAccess
     /// LeaveApproveoCtrl
     /// programmer:shunlian
     /// </summary>
-    public class LeaveApproveoCtrl
+    public class LeaveApproveCtrl
     {
         #region 构造函数
 
         /// <summary>
         /// LeaveApproveoCtrl默认构造函数
         /// </summary>
-        public LeaveApproveoCtrl()
+        public LeaveApproveCtrl()
         {
             //ToDo
         }
