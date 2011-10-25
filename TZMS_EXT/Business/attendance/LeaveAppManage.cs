@@ -29,5 +29,19 @@ namespace com.TZMS.Business
             return leaveCtrl.Insert(boName, leaveInfo);
         }
 
+
+        ///// <summary>
+        ///// 根据
+        ///// </summary>
+        ///// <param name="appState">状态：0-</param>
+        ///// <param name="startDate"></param>
+        ///// <param name="endTime"></param>
+        ///// <param name="boName"></param>
+        ///// <returns></returns>
+        //public List<LeaveInfo> GetLeaveInfo(string appState, string startDate, string endTime, string boName = BoName)
+        //{ 
+            
+        //}
+
     }
 }
