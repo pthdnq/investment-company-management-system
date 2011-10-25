@@ -31,24 +31,6 @@ namespace TZMS.Web {
         protected global::ExtAspNet.PageManager PageManager1;
         
         /// <summary>
-        /// toolApp 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::ExtAspNet.Toolbar toolApp;
-        
-        /// <summary>
-        /// btnClose 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::ExtAspNet.Button btnClose;
-        
-        /// <summary>
         /// pelMain 控件。
         /// </summary>
         /// <remarks>
@@ -67,21 +49,39 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Form Form2;
         
         /// <summary>
-        /// Label3 控件。
+        /// Qjtype 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Label Label3;
+        protected global::ExtAspNet.DropDownList Qjtype;
         
         /// <summary>
-        /// Label16 控件。
+        /// FormRow1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Label Label16;
+        protected global::ExtAspNet.FormRow FormRow1;
+        
+        /// <summary>
+        /// DatePicker2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.DatePicker DatePicker2;
+        
+        /// <summary>
+        /// DatePicker1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.DatePicker DatePicker1;
     }
 }

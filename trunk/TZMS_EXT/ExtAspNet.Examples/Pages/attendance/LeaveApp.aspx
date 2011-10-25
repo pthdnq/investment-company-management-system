@@ -67,8 +67,8 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="newWindow" Title="请假申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" OnClose="Window1_Close" IsModal="true" Width="750px"
-        EnableConfirmOnClose="true" Height="550px">
+        Target="Parent" runat="server" OnClose="Window1_Close" IsModal="true" Width="550px"
+        EnableConfirmOnClose="true" Height="350px">
     </ext:Window>
     </form>
 </body>
