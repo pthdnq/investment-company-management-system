@@ -24,6 +24,15 @@ namespace TZMS.Web
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        private void DataBind()
+        { 
+            
+        
+        }
+
+        /// <summary>
         /// 我要请假 页面关闭时间
         /// </summary>
         /// <param name="sender"></param>

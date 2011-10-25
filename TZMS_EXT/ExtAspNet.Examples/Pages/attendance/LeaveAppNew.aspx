@@ -9,7 +9,7 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" runat="server" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true" Height="318px" Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true" Height="317px" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
