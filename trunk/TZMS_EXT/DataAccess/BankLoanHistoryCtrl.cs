@@ -230,38 +230,38 @@ namespace com.TZMS.DataAccess
         internal BankLoanHistoryInfo BankLoanHistoryInfoRowToInfo(DataRow BankLoanHistoryInfoInfoDataRow)
         {
             BankLoanHistoryInfo BankLoanHistoryInfoInfo = new BankLoanHistoryInfo();
-            //if (BankLoanHistoryInfoInfoDataRow["Id"] != null)
-            //{
-            //    BankLoanHistoryInfoInfo.Id = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "Id");
-            //}
-            //if (BankLoanHistoryInfoInfoDataRow["ForId"] != null)
-            //{
-            //    BankLoanHistoryInfoInfo.ForId = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "ForId");
-            //}
-            //if (BankLoanHistoryInfoInfoDataRow["OperationerName"] != null)
-            //{
-            //    BankLoanHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "OperationerName");
-            //}
-            //if (BankLoanHistoryInfoInfoDataRow["OperationerAccount"] != null)
-            //{
-            //    BankLoanHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "OperationerAccount");
-            //}
-            //if (BankLoanHistoryInfoInfoDataRow["OperationTime"] != null)
-            //{
-            //    BankLoanHistoryInfoInfo.OperationTime = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "OperationTime");
-            //}
-            //if (BankLoanHistoryInfoInfoDataRow["OperationType"] != null)
-            //{
-            //    BankLoanHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "OperationType");
-            //}
-            //if (BankLoanHistoryInfoInfoDataRow["OperationDesc"] != null)
-            //{
-            //    BankLoanHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "OperationDesc");
-            //}
-            //if (BankLoanHistoryInfoInfoDataRow["Remark"] != null)
-            //{
-            //    BankLoanHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "Remark");
-            //}
+            if (BankLoanHistoryInfoInfoDataRow["Id"] != null)
+            {
+                BankLoanHistoryInfoInfo.Id =new Guid( DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "Id"));
+            }
+            if (BankLoanHistoryInfoInfoDataRow["ForId"] != null)
+            {
+                BankLoanHistoryInfoInfo.ForId = new Guid(DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "ForId"));
+            }
+            if (BankLoanHistoryInfoInfoDataRow["OperationerName"] != null)
+            {
+                BankLoanHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "OperationerName");
+            }
+            if (BankLoanHistoryInfoInfoDataRow["OperationerAccount"] != null)
+            {
+                BankLoanHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "OperationerAccount");
+            }
+            if (BankLoanHistoryInfoInfoDataRow["OperationTime"] != null)
+            {
+                BankLoanHistoryInfoInfo.OperationTime =DateTime.Parse( DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "OperationTime"));
+            }
+            if (BankLoanHistoryInfoInfoDataRow["OperationType"] != null)
+            {
+                BankLoanHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "OperationType");
+            }
+            if (BankLoanHistoryInfoInfoDataRow["OperationDesc"] != null)
+            {
+                BankLoanHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "OperationDesc");
+            }
+            if (BankLoanHistoryInfoInfoDataRow["Remark"] != null)
+            {
+                BankLoanHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(BankLoanHistoryInfoInfoDataRow, "Remark");
+            }
 
             return BankLoanHistoryInfoInfo;
         }

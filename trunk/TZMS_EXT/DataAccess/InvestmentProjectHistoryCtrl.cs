@@ -230,38 +230,38 @@ namespace com.TZMS.DataAccess
         internal InvestmentProjectHistoryInfo InvestmentProjectHistoryInfoRowToInfo(DataRow InvestmentProjectHistoryInfoInfoDataRow)
         {
             InvestmentProjectHistoryInfo InvestmentProjectHistoryInfoInfo = new InvestmentProjectHistoryInfo();
-            //if (InvestmentProjectHistoryInfoInfoDataRow["Id"] != null)
-            //{
-            //    InvestmentProjectHistoryInfoInfo.Id = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "Id");
-            //}
-            //if (InvestmentProjectHistoryInfoInfoDataRow["ForId"] != null)
-            //{
-            //    InvestmentProjectHistoryInfoInfo.ForId = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "ForId");
-            //}
-            //if (InvestmentProjectHistoryInfoInfoDataRow["OperationerName"] != null)
-            //{
-            //    InvestmentProjectHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "OperationerName");
-            //}
-            //if (InvestmentProjectHistoryInfoInfoDataRow["OperationerAccount"] != null)
-            //{
-            //    InvestmentProjectHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "OperationerAccount");
-            //}
-            //if (InvestmentProjectHistoryInfoInfoDataRow["OperationTime"] != null)
-            //{
-            //    InvestmentProjectHistoryInfoInfo.OperationTime = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "OperationTime");
-            //}
-            //if (InvestmentProjectHistoryInfoInfoDataRow["OperationType"] != null)
-            //{
-            //    InvestmentProjectHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "OperationType");
-            //}
-            //if (InvestmentProjectHistoryInfoInfoDataRow["OperationDesc"] != null)
-            //{
-            //    InvestmentProjectHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "OperationDesc");
-            //}
-            //if (InvestmentProjectHistoryInfoInfoDataRow["Remark"] != null)
-            //{
-            //    InvestmentProjectHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "Remark");
-            //}
+            if (InvestmentProjectHistoryInfoInfoDataRow["Id"] != null)
+            {
+                InvestmentProjectHistoryInfoInfo.Id = new Guid(DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "Id"));
+            }
+            if (InvestmentProjectHistoryInfoInfoDataRow["ForId"] != null)
+            {
+                InvestmentProjectHistoryInfoInfo.ForId = new Guid(DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "ForId"));
+            }
+            if (InvestmentProjectHistoryInfoInfoDataRow["OperationerName"] != null)
+            {
+                InvestmentProjectHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "OperationerName");
+            }
+            if (InvestmentProjectHistoryInfoInfoDataRow["OperationerAccount"] != null)
+            {
+                InvestmentProjectHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "OperationerAccount");
+            }
+            if (InvestmentProjectHistoryInfoInfoDataRow["OperationTime"] != null)
+            {
+                InvestmentProjectHistoryInfoInfo.OperationTime = DateTime.Parse(DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "OperationTime"));
+            }
+            if (InvestmentProjectHistoryInfoInfoDataRow["OperationType"] != null)
+            {
+                InvestmentProjectHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "OperationType");
+            }
+            if (InvestmentProjectHistoryInfoInfoDataRow["OperationDesc"] != null)
+            {
+                InvestmentProjectHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "OperationDesc");
+            }
+            if (InvestmentProjectHistoryInfoInfoDataRow["Remark"] != null)
+            {
+                InvestmentProjectHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(InvestmentProjectHistoryInfoInfoDataRow, "Remark");
+            }
 
             return InvestmentProjectHistoryInfoInfo;
         }

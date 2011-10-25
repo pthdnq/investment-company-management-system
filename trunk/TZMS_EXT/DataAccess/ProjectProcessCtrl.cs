@@ -290,98 +290,98 @@ namespace com.TZMS.DataAccess
         internal ProjectProcessInfo ProjectProcessInfoRowToInfo(DataRow ProjectProcessInfoInfoDataRow)
         {
             ProjectProcessInfo ProjectProcessInfoInfo = new ProjectProcessInfo();
-            //if (ProjectProcessInfoInfoDataRow["ObjetctId"] != null)
-            //{
-            //    ProjectProcessInfoInfo.ObjetctId = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ObjetctId");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["ForId"] != null)
-            //{
-            //    ProjectProcessInfoInfo.ForId = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ForId");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["ProjectName"] != null)
-            //{
-            //    ProjectProcessInfoInfo.ProjectName = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ProjectName");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["NeedImprest"] != null)
-            //{
-            //    ProjectProcessInfoInfo.NeedImprest = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "NeedImprest");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["ImplementationPhase"] != null)
-            //{
-            //    ProjectProcessInfoInfo.ImplementationPhase = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ImplementationPhase");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["AmountExpended"] != null)
-            //{
-            //    ProjectProcessInfoInfo.AmountExpended = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "AmountExpended");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["ExpendedTime"] != null)
-            //{
-            //    ProjectProcessInfoInfo.ExpendedTime = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ExpendedTime");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["ImprestAmount"] != null)
-            //{
-            //    ProjectProcessInfoInfo.ImprestAmount = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ImprestAmount");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["Remark"] != null)
-            //{
-            //    ProjectProcessInfoInfo.Remark = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "Remark");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["PrepaidAmount"] != null)
-            //{
-            //    ProjectProcessInfoInfo.PrepaidAmount = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "PrepaidAmount");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["Use"] != null)
-            //{
-            //    ProjectProcessInfoInfo.Use = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "Use");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["ImprestRemark"] != null)
-            //{
-            //    ProjectProcessInfoInfo.ImprestRemark = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ImprestRemark");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["Status"] != null)
-            //{
-            //    ProjectProcessInfoInfo.Status = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "Status");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["NextOperaterId"] != null)
-            //{
-            //    ProjectProcessInfoInfo.NextOperaterId = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "NextOperaterId");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["NextOperaterAccount"] != null)
-            //{
-            //    ProjectProcessInfoInfo.NextOperaterAccount = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "NextOperaterAccount");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["NextOperaterName"] != null)
-            //{
-            //    ProjectProcessInfoInfo.NextOperaterName = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "NextOperaterName");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["CreateTime"] != null)
-            //{
-            //    ProjectProcessInfoInfo.CreateTime = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "CreateTime");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["CreaterId"] != null)
-            //{
-            //    ProjectProcessInfoInfo.CreaterId = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "CreaterId");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["CreaterName"] != null)
-            //{
-            //    ProjectProcessInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "CreaterName");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["CreaterAccount"] != null)
-            //{
-            //    ProjectProcessInfoInfo.CreaterAccount = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "CreaterAccount");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["SubmitTime"] != null)
-            //{
-            //    ProjectProcessInfoInfo.SubmitTime = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "SubmitTime");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["AuditOpinion"] != null)
-            //{
-            //    ProjectProcessInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "AuditOpinion");
-            //}
-            //if (ProjectProcessInfoInfoDataRow["AccountingRemark"] != null)
-            //{
-            //    ProjectProcessInfoInfo.AccountingRemark = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "AccountingRemark");
-            //}
+            if (ProjectProcessInfoInfoDataRow["ObjetctId"] != null)
+            {
+                ProjectProcessInfoInfo.ObjetctId = new Guid(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ObjetctId"));
+            }
+            if (ProjectProcessInfoInfoDataRow["ForId"] != null)
+            {
+                ProjectProcessInfoInfo.ForId = new Guid(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ForId"));
+            }
+            if (ProjectProcessInfoInfoDataRow["ProjectName"] != null)
+            {
+                ProjectProcessInfoInfo.ProjectName = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ProjectName");
+            }
+            if (ProjectProcessInfoInfoDataRow["NeedImprest"] != null)
+            {
+                ProjectProcessInfoInfo.NeedImprest = bool.Parse(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "NeedImprest"));
+            }
+            if (ProjectProcessInfoInfoDataRow["ImplementationPhase"] != null)
+            {
+                ProjectProcessInfoInfo.ImplementationPhase = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ImplementationPhase");
+            }
+            if (ProjectProcessInfoInfoDataRow["AmountExpended"] != null)
+            {
+                ProjectProcessInfoInfo.AmountExpended = Decimal.Parse(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "AmountExpended"));
+            }
+            if (ProjectProcessInfoInfoDataRow["ExpendedTime"] != null)
+            {
+                ProjectProcessInfoInfo.ExpendedTime = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ExpendedTime");
+            }
+            if (ProjectProcessInfoInfoDataRow["ImprestAmount"] != null)
+            {
+                ProjectProcessInfoInfo.ImprestAmount = Decimal.Parse(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ImprestAmount"));
+            }
+            if (ProjectProcessInfoInfoDataRow["Remark"] != null)
+            {
+                ProjectProcessInfoInfo.Remark = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "Remark");
+            }
+            if (ProjectProcessInfoInfoDataRow["PrepaidAmount"] != null)
+            {
+                ProjectProcessInfoInfo.PrepaidAmount = Decimal.Parse(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "PrepaidAmount"));
+            }
+            if (ProjectProcessInfoInfoDataRow["Use"] != null)
+            {
+                ProjectProcessInfoInfo.Use = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "Use");
+            }
+            if (ProjectProcessInfoInfoDataRow["ImprestRemark"] != null)
+            {
+                ProjectProcessInfoInfo.ImprestRemark = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ImprestRemark");
+            }
+            if (ProjectProcessInfoInfoDataRow["Status"] != null)
+            {
+                ProjectProcessInfoInfo.Status = char.Parse(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "Status"));
+            }
+            if (ProjectProcessInfoInfoDataRow["NextOperaterId"] != null)
+            {
+                ProjectProcessInfoInfo.NextOperaterId = new Guid(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "NextOperaterId"));
+            }
+            if (ProjectProcessInfoInfoDataRow["NextOperaterAccount"] != null)
+            {
+                ProjectProcessInfoInfo.NextOperaterAccount = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "NextOperaterAccount");
+            }
+            if (ProjectProcessInfoInfoDataRow["NextOperaterName"] != null)
+            {
+                ProjectProcessInfoInfo.NextOperaterName = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "NextOperaterName");
+            }
+            if (ProjectProcessInfoInfoDataRow["CreateTime"] != null)
+            {
+                ProjectProcessInfoInfo.CreateTime = DateTime.Parse(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "CreateTime"));
+            }
+            if (ProjectProcessInfoInfoDataRow["CreaterId"] != null)
+            {
+                ProjectProcessInfoInfo.CreaterId = new Guid(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "CreaterId"));
+            }
+            if (ProjectProcessInfoInfoDataRow["CreaterName"] != null)
+            {
+                ProjectProcessInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "CreaterName");
+            }
+            if (ProjectProcessInfoInfoDataRow["CreaterAccount"] != null)
+            {
+                ProjectProcessInfoInfo.CreaterAccount = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "CreaterAccount");
+            }
+            if (ProjectProcessInfoInfoDataRow["SubmitTime"] != null)
+            {
+                ProjectProcessInfoInfo.SubmitTime = DateTime.Parse(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "SubmitTime"));
+            }
+            if (ProjectProcessInfoInfoDataRow["AuditOpinion"] != null)
+            {
+                ProjectProcessInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "AuditOpinion");
+            }
+            if (ProjectProcessInfoInfoDataRow["AccountingRemark"] != null)
+            {
+                ProjectProcessInfoInfo.AccountingRemark = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "AccountingRemark");
+            }
 
             return ProjectProcessInfoInfo;
         }

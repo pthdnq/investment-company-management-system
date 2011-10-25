@@ -230,38 +230,38 @@ namespace com.TZMS.DataAccess
         internal FolkFinancingHistoryInfo FolkFinancingHistoryInfoRowToInfo(DataRow FolkFinancingHistoryInfoInfoDataRow)
         {
             FolkFinancingHistoryInfo FolkFinancingHistoryInfoInfo = new FolkFinancingHistoryInfo();
-            //if (FolkFinancingHistoryInfoInfoDataRow["Id"] != null)
-            //{
-            //    FolkFinancingHistoryInfoInfo.Id = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "Id");
-            //}
-            //if (FolkFinancingHistoryInfoInfoDataRow["ForId"] != null)
-            //{
-            //    FolkFinancingHistoryInfoInfo.ForId = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "ForId");
-            //}
-            //if (FolkFinancingHistoryInfoInfoDataRow["OperationerName"] != null)
-            //{
-            //    FolkFinancingHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "OperationerName");
-            //}
-            //if (FolkFinancingHistoryInfoInfoDataRow["OperationerAccount"] != null)
-            //{
-            //    FolkFinancingHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "OperationerAccount");
-            //}
-            //if (FolkFinancingHistoryInfoInfoDataRow["OperationTime"] != null)
-            //{
-            //    FolkFinancingHistoryInfoInfo.OperationTime = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "OperationTime");
-            //}
-            //if (FolkFinancingHistoryInfoInfoDataRow["OperationType"] != null)
-            //{
-            //    FolkFinancingHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "OperationType");
-            //}
-            //if (FolkFinancingHistoryInfoInfoDataRow["OperationDesc"] != null)
-            //{
-            //    FolkFinancingHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "OperationDesc");
-            //}
-            //if (FolkFinancingHistoryInfoInfoDataRow["Remark"] != null)
-            //{
-            //    FolkFinancingHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "Remark");
-            //}
+            if (FolkFinancingHistoryInfoInfoDataRow["Id"] != null)
+            {
+                FolkFinancingHistoryInfoInfo.Id = new Guid(DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "Id"));
+            }
+            if (FolkFinancingHistoryInfoInfoDataRow["ForId"] != null)
+            {
+                FolkFinancingHistoryInfoInfo.ForId = new Guid(DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "ForId"));
+            }
+            if (FolkFinancingHistoryInfoInfoDataRow["OperationerName"] != null)
+            {
+                FolkFinancingHistoryInfoInfo.OperationerName = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "OperationerName");
+            }
+            if (FolkFinancingHistoryInfoInfoDataRow["OperationerAccount"] != null)
+            {
+                FolkFinancingHistoryInfoInfo.OperationerAccount = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "OperationerAccount");
+            }
+            if (FolkFinancingHistoryInfoInfoDataRow["OperationTime"] != null)
+            {
+                FolkFinancingHistoryInfoInfo.OperationTime = DateTime.Parse(DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "OperationTime"));
+            }
+            if (FolkFinancingHistoryInfoInfoDataRow["OperationType"] != null)
+            {
+                FolkFinancingHistoryInfoInfo.OperationType = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "OperationType");
+            }
+            if (FolkFinancingHistoryInfoInfoDataRow["OperationDesc"] != null)
+            {
+                FolkFinancingHistoryInfoInfo.OperationDesc = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "OperationDesc");
+            }
+            if (FolkFinancingHistoryInfoInfoDataRow["Remark"] != null)
+            {
+                FolkFinancingHistoryInfoInfo.Remark = DataUtil.GetStringValueOfRow(FolkFinancingHistoryInfoInfoDataRow, "Remark");
+            }
 
             return FolkFinancingHistoryInfoInfo;
         }

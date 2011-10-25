@@ -282,90 +282,90 @@ namespace com.TZMS.DataAccess
         internal BankLoanInfo BankLoanInfoRowToInfo(DataRow BankLoanInfoInfoDataRow)
         {
             BankLoanInfo BankLoanInfoInfo = new BankLoanInfo();
-            ////if (BankLoanInfoInfoDataRow["ObjetctId"] != null)
-            ////{
-            ////    BankLoanInfoInfo.ObjetctId =new Guid(BankLoanInfoInfoDataRow["ObjetctId"].ToString());
-            ////}
-            ////if (BankLoanInfoInfoDataRow["CustomerName"] != null)
-            ////{
-            ////    BankLoanInfoInfo.CustomerName = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CustomerName");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["CustomerId"] != null)
-            ////{
-            ////    BankLoanInfoInfo.CustomerId = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CustomerId");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["LoanCompany"] != null)
-            ////{
-            ////    BankLoanInfoInfo.LoanCompany = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanCompany");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["LoanAmount"] != null)
-            ////{
-            ////    BankLoanInfoInfo.LoanAmount = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanAmount");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["LoanFee"] != null)
-            ////{
-            ////    BankLoanInfoInfo.LoanFee = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanFee");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["CollateralCompany"] != null)
-            ////{
-            ////    BankLoanInfoInfo.CollateralCompany = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CollateralCompany");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["SignDate"] != null)
-            ////{
-            ////    BankLoanInfoInfo.SignDate = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "SignDate");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["DownPayment"] != null)
-            ////{
-            ////    BankLoanInfoInfo.DownPayment = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "DownPayment");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["Contact"] != null)
-            ////{
-            ////    BankLoanInfoInfo.Contact = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "Contact");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["Remark"] != null)
-            ////{
-            ////    BankLoanInfoInfo.Remark = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "Remark");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["NextOperaterId"] != null)
-            ////{
-            ////    BankLoanInfoInfo.NextOperaterId = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "NextOperaterId");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["NextOperaterAccount"] != null)
-            ////{
-            ////    BankLoanInfoInfo.NextOperaterAccount = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "NextOperaterAccount");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["NextOperaterName"] != null)
-            ////{
-            ////    BankLoanInfoInfo.NextOperaterName = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "NextOperaterName");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["CreateTime"] != null)
-            ////{
-            ////    BankLoanInfoInfo.CreateTime = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreateTime");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["CreaterId"] != null)
-            ////{
-            ////    BankLoanInfoInfo.CreaterId = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreaterId");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["CreaterName"] != null)
-            ////{
-            ////    BankLoanInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreaterName");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["CreaterAccount"] != null)
-            ////{
-            ////    BankLoanInfoInfo.CreaterAccount = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreaterAccount");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["SubmitTime"] != null)
-            ////{
-            ////    BankLoanInfoInfo.SubmitTime = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "SubmitTime");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["AuditOpinion"] != null)
-            ////{
-            ////    BankLoanInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "AuditOpinion");
-            ////}
-            ////if (BankLoanInfoInfoDataRow["Status"] != null)
-            ////{
-            ////    BankLoanInfoInfo.Status = (char)DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "Status");
-            ////}
+            if (BankLoanInfoInfoDataRow["ObjetctId"] != null)
+            {
+                BankLoanInfoInfo.ObjetctId = new Guid(BankLoanInfoInfoDataRow["ObjetctId"].ToString());
+            }
+            if (BankLoanInfoInfoDataRow["CustomerName"] != null)
+            {
+                BankLoanInfoInfo.CustomerName = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CustomerName");
+            }
+            if (BankLoanInfoInfoDataRow["CustomerId"] != null)
+            {
+                BankLoanInfoInfo.CustomerId =new Guid( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CustomerId"));
+            }
+            if (BankLoanInfoInfoDataRow["LoanCompany"] != null)
+            {
+                BankLoanInfoInfo.LoanCompany = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanCompany");
+            }
+            if (BankLoanInfoInfoDataRow["LoanAmount"] != null)
+            {
+                BankLoanInfoInfo.LoanAmount =Decimal.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanAmount"));
+            }
+            if (BankLoanInfoInfoDataRow["LoanFee"] != null)
+            {
+                BankLoanInfoInfo.LoanFee =Decimal.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanFee"));
+            }
+            if (BankLoanInfoInfoDataRow["CollateralCompany"] != null)
+            {
+                BankLoanInfoInfo.CollateralCompany = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CollateralCompany");
+            }
+            if (BankLoanInfoInfoDataRow["SignDate"] != null)
+            {
+                BankLoanInfoInfo.SignDate =DateTime.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "SignDate"));
+            }
+            if (BankLoanInfoInfoDataRow["DownPayment"] != null)
+            {
+                BankLoanInfoInfo.DownPayment =Decimal.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "DownPayment"));
+            }
+            if (BankLoanInfoInfoDataRow["Contact"] != null)
+            {
+                BankLoanInfoInfo.Contact = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "Contact");
+            }
+            if (BankLoanInfoInfoDataRow["Remark"] != null)
+            {
+                BankLoanInfoInfo.Remark = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "Remark");
+            }
+            if (BankLoanInfoInfoDataRow["NextOperaterId"] != null)
+            {
+                BankLoanInfoInfo.NextOperaterId = new Guid(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "NextOperaterId"));
+            }
+            if (BankLoanInfoInfoDataRow["NextOperaterAccount"] != null)
+            {
+                BankLoanInfoInfo.NextOperaterAccount = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "NextOperaterAccount");
+            }
+            if (BankLoanInfoInfoDataRow["NextOperaterName"] != null)
+            {
+                BankLoanInfoInfo.NextOperaterName = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "NextOperaterName");
+            }
+            if (BankLoanInfoInfoDataRow["CreateTime"] != null)
+            {
+                BankLoanInfoInfo.CreateTime =DateTime.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreateTime"));
+            }
+            if (BankLoanInfoInfoDataRow["CreaterId"] != null)
+            {
+                BankLoanInfoInfo.CreaterId =new Guid( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreaterId"));
+            }
+            if (BankLoanInfoInfoDataRow["CreaterName"] != null)
+            {
+                BankLoanInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreaterName");
+            }
+            if (BankLoanInfoInfoDataRow["CreaterAccount"] != null)
+            {
+                BankLoanInfoInfo.CreaterAccount = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreaterAccount");
+            }
+            if (BankLoanInfoInfoDataRow["SubmitTime"] != null)
+            {
+                BankLoanInfoInfo.SubmitTime =DateTime.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "SubmitTime"));
+            }
+            if (BankLoanInfoInfoDataRow["AuditOpinion"] != null)
+            {
+                BankLoanInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "AuditOpinion");
+            }
+            if (BankLoanInfoInfoDataRow["Status"] != null)
+            {
+                BankLoanInfoInfo.Status = char.Parse(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "Status"));
+            }
 
             return BankLoanInfoInfo;
         }
