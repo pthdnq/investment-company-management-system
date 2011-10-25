@@ -8,11 +8,72 @@ using com.TZMS.Business;
 using System.Text;
 using ExtAspNet.Examples;
 using ExtAspNet;
+using System.Data;
 
 namespace TZMS.Web
 {
     public partial class WorkerManage : BasePage
     {
+        /// <summary>
+        /// 用于存储部门名称的ViewState.
+        /// </summary>
+        public string ViewStateDept
+        {
+            get
+            {
+                if (ViewState["Dept"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["Dept"].ToString();
+            }
+            set
+            {
+                ViewState["Dept"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 用于存储员工状态的ViewState.
+        /// </summary>
+        public string ViewStateState
+        {
+            get
+            {
+                if (ViewState["State"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["State"].ToString();
+            }
+            set
+            {
+                ViewState["State"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 用于存储搜索文本的ViewState.
+        /// </summary>
+        public string ViewStateSearchText
+        {
+            get
+            {
+                if (ViewState["SearchText"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["SearchText"].ToString();
+            }
+            set
+            {
+                ViewState["SearchText"] = value;
+            }
+        }
+
         /// <summary>
         /// 页面加载
         /// </summary>
@@ -26,9 +87,11 @@ namespace TZMS.Web
                 BindDept();
 
                 // 绑定用户.
-                DataBindUsers(ViewState["Dept"].ToString(), ViewState["State"].ToString(), ViewState["SearchText"].ToString());
+                DataBindUsers(ViewStateDept, ViewStateState, ViewStateSearchText);
             }
         }
+
+        #region 私有方法
 
         /// <summary>
         /// 绑定部门.
@@ -45,9 +108,9 @@ namespace TZMS.Web
             // 设置默认值.
             ddlstDept.SelectedIndex = 0;
 
-            ViewState["Dept"] = ddlstDept.SelectedText;
-            ViewState["State"] = ddlstState.SelectedText;
-            ViewState["SearchText"] = ttbSearch.Text.Trim();
+            ViewStateDept = ddlstDept.SelectedText;
+            ViewStateState = ddlstState.SelectedText;
+            ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
         /// <summary>
@@ -93,6 +156,10 @@ namespace TZMS.Web
             this.gridUser.DataBind();
         }
 
+        #endregion
+
+        #region 页面事件
+
         /// <summary>
         /// 翻页
         /// </summary>
@@ -101,7 +168,7 @@ namespace TZMS.Web
         protected void gridUser_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
         {
             this.gridUser.PageIndex = e.NewPageIndex;
-            DataBindUsers(ViewState["Dept"].ToString(), ViewState["State"].ToString(), ViewState["SearchText"].ToString());
+            DataBindUsers(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
 
         /// <summary>
@@ -111,8 +178,8 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
         {
-            ViewState["SearchText"] = ttbSearch.Text.Trim();
-            DataBindUsers(ViewState["Dept"].ToString(), ViewState["State"].ToString(), ViewState["SearchText"].ToString());
+            ViewStateSearchText = ttbSearch.Text.Trim();
+            DataBindUsers(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
 
         /// <summary>
@@ -122,8 +189,8 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void ddlstDept_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ViewState["Dept"] = ddlstDept.SelectedText;
-            DataBindUsers(ViewState["Dept"].ToString(), ViewState["State"].ToString(), ViewState["SearchText"].ToString());
+            ViewStateDept = ddlstDept.SelectedText;
+            DataBindUsers(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
 
         /// <summary>
@@ -133,10 +200,10 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void ddlstState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ViewState["State"] = ddlstState.SelectedText;
-            DataBindUsers(ViewState["Dept"].ToString(), ViewState["State"].ToString(), ViewState["SearchText"].ToString());
+            ViewStateState = ddlstState.SelectedText;
+            DataBindUsers(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
-        
+
         /// <summary>
         /// 操作事件.
         /// </summary>
@@ -158,7 +225,8 @@ namespace TZMS.Web
                 // 删除
                 user.State = 2;
             }
-            else if (e.CommandName == "Role") {
+            else if (e.CommandName == "Role")
+            {
                 //wndRolesForUser.GetShowReference("RolesOfUser.aspx?ID=" + userID);
                 wndRolesForUser.IFrameUrl = "RolesOfUser.aspx?ID=" + userID;
                 wndRolesForUser.Hidden = false;
@@ -166,7 +234,25 @@ namespace TZMS.Web
             }
             userManage.UpdateUser(user);
 
-            DataBindUsers(ViewState["Dept"].ToString(), ViewState["State"].ToString(), ViewState["SearchText"].ToString());
+            DataBindUsers(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
+
+        /// <summary>
+        /// 行绑定事件.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridUser_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            UserInfo _userInfo = (UserInfo)e.DataItem;
+
+            if (_userInfo.State == 0)
+            {
+                e.Values[9] = "<span class=\"gray\">权限</span>";
+                e.Values[10] = "<span class=\"gray\">离职</span>";
+            }
+        }
+
+        #endregion
     }
 }
