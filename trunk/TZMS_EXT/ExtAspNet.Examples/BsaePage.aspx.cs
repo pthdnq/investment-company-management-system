@@ -149,6 +149,63 @@ namespace TZMS.Web
         }
 
         /// <summary>
+        /// 系统假勤枚举
+        /// 事假，病假，婚假，产假，丧假，工伤假，产检假，年休假，矿工，调休
+        /// </summary>
+        public enum AttedType
+        {
+            /// <summary>
+            /// 事假
+            /// </summary>
+            SJ = 0,
+
+            /// <summary>
+            /// 病假
+            /// </summary>
+            BJ = 1,
+
+            /// <summary>
+            /// 婚假
+            /// </summary>
+            HJ = 2,
+
+            /// <summary>
+            /// 产假
+            /// </summary>
+            CJ = 3,
+
+            /// <summary>
+            /// 丧假
+            /// </summary>
+            SAJ = 4,
+
+            /// <summary>
+            /// 工伤假
+            /// </summary>
+            GJ = 5,
+
+            /// <summary>
+            /// 产检假
+            /// </summary>
+            CJJ = 6,
+
+            /// <summary>
+            /// 年休假
+            /// </summary>
+            NXJ = 7,
+
+            /// <summary>
+            /// 矿工
+            /// </summary>
+            KG = 8,
+
+            /// <summary>
+            /// 调休
+            /// </summary>
+            TX = 9
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="e"></param>
