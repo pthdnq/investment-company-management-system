@@ -36,9 +36,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ACommonInfo.cs" />
     <Compile Include="AttendInfo.cs" />
+    <Compile Include="BankLoanHistoryInfo.cs" />
+    <Compile Include="BankLoanInfo.cs" />
+    <Compile Include="BankLoanProjectProcessHistoryInfo.cs" />
+    <Compile Include="BankLoanProjectProcessInfo.cs" />
+    <Compile Include="CustomerInfo.cs" />
+    <Compile Include="FinancingFeePaymentHistoryInfo.cs" />
+    <Compile Include="FinancingFeePaymentInfo.cs" />
+    <Compile Include="FolkFinancingHistoryInfo.cs" />
+    <Compile Include="FolkFinancingInfo.cs" />
+    <Compile Include="InvestmentLoanHistoryInfo.cs" />
+    <Compile Include="InvestmentLoanInfo.cs" />
+    <Compile Include="InvestmentProjectHistoryInfo.cs" />
+    <Compile Include="InvestmentProjectInfo.cs" />
     <Compile Include="LeaveApproveInfo.cs" />
     <Compile Include="LeaveInfo.cs" />
+    <Compile Include="ProjectProcessHistoryInfo.cs" />
+    <Compile Include="ProjectProcessInfo.cs" />
+    <Compile Include="ReceivablesAuditHistoryInfo.cs" />
+    <Compile Include="ReceivablesInfo.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRoles.cs" />
