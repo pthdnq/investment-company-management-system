@@ -6,6 +6,7 @@ namespace TZMS
 {
     public class Common
     {
+
         /// <summary>
         /// 部门
         /// </summary>
