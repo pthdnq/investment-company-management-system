@@ -4,11 +4,74 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using com.TZMS.Model;
+using com.TZMS.Business;
+using ExtAspNet;
 
-namespace TZMS.Web.Pages.adminManage
+namespace TZMS.Web
 {
     public partial class RolesOfUser : BasePage
     {
+        /// <summary>
+        /// 用于存储用户ID的ViewState.
+        /// </summary>
+        public string UserObjectID
+        {
+            get
+            {
+                if (ViewState["UserObjectID"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["UserObjectID"].ToString();
+            }
+            set
+            {
+                ViewState["UserObjectID"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 用于存储已分配角色链表的ViewState.
+        /// </summary>
+        public List<RoleType> SelectedRoles
+        {
+            get
+            {
+                if (ViewState["SelectedRoles"] == null)
+                {
+                    return new List<RoleType>();
+                }
+
+                return (List<RoleType>)ViewState["SelectedRoles"];
+            }
+            set
+            {
+                ViewState["SelectedRoles"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 用于存储未分配角色的ViewState.
+        /// </summary>
+        public List<RoleType> UnselectRoles
+        {
+            get
+            {
+                if (ViewState["UnselectRoles"] == null)
+                {
+                    return new List<RoleType>();
+                }
+
+                return (List<RoleType>)ViewState["UnselectRoles"];
+            }
+            set
+            {
+                ViewState["UnselectRoles"] = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -18,7 +81,20 @@ namespace TZMS.Web.Pages.adminManage
 
                 if (!string.IsNullOrEmpty(strUserID))
                 {
-                    rolesFilter(null);
+                    // 获取角色实例.
+                    UserRoles _userRoles = new RolesManage().GetRolesByObjectID(strUserID);
+                    if (_userRoles == null)
+                    {
+                        rolesFilter(null);
+
+                    }
+                    else
+                    {
+                        rolesFilter(_userRoles.Roles);
+                    }
+
+                    // 保存用户ID
+                    UserObjectID = strUserID;
                 }
             }
         }
@@ -76,8 +152,14 @@ namespace TZMS.Web.Pages.adminManage
             }
 
             // 绑定列表.
+            lstUnselectRoles.Sort();
+            lstSelectedRoles.Sort();
             bindUnselectGridView(lstUnselectRoles);
             bindSelectedGridView(lstSelectedRoles);
+
+            // 保存列表.
+            SelectedRoles = lstSelectedRoles;
+            UnselectRoles = lstUnselectRoles;
         }
 
         /// <summary>
@@ -133,7 +215,7 @@ namespace TZMS.Web.Pages.adminManage
 
             // 创建数据表.
             DataTable table = new DataTable();
-            DataColumn roleColumn = new DataColumn("Role", typeof(string));
+            DataColumn roleColumn = new DataColumn("RoleName", typeof(string));
             table.Columns.Add(roleColumn);
 
             // 创建数据行.
@@ -143,7 +225,8 @@ namespace TZMS.Web.Pages.adminManage
                 foreach (RoleType item in roleList)
                 {
                     row = table.NewRow();
-                    row["Role"] = convertRoleTypeToString(item);
+
+                    row["RoleName"] = convertRoleTypeToString(item);
                     table.Rows.Add(row);
                 }
             }
@@ -235,7 +318,31 @@ namespace TZMS.Web.Pages.adminManage
         /// <param name="e"></param>
         protected void btnSelect_Click(object sender, EventArgs e)
         {
+            // 获取选中一行.
+            if (gridUnSelectRoles.SelectedRowIndexArray.Length == 0)
+            {
+                return;
+            }
 
+            int index = gridUnSelectRoles.SelectedRowIndexArray[0];
+
+            List<RoleType> lstUnselectRoles = UnselectRoles;
+            List<RoleType> lstSelectedRoles = SelectedRoles;
+
+            // 修改列表.
+            RoleType roleType = lstUnselectRoles[index];
+            lstSelectedRoles.Add(roleType);
+            lstUnselectRoles.RemoveAt(index);
+
+            // 重新绑定Grid.
+            lstUnselectRoles.Sort();
+            lstSelectedRoles.Sort();
+            bindUnselectGridView(lstUnselectRoles);
+            bindSelectedGridView(lstSelectedRoles);
+
+            // 保存列表.
+            SelectedRoles = lstSelectedRoles;
+            UnselectRoles = lstUnselectRoles;
         }
 
         /// <summary>
@@ -245,7 +352,31 @@ namespace TZMS.Web.Pages.adminManage
         /// <param name="e"></param>
         protected void btnUnselect_Click(object sender, EventArgs e)
         {
+            // 获取选中一行.
+            if (gridSelectdRoles.SelectedRowIndexArray.Length == 0)
+            {
+                return;
+            }
 
+            int index = gridSelectdRoles.SelectedRowIndexArray[0];
+
+            List<RoleType> lstUnselectRoles = UnselectRoles;
+            List<RoleType> lstSelectedRoles = SelectedRoles;
+
+            // 修改列表.
+            RoleType roleType = lstSelectedRoles[index];
+            lstUnselectRoles.Add(roleType);
+            lstSelectedRoles.RemoveAt(index);
+
+            // 重新绑定Grid.
+            lstUnselectRoles.Sort();
+            lstSelectedRoles.Sort();
+            bindUnselectGridView(lstUnselectRoles);
+            bindSelectedGridView(lstSelectedRoles);
+
+            // 保存列表.
+            SelectedRoles = lstSelectedRoles;
+            UnselectRoles = lstUnselectRoles;
         }
 
         /// <summary>
@@ -255,7 +386,53 @@ namespace TZMS.Web.Pages.adminManage
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            // 将选中的角色添加或更新到角色表中.
+            if (ViewState["SelectedRoles"] != null)
+            {
+                // 获取用户ID.
+                string strUserObjectID = UserObjectID;
 
+                // 获取角色实例,如果没有获取到，则表明是一条新记录，即从用户表中获取相应的信息.
+                RolesManage _rolesManage = new RolesManage();
+                UserRoles _userRoles = _rolesManage.GetRolesByObjectID(strUserObjectID);
+                bool isNew = false;
+                if (_userRoles == null)
+                {
+                    isNew = true;
+                    _userRoles = new UserRoles();
+                    // 获取用户信息.
+                    UserInfo _userInfo = new UserManage().GetUserByObjectID(strUserObjectID);
+                    _userRoles.UserObjectId = new Guid(strUserObjectID);
+                    _userRoles.AccountNo = _userInfo.AccountNo;
+                    _userRoles.JobNo = _userInfo.JobNo;
+                    _userRoles.Name = _userInfo.Name;
+                }
+
+                // 设置实例中的角色值.
+                List<RoleType> lstSelectedRoles = SelectedRoles;
+                _userRoles.Roles = string.Empty;
+                foreach (RoleType item in lstSelectedRoles)
+                {
+                    if (lstSelectedRoles.Count > 0 && item != lstSelectedRoles[0])
+                    {
+                        _userRoles.Roles += ",";
+                    }
+                    _userRoles.Roles += (int)item;
+                }
+
+                // 根据标示IsNew来进行不同的操作.
+                int result;
+                if (isNew)
+                {
+                    result = _rolesManage.AddRoles(_userRoles);
+                }
+                else
+                {
+                    result = _rolesManage.UpdateRoles(_userRoles);
+                }
+
+                Alert.Show((isNew ? "添加角色" : "更新角色") + (result == -1 ? "成功" : "失败"));
+            }
         }
 
         #endregion

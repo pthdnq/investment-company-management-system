@@ -13,22 +13,24 @@
         EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
         Layout="Anchor">
         <Items>
-            <ext:Form ID="Form2" ShowBorder="False" BodyPadding="5px" AnchorValue="100%" EnableBackgroundColor="true"
-                ShowHeader="False" runat="server">
+            <ext:Form ID="Form2" ShowBorder="False" LabelWidth="55px" BodyPadding="5px" AnchorValue="100%"
+                EnableBackgroundColor="true" ShowHeader="False" runat="server">
                 <Rows>
                     <ext:FormRow>
                         <Items>
                             <ext:TwinTriggerBox runat="server" EmptyText="请输入姓名或账号查询" ShowLabel="false" ID="ttbSearch"
-                                Width="200px" Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click">
+                                Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click">
                             </ext:TwinTriggerBox>
-                            <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门" Width="100px"
+                            <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged">
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Width="100px"
-                                Label="员工状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
+                            <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="员工状态"
+                                OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
                                 <ext:ListItem Text="在职" Value="1" Selected="true" />
                                 <ext:ListItem Text="离职" Value="0" />
                             </ext:DropDownList>
+                            <ext:Label ID="Label1" runat="server">
+                            </ext:Label>
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -46,7 +48,8 @@
                 <Items>
                     <ext:Grid ID="gridUser" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
                         PageSize="1" runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
-                        OnPageIndexChange="gridUser_PageIndexChange" OnRowCommand="gridUser_RowCommand">
+                        OnPageIndexChange="gridUser_PageIndexChange" OnRowCommand="gridUser_RowCommand"
+                        OnRowDataBound="gridUser_RowDataBound">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField DataField="JobNo" HeaderText="工号" ExpandUnusedSpace="True" />
@@ -65,8 +68,9 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:LinkButtonField Width="40px" Text="编辑" />
-                            <ext:LinkButtonField Width="40px" Text="权限" CommandName="Role"/>
-                            <ext:LinkButtonField Width="40px" Text="离职" ConfirmText="确定该员工离职?" CommandName="Leave" />
+                            <ext:LinkButtonField Width="40px" Text="权限" CommandName="Role" />
+                            <ext:LinkButtonField Width="40px" Text="离职" ConfirmText="确定该员工离职?"
+                                CommandName="Leave" />
                             <ext:LinkButtonField Width="40px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
@@ -74,9 +78,9 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndRolesForUser" runat="server" Popup="false"
-        WindowPosition="Center" IsModal="true" Title="权限编辑页面" Target="Self" EnableIFrame="true"
-        IFrameUrl="about:blank" Height="490px" Width="350px">
+    <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
+        IsModal="true" Title="权限编辑页面" Target="Self" EnableIFrame="true" IFrameUrl="about:blank"
+        Height="490px" Width="350px">
     </ext:Window>
     </form>
 </body>

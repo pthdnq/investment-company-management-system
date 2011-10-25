@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TZMS.Web.Pages.adminManage {
+namespace TZMS.Web {
     
     
     public partial class RolesOfUser {
