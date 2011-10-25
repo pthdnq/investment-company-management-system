@@ -31,8 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DataAccess">
-      <HintPath>..\Model\_DLL\DataAccess.dll</HintPath>
+    <Reference Include="DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DataAccess\bin\Debug\DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="iFlytek.BaseClass">
       <HintPath>..\Model\_DLL\iFlytek.BaseClass.dll</HintPath>
