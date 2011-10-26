@@ -89,7 +89,21 @@
                             <ext:Tab ID="systemTab" Title="我的首页" IFrameUrl="Pages/system/MyWeb.aspx" Layout="Fit"
                                 Icon="House" runat="server">
                                 <Items>
-                                    
+                                    <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
+                                        EnableLargeHeader="true" Title="Panel" ShowHeader="false" Layout="Anchor">
+                                        <Toolbars>
+                                            <ext:Toolbar ID="Toolbar1" runat="server">
+                                                <Items>
+                                                    <ext:Button ID="myMessage" runat="server" Text="个人信息">
+                                                    </ext:Button>
+                                                    <ext:Button ID="changePsw" runat="server" Text="修改密码">
+                                                    </ext:Button>
+                                                    <ext:Button ID="setChecker" runat="server" Text="设置审批人">
+                                                    </ext:Button>
+                                                </Items>
+                                            </ext:Toolbar>
+                                        </Toolbars>
+                                    </ext:Panel>
                                 </Items>
                             </ext:Tab>
                         </Tabs>
@@ -98,6 +112,10 @@
             </ext:Region>
         </Regions>
     </ext:RegionPanel>
+    <ext:Window ID="newWindow" Title="设置审批人" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" OnClose="Window1_Close" IsModal="true" Width="650px"
+        EnableConfirmOnClose="true" Height="450px">
+    </ext:Window>
     </form>
     <script type="text/javascript">
 
@@ -117,7 +135,7 @@
                     LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理");
                     break;
 
-                //假勤管理     
+                //假勤管理         
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤");
                     break;
