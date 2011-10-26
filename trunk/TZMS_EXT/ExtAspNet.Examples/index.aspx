@@ -28,7 +28,7 @@
                                 <a href="./default.aspx" style="color:#fff;">ExtAspNet - v<asp:Label ID="labCurrentVersion" runat="server"></asp:Label></a>
                                 </div>
                             </td>
-                            <td style="text-align:right;color:#ccc;display:none;">粤ICP备09194734号&nbsp;</td>
+                            <td style="text-align:right;color:#ccc;display:none;">皖ICP备09194734号&nbsp;</td>
                         </tr>
                         </table>
                     </ext:ContentPanel>
@@ -38,7 +38,7 @@
                 Margins="0 0 0 0" ShowHeader="false" Title="Examples" Icon="Outline" EnableCollapse="true"
                 Layout="Fit" Position="Left" runat="server">
                 <Items>
-                    <ext:Accordion ID="Accordion1"  Title="菜单" runat="server" Width="280px" EnableLargeHeader="false"
+                    <ext:Accordion ID="Accordion1" Title="菜单" runat="server" Width="280px" EnableLargeHeader="false"
                         Height="450px" EnableFill="true" ShowBorder="True" ActiveIndex="0">
                         <Panes>
                             <ext:AccordionPane ID="AccordionPane1" runat="server" Title="系统管理" IconUrl="images/16/1.png"
@@ -86,14 +86,8 @@
                 <Items>
                     <ext:TabStrip ID="tabManage" EnableTabCloseMenu="false" ShowBorder="false" runat="server">
                         <Tabs>
-                            <ext:Tab ID="systemTab" Title="我的首页" Layout="Fit" Icon="House" runat="server">
-                                <Items>
-                                    <ext:ContentPanel ID="ContentPanel1" ShowBorder="false" BodyPadding="10px" ShowHeader="false"
-                                        AutoScroll="true" CssClass="intro" runat="server">
-                                        <strong>ExtAspNet - ExtJS based ASP.NET Controls with Full AJAX Support</strong>
-
-                                    </ext:ContentPanel>
-                                </Items>
+                            <ext:Tab ID="systemTab" Title="我的首页" IFrameUrl="Pages/system/MyWeb.aspx" Layout="Fit"
+                                Icon="House" runat="server">
                             </ext:Tab>
                         </Tabs>
                     </ext:TabStrip>
@@ -116,11 +110,11 @@
             }
             switch (keyIndex) {
                 case "yggl":
-                //行政管理
+                    //行政管理
                     LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理");
                     break;
 
-                //假勤管理
+                //假勤管理     
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤");
                     break;
