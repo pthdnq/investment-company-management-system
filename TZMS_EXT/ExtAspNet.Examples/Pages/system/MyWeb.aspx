@@ -10,8 +10,7 @@
     <ext:PageManager ID="PageManager1" AutoSizePanelID="pelMain" HideScrollbar="true"
         runat="server" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
-        Layout="Anchor">
+        EnableLargeHeader="true" Title="Panel" ShowHeader="false" Layout="Anchor">
         <Toolbars>
             <ext:Toolbar runat="server">
                 <Items>
