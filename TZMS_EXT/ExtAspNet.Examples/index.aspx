@@ -88,6 +88,9 @@
                         <Tabs>
                             <ext:Tab ID="systemTab" Title="我的首页" IFrameUrl="Pages/system/MyWeb.aspx" Layout="Fit"
                                 Icon="House" runat="server">
+                                <Items>
+                                    
+                                </Items>
                             </ext:Tab>
                         </Tabs>
                     </ext:TabStrip>
