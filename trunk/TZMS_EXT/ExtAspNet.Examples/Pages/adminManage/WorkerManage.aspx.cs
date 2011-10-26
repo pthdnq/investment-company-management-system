@@ -83,6 +83,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                btnNewUser.OnClientClick = wndNewUser.GetShowReference("NewUser.aspx?Type=Add", "新增员工");
+
                 // 绑定部门.
                 BindDept();
 
@@ -232,6 +234,13 @@ namespace TZMS.Web
                 wndRolesForUser.Hidden = false;
                 return;
             }
+            else if (e.CommandName == "Edit")
+            {
+                wndNewUser.Title = "编辑员工";
+                wndNewUser.IFrameUrl = "NewUser.aspx?Type=Edit&ID=" + userID;
+                wndNewUser.Hidden = false;
+                return;
+            }
             userManage.UpdateUser(user);
 
             DataBindUsers(ViewStateDept, ViewStateState, ViewStateSearchText);
@@ -252,7 +261,6 @@ namespace TZMS.Web
                 e.Values[10] = "<span class=\"gray\">离职</span>";
             }
         }
-
         #endregion
     }
 }

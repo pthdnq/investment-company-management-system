@@ -40,7 +40,7 @@
                 <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server">
                         <Items>
-                            <ext:Button ID="btnNewUser" Text="新增员工" runat="server">
+                            <ext:Button ID="btnNewUser" Text="新增员工" Icon="Add" runat="server">
                             </ext:Button>
                         </Items>
                     </ext:Toolbar>
@@ -67,10 +67,9 @@
                                     <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:LinkButtonField Width="40px" Text="编辑" />
+                            <ext:LinkButtonField Width="40px" Text="编辑" CommandName="Edit" />
                             <ext:LinkButtonField Width="40px" Text="权限" CommandName="Role" />
-                            <ext:LinkButtonField Width="40px" Text="离职" ConfirmText="确定该员工离职?"
-                                CommandName="Leave" />
+                            <ext:LinkButtonField Width="40px" Text="离职" ConfirmText="确定该员工离职?" CommandName="Leave" />
                             <ext:LinkButtonField Width="40px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
@@ -81,6 +80,10 @@
     <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
         IsModal="true" Title="权限编辑页面" Target="Self" EnableIFrame="true" IFrameUrl="about:blank"
         Height="490px" Width="350px">
+    </ext:Window>
+    <ext:Window ID="wndNewUser" runat="server" Popup="false" WindowPosition="Center"
+        IsModal="true" Title="权限编辑页面" Target="Self" EnableIFrame="true" IFrameUrl="about:blank"
+        Height="349px" Width="550px">
     </ext:Window>
     </form>
 </body>
