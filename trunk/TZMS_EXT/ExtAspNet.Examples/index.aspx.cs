@@ -13,5 +13,15 @@ namespace TZMS.Web
         {
 
         }
+
+        /// <summary>
+        /// 设置审批人
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Window1_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
+        {
+
+        }
     }
 }
