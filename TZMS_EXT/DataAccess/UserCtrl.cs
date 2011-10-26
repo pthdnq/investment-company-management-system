@@ -336,7 +336,7 @@ namespace com.TZMS.DataAccess
             {
                 UserInfoInfo.Educational = UserInfoInfoDataRow["Educational"].ToString();
             }
-            if (UserInfoInfoDataRow["WorkYear"] != null)
+            if (UserInfoInfoDataRow["WorkYear"] != null && UserInfoInfoDataRow["WorkYear"].ToString()!="")
             {
                 UserInfoInfo.WorkYear = short.Parse(UserInfoInfoDataRow["WorkYear"].ToString());
             }
