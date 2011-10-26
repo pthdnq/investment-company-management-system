@@ -39,6 +39,7 @@ namespace com.TZMS.DataAccess
 
         #region 增、删、改、查
 
+
         /// <summary>
         /// 插入dbo.UserInfo一条记录
         /// </summary>
@@ -53,7 +54,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "UserInfo_Add";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjectID",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@AccountNo",DbType.String),
 				new SqlParameter("@JobNo",DbType.String),
 				new SqlParameter("@Name",DbType.String),
@@ -67,7 +68,10 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@BackIpPhoneNumber",DbType.String),
 				new SqlParameter("@Email",DbType.String),
-				new SqlParameter("@Password",DbType.String)
+				new SqlParameter("@Password",DbType.String),
+				new SqlParameter("@Educational",DbType.String),
+				new SqlParameter("@WorkYear",DbType.Int16),
+				new SqlParameter("@GraduatedSchool",DbType.String),
 				};
 
                 int i = 0;
@@ -86,6 +90,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.BackIpPhoneNumber;
                 sqlparam[i++].Value = UserInfo.Email;
                 sqlparam[i++].Value = UserInfo.Password;
+                sqlparam[i++].Value = UserInfo.Educational;
+                sqlparam[i++].Value = UserInfo.WorkYear;
+                sqlparam[i++].Value = UserInfo.GraduatedSchool;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -97,6 +104,7 @@ namespace com.TZMS.DataAccess
                 throw e;
             }
         }
+
 
         /// <summary>
         /// dbo.UserInfo删除记录(通过记录ID ObjectID)
@@ -130,7 +138,7 @@ namespace com.TZMS.DataAccess
         /// UserInfo 更新记录
         /// </summary>
         /// <param name="boName">数据库连接配置key信息</param>
-        /// <param name="UserInfo">UserInfo</param>
+        /// <param name="UserInfo">UserInfo??</param>
         /// <returns>返回标志,0:失败,1:成功</returns>
         public int UpDate(string boName, UserInfo UserInfo)
         {
@@ -140,7 +148,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "UserInfo_Update";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjectID",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@AccountNo",DbType.String),
 				new SqlParameter("@JobNo",DbType.String),
 				new SqlParameter("@Name",DbType.String),
@@ -155,6 +163,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@BackIpPhoneNumber",DbType.String),
 				new SqlParameter("@Email",DbType.String),
 				new SqlParameter("@Password",DbType.String),
+				new SqlParameter("@Educational",DbType.String),
+				new SqlParameter("@WorkYear",DbType.Int16),
+				new SqlParameter("@GraduatedSchool",DbType.String),
                 };
 
                 int i = 0;
@@ -173,6 +184,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.BackIpPhoneNumber;
                 sqlparam[i++].Value = UserInfo.Email;
                 sqlparam[i++].Value = UserInfo.Password;
+                sqlparam[i++].Value = UserInfo.Educational;
+                sqlparam[i++].Value = UserInfo.WorkYear;
+                sqlparam[i++].Value = UserInfo.GraduatedSchool;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -316,6 +330,19 @@ namespace com.TZMS.DataAccess
             if (UserInfoInfoDataRow["Password"] != null)
             {
                 UserInfoInfo.Password = UserInfoInfoDataRow["Password"].ToString();
+            }
+
+            if (UserInfoInfoDataRow["Educational"] != null)
+            {
+                UserInfoInfo.Educational = UserInfoInfoDataRow["Educational"].ToString();
+            }
+            if (UserInfoInfoDataRow["WorkYear"] != null)
+            {
+                UserInfoInfo.WorkYear = short.Parse(UserInfoInfoDataRow["WorkYear"].ToString());
+            }
+            if (UserInfoInfoDataRow["GraduatedSchool"] != null)
+            {
+                UserInfoInfo.GraduatedSchool = UserInfoInfoDataRow["GraduatedSchool"].ToString();
             }
 
             return UserInfoInfo;
