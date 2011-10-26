@@ -56,6 +56,7 @@
     <Compile Include="BankLoanHistoryCtrl.cs" />
     <Compile Include="BankLoanProjectProcessCtrl.cs" />
     <Compile Include="BankLoanProjectProcessHistoryCtrl.cs" />
+    <Compile Include="ComCheckerCtrl.cs" />
     <Compile Include="CustomerCtrl.cs" />
     <Compile Include="FinancingFeePaymentCtrl.cs" />
     <Compile Include="FinancingFeePaymentHistoryCtrl.cs" />
