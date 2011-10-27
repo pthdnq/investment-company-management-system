@@ -403,6 +403,7 @@
     <Content Include="Pages\attendance\WorkLeaveApp.aspx" />
     <Content Include="Pages\attendance\WorkLeaveAppNew.aspx" />
     <Content Include="Pages\system\MyWeb.aspx" />
+    <Content Include="Pages\system\SetMyChecker.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -518,6 +519,13 @@
     </Compile>
     <Compile Include="Pages\system\MyWeb.aspx.designer.cs">
       <DependentUpon>MyWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\system\SetMyChecker.aspx.cs">
+      <DependentUpon>SetMyChecker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\system\SetMyChecker.aspx.designer.cs">
+      <DependentUpon>SetMyChecker.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="config\ajax.aspx.cs">
