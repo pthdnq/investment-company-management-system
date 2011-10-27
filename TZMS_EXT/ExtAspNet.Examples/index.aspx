@@ -66,50 +66,35 @@
                     <ext:Accordion ID="Accordion1" Title="菜单" runat="server" Width="280px" EnableLargeHeader="false"
                         Height="450px" EnableFill="true" ShowBorder="True" ActiveIndex="0">
                         <Panes>
-                            <ext:AccordionPane ID="AccordionPane1" runat="server" Title="系统管理" IconUrl="images/16/1.png"
+                            <ext:AccordionPane ID="AccordionPane2" runat="server" Title="行政管理" IconUrl="images/16/1.png"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="das11"    EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server" >
+                                    <ext:Tree ID="Tree1" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode   Leaf="true" Text="菜单管理">
-                                            </ext:TreeNode>
-                                             <ext:TreeNode  Leaf="true" Text="菜单管理1">
+                                            <ext:TreeNode Leaf="true" NodeID="yggl" AutoPostBack="false" OnClientClick=" tabs('yggl');"
+                                                Text="员工管理">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
-                                    <ext:HyperLink ID="das" OnClientClick="return tabs();" NavigateUrl="#" runat="server"
-                                        Text="菜单">
-                                    </ext:HyperLink>
-                                </Items>
-                            </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane2" runat="server" Title="行政管理" IconUrl="images/16/1.png"
-                                BodyPadding="2px 5px" ShowBorder="false">
-                                <Items>
-                                    <ext:HyperLink ID="yggl" OnClientClick="return tabs('yggl');" NavigateUrl="#" runat="server"
-                                        Text="员工管理">
-                                    </ext:HyperLink>
                                 </Items>
                             </ext:AccordionPane>
                             <ext:AccordionPane ID="AccordionPane3" runat="server" Title="假勤管理" IconUrl="images/16/1.png"
-                                BodyPadding="2px 5px" ShowBorder="false">
+                                BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:MenuHyperLink runat="server" ID="daffs" Text="测试">
-                                    </ext:MenuHyperLink>
-                                    <ext:HyperLink ID="ygkq" OnClientClick="return tabs('ygkq');" NavigateUrl="#" runat="server"
-                                        Text="员工考勤">
-                                    </ext:HyperLink>
-                                    <ext:HyperLink ID="wdkq" OnClientClick="return tabs('wdkq');" NavigateUrl="#" runat="server"
-                                        Text="我的考勤">
-                                    </ext:HyperLink>
-                                    <ext:HyperLink ID="qjsq" OnClientClick="return tabs('qjsq');" NavigateUrl="#" runat="server"
-                                        Text="请假申请">
-                                    </ext:HyperLink>
-                                    <ext:HyperLink ID="txsq" OnClientClick="return tabs('txsq');" NavigateUrl="#" runat="server"
-                                        Text="调休申请">
-                                    </ext:HyperLink>
-                                    <ext:HyperLink ID="wdsp" OnClientClick="return tabs('wdsp');" NavigateUrl="#" runat="server"
-                                        Text="我的审批">
-                                    </ext:HyperLink>
+                                    <ext:Tree ID="Tree2" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                        <Nodes>
+                                            <ext:TreeNode Leaf="true" NodeID="ygkq" OnClientClick=" tabs('ygkq');" Text="员工考勤">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" NodeID="wdkq" OnClientClick=" tabs('wdkq');" Text="我的考勤">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" NodeID="qjsq" OnClientClick=" tabs('qjsq');" Text="请假申请">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" NodeID="txsq" OnClientClick=" tabs('txsq');" Text="调休申请">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" NodeID="wdsp" OnClientClick=" tabs('wdsp');" Text="调休申请">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
                         </Panes>
@@ -170,7 +155,7 @@
                     LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理");
                     break;
 
-                //假勤管理           
+                //假勤管理                    
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤");
                     break;
