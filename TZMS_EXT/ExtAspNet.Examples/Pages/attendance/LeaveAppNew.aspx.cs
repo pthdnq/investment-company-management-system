@@ -13,5 +13,10 @@ namespace TZMS.Web
         {
 
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
