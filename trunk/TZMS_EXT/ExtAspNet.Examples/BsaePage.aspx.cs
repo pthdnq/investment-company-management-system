@@ -52,6 +52,8 @@ namespace TZMS.Web
             {
                 if (Session["CurrentUser%"] == null)
                 {
+                    Session.RemoveAll();
+                    Response.Redirect("~/login.aspx");
                     return null;
                 }
                 return (UserInfo)Session["CurrentUser%"];
