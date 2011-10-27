@@ -58,13 +58,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Button btnSave;
         
         /// <summary>
-        /// Form2 control.
+        /// mainFrame control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Form Form2;
+        protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
         /// tbxAccountNo control.

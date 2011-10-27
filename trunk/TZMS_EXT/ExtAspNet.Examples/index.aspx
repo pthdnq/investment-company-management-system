@@ -83,7 +83,7 @@
                                 <Items>
                                     <ext:Tree ID="Tree2" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" NodeID="ygkq" OnClientClick=" tabs('ygkq');" Text="员工考勤">
+                                            <ext:TreeNode Leaf="true" NavigateUrl='./Pages/adminManage/WorkerManage.aspx' NodeID="ygkq" OnClientClick=" tabs('ygkq');" Text="员工考勤">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" NodeID="wdkq" OnClientClick=" tabs('wdkq');" Text="我的考勤">
                                             </ext:TreeNode>

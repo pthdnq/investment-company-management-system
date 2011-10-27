@@ -31,6 +31,7 @@ namespace com.TZMS.Model
             //todo          
             _birthday = DateTime.Parse("1900-1-1 12:00");
             _entryDate = DateTime.Parse("1900-1-1 12:00");
+            _workYear = -1;
         }
         #endregion
 
@@ -40,10 +41,10 @@ namespace com.TZMS.Model
         private string _jobNo = string.Empty;
         private string _name = string.Empty;
         private bool _sex = true;
-        private string _dept =  string.Empty;
+        private string _dept = string.Empty;
         private DateTime _birthday;
-        private string _phoneNumber =  string.Empty;
-        private string _address =  string.Empty;
+        private string _phoneNumber = string.Empty;
+        private string _address = string.Empty;
         private DateTime _entryDate;
         private string _position = string.Empty;
         private short _state = 1;
