@@ -130,13 +130,19 @@ namespace TZMS.Web
                 // 职位.
                 tbxPosition.Text = _userInfo.Position;
                 // 入职时间.
-                dpkEntryDate.SelectedDate = _userInfo.EntryDate;
+                if (DateTime.Compare(_userInfo.EntryDate, DateTime.Parse("1900-1-1 12:00")) != 0)
+                {
+                    dpkEntryDate.SelectedDate = _userInfo.EntryDate;
+                }
                 // 出生日期.
-                dpkBirthday.SelectedDate = _userInfo.Birthday;
+                if (DateTime.Compare(_userInfo.Birthday, DateTime.Parse("1900-1-1 12:00")) != 0)
+                {
+                    dpkBirthday.SelectedDate = _userInfo.Birthday;
+                }
                 // 学历.
                 ddlstEducational.SelectedValue = _userInfo.Educational;
                 // 工作年限.
-                tbxWorkYear.Text = _userInfo.WorkYear.ToString();
+                tbxWorkYear.Text = _userInfo.WorkYear == -1 ? "" : _userInfo.WorkYear.ToString();
                 // 员工状态.
                 rblState.SelectedIndex = _userInfo.State == 1 ? 0 : 1;
                 // 联系电话.
@@ -193,9 +199,15 @@ namespace TZMS.Web
             // 职位.
             _userInfo.Position = tbxPosition.Text.Trim();
             // 入职时间.
-            _userInfo.EntryDate = dpkEntryDate.SelectedDate ?? Convert.ToDateTime(dpkEntryDate.SelectedDate);
+            if (dpkEntryDate.SelectedDate is DateTime)
+            {
+                _userInfo.EntryDate = Convert.ToDateTime(dpkEntryDate.SelectedDate);
+            }
             // 出生日期.
-            _userInfo.Birthday = dpkBirthday.SelectedDate ?? Convert.ToDateTime(dpkBirthday.SelectedDate);
+            if (dpkBirthday.SelectedDate is DateTime)
+            {
+                _userInfo.Birthday = Convert.ToDateTime(dpkBirthday.SelectedDate);
+            }
             // 学历.
             _userInfo.Educational = ddlstEducational.SelectedValue;
             // 工作年限.

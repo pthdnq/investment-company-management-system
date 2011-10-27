@@ -84,6 +84,7 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 btnNewUser.OnClientClick = wndNewUser.GetShowReference("NewUser.aspx?Type=Add", "新增员工");
+                wndNewUser.OnClientCloseButtonClick = wndNewUser.GetHidePostBackReference();
 
                 // 绑定部门.
                 BindDept();
@@ -261,6 +262,17 @@ namespace TZMS.Web
                 e.Values[10] = "<span class=\"gray\">离职</span>";
             }
         }
+
+        /// <summary>
+        /// 关闭新增员工页面. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndNewUser_Close(object sender, WindowCloseEventArgs e)
+        {
+            DataBindUsers(ViewStateDept, ViewStateState, ViewStateSearchText);
+        }
+
         #endregion
     }
 }

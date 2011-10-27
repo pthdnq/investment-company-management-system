@@ -39,7 +39,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void Window1_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
-            
+
         }
     }
 }

@@ -49,20 +49,22 @@
                     <ext:Grid ID="gridUser" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
                         PageSize="1" runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
                         OnPageIndexChange="gridUser_PageIndexChange" OnRowCommand="gridUser_RowCommand"
-                        OnRowDataBound="gridUser_RowDataBound">
+                        OnRowDataBound="gridUser_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField DataField="JobNo" HeaderText="工号" ExpandUnusedSpace="True" />
-                            <ext:BoundField Width="200px" DataField="Name" HeaderText="姓名" />
-                            <ext:BoundField Width="60px" DataField="AccountNo" HeaderText="账号" />
-                            <ext:TemplateField Width="60px" HeaderText="性别">
+                            <ext:BoundField Width="120px" DataField="JobNo" HeaderText="工号" />
+                            <ext:BoundField Width="120px" DataField="Name" HeaderText="姓名" />
+                            <ext:BoundField Width="120px" DataField="AccountNo" HeaderText="账号" />
+                            <ext:TemplateField Width="80px" HeaderText="性别">
                                 <ItemTemplate>
                                     <%# (Convert.ToBoolean(DataBinder.Eval(Container.DataItem,"Sex")) == true) ? "男" : "女" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:BoundField Width="60px" DataField="Dept" HeaderText="部门" />
-                            <ext:BoundField Width="100px" DataField="PhoneNumber" HeaderText="联系电话" />
-                            <ext:TemplateField Width="60px" HeaderText="员工状态">
+                            <ext:BoundField Width="80px" DataField="Dept" HeaderText="部门" />
+                            <ext:BoundField Width="150px" DataField="PhoneNumber" HeaderText="联系电话" />
+                            <ext:BoundField DataField="BackIpPhoneNumber" HeaderText="备用联系电话" ExpandUnusedSpace="true" />
+                            <ext:BoundField Width="150px" DataField="Email" HeaderText="邮箱" />
+                            <ext:TemplateField Width="80px" HeaderText="员工状态">
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
                                 </ItemTemplate>
@@ -78,12 +80,11 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
-        IsModal="true" Title="权限编辑页面" Target="Self" EnableIFrame="true" IFrameUrl="about:blank"
+        IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
         Height="490px" Width="350px">
     </ext:Window>
-    <ext:Window ID="wndNewUser" runat="server" Popup="false" WindowPosition="Center"
-        IsModal="true" Title="权限编辑页面" Target="Self" EnableIFrame="true" IFrameUrl="about:blank"
-        Height="349px" Width="550px">
+    <ext:Window ID="wndNewUser" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNewUser_Close">
     </ext:Window>
     </form>
 </body>
