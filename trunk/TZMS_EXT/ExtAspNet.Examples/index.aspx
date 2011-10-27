@@ -8,7 +8,32 @@
     <%--<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />--%>
     <%--    <meta name="Title" content="ExtJS based ASP.NET Controls with Full AJAX Support" />
     <meta name="Description" content="ExtAspNet is a set of professional ASP.NET controls with native AJAX support and rich UI effect, which aim at No ViewState, No JavaScript, No CSS, No UpdatePanel and No WebServices." />--%>
-    <link href="css/default.css" rel="stylesheet" type="text/css" />
+    <%-- <link href="css/default.css" rel="stylesheet" type="text/css" />--%>
+    <style type="text/css">
+        .nav-hoverd
+        {
+            border: #ffbd69 1px solid;
+            background-image: url(images/nav_hover_highlight_2.gif);
+            padding: 0px 1px;
+            background-repeat: repeat-x;
+        }
+        .nav-selected
+        {
+            background-image: url();
+            border: #ffb74c 1px solid;
+            padding: 0px 1px;
+            background-color: #ffe6a0;
+        }
+        
+        .toolbar-pagemenu
+        {
+            background: rgb(208, 222, 240) url(images/pagemenu_toolbar_background.gif) repeat-x left top;
+        }
+        .toolbar-pagemenu .ytb-sep
+        {
+            background-image: url(../images/pagemenu-separator.gif);
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -42,8 +67,16 @@
                         Height="450px" EnableFill="true" ShowBorder="True" ActiveIndex="0">
                         <Panes>
                             <ext:AccordionPane ID="AccordionPane1" runat="server" Title="系统管理" IconUrl="images/16/1.png"
-                                BodyPadding="2px 5px" ShowBorder="false">
+                                BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
+                                    <ext:Tree ID="das11"    EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server" >
+                                        <Nodes>
+                                            <ext:TreeNode   Leaf="true" Text="菜单管理">
+                                            </ext:TreeNode>
+                                             <ext:TreeNode  Leaf="true" Text="菜单管理1">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:Tree>
                                     <ext:HyperLink ID="das" OnClientClick="return tabs();" NavigateUrl="#" runat="server"
                                         Text="菜单">
                                     </ext:HyperLink>
@@ -60,6 +93,8 @@
                             <ext:AccordionPane ID="AccordionPane3" runat="server" Title="假勤管理" IconUrl="images/16/1.png"
                                 BodyPadding="2px 5px" ShowBorder="false">
                                 <Items>
+                                    <ext:MenuHyperLink runat="server" ID="daffs" Text="测试">
+                                    </ext:MenuHyperLink>
                                     <ext:HyperLink ID="ygkq" OnClientClick="return tabs('ygkq');" NavigateUrl="#" runat="server"
                                         Text="员工考勤">
                                     </ext:HyperLink>
@@ -135,7 +170,7 @@
                     LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理");
                     break;
 
-                //假勤管理         
+                //假勤管理           
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤");
                     break;
