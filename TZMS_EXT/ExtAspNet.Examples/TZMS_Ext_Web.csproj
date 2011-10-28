@@ -451,6 +451,8 @@
     <Content Include="Pages\InvestmentProjectPages\ProjectAuditResult.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectInfoList.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectProcessList.aspx" />
+    <Content Include="Pages\system\ChangePsw.aspx" />
+    <Content Include="Pages\system\MyMessage.aspx" />
     <Content Include="Pages\system\MyWeb.aspx" />
     <Content Include="Pages\system\SetMyChecker.aspx" />
     <Content Include="Web.config">
@@ -757,6 +759,20 @@
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectProcessList.aspx.designer.cs">
       <DependentUpon>ProjectProcessList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\system\ChangePsw.aspx.cs">
+      <DependentUpon>ChangePsw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\system\ChangePsw.aspx.designer.cs">
+      <DependentUpon>ChangePsw.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\system\MyMessage.aspx.cs">
+      <DependentUpon>MyMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\system\MyMessage.aspx.designer.cs">
+      <DependentUpon>MyMessage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\system\MyWeb.aspx.cs">
       <DependentUpon>MyWeb.aspx</DependentUpon>
