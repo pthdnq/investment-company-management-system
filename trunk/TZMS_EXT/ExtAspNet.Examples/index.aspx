@@ -27,11 +27,14 @@
         
         .toolbar-pagemenu
         {
-            background: rgb(208, 222, 240) url(images/pagemenu_toolbar_background.gif) repeat-x left top;
+            background: url(images/top_bg.jpg) repeat-x left top;
         }
         .toolbar-pagemenu .ytb-sep
         {
             background-image: url(../images/pagemenu-separator.gif);
+        }
+        .ds
+        {
         }
     </style>
 </head>
@@ -44,16 +47,15 @@
             <ext:Region ID="Region1" Margins="0 0 0 0" Height="62px" ShowBorder="false" ShowHeader="false"
                 Position="Top" Layout="Fit" runat="server">
                 <Items>
-                    <ext:ContentPanel ShowBorder="false" ShowHeader="false" BodyStyle="background-color:#1C3E7E;"
+                    <ext:ContentPanel ShowBorder="false" ShowHeader="false" BodyStyle="background:  url(images/top_bg.jpg) repeat-x;"
                         ID="ContentPanel2" runat="server">
                         <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <td>
                                 <div class="header">
-                                <a href="./default.aspx" style="color:#fff;">ExtAspNet - v<asp:Label ID="labCurrentVersion" runat="server"></asp:Label></a>
+                                <a href="#" style="color:#fff;">ExtAspNet - v<asp:Label ID="labCurrentVersion" runat="server"></asp:Label></a>
                                 </div>
                             </td>
-                            <td style="text-align:right;color:#ccc;display:none;">皖ICP备09194734号&nbsp;</td>
                         </tr>
                         </table>
                     </ext:ContentPanel>
@@ -63,15 +65,15 @@
                 Margins="0 0 0 0" ShowHeader="false" Title="Examples" Icon="Outline" EnableCollapse="true"
                 Layout="Fit" Position="Left" runat="server">
                 <Items>
-                    <ext:Accordion ID="Accordion1" Title="菜单" runat="server" Width="280px" EnableLargeHeader="false"
+                    <ext:Accordion ID="Accordion1" Title="办公平台" runat="server" Width="280px" EnableLargeHeader="false"
                         Height="450px" EnableFill="true" ShowBorder="True" ActiveIndex="0">
                         <Panes>
-                            <ext:AccordionPane ID="AccordionPane2" runat="server" Title="行政管理" IconUrl="images/16/1.png"
-                                BodyPadding="1px 1px" ShowBorder="false">
+                            <ext:AccordionPane ID="AccordionPane2" runat="server" Title="行政管理" Icon="Cog" BodyPadding="1px 1px"
+                                ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="Tree1" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" NodeID="yggl" AutoPostBack="false" OnClientClick=" tabs('yggl');"
+                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="yggl" AutoPostBack="false" OnClientClick=" tabs('yggl','UserKey');"
                                                 Text="员工管理">
                                             </ext:TreeNode>
                                         </Nodes>
@@ -83,15 +85,20 @@
                                 <Items>
                                     <ext:Tree ID="Tree2" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" NodeID="ygkq" OnClientClick=" tabs('ygkq');" Text="员工考勤">
+                                            <ext:TreeNode Leaf="true" NodeID="ygkq" OnClientClick=" tabs('ygkq','UserKey');"
+                                                Text="员工考勤">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" NodeID="wdkq" OnClientClick=" tabs('wdkq');" Text="我的考勤">
+                                            <ext:TreeNode Leaf="true" NodeID="wdkq" OnClientClick=" tabs('wdkq','UserKey');"
+                                                Text="我的考勤">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" NodeID="qjsq" OnClientClick=" tabs('qjsq');" Text="请假申请">
+                                            <ext:TreeNode Leaf="true" NodeID="qjsq" OnClientClick=" tabs('qjsq','UserKey');"
+                                                Text="请假申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" NodeID="txsq" OnClientClick=" tabs('txsq');" Text="调休申请">
+                                            <ext:TreeNode Leaf="true" NodeID="txsq" OnClientClick=" tabs('txsq','UserKey');"
+                                                Text="调休申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" NodeID="wdsp" OnClientClick=" tabs('wdsp');" Text="我的审批">
+                                            <ext:TreeNode Leaf="true" NodeID="wdsp" OnClientClick=" tabs('wdsp','UserKey');"
+                                                Text="我的审批">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
@@ -143,7 +150,7 @@
 
         }
         //加载tab
-        function tabs(keyIndex) {
+        function tabs(keyIndex, icon) {
             var mainTabStrip = Ext.getCmp('<%= tabManage.ClientID %>');
             if (mainTabStrip.items.length > 1) {
                 var items = mainTabStrip.getComponent('functionTab');
@@ -152,24 +159,24 @@
             switch (keyIndex) {
                 case "yggl":
                     //行政管理
-                    LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理");
+                    LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理", icon);
                     break;
 
-                //假勤管理                      
+                //假勤管理                        
                 case "ygkq":
-                    LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤");
+                    LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤", icon);
                     break;
                 case "wdkq":
-                    LoadTab("Pages/attendance/MyAttend.aspx", "我的考勤");
+                    LoadTab("Pages/attendance/MyAttend.aspx", "我的考勤", icon);
                     break;
                 case "qjsq":
-                    LoadTab("Pages/attendance/LeaveApp.aspx", "请假申请");
+                    LoadTab("Pages/attendance/LeaveApp.aspx", "请假申请", icon);
                     break;
                 case "txsq":
-                    LoadTab("Pages/attendance/WorkLeaveApp.aspx", "调休申请");
+                    LoadTab("Pages/attendance/WorkLeaveApp.aspx", "调休申请", icon);
                     break;
                 case "wdsp":
-                    LoadTab("Pages/attendance/MyCheckApp.aspx", "我的审批");
+                    LoadTab("Pages/attendance/MyCheckApp.aspx", "我的审批", icon);
                     break;
 
                 default:
@@ -179,7 +186,7 @@
             return false;
         }
         //加载Tab
-        function LoadTab(url, title) {
+        function LoadTab(url, title, icon) {
             var mainTabStrip = Ext.getCmp('<%= tabManage.ClientID %>');
             mainTabStrip.addTab({
                 'id': 'functionTab',
