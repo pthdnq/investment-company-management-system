@@ -54,12 +54,47 @@ namespace com.TZMS.Business
         /// </summary>
         /// <param name="userObjectID">用户ID</param>
         /// <param name="boName">数据库连接字符串Key</param>
-        /// <returns>ComCheckerInfo 集合</returns>
+        /// <returns>ComCheckerInfo 集合(离职人员不在范围内)</returns>
         public List<ComCheckerInfo> GetComCheckersByUserID(string userObjectID, string boName = BoName)
-        { 
+        {
             ComCheckerCtrl ccc = new ComCheckerCtrl();
-            return ccc.SelectAsList(boName, " userObjectID='" + userObjectID + "'");
+            UserManage um = new UserManage();
+            List<ComCheckerInfo> lstChecker = ccc.SelectAsList(boName, " userObjectID='" + userObjectID + "'");
+            List<ComCheckerInfo> Checkers = new List<ComCheckerInfo>();
+            //过滤离职人员
+            foreach (ComCheckerInfo check in lstChecker)
+            {
+                UserInfo user = um.GetUserByObjectID(check.CheckerObjectId.ToString());
+                if (user != null )
+                {
+                    Checkers.Add(check);
+                }
+            }
+            return Checkers;
         }
 
+        /// <summary>
+        /// 根据用户ID获得其审批人
+        /// </summary>
+        /// <param name="userObjectID">用户ID</param>
+        /// <param name="boName">数据库连接字符串Key</param>
+        /// <returns>UserInfo 集合(离职人员不在范围内)</returns>
+        public List<UserInfo> GetCheckersByUserID(string userObjectID, string boName = BoName)
+        {
+            List<UserInfo> users = new List<UserInfo>();
+            ComCheckerCtrl ccc = new ComCheckerCtrl();
+            List<ComCheckerInfo> lstChecker = ccc.SelectAsList(boName, " userObjectID='" + userObjectID + "'");
+            UserManage um = new UserManage();
+
+            foreach (ComCheckerInfo check in lstChecker)
+            {
+                UserInfo user = um.GetUserByObjectID(check.CheckerObjectId.ToString());
+                if (user != null)
+                {
+                    users.Add(user);
+                }
+            }
+            return users;
+        }
     }
 }
