@@ -104,6 +104,74 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
+                            <ext:AccordionPane ID="AccordionPane1" runat="server" Title="投资部借款" IconUrl="images/16/1.png"
+                                BodyPadding="1px 1px" ShowBorder="false">
+                                <Items>
+                                    <ext:Tree ID="TreeInvestmentLoan" EnableLines="false" ShowHeader="false" ShowBorder="false"
+                                        runat="server">
+                                        <Nodes>
+                                            <ext:TreeNode Leaf="true" NodeID="fksq" OnClientClick=" tabs('fksq','');" Text="付款申请列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="fksh" OnClientClick=" tabs('fksh','');" Text="付款审核列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="fkqr" OnClientClick=" tabs('fkqr','');" Text="付款确认列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="jkxx" OnClientClick=" tabs('jkxx','');" Text="借款信息列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="skqr" OnClientClick=" tabs('skqr','');" Text="收款确认列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="skxx" OnClientClick=" tabs('skxx','');" Text="收款信息列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="zzht" OnClientClick=" tabs('zzht','');" Text="终止合同列表" />
+                                        </Nodes>
+                                    </ext:Tree>
+                                </Items>
+                            </ext:AccordionPane>
+                            <ext:AccordionPane ID="AccordionPane4" runat="server" Title="项目实施" IconUrl="images/16/1.png"
+                                BodyPadding="1px 1px" ShowBorder="false">
+                                <Items>
+                                    <ext:Tree ID="TreeInvestmentProject" EnableLines="false" ShowHeader="false" ShowBorder="false"
+                                        runat="server">
+                                        <Nodes>
+                                            <ext:TreeNode Leaf="true" NodeID="xmsq" OnClientClick=" tabs('xmsq','');" Text="项目申请列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="xmsh" OnClientClick=" tabs('xmsh','');" Text="项目审核列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="shjg" OnClientClick=" tabs('shjg','');" Text="审核结果列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="xmxx" OnClientClick=" tabs('xmxx','');" Text="项目信息列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="jzsh" OnClientClick=" tabs('jzsh','');" Text="进展审核列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="byjzf" OnClientClick=" tabs('byjzf','');" Text="备用金支付确认" />
+                                            <ext:TreeNode Leaf="true" NodeID="syxx" OnClientClick=" tabs('syxx','');" Text="所有项目列表" />
+                                        </Nodes>
+                                    </ext:Tree>
+                                </Items>
+                            </ext:AccordionPane>
+                            <ext:AccordionPane ID="AccordionPane5" runat="server" Title="银行贷款" IconUrl="images/16/1.png"
+                                BodyPadding="1px 1px" ShowBorder="false">
+                                <Items>
+                                    <ext:Tree ID="TreeBankLoan" EnableLines="false" ShowHeader="false" ShowBorder="false"
+                                        runat="server">
+                                        <Nodes>
+                                            <ext:TreeNode Leaf="true" NodeID="dksq" OnClientClick=" tabs('dksq','');" Text="贷款申请列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="sqsh" OnClientClick=" tabs('sqsh','');" Text="申请审核列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="dkshjg" OnClientClick=" tabs('dkshjg','');" Text="审核结果列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="xmqk" OnClientClick=" tabs('xmqk','');" Text="项目情况列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="dkjzsh" OnClientClick=" tabs('dkjzsh','');" Text="进展审核列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="fyzf" OnClientClick=" tabs('fyzf','');" Text="费用支付确认" />
+                                            <ext:TreeNode Leaf="true" NodeID="fyzc" OnClientClick=" tabs('fyzc','');" Text="所有费用支出" />
+                                        </Nodes>
+                                    </ext:Tree>
+                                </Items>
+                            </ext:AccordionPane>
+                            <ext:AccordionPane ID="AccordionPane6" runat="server" Title="民间融资" IconUrl="images/16/1.png"
+                                BodyPadding="1px 1px" ShowBorder="false">
+                                <Items>
+                                    <ext:Tree ID="TreeFolkFinancing" EnableLines="false" ShowHeader="false" ShowBorder="false"
+                                        runat="server">
+                                        <Nodes>
+                                            <ext:TreeNode Leaf="true" NodeID="rzsq" OnClientClick=" tabs('rzsq','');" Text="融资申请列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="kjsh" OnClientClick=" tabs('kjsh','');" Text="会计审核列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="ldsh" OnClientClick=" tabs('ldsh','');" Text="领导审核列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="rzht" OnClientClick=" tabs('rzht','');" Text="融资合同列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="zfsh" OnClientClick=" tabs('zfsh','');" Text="支付审核列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="zfqr" OnClientClick=" tabs('zfqr','');" Text="支付确认列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="zfjl" OnClientClick=" tabs('zfjl','');" Text="支付记录列表" />
+                                        </Nodes>
+                                    </ext:Tree>
+                                </Items>
+                            </ext:AccordionPane>
                         </Panes>
                     </ext:Accordion>
                 </Items>
@@ -162,7 +230,7 @@
                     LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理", icon);
                     break;
 
-                //假勤管理                        
+                //假勤管理                         
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤", icon);
                     break;
@@ -177,6 +245,97 @@
                     break;
                 case "wdsp":
                     LoadTab("Pages/attendance/MyCheckApp.aspx", "我的审批", icon);
+                    break;
+                //投资部借款 InvestmentLoan  
+                case "fksq":
+                    LoadTab("Pages/InvestmentLoanPages/PaymentApplyList.aspx", "借款申请", icon);
+                    break;
+                case "fksh":
+                    LoadTab("Pages/InvestmentLoanPages/PaymentAuditList.aspx", "付款审核", icon);
+                    break;
+                case "fkqr":
+                    LoadTab("Pages/InvestmentLoanPages/PaymentConfirmList.aspx", "付款确认", icon);
+                    break;
+                case "jkxx":
+                    LoadTab("Pages/InvestmentLoanPages/LoanInfoList.aspx", "借款信息", icon);
+                    break;
+                case "skqr":
+                    LoadTab("Pages/InvestmentLoanPages/ReceivablesConfirmList.aspx", "收款确认", icon);
+                    break;
+                case "skxx":
+                    LoadTab("Pages/InvestmentLoanPages/ReceivablesInfoList.aspx", "收款信息", icon);
+                    break;
+                case "zzht":
+                    LoadTab("Pages/InvestmentLoanPages/LoanContractList.aspx", "借款合同", icon);
+                    break;
+
+                //投资部项目实施 InvestmentProject    
+                case "xmsq":
+                    LoadTab("Pages/InvestmentProjectPages/ProjectApplyList.aspx", "项目申请列表", icon);
+                    break;
+                case "xmsh":
+                    LoadTab("Pages/InvestmentProjectPages/ProjectAuditList.aspx", "项目审核列表", icon);
+                    break;
+                case "shjg":
+                    LoadTab("Pages/InvestmentProjectPages/ProjectAuditResult.aspx", "审核结果列表", icon);
+                    break;
+                case "xmxx":
+                    LoadTab("Pages/InvestmentProjectPages/ProjectInfoList.aspx", "项目信息列表", icon);
+                    break;
+                case "jzsh":
+                    LoadTab("Pages/InvestmentProjectPages/ProjectProcessList.aspx", "进展审核列表", icon);
+                    break;
+                case "byjzf":
+                    LoadTab("Pages/InvestmentProjectPages/ImprestPayConfirmList.aspx", "备用金支付确认", icon);
+                    break;
+                case "syxx":
+                    LoadTab("Pages/InvestmentProjectPages/AllProjectList.aspx", "所有项目列表", icon);
+                    break;
+
+                //银行贷款 BankLoan      
+                case "dksq":
+                    LoadTab("Pages/BankLoanPages/BankLoanApplyList.aspx", "贷款申请列表", icon);
+                    break;
+                case "sqsh":
+                    LoadTab("Pages/BankLoanPages/BankLoanAuditList.aspx", "申请审核列表", icon);
+                    break;
+                case "dkshjg":
+                    LoadTab("Pages/BankLoanPages/BankLoanAuditResult.aspx", "审核结果列表", icon);
+                    break;
+                case "xmqk":
+                    LoadTab("Pages/BankLoanPages/ProjectInfoList.aspx", "项目情况列表", icon);
+                    break;
+                case "dkjzsh":
+                    LoadTab("Pages/BankLoanPages/ProcessAuditList.aspx", "进展审核列表", icon);
+                    break;
+                case "fyzf":
+                    LoadTab("Pages/BankLoanPages/FeePayConfirmList.aspx", "费用支付确认", icon);
+                    break;
+                case "fyzc":
+                    LoadTab("Pages/BankLoanPages/AllFeePayList.aspx", "所有费用支出列表", icon);
+                    break;
+
+                //民间融资 FolkFinancing         
+                case "rzsq":
+                    LoadTab("Pages/FolkFinancingPages/FinancingApplyList.aspx", "融资申请列表", icon);
+                    break;
+                case "kjsh":
+                    LoadTab("Pages/FolkFinancingPages/AccountingAuditList.aspx", "会计审核列表", icon);
+                    break;
+                case "ldsh":
+                    LoadTab("Pages/FolkFinancingPages/LeaderAuditResult.aspx", "领导审核列表", icon);
+                    break;
+                case "rzht":
+                    LoadTab("Pages/FolkFinancingPages/FinancingContractList.aspx", "融资合同列表", icon);
+                    break;
+                case "zfsh":
+                    LoadTab("Pages/FolkFinancingPages/PaymentAuditList.aspx", "支付审核列表", icon);
+                    break;
+                case "zfqr":
+                    LoadTab("Pages/FolkFinancingPages/PaymentConfirmList.aspx", "支付确认列表", icon);
+                    break;
+                case "zfjl":
+                    LoadTab("Pages/FolkFinancingPages/PaymentRecordList.aspx", "支付记录列表", icon);
                     break;
 
                 default:
