@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChangePsw.aspx.cs" Inherits="TZMS.Web.Pages.system.ChangePsw" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChangePsw.aspx.cs" Inherits="TZMS.Web.ChangePsw" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 

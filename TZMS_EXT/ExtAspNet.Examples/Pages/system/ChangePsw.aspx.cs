@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace TZMS.Web.Pages.system
+namespace TZMS.Web
 {
-    public partial class ChangePsw : System.Web.UI.Page
+    public partial class ChangePsw : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
