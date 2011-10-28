@@ -10,9 +10,13 @@ using ExtAspNet.Examples;
 using System.Data;
 using System.Web.Configuration;
 using com.TZMS.Model;
+using com.TZMS.Business;
 
 namespace TZMS.Web
 {
+    /// <summary>
+    /// 基类
+    /// </summary>
     public partial class BasePage : System.Web.UI.Page
     {
 
@@ -61,6 +65,22 @@ namespace TZMS.Web
             set
             {
                 Session["CurrentUser%"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 当前用户的审批人
+        /// </summary>
+        public List<UserInfo> CurrentChecker
+        {
+            get
+            {
+                if (Session["CheckerofCurrentUser%"] == null)
+                {
+                    CheckMange cm = new CheckMange();
+                    Session["CheckerofCurrentUser%"] = cm.GetCheckersByUserID(CurrentUser.ObjectId.ToString());
+                }
+                return (List<UserInfo>)Session["CheckerofCurrentUser%"];
             }
         }
 
@@ -208,9 +228,9 @@ namespace TZMS.Web
         }
 
         /// <summary>
-        /// 
+        /// 初始化
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="e">参数</param>
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
@@ -232,124 +252,11 @@ namespace TZMS.Web
                         string langValue = langCookie.Value;
                         PageManager.Instance.Language = (Language)Enum.Parse(typeof(Language), langValue, true);
                     }
-
-
                 }
             }
 
         }
 
-        #region Grid related section
 
-        protected string HowManyRowsAreSelected(Grid grid)
-        {
-            StringBuilder sb = new StringBuilder();
-            int selectedCount = grid.SelectedRowIndexArray.Length;
-            if (selectedCount > 0)
-            {
-                sb.AppendFormat("Selected rows ({0}): ", selectedCount);
-                sb.Append("<table class=\"result\"><tbody>");
-
-                // Table header
-                sb.Append("<tr><th>index</th>");
-                foreach (string datakey in grid.DataKeyNames)
-                {
-                    sb.AppendFormat("<th>{0}</th>", datakey);
-                }
-                sb.Append("</tr>");
-
-                for (int i = 0; i < selectedCount; i++)
-                {
-                    int rowIndex = grid.SelectedRowIndexArray[i];
-                    sb.AppendFormat("<tr><td>{0}</td>", rowIndex);
-
-                    // If allow paging, not database paging.
-                    if (grid.AllowPaging && !grid.IsDatabasePaging)
-                    {
-                        rowIndex = grid.PageIndex * grid.PageSize + rowIndex;
-                    }
-
-                    foreach (object key in grid.DataKeys[rowIndex])
-                    {
-                        sb.AppendFormat("<td>{0}</td>", key);
-                    }
-                    sb.Append("</tr>");
-                }
-                sb.Append("</tbody></table>");
-            }
-            else
-            {
-                sb.Append("No row was selected.");
-            }
-
-            return sb.ToString();
-        }
-
-        protected DataTable GetDataTable()
-        {
-            DataTable table = new DataTable();
-            table.Columns.Add(new DataColumn("Id", typeof(int)));
-            table.Columns.Add(new DataColumn("MyText", typeof(String)));
-            table.Columns.Add(new DataColumn("MyValue", typeof(String)));
-            table.Columns.Add(new DataColumn("Year", typeof(String)));
-            table.Columns.Add(new DataColumn("MyCheckBox", typeof(bool)));
-
-            DataRow row = table.NewRow();
-            row[0] = 101;
-            row[1] = "Nancy";
-            row[2] = "1";
-            row[3] = "2008";
-            row[4] = true;
-            table.Rows.Add(row);
-
-            row = table.NewRow();
-            row[0] = 102;
-            row[1] = "Andrew";
-            row[2] = "2";
-            row[3] = "2007";
-            row[4] = true;
-            table.Rows.Add(row);
-
-            row = table.NewRow();
-            row[0] = 103;
-            row[1] = "Janet";
-            row[2] = "3";
-            row[3] = "2006";
-            row[4] = false;
-            table.Rows.Add(row);
-
-            row = table.NewRow();
-            row[0] = 104;
-            row[1] = "Margaret";
-            row[2] = "4";
-            row[3] = "2005";
-            row[4] = false;
-            table.Rows.Add(row);
-
-            row = table.NewRow();
-            row[0] = 105;
-            row[1] = "Steven";
-            row[2] = "5";
-            row[3] = "2004";
-            row[4] = true;
-            table.Rows.Add(row);
-
-            return table;
-        }
-
-        protected DataTable GetEmptyDataTable()
-        {
-            DataTable table = new DataTable();
-            table.Columns.Add(new DataColumn("Id", typeof(int)));
-            table.Columns.Add(new DataColumn("MyText", typeof(String)));
-            table.Columns.Add(new DataColumn("MyValue", typeof(String)));
-            table.Columns.Add(new DataColumn("Year", typeof(String)));
-            table.Columns.Add(new DataColumn("MyCheckBox", typeof(bool)));
-
-
-            return table;
-        }
-
-        #endregion
     }
 }
