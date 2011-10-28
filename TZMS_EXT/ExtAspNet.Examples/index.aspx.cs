@@ -11,7 +11,11 @@ namespace TZMS.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                //请假申请 新增按钮注册23:14
+                setChecker.OnClientClick = newSetCheckerWindow.GetShowReference(@"Pages\system\SetMyChecker.aspx") + "return false;";
+            }
         }
 
         /// <summary>
