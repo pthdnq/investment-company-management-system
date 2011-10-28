@@ -320,6 +320,7 @@
     <Content Include="images\teachSuvery.gif" />
     <Content Include="images\title.gif" />
     <Content Include="images\topuseraddr.bmp" />
+    <Content Include="images\top_bg.jpg" />
     <Content Include="images\TreeViewImages\admin_tools.gif" />
     <Content Include="images\TreeViewImages\bg.gif" />
     <Content Include="images\TreeViewImages\cd.gif" />
