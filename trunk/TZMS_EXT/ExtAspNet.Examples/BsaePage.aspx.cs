@@ -85,6 +85,40 @@ namespace TZMS.Web
         }
 
         /// <summary>
+        /// 当前用户所拥有的角色
+        /// </summary>
+        public List<RoleType> CurrentRoles
+        {
+            get
+            {
+                if (Session["_RoleHaves"] == null)
+                {
+                    RolesManage rm = new RolesManage();
+                    List<RoleType> lstRoleType = new List<RoleType>();
+                    List<UserRoles> lstRoles = rm.GerRolesByCondition(" [UserObjectID]='" + CurrentUser.ObjectId.ToString() + "'");
+
+                    if (lstRoles.Count == 0)
+                    {
+                        return new List<RoleType>();
+                    }
+                    string roles = lstRoles[0].Roles;
+                    string [] role= roles.Split(',');
+                    foreach (string ro in role)
+                    {
+                        if (!string.IsNullOrEmpty(ro))
+                        {
+                            int type = int.Parse(ro);
+                            lstRoleType.Add((RoleType)type);
+                        }
+                    }
+                    Session["_RoleHaves"] = lstRoleType;
+                    return lstRoleType;
+                }
+                return (List<RoleType>)Session["_RoleHaves"];
+            }
+        }
+
+        /// <summary>
         /// 本系统角色 枚举
         /// </summary>
         public enum RoleType
@@ -257,6 +291,19 @@ namespace TZMS.Web
 
         }
 
+        /// <summary>
+        /// 判断当前用户是否拥有 这个角色
+        /// </summary>
+        /// <param name="roleType">角色枚举</param>
+        /// <returns>true：拥有，false：不拥有</returns>
+        public bool IsRole(RoleType roleType)
+        {
+            if (CurrentRoles.Contains(roleType))
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
 }
