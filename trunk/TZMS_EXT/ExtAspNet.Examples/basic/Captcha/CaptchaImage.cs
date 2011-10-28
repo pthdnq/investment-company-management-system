@@ -13,87 +13,132 @@ namespace CaptchaImage
     /// </summary>
     public class CaptchaImage
     {
-        // Public properties (all read-only).
+        /// <summary>
+        /// Text
+        /// </summary>
         public string Text
         {
             get { return this.text; }
         }
+
+        /// <summary>
+        /// Image
+        /// </summary>
         public Bitmap Image
         {
             get { return this.image; }
         }
+
+        /// <summary>
+        /// Width
+        /// </summary>
         public int Width
         {
             get { return this.width; }
         }
+
+        /// <summary>
+        /// Height
+        /// </summary>
         public int Height
         {
             get { return this.height; }
         }
 
-        // Internal properties.
+        /// <summary>
+        /// text
+        /// </summary>
         private string text;
+
+        /// <summary>
+        /// width
+        /// </summary>
         private int width;
+
+        /// <summary>
+        /// height
+        /// </summary>
         private int height;
+
+        /// <summary>
+        /// familyName
+        /// </summary>
         private string familyName;
+
+        /// <summary>
+        /// image
+        /// </summary>
         private Bitmap image;
 
-        // For generating random numbers.
+        /// <summary>
+        /// For generating random numbers.
+        /// </summary>
         private Random random = new Random();
 
-        // ====================================================================
-        // Initializes a new instance of the CaptchaImage class using the
-        // specified text, width and height.
-        // ====================================================================
-        public CaptchaImage(string s, int width, int height)
+        /// <summary>
+        /// Initializes a new instance of the CaptchaImage class using the
+        /// </summary>
+        /// <param name="ss">ss</param>
+        /// <param name="width">width</param>
+        /// <param name="height">height</param>
+        public CaptchaImage(string ss, int width, int height)
         {
-            this.text = s;
+            this.text = ss;
             this.SetDimensions(width, height);
             this.GenerateImage();
         }
 
-        // ====================================================================
-        // Initializes a new instance of the CaptchaImage class using the
-        // specified text, width, height and font family.
-        // ====================================================================
-        public CaptchaImage(string s, int width, int height, string familyName)
+        /// <summary>
+        /// Initializes a new instance of the CaptchaImage class using the
+        /// specified text, width, height and font family.
+        /// </summary>
+        /// <param name="ss">ss</param>
+        /// <param name="width">width</param>
+        /// <param name="height">height</param>
+        /// <param name="familyName">familyName</param>
+        public CaptchaImage(string ss, int width, int height, string familyName)
         {
-            this.text = s;
+            this.text = ss;
             this.SetDimensions(width, height);
             this.SetFamilyName(familyName);
             this.GenerateImage();
         }
 
-        // ====================================================================
-        // This member overrides Object.Finalize.
-        // ====================================================================
+        /// <summary>
+        /// This member overrides Object.Finalize.
+        /// </summary>
         ~CaptchaImage()
         {
             Dispose(false);
         }
 
-        // ====================================================================
-        // Releases all resources used by this object.
-        // ====================================================================
+        /// <summary>
+        /// Releases all resources used by this object.
+        /// </summary>
         public void Dispose()
         {
             GC.SuppressFinalize(this);
             this.Dispose(true);
         }
 
-        // ====================================================================
-        // Custom Dispose method to clean up unmanaged resources.
-        // ====================================================================
+        /// <summary>
+        /// Custom Dispose method to clean up unmanaged resources.
+        /// </summary>
+        /// <param name="disposing">disposing</param>
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)
+            {
                 // Dispose of the bitmap.
                 this.image.Dispose();
+            }
         }
 
-        // ====================================================================
-        // Sets the image width and height.
-        // ====================================================================
+        /// <summary>
+        /// Sets the image width and height.
+        /// </summary>
+        /// <param name="width">¿í¶È</param>
+        /// <param name="height">¸ß¶È</param>
         private void SetDimensions(int width, int height)
         {
             // Check the width and height.
@@ -105,9 +150,10 @@ namespace CaptchaImage
             this.height = height;
         }
 
-        // ====================================================================
-        // Sets the font used for the image text.
-        // ====================================================================
+        /// <summary>
+        /// Sets the font used for the image text.
+        /// </summary>
+        /// <param name="familyName">familyName</param>
         private void SetFamilyName(string familyName)
         {
             // If the named font is not installed, default to a system font.
@@ -123,9 +169,9 @@ namespace CaptchaImage
             }
         }
 
-        // ====================================================================
-        // Creates the bitmap image.
-        // ====================================================================
+        /// <summary>
+        /// Creates the bitmap image.
+        /// </summary>
         private void GenerateImage()
         {
             // Create a new 32-bit bitmap image.
@@ -141,7 +187,7 @@ namespace CaptchaImage
             g.FillRectangle(hatchBrush, rect);
 
             // Set up the text font.
-            SizeF size;
+            SizeF size = new SizeF();
             float fontSize = rect.Height + 1;
             Font font;
             // Adjust the font size until the text fits within the image.
@@ -150,7 +196,8 @@ namespace CaptchaImage
                 fontSize--;
                 font = new Font(this.familyName, fontSize, FontStyle.Bold);
                 size = g.MeasureString(this.text, font);
-            } while (size.Width > rect.Width);
+            } 
+            while (size.Width > rect.Width);
 
             // Set up the text format.
             StringFormat format = new StringFormat();
