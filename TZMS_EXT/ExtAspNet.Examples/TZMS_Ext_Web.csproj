@@ -75,6 +75,14 @@
     <Content Include="BsaePage.aspx" />
     <Content Include="config\install_toolbox.htm" />
     <Content Include="config\modify_webconfig.htm" />
+    <Content Include="DLL\blowery.Web.HttpCompress.dll" />
+    <Content Include="DLL\Business.dll" />
+    <Content Include="DLL\ExtAspNet.dll" />
+    <Content Include="DLL\ExtAspNet.xml" />
+    <Content Include="DLL\FredCK.FCKeditorV2.dll" />
+    <Content Include="DLL\log4net.dll" />
+    <Content Include="DLL\log4net.xml" />
+    <Content Include="DLL\Wilco.SyntaxHighlighter.dll" />
     <Content Include="images\404.gif" />
     <Content Include="images\an.gif" />
     <Content Include="images\app_back.gif" />
@@ -415,6 +423,34 @@
     <Content Include="Pages\attendance\WorkerAttend.aspx" />
     <Content Include="Pages\attendance\WorkLeaveApp.aspx" />
     <Content Include="Pages\attendance\WorkLeaveAppNew.aspx" />
+    <Content Include="Pages\BankLoanPages\AllFeePayList.aspx" />
+    <Content Include="Pages\BankLoanPages\BankLoanApplyList.aspx" />
+    <Content Include="Pages\BankLoanPages\BankLoanAuditList.aspx" />
+    <Content Include="Pages\BankLoanPages\BankLoanAuditResult.aspx" />
+    <Content Include="Pages\BankLoanPages\FeePayConfirmList.aspx" />
+    <Content Include="Pages\BankLoanPages\ProcessAuditList.aspx" />
+    <Content Include="Pages\BankLoanPages\ProjectInfoList.aspx" />
+    <Content Include="Pages\FolkFinancingPages\AccountingAuditList.aspx" />
+    <Content Include="Pages\FolkFinancingPages\FinancingApplyList.aspx" />
+    <Content Include="Pages\FolkFinancingPages\FinancingContractList.aspx" />
+    <Content Include="Pages\FolkFinancingPages\LeaderAuditResult.aspx" />
+    <Content Include="Pages\FolkFinancingPages\PaymentAuditList.aspx" />
+    <Content Include="Pages\FolkFinancingPages\PaymentConfirmList.aspx" />
+    <Content Include="Pages\FolkFinancingPages\PaymentRecordList.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\LoanContractList.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\LoanInfoList.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\PaymentApplyList.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\PaymentAuditList.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\PaymentConfirmList.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\ReceivablesConfirmList.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\ReceivablesInfoList.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\AllProjectList.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\ImprestPayConfirmList.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\ProjectApplyList.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\ProjectAuditList.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\ProjectAuditResult.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\ProjectInfoList.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\ProjectProcessList.aspx" />
     <Content Include="Pages\system\MyWeb.aspx" />
     <Content Include="Pages\system\SetMyChecker.aspx" />
     <Content Include="Web.config">
@@ -525,6 +561,202 @@
     </Compile>
     <Compile Include="Pages\attendance\WorkLeaveAppNew.aspx.designer.cs">
       <DependentUpon>WorkLeaveAppNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\AllFeePayList.aspx.cs">
+      <DependentUpon>AllFeePayList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\AllFeePayList.aspx.designer.cs">
+      <DependentUpon>AllFeePayList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\BankLoanApplyList.aspx.cs">
+      <DependentUpon>BankLoanApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\BankLoanApplyList.aspx.designer.cs">
+      <DependentUpon>BankLoanApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\BankLoanAuditList.aspx.cs">
+      <DependentUpon>BankLoanAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\BankLoanAuditList.aspx.designer.cs">
+      <DependentUpon>BankLoanAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\BankLoanAuditResult.aspx.cs">
+      <DependentUpon>BankLoanAuditResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\BankLoanAuditResult.aspx.designer.cs">
+      <DependentUpon>BankLoanAuditResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\FeePayConfirmList.aspx.cs">
+      <DependentUpon>FeePayConfirmList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\FeePayConfirmList.aspx.designer.cs">
+      <DependentUpon>FeePayConfirmList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\ProcessAuditList.aspx.cs">
+      <DependentUpon>ProcessAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\ProcessAuditList.aspx.designer.cs">
+      <DependentUpon>ProcessAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\ProjectInfoList.aspx.cs">
+      <DependentUpon>ProjectInfoList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\ProjectInfoList.aspx.designer.cs">
+      <DependentUpon>ProjectInfoList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\AccountingAuditList.aspx.cs">
+      <DependentUpon>AccountingAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\AccountingAuditList.aspx.designer.cs">
+      <DependentUpon>AccountingAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\FinancingApplyList.aspx.cs">
+      <DependentUpon>FinancingApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\FinancingApplyList.aspx.designer.cs">
+      <DependentUpon>FinancingApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\FinancingContractList.aspx.cs">
+      <DependentUpon>FinancingContractList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\FinancingContractList.aspx.designer.cs">
+      <DependentUpon>FinancingContractList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\LeaderAuditResult.aspx.cs">
+      <DependentUpon>LeaderAuditResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\LeaderAuditResult.aspx.designer.cs">
+      <DependentUpon>LeaderAuditResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\PaymentAuditList.aspx.cs">
+      <DependentUpon>PaymentAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\PaymentAuditList.aspx.designer.cs">
+      <DependentUpon>PaymentAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\PaymentConfirmList.aspx.cs">
+      <DependentUpon>PaymentConfirmList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\PaymentConfirmList.aspx.designer.cs">
+      <DependentUpon>PaymentConfirmList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\PaymentRecordList.aspx.cs">
+      <DependentUpon>PaymentRecordList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\PaymentRecordList.aspx.designer.cs">
+      <DependentUpon>PaymentRecordList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\LoanContractList.aspx.cs">
+      <DependentUpon>LoanContractList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\LoanContractList.aspx.designer.cs">
+      <DependentUpon>LoanContractList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\LoanInfoList.aspx.cs">
+      <DependentUpon>LoanInfoList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\LoanInfoList.aspx.designer.cs">
+      <DependentUpon>LoanInfoList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\PaymentApplyList.aspx.cs">
+      <DependentUpon>PaymentApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\PaymentApplyList.aspx.designer.cs">
+      <DependentUpon>PaymentApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\PaymentAuditList.aspx.cs">
+      <DependentUpon>PaymentAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\PaymentAuditList.aspx.designer.cs">
+      <DependentUpon>PaymentAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\PaymentConfirmList.aspx.cs">
+      <DependentUpon>PaymentConfirmList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\PaymentConfirmList.aspx.designer.cs">
+      <DependentUpon>PaymentConfirmList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\ReceivablesConfirmList.aspx.cs">
+      <DependentUpon>ReceivablesConfirmList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\ReceivablesConfirmList.aspx.designer.cs">
+      <DependentUpon>ReceivablesConfirmList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\ReceivablesInfoList.aspx.cs">
+      <DependentUpon>ReceivablesInfoList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\ReceivablesInfoList.aspx.designer.cs">
+      <DependentUpon>ReceivablesInfoList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\AllProjectList.aspx.cs">
+      <DependentUpon>AllProjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\AllProjectList.aspx.designer.cs">
+      <DependentUpon>AllProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ImprestPayConfirmList.aspx.cs">
+      <DependentUpon>ImprestPayConfirmList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ImprestPayConfirmList.aspx.designer.cs">
+      <DependentUpon>ImprestPayConfirmList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectApplyList.aspx.cs">
+      <DependentUpon>ProjectApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectApplyList.aspx.designer.cs">
+      <DependentUpon>ProjectApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectAuditList.aspx.cs">
+      <DependentUpon>ProjectAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectAuditList.aspx.designer.cs">
+      <DependentUpon>ProjectAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectAuditResult.aspx.cs">
+      <DependentUpon>ProjectAuditResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectAuditResult.aspx.designer.cs">
+      <DependentUpon>ProjectAuditResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectInfoList.aspx.cs">
+      <DependentUpon>ProjectInfoList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectInfoList.aspx.designer.cs">
+      <DependentUpon>ProjectInfoList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectProcessList.aspx.cs">
+      <DependentUpon>ProjectProcessList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectProcessList.aspx.designer.cs">
+      <DependentUpon>ProjectProcessList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\system\MyWeb.aspx.cs">
       <DependentUpon>MyWeb.aspx</DependentUpon>
@@ -887,9 +1119,7 @@
     <None Include="images\old9-logo.psd" />
     <None Include="images\step.psd" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DLL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{8AD7E97C-6BE2-4A0C-8500-3B485E0F271F}</Project>

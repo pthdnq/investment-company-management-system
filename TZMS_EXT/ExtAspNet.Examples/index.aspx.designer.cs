@@ -121,6 +121,78 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Tree Tree2;
         
         /// <summary>
+        /// AccordionPane1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.AccordionPane AccordionPane1;
+        
+        /// <summary>
+        /// TreeInvestmentLoan 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.Tree TreeInvestmentLoan;
+        
+        /// <summary>
+        /// AccordionPane4 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.AccordionPane AccordionPane4;
+        
+        /// <summary>
+        /// TreeInvestmentProject 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.Tree TreeInvestmentProject;
+        
+        /// <summary>
+        /// AccordionPane5 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.AccordionPane AccordionPane5;
+        
+        /// <summary>
+        /// TreeBankLoan 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.Tree TreeBankLoan;
+        
+        /// <summary>
+        /// AccordionPane6 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.AccordionPane AccordionPane6;
+        
+        /// <summary>
+        /// TreeFolkFinancing  控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.Tree TreeFolkFinancing ;
+        
+        /// <summary>
         /// mainRegion 控件。
         /// </summary>
         /// <remarks>
