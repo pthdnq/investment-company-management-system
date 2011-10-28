@@ -83,7 +83,7 @@
                                 <Items>
                                     <ext:Tree ID="Tree2" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" NavigateUrl='./Pages/adminManage/WorkerManage.aspx' NodeID="ygkq" OnClientClick=" tabs('ygkq');" Text="员工考勤">
+                                            <ext:TreeNode Leaf="true" NodeID="ygkq" OnClientClick=" tabs('ygkq');" Text="员工考勤">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" NodeID="wdkq" OnClientClick=" tabs('wdkq');" Text="我的考勤">
                                             </ext:TreeNode>
@@ -91,7 +91,7 @@
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" NodeID="txsq" OnClientClick=" tabs('txsq');" Text="调休申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" NodeID="wdsp" OnClientClick=" tabs('wdsp');" Text="调休申请">
+                                            <ext:TreeNode Leaf="true" NodeID="wdsp" OnClientClick=" tabs('wdsp');" Text="我的审批">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
@@ -132,8 +132,8 @@
             </ext:Region>
         </Regions>
     </ext:RegionPanel>
-    <ext:Window ID="newWindow" Title="设置审批人" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" OnClose="Window1_Close" IsModal="true" Width="650px"
+    <ext:Window ID="newSetCheckerWindow" Title="设置审批人" Popup="false" EnableIFrame="true"
+        IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" Width="600px"
         EnableConfirmOnClose="true" Height="450px">
     </ext:Window>
     </form>
@@ -155,7 +155,7 @@
                     LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理");
                     break;
 
-                //假勤管理                    
+                //假勤管理                      
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤");
                     break;
