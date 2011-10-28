@@ -40,7 +40,7 @@
                 <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server">
                         <Items>
-                            <ext:Button ID="btnNewUser" Text="新增员工" Icon="Add" runat="server">
+                            <ext:Button ID="btnNewUser" Text="新增员工" Icon="UserAdd" runat="server">
                             </ext:Button>
                         </Items>
                     </ext:Toolbar>
