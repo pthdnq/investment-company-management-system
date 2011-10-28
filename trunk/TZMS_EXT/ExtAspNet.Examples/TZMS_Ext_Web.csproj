@@ -39,13 +39,25 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="blowery.Web.HttpCompress, Version=6.0.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="blowery.Web.HttpCompress, Version=6.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\blowery.Web.HttpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="Business, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Business.dll</HintPath>
+    </Reference>
     <Reference Include="ExtAspNet, Version=2.3.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ExtAspNet_v2.3.5_dll\ExtAspNet.dll</HintPath>
+      <HintPath>DLL\ExtAspNet.dll</HintPath>
     </Reference>
-    <Reference Include="FredCK.FCKeditorV2">
-      <HintPath>..\tools\FCKeditor.Net_2.6.3\bin\Debug\2.0\FredCK.FCKeditorV2.dll</HintPath>
+    <Reference Include="FredCK.FCKeditorV2, Version=2.6.3.25368, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\FredCK.FCKeditorV2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=0.0.0.0, Culture=neutral, PublicKeyToken=272b84b57c5e120a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -56,7 +68,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="Wilco.SyntaxHighlighter, Version=0.5.0.0, Culture=neutral, PublicKeyToken=fb87150479c2990b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>library\Wilco.SyntaxHighlighter.dll</HintPath>
+      <HintPath>DLL\Wilco.SyntaxHighlighter.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -875,7 +887,9 @@
     <None Include="images\old9-logo.psd" />
     <None Include="images\step.psd" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DLL\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{8AD7E97C-6BE2-4A0C-8500-3B485E0F271F}</Project>
