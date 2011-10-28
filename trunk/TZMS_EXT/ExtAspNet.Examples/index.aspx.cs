@@ -13,8 +13,9 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
-                //请假申请 新增按钮注册23:14
-                setChecker.OnClientClick = newSetCheckerWindow.GetShowReference(@"Pages\system\SetMyChecker.aspx") + "return false;";
+                // 审批人设置注册23:14
+                setChecker.OnClientClick = newSetCheckerWindow.GetShowReference(@"Pages\system\SetMyChecker.aspx") + " return false;";
+                this.myMessage.OnClientClick = myMessageWindow.GetShowReference(@"Pages\system\MyMessage.aspx") + " return false;";
             }
         }
 
