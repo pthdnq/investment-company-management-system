@@ -14,7 +14,10 @@ namespace ExtAspNet.Examples.basic.Captcha
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class captcha : IHttpHandler, IReadOnlySessionState
     {
-
+        /// <summary>
+        /// 请求
+        /// </summary>
+        /// <param name="context">context</param>
         public void ProcessRequest(HttpContext context)
         {
             //context.Response.ContentType = "text/plain";
@@ -46,6 +49,9 @@ namespace ExtAspNet.Examples.basic.Captcha
             ci.Dispose();
         }
 
+        /// <summary>
+        /// IsReusable
+        /// </summary>
         public bool IsReusable
         {
             get

@@ -220,7 +220,7 @@ namespace CaptchaImage
             path.Warp(points, rect, matrix, WarpMode.Perspective, 0F);
 
             // Draw the text.
-            hatchBrush = new HatchBrush(HatchStyle.LargeConfetti, Color.LightGray, Color.DarkGray);
+            hatchBrush = new HatchBrush(HatchStyle.LargeConfetti, Color.Black, Color.DarkGray);
             g.FillPath(hatchBrush, path);
 
             // Add some random noise.
