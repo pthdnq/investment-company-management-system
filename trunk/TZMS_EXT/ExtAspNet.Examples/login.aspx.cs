@@ -16,8 +16,8 @@ namespace TZMS.Web
         /// <summary>
         /// 登录
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -43,20 +43,22 @@ namespace TZMS.Web
         /// <summary>
         /// 生成6位随机数
         /// </summary>
-        /// <returns></returns>
+        /// <returns>随机数</returns>
         private string GenerateRandomCode()
         {
-            string s = "";
+            string ss = "";
             for (int i = 0; i < 6; i++)
-                s = String.Concat(s, random.Next(10).ToString());
-            return s;
+            {
+                ss = String.Concat(ss, random.Next(10).ToString());
+            }
+            return ss;
         }
 
         /// <summary>
         /// 登录
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             if (tbxCaptcha.Text != Session["CaptchaImageText"].ToString())
