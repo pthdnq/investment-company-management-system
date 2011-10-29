@@ -18,11 +18,14 @@
                 <Rows>
                     <ext:FormRow>
                         <Items>
-                            <ext:DropDownList ID="ddlappState" AutoPostBack="true" runat="server" Label="申请状态">
+                            <ext:DropDownList ID="ddlappState" AutoPostBack="true" runat="server" Label="申请状态"
+                                OnSelectedIndexChanged="ddlappState_SelectedIndexChanged">
                                 <ext:ListItem Text="审批中" Value="1" Selected="true" />
-                                <ext:ListItem Text="已审批" Value="0" />
+                                <ext:ListItem Text="归档" Value="2" />
+                                <ext:ListItem Text="被打回" Value="3" />
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddldateRange" AutoPostBack="true" runat="server" Label="日期范围">
+                            <ext:DropDownList ID="ddldateRange" AutoPostBack="true" runat="server" Label="日期范围"
+                                OnSelectedIndexChanged="ddldateRange_SelectedIndexChanged">
                                 <ext:ListItem Text="全部" Value="0" />
                                 <ext:ListItem Text="一月内" Value="1" Selected="true" />
                                 <ext:ListItem Text="三月内" Value="2" />
@@ -48,25 +51,30 @@
                     </ext:Toolbar>
                 </Toolbars>
                 <Items>
-                    <ext:Grid ID="gridUser" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
-                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true">
+                    <ext:Grid ID="gridLeave" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
+                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                        OnRowCommand="gridLeave_RowCommand" 
+                        OnRowDataBound="gridLeave_RowDataBound" 
+                        OnPageIndexChange="gridLeave_PageIndexChange">
                         <Columns>
-                            <ext:BoundField HeaderText="开始日期" />
-                            <ext:BoundField HeaderText="结束日期" />
-                            <ext:BoundField HeaderText="请假类型" />
-                            <ext:BoundField HeaderText="请假原因" />
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField DataField="WriteTime" HeaderText="申请日期" />
+                            <ext:BoundField DataField="StartTime" HeaderText="开始日期" />
+                            <ext:BoundField DataField="StopTime" HeaderText="结束日期" />
+                            <ext:BoundField DataField="Type" HeaderText="请假类型" />
+                            <ext:BoundField DataField="Reason" HeaderText="请假原因" />
                             <ext:BoundField HeaderText="当前审批人" />
-                            <ext:BoundField HeaderText="审批结果" />
-                            <ext:BoundField HeaderText="申请状态" />
-                            <ext:BoundField HeaderText="查看" />
+                            <ext:BoundField DataField="State" HeaderText="申请状态" />
+                            <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
+                            <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="newWindow" Title="请假申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" OnClose="Window1_Close" IsModal="true" Width="550px"
+    <ext:Window ID="wndLeaveApp" Title="请假申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" OnClose="wndLeaveApp_Close" IsModal="true" Width="550px"
         EnableConfirmOnClose="true" Height="350px">
     </ext:Window>
     </form>

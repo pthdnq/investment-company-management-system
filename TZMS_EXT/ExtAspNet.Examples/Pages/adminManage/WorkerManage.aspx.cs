@@ -258,8 +258,13 @@ namespace TZMS.Web
 
             if (_userInfo.State == 0)
             {
-                e.Values[9] = "<span class=\"gray\">权限</span>";
-                e.Values[10] = "<span class=\"gray\">离职</span>";
+                e.Values[11] = "<span class=\"gray\">权限</span>";
+                e.Values[12] = "<span class=\"gray\">离职</span>";
+            }
+            else
+            {
+                e.Values[12] = e.Values[12].ToString().Replace("msg:'确定该员工离职?'", "msg:'确定" + e.Values[2].ToString() + "离职?'");
+                e.Values[13] = e.Values[13].ToString().Replace("msg:'确定删除该员工?'", "msg:'确定删除" + e.Values[2].ToString() + "?'");
             }
         }
 
