@@ -209,11 +209,13 @@
     </ext:RegionPanel>
     <ext:Window ID="newSetCheckerWindow" Title="设置审批人" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" Width="600px"
-        EnableConfirmOnClose="true" Height="450px">
+        Height="450px">
     </ext:Window>
     <ext:Window ID="myMessageWindow" Title="个人信息" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Width="550px" EnableConfirmOnClose="true"
-        Height="349">
+        Target="Parent" runat="server" IsModal="true" Width="550px" Height="349">
+    </ext:Window>
+    <ext:Window ID="changePswWindow" Title="修改密码" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Width="350px" Height="200px">
     </ext:Window>
     </form>
     <script type="text/javascript">
@@ -234,7 +236,7 @@
                     LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理", icon);
                     break;
 
-                //假勤管理                          
+                //假勤管理                            
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤", icon);
                     break;
@@ -250,7 +252,7 @@
                 case "wdsp":
                     LoadTab("Pages/attendance/MyCheckApp.aspx", "我的审批", icon);
                     break;
-                //投资部借款 InvestmentLoan   
+                //投资部借款 InvestmentLoan     
                 case "fksq":
                     LoadTab("Pages/InvestmentLoanPages/PaymentApplyList.aspx", "借款申请", icon);
                     break;
@@ -273,7 +275,7 @@
                     LoadTab("Pages/InvestmentLoanPages/LoanContractList.aspx", "借款合同", icon);
                     break;
 
-                //投资部项目实施 InvestmentProject     
+                //投资部项目实施 InvestmentProject       
                 case "xmsq":
                     LoadTab("Pages/InvestmentProjectPages/ProjectApplyList.aspx", "项目申请列表", icon);
                     break;
@@ -296,7 +298,7 @@
                     LoadTab("Pages/InvestmentProjectPages/AllProjectList.aspx", "所有项目列表", icon);
                     break;
 
-                //银行贷款 BankLoan       
+                //银行贷款 BankLoan         
                 case "dksq":
                     LoadTab("Pages/BankLoanPages/BankLoanApplyList.aspx", "贷款申请列表", icon);
                     break;
@@ -319,7 +321,7 @@
                     LoadTab("Pages/BankLoanPages/AllFeePayList.aspx", "所有费用支出列表", icon);
                     break;
 
-                //民间融资 FolkFinancing          
+                //民间融资 FolkFinancing            
                 case "rzsq":
                     LoadTab("Pages/FolkFinancingPages/FinancingApplyList.aspx", "融资申请列表", icon);
                     break;
