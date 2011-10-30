@@ -87,6 +87,7 @@ namespace TZMS.Web
 
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append(" IsDelete<>1 and Type <> '调休'");
+            strCondition.Append(" and UserObjectID ='" + CurrentUser.ObjectId.ToString() + "'");
             strCondition.Append(" and state =" + nLeaveState);
 
             DateTime dateTimeNow = DateTime.Now;
@@ -95,22 +96,22 @@ namespace TZMS.Web
             {
                 // 一个月内.
                 case 1:
-                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddDays(-dateTimeNow.Day + 1).ToString("yyyy-MM-dd") + "'");
+                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-1).ToString("yyyy-MM-dd") + "'");
                     break;
 
                 // 三个月内.
                 case 2:
-                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddDays(-dateTimeNow.Day + 1).AddMonths(-2).ToString("yyyy-MM-dd") + "'");
+                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-3).ToString("yyyy-MM-dd") + "'");
                     break;
 
                 // 半年内.
                 case 3:
-                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddDays(-dateTimeNow.Day + 1).AddMonths(-5).ToString("yyyy-MM-dd") + "'");
+                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-6).ToString("yyyy-MM-dd") + "'");
                     break;
 
                 // 一年内.
                 case 4:
-                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddDays(-dateTimeNow.Day + 1).AddMonths(-dateTimeNow.Month + 1).ToString("yyyy-MM-dd") + "'");
+                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-12).ToString("yyyy-MM-dd") + "'");
                     break;
             }
 

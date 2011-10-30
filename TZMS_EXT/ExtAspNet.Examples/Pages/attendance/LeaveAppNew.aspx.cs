@@ -207,9 +207,11 @@ namespace TZMS.Web
                 // 创建新的请假申请单信息.
                 _leaveInfo = new LeaveInfo();
                 _leaveInfo.ObjectId = Guid.NewGuid();
+                _leaveInfo.UserObjectId = CurrentUser.ObjectId;
                 _leaveInfo.AccountNo = CurrentUser.AccountNo;
                 _leaveInfo.JobNo = CurrentUser.JobNo;
                 _leaveInfo.Name = CurrentUser.Name;
+                _leaveInfo.Dept = CurrentUser.Dept;
                 _leaveInfo.WriteTime = DateTime.Now;
                 if (dpkStartTime.SelectedDate is DateTime)
                 {
@@ -221,7 +223,10 @@ namespace TZMS.Web
                 }
                 _leaveInfo.ApproverId = new Guid(ddlstApproveUser.SelectedValue);
                 _leaveInfo.Type = ddlstLeaveType.SelectedText;
-                _leaveInfo.State = short.Parse(ddlstNext.SelectedValue);
+                //_leaveInfo.State = short.Parse(ddlstNext.SelectedValue);
+                _leaveInfo.State = 1;
+                _leaveInfo.Reason = taaLeaveReason.Text.Trim();
+                _leaveInfo.IsDelete = false;
 
                 result = _leaveAppManage.AddNewLeaveInfo(_leaveInfo);
 

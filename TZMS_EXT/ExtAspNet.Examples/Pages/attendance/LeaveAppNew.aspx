@@ -40,17 +40,17 @@
                                 Label="下一步">
                             </ext:DropDownList>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
-                                Label="审批人">
+                                Label="执行人">
                             </ext:DropDownList>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ID="FormRow1" runat="server" ColumnWidths="50% 50%">
                         <Items>
                             <ext:DatePicker ID="dpkStartTime" ShowRedStar="true" Required="true" runat="server"
-                                Label="开始时间">
+                                Label="开始日期">
                             </ext:DatePicker>
                             <ext:DatePicker ID="dpkEndTime" ShowRedStar="true" Required="true" runat="server"
-                                Label="结束时间">
+                                Label="结束日期">
                             </ext:DatePicker>
                         </Items>
                     </ext:FormRow>
