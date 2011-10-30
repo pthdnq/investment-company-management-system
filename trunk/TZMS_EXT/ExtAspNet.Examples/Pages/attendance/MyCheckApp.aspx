@@ -16,19 +16,22 @@
             <ext:Form ID="Form2" ShowBorder="False" LabelWidth="55px" BodyPadding="5px" AnchorValue="100%"
                 EnableBackgroundColor="true" ShowHeader="False" runat="server">
                 <Rows>
-                    <ext:FormRow>
+                    <ext:FormRow ID="FormRow1" runat="server">
                         <Items>
                             <ext:TwinTriggerBox runat="server" EmptyText="请输入姓名或账号查询" ShowLabel="false" ID="ttbSearch"
-                                Trigger1Icon="Search" ShowTrigger2="false">
+                                Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click">
                             </ext:TwinTriggerBox>
-                            <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称">
+                            <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
+                                OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged">
                             </ext:DropDownList>
-                            <ext:DropDownList ID="DropDownList1" AutoPostBack="true" runat="server" Label="审批状态">
+                            <ext:DropDownList ID="ddlstAproveState" AutoPostBack="true" runat="server" Label="审批状态"
+                                OnSelectedIndexChanged="ddlstAproveState_SelectedIndexChanged">
                                 <ext:ListItem Text="全部" Value="0" />
                                 <ext:ListItem Text="待审批" Value="1" Selected="true" />
                                 <ext:ListItem Text="已审批" Value="2" />
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddldateRange" AutoPostBack="true" runat="server" Label="日期范围">
+                            <ext:DropDownList ID="ddldateRange" AutoPostBack="true" runat="server" Label="日期范围"
+                                OnSelectedIndexChanged="ddldateRange_SelectedIndexChanged">
                                 <ext:ListItem Text="全部" Value="0" />
                                 <ext:ListItem Text="一月内" Value="1" Selected="true" />
                                 <ext:ListItem Text="三月内" Value="2" />
@@ -43,24 +46,34 @@
                 Layout="Fit" runat="server">
                 <Items>
                     <ext:Grid ID="gridAttend" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
-                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true">
+                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                        OnPageIndexChange="gridAttend_PageIndexChange" OnRowCommand="gridAttend_RowCommand"
+                        OnRowDataBound="gridAttend_RowDataBound">
                         <Columns>
-                            <ext:BoundField HeaderText="工号" />
-                            <ext:BoundField HeaderText="姓名" />
-                            <ext:BoundField HeaderText="帐号" />
-                            <ext:BoundField HeaderText="请假类型" />
-                            <ext:BoundField HeaderText="请假原因" />
-                            <ext:BoundField HeaderText="开始时间" />
-                            <ext:BoundField HeaderText="结束时间" />
-                            <ext:BoundField HeaderText="审批状态" />
-                            <ext:BoundField HeaderText="审批结果" />
+                            <ext:BoundField DataField="ObjectID" Hidden="true" />
+                            <ext:BoundField DataField="UserObjectID" Hidden="true" />
+                            <ext:BoundField DataField="Expr1" Hidden="true" />
+                            <ext:BoundField DataField="JobNo" HeaderText="工号" />
+                            <ext:BoundField DataField="AccountNo" HeaderText="帐号" />
+                            <ext:BoundField DataField="Name" HeaderText="姓名" />
+                            <ext:BoundField DataField="Dept" HeaderText="部门" />
+                            <ext:BoundField DataField="WriteTime" HeaderText="申请时间" />
+                            <ext:BoundField DataField="Type" HeaderText="请假类型" />
+                            <ext:BoundField DataField="Reason" HeaderText="请假原因" />
+                            <ext:BoundField DataField="StartTime" HeaderText="开始日期" />
+                            <ext:BoundField DataField="StopTime" HeaderText="结束日期" />
+                            <ext:BoundField DataField="ApproveTime" HeaderText="审批状态" />
+                            <ext:BoundField DataField="ApproveResult" HeaderText="审批结果" />
+                            <ext:LinkButtonField Width="38px" Text="审批" CommandName="Approve" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
+    <ext:Window ID="wndApprove" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="449px" Width="550px" OnClose="wndApprove_Close">
+    </ext:Window>
     </form>
-    <!--列表最后一列操作：审批，点击审批，打开新窗口MyCheckAppForm.aspx，你可以“通过”、“不通过”、“打回修改”-->
 </body>
 </html>
