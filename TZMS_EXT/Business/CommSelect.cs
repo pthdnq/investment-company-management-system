@@ -59,7 +59,7 @@ namespace com.TZMS.Business
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 DataSet ds = (DataSet)dbaccess.ExecuteDataset(BoName, CommandType.StoredProcedure, strsql, sqlparam);
-                comHelp.TotalCount =0;
+                comHelp.TotalCount = 0;
                 comHelp.TotalPages = 0;
                 if (sqlparam[6].Value != null)
                 {
