@@ -183,7 +183,7 @@ namespace CaptchaImage
             Rectangle rect = new Rectangle(0, 0, this.width, this.height);
 
             // Fill in the background.
-            HatchBrush hatchBrush = new HatchBrush(HatchStyle.SmallConfetti, Color.LightGray, Color.White);
+            HatchBrush hatchBrush = new HatchBrush(HatchStyle.SmallConfetti, Color.Green, Color.White);
             g.FillRectangle(hatchBrush, rect);
 
             // Set up the text font.
@@ -220,7 +220,7 @@ namespace CaptchaImage
             path.Warp(points, rect, matrix, WarpMode.Perspective, 0F);
 
             // Draw the text.
-            hatchBrush = new HatchBrush(HatchStyle.LargeConfetti, Color.Black, Color.DarkGray);
+            hatchBrush = new HatchBrush(HatchStyle.LargeConfetti, Color.Black, Color.Black);
             g.FillPath(hatchBrush, path);
 
             // Add some random noise.
