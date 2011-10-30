@@ -207,7 +207,7 @@ namespace CaptchaImage
             // Create a path using the text and warp it randomly.
             GraphicsPath path = new GraphicsPath();
             path.AddString(this.text, font.FontFamily, (int)font.Style, font.Size, rect, format);
-            float v = 4F;
+            float v = 5F;
             PointF[] points =
 			{
 				new PointF(this.random.Next(rect.Width) / v, this.random.Next(rect.Height) / v),
