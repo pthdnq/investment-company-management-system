@@ -67,6 +67,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@ApproverId",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                new SqlParameter("@UserObjectID",DbType.Guid)
 				};
 
                 int i = 0;
@@ -83,6 +84,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = LeaveInfo.State;
                 sqlparam[i++].Value = LeaveInfo.ApproverId;
                 sqlparam[i++].Value = LeaveInfo.IsDelete;
+                sqlparam[i++].Value = LeaveInfo.UserObjectId;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -150,6 +152,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@ApproverId",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                 new SqlParameter("@UserObjectID",DbType.Guid)
                 };
 
                 int i = 0;
@@ -166,6 +169,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = LeaveInfo.State;
                 sqlparam[i++].Value = LeaveInfo.ApproverId;
                 sqlparam[i++].Value = LeaveInfo.IsDelete;
+                sqlparam[i++].Value = LeaveInfo.UserObjectId;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -302,7 +306,10 @@ namespace com.TZMS.DataAccess
             {
                 LeaveInfoInfo.IsDelete = bool.Parse(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "IsDelete"));
             }
-
+            if (LeaveInfoInfoDataRow["UserObjectId"] != null)
+            {
+                LeaveInfoInfo.UserObjectId = new Guid(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "UserObjectId"));
+            }
             return LeaveInfoInfo;
         }
         #endregion
