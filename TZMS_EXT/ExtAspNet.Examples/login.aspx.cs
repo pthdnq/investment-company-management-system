@@ -23,6 +23,7 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 LoadData();
+        
             }
         }
 
