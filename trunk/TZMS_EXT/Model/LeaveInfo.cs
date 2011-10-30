@@ -48,9 +48,21 @@ namespace com.TZMS.Model
         private short _state = 99;
         private Guid _approverId;
         private bool _isDelete = true;
+        private Guid _userObjectId;
+
         #endregion
 
         #region Property
+
+        /// <summary>
+        /// ObjectID
+        /// </summary>
+        public Guid UserObjectId
+        {
+            get { return _userObjectId; }
+            set { _userObjectId = value; }
+        }
+
         /// <summary>
         /// ObjectID 
         /// </summary> 
