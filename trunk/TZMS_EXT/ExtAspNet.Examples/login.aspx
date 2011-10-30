@@ -24,7 +24,7 @@
                     <ext:Image ID="imgCaptcha" runat="server" ImageUrl="~/basic/captcha/captcha.ashx?w=207&h=30"
                         ShowLabel="true">
                     </ext:Image>
-                    <ext:Button ID="btnLogin" Text="登录" Type="Submit" ValidateForms="SimpleForm1" ValidateTarget="Top"
+                    <ext:Button ID="btnLogin" Text="登录"  Type="Submit" ValidateForms="SimpleForm1" ValidateTarget="Top"
                         runat="server" OnClick="btnLogin_Click">
                     </ext:Button>
                 </Items>
