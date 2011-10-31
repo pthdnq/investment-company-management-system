@@ -53,9 +53,7 @@
                 <Items>
                     <ext:Grid ID="gridLeave" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
                         runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
-                        OnRowCommand="gridLeave_RowCommand" 
-                        OnRowDataBound="gridLeave_RowDataBound" 
-                        OnPageIndexChange="gridLeave_PageIndexChange">
+                        OnRowCommand="gridLeave_RowCommand" OnRowDataBound="gridLeave_RowDataBound" OnPageIndexChange="gridLeave_PageIndexChange">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField DataField="WriteTime" HeaderText="申请日期" />
@@ -67,6 +65,8 @@
                             <ext:BoundField DataField="State" HeaderText="申请状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
+                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmTarget="Parent" ConfirmText="确定删除该请假申请单?"
+                                CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Text;
 using com.TZMS.Model;
 using com.TZMS.Business;
+using ExtAspNet;
 
 namespace TZMS.Web
 {
@@ -148,7 +149,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndLeaveApp_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
-
+            DataBind(LeaveState, DateRange);
         }
 
         /// <summary>
@@ -180,7 +181,32 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridLeave_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
+            string strLeaveID = ((GridRow)gridLeave.Rows[e.RowIndex]).Values[0];
 
+            if (e.CommandName == "View")
+            {
+                wndLeaveApp.IFrameUrl = "LeaveAppNew.aspx?Type=View&LeaveID=" + strLeaveID;
+                wndLeaveApp.Hidden = false;
+            }
+
+            if (e.CommandName == "Edit")
+            {
+                wndLeaveApp.IFrameUrl = "LeaveAppNew.aspx?Type=Edit&LeaveID=" + strLeaveID;
+                wndLeaveApp.Hidden = false;
+            }
+
+            if (e.CommandName == "Delete")
+            {
+                LeaveAppManage _leaveManage = new LeaveAppManage();
+                LeaveInfo _leaveInfo = _leaveManage.GetLeaveInfoByObjectID(strLeaveID);
+                if (_leaveInfo != null)
+                {
+                    _leaveInfo.IsDelete = true;
+                    int result = _leaveManage.UpdateLeaveInfo(_leaveInfo);
+
+                    DataBind(LeaveState, DateRange);
+                }
+            }
         }
 
         /// <summary>
@@ -202,6 +228,7 @@ namespace TZMS.Web
                 if (Convert.ToInt32(e.Values[7].ToString()) != 3)
                 {
                     e.Values[9] = "<span class=\"gray\">编辑</span>";
+                    e.Values[10] = "<span class=\"gray\">删除</span>";
                 }
 
                 // 设置请假申请单状态.

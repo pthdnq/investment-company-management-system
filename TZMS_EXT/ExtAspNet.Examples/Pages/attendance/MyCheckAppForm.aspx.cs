@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using com.TZMS.Model;
 using com.TZMS.Business;
 using System.Text;
+using ExtAspNet;
 
 namespace TZMS.Web
 {
@@ -151,6 +152,8 @@ namespace TZMS.Web
             strCondition.Append(" and ApproveTime <> '1900-01-01 12:00:00.000'");
             List<LeaveApproveInfo> lstLeaveApprove = new LeaveAppManage().GetLeaveApprovesByCondition(strCondition.ToString());
 
+            lstLeaveApprove.Sort(delegate(LeaveApproveInfo x, LeaveApproveInfo y) { return DateTime.Compare(y.ApproveTime, x.ApproveTime); });
+
             // 绑定列表.
             gridApproveHistory.RecordCount = lstLeaveApprove.Count;
             gridApproveHistory.PageSize = PageCounts;
@@ -178,6 +181,35 @@ namespace TZMS.Web
         {
             gridApproveHistory.PageIndex = e.NewPageIndex;
             BindApproveHistory();
+        }
+
+        /// <summary>
+        /// 审批历史数据行绑定事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridApproveHistory_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            if (e.DataItem != null)
+            {
+                switch (e.Values[2].ToString())
+                {
+                    case "0":
+                        e.Values[2] = "待审批";
+                        break;
+                    case "1":
+                        e.Values[2] = "通过";
+                        break;
+                    case "2":
+                        e.Values[2] = "打回修改";
+                        break;
+                    case "3":
+                        e.Values[2] = "归档";
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         /// <summary>
@@ -226,7 +258,7 @@ namespace TZMS.Web
             {
                 _leaveInfo.State = short.Parse("2");
             }
-            _leaveAppManage.UpdateLeaveInfo(_leaveInfo);
+            int result = _leaveAppManage.UpdateLeaveInfo(_leaveInfo);
 
             // 更新请假申请流程表.
             LeaveApproveInfo _leaveApproveInfo = _leaveAppManage.GetLeaveApproveInfoByObjectID(ApproveID);
@@ -240,7 +272,7 @@ namespace TZMS.Web
                 _leaveApproveInfo.ApproveResult = short.Parse("3");
             }
 
-            _leaveApproveInfo.ApproveComment = taaApproveComment.Text.Trim();
+            _leaveApproveInfo.ApproveComment = string.IsNullOrEmpty(taaApproveComment.Text.Trim()) ? "同意" : taaApproveComment.Text.Trim();
             _leaveAppManage.UpdateLeaveApprove(_leaveApproveInfo);
 
             // 插入新的记录到流程申请表.
@@ -253,6 +285,15 @@ namespace TZMS.Web
                 _newLeaveApproveInfo.ApproverName = ddlstApproveUser.SelectedText;
                 _newLeaveApproveInfo.ApproveResult = short.Parse("0");
                 _leaveAppManage.AddNewLeaveApprove(_newLeaveApproveInfo);
+            }
+
+            if (result == -1)
+            {
+                Alert.Show(ddlstNext.SelectedText + "成功!");
+            }
+            else
+            {
+                Alert.Show(ddlstNext.SelectedText + "失败!");
             }
         }
 
@@ -268,14 +309,23 @@ namespace TZMS.Web
             // 更新申请表.
             LeaveInfo _leaveInfo = _leaveAppManage.GetLeaveInfoByObjectID(LeaveID);
             _leaveInfo.State = short.Parse("3");
-            _leaveAppManage.UpdateLeaveInfo(_leaveInfo);
+            int result = _leaveAppManage.UpdateLeaveInfo(_leaveInfo);
 
             // 更新请假申请流程表.
             LeaveApproveInfo _leaveApproveInfo = _leaveAppManage.GetLeaveApproveInfoByObjectID(ApproveID);
             _leaveApproveInfo.ApproveTime = DateTime.Now;
             _leaveApproveInfo.ApproveResult = short.Parse("2");
-            _leaveApproveInfo.ApproveComment = taaApproveComment.Text.Trim();
+            _leaveApproveInfo.ApproveComment = string.IsNullOrEmpty(taaApproveComment.Text.Trim()) ? "打回" : taaApproveComment.Text.Trim();
             _leaveAppManage.UpdateLeaveApprove(_leaveApproveInfo);
+
+            if (result == -1)
+            {
+                Alert.Show("打回成功!");
+            }
+            else
+            {
+                Alert.Show("打回失败!");
+            }
         }
     }
 }
