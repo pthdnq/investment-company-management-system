@@ -58,6 +58,24 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Button btnSave;
         
         /// <summary>
+        /// TabStrip1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TabStrip TabStrip1;
+        
+        /// <summary>
+        /// tabLeaveInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tab tabLeaveInfo;
+        
+        /// <summary>
         /// mainForm control.
         /// </summary>
         /// <remarks>
@@ -173,5 +191,23 @@ namespace TZMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextArea taaLeaveReason;
+        
+        /// <summary>
+        /// tabApproveHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tab tabApproveHistory;
+        
+        /// <summary>
+        /// gridApproveHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Grid gridApproveHistory;
     }
 }

@@ -92,7 +92,7 @@
                                 <Items>
                                     <ext:Grid ID="gridApproveHistory" Title="Grid1" ShowBorder="true" ShowHeader="false"
                                         AllowPaging="true" runat="server" IsDatabasePaging="true" EnableRowNumber="True"
-                                        AutoHeight="true" OnPageIndexChange="gridApproveHistory_PageIndexChange">
+                                        AutoHeight="true" OnPageIndexChange="gridApproveHistory_PageIndexChange" OnRowDataBound="gridApproveHistory_RowDataBound">
                                         <Columns>
                                             <ext:BoundField DataField="ApproverName" HeaderText="审批人姓名" />
                                             <ext:BoundField DataField="ApproveTime" HeaderText="审批时间" />
