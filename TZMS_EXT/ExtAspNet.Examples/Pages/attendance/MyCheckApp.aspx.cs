@@ -158,34 +158,34 @@ namespace TZMS.Web
             switch (nApproveState)
             {
                 case 1:
-                    strCondition.Append(" and ApproveTime = '1900-01-01 12:00:00.000'");
+                    strCondition.Append(" and ApproveResult = 0");
                     break;
                 case 2:
-                    strCondition.Append(" and ApproveTime <> '1900-01-01 12:00:00.000'");
+                    strCondition.Append(" and ApproveResult <> 0 and ApproveResult <> -1");
                     break;
                 default:
                     break;
             }
 
-            //// 审批时间
-            //DateTime dateTimeNow = DateTime.Now;
-            //switch (nDateRange)
-            //{
-            //    case 1:
-            //        strCondition.Append(" and ApproveTime >= '" + dateTimeNow.AddMonths(-1).ToString("yyyy-MM-dd") + "'");
-            //        break;
-            //    case 2:
-            //        strCondition.Append(" and ApproveTime >= '" + dateTimeNow.AddMonths(-3).ToString("yyyy-MM-dd") + "'");
-            //        break;
-            //    case 3:
-            //        strCondition.Append(" and ApproveTime >= '" + dateTimeNow.AddMonths(-6).ToString("yyyy-MM-dd") + "'");
-            //        break;
-            //    case 4:
-            //        strCondition.Append(" and ApproveTime >= '" + dateTimeNow.AddMonths(-12).ToString("yyyy-MM-dd") + "'");
-            //        break;
-            //    default:
-            //        break;
-            //}
+            // 审批时间
+            DateTime dateTimeNow = DateTime.Now;
+            switch (nDateRange)
+            {
+                case 1:
+                    strCondition.Append(" and ( ApproveTime >= '" + dateTimeNow.AddMonths(-1).ToString("yyyy-MM-dd") + "' or ApproveTime = '1900-01-01 12:00:00.000')");
+                    break;
+                case 2:
+                    strCondition.Append(" and ( ApproveTime >= '" + dateTimeNow.AddMonths(-3).ToString("yyyy-MM-dd") + "' or ApproveTime = '1900-01-01 12:00:00.000')");
+                    break;
+                case 3:
+                    strCondition.Append(" and (ApproveTime >= '" + dateTimeNow.AddMonths(-6).ToString("yyyy-MM-dd") + "'  or ApproveTime = '1900-01-01 12:00:00.000')");
+                    break;
+                case 4:
+                    strCondition.Append(" and (ApproveTime >= '" + dateTimeNow.AddMonths(-12).ToString("yyyy-MM-dd") + "'  or ApproveTime = '1900-01-01 12:00:00.000')");
+                    break;
+                default:
+                    break;
+            }
 
             #endregion
 
@@ -196,7 +196,7 @@ namespace TZMS.Web
             _comHelp.SearchCondition = strCondition.ToString();
             _comHelp.PageSize = PageCounts;
             _comHelp.PageIndex = gridAttend.PageIndex;
-            _comHelp.OrderExpression = "WriteTime desc";
+            _comHelp.OrderExpression = "ApproveTime asc";
 
             DataTable dtbLeaveApproves = _commSelect.ComSelect(ref _comHelp);
             gridAttend.RecordCount = _comHelp.TotalCount;
@@ -262,37 +262,43 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[7] = DateTime.Parse(e.Values[7].ToString()).ToString("yyyy年MM年dd日 hh:mm:ss");
-                e.Values[10] = DateTime.Parse(e.Values[10].ToString()).ToLongDateString();
-                e.Values[11] = DateTime.Parse(e.Values[11].ToString()).ToLongDateString();
-                if (DateTime.Compare(DateTime.Parse(e.Values[12].ToString()), ACommonInfo.DBEmptyDate) == 0)
-                {
-                    e.Values[12] = "待审批";
-                }
-                else
-                {
-                    e.Values[12] = "审批中";
-                }
-
+                // 设置在列表上各列的值.
+                e.Values[7] = DateTime.Parse(e.Values[7].ToString()).ToString("yyyy-MM-dd hh:mm");
+                e.Values[10] = DateTime.Parse(e.Values[10].ToString()).ToString("yyyy-MM-dd");
+                e.Values[11] = DateTime.Parse(e.Values[11].ToString()).ToString("yyyy-MM-dd");
                 switch (e.Values[13].ToString())
                 {
                     case "0":
+                        e.Values[12] = "待审批";
                         e.Values[13] = "待审批";
                         break;
                     case "1":
+                        e.Values[12] = "已审批";
                         e.Values[13] = "通过";
-                        e.Values[14] = "<span class=\"gray\">审批</span>";
+                        e.Values[15] = "<span class=\"gray\">审批</span>";
                         break;
                     case "2":
+                        e.Values[12] = "已审批";
                         e.Values[13] = "打回修改";
-                        e.Values[14] = "<span class=\"gray\">审批</span>";
+                        e.Values[15] = "<span class=\"gray\">审批</span>";
                         break;
                     case "3":
+                        e.Values[12] = "已审批";
                         e.Values[13] = "归档";
-                        e.Values[14] = "<span class=\"gray\">审批</span>";
+                        e.Values[15] = "<span class=\"gray\">审批</span>";
                         break;
                     default:
                         break;
+                }
+
+                DateTime approveTime = DateTime.Parse(e.Values[14].ToString());
+                if (DateTime.Compare(approveTime, ACommonInfo.DBEmptyDate) != 0)
+                {
+                    e.Values[14] = approveTime.ToString("yyyy-MM-dd hh:mm");
+                }
+                else
+                {
+                    e.Values[14] = "";
                 }
             }
         }
