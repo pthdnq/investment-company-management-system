@@ -42,6 +42,8 @@
     <Compile Include="BankLoanInfo.cs" />
     <Compile Include="BankLoanProjectProcessHistoryInfo.cs" />
     <Compile Include="BankLoanProjectProcessInfo.cs" />
+    <Compile Include="BaoxiaoCheckInfo.cs" />
+    <Compile Include="BaoxiaoInfo.cs" />
     <Compile Include="ComCheckerInfo.cs" />
     <Compile Include="CustomerInfo.cs" />
     <Compile Include="FinancingFeePaymentHistoryInfo.cs" />
