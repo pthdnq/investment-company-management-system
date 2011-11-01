@@ -80,24 +80,24 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane3" runat="server" Title="假勤管理" IconUrl="images/16/1.png"
+                            <ext:AccordionPane ID="AccordionPane3" runat="server" Icon="PageWhiteKey" Title="假勤管理" 
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="Tree2" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" NodeID="ygkq" OnClientClick=" tabs('ygkq','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="ygkq" OnClientClick=" tabs('ygkq','UserKey');"
                                                 Text="员工考勤">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" NodeID="wdkq" OnClientClick=" tabs('wdkq','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="TimeGo" NodeID="wdkq" OnClientClick=" tabs('wdkq','UserKey');"
                                                 Text="我的考勤">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" NodeID="qjsq" OnClientClick=" tabs('qjsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="UserComment" NodeID="qjsq" OnClientClick=" tabs('qjsq','UserKey');"
                                                 Text="请假申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" NodeID="txsq" OnClientClick=" tabs('txsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="UserEarth" NodeID="txsq" OnClientClick=" tabs('txsq','UserKey');"
                                                 Text="调休申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" NodeID="wdsp" OnClientClick=" tabs('wdsp','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="UserStar" NodeID="wdsp" OnClientClick=" tabs('wdsp','UserKey');"
                                                 Text="我的审批">
                                             </ext:TreeNode>
                                         </Nodes>
@@ -189,11 +189,11 @@
                                         <Toolbars>
                                             <ext:Toolbar ID="Toolbar1" runat="server">
                                                 <Items>
-                                                    <ext:Button ID="myMessage" runat="server" Text="个人信息">
+                                                    <ext:Button ID="myMessage" Icon="User" runat="server" Text="个人信息">
                                                     </ext:Button>
-                                                    <ext:Button ID="changePsw" runat="server" Text="修改密码">
+                                                    <ext:Button ID="changePsw" runat="server" Icon="LockKey" Text="修改密码">
                                                     </ext:Button>
-                                                    <ext:Button ID="setChecker" runat="server" Text="设置审批人">
+                                                    <ext:Button ID="setChecker" runat="server" Icon="GroupKey" Text="设置审批人">
                                                     </ext:Button>
                                                 </Items>
                                             </ext:Toolbar>
@@ -236,7 +236,7 @@
                     LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理", icon);
                     break;
 
-                //假勤管理                            
+                //假勤管理                             
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤", icon);
                     break;
@@ -252,7 +252,7 @@
                 case "wdsp":
                     LoadTab("Pages/attendance/MyCheckApp.aspx", "我的审批", icon);
                     break;
-                //投资部借款 InvestmentLoan     
+                //投资部借款 InvestmentLoan      
                 case "fksq":
                     LoadTab("Pages/InvestmentLoanPages/PaymentApplyList.aspx", "借款申请", icon);
                     break;
@@ -275,7 +275,7 @@
                     LoadTab("Pages/InvestmentLoanPages/LoanContractList.aspx", "借款合同", icon);
                     break;
 
-                //投资部项目实施 InvestmentProject       
+                //投资部项目实施 InvestmentProject        
                 case "xmsq":
                     LoadTab("Pages/InvestmentProjectPages/ProjectApplyList.aspx", "项目申请列表", icon);
                     break;
@@ -298,7 +298,7 @@
                     LoadTab("Pages/InvestmentProjectPages/AllProjectList.aspx", "所有项目列表", icon);
                     break;
 
-                //银行贷款 BankLoan         
+                //银行贷款 BankLoan          
                 case "dksq":
                     LoadTab("Pages/BankLoanPages/BankLoanApplyList.aspx", "贷款申请列表", icon);
                     break;
@@ -321,7 +321,7 @@
                     LoadTab("Pages/BankLoanPages/AllFeePayList.aspx", "所有费用支出列表", icon);
                     break;
 
-                //民间融资 FolkFinancing            
+                //民间融资 FolkFinancing             
                 case "rzsq":
                     LoadTab("Pages/FolkFinancingPages/FinancingApplyList.aspx", "融资申请列表", icon);
                     break;
