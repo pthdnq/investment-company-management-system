@@ -42,6 +42,7 @@ namespace com.TZMS.Model
         private string _result = DBEmptyString;
         private string _checkSugest = DBEmptyString;
         private string _checkOp = DBEmptyString;
+        private Guid _applytId;
         #endregion
 
         #region Property
@@ -124,6 +125,15 @@ namespace com.TZMS.Model
         {
             get { return _checkOp; }
             set { _checkOp = value; }
+        }
+
+        /// <summary>
+        /// ApplytId
+        /// </summary>
+        public Guid ApplytId
+        {
+            get { return _applytId; }
+            set { _applytId = value; }
         }
 
         #endregion
