@@ -220,9 +220,9 @@ namespace TZMS.Web
             if (leaveInfo != null)
             {
                 // 去掉日期中时、分、秒.
-                e.Values[1] = e.Values[1].ToString().Replace(" 0:00:00", "");
-                e.Values[2] = e.Values[2].ToString().Replace(" 0:00:00", "");
-                e.Values[3] = e.Values[3].ToString().Replace(" 0:00:00", "");
+                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd hh:mm");
+                e.Values[2] = DateTime.Parse(e.Values[2].ToString()).ToString("yyyy-MM-dd");
+                e.Values[3] = DateTime.Parse(e.Values[3].ToString()).ToString("yyyy-MM-dd");
 
                 // 设置编辑按钮.
                 if (Convert.ToInt32(e.Values[7].ToString()) != 3)

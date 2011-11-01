@@ -53,17 +53,19 @@
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="UserObjectID" Hidden="true" />
                             <ext:BoundField DataField="Expr1" Hidden="true" />
-                            <ext:BoundField DataField="JobNo" Width="60px" HeaderText="工号" />
-                            <ext:BoundField DataField="AccountNo" Width="70px" HeaderText="帐号" />
+                            <ext:BoundField DataField="JobNo" Width="60px" HeaderText="工号" Hidden="true" />
+                            <ext:BoundField DataField="AccountNo" Width="70px" HeaderText="帐号" Hidden="true" />
                             <ext:BoundField DataField="Name" Width="60px" HeaderText="姓名" />
                             <ext:BoundField DataField="Dept" Width="70px" HeaderText="部门" />
                             <ext:BoundField DataField="WriteTime" Width="140px" HeaderText="申请时间" />
                             <ext:BoundField DataField="Type" Width="60px" HeaderText="请假类型" />
-                            <ext:BoundField DataField="Reason" Width="150px" HeaderText="请假原因" />
-                            <ext:BoundField DataField="StartTime"  Width="100px" HeaderText="开始日期" />
-                            <ext:BoundField DataField="StopTime"  Width="100px" HeaderText="结束日期" />
-                            <ext:BoundField DataField="ApproveTime"  Width="60px" HeaderText="审批状态" />
-                            <ext:BoundField DataField="ApproveResult"  Width="60px" HeaderText="审批结果" />
+                            <ext:BoundField DataField="Reason" Width="150px" HeaderText="请假原因" DataTooltipField="Reason"
+                                ExpandUnusedSpace="true" />
+                            <ext:BoundField DataField="StartTime" Width="100px" HeaderText="开始日期" />
+                            <ext:BoundField DataField="StopTime" Width="100px" HeaderText="结束日期" />
+                            <ext:BoundField DataField="ApproveResult" Width="60px" HeaderText="审批状态" />
+                            <ext:BoundField DataField="ApproveResult" Width="60px" HeaderText="审批结果" />
+                            <ext:BoundField DataField="ApproveTime" Width="140px" HeaderText="审批时间" />
                             <ext:LinkButtonField Width="38px" Text="审批" CommandName="Approve" />
                         </Columns>
                     </ext:Grid>

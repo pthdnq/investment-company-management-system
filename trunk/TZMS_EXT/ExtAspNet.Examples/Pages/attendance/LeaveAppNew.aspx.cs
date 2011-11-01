@@ -68,7 +68,7 @@ namespace TZMS.Web
                         {
                             OperatorType = strOperatorType;
                             lblName.Text = CurrentUser.Name;
-                            lblAppDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+                            lblAppDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm");
 
                             tabApproveHistory.Hidden = true;
 
@@ -119,6 +119,11 @@ namespace TZMS.Web
 
                     default:
                         break;
+                }
+
+                if (ddlstApproveUser.SelectedItem == null)
+                {
+                    Alert.Show("您的“执行人”为空，请在我的首页设置我的审批人！");
                 }
             }
         }
@@ -191,7 +196,7 @@ namespace TZMS.Web
             if (_leaveInfo != null)
             {
                 lblName.Text = _leaveInfo.Name;
-                lblAppDate.Text = _leaveInfo.WriteTime.ToString("yyyy-MM-dd hh:mm:ss");
+                lblAppDate.Text = _leaveInfo.WriteTime.ToString("yyyy-MM-dd hh:mm");
                 dpkStartTime.SelectedDate = _leaveInfo.StartTime;
                 dpkEndTime.SelectedDate = _leaveInfo.StopTime;
                 int typeValue = (int)ConvertStringToAttedType(_leaveInfo.Type);
@@ -380,6 +385,17 @@ namespace TZMS.Web
                 result = _leaveAppManage.AddNewLeaveInfo(_leaveInfo);
 
                 // 添加到请假流程表.
+                LeaveApproveInfo _draftApproveInfo = new LeaveApproveInfo();
+                _draftApproveInfo.ObjectId = Guid.NewGuid();
+                _draftApproveInfo.LeaveId = _leaveInfo.ObjectId;
+                _draftApproveInfo.ApproverId = _leaveInfo.ObjectId;
+                _draftApproveInfo.ApproverName = _leaveInfo.Name;
+                _draftApproveInfo.ApproveTime = _leaveInfo.WriteTime;
+                _draftApproveInfo.ApproveResult = -1;
+
+                _leaveAppManage.AddNewLeaveApprove(_draftApproveInfo);
+
+                // 添加到请假流程表.
                 LeaveApproveInfo _leaveApproveInfo = new LeaveApproveInfo();
                 _leaveApproveInfo.ObjectId = Guid.NewGuid();
                 _leaveApproveInfo.LeaveId = _leaveInfo.ObjectId;
@@ -452,7 +468,7 @@ namespace TZMS.Web
             // 获取数据.
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append("LeaveID = '" + LeaveAppID + "'");
-            strCondition.Append(" and ApproveTime <> '1900-01-01 12:00:00.000'");
+            strCondition.Append(" and ApproveResult <> 0");
             List<LeaveApproveInfo> lstLeaveApprove = new LeaveAppManage().GetLeaveApprovesByCondition(strCondition.ToString());
 
             lstLeaveApprove.Sort(delegate(LeaveApproveInfo x, LeaveApproveInfo y) { return DateTime.Compare(y.ApproveTime, x.ApproveTime); });
@@ -477,6 +493,7 @@ namespace TZMS.Web
 
         #endregion
 
+        #region 页面事件
 
         /// <summary>
         /// 发送申请
@@ -486,6 +503,16 @@ namespace TZMS.Web
         protected void btnSave_Click(object sender, EventArgs e)
         {
             SaveLeaveInfo();
+        }
+
+        /// <summary>
+        /// 页面关闭事件.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
         }
 
         /// <summary>
@@ -506,17 +533,6 @@ namespace TZMS.Web
         }
 
         /// <summary>
-        /// 审批历史翻页事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void gridApproveHistory_PageIndexChange(object sender, GridPageEventArgs e)
-        {
-            gridApproveHistory.PageIndex = e.NewPageIndex;
-            BindHistory();
-        }
-
-        /// <summary>
         /// 审批历史数据行绑定事件
         /// </summary>
         /// <param name="sender"></param>
@@ -525,8 +541,13 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
+                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd hh:mm");
+
                 switch (e.Values[2].ToString())
                 {
+                    case "-1":
+                        e.Values[2] = "起草";
+                        break;
                     case "0":
                         e.Values[2] = "待审批";
                         break;
@@ -544,5 +565,7 @@ namespace TZMS.Web
                 }
             }
         }
+
+        #endregion
     }
 }

@@ -131,7 +131,7 @@ namespace TZMS.Web
             if (_leaveInfo != null)
             {
                 lblName.Text = _leaveInfo.Name;
-                lblAppDate.Text = _leaveInfo.WriteTime.ToString("yyyy年MM月dd日 hh:mm:ss");
+                lblAppDate.Text = _leaveInfo.WriteTime.ToString("yyyy-MM-dd hh:mm");
                 lblStartTime.Text = _leaveInfo.StartTime.ToLongDateString();
                 lblStopTime.Text = _leaveInfo.StopTime.ToLongDateString();
                 lblLeaveType.Text = _leaveInfo.Type;
@@ -149,7 +149,7 @@ namespace TZMS.Web
             // 获取数据.
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append("LeaveID = '" + LeaveID + "'");
-            strCondition.Append(" and ApproveTime <> '1900-01-01 12:00:00.000'");
+            strCondition.Append(" and ApproveResult <> 0");
             List<LeaveApproveInfo> lstLeaveApprove = new LeaveAppManage().GetLeaveApprovesByCondition(strCondition.ToString());
 
             lstLeaveApprove.Sort(delegate(LeaveApproveInfo x, LeaveApproveInfo y) { return DateTime.Compare(y.ApproveTime, x.ApproveTime); });
@@ -192,8 +192,13 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
+                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd hh:mm");
+
                 switch (e.Values[2].ToString())
                 {
+                    case "-1":
+                        e.Values[2] = "起草";
+                        break;
                     case "0":
                         e.Values[2] = "待审批";
                         break;
@@ -222,10 +227,16 @@ namespace TZMS.Web
             if (ddlstNext.SelectedIndex == 1)
             {
                 ddlstApproveUser.Hidden = true;
+                ddlstApproveUser.Required = false;
+                ddlstApproveUser.ShowRedStar = false;
+                ddlstApproveUser.Enabled = false;
             }
             else
             {
                 ddlstApproveUser.Hidden = false;
+                ddlstApproveUser.Required = true;
+                ddlstApproveUser.ShowRedStar = true;
+                ddlstApproveUser.Enabled = true;
             }
         }
 
@@ -236,7 +247,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnClose_Click(object sender, EventArgs e)
         {
-
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
         }
 
         /// <summary>
@@ -246,6 +257,8 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnPass_Click(object sender, EventArgs e)
         {
+
+
             LeaveAppManage _leaveAppManage = new LeaveAppManage();
 
             // 更新申请表.
@@ -304,6 +317,12 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnRefuse_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(taaApproveComment.Text.Trim()))
+            {
+                Alert.Show("审批意见不可为空!");
+                return;
+            }
+
             LeaveAppManage _leaveAppManage = new LeaveAppManage();
 
             // 更新申请表.

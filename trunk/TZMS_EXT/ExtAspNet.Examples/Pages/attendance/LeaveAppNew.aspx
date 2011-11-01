@@ -15,9 +15,10 @@
         <Toolbars>
             <ext:Toolbar runat="server">
                 <Items>
-                    <ext:Button ID="btnClose" runat="server" Icon="Cancel" Text="关闭">
+                    <ext:Button ID="btnClose" OnClick="btnClose_Click" runat="server" Icon="Cancel" Text="关闭">
                     </ext:Button>
-                    <ext:Button ID="btnSave" OnClick="btnSave_Click" runat="server" Icon="Disk" Text="提交">
+                    <ext:Button ID="btnSave" OnClick="btnSave_Click" runat="server" Icon="Disk" Text="提交"
+                        ValidateForms="mainForm">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -46,7 +47,7 @@
                                                 Label="下一步" AutoPostBack="True" OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
                                             </ext:DropDownList>
                                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
-                                                Label="执行人">
+                                                Label="执行人" RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！">
                                             </ext:DropDownList>
                                         </Items>
                                     </ext:FormRow>
@@ -82,13 +83,14 @@
                         BodyPadding="5px">
                         <Items>
                             <ext:Grid ID="gridApproveHistory" Title="Grid1" ShowBorder="true" ShowHeader="false"
-                                AllowPaging="true" runat="server" IsDatabasePaging="true" EnableRowNumber="True"
-                                AutoHeight="true" OnPageIndexChange="gridApproveHistory_PageIndexChange" OnRowDataBound="gridApproveHistory_RowDataBound">
+                                runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                                AutoScroll="true" OnRowDataBound="gridApproveHistory_RowDataBound">
                                 <Columns>
-                                    <ext:BoundField DataField="ApproverName" HeaderText="审批人姓名" />
+                                    <ext:BoundField DataField="ApproverName" HeaderText="执行人" />
                                     <ext:BoundField DataField="ApproveTime" HeaderText="审批时间" />
                                     <ext:BoundField DataField="ApproveResult" HeaderText="审批结果" />
-                                    <ext:BoundField DataField="ApproveComment" HeaderText="审批人意见" />
+                                    <ext:BoundField DataField="ApproveComment" HeaderText="执行人意见" DataTooltipField="ApproveComment"
+                                        ExpandUnusedSpace="true" />
                                 </Columns>
                             </ext:Grid>
                         </Items>

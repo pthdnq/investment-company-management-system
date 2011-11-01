@@ -56,11 +56,11 @@
                         OnRowCommand="gridLeave_RowCommand" OnRowDataBound="gridLeave_RowDataBound" OnPageIndexChange="gridLeave_PageIndexChange">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField DataField="WriteTime" HeaderText="申请日期" />
+                            <ext:BoundField DataField="WriteTime" HeaderText="申请时间" />
                             <ext:BoundField DataField="StartTime" HeaderText="开始日期" />
                             <ext:BoundField DataField="StopTime" HeaderText="结束日期" />
                             <ext:BoundField DataField="Type" HeaderText="请假类型" />
-                            <ext:BoundField DataField="Reason" HeaderText="请假原因" />
+                            <ext:BoundField DataField="Reason" HeaderText="请假原因" DataTooltipField="Reason" ExpandUnusedSpace="true" />
                             <ext:BoundField HeaderText="当前审批人" />
                             <ext:BoundField DataField="State" HeaderText="申请状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
