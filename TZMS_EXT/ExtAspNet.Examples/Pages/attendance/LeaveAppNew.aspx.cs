@@ -68,7 +68,7 @@ namespace TZMS.Web
                         {
                             OperatorType = strOperatorType;
                             lblName.Text = CurrentUser.Name;
-                            lblAppDate.Text = DateTime.Now.ToString("yyyy年MM月dd日 hh:mm:ss");
+                            lblAppDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
 
                             tabApproveHistory.Hidden = true;
 
@@ -191,7 +191,7 @@ namespace TZMS.Web
             if (_leaveInfo != null)
             {
                 lblName.Text = _leaveInfo.Name;
-                lblAppDate.Text = _leaveInfo.WriteTime.ToString("yyyy年MM月dd日 hh:mm:ss");
+                lblAppDate.Text = _leaveInfo.WriteTime.ToString("yyyy-MM-dd hh:mm:ss");
                 dpkStartTime.SelectedDate = _leaveInfo.StartTime;
                 dpkEndTime.SelectedDate = _leaveInfo.StopTime;
                 int typeValue = (int)ConvertStringToAttedType(_leaveInfo.Type);
