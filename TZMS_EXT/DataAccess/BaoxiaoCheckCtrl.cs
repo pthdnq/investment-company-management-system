@@ -63,6 +63,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Result",DbType.String),
 				new SqlParameter("@CheckSugest",DbType.String),
 				new SqlParameter("@CheckOp",DbType.String),
+                new SqlParameter("@applyID",DbType.Guid)
 				};
 
                 int i = 0;
@@ -75,6 +76,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BaoxiaoCheckInfo.Result;
                 sqlparam[i++].Value = BaoxiaoCheckInfo.CheckSugest;
                 sqlparam[i++].Value = BaoxiaoCheckInfo.CheckOp;
+                sqlparam[i++].Value = BaoxiaoCheckInfo.ApplytId;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -138,6 +140,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Result",DbType.String),
 				new SqlParameter("@CheckSugest",DbType.String),
 				new SqlParameter("@CheckOp",DbType.String),
+                new SqlParameter("@applyID",DbType.Guid)
                 };
 
                 int i = 0;
@@ -150,6 +153,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BaoxiaoCheckInfo.Result;
                 sqlparam[i++].Value = BaoxiaoCheckInfo.CheckSugest;
                 sqlparam[i++].Value = BaoxiaoCheckInfo.CheckOp;
+                sqlparam[i++].Value = BaoxiaoCheckInfo.ApplytId;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
