@@ -49,12 +49,12 @@
                         </Rows>
                     </ext:Form>
                     <ext:TabStrip runat="server" ActiveTabIndex="0" ShowBorder="false" AutoHeight="true"
-                        Height="280px">
+                        Height="285px">
                         <Tabs>
                             <ext:Tab Title="请假申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
-                                    <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainForm"
-                                        runat="server">
+                                    <ext:Form EnableBackgroundColor="true" LabelWidth="55px" ShowHeader="false" ShowBorder="false"
+                                        BodyPadding="5px" ID="mainForm" runat="server">
                                         <Rows>
                                             <ext:FormRow ID="FormRow1" runat="server" ColumnWidths="50% 50%">
                                                 <Items>

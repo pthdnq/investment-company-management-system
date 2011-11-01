@@ -29,8 +29,8 @@
                     <ext:Tab ID="tabLeaveInfo" Title="请假申请单" EnableBackgroundColor="true" runat="server"
                         BodyPadding="5px">
                         <Items>
-                            <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainForm"
-                                runat="server">
+                            <ext:Form EnableBackgroundColor="true" ShowHeader="false" ShowBorder="false" BodyPadding="5px"
+                                ID="mainForm" runat="server" LabelWidth="60px">
                                 <Rows>
                                     <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="50% 50%">
                                         <Items>
@@ -83,8 +83,7 @@
                         <Items>
                             <ext:Grid ID="gridApproveHistory" Title="Grid1" ShowBorder="true" ShowHeader="false"
                                 AllowPaging="true" runat="server" IsDatabasePaging="true" EnableRowNumber="True"
-                                AutoHeight="true" OnPageIndexChange="gridApproveHistory_PageIndexChange" 
-                                OnRowDataBound="gridApproveHistory_RowDataBound">
+                                AutoHeight="true" OnPageIndexChange="gridApproveHistory_PageIndexChange" OnRowDataBound="gridApproveHistory_RowDataBound">
                                 <Columns>
                                     <ext:BoundField DataField="ApproverName" HeaderText="审批人姓名" />
                                     <ext:BoundField DataField="ApproveTime" HeaderText="审批时间" />
