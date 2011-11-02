@@ -63,8 +63,8 @@
                                     <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="NewUser.aspx?Type=Edit&ID={0}"
-                                Title="查看" />
+                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?Type=Edit&ID={0}"
+                                Title="查看" WindowID="wndNew" />
                             <ext:LinkButtonField Width="38px" Hidden="true" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />
                         </Columns>
