@@ -60,8 +60,8 @@
                             <ext:BoundField DataField="BackIpPhoneNumber" Width="145px" HeaderText="支用金额" />
                             <ext:BoundField Width="130px" DataField="Name" HeaderText="支用时间" />
                             <ext:BoundField Width="110px" DataField="AccountNo" HeaderText="备用金额" />
-                            <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="NewUser.aspx?Type=Edit&ID={0}"
-                                Title="确认" />
+                            <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ImprestPayConfirm.aspx?Type=Edit&ID={0}"
+                                Title="确认"  WindowID="wndNew"/>
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />
                         </Columns>
