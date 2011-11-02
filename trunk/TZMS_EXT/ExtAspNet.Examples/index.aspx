@@ -110,9 +110,9 @@
                                     <ext:Tree ID="TreeInvestmentLoan" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" NodeID="fksq" OnClientClick=" tabs('fksq','');" Text="付款申请列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="fksh" OnClientClick=" tabs('fksh','');" Text="付款审核列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="fkqr" OnClientClick=" tabs('fkqr','');" Text="付款确认列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="fksq" OnClientClick=" tabs('fksq','');" Text="借款申请列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="fksh" OnClientClick=" tabs('fksh','');" Text="借款审核列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="fkqr" OnClientClick=" tabs('fkqr','');" Text="借款确认列表" />
                                             <ext:TreeNode Leaf="true" NodeID="jkxx" OnClientClick=" tabs('jkxx','');" Text="借款信息列表" />
                                             <ext:TreeNode Leaf="true" NodeID="skqr" OnClientClick=" tabs('skqr','');" Text="收款确认列表" />
                                             <ext:TreeNode Leaf="true" NodeID="skxx" OnClientClick=" tabs('skxx','');" Text="收款信息列表" />
@@ -257,10 +257,10 @@
                     LoadTab("Pages/InvestmentLoanPages/PaymentApplyList.aspx", "借款申请", icon);
                     break;
                 case "fksh":
-                    LoadTab("Pages/InvestmentLoanPages/PaymentAuditList.aspx", "付款审核", icon);
+                    LoadTab("Pages/InvestmentLoanPages/PaymentAuditList.aspx", "借款审核", icon);
                     break;
                 case "fkqr":
-                    LoadTab("Pages/InvestmentLoanPages/PaymentConfirmList.aspx", "付款确认", icon);
+                    LoadTab("Pages/InvestmentLoanPages/PaymentConfirmList.aspx", "借款确认", icon);
                     break;
                 case "jkxx":
                     LoadTab("Pages/InvestmentLoanPages/LoanInfoList.aspx", "借款信息", icon);
