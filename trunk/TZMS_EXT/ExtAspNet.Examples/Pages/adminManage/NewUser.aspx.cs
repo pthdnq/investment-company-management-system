@@ -234,10 +234,17 @@ namespace TZMS.Web
 
             // 在数据库中查看具有相同工号或账号的用户，如果存在，则添加失败.
             List<UserInfo> lstSameUsers = _userManage.GetUsersByCondtion("ObjectID <> '" + _userInfo.ObjectId.ToString() +
-                "' and (JobNo = '" + _userInfo.JobNo + "' or AccountNo = '" + _userInfo.AccountNo + "')");
+                "' and ( AccountNo = '" + _userInfo.AccountNo + "')");
             if (lstSameUsers.Count > 0)
             {
-                Alert.Show("该账号或工号已存在!");
+                Alert.Show("该账号已存在!");
+                return;
+            }
+            lstSameUsers = _userManage.GetUsersByCondtion("ObjectID <> '" + _userInfo.ObjectId.ToString() +
+              "' and (JobNo = '" + _userInfo.JobNo + "' )");
+            if (lstSameUsers.Count > 0)
+            {
+                Alert.Show("该工号已存在!");
                 return;
             }
 
