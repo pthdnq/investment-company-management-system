@@ -61,8 +61,8 @@
                                     <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="NewUser.aspx?Type=Edit&ID={0}"
-                                Title="确认" />
+                            <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentConfirm.aspx?Type=Edit&ID={0}"
+                                Title="确认" WindowID="wndNew" />
                       <%--      <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />--%>
                         </Columns>
                     </ext:Grid>
@@ -75,7 +75,7 @@
         Height="370px" Width="400px">
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="549px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

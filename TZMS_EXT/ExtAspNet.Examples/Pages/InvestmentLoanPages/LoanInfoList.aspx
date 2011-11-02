@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoanInfoList.aspx.cs" Inherits="TZMS.Web.Pages.InvestmentLoanPages.LoanInfoList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>借款信息列表</title>
@@ -39,7 +38,7 @@
                         <Items>
                             <ext:Button ID="btnNew" Text="终止" Icon="Add" runat="server">
                             </ext:Button>
-                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server"  Hidden="true"/>
+                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server" Hidden="true" />
                         </Items>
                     </ext:Toolbar>
                 </Toolbars>
@@ -50,7 +49,7 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                             <ext:BoundField Width="120px" DataField="JobNo" HeaderText="项目名称" />
+                            <ext:BoundField Width="120px" DataField="JobNo" HeaderText="项目名称" />
                             <ext:BoundField Width="110px" DataField="Name" HeaderText="借款人（甲方）" />
                             <ext:BoundField Width="110px" DataField="AccountNo" HeaderText="付款人（乙方）" />
                             <ext:TemplateField Width="90px" HeaderText="借款联系电话">
@@ -67,9 +66,9 @@
                                     <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
                                 </ItemTemplate>
                             </ext:TemplateField>--%>
-                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="NewUser.aspx?Type=Edit&ID={0}"
-                                Title="查看" />
-                            <ext:LinkButtonField Width="38px" Text="收款"  CommandName="Repayment" /> 
+                            <ext:WindowField Width="76px" Text="还款进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanInfo.aspx?Type=Edit&ID={0}"
+                                WindowID="wndNew" DataWindowTitleField="JobNo" DataWindowTitleFormatString="还款进展 - {0}项目" />
+                            <%--       <ext:LinkButtonField Width="38px" Text="收款"  CommandName="Repayment" /> --%>
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -81,7 +80,7 @@
         Height="370px" Width="400px">
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="409px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>
