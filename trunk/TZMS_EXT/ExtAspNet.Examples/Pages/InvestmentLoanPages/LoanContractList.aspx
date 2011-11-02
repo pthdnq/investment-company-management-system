@@ -35,11 +35,11 @@
             <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
                 Layout="Fit" runat="server">
                 <Toolbars>
-                    <ext:Toolbar ID="toolUser" runat="server">
+                    <ext:Toolbar ID="toolUser" runat="server" Hidden="true">
                         <Items>
                             <ext:Button ID="btnNew" Text="终止" Icon="Add" runat="server">
                             </ext:Button>
-                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server" Hidden="true" />
+                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server" />
                         </Items>
                     </ext:Toolbar>
                 </Toolbars>
@@ -59,16 +59,17 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:BoundField Width="80px" DataField="Dept" HeaderText="借款金额" />
-                            <ext:BoundField Width="145px" DataField="dpkEntryDate" HeaderText="借款日期" />
-                            <ext:BoundField DataField="dpkEntryDate" Width="145px" HeaderText="终止合同日期" />
+                            <ext:BoundField Width="105px" DataField="dpkEntryDate" HeaderText="借款日期" />
+                            <ext:BoundField DataField="dpkEntryDate" Width="105px" HeaderText="终止合同日期" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <%--<ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="NewUser.aspx?Type=Edit&ID={0}"
-                                Title="编辑" />--%>
-                            <ext:LinkButtonField Width="76px" Text="终止合同" ConfirmText="确定终止该借款合同?" CommandName="Stop" />
+                            <ext:WindowField Width="76px" Text="终止合同" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?Type=Edit&ID={0}"
+                                Title="终止合同" WindowID="wndNew" />
+                     <%--     <ext:WindowField Width="76px" Text="还款进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?Type=Edit&ID={0}"
+                                Title="还款进展" WindowID="wndNew" />--%>
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -80,7 +81,7 @@
         Height="370px" Width="400px">
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="565px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

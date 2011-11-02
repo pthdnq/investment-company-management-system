@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Text;
-using com.TZMS.Model;
 using com.TZMS.Business;
+using com.TZMS.Model;
 using ExtAspNet;
 
 namespace TZMS.Web.Pages.InvestmentLoanPages
 {
-    public partial class PaymentApplyList : BasePage
+    /// <summary>
+    /// LoanInfo
+    /// </summary>
+    public partial class LoanInfo : BasePage
     {
         #region viewstate
         /// <summary>
@@ -85,14 +84,22 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             if (!IsPostBack)
             {
-                this.btnNew.OnClientClick = wndNew.GetShowReference("PaymentApplyAdd.aspx?Type=Add", "新增");
-                this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
-
+                InitControl();
+           
                 // 绑定下拉框.
                 BindDDL();
                 // 绑定列表.
                 BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
             }
+        }
+
+        private void InitControl()
+        {
+            this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
+
+            this.btnNew.OnClientClick = wndNew.GetShowReference("LoanReceivablesAdd.aspx?Type=Add", "新增员工");
+            this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
+
         }
 
         /// <summary>
@@ -160,6 +167,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         #endregion
 
         #region 页面事件
+        /// <summary>
+        /// 保存员工
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+           // saveUserInfo();
+        }
 
         /// <summary>
         /// 翻页
