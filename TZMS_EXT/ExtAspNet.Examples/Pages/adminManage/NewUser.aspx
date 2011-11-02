@@ -9,8 +9,8 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" runat="server" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true" Height="317px" Title="Panel" AutoScroll="false" ShowBorder="true"
-        ShowHeader="false">
+        EnableLargeHeader="true" Layout="Fit" Height="317px" Title="Panel" AutoScroll="false"
+        ShowBorder="true" ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
             <ext:Toolbar ID="Toolbar1" runat="server">
@@ -94,8 +94,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox ID="tbxPhoneNumber" Label="联系电话" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
-                                RegexMessage="电话号码格式不正确!">
+                                Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}" RegexMessage="电话号码格式不正确!">
                             </ext:TextBox>
                             <ext:TextBox ID="tbxBackupPhoneNumber" Label="备用联系电话" runat="server" MaxLength="20"
                                 MaxLengthMessage="最多只能输入20个字符！" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
