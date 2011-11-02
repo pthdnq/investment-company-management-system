@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AppCheckManage\CheckMange.cs" />
     <Compile Include="attendance\LeaveAppManage.cs" />
+    <Compile Include="Baoxiao\BaoxiaoManage.cs" />
     <Compile Include="CommSelect.cs" />
     <Compile Include="ParentManage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
