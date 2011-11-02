@@ -87,8 +87,8 @@
                                 AutoScroll="true" OnRowDataBound="gridApproveHistory_RowDataBound">
                                 <Columns>
                                     <ext:BoundField DataField="ApproverName" HeaderText="执行人" />
-                                    <ext:BoundField DataField="ApproveTime" HeaderText="审批时间" />
-                                    <ext:BoundField DataField="ApproveResult" HeaderText="审批结果" />
+                                    <ext:BoundField DataField="ApproveTime" HeaderText="执行时间" />
+                                    <ext:BoundField DataField="ApproveResult" HeaderText="执行结果" />
                                     <ext:BoundField DataField="ApproveComment" HeaderText="执行人意见" DataTooltipField="ApproveComment"
                                         ExpandUnusedSpace="true" />
                                 </Columns>

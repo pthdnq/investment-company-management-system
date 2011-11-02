@@ -75,12 +75,8 @@ namespace TZMS.Web
         {
             get
             {
-                if (Session["CheckerofCurrentUser%"] == null)
-                {
-                    CheckMange cm = new CheckMange();
-                    Session["CheckerofCurrentUser%"] = cm.GetCheckersByUserID(CurrentUser.ObjectId.ToString());
-                }
-                return (List<UserInfo>)Session["CheckerofCurrentUser%"];
+                CheckMange cm = new CheckMange();
+                return cm.GetCheckersByUserID(CurrentUser.ObjectId.ToString());
             }
         }
 
@@ -102,7 +98,7 @@ namespace TZMS.Web
                         return new List<RoleType>();
                     }
                     string roles = lstRoles[0].Roles;
-                    string [] role= roles.Split(',');
+                    string[] role = roles.Split(',');
                     foreach (string ro in role)
                     {
                         if (!string.IsNullOrEmpty(ro))
