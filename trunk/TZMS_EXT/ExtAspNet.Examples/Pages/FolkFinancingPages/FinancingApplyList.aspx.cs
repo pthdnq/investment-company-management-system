@@ -87,7 +87,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             if (!IsPostBack)
             {
-                this.btnNew.OnClientClick = wndNew.GetShowReference("NewUser.aspx?Type=Add", "新增员工");
+                this.btnNew.OnClientClick = wndNew.GetShowReference("FinancingApplyAdd.aspx?Type=Add", "新增员工");
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
 
                 // 绑定下拉框.
