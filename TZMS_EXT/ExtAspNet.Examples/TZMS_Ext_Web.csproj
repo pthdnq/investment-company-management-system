@@ -434,6 +434,10 @@
     <Content Include="Pages\BankLoanPages\ProcessAuditList.aspx" />
     <Content Include="Pages\BankLoanPages\ProjectInfo.aspx" />
     <Content Include="Pages\BankLoanPages\ProjectInfoList.aspx" />
+    <Content Include="Pages\Baoxiao\BaoxiaoApplyList.aspx" />
+    <Content Include="Pages\Baoxiao\BaoxiaoCheckList.aspx" />
+    <Content Include="Pages\Baoxiao\CheckBaoxiaoApp.aspx" />
+    <Content Include="Pages\Baoxiao\NewBaoxiaoApply.aspx" />
     <Content Include="Pages\FolkFinancingPages\AccountingAudit.aspx" />
     <Content Include="Pages\FolkFinancingPages\AccountingAuditList.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingApplyAdd.aspx" />
@@ -698,6 +702,34 @@
     </Compile>
     <Compile Include="Pages\BankLoanPages\ProjectInfoList.aspx.designer.cs">
       <DependentUpon>ProjectInfoList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoxiaoApplyList.aspx.cs">
+      <DependentUpon>BaoxiaoApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoxiaoApplyList.aspx.designer.cs">
+      <DependentUpon>BaoxiaoApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoxiaoCheckList.aspx.cs">
+      <DependentUpon>BaoxiaoCheckList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoxiaoCheckList.aspx.designer.cs">
+      <DependentUpon>BaoxiaoCheckList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\CheckBaoxiaoApp.aspx.cs">
+      <DependentUpon>CheckBaoxiaoApp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\CheckBaoxiaoApp.aspx.designer.cs">
+      <DependentUpon>CheckBaoxiaoApp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\NewBaoxiaoApply.aspx.cs">
+      <DependentUpon>NewBaoxiaoApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\NewBaoxiaoApply.aspx.designer.cs">
+      <DependentUpon>NewBaoxiaoApply.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\AccountingAudit.aspx.cs">
       <DependentUpon>AccountingAudit.aspx</DependentUpon>
