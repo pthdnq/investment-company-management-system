@@ -52,6 +52,11 @@ namespace TZMS.Web
             }
         }
 
+        /// <summary>
+        /// 数据加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -173,7 +178,8 @@ namespace TZMS.Web
             if (OperatorType == "Add")
             {
                 _userInfo = new UserInfo();
-
+                //默认密码：1111
+                _userInfo.Password = "1111";
                 // 用户ID.
                 _userInfo.ObjectId = Guid.NewGuid();
             }
