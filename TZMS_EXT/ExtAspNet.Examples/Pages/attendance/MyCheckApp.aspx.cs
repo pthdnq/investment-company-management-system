@@ -270,7 +270,7 @@ namespace TZMS.Web
                 {
                     case "0":
                         e.Values[12] = "待审批";
-                        e.Values[13] = "待审批";
+                        e.Values[13] = "";
                         break;
                     case "1":
                         e.Values[12] = "已审批";
