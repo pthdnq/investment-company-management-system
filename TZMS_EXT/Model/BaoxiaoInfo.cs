@@ -45,9 +45,20 @@ namespace com.TZMS.Model
         private DateTime _applyTime;
         private short _state = DBEmptyShort;
         private bool _isdelete;
+        private string _tellPhone = DBEmptyString;
         #endregion
 
         #region Property
+
+        /// <summary>
+        /// TellPhone
+        /// </summary>
+        public string TellPhone
+        {
+            get { return _tellPhone; }
+            set { _tellPhone = value; }
+        }
+
         /// <summary>
         /// ObjectID 
         /// </summary> 
