@@ -66,6 +66,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ApplyTime",DbType.DateTime),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@Isdelete",DbType.Boolean),
+                new SqlParameter("@TellPhone",DbType.String)
 				};
 
                 int i = 0;
@@ -81,6 +82,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BaoxiaoInfo.ApplyTime;
                 sqlparam[i++].Value = BaoxiaoInfo.State;
                 sqlparam[i++].Value = BaoxiaoInfo.Isdelete;
+                sqlparam[i++].Value = BaoxiaoInfo.TellPhone;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -147,6 +149,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ApplyTime",DbType.DateTime),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@Isdelete",DbType.Boolean),
+                new SqlParameter("@TellPhone",DbType.String)
                 };
 
                 int i = 0;
@@ -162,6 +165,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BaoxiaoInfo.ApplyTime;
                 sqlparam[i++].Value = BaoxiaoInfo.State;
                 sqlparam[i++].Value = BaoxiaoInfo.Isdelete;
+                sqlparam[i++].Value = BaoxiaoInfo.TellPhone;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -293,6 +297,10 @@ namespace com.TZMS.DataAccess
             if (BaoxiaoInfoInfoDataRow["Isdelete"] != null)
             {
                 BaoxiaoInfoInfo.Isdelete =bool.Parse( DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "Isdelete"));
+            }
+            if (BaoxiaoInfoInfoDataRow["TellPhone"] != null)
+            {
+                BaoxiaoInfoInfo.TellPhone = DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "TellPhone");
             }
 
             return BaoxiaoInfoInfo;
