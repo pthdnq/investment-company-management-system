@@ -4,14 +4,272 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using com.TZMS.Model;
+using com.TZMS.Business;
+using System.Text;
+using ExtAspNet;
 
 namespace TZMS.Web
 {
     public partial class CheckBaoxiaoApp : BasePage
     {
+        /// <summary>
+        /// BaoxiaoID
+        /// </summary>
+        public string BaoxiaoID
+        {
+            get
+            {
+                if (ViewState["BaoxiaoID"] == null)
+                {
+                    return null;
+                }
+                return ViewState["BaoxiaoID"].ToString();
+            }
+
+            set
+            {
+                ViewState["BaoxiaoID"] = value;
+            }
+        }
+
+        /// <summary>
+        /// BaoxiaoCheckID
+        /// </summary>
+        public string BaoxiaoCheckID
+        {
+            get
+            {
+                if (ViewState["BaoxiaoCheckID"] == null)
+                {
+                    return null;
+                }
+                return ViewState["BaoxiaoCheckID"].ToString();
+            }
+
+            set
+            {
+                ViewState["BaoxiaoCheckID"] = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                BaoxiaoID = Request.QueryString["BaoxiaoID"];
+                BaoxiaoCheckID = Request.QueryString["BaoxiaoCheckID"];
 
+                BindNext();
+                BindApproveUser();
+                BindBaoxiaoInfo();
+                BindApproveHistory();
+            }
+        }
+
+        /// <summary>
+        /// 绑定下一步
+        /// </summary>
+        private void BindNext()
+        {
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
+            foreach (RoleType roleType in CurrentRoles)
+            {
+                if (roleType == RoleType.KQGD)
+                {
+                    ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                    break;
+                }
+            }
+            ddlstNext.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// 绑定审批人
+        /// </summary>
+        private void BindApproveUser()
+        {
+            foreach (UserInfo item in CurrentChecker)
+            {
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(item.Name, item.ObjectId.ToString()));
+            }
+
+            ddlstApproveUser.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// 绑定报销申请单信息
+        /// </summary>
+        private void BindBaoxiaoInfo()
+        {
+            if (!string.IsNullOrEmpty(BaoxiaoID))
+            {
+                BaoxiaoInfo _baoxiaoInfo = new BaoxiaoManage().GetBaoxiaoByObjectID(BaoxiaoID);
+                if (_baoxiaoInfo != null)
+                {
+                    lblName.Text = _baoxiaoInfo.UserName;
+                    lblAppDate.Text = _baoxiaoInfo.ApplyTime.ToString("yyyy-MM-dd hh:mm");
+                    tbxMoney.Text = _baoxiaoInfo.Money.ToString();
+                    taaSument.Text = _baoxiaoInfo.Sument;
+                    taaOther.Text = _baoxiaoInfo.Other;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 绑定审批历史
+        /// </summary>
+        private void BindApproveHistory()
+        {
+            if (BaoxiaoID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ApplyID = '" + BaoxiaoID + "'");
+            strCondition.Append(" and (Checkstate <> 0 or (Checkstate = 0 and CheckOp = '0'))");
+            List<BaoxiaoCheckInfo> lstBaoxiaoCheckInfo = new BaoxiaoManage().GetBaoxiaoCheckByCondition(strCondition.ToString());
+
+            lstBaoxiaoCheckInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            // 绑定列表.
+            gridApproveHistory.RecordCount = lstBaoxiaoCheckInfo.Count;
+            this.gridApproveHistory.DataSource = lstBaoxiaoCheckInfo;
+            this.gridApproveHistory.DataBind();
+        }
+
+        /// <summary>
+        /// 弹出窗口关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
+        }
+
+        /// <summary>
+        /// 通过事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnPass_Click(object sender, EventArgs e)
+        {
+            if (BaoxiaoCheckID == null)
+                return;
+            BaoxiaoManage _manage = new BaoxiaoManage();
+            BaoxiaoCheckInfo _currentCheckInfo = _manage.GetBaoxiaoCheckByObjectID(BaoxiaoCheckID);
+            if (_currentCheckInfo != null)
+            {
+                // 更新现有审批记录.
+                _currentCheckInfo.Checkstate = 1;
+                _currentCheckInfo.Result = "0";
+                _currentCheckInfo.CheckDateTime = DateTime.Now;
+                _currentCheckInfo.CheckSugest = taaCheckSugest.Text.Trim();
+                _currentCheckInfo.CheckOp = "1";
+
+                int result = _manage.UpdateBaoxiaoCheck(_currentCheckInfo);
+
+                // 插入下一个审批记录.
+                if (ddlstNext.SelectedText == "审批")
+                {
+                    BaoxiaoCheckInfo _nextCheckInfo = new BaoxiaoCheckInfo();
+                    UserInfo _nextCheckUserInfo = new UserManage().GetUserByObjectID(ddlstApproveUser.SelectedValue);
+                    _nextCheckInfo.ObjectId = Guid.NewGuid();
+                    _nextCheckInfo.CheckerName = ddlstApproveUser.SelectedText;
+                    _nextCheckInfo.CheckerId = new Guid(ddlstApproveUser.SelectedValue);
+                    _nextCheckInfo.CheckrDept = _nextCheckUserInfo.Dept;
+                    _nextCheckInfo.CheckDateTime = ACommonInfo.DBEmptyDate;
+                    _nextCheckInfo.Checkstate = 0;
+                    _nextCheckInfo.ApplyId = _currentCheckInfo.ApplyId;
+
+                    _manage.AddNewBaoxiaoCheck(_nextCheckInfo);
+                }
+
+                if (ddlstNext.SelectedText == "归档")
+                {
+                    BaoxiaoInfo _baoxiaoInfo = _manage.GetBaoxiaoByObjectID(BaoxiaoID);
+                    _baoxiaoInfo.State = 3;
+                    _manage.UpdateBaoxiao(_baoxiaoInfo);
+
+                    _currentCheckInfo.ObjectId = Guid.NewGuid();
+                    _currentCheckInfo.CheckDateTime = _currentCheckInfo.CheckDateTime.AddSeconds(1);
+                    _currentCheckInfo.CheckerName = "系统";
+                    _currentCheckInfo.CheckOp = "3";
+                    _manage.AddNewBaoxiaoCheck(_currentCheckInfo);
+                }
+
+                if (result == -1)
+                {
+                    Alert.Show(ddlstNext.SelectedText + "成功!");
+                }
+                else
+                {
+                    Alert.Show(ddlstNext.SelectedText + "失败!");
+                }
+            }
+        }
+
+        /// <summary>
+        /// 打回事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnRefuse_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 下一步下拉框变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ddlstNext_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlstNext.SelectedIndex == 1)
+            {
+                ddlstApproveUser.Hidden = true;
+                ddlstApproveUser.Required = false;
+                ddlstApproveUser.ShowRedStar = false;
+                ddlstApproveUser.Enabled = false;
+            }
+            else
+            {
+                ddlstApproveUser.Hidden = false;
+                ddlstApproveUser.Required = true;
+                ddlstApproveUser.ShowRedStar = true;
+                ddlstApproveUser.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// 审批历史数据行绑定事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridApproveHistory_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
+        {
+            if (e.DataItem != null)
+            {
+                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd hh:mm");
+                switch (e.Values[2].ToString())
+                {
+                    case "0":
+                        e.Values[2] = "起草";
+                        break;
+                    case "1":
+                        e.Values[2] = "审批";
+                        break;
+                    case "2":
+                        e.Values[2] = "打回修改";
+                        break;
+                    case "3":
+                        e.Values[2] = "归档";
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

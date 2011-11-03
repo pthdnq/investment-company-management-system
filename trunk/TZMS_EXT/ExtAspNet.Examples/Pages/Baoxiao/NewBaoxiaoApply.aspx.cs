@@ -150,7 +150,7 @@ namespace TZMS.Web
                 _baoxiaoCheckInfo.CheckDateTime = _baoxiaoInfo.ApplyTime;
                 _baoxiaoCheckInfo.Checkstate = 0;
                 _baoxiaoCheckInfo.CheckOp = "0";
-                _baoxiaoCheckInfo.ApplytId = _baoxiaoInfo.ObjectId;
+                _baoxiaoCheckInfo.ApplyId = _baoxiaoInfo.ObjectId;
 
                 baoxiaoManage.AddNewBaoxiaoCheck(_baoxiaoCheckInfo);
 
@@ -164,7 +164,7 @@ namespace TZMS.Web
                 _baoxiaoCheckInfo.CheckDateTime = ACommonInfo.DBEmptyDate;
                 _baoxiaoCheckInfo.Checkstate = 0;
                 _baoxiaoCheckInfo.CheckOp = "";
-                _baoxiaoCheckInfo.ApplytId = _baoxiaoInfo.ObjectId;
+                _baoxiaoCheckInfo.ApplyId = _baoxiaoInfo.ObjectId;
 
                 baoxiaoManage.AddNewBaoxiaoCheck(_baoxiaoCheckInfo);
 

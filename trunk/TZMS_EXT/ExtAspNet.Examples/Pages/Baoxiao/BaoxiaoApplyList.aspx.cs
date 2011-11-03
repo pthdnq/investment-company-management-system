@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Text;
 using com.TZMS.Business;
 using System.Data;
+using ExtAspNet;
+using com.TZMS.Model;
 
 namespace TZMS.Web
 {
@@ -155,7 +157,31 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridBaoxiao_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
+            string strBaoxiaoID = ((GridRow)gridBaoxiao.Rows[e.RowIndex]).Values[0];
+            if (e.CommandName == "View")
+            {
+                wndBaoxiao.IFrameUrl = "NewBaoxiaoApply.aspx?Type=View&ID=" + strBaoxiaoID;
+                wndBaoxiao.Hidden = false;
+            }
 
+            if (e.CommandName == "Edit")
+            {
+                wndBaoxiao.IFrameUrl = "NewBaoxiaoApply.aspx?Type=Edit&ID=" + strBaoxiaoID;
+                wndBaoxiao.Hidden = false;
+            }
+
+            if (e.CommandName == "Delete")
+            {
+                BaoxiaoManage _manage = new BaoxiaoManage();
+                BaoxiaoInfo _info = _manage.GetBaoxiaoByObjectID(strBaoxiaoID);
+                if (_info != null)
+                {
+                    _manage.UpdateBaoxiao(_info);
+
+                    BindGrid(BaoxiaoState, DateRange);
+                }
+
+            }
         }
 
         /// <summary>
@@ -198,12 +224,22 @@ namespace TZMS.Web
             BindGrid(BaoxiaoState, DateRange);
         }
 
+        /// <summary>
+        /// 审批状态变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
         {
             BaoxiaoState = Convert.ToInt32(ddlState.SelectedValue);
             BindGrid(BaoxiaoState, DateRange);
         }
 
+        /// <summary>
+        /// 时间范围变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ddldateRange_SelectedIndexChanged(object sender, EventArgs e)
         {
             DateRange = Convert.ToInt32(ddldateRange.SelectedValue);
