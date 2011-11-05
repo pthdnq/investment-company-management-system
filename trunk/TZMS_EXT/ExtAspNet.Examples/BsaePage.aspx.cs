@@ -115,6 +115,25 @@ namespace TZMS.Web
         }
 
         /// <summary>
+        /// 系统用户
+        /// </summary>
+        public UserInfo SystemUser
+        {
+            get
+            {
+                if (Session["SystemUser"] == null)
+                {
+                    UserInfo systemUser = new UserInfo();
+                    systemUser.ObjectId = new Guid("00000000-0000-0000-0000-000000000000");
+                    systemUser.Name = "系统";
+                    Session["SystemUser"] = systemUser;
+                }
+
+                return (UserInfo)Session["SystemUser"];
+            }
+        }
+
+        /// <summary>
         /// 本系统角色 枚举
         /// </summary>
         public enum RoleType

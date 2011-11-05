@@ -56,13 +56,14 @@
                         OnPageIndexChange="gridBaoxiao_PageIndexChange" OnRowCommand="gridBaoxiao_RowCommand"
                         OnRowDataBound="gridBaoxiao_RowDataBound">
                         <Columns>
-                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField DataField="ApplyTime" HeaderText="申请时间" />
-                            <ext:BoundField DataField="Sument" HeaderText="事项" />
-                            <ext:BoundField DataField="Money" HeaderText="金额" />
-                            <ext:BoundField DataField="Other" HeaderText="备注" DataTooltipField="Other" ExpandUnusedSpace="true" />
-                            <ext:BoundField DataField="CheckerName" HeaderText="当前审批人" />
-                            <ext:BoundField DataField="State" HeaderText="申请状态" />
+                            <ext:BoundField Width="140px" DataField="ObjectId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField DataField="CheckerId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField Width="140px" DataField="ApplyTime" HeaderText="申请时间" />
+                            <ext:BoundField Width="140px" DataField="Money" HeaderText="金额" />
+                            <ext:BoundField DataField="Sument" HeaderText="事项" ExpandUnusedSpace="true" DataTooltipField="Sument" />
+                            <ext:BoundField Width="150px" DataField="Other" HeaderText="备注" DataTooltipField="Other" />
+                            <ext:BoundField Width="70px" DataField="CheckerName" HeaderText="当前执行人" />
+                            <ext:BoundField Width="70px" DataField="State" HeaderText="申请状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmTarget="Parent" ConfirmText="确定删除该报销申请单?"

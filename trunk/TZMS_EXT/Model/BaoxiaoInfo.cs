@@ -46,6 +46,7 @@ namespace com.TZMS.Model
         private short _state = DBEmptyShort;
         private bool _isdelete;
         private string _tellPhone = DBEmptyString;
+        private Guid _checkId;
         #endregion
 
         #region Property
@@ -167,6 +168,14 @@ namespace com.TZMS.Model
             set { _isdelete = value; }
         }
 
+        /// <summary>
+        /// UserID 
+        /// </summary> 
+        public Guid CheckerId
+        {
+            get { return _checkId; }
+            set { _checkId = value; }
+        }
         #endregion
     }
 }
