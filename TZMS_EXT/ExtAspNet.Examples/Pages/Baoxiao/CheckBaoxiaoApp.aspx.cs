@@ -154,24 +154,31 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnPass_Click(object sender, EventArgs e)
         {
-            if (BaoxiaoCheckID == null)
+            if (BaoxiaoCheckID == null || BaoxiaoID == null)
                 return;
+            int result = 3;
             BaoxiaoManage _manage = new BaoxiaoManage();
+            BaoxiaoInfo _baoxiaoInfo = _manage.GetBaoxiaoByObjectID(BaoxiaoID);
             BaoxiaoCheckInfo _currentCheckInfo = _manage.GetBaoxiaoCheckByObjectID(BaoxiaoCheckID);
-            if (_currentCheckInfo != null)
+            if (_currentCheckInfo != null && _baoxiaoInfo != null)
             {
-                // 更新现有审批记录.
-                _currentCheckInfo.Checkstate = 1;
-                _currentCheckInfo.Result = "0";
-                _currentCheckInfo.CheckDateTime = DateTime.Now;
-                _currentCheckInfo.CheckSugest = taaCheckSugest.Text.Trim();
-                _currentCheckInfo.CheckOp = "1";
+                #region 审批
 
-                int result = _manage.UpdateBaoxiaoCheck(_currentCheckInfo);
-
-                // 插入下一个审批记录.
                 if (ddlstNext.SelectedText == "审批")
                 {
+                    // 更新报销申请单记录.
+                    _baoxiaoInfo.CheckerId = new Guid(ddlstApproveUser.SelectedValue);
+                    result = _manage.UpdateBaoxiao(_baoxiaoInfo);
+
+                    // 更新现有审批记录.
+                    _currentCheckInfo.Checkstate = 1;
+                    _currentCheckInfo.Result = "0";
+                    _currentCheckInfo.CheckDateTime = DateTime.Now;
+                    _currentCheckInfo.CheckSugest = string.IsNullOrEmpty(taaCheckSugest.Text.Trim()) ? "同意" : taaCheckSugest.Text.Trim();
+                    _currentCheckInfo.CheckOp = "1";
+                    _manage.UpdateBaoxiaoCheck(_currentCheckInfo);
+
+                    // 插入下一个审批记录.
                     BaoxiaoCheckInfo _nextCheckInfo = new BaoxiaoCheckInfo();
                     UserInfo _nextCheckUserInfo = new UserManage().GetUserByObjectID(ddlstApproveUser.SelectedValue);
                     _nextCheckInfo.ObjectId = Guid.NewGuid();
@@ -181,31 +188,51 @@ namespace TZMS.Web
                     _nextCheckInfo.CheckDateTime = ACommonInfo.DBEmptyDate;
                     _nextCheckInfo.Checkstate = 0;
                     _nextCheckInfo.ApplyId = _currentCheckInfo.ApplyId;
-
                     _manage.AddNewBaoxiaoCheck(_nextCheckInfo);
                 }
+                #endregion
+
+                #region 归档
 
                 if (ddlstNext.SelectedText == "归档")
                 {
-                    BaoxiaoInfo _baoxiaoInfo = _manage.GetBaoxiaoByObjectID(BaoxiaoID);
-                    _baoxiaoInfo.State = 3;
-                    _manage.UpdateBaoxiao(_baoxiaoInfo);
+                    // 修改申请单信息.
+                    _baoxiaoInfo.State = 2;
+                    _baoxiaoInfo.CheckerId = SystemUser.ObjectId;
+                    result = _manage.UpdateBaoxiao(_baoxiaoInfo);
 
-                    _currentCheckInfo.ObjectId = Guid.NewGuid();
-                    _currentCheckInfo.CheckDateTime = _currentCheckInfo.CheckDateTime.AddSeconds(1);
-                    _currentCheckInfo.CheckerName = "系统";
-                    _currentCheckInfo.CheckOp = "3";
-                    _manage.AddNewBaoxiaoCheck(_currentCheckInfo);
+                    // 更新现有审批记录.
+                    _currentCheckInfo.Checkstate = 1;
+                    _currentCheckInfo.Result = "0";
+                    _currentCheckInfo.CheckDateTime = DateTime.Now;
+                    _currentCheckInfo.CheckSugest = string.IsNullOrEmpty(taaCheckSugest.Text.Trim()) ? "同意" : taaCheckSugest.Text.Trim();
+                    _currentCheckInfo.CheckOp = "1";
+                    _manage.UpdateBaoxiaoCheck(_currentCheckInfo);
+
+                    // 插入归档记录.
+                    BaoxiaoCheckInfo _archiveCheckInfo = new BaoxiaoCheckInfo();
+                    _archiveCheckInfo.ObjectId = Guid.NewGuid();
+                    _archiveCheckInfo.CheckerId = SystemUser.ObjectId;
+                    _archiveCheckInfo.CheckerName = SystemUser.Name;
+                    _archiveCheckInfo.CheckDateTime = _currentCheckInfo.CheckDateTime.AddSeconds(1);
+                    _archiveCheckInfo.Checkstate = 1;
+                    _archiveCheckInfo.CheckOp = "3";
+                    _archiveCheckInfo.ApplyId = _baoxiaoInfo.ObjectId;
+                    _manage.AddNewBaoxiaoCheck(_archiveCheckInfo);
                 }
 
-                if (result == -1)
-                {
-                    Alert.Show(ddlstNext.SelectedText + "成功!");
-                }
-                else
-                {
-                    Alert.Show(ddlstNext.SelectedText + "失败!");
-                }
+                #endregion
+            }
+            if (result == -1)
+            {
+                Alert.Show(ddlstNext.SelectedText + "成功!");
+                btnPass.Enabled = false;
+                btnRefuse.Enabled = false;
+                BindApproveHistory();
+            }
+            else
+            {
+                Alert.Show(ddlstNext.SelectedText + "失败!");
             }
         }
 
@@ -216,7 +243,48 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnRefuse_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(taaCheckSugest.Text.Trim()))
+            {
+                Alert.Show("审批意见不可为空!");
+                return;
+            }
 
+            if (BaoxiaoID == null || BaoxiaoCheckID == null)
+                return;
+
+            BaoxiaoManage _manage = new BaoxiaoManage();
+            BaoxiaoInfo _currentInfo = _manage.GetBaoxiaoByObjectID(BaoxiaoID);
+            if (_currentInfo != null)
+            {
+                BaoxiaoCheckInfo _currentCheckInfo = _manage.GetBaoxiaoCheckByObjectID(BaoxiaoCheckID);
+
+                //更新报销申请单信息.
+                _currentInfo.State = 1;
+                int result = _manage.UpdateBaoxiao(_currentInfo);
+
+                // 更新报销流程表信息.
+                _currentCheckInfo.CheckDateTime = DateTime.Now;
+                _currentCheckInfo.Checkstate = 1;
+                _currentCheckInfo.Result = "1";
+                _currentCheckInfo.CheckSugest = taaCheckSugest.Text.Trim();
+                _currentCheckInfo.CheckOp = "2";
+                _manage.UpdateBaoxiaoCheck(_currentCheckInfo);
+
+                if (result == -1)
+                {
+                    Alert.Show("打回成功!");
+
+                    // 重新设置按钮状态并刷新审批历史.
+                    btnPass.Enabled = false;
+                    btnRefuse.Enabled = false;
+                    BindApproveHistory();
+                }
+                else
+                {
+                    Alert.Show("打回失败!");
+                }
+
+            }
         }
 
         /// <summary>

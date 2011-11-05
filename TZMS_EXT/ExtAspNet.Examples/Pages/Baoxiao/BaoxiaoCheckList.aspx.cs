@@ -142,7 +142,7 @@ namespace TZMS.Web
             #region 查询条件
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" CheckerID = '" + CurrentUser.ObjectId.ToString() + "'");
+            strCondition.Append(" CheckerID = '" + CurrentUser.ObjectId.ToString() + "' and CheckOp <> '0'");
             strCondition.Append(" and Isdelete = 0");
 
             // 查询文本
@@ -199,7 +199,7 @@ namespace TZMS.Web
             _comHelp.SearchCondition = strCondition.ToString();
             _comHelp.PageSize = PageCounts;
             _comHelp.PageIndex = gridBaoxiaoCheck.PageIndex;
-            _comHelp.OrderExpression = "CheckDateTime asc";
+            _comHelp.OrderExpression = "CheckDateTime desc";
 
             DataTable dtbLeaveApproves = _commSelect.ComSelect(ref _comHelp);
             gridBaoxiaoCheck.RecordCount = _comHelp.TotalCount;
@@ -296,36 +296,36 @@ namespace TZMS.Web
             if (e.DataItem != null)
             {
                 // 设置时间格式.
-                e.Values[6] = DateTime.Parse(e.Values[6].ToString()).ToString("yyyy-MM-dd hh:mm");
-                DateTime approveTime = DateTime.Parse(e.Values[10].ToString());
+                e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd hh:mm");
+                DateTime approveTime = DateTime.Parse(e.Values[11].ToString());
                 if (DateTime.Compare(approveTime, ACommonInfo.DBEmptyDate) == 0)
                 {
-                    e.Values[10] = "";
+                    e.Values[11] = "";
                 }
                 else
                 {
-                    e.Values[10] = approveTime.ToString("yyyy-MM-dd hh:mm");
+                    e.Values[11] = approveTime.ToString("yyyy-MM-dd hh:mm");
                 }
 
                 // 设置审批状态.
-                if (e.Values[8].ToString() == "0")
+                if (e.Values[9].ToString() == "0")
                 {
-                    e.Values[8] = "待审批";
+                    e.Values[9] = "待审批";
                 }
-                else if (e.Values[8].ToString() == "1")
+                else if (e.Values[9].ToString() == "1")
                 {
-                    e.Values[8] = "已审批";
-                    e.Values[11] = "<span class=\"gray\">审批</span>";
+                    e.Values[9] = "已审批";
+                    e.Values[12] = "<span class=\"gray\">审批</span>";
                 }
 
                 // 设置审批结果.
-                if (e.Values[9].ToString() == "0")
+                if (e.Values[10].ToString() == "0")
                 {
-                    e.Values[9] = "同意";
+                    e.Values[10] = "同意";
                 }
-                else if (e.Values[8].ToString() == "1")
+                else if (e.Values[10].ToString() == "1")
                 {
-                    e.Values[9] = "打回修改";
+                    e.Values[10] = "打回修改";
                 }
             }
         }
@@ -337,7 +337,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndBaoxiaoCheck_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
-
+            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
         }
 
         #endregion

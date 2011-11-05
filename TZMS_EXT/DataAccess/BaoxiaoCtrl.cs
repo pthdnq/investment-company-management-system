@@ -66,7 +66,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ApplyTime",DbType.DateTime),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@Isdelete",DbType.Boolean),
-                new SqlParameter("@TellPhone",DbType.String)
+                new SqlParameter("@TellPhone",DbType.String),
+                new SqlParameter("@CheckerId",DbType.Guid)
 				};
 
                 int i = 0;
@@ -83,6 +84,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BaoxiaoInfo.State;
                 sqlparam[i++].Value = BaoxiaoInfo.Isdelete;
                 sqlparam[i++].Value = BaoxiaoInfo.TellPhone;
+                sqlparam[i++].Value = BaoxiaoInfo.CheckerId;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -149,7 +151,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ApplyTime",DbType.DateTime),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@Isdelete",DbType.Boolean),
-                new SqlParameter("@TellPhone",DbType.String)
+                new SqlParameter("@TellPhone",DbType.String),
+                new SqlParameter("@CheckerId",DbType.Guid),
                 };
 
                 int i = 0;
@@ -166,6 +169,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BaoxiaoInfo.State;
                 sqlparam[i++].Value = BaoxiaoInfo.Isdelete;
                 sqlparam[i++].Value = BaoxiaoInfo.TellPhone;
+                sqlparam[i++].Value = BaoxiaoInfo.CheckerId;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -301,6 +305,10 @@ namespace com.TZMS.DataAccess
             if (BaoxiaoInfoInfoDataRow["TellPhone"] != null)
             {
                 BaoxiaoInfoInfo.TellPhone = DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "TellPhone");
+            }
+            if (BaoxiaoInfoInfoDataRow["CheckerId"] != null)
+            {
+                BaoxiaoInfoInfo.CheckerId = new Guid(DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "CheckerId"));
             }
 
             return BaoxiaoInfoInfo;

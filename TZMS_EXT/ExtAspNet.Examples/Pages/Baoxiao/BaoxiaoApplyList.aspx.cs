@@ -81,7 +81,7 @@ namespace TZMS.Web
             #region 查询条件
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" UserID ='" + CurrentUser.ObjectId.ToString() + "' and CheckerID <> '" + CurrentUser.ObjectId.ToString() + "'");
+            strCondition.Append(" UserID ='" + CurrentUser.ObjectId.ToString() + "'");
             strCondition.Append(" and Isdelete <> 1");
 
             // 申请状态.
@@ -122,21 +122,38 @@ namespace TZMS.Web
 
             #endregion
 
-            CommSelect _commSelect = new CommSelect();
-            ComHelp _comHelp = new ComHelp();
-            _comHelp.TableName = "BaoXiaoView";
-            _comHelp.SelectList = "*";
-            _comHelp.SearchCondition = strCondition.ToString();
-            _comHelp.PageSize = PageCounts;
-            _comHelp.PageIndex = gridBaoxiao.PageIndex;
-            _comHelp.OrderExpression = "ApplyTime asc";
+            //获得员工
+            List<BaoxiaoInfo> lstBaoxiaoInfo = new BaoxiaoManage().GetBaoxiaoByCondition(strCondition.ToString());
+            this.gridBaoxiao.RecordCount = lstBaoxiaoInfo.Count;
+            this.gridBaoxiao.PageSize = PageCounts;
+            int currentIndex = this.gridBaoxiao.PageIndex;
+            //计算当前页面显示行数据
+            if (lstBaoxiaoInfo.Count > this.gridBaoxiao.PageSize)
+            {
+                if (lstBaoxiaoInfo.Count > (currentIndex + 1) * this.gridBaoxiao.PageSize)
+                {
+                    lstBaoxiaoInfo.RemoveRange((currentIndex + 1) * this.gridBaoxiao.PageSize, lstBaoxiaoInfo.Count - (currentIndex + 1) * this.gridBaoxiao.PageSize);
+                }
+                lstBaoxiaoInfo.RemoveRange(0, currentIndex * this.gridBaoxiao.PageSize);
+            }
+            this.gridBaoxiao.DataSource = lstBaoxiaoInfo;
+            this.gridBaoxiao.DataBind();
 
-            DataTable dtbBaoxiao = _commSelect.ComSelect(ref _comHelp);
-            gridBaoxiao.RecordCount = _comHelp.TotalCount;
-            gridBaoxiao.PageSize = PageCounts;
+            //CommSelect _commSelect = new CommSelect();
+            //ComHelp _comHelp = new ComHelp();
+            //_comHelp.TableName = "BaoXiaoView";
+            //_comHelp.SelectList = "*";
+            //_comHelp.SearchCondition = strCondition.ToString();
+            //_comHelp.PageSize = PageCounts;
+            //_comHelp.PageIndex = gridBaoxiao.PageIndex;
+            //_comHelp.OrderExpression = "ApplyTime desc";
 
-            gridBaoxiao.DataSource = dtbBaoxiao.Rows;
-            gridBaoxiao.DataBind();
+            //DataTable dtbBaoxiao = _commSelect.ComSelect(ref _comHelp);
+            //gridBaoxiao.RecordCount = _comHelp.TotalCount;
+            //gridBaoxiao.PageSize = PageCounts;
+
+            //gridBaoxiao.DataSource = dtbBaoxiao.Rows;
+            //gridBaoxiao.DataBind();
         }
 
         /// <summary>
@@ -193,20 +210,38 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd hh:mm");
+                // 申请时间.
+                e.Values[2] = DateTime.Parse(e.Values[2].ToString()).ToString("yyyy-MM-dd hh:mm");
 
-                switch (e.Values[6].ToString())
+                // 当前审批人.
+                if (e.Values[1].ToString() == SystemUser.ObjectId.ToString())
+                {
+                    e.Values[6] = SystemUser.Name;
+                }
+                else
+                {
+                    UserInfo _userInfo = new UserManage().GetUserByObjectID(e.Values[1].ToString());
+                    if (_userInfo != null)
+                    {
+                        e.Values[6] = _userInfo.Name;
+                    }
+                }
+
+                // 审批状态.
+                switch (e.Values[7].ToString())
                 {
                     case "0":
-                        e.Values[6] = "审批中";
-                        e.Values[8] = "<span class=\"gray\">编辑</span>";
-                        e.Values[9] = "<span class=\"gray\">删除</span>";
+                        e.Values[7] = "审批中";
+                        e.Values[9] = "<span class=\"gray\">编辑</span>";
+                        e.Values[10] = "<span class=\"gray\">删除</span>";
                         break;
                     case "1":
-                        e.Values[6] = "被打回";
+                        e.Values[7] = "被打回";
                         break;
                     case "2":
-                        e.Values[6] = "归档";
+                        e.Values[7] = "归档";
+                        e.Values[9] = "<span class=\"gray\">编辑</span>";
+                        e.Values[10] = "<span class=\"gray\">删除</span>";
                         break;
                     default:
                         break;
