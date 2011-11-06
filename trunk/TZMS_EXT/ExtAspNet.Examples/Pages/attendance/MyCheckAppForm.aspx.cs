@@ -112,12 +112,26 @@ namespace TZMS.Web
         /// </summary>
         private void BindApproveUser()
         {
+            ddlstApproveUser.Items.Clear();
             foreach (UserInfo item in CurrentChecker)
             {
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(item.Name, item.ObjectId.ToString()));
             }
 
             ddlstApproveUser.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// 绑定归档人
+        /// </summary>
+        private void BindArchiver()
+        {
+            UserInfo _user = new UserManage().GetUserByObjectID(strArchiver);
+            if (_user != null)
+            {
+                ddlstApproveUser.Items.Clear();
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(_user.Name, _user.ObjectId.ToString()));
+            }
         }
 
         /// <summary>
@@ -131,9 +145,10 @@ namespace TZMS.Web
             if (_leaveInfo != null)
             {
                 lblName.Text = _leaveInfo.Name;
-                lblAppDate.Text = _leaveInfo.WriteTime.ToString("yyyy-MM-dd hh:mm");
-                lblStartTime.Text = _leaveInfo.StartTime.ToLongDateString();
-                lblStopTime.Text = _leaveInfo.StopTime.ToLongDateString();
+                lblAppDate.Text = _leaveInfo.WriteTime.ToString("yyyy-MM-dd HH:mm");
+                lblStartTime.Text = _leaveInfo.StartTime.ToString("yyyy-MM-dd HH:00");
+                lblStopTime.Text = _leaveInfo.StopTime.ToString("yyyy-MM-dd HH:00");
+                lblHours.Text = ((TimeSpan)(_leaveInfo.StopTime - _leaveInfo.StartTime)).TotalHours.ToString() + "小时";
                 lblLeaveType.Text = _leaveInfo.Type;
                 taaLeaveReason.Text = _leaveInfo.Reason;
             }
@@ -149,38 +164,15 @@ namespace TZMS.Web
             // 获取数据.
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append("LeaveID = '" + LeaveID + "'");
-            strCondition.Append(" and ApproveResult <> 0");
+            strCondition.Append(" and ApproveResult <> 0 and ApproveResult <> 3");
             List<LeaveApproveInfo> lstLeaveApprove = new LeaveAppManage().GetLeaveApprovesByCondition(strCondition.ToString());
 
             lstLeaveApprove.Sort(delegate(LeaveApproveInfo x, LeaveApproveInfo y) { return DateTime.Compare(y.ApproveTime, x.ApproveTime); });
 
             // 绑定列表.
             gridApproveHistory.RecordCount = lstLeaveApprove.Count;
-            gridApproveHistory.PageSize = PageCounts;
-            int currentIndex = gridApproveHistory.PageIndex;
-
-            // 计算当前页面显示行数据
-            if (lstLeaveApprove.Count > gridApproveHistory.PageSize)
-            {
-                if (lstLeaveApprove.Count > (currentIndex + 1) * gridApproveHistory.PageSize)
-                {
-                    lstLeaveApprove.RemoveRange((currentIndex + 1) * gridApproveHistory.PageSize, lstLeaveApprove.Count - (currentIndex + 1) * gridApproveHistory.PageSize);
-                }
-                lstLeaveApprove.RemoveRange(0, currentIndex * gridApproveHistory.PageSize);
-            }
             this.gridApproveHistory.DataSource = lstLeaveApprove;
             this.gridApproveHistory.DataBind();
-        }
-
-        /// <summary>
-        /// 审批历史翻页事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void gridApproveHistory_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
-        {
-            gridApproveHistory.PageIndex = e.NewPageIndex;
-            BindApproveHistory();
         }
 
         /// <summary>
@@ -192,7 +184,7 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd hh:mm");
+                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd HH:mm");
 
                 switch (e.Values[2].ToString())
                 {
@@ -203,12 +195,12 @@ namespace TZMS.Web
                         e.Values[2] = "待审批";
                         break;
                     case "1":
-                        e.Values[2] = "通过";
+                        e.Values[2] = "同意";
                         break;
                     case "2":
-                        e.Values[2] = "打回修改";
+                        e.Values[2] = "不同意";
                         break;
-                    case "3":
+                    case "4":
                         e.Values[2] = "归档";
                         break;
                     default:
@@ -226,17 +218,12 @@ namespace TZMS.Web
         {
             if (ddlstNext.SelectedIndex == 1)
             {
-                ddlstApproveUser.Hidden = true;
-                ddlstApproveUser.Required = false;
-                ddlstApproveUser.ShowRedStar = false;
-                ddlstApproveUser.Enabled = false;
+                BindArchiver();
+
             }
             else
             {
-                ddlstApproveUser.Hidden = false;
-                ddlstApproveUser.Required = true;
-                ddlstApproveUser.ShowRedStar = true;
-                ddlstApproveUser.Enabled = true;
+                BindApproveUser();
             }
         }
 
@@ -257,33 +244,31 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnPass_Click(object sender, EventArgs e)
         {
-
-
             LeaveAppManage _leaveAppManage = new LeaveAppManage();
 
             // 更新申请表.
             LeaveInfo _leaveInfo = _leaveAppManage.GetLeaveInfoByObjectID(LeaveID);
-            if (ddlstNext.SelectedText == "审批")
-            {
-                _leaveInfo.ApproverId = new Guid(ddlstApproveUser.SelectedValue);
-            }
-            else if (ddlstNext.SelectedText == "归档")
-            {
-                _leaveInfo.State = short.Parse("2");
-            }
+            //if (ddlstNext.SelectedText == "审批")
+            //{
+            _leaveInfo.ApproverId = new Guid(ddlstApproveUser.SelectedValue);
+            //}
+            //else if (ddlstNext.SelectedText == "归档")
+            //{
+            //    _leaveInfo.State = short.Parse("2");
+            //}
             int result = _leaveAppManage.UpdateLeaveInfo(_leaveInfo);
 
             // 更新请假申请流程表.
             LeaveApproveInfo _leaveApproveInfo = _leaveAppManage.GetLeaveApproveInfoByObjectID(ApproveID);
             _leaveApproveInfo.ApproveTime = DateTime.Now;
-            if (ddlstNext.SelectedText == "审批")
-            {
-                _leaveApproveInfo.ApproveResult = short.Parse("1");
-            }
-            else if (ddlstNext.SelectedText == "归档")
-            {
-                _leaveApproveInfo.ApproveResult = short.Parse("3");
-            }
+            //if (ddlstNext.SelectedText == "审批")
+            //{
+            _leaveApproveInfo.ApproveResult = short.Parse("1");
+            //}
+            //else if (ddlstNext.SelectedText == "归档")
+            //{
+            //    _leaveApproveInfo.ApproveResult = short.Parse("3");
+            //}
 
             _leaveApproveInfo.ApproveComment = string.IsNullOrEmpty(taaApproveComment.Text.Trim()) ? "同意" : taaApproveComment.Text.Trim();
             _leaveAppManage.UpdateLeaveApprove(_leaveApproveInfo);
@@ -299,10 +284,23 @@ namespace TZMS.Web
                 _newLeaveApproveInfo.ApproveResult = short.Parse("0");
                 _leaveAppManage.AddNewLeaveApprove(_newLeaveApproveInfo);
             }
+            else if (ddlstNext.SelectedText == "归档")
+            {
+                LeaveApproveInfo _newLeaveApproveInfo = new LeaveApproveInfo();
+                _newLeaveApproveInfo.ObjectId = Guid.NewGuid();
+                _newLeaveApproveInfo.LeaveId = _leaveInfo.ObjectId;
+                _newLeaveApproveInfo.ApproverId = _leaveInfo.ApproverId;
+                _newLeaveApproveInfo.ApproverName = ddlstApproveUser.SelectedText;
+                _newLeaveApproveInfo.ApproveResult = short.Parse("3");
+                _leaveAppManage.AddNewLeaveApprove(_newLeaveApproveInfo);
+            }
 
             if (result == -1)
             {
-                Alert.Show(ddlstNext.SelectedText + "成功!");
+                Alert.Show("审批成功!");
+                btnPass.Enabled = false;
+                btnRefuse.Enabled = false;
+                BindApproveHistory();
             }
             else
             {
@@ -327,19 +325,32 @@ namespace TZMS.Web
 
             // 更新申请表.
             LeaveInfo _leaveInfo = _leaveAppManage.GetLeaveInfoByObjectID(LeaveID);
-            _leaveInfo.State = short.Parse("3");
+            UserInfo _archiveUser = new UserManage().GetUserByObjectID(strArchiver);
+            // _leaveInfo.State = short.Parse("3");
+            _leaveInfo.ApproverId = _archiveUser.ObjectId;
             int result = _leaveAppManage.UpdateLeaveInfo(_leaveInfo);
 
             // 更新请假申请流程表.
             LeaveApproveInfo _leaveApproveInfo = _leaveAppManage.GetLeaveApproveInfoByObjectID(ApproveID);
             _leaveApproveInfo.ApproveTime = DateTime.Now;
             _leaveApproveInfo.ApproveResult = short.Parse("2");
-            _leaveApproveInfo.ApproveComment = string.IsNullOrEmpty(taaApproveComment.Text.Trim()) ? "打回" : taaApproveComment.Text.Trim();
+            _leaveApproveInfo.ApproveComment = string.IsNullOrEmpty(taaApproveComment.Text.Trim()) ? "不同意" : taaApproveComment.Text.Trim();
             _leaveAppManage.UpdateLeaveApprove(_leaveApproveInfo);
+
+            LeaveApproveInfo _newLeaveApproveInfo = new LeaveApproveInfo();
+            _newLeaveApproveInfo.ObjectId = Guid.NewGuid();
+            _newLeaveApproveInfo.LeaveId = _leaveInfo.ObjectId;
+            _newLeaveApproveInfo.ApproverId = _archiveUser.ObjectId;
+            _newLeaveApproveInfo.ApproverName = _archiveUser.Name;
+            _newLeaveApproveInfo.ApproveResult = short.Parse("3");
+            _leaveAppManage.AddNewLeaveApprove(_newLeaveApproveInfo);
 
             if (result == -1)
             {
                 Alert.Show("打回成功!");
+                btnPass.Enabled = false;
+                btnRefuse.Enabled = false;
+                BindApproveHistory();
             }
             else
             {

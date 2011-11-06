@@ -196,9 +196,11 @@ namespace TZMS.Web
             if (_leaveInfo != null)
             {
                 lblName.Text = _leaveInfo.Name;
-                lblAppDate.Text = _leaveInfo.WriteTime.ToString("yyyy-MM-dd hh:mm");
+                lblAppDate.Text = _leaveInfo.WriteTime.ToString("yyyy-MM-dd HH:mm");
                 dpkStartTime.SelectedDate = _leaveInfo.StartTime;
+                ddlstStartHour.SelectedValue = _leaveInfo.StartTime.Hour.ToString();
                 dpkEndTime.SelectedDate = _leaveInfo.StopTime;
+                ddlstEndHour.SelectedValue = _leaveInfo.StopTime.Hour.ToString();
                 int typeValue = (int)ConvertStringToAttedType(_leaveInfo.Type);
                 ddlstLeaveType.SelectedValue = typeValue.ToString();
                 taaLeaveReason.Text = _leaveInfo.Reason;
@@ -238,10 +240,12 @@ namespace TZMS.Web
             dpkStartTime.Required = false;
             dpkStartTime.ShowRedStar = false;
             dpkStartTime.Enabled = false;
+            ddlstStartHour.Enabled = false;
 
             dpkEndTime.Required = false;
             dpkEndTime.ShowRedStar = false;
             dpkEndTime.Enabled = false;
+            ddlstEndHour.Enabled = false;
 
             ddlstLeaveType.Required = false;
             ddlstLeaveType.ShowRedStar = false;
@@ -369,11 +373,11 @@ namespace TZMS.Web
                 _leaveInfo.WriteTime = DateTime.Now;
                 if (dpkStartTime.SelectedDate is DateTime)
                 {
-                    _leaveInfo.StartTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+                    _leaveInfo.StartTime = (Convert.ToDateTime(dpkStartTime.SelectedDate)).AddHours(Convert.ToInt32(ddlstStartHour.SelectedValue));
                 }
                 if (dpkEndTime.SelectedDate is DateTime)
                 {
-                    _leaveInfo.StopTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+                    _leaveInfo.StopTime = Convert.ToDateTime(dpkEndTime.SelectedDate).AddHours(Convert.ToInt32(ddlstEndHour.SelectedValue));
                 }
                 _leaveInfo.ApproverId = new Guid(ddlstApproveUser.SelectedValue);
                 _leaveInfo.Type = ddlstLeaveType.SelectedText;
@@ -408,6 +412,10 @@ namespace TZMS.Web
                 if (result == -1)
                 {
                     Alert.Show("申请提交成功!");
+                    LeaveAppID = _leaveInfo.ObjectId.ToString();
+                    btnSave.Enabled = false;
+                    tabApproveHistory.Hidden = false;
+                    BindHistory();
                 }
                 else
                 {
@@ -475,18 +483,6 @@ namespace TZMS.Web
 
             // 绑定列表.
             gridApproveHistory.RecordCount = lstLeaveApprove.Count;
-            gridApproveHistory.PageSize = PageCounts;
-            int currentIndex = gridApproveHistory.PageIndex;
-
-            // 计算当前页面显示行数据
-            if (lstLeaveApprove.Count > gridApproveHistory.PageSize)
-            {
-                if (lstLeaveApprove.Count > (currentIndex + 1) * gridApproveHistory.PageSize)
-                {
-                    lstLeaveApprove.RemoveRange((currentIndex + 1) * gridApproveHistory.PageSize, lstLeaveApprove.Count - (currentIndex + 1) * gridApproveHistory.PageSize);
-                }
-                lstLeaveApprove.RemoveRange(0, currentIndex * gridApproveHistory.PageSize);
-            }
             this.gridApproveHistory.DataSource = lstLeaveApprove;
             this.gridApproveHistory.DataBind();
         }
@@ -502,6 +498,13 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            if (DateTime.Compare(Convert.ToDateTime(dpkStartTime.SelectedDate).AddHours(Convert.ToInt32(ddlstStartHour.SelectedValue)),
+                Convert.ToDateTime(dpkEndTime.SelectedDate).AddHours(Convert.ToInt32(ddlstEndHour.SelectedValue))) >= 0)
+            {
+                Alert.Show("结束时间不可小于或等于开始时间!");
+                return;
+            }
+
             SaveLeaveInfo();
         }
 

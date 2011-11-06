@@ -57,6 +57,10 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                // 设定默认时间
+                dpkStartTime.SelectedDate = DateTime.Now;
+                dpkEndTime.SelectedDate = DateTime.Now;
+
                 //报销申请按钮.
                 wndBaoxiao.Title = "新建报销申请单";
                 btnNewBaoxiao.OnClientClick = wndBaoxiao.GetShowReference("NewBaoxiaoApply.aspx?Type=Add") + "return false;";
@@ -100,25 +104,29 @@ namespace TZMS.Web
                     break;
             }
 
-            // 申请时间.
-            DateTime dateTimeNow = DateTime.Now;
-            switch (nDateRange)
-            {
-                case 1:
-                    strCondition.Append(" and ApplyTime >= '" + dateTimeNow.AddMonths(-1).ToString("yyyy-MM-dd") + "'");
-                    break;
-                case 2:
-                    strCondition.Append(" and ApplyTime >= '" + dateTimeNow.AddMonths(-3).ToString("yyyy-MM-dd") + "'");
-                    break;
-                case 3:
-                    strCondition.Append(" and ApplyTime >= '" + dateTimeNow.AddMonths(-6).ToString("yyyy-MM-dd") + "'");
-                    break;
-                case 4:
-                    strCondition.Append(" and ApplyTime >= '" + dateTimeNow.AddMonths(-12).ToString("yyyy-MM-dd") + "'");
-                    break;
-                default:
-                    break;
-            }
+            //// 申请时间.
+            //DateTime dateTimeNow = DateTime.Now;
+            //switch (nDateRange)
+            //{
+            //    case 1:
+            //        strCondition.Append(" and ApplyTime >= '" + dateTimeNow.AddMonths(-1).ToString("yyyy-MM-dd") + "'");
+            //        break;
+            //    case 2:
+            //        strCondition.Append(" and ApplyTime >= '" + dateTimeNow.AddMonths(-3).ToString("yyyy-MM-dd") + "'");
+            //        break;
+            //    case 3:
+            //        strCondition.Append(" and ApplyTime >= '" + dateTimeNow.AddMonths(-6).ToString("yyyy-MM-dd") + "'");
+            //        break;
+            //    case 4:
+            //        strCondition.Append(" and ApplyTime >= '" + dateTimeNow.AddMonths(-12).ToString("yyyy-MM-dd") + "'");
+            //        break;
+            //    default:
+            //        break;
+            //}
+
+            DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+            strCondition.Append(" and ApplyTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
 
             #endregion
 
@@ -211,37 +219,37 @@ namespace TZMS.Web
             if (e.DataItem != null)
             {
                 // 申请时间.
-                e.Values[2] = DateTime.Parse(e.Values[2].ToString()).ToString("yyyy-MM-dd hh:mm");
+                e.Values[2] = DateTime.Parse(e.Values[2].ToString()).ToString("yyyy-MM-dd HH:mm");
 
                 // 当前审批人.
                 if (e.Values[1].ToString() == SystemUser.ObjectId.ToString())
                 {
-                    e.Values[6] = SystemUser.Name;
+                    e.Values[8] = SystemUser.Name;
                 }
                 else
                 {
                     UserInfo _userInfo = new UserManage().GetUserByObjectID(e.Values[1].ToString());
                     if (_userInfo != null)
                     {
-                        e.Values[6] = _userInfo.Name;
+                        e.Values[8] = _userInfo.Name;
                     }
                 }
 
                 // 审批状态.
-                switch (e.Values[7].ToString())
+                switch (e.Values[9].ToString())
                 {
                     case "0":
-                        e.Values[7] = "审批中";
-                        e.Values[9] = "<span class=\"gray\">编辑</span>";
-                        e.Values[10] = "<span class=\"gray\">删除</span>";
+                        e.Values[9] = "审批中";
+                        e.Values[11] = "<span class=\"gray\">编辑</span>";
+                        e.Values[12] = "<span class=\"gray\">删除</span>";
                         break;
                     case "1":
-                        e.Values[7] = "被打回";
+                        e.Values[9] = "被打回";
                         break;
                     case "2":
-                        e.Values[7] = "归档";
-                        e.Values[9] = "<span class=\"gray\">编辑</span>";
-                        e.Values[10] = "<span class=\"gray\">删除</span>";
+                        e.Values[9] = "归档";
+                        e.Values[11] = "<span class=\"gray\">编辑</span>";
+                        e.Values[12] = "<span class=\"gray\">删除</span>";
                         break;
                     default:
                         break;
@@ -279,6 +287,22 @@ namespace TZMS.Web
         {
             DateRange = Convert.ToInt32(ddldateRange.SelectedValue);
             BindGrid(BaoxiaoState, DateRange);
+        }
+
+        /// <summary>
+        /// 查询事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(Convert.ToDateTime(dpkStartTime.SelectedDate), Convert.ToDateTime(dpkEndTime.SelectedDate)) == 1)
+            {
+                Alert.Show("结束日期不可小于开始日期!");
+                return;
+            }
+
+            BindGrid(Convert.ToInt32(ddlState.SelectedValue), 0);
         }
     }
 }

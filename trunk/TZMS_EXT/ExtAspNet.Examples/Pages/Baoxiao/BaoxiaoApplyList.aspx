@@ -19,19 +19,25 @@
                 <Rows>
                     <ext:FormRow>
                         <Items>
-                            <ext:DropDownList ID="ddlState" AutoPostBack="true" runat="server" Label="申请状态" OnSelectedIndexChanged="ddlState_SelectedIndexChanged">
+                            <ext:DropDownList ID="ddlState" runat="server" Label="申请状态">
                                 <ext:ListItem Text="审批中" Value="0" Selected="true" />
                                 <ext:ListItem Text="归档" Value="2" />
                                 <ext:ListItem Text="被打回" Value="1" />
                             </ext:DropDownList>
                             <ext:DropDownList ID="ddldateRange" AutoPostBack="true" runat="server" Label="日期范围"
-                                OnSelectedIndexChanged="ddldateRange_SelectedIndexChanged">
+                                OnSelectedIndexChanged="ddldateRange_SelectedIndexChanged" Hidden="true">
                                 <ext:ListItem Text="全部" Value="0" />
                                 <ext:ListItem Text="一月内" Value="1" Selected="true" />
                                 <ext:ListItem Text="三月内" Value="2" />
                                 <ext:ListItem Text="半年内" Value="3" />
                                 <ext:ListItem Text="一年内" Value="4" />
                             </ext:DropDownList>
+                            <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
+                            </ext:DatePicker>
+                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="开始日期">
+                            </ext:DatePicker>
+                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="btnSearch_Click">
+                            </ext:Button>
                             <ext:Label ID="Label1" runat="server">
                             </ext:Label>
                             <ext:Label ID="Label2" runat="server">
@@ -59,6 +65,8 @@
                             <ext:BoundField Width="140px" DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField DataField="CheckerId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="140px" DataField="ApplyTime" HeaderText="申请时间" />
+                            <ext:BoundField Width="140px" DataField="StartTime" HeaderText="开始时间" />
+                            <ext:BoundField Width="140px" DataField="EndTime" HeaderText="结束时间" />
                             <ext:BoundField Width="140px" DataField="Money" HeaderText="金额" />
                             <ext:BoundField DataField="Sument" HeaderText="事项" ExpandUnusedSpace="true" DataTooltipField="Sument" />
                             <ext:BoundField Width="150px" DataField="Other" HeaderText="备注" DataTooltipField="Other" />

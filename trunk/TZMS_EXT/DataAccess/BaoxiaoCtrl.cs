@@ -67,7 +67,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@Isdelete",DbType.Boolean),
                 new SqlParameter("@TellPhone",DbType.String),
-                new SqlParameter("@CheckerId",DbType.Guid)
+                new SqlParameter("@CheckerId",DbType.Guid),
+                new SqlParameter("@StartTime",DbType.DateTime),
+                new SqlParameter("@EndTime",DbType.DateTime)
 				};
 
                 int i = 0;
@@ -85,6 +87,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BaoxiaoInfo.Isdelete;
                 sqlparam[i++].Value = BaoxiaoInfo.TellPhone;
                 sqlparam[i++].Value = BaoxiaoInfo.CheckerId;
+                sqlparam[i++].Value = BaoxiaoInfo.StartTime;
+                sqlparam[i++].Value = BaoxiaoInfo.EndTime;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -153,6 +157,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Isdelete",DbType.Boolean),
                 new SqlParameter("@TellPhone",DbType.String),
                 new SqlParameter("@CheckerId",DbType.Guid),
+                new SqlParameter("@StartTime",DbType.DateTime),
+                new SqlParameter("@EndTime",DbType.DateTime)
+
                 };
 
                 int i = 0;
@@ -171,6 +178,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BaoxiaoInfo.TellPhone;
                 sqlparam[i++].Value = BaoxiaoInfo.CheckerId;
                 SqlDBAccess dbaccess = new SqlDBAccess();
+                sqlparam[i++].Value = BaoxiaoInfo.StartTime;
+                sqlparam[i++].Value = BaoxiaoInfo.EndTime;
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
                 return i;
@@ -256,7 +265,7 @@ namespace com.TZMS.DataAccess
             BaoxiaoInfo BaoxiaoInfoInfo = new BaoxiaoInfo();
             if (BaoxiaoInfoInfoDataRow["ObjectId"] != null)
             {
-                BaoxiaoInfoInfo.ObjectId =new Guid( DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "ObjectId"));
+                BaoxiaoInfoInfo.ObjectId = new Guid(DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "ObjectId"));
             }
             if (BaoxiaoInfoInfoDataRow["UserId"] != null)
             {
@@ -284,7 +293,7 @@ namespace com.TZMS.DataAccess
             }
             if (BaoxiaoInfoInfoDataRow["Money"] != null)
             {
-                BaoxiaoInfoInfo.Money =Decimal.Parse( DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "Money"));
+                BaoxiaoInfoInfo.Money = Decimal.Parse(DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "Money"));
             }
             if (BaoxiaoInfoInfoDataRow["Other"] != null)
             {
@@ -292,15 +301,15 @@ namespace com.TZMS.DataAccess
             }
             if (BaoxiaoInfoInfoDataRow["ApplyTime"] != null)
             {
-                BaoxiaoInfoInfo.ApplyTime =DateTime.Parse( DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "ApplyTime"));
+                BaoxiaoInfoInfo.ApplyTime = DateTime.Parse(DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "ApplyTime"));
             }
             if (BaoxiaoInfoInfoDataRow["State"] != null)
             {
-                BaoxiaoInfoInfo.State =short.Parse( DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "State"));
+                BaoxiaoInfoInfo.State = short.Parse(DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "State"));
             }
             if (BaoxiaoInfoInfoDataRow["Isdelete"] != null)
             {
-                BaoxiaoInfoInfo.Isdelete =bool.Parse( DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "Isdelete"));
+                BaoxiaoInfoInfo.Isdelete = bool.Parse(DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "Isdelete"));
             }
             if (BaoxiaoInfoInfoDataRow["TellPhone"] != null)
             {
@@ -309,6 +318,14 @@ namespace com.TZMS.DataAccess
             if (BaoxiaoInfoInfoDataRow["CheckerId"] != null)
             {
                 BaoxiaoInfoInfo.CheckerId = new Guid(DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "CheckerId"));
+            }
+            if (BaoxiaoInfoInfoDataRow["StartTime"] != null)
+            {
+                BaoxiaoInfoInfo.StartTime = DateTime.Parse(DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "StartTime"));
+            }
+            if (BaoxiaoInfoInfoDataRow["EndTime"] != null)
+            {
+                BaoxiaoInfoInfo.EndTime = DateTime.Parse(DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "EndTime"));
             }
 
             return BaoxiaoInfoInfo;

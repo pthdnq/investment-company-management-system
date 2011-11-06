@@ -14,45 +14,6 @@ namespace TZMS.Web
     public partial class LeaveApp : BasePage
     {
         /// <summary>
-        /// 请假申请单状态
-        /// </summary>
-        public int LeaveState
-        {
-            get
-            {
-                if (ViewState["LeaveState"] == null)
-                {
-                    return 0;
-                }
-
-                return Convert.ToInt32(ViewState["LeaveState"].ToString());
-            }
-            set
-            {
-                ViewState["LeaveState"] = value;
-            }
-        }
-
-        /// <summary>
-        /// 日期范围
-        /// </summary>
-        public int DateRange
-        {
-            get
-            {
-                if (ViewState["DateRange"] == null)
-                {
-                    return 1;
-                }
-                return Convert.ToInt32(ViewState["DateRange"].ToString());
-            }
-            set
-            {
-                ViewState["DateRange"] = value;
-            }
-        }
-
-        /// <summary>
         /// 页面加载
         /// </summary>
         /// <param name="sender"></param>
@@ -61,17 +22,15 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                dpkStartTime.SelectedDate = dpkEndTime.SelectedDate = DateTime.Now;
+
                 //请假申请 新增按钮
                 wndLeaveApp.Title = "请假申请";
                 btnNewApp.OnClientClick = wndLeaveApp.GetShowReference("LeaveAppNew.aspx?Type=Add") + "return false;";
                 wndLeaveApp.OnClientCloseButtonClick = wndLeaveApp.GetHidePostBackReference();
 
-                // 获取默认值.
-                LeaveState = Convert.ToInt32(ddlappState.SelectedValue);
-                DateRange = Convert.ToInt32(ddldateRange.SelectedValue);
-
                 // 绑定数据到列表.
-                DataBind(LeaveState, DateRange);
+                BindGrid();
             }
         }
 
@@ -82,39 +41,51 @@ namespace TZMS.Web
         /// </summary>
         /// <param name="strLeaveState">申请单状态</param>
         /// <param name="nDateRange">日期范围</param>
-        private void DataBind(int nLeaveState, int nDateRange)
+        private void BindGrid()
         {
             #region 查询条件
+
+            DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+
+            if (DateTime.Compare(startTime, endTime) == 1)
+            {
+                Alert.Show("结束日期不可小于开始日期!");
+                return;
+            }
 
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append(" IsDelete<>1 and Type <> '调休'");
             strCondition.Append(" and UserObjectID ='" + CurrentUser.ObjectId.ToString() + "'");
-            strCondition.Append(" and state =" + nLeaveState);
+            strCondition.Append(" and state =" + Convert.ToInt32(ddlappState.SelectedValue));
 
-            DateTime dateTimeNow = DateTime.Now;
+            // 日期范围.
+            strCondition.Append(" and WriteTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
 
-            switch (nDateRange)
-            {
-                // 一个月内.
-                case 1:
-                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-1).ToString("yyyy-MM-dd") + "'");
-                    break;
+            //DateTime dateTimeNow = DateTime.Now;
 
-                // 三个月内.
-                case 2:
-                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-3).ToString("yyyy-MM-dd") + "'");
-                    break;
+            //switch (nDateRange)
+            //{
+            //    // 一个月内.
+            //    case 1:
+            //        strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-1).ToString("yyyy-MM-dd") + "'");
+            //        break;
 
-                // 半年内.
-                case 3:
-                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-6).ToString("yyyy-MM-dd") + "'");
-                    break;
+            //    // 三个月内.
+            //    case 2:
+            //        strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-3).ToString("yyyy-MM-dd") + "'");
+            //        break;
 
-                // 一年内.
-                case 4:
-                    strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-12).ToString("yyyy-MM-dd") + "'");
-                    break;
-            }
+            //    // 半年内.
+            //    case 3:
+            //        strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-6).ToString("yyyy-MM-dd") + "'");
+            //        break;
+
+            //    // 一年内.
+            //    case 4:
+            //        strCondition.Append(" and WriteTime >= '" + dateTimeNow.AddMonths(-12).ToString("yyyy-MM-dd") + "'");
+            //        break;
+            //}
 
             #endregion
 
@@ -143,35 +114,23 @@ namespace TZMS.Web
         #region 页面事件
 
         /// <summary>
+        /// 查询事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindGrid();
+        }
+
+        /// <summary>
         /// 我要请假 页面关闭时间
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void wndLeaveApp_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
-            DataBind(LeaveState, DateRange);
-        }
-
-        /// <summary>
-        /// 状态变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddlappState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LeaveState = Convert.ToInt32(ddlappState.SelectedValue);
-            DataBind(LeaveState, DateRange);
-        }
-
-        /// <summary>
-        /// 日期范围变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddldateRange_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DateRange = Convert.ToInt32(ddldateRange.SelectedValue);
-            DataBind(LeaveState, DateRange);
+            BindGrid();
         }
 
         /// <summary>
@@ -204,7 +163,7 @@ namespace TZMS.Web
                     _leaveInfo.IsDelete = true;
                     int result = _leaveManage.UpdateLeaveInfo(_leaveInfo);
 
-                    DataBind(LeaveState, DateRange);
+                    BindGrid();
                 }
             }
         }
@@ -220,28 +179,33 @@ namespace TZMS.Web
             if (leaveInfo != null)
             {
                 // 去掉日期中时、分、秒.
-                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd hh:mm");
-                e.Values[2] = DateTime.Parse(e.Values[2].ToString()).ToString("yyyy-MM-dd");
-                e.Values[3] = DateTime.Parse(e.Values[3].ToString()).ToString("yyyy-MM-dd");
+                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd HH:mm");
+                e.Values[2] = DateTime.Parse(e.Values[2].ToString()).ToString("yyyy-MM-dd HH:00");
+                e.Values[3] = DateTime.Parse(e.Values[3].ToString()).ToString("yyyy-MM-dd HH:00");
+
+                // 设置时长.
+                DateTime startTime = DateTime.Parse(e.Values[2].ToString());
+                DateTime endTime = DateTime.Parse(e.Values[3].ToString());
+                e.Values[4] = ((TimeSpan)(endTime - startTime)).TotalHours.ToString();
 
                 // 设置编辑按钮.
-                if (Convert.ToInt32(e.Values[7].ToString()) != 3)
-                {
-                    e.Values[9] = "<span class=\"gray\">编辑</span>";
-                    e.Values[10] = "<span class=\"gray\">删除</span>";
-                }
+                //if (Convert.ToInt32(e.Values[8].ToString()) != 3)
+                //{
+                e.Values[10] = "<span class=\"gray\">编辑</span>";
+                e.Values[11] = "<span class=\"gray\">删除</span>";
+                //}
 
                 // 设置请假申请单状态.
-                switch (Convert.ToInt32(e.Values[7].ToString()))
+                switch (Convert.ToInt32(e.Values[8].ToString()))
                 {
                     case 1:
-                        e.Values[7] = "审批中";
+                        e.Values[8] = "审批中";
                         break;
                     case 2:
-                        e.Values[7] = "归档";
+                        e.Values[8] = "归档";
                         break;
                     case 3:
-                        e.Values[7] = "被打回";
+                        e.Values[8] = "被打回";
                         break;
                     default:
                         break;
@@ -252,7 +216,7 @@ namespace TZMS.Web
                 UserInfo _userInfo = _userManage.GetUserByObjectID(leaveInfo.ApproverId.ToString());
                 if (_userInfo != null)
                 {
-                    e.Values[6] = _userInfo.Name;
+                    e.Values[7] = _userInfo.Name;
                 }
             }
         }
@@ -265,7 +229,7 @@ namespace TZMS.Web
         protected void gridLeave_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
         {
             gridLeave.PageIndex = e.NewPageIndex;
-            DataBind(LeaveState, DateRange);
+            BindGrid();
         }
 
         #endregion

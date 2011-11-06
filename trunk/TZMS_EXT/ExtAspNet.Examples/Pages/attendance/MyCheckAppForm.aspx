@@ -16,10 +16,10 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnPass" Text="通过" Icon="Accept" runat="server" ValidateForms="mainForm2"
+                    <ext:Button ID="btnPass" Text="同意" Icon="Accept" runat="server" ValidateForms="mainForm2"
                         OnClick="btnPass_Click">
                     </ext:Button>
-                    <ext:Button ID="btnRefuse" Text="打回" Icon="Stop" runat="server" OnClick="btnRefuse_Click">
+                    <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -51,7 +51,7 @@
                         </Rows>
                     </ext:Form>
                     <ext:TabStrip runat="server" ActiveTabIndex="0" ShowBorder="false" AutoHeight="true"
-                        Height="285px">
+                        Height="335px">
                         <Tabs>
                             <ext:Tab Title="请假申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
@@ -68,9 +68,15 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
-                                                    <ext:Label ID="lblStartTime" runat="server" Label="开始日期">
+                                                    <ext:Label ID="lblStartTime" runat="server" Label="开始时间">
                                                     </ext:Label>
-                                                    <ext:Label ID="lblStopTime" runat="server" Label="结束日期">
+                                                    <ext:Label ID="lblStopTime" runat="server" Label="结束时间">
+                                                    </ext:Label>
+                                                </Items>
+                                            </ext:FormRow>
+                                            <ext:FormRow ID="FormRow7" runat="server" ColumnWidths="50% 50%">
+                                                <Items>
+                                                    <ext:Label ID="lblHours" runat="server" Label="时长">
                                                     </ext:Label>
                                                 </Items>
                                             </ext:FormRow>
