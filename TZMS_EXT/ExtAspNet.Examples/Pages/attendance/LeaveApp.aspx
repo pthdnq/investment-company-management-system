@@ -18,22 +18,17 @@
                 <Rows>
                     <ext:FormRow>
                         <Items>
-                            <ext:DropDownList ID="ddlappState" AutoPostBack="true" runat="server" Label="申请状态"
-                                OnSelectedIndexChanged="ddlappState_SelectedIndexChanged">
+                            <ext:DropDownList ID="ddlappState" runat="server" Label="申请状态">
                                 <ext:ListItem Text="审批中" Value="1" Selected="true" />
                                 <ext:ListItem Text="归档" Value="2" />
                                 <ext:ListItem Text="被打回" Value="3" />
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddldateRange" AutoPostBack="true" runat="server" Label="日期范围"
-                                OnSelectedIndexChanged="ddldateRange_SelectedIndexChanged">
-                                <ext:ListItem Text="全部" Value="0" />
-                                <ext:ListItem Text="一月内" Value="1" Selected="true" />
-                                <ext:ListItem Text="三月内" Value="2" />
-                                <ext:ListItem Text="半年内" Value="3" />
-                                <ext:ListItem Text="一年内" Value="4" />
-                            </ext:DropDownList>
-                            <ext:Label runat="server">
-                            </ext:Label>
+                            <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
+                            </ext:DatePicker>
+                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
+                            </ext:DatePicker>
+                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="btnSearch_Click">
+                            </ext:Button>
                             <ext:Label runat="server">
                             </ext:Label>
                         </Items>
@@ -57,8 +52,9 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField DataField="WriteTime" HeaderText="申请时间" />
-                            <ext:BoundField DataField="StartTime" HeaderText="开始日期" />
-                            <ext:BoundField DataField="StopTime" HeaderText="结束日期" />
+                            <ext:BoundField DataField="StartTime" HeaderText="开始时间" />
+                            <ext:BoundField DataField="StopTime" HeaderText="结束时间" />
+                            <ext:BoundField HeaderText="时长(小时)" />
                             <ext:BoundField DataField="Type" HeaderText="请假类型" />
                             <ext:BoundField DataField="Reason" HeaderText="请假原因" DataTooltipField="Reason" ExpandUnusedSpace="true" />
                             <ext:BoundField HeaderText="当前审批人" />
@@ -74,8 +70,8 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndLeaveApp" Title="请假申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" OnClose="wndLeaveApp_Close" IsModal="true" Width="550px"
-        EnableConfirmOnClose="true" Height="350px">
+        Target="Parent" runat="server" OnClose="wndLeaveApp_Close" IsModal="true" Width="700px"
+        EnableConfirmOnClose="true" Height="500px">
     </ext:Window>
     </form>
 </body>

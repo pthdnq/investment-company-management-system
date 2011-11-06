@@ -21,23 +21,27 @@
                             <ext:TwinTriggerBox runat="server" EmptyText="请输入姓名或账号查询" ShowLabel="false" ID="ttbSearch"
                                 Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click">
                             </ext:TwinTriggerBox>
-                            <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
-                                OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged">
+                            <ext:DropDownList ID="ddlstDept" runat="server" Label="部门名称">
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddlstAproveState" AutoPostBack="true" runat="server" Label="审批状态"
-                                OnSelectedIndexChanged="ddlstAproveState_SelectedIndexChanged">
+                            <ext:DropDownList ID="ddlstAproveState" runat="server" Label="审批状态">
                                 <ext:ListItem Text="全部" Value="0" />
                                 <ext:ListItem Text="待审批" Value="1" Selected="true" />
                                 <ext:ListItem Text="已审批" Value="2" />
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddldateRange" AutoPostBack="true" runat="server" Label="日期范围"
-                                OnSelectedIndexChanged="ddldateRange_SelectedIndexChanged">
-                                <ext:ListItem Text="全部" Value="0" />
-                                <ext:ListItem Text="一月内" Value="1" Selected="true" />
-                                <ext:ListItem Text="三月内" Value="2" />
-                                <ext:ListItem Text="半年内" Value="3" />
-                                <ext:ListItem Text="一年内" Value="4" />
-                            </ext:DropDownList>
+                            <ext:Label ID="Label1" runat="server">
+                            </ext:Label>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ID="FormRow2" runat="server">
+                        <Items>
+                            <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
+                            </ext:DatePicker>
+                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
+                            </ext:DatePicker>
+                            <ext:Label ID="Label2" runat="server">
+                            </ext:Label>
+                            <ext:Label ID="Label3" runat="server">
+                            </ext:Label>
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -61,8 +65,9 @@
                             <ext:BoundField DataField="Type" Width="60px" HeaderText="请假类型" />
                             <ext:BoundField DataField="Reason" Width="150px" HeaderText="请假原因" DataTooltipField="Reason"
                                 ExpandUnusedSpace="true" />
-                            <ext:BoundField DataField="StartTime" Width="100px" HeaderText="开始日期" />
-                            <ext:BoundField DataField="StopTime" Width="100px" HeaderText="结束日期" />
+                            <ext:BoundField DataField="StartTime" Width="100px" HeaderText="开始时间" />
+                            <ext:BoundField DataField="StopTime" Width="100px" HeaderText="结束时间" />
+                            <ext:BoundField Width="70px" HeaderText="时长(小时)" />
                             <ext:BoundField DataField="ApproveResult" Width="60px" HeaderText="审批状态" />
                             <ext:BoundField DataField="ApproveResult" Width="60px" HeaderText="审批结果" />
                             <ext:BoundField DataField="ApproveTime" Width="140px" HeaderText="审批时间" />
@@ -74,7 +79,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndApprove" Title="我的审批" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="450px" Width="550px" OnClose="wndApprove_Close">
+        Target="Parent" runat="server" IsModal="true" Height="500px" Width="700px" OnClose="wndApprove_Close">
     </ext:Window>
     </form>
 </body>

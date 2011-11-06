@@ -47,6 +47,8 @@ namespace com.TZMS.Model
         private bool _isdelete;
         private string _tellPhone = DBEmptyString;
         private Guid _checkId;
+        private DateTime _startTime;
+        private DateTime _endTime;
         #endregion
 
         #region Property
@@ -175,6 +177,24 @@ namespace com.TZMS.Model
         {
             get { return _checkId; }
             set { _checkId = value; }
+        }
+
+        /// <summary>
+        /// StartTime 
+        /// </summary> 
+        public DateTime StartTime
+        {
+            get { return _startTime; }
+            set { _startTime = value; }
+        }
+
+        /// <summary>
+        /// EndTime 
+        /// </summary> 
+        public DateTime EndTime
+        {
+            get { return _endTime; }
+            set { _endTime = value; }
         }
         #endregion
     }

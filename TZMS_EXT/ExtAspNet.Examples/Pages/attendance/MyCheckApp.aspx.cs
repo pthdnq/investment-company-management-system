@@ -102,12 +102,15 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                dpkStartTime.SelectedDate = DateTime.Now;
+                dpkEndTime.SelectedDate = DateTime.Now;
+
                 // 处理审批窗口关闭事件.
                 wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
 
                 // 绑定部门和列表.
                 BindDept();
-                BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
+                BindGrid();
             }
         }
 
@@ -126,36 +129,45 @@ namespace TZMS.Web
             // 设置默认值.
             ddlstDept.SelectedIndex = 0;
 
-            SearchText = string.Empty;
-            SearchDept = ddlstDept.SelectedText;
-            SearchApproveState = Convert.ToInt32(ddlstAproveState.SelectedValue);
-            SearchDateRange = Convert.ToInt32(ddldateRange.SelectedValue);
+            //SearchText = string.Empty;
+            //SearchDept = ddlstDept.SelectedText;
+            //SearchApproveState = Convert.ToInt32(ddlstAproveState.SelectedValue);
+            //SearchDateRange = Convert.ToInt32(ddldateRange.SelectedValue);
         }
 
         /// <summary>
         /// 绑定列表
         /// </summary>
-        private void BindGrid(string strSearchText, string strSearchDept, int nApproveState, int nDateRange)
+        private void BindGrid()
         {
             #region 查询条件
 
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append(" ApproverID = '" + CurrentUser.ObjectId.ToString() + "'");
 
-            // 查询文本
-            if (!string.IsNullOrEmpty(strSearchText))
+            DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+
+            if (DateTime.Compare(startTime, endTime) == 1)
             {
-                strCondition.Append("  and (name like '%" + SearchText + "%' or AccountNo like '%" + SearchText + "%')");
+                Alert.Show("结束日期不可小于开始日期!");
+                return;
+            }
+
+            // 查询文本
+            if (!string.IsNullOrEmpty(ttbSearch.Text.Trim()))
+            {
+                strCondition.Append("  and (name like '%" + ttbSearch.Text.Trim() + "%' or AccountNo like '%" + ttbSearch.Text.Trim() + "%')");
             }
 
             // 查询部门
-            if (!string.IsNullOrEmpty(SearchDept) && SearchDept != "全部")
+            if (ddlstDept.SelectedText != "全部")
             {
-                strCondition.Append(" and dept='" + SearchDept + "'");
+                strCondition.Append(" and dept='" + ddlstDept.SelectedText + "'");
             }
 
             // 审批状态
-            switch (nApproveState)
+            switch (Convert.ToInt32(ddlstAproveState.SelectedValue))
             {
                 case 1:
                     strCondition.Append(" and ApproveResult = 0");
@@ -167,25 +179,28 @@ namespace TZMS.Web
                     break;
             }
 
-            // 审批时间
-            DateTime dateTimeNow = DateTime.Now;
-            switch (nDateRange)
-            {
-                case 1:
-                    strCondition.Append(" and ( ApproveTime >= '" + dateTimeNow.AddMonths(-1).ToString("yyyy-MM-dd") + "' or ApproveTime = '1900-01-01 12:00:00.000')");
-                    break;
-                case 2:
-                    strCondition.Append(" and ( ApproveTime >= '" + dateTimeNow.AddMonths(-3).ToString("yyyy-MM-dd") + "' or ApproveTime = '1900-01-01 12:00:00.000')");
-                    break;
-                case 3:
-                    strCondition.Append(" and (ApproveTime >= '" + dateTimeNow.AddMonths(-6).ToString("yyyy-MM-dd") + "'  or ApproveTime = '1900-01-01 12:00:00.000')");
-                    break;
-                case 4:
-                    strCondition.Append(" and (ApproveTime >= '" + dateTimeNow.AddMonths(-12).ToString("yyyy-MM-dd") + "'  or ApproveTime = '1900-01-01 12:00:00.000')");
-                    break;
-                default:
-                    break;
-            }
+            // 审批时间.
+            strCondition.Append(" and (ApproveTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "' or ApproveTime = '1900-01-01 12:00:00.000')");
+
+            //// 审批时间
+            //DateTime dateTimeNow = DateTime.Now;
+            //switch (nDateRange)
+            //{
+            //    case 1:
+            //        strCondition.Append(" and ( ApproveTime >= '" + dateTimeNow.AddMonths(-1).ToString("yyyy-MM-dd") + "' or ApproveTime = '1900-01-01 12:00:00.000')");
+            //        break;
+            //    case 2:
+            //        strCondition.Append(" and ( ApproveTime >= '" + dateTimeNow.AddMonths(-3).ToString("yyyy-MM-dd") + "' or ApproveTime = '1900-01-01 12:00:00.000')");
+            //        break;
+            //    case 3:
+            //        strCondition.Append(" and (ApproveTime >= '" + dateTimeNow.AddMonths(-6).ToString("yyyy-MM-dd") + "'  or ApproveTime = '1900-01-01 12:00:00.000')");
+            //        break;
+            //    case 4:
+            //        strCondition.Append(" and (ApproveTime >= '" + dateTimeNow.AddMonths(-12).ToString("yyyy-MM-dd") + "'  or ApproveTime = '1900-01-01 12:00:00.000')");
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             #endregion
 
@@ -233,7 +248,7 @@ namespace TZMS.Web
         protected void gridAttend_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
         {
             gridAttend.PageIndex = e.NewPageIndex;
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
+            BindGrid();
         }
 
         /// <summary>
@@ -263,78 +278,82 @@ namespace TZMS.Web
             if (e.DataItem != null)
             {
                 // 设置在列表上各列的值.
-                e.Values[7] = DateTime.Parse(e.Values[7].ToString()).ToString("yyyy-MM-dd hh:mm");
-                e.Values[10] = DateTime.Parse(e.Values[10].ToString()).ToString("yyyy-MM-dd");
-                e.Values[11] = DateTime.Parse(e.Values[11].ToString()).ToString("yyyy-MM-dd");
+                e.Values[7] = DateTime.Parse(e.Values[7].ToString()).ToString("yyyy-MM-dd HH:mm");
+                e.Values[10] = DateTime.Parse(e.Values[10].ToString()).ToString("yyyy-MM-dd HH:00");
+                e.Values[11] = DateTime.Parse(e.Values[11].ToString()).ToString("yyyy-MM-dd HH:00");
+                // 设置时长.
+                DateTime startTime = DateTime.Parse(e.Values[10].ToString());
+                DateTime endTime = DateTime.Parse(e.Values[11].ToString());
+                e.Values[12] = ((TimeSpan)(endTime - startTime)).TotalHours.ToString();
                 switch (e.Values[13].ToString())
                 {
                     case "0":
-                        e.Values[12] = "待审批";
-                        e.Values[13] = "";
+                        e.Values[13] = "待审批";
+                        e.Values[14] = "";
                         break;
                     case "1":
-                        e.Values[12] = "已审批";
-                        e.Values[13] = "通过";
-                        e.Values[15] = "<span class=\"gray\">审批</span>";
+                        e.Values[13] = "已审批";
+                        e.Values[14] = "同意";
+                        e.Values[16] = "<span class=\"gray\">审批</span>";
                         break;
                     case "2":
-                        e.Values[12] = "已审批";
-                        e.Values[13] = "打回修改";
-                        e.Values[15] = "<span class=\"gray\">审批</span>";
+                        e.Values[13] = "已审批";
+                        e.Values[14] = "不同意";
+                        e.Values[16] = "<span class=\"gray\">审批</span>";
                         break;
                     case "3":
-                        e.Values[12] = "已审批";
-                        e.Values[13] = "归档";
-                        e.Values[15] = "<span class=\"gray\">审批</span>";
+                        e.Values[13] = "已审批";
+                        e.Values[14] = "归档";
+                        e.Values[16] = "<span class=\"gray\">审批</span>";
                         break;
                     default:
                         break;
                 }
 
-                DateTime approveTime = DateTime.Parse(e.Values[14].ToString());
+                DateTime approveTime = DateTime.Parse(e.Values[15].ToString());
                 if (DateTime.Compare(approveTime, ACommonInfo.DBEmptyDate) != 0)
                 {
-                    e.Values[14] = approveTime.ToString("yyyy-MM-dd hh:mm");
+                    e.Values[15] = approveTime.ToString("yyyy-MM-dd HH:mm");
                 }
                 else
                 {
-                    e.Values[14] = "";
+                    e.Values[15] = "";
                 }
             }
         }
 
-        /// <summary>
-        /// 部门下拉框变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddlstDept_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SearchDept = ddlstDept.SelectedText;
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
-        }
+        ///// <summary>
+        ///// 部门下拉框变动事件
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //protected void ddlstDept_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    SearchDept = ddlstDept.SelectedText;
+        //    BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
+        //}
 
-        /// <summary>
-        /// 审批状态下拉框变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddlstAproveState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SearchApproveState = Convert.ToInt32(ddlstAproveState.SelectedValue);
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
-        }
+        ///// <summary>
+        ///// 审批状态下拉框变动事件
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //protected void ddlstAproveState_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    SearchApproveState = Convert.ToInt32(ddlstAproveState.SelectedValue);
+        //    BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
+        //}
 
-        /// <summary>
-        /// 时间范围变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddldateRange_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SearchDateRange = Convert.ToInt32(ddldateRange.SelectedValue);
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
-        }
+        ///// <summary>
+        ///// 时间范围变动事件
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //protected void ddldateRange_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    SearchDateRange = Convert.ToInt32(ddldateRange.SelectedValue);
+        //    BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
+        //}
 
         /// <summary>
         /// 查询事件
@@ -343,8 +362,8 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
         {
-            SearchText = ttbSearch.Text.Trim();
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
+            //SearchText = ttbSearch.Text.Trim();
+            BindGrid();
         }
 
         /// <summary>
@@ -354,7 +373,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndApprove_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
+            BindGrid();
         }
     }
 }

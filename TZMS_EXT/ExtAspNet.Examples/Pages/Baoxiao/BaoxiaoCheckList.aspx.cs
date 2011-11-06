@@ -102,6 +102,10 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                // 设置默认时间.
+                dpkStartTime.SelectedDate = DateTime.Now;
+                dpkEndTime.SelectedDate = DateTime.Now;
+
                 // 处理审批窗口关闭事件.
                 wndBaoxiaoCheck.OnClientCloseButtonClick = wndBaoxiaoCheck.GetHidePostBackReference();
 
@@ -170,25 +174,28 @@ namespace TZMS.Web
                     break;
             }
 
-            // 审批时间
-            DateTime dateTimeNow = DateTime.Now;
-            switch (nDateRange)
-            {
-                case 1:
-                    strCondition.Append(" and (CheckDateTime >= '" + dateTimeNow.AddMonths(-1).ToString("yyyy-MM-dd") + "' or CheckDateTime='1900-01-01 12:00:00.000')");
-                    break;
-                case 2:
-                    strCondition.Append(" and (CheckDateTime >= '" + dateTimeNow.AddMonths(-3).ToString("yyyy-MM-dd") + "' or CheckDateTime='1900-01-01 12:00:00.000')");
-                    break;
-                case 3:
-                    strCondition.Append(" and (CheckDateTime >= '" + dateTimeNow.AddMonths(-6).ToString("yyyy-MM-dd") + "' or CheckDateTime='1900-01-01 12:00:00.000')");
-                    break;
-                case 4:
-                    strCondition.Append(" and (CheckDateTime >= '" + dateTimeNow.AddMonths(-12).ToString("yyyy-MM-dd") + "' or CheckDateTime='1900-01-01 12:00:00.000')");
-                    break;
-                default:
-                    break;
-            }
+            DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+            strCondition.Append(" and ApplyTime between '" + startTime.ToString("yyyy-MM-dd 23:59") + "' and '" + endTime.ToString("yyyy-MM-dd 00:00") + "'");
+            //// 审批时间
+            //DateTime dateTimeNow = DateTime.Now;
+            //switch (nDateRange)
+            //{
+            //    case 1:
+            //        strCondition.Append(" and (CheckDateTime >= '" + dateTimeNow.AddMonths(-1).ToString("yyyy-MM-dd") + "' or CheckDateTime='1900-01-01 12:00:00.000')");
+            //        break;
+            //    case 2:
+            //        strCondition.Append(" and (CheckDateTime >= '" + dateTimeNow.AddMonths(-3).ToString("yyyy-MM-dd") + "' or CheckDateTime='1900-01-01 12:00:00.000')");
+            //        break;
+            //    case 3:
+            //        strCondition.Append(" and (CheckDateTime >= '" + dateTimeNow.AddMonths(-6).ToString("yyyy-MM-dd") + "' or CheckDateTime='1900-01-01 12:00:00.000')");
+            //        break;
+            //    case 4:
+            //        strCondition.Append(" and (CheckDateTime >= '" + dateTimeNow.AddMonths(-12).ToString("yyyy-MM-dd") + "' or CheckDateTime='1900-01-01 12:00:00.000')");
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             #endregion
 
@@ -338,6 +345,22 @@ namespace TZMS.Web
         protected void wndBaoxiaoCheck_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
             BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
+        }
+
+        /// <summary>
+        /// 查询事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(Convert.ToDateTime(dpkStartTime.SelectedDate), Convert.ToDateTime(dpkEndTime.SelectedDate)) == 1)
+            {
+                Alert.Show("结束日期不可小于开始日期!");
+                return;
+            }
+
+            BindGrid(ttbSearch.Text.Trim(), ddlstDept.SelectedText, Convert.ToInt32(ddlstAproveState.SelectedValue), 0);
         }
 
         #endregion

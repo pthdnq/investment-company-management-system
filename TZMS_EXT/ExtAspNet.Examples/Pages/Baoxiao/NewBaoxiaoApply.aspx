@@ -56,6 +56,72 @@
                                                     </ext:Label>
                                                 </Items>
                                             </ext:FormRow>
+                                            <ext:FormRow ID="FormRow6" runat="server">
+                                                <Items>
+                                                    <ext:DatePicker ID="dpkStartTime" ShowRedStar="true" Required="true" runat="server"
+                                                        Label="开始时间">
+                                                    </ext:DatePicker>
+                                                    <ext:DropDownList ID="ddlstStartHour" runat="server" ShowLabel="false" Width="70 px">
+                                                        <ext:ListItem Text="00" Value="0" Selected="true" />
+                                                        <ext:ListItem Text="01" Value="1" />
+                                                        <ext:ListItem Text="02" Value="2" />
+                                                        <ext:ListItem Text="03" Value="3" />
+                                                        <ext:ListItem Text="04" Value="4" />
+                                                        <ext:ListItem Text="05" Value="5" />
+                                                        <ext:ListItem Text="06" Value="6" />
+                                                        <ext:ListItem Text="07" Value="7" />
+                                                        <ext:ListItem Text="08" Value="8" />
+                                                        <ext:ListItem Text="09" Value="9" />
+                                                        <ext:ListItem Text="10" Value="10" />
+                                                        <ext:ListItem Text="11" Value="11" />
+                                                        <ext:ListItem Text="12" Value="12" />
+                                                        <ext:ListItem Text="13" Value="13" />
+                                                        <ext:ListItem Text="14" Value="14" />
+                                                        <ext:ListItem Text="15" Value="15" />
+                                                        <ext:ListItem Text="16" Value="16" />
+                                                        <ext:ListItem Text="17" Value="17" />
+                                                        <ext:ListItem Text="18" Value="18" />
+                                                        <ext:ListItem Text="19" Value="19" />
+                                                        <ext:ListItem Text="20" Value="20" />
+                                                        <ext:ListItem Text="21" Value="21" />
+                                                        <ext:ListItem Text="22" Value="22" />
+                                                        <ext:ListItem Text="23" Value="23" />
+                                                    </ext:DropDownList>
+                                                </Items>
+                                            </ext:FormRow>
+                                            <ext:FormRow ID="FormRow7" runat="server" ColumnWidths="50% 50%">
+                                                <Items>
+                                                    <ext:DatePicker ID="dpkEndTime" ShowRedStar="true" Required="true" runat="server"
+                                                        Label="结束时间">
+                                                    </ext:DatePicker>
+                                                    <ext:DropDownList ID="ddlstEndHour" runat="server" ShowLabel="false" Width="70px">
+                                                        <ext:ListItem Text="00" Value="0" Selected="true" />
+                                                        <ext:ListItem Text="01" Value="1" />
+                                                        <ext:ListItem Text="02" Value="2" />
+                                                        <ext:ListItem Text="03" Value="3" />
+                                                        <ext:ListItem Text="04" Value="4" />
+                                                        <ext:ListItem Text="05" Value="5" />
+                                                        <ext:ListItem Text="06" Value="6" />
+                                                        <ext:ListItem Text="07" Value="7" />
+                                                        <ext:ListItem Text="08" Value="8" />
+                                                        <ext:ListItem Text="09" Value="9" />
+                                                        <ext:ListItem Text="10" Value="10" />
+                                                        <ext:ListItem Text="11" Value="11" />
+                                                        <ext:ListItem Text="12" Value="12" />
+                                                        <ext:ListItem Text="13" Value="13" />
+                                                        <ext:ListItem Text="14" Value="14" />
+                                                        <ext:ListItem Text="15" Value="15" />
+                                                        <ext:ListItem Text="16" Value="16" />
+                                                        <ext:ListItem Text="17" Value="17" />
+                                                        <ext:ListItem Text="18" Value="18" />
+                                                        <ext:ListItem Text="19" Value="19" />
+                                                        <ext:ListItem Text="20" Value="20" />
+                                                        <ext:ListItem Text="21" Value="21" />
+                                                        <ext:ListItem Text="22" Value="22" />
+                                                        <ext:ListItem Text="23" Value="23" />
+                                                    </ext:DropDownList>
+                                                </Items>
+                                            </ext:FormRow>
                                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxMoney" runat="server" Label="金额" Required="true" ShowRedStar="true">

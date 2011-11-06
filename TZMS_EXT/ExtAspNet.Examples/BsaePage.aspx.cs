@@ -133,6 +133,8 @@ namespace TZMS.Web
             }
         }
 
+        public string strArchiver = "B38C3283-B93F-4F5C-BECD-0298DD20ADC2";
+
         /// <summary>
         /// 本系统角色 枚举
         /// </summary>
