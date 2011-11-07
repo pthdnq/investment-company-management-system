@@ -37,7 +37,7 @@ namespace TZMS.Web.CommonControls
         /// <summary>
         /// 上传下载的路径
         /// </summary>
-        private string _url = GetUrl() + "CommonPages/UploadFile.aspx";
+        private string _url = GetUrl() + "CommonControls/UploadFile.aspx";
         //private string _url = System.Configuration.ConfigurationManager.AppSettings["WebPagesUrl"] + "/CommonPages/UploadFile.aspx";
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace TZMS.Web.CommonControls
         /// <summary>
         /// 下载的路径
         /// </summary>
-        private string _downloadUrl = GetUrl() + "CommonPages/DownloadFile.aspx";
+        private string _downloadUrl = GetUrl() + "CommonControls/DownloadFile.aspx";
         //private string _downloadUrl = System.Configuration.ConfigurationManager.AppSettings["WebPagesUrl"] + "/CommonPages/DownloadFile.aspx";
 
         /// <summary>

@@ -94,6 +94,7 @@
     <Content Include="DLL\ExtAspNet.xml" />
     <Content Include="DLL\FredCK.FCKeditorV2.dll" />
     <Content Include="DLL\iFlytek.BaseClass.dll" />
+    <Content Include="DLL\iFlytek.Common.dll" />
     <Content Include="DLL\log4net.dll" />
     <Content Include="DLL\log4net.xml" />
     <Content Include="DLL\Utility.dll" />
@@ -1528,8 +1529,8 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4765</DevelopmentServerPort>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>47654</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
