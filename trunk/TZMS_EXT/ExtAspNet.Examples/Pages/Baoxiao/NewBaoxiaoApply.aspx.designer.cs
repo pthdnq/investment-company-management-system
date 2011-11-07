@@ -184,24 +184,6 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DatePicker dpkStartTime;
         
         /// <summary>
-        /// ddlstStartHour control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstStartHour;
-        
-        /// <summary>
-        /// FormRow7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow7;
-        
-        /// <summary>
         /// dpkEndTime control.
         /// </summary>
         /// <remarks>
@@ -209,15 +191,6 @@ namespace TZMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.DatePicker dpkEndTime;
-        
-        /// <summary>
-        /// ddlstEndHour control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstEndHour;
         
         /// <summary>
         /// FormRow3 control.

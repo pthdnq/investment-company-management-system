@@ -220,6 +220,8 @@ namespace TZMS.Web
             {
                 // 申请时间.
                 e.Values[2] = DateTime.Parse(e.Values[2].ToString()).ToString("yyyy-MM-dd HH:mm");
+                e.Values[3] = DateTime.Parse(e.Values[3].ToString()).ToString("yyyy-MM-dd");
+                e.Values[4] = DateTime.Parse(e.Values[4].ToString()).ToString("yyyy-MM-dd");
 
                 // 当前审批人.
                 if (e.Values[1].ToString() == SystemUser.ObjectId.ToString())

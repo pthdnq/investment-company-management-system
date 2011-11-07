@@ -303,36 +303,38 @@ namespace TZMS.Web
             if (e.DataItem != null)
             {
                 // 设置时间格式.
-                e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd hh:mm");
-                DateTime approveTime = DateTime.Parse(e.Values[11].ToString());
+                e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd HH:mm");
+                e.Values[6] = DateTime.Parse(e.Values[6].ToString()).ToString("yyyy-MM-dd");
+                e.Values[7] = DateTime.Parse(e.Values[7].ToString()).ToString("yyyy-MM-dd");
+                DateTime approveTime = DateTime.Parse(e.Values[13].ToString());
                 if (DateTime.Compare(approveTime, ACommonInfo.DBEmptyDate) == 0)
                 {
-                    e.Values[11] = "";
+                    e.Values[13] = "";
                 }
                 else
                 {
-                    e.Values[11] = approveTime.ToString("yyyy-MM-dd hh:mm");
+                    e.Values[13] = approveTime.ToString("yyyy-MM-dd HH:mm");
                 }
 
                 // 设置审批状态.
-                if (e.Values[9].ToString() == "0")
+                if (e.Values[11].ToString() == "0")
                 {
-                    e.Values[9] = "待审批";
+                    e.Values[11] = "待审批";
                 }
-                else if (e.Values[9].ToString() == "1")
+                else if (e.Values[11].ToString() == "1")
                 {
-                    e.Values[9] = "已审批";
-                    e.Values[12] = "<span class=\"gray\">审批</span>";
+                    e.Values[11] = "已审批";
+                    e.Values[14] = "<span class=\"gray\">审批</span>";
                 }
 
                 // 设置审批结果.
-                if (e.Values[10].ToString() == "0")
+                if (e.Values[12].ToString() == "0")
                 {
-                    e.Values[10] = "同意";
+                    e.Values[12] = "同意";
                 }
-                else if (e.Values[10].ToString() == "1")
+                else if (e.Values[12].ToString() == "1")
                 {
-                    e.Values[10] = "打回修改";
+                    e.Values[12] = "打回修改";
                 }
             }
         }
