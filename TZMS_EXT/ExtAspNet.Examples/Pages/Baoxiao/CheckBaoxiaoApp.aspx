@@ -66,9 +66,17 @@
                                                     </ext:Label>
                                                 </Items>
                                             </ext:FormRow>
+                                            <ext:FormRow ID="FormRow7" runat="server">
+                                                <Items>
+                                                    <ext:Label ID="lblStartTime" runat="server" Label="开始日期">
+                                                    </ext:Label>
+                                                    <ext:Label ID="lblEndTime" runat="server" Label="结束日期">
+                                                    </ext:Label>
+                                                </Items>
+                                            </ext:FormRow>
                                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxMoney" runat="server" Label="金额" Enabled="false">
+                                                    <ext:TextBox ID="tbxMoney" runat="server" Label="总金额" Enabled="false">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>

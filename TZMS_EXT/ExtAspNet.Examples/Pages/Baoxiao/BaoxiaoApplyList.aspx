@@ -65,9 +65,9 @@
                             <ext:BoundField Width="140px" DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField DataField="CheckerId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="140px" DataField="ApplyTime" HeaderText="申请时间" />
-                            <ext:BoundField Width="140px" DataField="StartTime" HeaderText="开始时间" />
-                            <ext:BoundField Width="140px" DataField="EndTime" HeaderText="结束时间" />
-                            <ext:BoundField Width="140px" DataField="Money" HeaderText="金额" />
+                            <ext:BoundField Width="140px" DataField="StartTime" HeaderText="开始日期" />
+                            <ext:BoundField Width="140px" DataField="EndTime" HeaderText="结束日期" />
+                            <ext:BoundField Width="140px" DataField="Money" HeaderText="总金额(元)" />
                             <ext:BoundField DataField="Sument" HeaderText="事项" ExpandUnusedSpace="true" DataTooltipField="Sument" />
                             <ext:BoundField Width="150px" DataField="Other" HeaderText="备注" DataTooltipField="Other" />
                             <ext:BoundField Width="70px" DataField="CheckerName" HeaderText="当前执行人" />

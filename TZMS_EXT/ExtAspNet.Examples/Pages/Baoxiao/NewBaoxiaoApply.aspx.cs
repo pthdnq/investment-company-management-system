@@ -70,6 +70,9 @@ namespace TZMS.Web
                             lblName.Text = CurrentUser.Name;
                             lblAppDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm");
 
+                            dpkStartTime.SelectedDate = DateTime.Now;
+                            dpkEndTime.SelectedDate = DateTime.Now;
+
                             // 绑定下一步.
                             BindNext();
                             // 绑定审批人.
@@ -172,6 +175,8 @@ namespace TZMS.Web
                 _baoxiaoInfo.State = 0;
                 _baoxiaoInfo.Isdelete = false;
                 _baoxiaoInfo.CheckerId = new Guid(ddlstApproveUser.SelectedValue);
+                _baoxiaoInfo.StartTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+                _baoxiaoInfo.EndTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
 
                 // 插入新报销单.
                 result = baoxiaoManage.AddNewBaoxiao(_baoxiaoInfo);
@@ -220,6 +225,8 @@ namespace TZMS.Web
                     _baoxiaoInfo.ApplyTime = DateTime.Now;
                     _baoxiaoInfo.State = 0;
                     _baoxiaoInfo.CheckerId = new Guid(ddlstApproveUser.SelectedValue);
+                    _baoxiaoInfo.StartTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+                    _baoxiaoInfo.EndTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
 
                     result = baoxiaoManage.UpdateBaoxiao(_baoxiaoInfo);
 
@@ -265,7 +272,9 @@ namespace TZMS.Web
             if (_info != null)
             {
                 lblName.Text = _info.UserName;
-                lblAppDate.Text = _info.ApplyTime.ToString("yyyy-MM-dd hh:mm");
+                lblAppDate.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
+                dpkStartTime.SelectedDate = _info.StartTime;
+                dpkEndTime.SelectedDate = _info.EndTime;
                 tbxMoney.Text = _info.Money.ToString();
                 taaSument.Text = _info.Sument;
                 taaOther.Text = _info.Other;
@@ -309,6 +318,12 @@ namespace TZMS.Web
             taaOther.Required = false;
             taaOther.ShowRedStar = false;
             taaOther.Enabled = false;
+            dpkStartTime.Required = false;
+            dpkStartTime.ShowRedStar = false;
+            dpkStartTime.Enabled = false;
+            dpkEndTime.Required = false;
+            dpkEndTime.ShowRedStar = false;
+            dpkEndTime.Enabled = false;
         }
 
         /// <summary>
@@ -341,7 +356,7 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd hh:mm");
+                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd HH:mm");
                 switch (e.Values[2].ToString())
                 {
                     case "0":
@@ -379,6 +394,15 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+
+            if (DateTime.Compare(startTime, endTime) >= 0)
+            {
+                Alert.Show("结束日期不可小于开始日期!");
+                return;
+            }
+
             SaveBaoxiao();
         }
     }

@@ -108,8 +108,10 @@ namespace TZMS.Web
                 if (_baoxiaoInfo != null)
                 {
                     lblName.Text = _baoxiaoInfo.UserName;
-                    lblAppDate.Text = _baoxiaoInfo.ApplyTime.ToString("yyyy-MM-dd hh:mm");
-                    tbxMoney.Text = _baoxiaoInfo.Money.ToString();
+                    lblAppDate.Text = _baoxiaoInfo.ApplyTime.ToString("yyyy-MM-dd HH:mm");
+                    lblStartTime.Text = _baoxiaoInfo.StartTime.ToString("yyyy-MM-dd");
+                    lblEndTime.Text = _baoxiaoInfo.EndTime.ToString("yyyy-MM-dd");
+                    tbxMoney.Text = _baoxiaoInfo.Money.ToString() + " 元";
                     taaSument.Text = _baoxiaoInfo.Sument;
                     taaOther.Text = _baoxiaoInfo.Other;
                 }
@@ -319,7 +321,7 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd hh:mm");
+                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd HH:mm");
                 switch (e.Values[2].ToString())
                 {
                     case "0":
