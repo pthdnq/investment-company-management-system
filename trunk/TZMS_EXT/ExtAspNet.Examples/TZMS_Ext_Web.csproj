@@ -411,6 +411,7 @@
     <Content Include="Pages\adminManage\NewUser.aspx" />
     <Content Include="Pages\adminManage\RolesOfUser.aspx" />
     <Content Include="Pages\adminManage\WorkerManage.aspx" />
+    <Content Include="Pages\attendance\AttendToFile.aspx" />
     <Content Include="Pages\attendance\LeaveApp.aspx" />
     <Content Include="Pages\attendance\MyAttend.aspx" />
     <Content Include="Pages\attendance\MyCheckApp.aspx" />
@@ -436,6 +437,7 @@
     <Content Include="Pages\BankLoanPages\ProjectInfoList.aspx" />
     <Content Include="Pages\Baoxiao\BaoxiaoApplyList.aspx" />
     <Content Include="Pages\Baoxiao\BaoxiaoCheckList.aspx" />
+    <Content Include="Pages\Baoxiao\BaoxiaoToFile.aspx" />
     <Content Include="Pages\Baoxiao\CheckBaoxiaoApp.aspx" />
     <Content Include="Pages\Baoxiao\NewBaoxiaoApply.aspx" />
     <Content Include="Pages\FolkFinancingPages\AccountingAudit.aspx" />
@@ -541,6 +543,13 @@
     </Compile>
     <Compile Include="Pages\adminManage\WorkerManage.aspx.designer.cs">
       <DependentUpon>WorkerManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\attendance\AttendToFile.aspx.cs">
+      <DependentUpon>AttendToFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\attendance\AttendToFile.aspx.designer.cs">
+      <DependentUpon>AttendToFile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\attendance\LeaveApp.aspx.cs">
       <DependentUpon>LeaveApp.aspx</DependentUpon>
@@ -716,6 +725,13 @@
     </Compile>
     <Compile Include="Pages\Baoxiao\BaoxiaoCheckList.aspx.designer.cs">
       <DependentUpon>BaoxiaoCheckList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoxiaoToFile.aspx.cs">
+      <DependentUpon>BaoxiaoToFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoxiaoToFile.aspx.designer.cs">
+      <DependentUpon>BaoxiaoToFile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Baoxiao\CheckBaoxiaoApp.aspx.cs">
       <DependentUpon>CheckBaoxiaoApp.aspx</DependentUpon>
