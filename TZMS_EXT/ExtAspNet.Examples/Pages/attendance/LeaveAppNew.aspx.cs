@@ -476,7 +476,7 @@ namespace TZMS.Web
             // 获取数据.
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append("LeaveID = '" + LeaveAppID + "'");
-            strCondition.Append(" and ApproveResult <> 0");
+            strCondition.Append(" and ApproveResult <> 0 and ApproveResult <> 3");
             List<LeaveApproveInfo> lstLeaveApprove = new LeaveAppManage().GetLeaveApprovesByCondition(strCondition.ToString());
 
             lstLeaveApprove.Sort(delegate(LeaveApproveInfo x, LeaveApproveInfo y) { return DateTime.Compare(y.ApproveTime, x.ApproveTime); });
@@ -560,7 +560,7 @@ namespace TZMS.Web
                     case "2":
                         e.Values[2] = "打回修改";
                         break;
-                    case "3":
+                    case "4":
                         e.Values[2] = "归档";
                         break;
                     default:
