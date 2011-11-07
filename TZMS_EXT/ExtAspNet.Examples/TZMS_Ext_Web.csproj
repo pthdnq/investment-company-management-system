@@ -51,6 +51,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\FredCK.FCKeditorV2.dll</HintPath>
     </Reference>
+    <Reference Include="iFlytek.BaseClass, Version=1.0.1235.30760, Culture=neutral, PublicKeyToken=f947a4313daba756">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\iFlytek.BaseClass.dll</HintPath>
+    </Reference>
+    <Reference Include="iFlytek.Common, Version=1.0.1235.30758, Culture=neutral, PublicKeyToken=3a4d33ad20e7f2b8">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\iFlytek.Common.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=0.0.0.0, Culture=neutral, PublicKeyToken=272b84b57c5e120a">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\log4net.dll</HintPath>
@@ -62,13 +70,22 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
+    <Reference Include="Utility">
+      <HintPath>DLL\Utility.dll</HintPath>
+    </Reference>
     <Reference Include="Wilco.SyntaxHighlighter, Version=0.5.0.0, Culture=neutral, PublicKeyToken=fb87150479c2990b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\Wilco.SyntaxHighlighter.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Flash\AC_OETags.js" />
+    <Content Include="App_Flash\RSTFlexUser.swf" />
+    <Content Include="App_Flash\UploadApp.swf" />
     <Content Include="BsaePage.aspx" />
+    <Content Include="CommonControls\DownloadFile.aspx" />
+    <Content Include="CommonControls\MudFlexCtrl.ascx" />
+    <Content Include="CommonControls\UploadFile.aspx" />
     <Content Include="config\install_toolbox.htm" />
     <Content Include="config\modify_webconfig.htm" />
     <Content Include="DLL\blowery.Web.HttpCompress.dll" />
@@ -76,8 +93,10 @@
     <Content Include="DLL\ExtAspNet.dll" />
     <Content Include="DLL\ExtAspNet.xml" />
     <Content Include="DLL\FredCK.FCKeditorV2.dll" />
+    <Content Include="DLL\iFlytek.BaseClass.dll" />
     <Content Include="DLL\log4net.dll" />
     <Content Include="DLL\log4net.xml" />
+    <Content Include="DLL\Utility.dll" />
     <Content Include="DLL\Wilco.SyntaxHighlighter.dll" />
     <Content Include="images\404.gif" />
     <Content Include="images\an.gif" />
@@ -503,6 +522,27 @@
     </Compile>
     <Compile Include="basic\Captcha\CaptchaImage.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="CommonControls\DownloadFile.aspx.cs">
+      <DependentUpon>DownloadFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommonControls\DownloadFile.aspx.designer.cs">
+      <DependentUpon>DownloadFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CommonControls\MudFlexCtrl.ascx.cs">
+      <DependentUpon>MudFlexCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommonControls\MudFlexCtrl.ascx.designer.cs">
+      <DependentUpon>MudFlexCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommonControls\UploadFile.aspx.cs">
+      <DependentUpon>UploadFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommonControls\UploadFile.aspx.designer.cs">
+      <DependentUpon>UploadFile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
