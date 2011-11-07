@@ -491,6 +491,7 @@
     <Content Include="Pages\system\MyMessage.aspx" />
     <Content Include="Pages\system\MyWeb.aspx" />
     <Content Include="Pages\system\SetMyChecker.aspx" />
+    <Content Include="Test.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1111,6 +1112,13 @@
     </Compile>
     <Compile Include="config\ajax.aspx.designer.cs">
       <DependentUpon>ajax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
