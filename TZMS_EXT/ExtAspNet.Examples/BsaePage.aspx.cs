@@ -27,7 +27,7 @@ namespace TZMS.Web
         /// </summary>
         public string BoName
         {
-            get { return "CONNECTIONSTRINGFORPROVINCE"; }
+            get { return "CONNECTIONSTRINGFORPROVINCE_Main"; }
         }
 
         /// <summary>
