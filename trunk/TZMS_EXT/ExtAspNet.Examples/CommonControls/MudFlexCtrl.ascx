@@ -1,9 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MudFlexCtrl.ascx.cs" Inherits="TZMS.Web.CommonControls.MudFlexCtrl" %>
 <script language="JavaScript" type="text/javascript">
 <!--
+ 
     // Version check for the Flash Player that has the ability to start Player Product Install (6.0r65)
     var hasProductInstall = DetectFlashVer(6, 0, 65);
-
+   
     // Version check based upon the values defined in globals
     var hasRequestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
 
@@ -30,7 +31,7 @@
         var MMredirectURL = window.location;
         document.title = document.title.slice(0, 47) + " - Flash Player Installation";
         var MMdoctitle = document.title;
-
+       
         AC_FL_RunContent(
 		"src", "playerProductInstall",
 		"FlashVars", "MMredirectURL=" + MMredirectURL + '&MMplayerType=' + MMPlayerType + '&MMdoctitle=' + MMdoctitle + "",
@@ -49,8 +50,9 @@
     } else if (hasRequestedVersion) {
         // if we've detected an acceptable version
         // embed the Flash Content SWF when all tests are passed
+      
         AC_FL_RunContent(
-			"src", "../App_Flash/UploadApp",
+			"src", "../../App_Flash/UploadApp",
 			"width", "510px",
 			"height", "185px",
 			"align", "middle",
