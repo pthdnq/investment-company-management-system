@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -9,6 +8,7 @@ using com.TZMS.Model;
 using com.TZMS.Business;
 using System.Text;
 using System.Data;
+using Com.iFlytek.OA.MUDCommon;
 
 namespace TZMS.Web
 {
@@ -58,6 +58,10 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                this.MUDAttachment.SystemName = "测试";
+                this.MUDAttachment.AttributeName = "属性";
+                this.MUDAttachment.RecordID = "12345";
+
                 // 获取从Request传递过来的值.
                 string strOperatorType = Request.QueryString["Type"];
                 string strLeaveAppID = Request.QueryString["LeaveID"];
@@ -127,6 +131,7 @@ namespace TZMS.Web
                 }
             }
         }
+
 
         #region 私有方法
 
