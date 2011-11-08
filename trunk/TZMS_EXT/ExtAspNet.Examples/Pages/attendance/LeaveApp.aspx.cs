@@ -27,6 +27,7 @@ namespace TZMS.Web
                 //请假申请 新增按钮
                 wndLeaveApp.Title = "请假申请";
                 btnNewApp.OnClientClick = wndLeaveApp.GetShowReference("LeaveAppNew.aspx?Type=Add") + "return false;";
+                //btnNewApp.OnClientClick = wndLeaveApp.GetShowReference("../../Test.aspx") + "return false;";
                 wndLeaveApp.OnClientCloseButtonClick = wndLeaveApp.GetHidePostBackReference();
 
                 // 绑定数据到列表.

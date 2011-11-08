@@ -1,12 +1,17 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LeaveAppNew.aspx.cs" Inherits="TZMS.Web.LeaveAppNew" %>
 
+<%@ Register Src="~/CommonControls/MudFlexCtrl.ascx" TagName="MudFlexCtrl" TagPrefix="ucl" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>请假申请</title>
+    <script language="javascript" src="../../App_Flash/AC_OETags.js" type="text/javascript"></script>
 </head>
 <body>
     <form id="form1" runat="server">
+    <div>
+        <ucl:MudFlexCtrl ID="MUDAttachment" runat="server"></ucl:MudFlexCtrl>
+    </div>
     <ext:PageManager ID="PageManager1" runat="server" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" AutoScroll="false" ShowBorder="true" ShowHeader="false">
