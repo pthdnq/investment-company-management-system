@@ -62,11 +62,11 @@ namespace TZMS.Web
         /// <param name="e">e</param>
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if (tbxCaptcha.Text != Session["CaptchaImageText"].ToString())
-            {
-                Alert.ShowInParent("验证码输入有误!", "登录", MessageBoxIcon.Information);
-                return;
-            }
+            //if (tbxCaptcha.Text != Session["CaptchaImageText"].ToString())
+            //{
+            //    Alert.ShowInParent("验证码输入有误!", "登录", MessageBoxIcon.Information);
+            //    return;
+            //}
 
             if (CheckUserLogin(tbxUserName.Text.Trim(), tbxPassword.Text.Trim()))
             {
