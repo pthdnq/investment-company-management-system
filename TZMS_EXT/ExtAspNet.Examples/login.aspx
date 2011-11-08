@@ -19,11 +19,11 @@
                     </ext:TextBox>
                     <ext:TextBox ID="tbxPassword" Label="密码" TextMode="Password" Required="true" runat="server">
                     </ext:TextBox>
-                    <ext:TextBox ID="tbxCaptcha" Label="验证码" Required="true" runat="server">
+<%--                    <ext:TextBox ID="tbxCaptcha" Label="验证码" Required="true" runat="server">
                     </ext:TextBox>
                     <ext:Image ID="imgCaptcha" runat="server" ImageUrl="~/basic/captcha/captcha.ashx?w=207&h=30"
                         ShowLabel="true">
-                    </ext:Image>
+                    </ext:Image>--%>
                     <ext:Button ID="btnLogin" Text="登录"  Type="Submit" ValidateForms="SimpleForm1" ValidateTarget="Top"
                         runat="server" OnClick="btnLogin_Click">
                     </ext:Button>
