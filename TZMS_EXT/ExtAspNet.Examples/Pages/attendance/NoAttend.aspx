@@ -69,8 +69,8 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndLeaveApp" Title="请假申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server"  IsModal="true" Width="700px"
-        EnableConfirmOnClose="true" Height="500px">
+        Target="Parent" runat="server" IsModal="true" Width="700px" EnableConfirmOnClose="true"
+        Height="500px">
     </ext:Window>
     </form>
 </body>
