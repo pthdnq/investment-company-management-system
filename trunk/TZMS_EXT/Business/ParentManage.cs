@@ -9,6 +9,6 @@ namespace com.TZMS.Business
         /// <summary>
         /// 数据库连接字符串
         /// </summary>
-        protected const string  BoName = "CONNECTIONSTRINGFORPROVINCE";
+        protected const string BoName = "CONNECTIONSTRINGFORPROVINCE_Main";
     }
 }
