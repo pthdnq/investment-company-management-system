@@ -19,9 +19,6 @@
                 <Rows>
                     <ext:FormRow ID="FormRow1" runat="server">
                         <Items>
-                            <ext:TwinTriggerBox runat="server" EmptyText="请输入姓名查询" ShowLabel="false" ID="ttbSearch"
-                                Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click">
-                            </ext:TwinTriggerBox>
                             <ext:DropDownList ID="ddlstDept" runat="server" Label="部门名称" OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged">
                             </ext:DropDownList>
                             <ext:DropDownList ID="ddlstAproveState" runat="server" Label="审批状态" OnSelectedIndexChanged="ddlstAproveState_SelectedIndexChanged">
@@ -41,8 +38,9 @@
                             </ext:DatePicker>
                             <ext:DatePicker ID="dpkEndTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
-                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="btnSearch_Click">
-                            </ext:Button>
+                            <ext:TwinTriggerBox runat="server" EmptyText="请输入姓名查询" ShowLabel="false" ID="ttbSearch"
+                                Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click">
+                            </ext:TwinTriggerBox>
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -77,8 +75,8 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndBaoxiaoCheck" Title="报销审批" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="400px"
-        Width="550px" OnClose="wndBaoxiaoCheck_Close">
+        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
+        Width="700px" OnClose="wndBaoxiaoCheck_Close">
     </ext:Window>
     </form>
 </body>

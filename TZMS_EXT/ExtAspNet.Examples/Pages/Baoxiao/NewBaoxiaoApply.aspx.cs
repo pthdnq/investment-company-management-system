@@ -169,7 +169,7 @@ namespace TZMS.Web
                 _baoxiaoInfo.UserAccountNo = _currentUser.AccountNo;
                 _baoxiaoInfo.Dept = _currentUser.Dept;
                 _baoxiaoInfo.Sument = taaSument.Text.Trim();
-                _baoxiaoInfo.Money = Convert.ToDecimal(tbxMoney.Text.Trim());
+                _baoxiaoInfo.Money = Decimal.Parse(tbxMoney.Text.Trim());
                 _baoxiaoInfo.Other = taaOther.Text.Trim();
                 _baoxiaoInfo.ApplyTime = DateTime.Now;
                 _baoxiaoInfo.State = 0;
@@ -219,7 +219,7 @@ namespace TZMS.Web
                 if (_baoxiaoInfo != null)
                 {
                     // 更新申请单中的数据.
-                    _baoxiaoInfo.Money = Convert.ToDecimal(tbxMoney.Text.Trim());
+                    _baoxiaoInfo.Money = Decimal.Parse(tbxMoney.Text.Trim());
                     _baoxiaoInfo.Sument = taaSument.Text.Trim();
                     _baoxiaoInfo.Other = taaOther.Text.Trim();
                     _baoxiaoInfo.ApplyTime = DateTime.Now;
@@ -397,7 +397,7 @@ namespace TZMS.Web
             DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
             DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
 
-            if (DateTime.Compare(startTime, endTime) >= 0)
+            if (DateTime.Compare(startTime, endTime) > 1)
             {
                 Alert.Show("结束日期不可小于开始日期!");
                 return;

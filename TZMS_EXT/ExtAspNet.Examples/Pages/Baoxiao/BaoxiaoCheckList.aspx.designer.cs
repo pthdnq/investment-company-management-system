@@ -58,15 +58,6 @@ namespace TZMS.Web {
         protected global::ExtAspNet.FormRow FormRow1;
         
         /// <summary>
-        /// ttbSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TwinTriggerBox ttbSearch;
-        
-        /// <summary>
         /// ddlstDept control.
         /// </summary>
         /// <remarks>
@@ -112,13 +103,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DatePicker dpkEndTime;
         
         /// <summary>
-        /// btnSearch control.
+        /// ttbSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button btnSearch;
+        protected global::ExtAspNet.TwinTriggerBox ttbSearch;
         
         /// <summary>
         /// pelGrid control.
