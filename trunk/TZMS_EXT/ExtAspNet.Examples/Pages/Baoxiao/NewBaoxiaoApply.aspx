@@ -16,7 +16,8 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnSubmit" Text="提交" Icon="Disk" runat="server" OnClick="btnSubmit_Click">
+                    <ext:Button ID="btnSubmit" Text="提交" Icon="Disk" runat="server" ValidateForms="pelMain"
+                        OnClick="btnSubmit_Click">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -41,7 +42,7 @@
                         </Rows>
                     </ext:Form>
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                        AutoHeight="true" Height="285px">
+                        AutoHeight="true" Height="389px">
                         <Tabs>
                             <ext:Tab ID="Tab1" Title="报销申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
@@ -59,16 +60,17 @@
                                             <ext:FormRow ID="FormRow6" runat="server">
                                                 <Items>
                                                     <ext:DatePicker ID="dpkStartTime" ShowRedStar="true" Required="true" runat="server"
-                                                        Label="开始时间">
+                                                        Label="开始日期">
                                                     </ext:DatePicker>
                                                     <ext:DatePicker ID="dpkEndTime" ShowRedStar="true" Required="true" runat="server"
-                                                        Label="结束时间">
+                                                        Label="结束日期">
                                                     </ext:DatePicker>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxMoney" runat="server" Label="总金额(元)" Required="true" ShowRedStar="true">
+                                                    <ext:TextBox ID="tbxMoney" runat="server" Label="总金额(元)" Required="true" ShowRedStar="true"
+                                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>

@@ -302,6 +302,7 @@ namespace TZMS.Web
                 ddlstApproveUser.Required = false;
                 ddlstApproveUser.ShowRedStar = false;
                 ddlstApproveUser.Enabled = false;
+                btnPass.Text = "归档";
             }
             else
             {
@@ -309,6 +310,7 @@ namespace TZMS.Web
                 ddlstApproveUser.Required = true;
                 ddlstApproveUser.ShowRedStar = true;
                 ddlstApproveUser.Enabled = true;
+                btnPass.Text = "通过";
             }
         }
 

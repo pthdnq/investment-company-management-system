@@ -176,7 +176,7 @@ namespace TZMS.Web
 
             DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
             DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
-            strCondition.Append(" and ApplyTime between '" + startTime.ToString("yyyy-MM-dd 23:59") + "' and '" + endTime.ToString("yyyy-MM-dd 00:00") + "'");
+            strCondition.Append(" and (CheckDateTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "' or CheckDateTime='1900-01-01 12:00:00.000')");
             //// 审批时间
             //DateTime dateTimeNow = DateTime.Now;
             //switch (nDateRange)
@@ -229,8 +229,13 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
         {
-            SearchText = ttbSearch.Text.Trim();
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
+            if (DateTime.Compare(Convert.ToDateTime(dpkStartTime.SelectedDate), Convert.ToDateTime(dpkEndTime.SelectedDate)) == 1)
+            {
+                Alert.Show("结束日期不可小于开始日期!");
+                return;
+            }
+
+            BindGrid(ttbSearch.Text.Trim(), ddlstDept.SelectedText, Convert.ToInt32(ddlstAproveState.SelectedValue), 0);
         }
 
         /// <summary>
@@ -346,24 +351,9 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndBaoxiaoCheck_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
-        }
-
-        /// <summary>
-        /// 查询事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void btnSearch_Click(object sender, EventArgs e)
-        {
-            if (DateTime.Compare(Convert.ToDateTime(dpkStartTime.SelectedDate), Convert.ToDateTime(dpkEndTime.SelectedDate)) == 1)
-            {
-                Alert.Show("结束日期不可小于开始日期!");
-                return;
-            }
-
             BindGrid(ttbSearch.Text.Trim(), ddlstDept.SelectedText, Convert.ToInt32(ddlstAproveState.SelectedValue), 0);
         }
+
 
         #endregion
     }

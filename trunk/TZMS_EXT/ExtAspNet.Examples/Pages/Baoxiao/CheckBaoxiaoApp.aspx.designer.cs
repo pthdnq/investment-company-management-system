@@ -235,7 +235,7 @@ namespace TZMS.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxMoney;
+        protected global::ExtAspNet.Label tbxMoney;
         
         /// <summary>
         /// FormRow4 control.

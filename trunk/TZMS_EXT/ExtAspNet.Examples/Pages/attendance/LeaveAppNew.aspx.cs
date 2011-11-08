@@ -58,19 +58,20 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
-                this.MUDAttachment.SystemName = "测试";
-                this.MUDAttachment.AttributeName = "属性";
-                this.MUDAttachment.RecordID = "12345";
-
                 // 获取从Request传递过来的值.
                 string strOperatorType = Request.QueryString["Type"];
                 string strLeaveAppID = Request.QueryString["LeaveID"];
+
+                MUDAttachment.SystemName = "病假";
+                MUDAttachment.AttributeName = "病假属性";
 
                 switch (strOperatorType)
                 {
                     case "Add":
                         {
                             OperatorType = strOperatorType;
+                            LeaveAppID = Guid.NewGuid().ToString();
+                            MUDAttachment.RecordID = LeaveAppID;
                             lblName.Text = CurrentUser.Name;
                             lblAppDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm");
 
@@ -88,6 +89,9 @@ namespace TZMS.Web
                         {
                             OperatorType = strOperatorType;
                             LeaveAppID = strLeaveAppID;
+
+                            MUDAttachment.ShowAddBtn = "false";
+                            MUDAttachment.ShowDelBtn = "false";
 
                             // 绑定下一步.
                             BindNext();
@@ -107,6 +111,7 @@ namespace TZMS.Web
                         {
                             OperatorType = strOperatorType;
                             LeaveAppID = strLeaveAppID;
+                            MUDAttachment.RecordID = LeaveAppID;
 
                             // 绑定下一步.
                             BindNext();
@@ -209,6 +214,10 @@ namespace TZMS.Web
                 int typeValue = (int)ConvertStringToAttedType(_leaveInfo.Type);
                 ddlstLeaveType.SelectedValue = typeValue.ToString();
                 taaLeaveReason.Text = _leaveInfo.Reason;
+                if (ddlstLeaveType.SelectedText == "病假")
+                {
+                    ContentPanel1.Hidden = false;
+                }
 
                 // 查找最早的审批记录.
                 CommSelect _commSelect = new CommSelect();
@@ -361,6 +370,7 @@ namespace TZMS.Web
                 return;
             }
 
+
             LeaveInfo _leaveInfo = null;
             int result = 3;
             LeaveAppManage _leaveAppManage = new LeaveAppManage();
@@ -386,6 +396,7 @@ namespace TZMS.Web
                 }
                 _leaveInfo.ApproverId = new Guid(ddlstApproveUser.SelectedValue);
                 _leaveInfo.Type = ddlstLeaveType.SelectedText;
+
                 //_leaveInfo.State = short.Parse(ddlstNext.SelectedValue);
                 _leaveInfo.State = 1;
                 _leaveInfo.Reason = taaLeaveReason.Text.Trim();
@@ -574,6 +585,25 @@ namespace TZMS.Web
             }
         }
 
+        /// <summary>
+        /// 请假类型选择事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ddlstLeaveType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlstLeaveType.SelectedText == "病假")
+            {
+                ContentPanel1.Hidden = false;
+            }
+            else
+            {
+                ContentPanel1.Hidden = true;
+            }
+        }
+
         #endregion
+
+
     }
 }

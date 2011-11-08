@@ -51,7 +51,7 @@
                         </Rows>
                     </ext:Form>
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                        AutoHeight="true" Height="285px">
+                        AutoHeight="true" Height="335px">
                         <Tabs>
                             <ext:Tab ID="Tab1" Title="报销申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
@@ -76,8 +76,8 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxMoney" runat="server" Label="总金额" Enabled="false">
-                                                    </ext:TextBox>
+                                                    <ext:Label ID="tbxMoney" runat="server" Label="总金额">
+                                                    </ext:Label>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">

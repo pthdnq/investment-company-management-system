@@ -266,7 +266,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndBaoxiao_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
-            BindGrid(BaoxiaoState, DateRange);
+            BindGrid(Convert.ToInt32(ddlState.SelectedValue), 0);
         }
 
         /// <summary>

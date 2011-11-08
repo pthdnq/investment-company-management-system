@@ -4,18 +4,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>请假申请</title>
+    <title></title>
     <script language="javascript" src="../../App_Flash/AC_OETags.js" type="text/javascript"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <ucl:MudFlexCtrl ID="MUDAttachment" runat="server"></ucl:MudFlexCtrl>
-    </div>
-    <ext:PageManager ID="PageManager1" runat="server" />
+    <ext:PageManager ID="PageManager1" runat="server" AjaxAspnetControls="MUDAttachment"
+        EnablePageLoading="false" EnableAjax="false" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" AutoScroll="false" ShowBorder="true" ShowHeader="false">
-        <!--工具栏-->
         <Toolbars>
             <ext:Toolbar runat="server">
                 <Items>
@@ -131,14 +128,21 @@
                                             <ext:FormRow runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:DropDownList ShowRedStar="true" Required="true" ID="ddlstLeaveType" runat="server"
-                                                        Label="请假类型">
+                                                        Label="请假类型" AutoPostBack="True" OnSelectedIndexChanged="ddlstLeaveType_SelectedIndexChanged">
                                                     </ext:DropDownList>
+                                                </Items>
+                                            </ext:FormRow>
+                                            <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="60%">
+                                                <Items>
+                                                    <ext:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableBackgroundColor="true"
+                                                        Hidden="true" ShowBorder="false" ShowHeader="false">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ucl:MudFlexCtrl ID="MUDAttachment" runat="server"></ucl:MudFlexCtrl>
+                                                    </ext:ContentPanel>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
                                                     <ext:TextArea ID="taaLeaveReason" ShowRedStar="true" MaxLength="100" MaxLengthMessage="最多只能输入100个字！"
-                                                        Height="100px" Required="true" runat="server" Label="请假原因">
+                                                        Height="50px" Required="true" runat="server" Label="请假原因">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>

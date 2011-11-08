@@ -38,10 +38,6 @@
                             </ext:DatePicker>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="btnSearch_Click">
                             </ext:Button>
-                            <ext:Label ID="Label1" runat="server">
-                            </ext:Label>
-                            <ext:Label ID="Label2" runat="server">
-                            </ext:Label>
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -83,8 +79,8 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndBaoxiao" Title="" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="400px"
-        Width="550px" OnClose="wndBaoxiao_Close">
+        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
+        Width="700px" OnClose="wndBaoxiao_Close">
     </ext:Window>
     </form>
 </body>
