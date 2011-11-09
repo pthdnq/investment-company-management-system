@@ -70,6 +70,8 @@
     <Compile Include="InvestmentProjectHistoryCtrl.cs" />
     <Compile Include="LeaveApproveCtrl.cs" />
     <Compile Include="LeaveInfoCtrl.cs" />
+    <Compile Include="NoAttendCheckCtrl.cs" />
+    <Compile Include="NoAttendCtrl.cs" />
     <Compile Include="ProjectProcessCtrl.cs" />
     <Compile Include="ProjectProcessHistoryCtrl.cs" />
     <Compile Include="ReceivablesAuditHistoryCtrl.cs" />
