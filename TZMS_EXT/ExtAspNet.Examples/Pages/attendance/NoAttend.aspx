@@ -50,17 +50,13 @@
                         runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField DataField="WriteTime" HeaderText="申请时间" />
-                            <ext:BoundField DataField="StartTime" HeaderText="开始时间" />
-                            <ext:BoundField DataField="StopTime" HeaderText="结束时间" />
-                            <ext:BoundField HeaderText="时长(小时)" />
-                            <ext:BoundField DataField="Type" HeaderText="请假类型" />
-                            <ext:BoundField DataField="Reason" HeaderText="请假原因" DataTooltipField="Reason" ExpandUnusedSpace="true" />
+                            <ext:BoundField DataField="WriteTime" HeaderText="年月" />
+                            <ext:BoundField DataField="StartTime" HeaderText="申请时间" />
                             <ext:BoundField HeaderText="当前审批人" />
                             <ext:BoundField DataField="State" HeaderText="申请状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" Hidden="true" />
-                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmTarget="Parent" ConfirmText="确定删除该请假申请单?"
+                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmTarget="Parent" ConfirmText="确定删除该申请单?"
                                 CommandName="Delete" Hidden="true" />
                         </Columns>
                     </ext:Grid>
@@ -68,7 +64,7 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndLeaveApp" Title="请假申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndLeaveApp" Title="未打卡申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Width="700px" EnableConfirmOnClose="true"
         Height="500px">
     </ext:Window>
