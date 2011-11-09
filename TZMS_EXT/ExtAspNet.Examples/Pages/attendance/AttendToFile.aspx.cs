@@ -151,22 +151,25 @@ namespace TZMS.Web
                 LeaveApproveInfo _approveInfo = (LeaveApproveInfo)e.DataItem;
                 LeaveAppManage leaveAppManage = new LeaveAppManage();
                 LeaveInfo _leaveInfo = leaveAppManage.GetLeaveInfoByObjectID(_approveInfo.LeaveId.ToString());
-                List<LeaveApproveInfo> lstLeaveApproveInfo = leaveAppManage.GetLeaveApprovesByCondition("LeaveID='" + _leaveInfo.ObjectId.ToString()
-                    + "' and (ApproveResult = 1 or ApproveResult = 2) order by ApproveTime desc");
-
-                e.Values[0] = _approveInfo.ObjectId.ToString();
-                e.Values[1] = _leaveInfo.WriteTime.ToString("yyyy-MM-dd HH:mm");
-                e.Values[2] = _leaveInfo.StartTime.ToString("yyyy-MM-dd HH:00");
-                e.Values[3] = _leaveInfo.StopTime.ToString("yyyy-MM-dd HH:00");
-                e.Values[4] = ((TimeSpan)(DateTime.Parse(e.Values[3].ToString()) - DateTime.Parse(e.Values[2].ToString()))).TotalHours.ToString();
-                e.Values[5] = _leaveInfo.Type;
-                e.Values[6] = _leaveInfo.Reason;
-                e.Values[7] = lstLeaveApproveInfo[0].ApproverName;
-                e.Values[8] = lstLeaveApproveInfo[0].ApproveResult == 1 ? "同意" : "不同意";
-                e.Values[9] = _approveInfo.ApproveResult == 3 ? "待归档" : "已归档";
-                if (_approveInfo.ApproveResult == 4)
+                if (_leaveInfo != null)
                 {
-                    e.Values[10] = "<span class=\"gray\">归档</span>";
+                    List<LeaveApproveInfo> lstLeaveApproveInfo = leaveAppManage.GetLeaveApprovesByCondition("LeaveID='" + _leaveInfo.ObjectId.ToString()
+                        + "' and (ApproveResult = 1 or ApproveResult = 2) order by ApproveTime desc");
+
+                    e.Values[0] = _approveInfo.ObjectId.ToString();
+                    e.Values[1] = _leaveInfo.WriteTime.ToString("yyyy-MM-dd HH:mm");
+                    e.Values[2] = _leaveInfo.StartTime.ToString("yyyy-MM-dd HH:00");
+                    e.Values[3] = _leaveInfo.StopTime.ToString("yyyy-MM-dd HH:00");
+                    e.Values[4] = ((TimeSpan)(DateTime.Parse(e.Values[3].ToString()) - DateTime.Parse(e.Values[2].ToString()))).TotalHours.ToString();
+                    e.Values[5] = _leaveInfo.Type;
+                    e.Values[6] = _leaveInfo.Reason;
+                    e.Values[7] = lstLeaveApproveInfo[0].ApproverName;
+                    e.Values[8] = lstLeaveApproveInfo[0].ApproveResult == 1 ? "同意" : "不同意";
+                    e.Values[9] = _approveInfo.ApproveResult == 3 ? "待归档" : "已归档";
+                    if (_approveInfo.ApproveResult == 4)
+                    {
+                        e.Values[10] = "<span class=\"gray\">归档</span>";
+                    }
                 }
             }
         }

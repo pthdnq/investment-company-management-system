@@ -9,8 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" AjaxAspnetControls="MUDAttachment"
-        EnablePageLoading="false" EnableAjax="false" />
+    <ext:PageManager ID="PageManager1" runat="server" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" AutoScroll="false" ShowBorder="true" ShowHeader="false">
         <Toolbars>
@@ -135,7 +134,7 @@
                                             <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableBackgroundColor="true"
-                                                        Hidden="true" ShowBorder="false" ShowHeader="false">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ucl:MudFlexCtrl ID="MUDAttachment" runat="server"></ucl:MudFlexCtrl>
+                                                        ShowBorder="false" ShowHeader="false" Hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ucl:MudFlexCtrl ID="MUDAttachment" runat="server" AttributeName="病假属性" SystemName="病假"></ucl:MudFlexCtrl>
                                                     </ext:ContentPanel>
                                                 </Items>
                                             </ext:FormRow>

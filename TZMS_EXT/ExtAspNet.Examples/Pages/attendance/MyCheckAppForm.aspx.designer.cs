@@ -238,6 +238,33 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Label lblLeaveType;
         
         /// <summary>
+        /// FormRow8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow8;
+        
+        /// <summary>
+        /// ContentPanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.ContentPanel ContentPanel1;
+        
+        /// <summary>
+        /// MUDAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TZMS.Web.CommonControls.MudFlexCtrl MUDAttachment;
+        
+        /// <summary>
         /// FormRow5 control.
         /// </summary>
         /// <remarks>
