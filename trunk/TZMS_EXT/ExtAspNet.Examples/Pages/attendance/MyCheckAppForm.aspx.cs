@@ -81,6 +81,9 @@ namespace TZMS.Web
                 UserID = Request.QueryString["UserID"];
                 ApproveID = Request.QueryString["LeaveApproveID"];
 
+                MUDAttachment.ShowAddBtn = "false";
+                MUDAttachment.ShowDelBtn = "false";
+
                 BindNext();
                 BindApproveUser();
                 BindLeaveInfo();
@@ -151,6 +154,11 @@ namespace TZMS.Web
                 lblHours.Text = ((TimeSpan)(_leaveInfo.StopTime - _leaveInfo.StartTime)).TotalHours.ToString() + "小时";
                 lblLeaveType.Text = _leaveInfo.Type;
                 taaLeaveReason.Text = _leaveInfo.Reason;
+                if (_leaveInfo.Type == "病假")
+                {
+                    ContentPanel1.Hidden = false;
+                    MUDAttachment.RecordID = _leaveInfo.ObjectId.ToString();
+                }
             }
         }
 

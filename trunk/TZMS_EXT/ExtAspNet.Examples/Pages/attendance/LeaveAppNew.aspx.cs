@@ -137,7 +137,6 @@ namespace TZMS.Web
             }
         }
 
-
         #region 私有方法
 
         /// <summary>
@@ -217,6 +216,7 @@ namespace TZMS.Web
                 if (ddlstLeaveType.SelectedText == "病假")
                 {
                     ContentPanel1.Hidden = false;
+                    //MUDAttachment.Visible = true;
                 }
 
                 // 查找最早的审批记录.
@@ -379,7 +379,7 @@ namespace TZMS.Web
             {
                 // 创建新的请假申请单信息.
                 _leaveInfo = new LeaveInfo();
-                _leaveInfo.ObjectId = Guid.NewGuid();
+                _leaveInfo.ObjectId = new Guid(LeaveAppID);
                 _leaveInfo.UserObjectId = CurrentUser.ObjectId;
                 _leaveInfo.AccountNo = CurrentUser.AccountNo;
                 _leaveInfo.JobNo = CurrentUser.JobNo;
@@ -428,9 +428,15 @@ namespace TZMS.Web
                 if (result == -1)
                 {
                     Alert.Show("申请提交成功!");
+
+                    // 设置页面各按钮的状态.
                     LeaveAppID = _leaveInfo.ObjectId.ToString();
                     btnSave.Enabled = false;
                     tabApproveHistory.Hidden = false;
+
+                    MUDAttachment.ShowAddBtn = "false";
+                    MUDAttachment.ShowDelBtn = "false";
+
                     BindHistory();
                 }
                 else
@@ -474,6 +480,16 @@ namespace TZMS.Web
                 if (result == -1)
                 {
                     Alert.Show("申请提交成功!");
+
+                    // 设置页面各按钮的状态.
+                    LeaveAppID = _leaveInfo.ObjectId.ToString();
+                    btnSave.Enabled = false;
+                    tabApproveHistory.Hidden = false;
+
+                    MUDAttachment.ShowAddBtn = "false";
+                    MUDAttachment.ShowDelBtn = "false";
+
+                    BindHistory();
                 }
                 else
                 {
@@ -595,15 +611,15 @@ namespace TZMS.Web
             if (ddlstLeaveType.SelectedText == "病假")
             {
                 ContentPanel1.Hidden = false;
+                // MUDAttachment.Visible = true;
             }
             else
             {
                 ContentPanel1.Hidden = true;
+                // MUDAttachment.Visible = false;
             }
         }
 
         #endregion
-
-
     }
 }

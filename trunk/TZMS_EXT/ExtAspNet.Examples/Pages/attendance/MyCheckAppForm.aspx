@@ -1,10 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyCheckAppForm.aspx.cs"
     Inherits="TZMS.Web.MyCheckAppForm" %>
 
+<%@ Register Src="~/CommonControls/MudFlexCtrl.ascx" TagName="MudFlexCtrl" TagPrefix="ucl" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>审批</title>
+    <script language="javascript" src="../../App_Flash/AC_OETags.js" type="text/javascript"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -86,9 +88,16 @@
                                                     </ext:Label>
                                                 </Items>
                                             </ext:FormRow>
+                                            <ext:FormRow ID="FormRow8" runat="server" ColumnWidths="60%">
+                                                <Items>
+                                                    <ext:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableBackgroundColor="true"
+                                                        ShowBorder="false" ShowHeader="false" Hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ucl:MudFlexCtrl ID="MUDAttachment" runat="server" AttributeName="病假属性" SystemName="病假"></ucl:MudFlexCtrl>
+                                                    </ext:ContentPanel>
+                                                </Items>
+                                            </ext:FormRow>
                                             <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaLeaveReason" Height="100px" runat="server" Label="请假原因" Enabled="false">
+                                                    <ext:TextArea ID="taaLeaveReason" Height="50px" runat="server" Label="请假原因" Enabled="false">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
