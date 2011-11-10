@@ -103,8 +103,11 @@
                                             <ext:TreeNode Leaf="true" Icon="UserStar" NodeID="qjgd" OnClientClick=" tabs('qjgd','UserKey');"
                                                 Text="请假归档">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserStar" NodeID="wdksm " OnClientClick=" tabs('wdksm','UserKey');"
-                                                Text="未打卡说明">
+                                            <ext:TreeNode Leaf="true" Icon="UserStar" NodeID="wdksm" OnClientClick=" tabs('wdksm','UserKey');"
+                                                Text="未打卡申请">
+                                            </ext:TreeNode>
+                                             <ext:TreeNode Leaf="true" Icon="UserStar" NodeID="wdksp" OnClientClick=" tabs('wdksp','UserKey');"
+                                                Text="未打卡审批">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
@@ -280,7 +283,10 @@
                     LoadTab("Pages/attendance/AttendToFile.aspx", "请假归档", icon);
                     break;
                 case "wdksm":
-                    LoadTab("Pages/attendance/NoAttend.aspx", "未打卡说明", icon);
+                    LoadTab("Pages/attendance/NoAttend.aspx", "未打卡申请", icon);
+                    break;
+                case "wdksp":
+                    LoadTab("Pages/attendance/NoAttendCheck.aspx", "未打卡审批", icon);
                     break;
 
                 //投资部借款 InvestmentLoan                 
