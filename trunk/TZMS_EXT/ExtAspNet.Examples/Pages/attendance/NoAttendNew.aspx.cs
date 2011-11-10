@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using com.TZMS.Model;
 using ExtAspNet;
 using com.TZMS.Business;
+using System.Text;
+using System.Data;
 
 namespace TZMS.Web
 {
@@ -77,6 +79,9 @@ namespace TZMS.Web
 
                             BindNext();
                             BindApproveUser();
+                            BindNoAttendInfo();
+                            BindApproveHistory();
+                            DisableAllControls();
                         }
                         break;
                     default:
@@ -135,7 +140,34 @@ namespace TZMS.Web
         /// </summary>
         private void BindNoAttendInfo()
         {
+            NoAttendManage _manage = new NoAttendManage();
+            NoAttendInfo _info = _manage.GetNoAttendInfoByObjectID(NoAttendID);
+            if (_info != null)
+            {
+                // 查找最早的记录.
+                CommSelect _commSelect = new CommSelect();
+                ComHelp _comHelp = new ComHelp();
+                _comHelp.TableName = "NoAttendCheck";
+                _comHelp.SelectList = "top 1 CheckerID";
+                _comHelp.SearchCondition = "ApplyID = '" + _info.ObjectId.ToString() + "' and CheckOp <> '0'";
+                _comHelp.PageSize = PageCounts;
+                _comHelp.PageIndex = 0;
+                _comHelp.OrderExpression = "CheckDateTime desc";
 
+                DataTable dtbLeaveApproves = _commSelect.ComSelect(ref _comHelp);
+                if (dtbLeaveApproves.Rows.Count > 0)
+                {
+                    ddlstApproveUser.SelectedValue = dtbLeaveApproves.Rows[0]["CheckerID"].ToString();
+                }
+
+                // 绑定其它信息.
+                lblName.Text = _info.UserName;
+                lblAppDate.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
+                ddlstYear.Items.Add(new ExtAspNet.ListItem(_info.Year.ToString(), _info.Year.ToString()));
+                ddlstMonth.SelectedValue = _info.Month.ToString();
+                taaSument.Text = _info.Comment;
+                taaOther.Text = _info.Other;
+            }
         }
 
         /// <summary>
@@ -143,15 +175,48 @@ namespace TZMS.Web
         /// </summary>
         private void BindApproveHistory()
         {
+            if (NoAttendID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ApplyID = '" + NoAttendID + "'");
+            strCondition.Append(" and Checkstate <> 0");
+            List<NoAttendCheckInfo> lstNoAttendCheck = new NoAttendManage().GetNoAttendCheckInfoByCondition(strCondition.ToString());
 
+            lstNoAttendCheck.Sort(delegate(NoAttendCheckInfo x, NoAttendCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            // 绑定列表.
+            gridApproveHistory.RecordCount = lstNoAttendCheck.Count;
+            this.gridApproveHistory.DataSource = lstNoAttendCheck;
+            this.gridApproveHistory.DataBind();
         }
 
         /// <summary>
         /// 禁用所用控件
         /// </summary>
         private void DisableAllControls()
-        { 
-            
+        {
+            ddlstNext.Required = false;
+            ddlstNext.ShowRedStar = false;
+            ddlstNext.Enabled = false;
+
+            ddlstApproveUser.Required = false;
+            ddlstApproveUser.ShowRedStar = false;
+            ddlstApproveUser.Enabled = false;
+
+            btnSave.Enabled = false;
+            ddlstYear.Required = false;
+            ddlstYear.ShowRedStar = false;
+            ddlstYear.Enabled = false;
+            ddlstMonth.Required = false;
+            ddlstMonth.ShowRedStar = false;
+            ddlstMonth.Enabled = false;
+            taaSument.Required = false;
+            taaSument.ShowRedStar = false;
+            taaSument.Enabled = false;
+            taaOther.Required = false;
+            taaOther.ShowRedStar = false;
+            taaOther.Enabled = false;
         }
 
         /// <summary>
@@ -182,7 +247,7 @@ namespace TZMS.Web
             _info.State = 0;
             _info.Isdelete = false;
             _info.CurrentCheckId = new Guid(ddlstApproveUser.SelectedValue);
-
+            
             int result = _manage.AddNewNoAttendInfo(_info);
 
             // 插入起草记录到数据库.
@@ -220,6 +285,7 @@ namespace TZMS.Web
 
                 // 当提交成功时，禁用提交按钮以及刷新审批历史.
                 btnSave.Enabled = false;
+                NoAttendID = _info.ObjectId.ToString();
                 BindApproveHistory();
             }
             else
@@ -239,7 +305,29 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridApproveHistory_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
-
+            if (e.DataItem != null)
+            {
+                NoAttendCheckInfo _checkInfo = (NoAttendCheckInfo)e.DataItem;
+                e.Values[0] = _checkInfo.CheckerName;
+                e.Values[1] = _checkInfo.CheckDateTime.ToString("yyyy-MM-dd HH:mm");
+                switch (_checkInfo.CheckOp)
+                {
+                    case "0":
+                        e.Values[2] = "起草";
+                        break;
+                    case "1":
+                        e.Values[2] = "审批";
+                        break;
+                    case "2":
+                        e.Values[2] = "打回修改";
+                        break;
+                    case "4":
+                        e.Values[2] = "归档";
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         /// <summary>

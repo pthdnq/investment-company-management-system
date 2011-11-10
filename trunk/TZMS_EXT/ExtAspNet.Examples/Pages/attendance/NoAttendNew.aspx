@@ -101,10 +101,10 @@
                                         runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
                                         AutoScroll="true" OnRowDataBound="gridApproveHistory_RowDataBound">
                                         <Columns>
-                                            <ext:BoundField DataField="ApproverName" HeaderText="执行人" />
-                                            <ext:BoundField DataField="ApproveTime" HeaderText="执行时间" />
-                                            <ext:BoundField DataField="ApproveResult" HeaderText="执行结果" />
-                                            <ext:BoundField DataField="ApproveComment" HeaderText="执行人意见" DataTooltipField="ApproveComment"
+                                            <ext:BoundField DataField="CheckerName" HeaderText="执行人" />
+                                            <ext:BoundField DataField="CheckDateTime" HeaderText="执行时间" />
+                                            <ext:BoundField DataField="CheckOp" HeaderText="执行结果" />
+                                            <ext:BoundField DataField="CheckSugest" HeaderText="执行人意见" DataTooltipField="CheckSugest"
                                                 ExpandUnusedSpace="true" />
                                         </Columns>
                                     </ext:Grid>

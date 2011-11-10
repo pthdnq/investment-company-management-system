@@ -305,7 +305,7 @@ namespace TZMS.Web
 
             if (result == -1)
             {
-                Alert.Show("审批成功!");
+                Alert.Show(ddlstNext.SelectedText + "成功!");
                 btnPass.Enabled = false;
                 btnRefuse.Enabled = false;
                 BindApproveHistory();

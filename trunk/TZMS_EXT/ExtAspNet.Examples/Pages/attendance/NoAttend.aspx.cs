@@ -25,6 +25,8 @@ namespace TZMS.Web
                 wndNewNoAttend.Title = "未打卡申请";
                 btnNewApp.OnClientClick = wndNewNoAttend.GetShowReference("NoAttendNew.aspx?Type=Add") + "return false;";
                 wndNewNoAttend.OnClientCloseButtonClick = wndNewNoAttend.GetHidePostBackReference();
+
+                BindGrid();
             }
         }
 
@@ -102,7 +104,7 @@ namespace TZMS.Web
 
             if (e.CommandName == "View")
             {
-                wndNewNoAttend.IFrameUrl = "LeaveAppNew.aspx?Type=View&NoAttendID=" + strNoAttendID;
+                wndNewNoAttend.IFrameUrl = "NoAttendNew.aspx?Type=View&NoAttendID=" + strNoAttendID;
                 wndNewNoAttend.Hidden = false;
             }
         }
@@ -114,7 +116,33 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridNoAttend_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
+            if (e.DataItem != null)
+            {
+                NoAttendInfo _info = (NoAttendInfo)e.DataItem;
+                e.Values[1] = _info.Year + "-" + _info.Month;
+                e.Values[2] = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
+                UserInfo _checkUserInfo = new UserManage().GetUserByObjectID(_info.CurrentCheckId.ToString());
+                if (_checkUserInfo != null)
+                {
+                    e.Values[5] = _checkUserInfo.Name;
+                }
 
+                switch (e.Values[6].ToString())
+                {
+                    case "0":
+                        e.Values[6] = "审批中";
+                        break;
+                    case "1":
+                        e.Values[6] = "被打回";
+                        break;
+                    case "2":
+                        e.Values[6] = "归档";
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         }
 
         /// <summary>
