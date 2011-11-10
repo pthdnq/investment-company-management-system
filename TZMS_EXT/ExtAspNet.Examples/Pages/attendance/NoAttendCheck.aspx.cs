@@ -68,7 +68,7 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" CheckerID='" + CurrentUser.ObjectId.ToString() + "'");
+            strCondition.Append(" CheckerID='" + CurrentUser.ObjectId.ToString() + "' and CheckOp<>'0' and CheckOp<>'3' and CheckOp<>'4'");
 
 
             // 查询文本
