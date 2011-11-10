@@ -274,7 +274,7 @@ namespace TZMS.Web
                     _checkInfo.Result = "1";
                     _checkInfo.CheckDateTime = DateTime.Now;
                     _checkInfo.CheckSugest = taaCheckSugest.Text.Trim();
-                    _checkInfo.CheckOp = "1";
+                    _checkInfo.CheckOp = "2";
                     _manage.UpdateNoAttendCheckInfo(_checkInfo);
                 }
 

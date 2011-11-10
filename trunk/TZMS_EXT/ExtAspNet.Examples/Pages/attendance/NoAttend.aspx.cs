@@ -49,7 +49,7 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" IsDelete<>1");
+            strCondition.Append(" Isdelete<>1");
             strCondition.Append(" and UserID ='" + CurrentUser.ObjectId.ToString() + "'");
             strCondition.Append(" and state =" + Convert.ToInt32(ddlappState.SelectedValue));
 
