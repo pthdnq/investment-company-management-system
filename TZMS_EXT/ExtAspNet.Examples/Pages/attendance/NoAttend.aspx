@@ -27,8 +27,7 @@
                             </ext:DatePicker>
                             <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
                             </ext:DatePicker>
-                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" 
-                                OnClick="btnSearch_Click">
+                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="btnSearch_Click">
                             </ext:Button>
                             <ext:Label ID="Label1" runat="server">
                             </ext:Label>
@@ -48,14 +47,14 @@
                 </Toolbars>
                 <Items>
                     <ext:Grid ID="gridNoAttend" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
-                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" 
-                        AutoHeight="true" OnPageIndexChange="gridNoAttend_PageIndexChange" 
-                        OnRowCommand="gridNoAttend_RowCommand" OnRowDataBound="gridNoAttend_RowDataBound">
+                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                        OnPageIndexChange="gridNoAttend_PageIndexChange" OnRowCommand="gridNoAttend_RowCommand"
+                        OnRowDataBound="gridNoAttend_RowDataBound">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField DataField="WriteTime" HeaderText="年月" />
-                            <ext:BoundField DataField="StartTime" HeaderText="申请时间" />
-                            <ext:BoundField DataField="Comment" HeaderText="事项" DataTooltipField="Comment" />
+                            <ext:BoundField HeaderText="年月" />
+                            <ext:BoundField DataField="ApplyTime" HeaderText="申请时间" />
+                            <ext:BoundField DataField="Comment" HeaderText="事项" DataTooltipField="Comment" ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="Other" HeaderText="备注" DataTooltipField="Other" />
                             <ext:BoundField DataField="CurrentCheckID" HeaderText="当前审批人" />
                             <ext:BoundField DataField="State" HeaderText="申请状态" />
@@ -68,7 +67,7 @@
     </ext:Panel>
     <ext:Window ID="wndNewNoAttend" Title="未打卡申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Width="700px" EnableConfirmOnClose="true"
-        Height="500px" onclose="wndNewNoAttend_Close">
+        Height="500px" OnClose="wndNewNoAttend_Close">
     </ext:Window>
     </form>
 </body>

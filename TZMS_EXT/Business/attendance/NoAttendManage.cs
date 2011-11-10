@@ -48,7 +48,7 @@ namespace com.TZMS.Business
         public NoAttendInfo GetNoAttendInfoByObjectID(string objectID, string boName = BoName)
         {
             NoAttendCtrl _ctrl = new NoAttendCtrl();
-            List<NoAttendInfo> lstNoAttendInfo = _ctrl.SelectAsList(boName, "Object = '" + objectID + "'");
+            List<NoAttendInfo> lstNoAttendInfo = _ctrl.SelectAsList(boName, "ObjectID = '" + objectID + "'");
             if (lstNoAttendInfo.Count == 0)
             {
                 return null;
