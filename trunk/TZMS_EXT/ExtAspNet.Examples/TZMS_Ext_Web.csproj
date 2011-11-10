@@ -441,6 +441,7 @@
     <Content Include="Pages\attendance\NoAttendCheck.aspx" />
     <Content Include="Pages\attendance\NoAttendCheckForm.aspx" />
     <Content Include="Pages\attendance\NoAttendNew.aspx" />
+    <Content Include="Pages\attendance\NoAttendToFile.aspx" />
     <Content Include="Pages\attendance\WorkerAttend.aspx" />
     <Content Include="Pages\attendance\WorkLeaveApp.aspx" />
     <Content Include="Pages\attendance\WorkLeaveAppNew.aspx" />
@@ -659,6 +660,13 @@
     </Compile>
     <Compile Include="Pages\attendance\NoAttendNew.aspx.designer.cs">
       <DependentUpon>NoAttendNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\attendance\NoAttendToFile.aspx.cs">
+      <DependentUpon>NoAttendToFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\attendance\NoAttendToFile.aspx.designer.cs">
+      <DependentUpon>NoAttendToFile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\attendance\WorkerAttend.aspx.cs">
       <DependentUpon>WorkerAttend.aspx</DependentUpon>
