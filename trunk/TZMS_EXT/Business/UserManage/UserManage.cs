@@ -77,6 +77,24 @@ namespace com.TZMS.Business
         }
 
         /// <summary>
+        /// 根据姓名和工号获取用户
+        /// </summary>
+        /// <param name="strName">姓名</param>
+        /// <param name="strJobNo">工号</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>用户实例</returns>
+        public UserInfo GetUserByNameAndJobNo(string strName, string strJobNo, string boName = BoName)
+        {
+            UserCtrl uc = new UserCtrl();
+            List<UserInfo> users = uc.SelectAsList(boName, " state <> 2 and  Name ='" + strName + "' and JobNo ='" + strJobNo + "'");
+            if (users.Count == 0)
+            {
+                return null;
+            }
+            return users[0];
+        }
+
+        /// <summary>
         /// 获得所有员工
         /// </summary>
         /// <param name="boName">连接字符串Key</param>

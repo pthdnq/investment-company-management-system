@@ -11,8 +11,31 @@ namespace TZMS.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                // 点击导入按钮触发事件.
+                btnImport.OnClientClick = wndImportAttend.GetShowReference("ImportWorkerAttend.aspx") + "return false;";
+                wndImportAttend.OnClientCloseButtonClick = wndImportAttend.GetHidePostBackReference();
 
+
+            }
         }
+
+        #region 私有方法
+
+        /// <summary>
+        /// 绑定Grid
+        /// </summary>
+        private void BindGrid()
+        {
+            #region 查询事件
+
+            #endregion
+        }
+
+        #endregion
+
+        #region 页面事件
 
         /// <summary>
         /// 查询事件
@@ -45,23 +68,15 @@ namespace TZMS.Web
         }
 
         /// <summary>
-        /// 导出事件
+        /// 导入窗口关闭事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void btnExport_Click(object sender, EventArgs e)
+        protected void wndImportAttend_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
 
         }
 
-        /// <summary>
-        /// 导入事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void btnImport_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }
