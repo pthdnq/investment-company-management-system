@@ -55,10 +55,12 @@ namespace TZMS.Web
                 // 导入数据.
                 WorkerAttendManage _manage = new WorkerAttendManage();
                 _manage.ImportAttendInfo(_manage.GetExcelData(uploadExcel.PostedFile.FileName));
+
+                Alert.Show("导入成功!");
             }
             catch (Exception ex)
             {
-                Alert.Show(ex.Message);
+                Alert.Show("导入失败: " + ex.Message);
             }
 
         }

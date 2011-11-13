@@ -56,7 +56,7 @@
                             <ext:BoundField HeaderText="星期" />
                             <ext:BoundField HeaderText="上班时间" />
                             <ext:BoundField HeaderText="下班时间" />
-                            <ext:BoundField HeaderText="备注" />
+                            <ext:BoundField HeaderText="备注" ExpandUnusedSpace="true" />
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -64,8 +64,8 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndImportAttend" Title="导入考勤" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Width="700px"
-        EnableConfirmOnClose="true" Height="500px" onclose="wndImportAttend_Close">
+        Target="Parent" runat="server" IsModal="true" Width="700px" EnableConfirmOnClose="true"
+        Height="500px" OnClose="wndImportAttend_Close">
     </ext:Window>
     </form>
 </body>

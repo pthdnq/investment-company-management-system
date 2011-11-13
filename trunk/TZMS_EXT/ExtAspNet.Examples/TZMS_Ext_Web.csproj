@@ -1548,6 +1548,7 @@
     <None Include="images\ico_logo.psd" />
     <None Include="images\old9-logo.psd" />
     <None Include="images\step.psd" />
+    <None Include="Template\考勤记录.xls" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
