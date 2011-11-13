@@ -88,6 +88,7 @@
     <Content Include="CommonControls\UploadFile.aspx" />
     <Content Include="config\install_toolbox.htm" />
     <Content Include="config\modify_webconfig.htm" />
+    <Content Include="DLL\Aspose.Cells.dll" />
     <Content Include="DLL\blowery.Web.HttpCompress.dll" />
     <Content Include="DLL\Business.dll" />
     <Content Include="DLL\ExtAspNet.dll" />

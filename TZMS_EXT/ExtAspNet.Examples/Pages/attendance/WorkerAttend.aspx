@@ -63,6 +63,10 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
+    <ext:Window ID="wndImportAttend" Title="导入考勤" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Width="700px"
+        EnableConfirmOnClose="true" Height="500px" onclose="wndImportAttend_Close">
+    </ext:Window>
     </form>
 </body>
 </html>
