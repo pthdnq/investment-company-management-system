@@ -9,6 +9,9 @@ namespace TZMS.Web
 {
     public partial class index : BasePage
     {
+
+        public static string Account = "omit";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
