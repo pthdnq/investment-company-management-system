@@ -58,13 +58,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.FormRow FormRow1;
         
         /// <summary>
-        /// ttbSearch control.
+        /// tbxSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TwinTriggerBox ttbSearch;
+        protected global::ExtAspNet.TextBox tbxSearch;
         
         /// <summary>
         /// ddlstDept control.
@@ -85,13 +85,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DropDownList ddlstAproveState;
         
         /// <summary>
-        /// Label1 control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label Label1;
+        protected global::ExtAspNet.Button btnSearch;
         
         /// <summary>
         /// FormRow2 control.

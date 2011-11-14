@@ -113,7 +113,7 @@ namespace TZMS.Web
 
             ViewStateDept = ddlstDept.SelectedText;
             ViewStateState = ddlstState.SelectedText;
-            ViewStateSearchText = ttbSearch.Text.Trim();
+            ViewStateSearchText = tbxSearch.Text.Trim();
         }
 
         /// <summary>
@@ -179,9 +179,9 @@ namespace TZMS.Web
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
-            ViewStateSearchText = ttbSearch.Text.Trim();
+            ViewStateSearchText = tbxSearch.Text.Trim();
             DataBindUsers(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
 

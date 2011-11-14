@@ -19,7 +19,8 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 // 设定默认开始时间和结束时间.
-                dpkStartTime.SelectedDate = dpkEndTime.SelectedDate = DateTime.Now;
+                dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
+                dpkEndTime.SelectedDate = DateTime.Now;
 
                 //请假申请 新增按钮
                 wndNewNoAttend.Title = "未打卡申请";

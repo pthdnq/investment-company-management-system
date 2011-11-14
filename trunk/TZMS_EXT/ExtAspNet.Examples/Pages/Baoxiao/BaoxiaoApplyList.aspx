@@ -24,14 +24,6 @@
                                 <ext:ListItem Text="归档" Value="2" />
                                 <ext:ListItem Text="被打回" Value="1" />
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddldateRange" AutoPostBack="true" runat="server" Label="日期范围"
-                                OnSelectedIndexChanged="ddldateRange_SelectedIndexChanged" Hidden="true">
-                                <ext:ListItem Text="全部" Value="0" />
-                                <ext:ListItem Text="一月内" Value="1" Selected="true" />
-                                <ext:ListItem Text="三月内" Value="2" />
-                                <ext:ListItem Text="半年内" Value="3" />
-                                <ext:ListItem Text="一年内" Value="4" />
-                            </ext:DropDownList>
                             <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
                             <ext:DatePicker ID="dpkEndTime" runat="server" Label="开始日期">

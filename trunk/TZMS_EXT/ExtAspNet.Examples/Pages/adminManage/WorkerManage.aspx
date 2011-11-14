@@ -18,9 +18,8 @@
                 <Rows>
                     <ext:FormRow>
                         <Items>
-                            <ext:TwinTriggerBox runat="server" EmptyText="请输入姓名或账号查询" ShowLabel="false" ID="ttbSearch"
-                                Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click">
-                            </ext:TwinTriggerBox>
+                            <ext:TextBox ID="tbxSearch" runat="server" EmptyText="请输入姓名或账号查询" ShowLabel="false">
+                            </ext:TextBox>
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged">
                             </ext:DropDownList>
@@ -29,8 +28,8 @@
                                 <ext:ListItem Text="在职" Value="1" Selected="true" />
                                 <ext:ListItem Text="离职" Value="0" />
                             </ext:DropDownList>
-                            <ext:Label ID="Label1" runat="server">
-                            </ext:Label>
+                            <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
+                            </ext:Button>
                         </Items>
                     </ext:FormRow>
                 </Rows>

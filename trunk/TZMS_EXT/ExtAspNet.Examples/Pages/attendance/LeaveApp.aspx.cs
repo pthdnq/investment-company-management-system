@@ -22,7 +22,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
-                dpkStartTime.SelectedDate = dpkEndTime.SelectedDate = DateTime.Now;
+                dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
+                dpkEndTime.SelectedDate = DateTime.Now;
 
                 //请假申请 新增按钮
                 wndLeaveApp.Title = "请假申请";

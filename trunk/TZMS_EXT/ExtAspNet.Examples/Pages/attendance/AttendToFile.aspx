@@ -28,10 +28,6 @@
                             </ext:DatePicker>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="btnSearch_Click">
                             </ext:Button>
-                            <ext:Label ID="Label1" runat="server">
-                            </ext:Label>
-                            <ext:Label ID="Label2" runat="server">
-                            </ext:Label>
                         </Items>
                     </ext:FormRow>
                 </Rows>

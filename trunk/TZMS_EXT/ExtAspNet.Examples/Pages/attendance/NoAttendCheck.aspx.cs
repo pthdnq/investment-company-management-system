@@ -19,7 +19,7 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 // 设置时间控件的默认值.
-                dpkStartTime.SelectedDate = DateTime.Now;
+                dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
                 // 处理审批窗口关闭事件.
@@ -72,9 +72,9 @@ namespace TZMS.Web
 
 
             // 查询文本
-            if (!string.IsNullOrEmpty(ttbSearch.Text.Trim()))
+            if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
-                strCondition.Append("  and UserName like '%" + ttbSearch.Text.Trim() + "%'");
+                strCondition.Append("  and UserName like '%" + tbxSearch.Text.Trim() + "%'");
             }
 
             // 查询部门
@@ -129,7 +129,7 @@ namespace TZMS.Web
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
             BindGrid();
         }

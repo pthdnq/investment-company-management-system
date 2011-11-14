@@ -18,7 +18,8 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 // 设定时间控件的默认时间.
-                dpkStartTime.SelectedDate = dpkEndTime.SelectedDate = DateTime.Now;
+                dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
+                dpkEndTime.SelectedDate = DateTime.Now;
 
                 BindGrid();
             }

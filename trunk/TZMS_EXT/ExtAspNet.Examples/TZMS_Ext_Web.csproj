@@ -39,6 +39,10 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=4.5.0.0, Culture=neutral, PublicKeyToken=1666216fe981a30d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="blowery.Web.HttpCompress, Version=6.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\blowery.Web.HttpCompress.dll</HintPath>
