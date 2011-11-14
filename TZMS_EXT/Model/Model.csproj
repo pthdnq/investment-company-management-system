@@ -56,12 +56,14 @@
     <Compile Include="InvestmentProjectInfo.cs" />
     <Compile Include="LeaveApproveInfo.cs" />
     <Compile Include="LeaveInfo.cs" />
+    <Compile Include="MessageInfo.cs" />
     <Compile Include="NoAttendCheckInfo.cs" />
     <Compile Include="NoAttendInfo.cs" />
     <Compile Include="ProjectProcessHistoryInfo.cs" />
     <Compile Include="ProjectProcessInfo.cs" />
     <Compile Include="ReceivablesAuditHistoryInfo.cs" />
     <Compile Include="ReceivablesInfo.cs" />
+    <Compile Include="SentMessageInfo.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRoles.cs" />
