@@ -8,7 +8,7 @@
 <body>
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" AutoSizePanelID="pelMain" HideScrollbar="true"
-        runat="server" />
+        EnableAjax="false" runat="server" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
         Layout="Anchor">
@@ -18,15 +18,14 @@
                 <Rows>
                     <ext:FormRow>
                         <Items>
-                            <ext:TwinTriggerBox runat="server" EmptyText="请输入姓名或账号查询" ShowLabel="false" ID="ttbSearch"
-                                Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click">
-                            </ext:TwinTriggerBox>
+                            <ext:TextBox ID="tbxSearch" runat="server" EmptyText="请输入姓名或账号查询" ShowLabel="false">
+                            </ext:TextBox>
                             <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
                             <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
                             </ext:DatePicker>
-                            <ext:Label ID="Label1" runat="server">
-                            </ext:Label>
+                            <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
+                            </ext:Button>
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -37,7 +36,7 @@
                     <ext:Toolbar ID="toolApp" runat="server">
                         <Items>
                             <ext:Button ID="btnExport" Text="导出" ToolTip="导出到Excel" IconUrl="~/Images/xls.gif"
-                                runat="server">
+                                runat="server" OnClick="btnExport_Click">
                             </ext:Button>
                             <ext:Button ID="btnImport" Text="导入..." ToolTip="导入考勤信息" Icon="Add" runat="server">
                             </ext:Button>
@@ -64,8 +63,8 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndImportAttend" Title="导入考勤" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Width="700px" EnableConfirmOnClose="true"
-        Height="500px" OnClose="wndImportAttend_Close">
+        Target="Parent" runat="server" IsModal="true" Width="450px" EnableConfirmOnClose="true"
+        Height="191px" OnClose="wndImportAttend_Close">
     </ext:Window>
     </form>
 </body>

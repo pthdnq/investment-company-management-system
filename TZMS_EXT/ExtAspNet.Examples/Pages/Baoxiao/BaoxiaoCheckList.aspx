@@ -19,28 +19,29 @@
                 <Rows>
                     <ext:FormRow ID="FormRow1" runat="server">
                         <Items>
-                            <ext:DropDownList ID="ddlstDept" runat="server" Label="部门名称" OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged">
+                            <ext:TextBox ID="tbxSearch" runat="server" EmptyText="请输入姓名查询" ShowLabel="false">
+                            </ext:TextBox>
+                            <ext:DropDownList ID="ddlstDept" runat="server" Label="部门名称">
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddlstAproveState" runat="server" Label="审批状态" OnSelectedIndexChanged="ddlstAproveState_SelectedIndexChanged">
+                            <ext:DropDownList ID="ddlstAproveState" runat="server" Label="审批状态">
                                 <ext:ListItem Text="全部" Value="0" />
                                 <ext:ListItem Text="待审批" Value="1" Selected="true" />
                                 <ext:ListItem Text="已审批" Value="2" />
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddldateRange" AutoPostBack="true" runat="server" Label="日期范围"
-                                OnSelectedIndexChanged="ddldateRange_SelectedIndexChanged" Hidden="true">
-                                <ext:ListItem Text="全部" Value="0" />
-                                <ext:ListItem Text="一月内" Value="1" Selected="true" />
-                                <ext:ListItem Text="三月内" Value="2" />
-                                <ext:ListItem Text="半年内" Value="3" />
-                                <ext:ListItem Text="一年内" Value="4" />
-                            </ext:DropDownList>
+                            <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
+                            </ext:Button>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ID="FormRow2" runat="server">
+                        <Items>
                             <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
                             <ext:DatePicker ID="dpkEndTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
-                            <ext:TwinTriggerBox runat="server" EmptyText="请输入姓名查询" ShowLabel="false" ID="ttbSearch"
-                                Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click">
-                            </ext:TwinTriggerBox>
+                            <ext:Label ID="Label3" runat="server">
+                            </ext:Label>
+                            <ext:Label ID="Label1" runat="server">
+                            </ext:Label>
                         </Items>
                     </ext:FormRow>
                 </Rows>

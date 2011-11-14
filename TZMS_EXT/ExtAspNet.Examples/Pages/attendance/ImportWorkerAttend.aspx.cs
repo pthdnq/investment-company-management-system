@@ -39,7 +39,7 @@ namespace TZMS.Web
         {
             if (uploadExcel.HasFile == false)
             {
-                Alert.Show("请导入Excel文件!");
+                Alert.Show("请选择Excel文件!");
                 return;
             }
 

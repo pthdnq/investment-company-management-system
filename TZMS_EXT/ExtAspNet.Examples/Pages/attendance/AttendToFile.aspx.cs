@@ -17,7 +17,7 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
-                dpkStartTime.SelectedDate = DateTime.Now;
+                dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
                 // 绑定列表.

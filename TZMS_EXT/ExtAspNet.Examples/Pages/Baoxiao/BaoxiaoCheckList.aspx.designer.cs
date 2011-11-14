@@ -58,6 +58,15 @@ namespace TZMS.Web {
         protected global::ExtAspNet.FormRow FormRow1;
         
         /// <summary>
+        /// tbxSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbxSearch;
+        
+        /// <summary>
         /// ddlstDept control.
         /// </summary>
         /// <remarks>
@@ -76,13 +85,22 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DropDownList ddlstAproveState;
         
         /// <summary>
-        /// ddldateRange control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DropDownList ddldateRange;
+        protected global::ExtAspNet.Button btnSearch;
+        
+        /// <summary>
+        /// FormRow2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow2;
         
         /// <summary>
         /// dpkStartTime control.
@@ -103,13 +121,22 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DatePicker dpkEndTime;
         
         /// <summary>
-        /// ttbSearch control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TwinTriggerBox ttbSearch;
+        protected global::ExtAspNet.Label Label3;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Label1;
         
         /// <summary>
         /// pelGrid control.

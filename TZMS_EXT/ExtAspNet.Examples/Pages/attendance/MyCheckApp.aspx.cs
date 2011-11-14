@@ -102,7 +102,7 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
-                dpkStartTime.SelectedDate = DateTime.Now;
+                dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
                 // 处理审批窗口关闭事件.
@@ -155,9 +155,9 @@ namespace TZMS.Web
             }
 
             // 查询文本
-            if (!string.IsNullOrEmpty(ttbSearch.Text.Trim()))
+            if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
-                strCondition.Append("  and (name like '%" + ttbSearch.Text.Trim() + "%' or AccountNo like '%" + ttbSearch.Text.Trim() + "%')");
+                strCondition.Append("  and (name like '%" + tbxSearch.Text.Trim() + "%' or AccountNo like '%" + tbxSearch.Text.Trim() + "%')");
             }
 
             // 查询部门
@@ -356,22 +356,21 @@ namespace TZMS.Web
         //}
 
         /// <summary>
-        /// 查询事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
-        {
-            //SearchText = ttbSearch.Text.Trim();
-            BindGrid();
-        }
-
-        /// <summary>
         /// 审批窗口关闭事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void wndApprove_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
+        {
+            BindGrid();
+        }
+
+        /// <summary>
+        /// 查询事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
             BindGrid();
         }

@@ -28,17 +28,14 @@
                     <ext:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableBackgroundColor="true"
                         ShowBorder="false" ShowHeader="false" Title="ContentPanel">
                         <br />
-                        导入考勤Excel:
+                        <br />
+                        <br />
+                        选择考勤Excel:
                         <asp:FileUpload ID="uploadExcel" runat="server"></asp:FileUpload>
-                    
-
-
-                    
-
-
-                    
-
-
+                        <br />
+                        <ext:HyperLink runat=server NavigateUrl="../../Template/考勤记录.xls" Text="考勤模板"></ext:HyperLink>
+                        <br />
+                        <br />
                     </ext:ContentPanel>
                 </Items>
             </ext:Panel>

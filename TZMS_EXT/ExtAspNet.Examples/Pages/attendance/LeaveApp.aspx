@@ -29,8 +29,6 @@
                             </ext:DatePicker>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="btnSearch_Click">
                             </ext:Button>
-                            <ext:Label runat="server">
-                            </ext:Label>
                         </Items>
                     </ext:FormRow>
                 </Rows>

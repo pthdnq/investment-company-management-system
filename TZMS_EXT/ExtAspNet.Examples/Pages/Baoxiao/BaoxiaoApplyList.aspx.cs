@@ -58,7 +58,7 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 // 设定默认时间
-                dpkStartTime.SelectedDate = DateTime.Now;
+                dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
                 //报销申请按钮.
@@ -67,11 +67,11 @@ namespace TZMS.Web
                 wndBaoxiao.OnClientCloseButtonClick = wndBaoxiao.GetHidePostBackReference();
 
                 // 获取默认值.
-                BaoxiaoState = Convert.ToInt32(ddlState.SelectedValue);
-                DateRange = Convert.ToInt32(ddldateRange.SelectedValue);
+                //BaoxiaoState = Convert.ToInt32(ddlState.SelectedValue);
+                //DateRange = Convert.ToInt32(ddldateRange.SelectedValue);
 
                 // 绑定数据到列表.
-                BindGrid(BaoxiaoState, DateRange);
+                BindGrid(Convert.ToInt32(ddlState.SelectedValue), 0);
             }
         }
 
@@ -172,7 +172,7 @@ namespace TZMS.Web
         protected void gridBaoxiao_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
         {
             gridBaoxiao.PageIndex = e.NewPageIndex;
-            BindGrid(BaoxiaoState, DateRange);
+            BindGrid(Convert.ToInt32(ddlState.SelectedValue), 0);
         }
 
         /// <summary>
@@ -267,28 +267,6 @@ namespace TZMS.Web
         protected void wndBaoxiao_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
             BindGrid(Convert.ToInt32(ddlState.SelectedValue), 0);
-        }
-
-        /// <summary>
-        /// 审批状态变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddlState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BaoxiaoState = Convert.ToInt32(ddlState.SelectedValue);
-            BindGrid(BaoxiaoState, DateRange);
-        }
-
-        /// <summary>
-        /// 时间范围变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddldateRange_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DateRange = Convert.ToInt32(ddldateRange.SelectedValue);
-            BindGrid(BaoxiaoState, DateRange);
         }
 
         /// <summary>

@@ -103,7 +103,7 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 // 设置默认时间.
-                dpkStartTime.SelectedDate = DateTime.Now;
+                dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
                 // 处理审批窗口关闭事件.
@@ -135,7 +135,7 @@ namespace TZMS.Web
             SearchText = string.Empty;
             SearchDept = ddlstDept.SelectedText;
             SearchApproveState = Convert.ToInt32(ddlstAproveState.SelectedValue);
-            SearchDateRange = Convert.ToInt32(ddldateRange.SelectedValue);
+            //SearchDateRange = Convert.ToInt32(ddldateRange.SelectedValue);
         }
 
         /// <summary>
@@ -152,13 +152,13 @@ namespace TZMS.Web
             // 查询文本
             if (!string.IsNullOrEmpty(strSearchText))
             {
-                strCondition.Append("  and UserName like '%" + SearchText + "%'");
+                strCondition.Append("  and UserName like '%" + strSearchText + "%'");
             }
 
             // 查询部门
-            if (!string.IsNullOrEmpty(SearchDept) && SearchDept != "全部")
+            if (!string.IsNullOrEmpty(strSearchDept) && strSearchDept != "全部")
             {
-                strCondition.Append(" and Dept='" + SearchDept + "'");
+                strCondition.Append(" and Dept='" + strSearchDept + "'");
             }
 
             // 审批状态
@@ -227,7 +227,7 @@ namespace TZMS.Web
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
             if (DateTime.Compare(Convert.ToDateTime(dpkStartTime.SelectedDate), Convert.ToDateTime(dpkEndTime.SelectedDate)) == 1)
             {
@@ -235,40 +235,7 @@ namespace TZMS.Web
                 return;
             }
 
-            BindGrid(ttbSearch.Text.Trim(), ddlstDept.SelectedText, Convert.ToInt32(ddlstAproveState.SelectedValue), 0);
-        }
-
-        /// <summary>
-        /// 部门下拉框变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddlstDept_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SearchDept = ddlstDept.SelectedText;
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
-        }
-
-        /// <summary>
-        /// 审批状态变动状态
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddlstAproveState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SearchApproveState = Convert.ToInt32(ddlstAproveState.SelectedValue);
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
-        }
-
-        /// <summary>
-        /// 事件范围变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddldateRange_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SearchDateRange = Convert.ToInt32(ddldateRange.SelectedValue);
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
+            BindGrid(tbxSearch.Text.Trim(), ddlstDept.SelectedText, Convert.ToInt32(ddlstAproveState.SelectedValue), 0);
         }
 
         /// <summary>
@@ -279,7 +246,7 @@ namespace TZMS.Web
         protected void gridBaoxiaoCheck_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
         {
             gridBaoxiaoCheck.PageIndex = e.NewPageIndex;
-            BindGrid(SearchText, SearchDept, SearchApproveState, SearchDateRange);
+            BindGrid(tbxSearch.Text.Trim(), ddlstDept.SelectedText, Convert.ToInt32(ddlstAproveState.SelectedValue), 0);
         }
 
         /// <summary>
@@ -351,7 +318,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndBaoxiaoCheck_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
-            BindGrid(ttbSearch.Text.Trim(), ddlstDept.SelectedText, Convert.ToInt32(ddlstAproveState.SelectedValue), 0);
+            BindGrid(tbxSearch.Text.Trim(), ddlstDept.SelectedText, Convert.ToInt32(ddlstAproveState.SelectedValue), 0);
         }
 
 
