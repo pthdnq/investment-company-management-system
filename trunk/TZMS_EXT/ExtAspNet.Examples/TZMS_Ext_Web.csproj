@@ -518,6 +518,10 @@
     <Content Include="Pages\InvestmentProjectPages\ProjectInfoList.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectProcessAdult.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectProcessList.aspx" />
+    <Content Include="Pages\Message\MyMessageList.aspx" />
+    <Content Include="Pages\Message\NewMessage.aspx" />
+    <Content Include="Pages\Message\SelectReceivers.aspx" />
+    <Content Include="Pages\Message\SentMessage.aspx" />
     <Content Include="Pages\system\ChangePsw.aspx" />
     <Content Include="Pages\system\MyMessage.aspx" />
     <Content Include="Pages\system\MyWeb.aspx" />
@@ -1170,6 +1174,34 @@
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectProcessList.aspx.designer.cs">
       <DependentUpon>ProjectProcessList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Message\MyMessageList.aspx.cs">
+      <DependentUpon>MyMessageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Message\MyMessageList.aspx.designer.cs">
+      <DependentUpon>MyMessageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Message\NewMessage.aspx.cs">
+      <DependentUpon>NewMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Message\NewMessage.aspx.designer.cs">
+      <DependentUpon>NewMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Message\SelectReceivers.aspx.cs">
+      <DependentUpon>SelectReceivers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Message\SelectReceivers.aspx.designer.cs">
+      <DependentUpon>SelectReceivers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Message\SentMessage.aspx.cs">
+      <DependentUpon>SentMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Message\SentMessage.aspx.designer.cs">
+      <DependentUpon>SentMessage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\system\ChangePsw.aspx.cs">
       <DependentUpon>ChangePsw.aspx</DependentUpon>
