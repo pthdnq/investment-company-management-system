@@ -116,6 +116,21 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
+                            <ext:AccordionPane ID="AccordionPane8" runat="server" Icon="PageWhiteKey" Title="消息管理"
+                                BodyPadding="1px 1px" ShowBorder="false">
+                                <Items>
+                                    <ext:Tree ID="Tree4" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                        <Nodes>
+                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="wdxx" OnClientClick=" tabs('wdxx','UserKey');"
+                                                Text="接受消息">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="TimeGo" NodeID="yfxx" OnClientClick=" tabs('yfxx','UserKey');"
+                                                Text="已发消息">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:Tree>
+                                </Items>
+                            </ext:AccordionPane>
                             <ext:AccordionPane ID="AccordionPane7" runat="server" Title="网络报销" Icon="Cog" BodyPadding="1px 1px"
                                 ShowBorder="false">
                                 <Items>
@@ -299,6 +314,14 @@
                     break;
                 case "wdkgd":
                     LoadTab("Pages/attendance/NoAttendToFile.aspx", "未打卡归档", icon);
+                    break;
+
+                // 消息管理. 
+                case "wdxx":
+                    LoadTab("Pages/Message/MyMessageList.aspx", "我的消息", icon);
+                    break;
+                case "yfxx":
+                    LoadTab("Pages/Message/SentMessage.aspx", "已发消息", icon);
                     break;
 
                 //投资部借款 InvestmentLoan                     
