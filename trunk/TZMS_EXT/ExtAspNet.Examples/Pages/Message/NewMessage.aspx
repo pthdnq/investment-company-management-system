@@ -52,7 +52,7 @@
                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="60%">
                                 <Items>
                                     <ext:TextArea ID="taaContent" ShowRedStar="true" MaxLength="100" MaxLengthMessage="最多只能输入100个字！"
-                                        Height="100px" Required="true" runat="server" Label="消息内容">
+                                        Height="363px" Required="true" runat="server" Label="消息内容">
                                     </ext:TextArea>
                                 </Items>
                             </ext:FormRow>
@@ -63,8 +63,8 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndRecevicers" Title="设置收信人" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Width="700px" EnableConfirmOnClose="true"
-        Height="500px">
+        Target="Top" runat="server" IsModal="true" Width="560px" EnableConfirmOnClose="true"
+        Height="450px">
     </ext:Window>
     </form>
 </body>

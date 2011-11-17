@@ -48,7 +48,7 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField DataField="Recevicer" HeaderText="收信人" DataTooltipField="Recevicer" />
-                            <ext:BoundField DataField="Title" HeaderText="标题" />
+                            <ext:BoundField DataField="Tile" HeaderText="标题" />
                             <ext:BoundField DataField="Context" HeaderText="内容" DataTooltipField="Context" ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="SendDate" HeaderText="发送日期" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />

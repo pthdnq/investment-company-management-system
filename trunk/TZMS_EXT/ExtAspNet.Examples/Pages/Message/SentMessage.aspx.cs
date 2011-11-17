@@ -26,6 +26,8 @@ namespace TZMS.Web.Pages
                 btnNewMessage.OnClientClick = wndNewMessage.GetShowReference("NewMessage.aspx?Type=Add") + "return false;";
                 wndNewMessage.OnClientCloseButtonClick = wndNewMessage.GetHidePostBackReference();
 
+                wndViewMessage.OnClientCloseButtonClick = wndViewMessage.GetHideReference();
+
                 // 绑定列表.
                 BindGrid();
             }
@@ -139,6 +141,26 @@ namespace TZMS.Web.Pages
         {
             if (e.DataItem != null)
             {
+                SentMessageInfo _info = (SentMessageInfo)e.DataItem;
+
+                if (!string.IsNullOrEmpty(_info.Recevicer))
+                {
+                    string[] arrayRecevicers = _info.Recevicer.Split('|');
+                    string strRecevicers = string.Empty;
+                    for (int i = 0; i < arrayRecevicers.Length; i++)
+                    {
+                        if (i != 0)
+                        {
+                            strRecevicers += ("," + arrayRecevicers[i].Split(',')[1]);
+                        }
+                        else
+                        {
+                            strRecevicers +=  arrayRecevicers[i].Split(',')[1];
+                        }
+                    }
+                    e.Values[1] = "<span  ext:qtip=\"" + strRecevicers + "\">" + strRecevicers + "</span>";
+                }
+
                 e.Values[4] = DateTime.Parse(e.Values[4].ToString()).ToString("yyyy-MM-dd HH:mm");
             }
         }

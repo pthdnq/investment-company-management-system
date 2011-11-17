@@ -20,8 +20,9 @@
                     <ext:FormRow>
                         <Items>
                             <ext:DropDownList ID="ddlMessageState" runat="server" Label="消息类型">
-                                <ext:ListItem Text="未查看信息" Value="1" Selected="true" />
-                                <ext:ListItem Text="已查看信息" Value="2" />
+                                <ext:ListItem Text="所有消息" Value="2" />
+                                <ext:ListItem Text="未查看信息" Value="0" Selected="true" />
+                                <ext:ListItem Text="已查看信息" Value="1" />
                             </ext:DropDownList>
                             <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
@@ -52,7 +53,7 @@
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField DataField="SenderName" HeaderText="发送人" />
                             <ext:BoundField DataField="DeptName" HeaderText="发送人部门" />
-                            <ext:BoundField DataField="Title" HeaderText="标题" />
+                            <ext:BoundField DataField="Tile" HeaderText="标题" />
                             <ext:BoundField DataField="Context" HeaderText="内容" DataTooltipField="Context" ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="SendDate" HeaderText="发送日期" />
                             <ext:BoundField DataField="IsView" HeaderText="查看状态"/>
