@@ -20,11 +20,10 @@
         </Toolbars>
         <Items>
             <ext:Grid ID="gridUnSelectUser" Title="员工列表" ShowBorder="true" ShowHeader="true"
-                ColumnWidth="44%"  runat="server" AutoHeight="true" Height="385px"
-                EnableMultiSelect="false">
+                ColumnWidth="44%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="false">
                 <Columns>
-                    <ext:BoundField DataField="Name" HeaderText="姓名"  Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号"  Width="65px"  />
+                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
                     <ext:BoundField DataField="Dept" HeaderText="部门" />
                 </Columns>
             </ext:Grid>
@@ -33,20 +32,18 @@
                 <Items>
                     <ext:Label runat="server" Height="150px">
                     </ext:Label>
-                    <ext:Button ID="btnSelect" runat="server" ToolTip="选择" Icon="ArrowRight" 
-                        OnClick="btnSelect_Click">
+                    <ext:Button ID="btnSelect" runat="server" ToolTip="选择" Icon="ArrowRight" OnClick="btnSelect_Click">
                     </ext:Button>
-                    <ext:Button ID="btnUnselect" runat="server" ToolTip="移除" Icon="ArrowLeft" 
-                        OnClick="btnUnselect_Click">
+                    <ext:Button ID="btnUnselect" runat="server" ToolTip="移除" Icon="ArrowLeft" OnClick="btnUnselect_Click">
                     </ext:Button>
                 </Items>
             </ext:Panel>
             <ext:Grid ID="gridSelectdUsers" Title="我的审批人" ShowBorder="true" ShowHeader="true"
-                EnableMultiSelect="false"  ColumnWidth="43%" runat="server"
-                AutoHeight="true" Height="385px">
+                EnableMultiSelect="false" ColumnWidth="43%" runat="server" AutoHeight="true"
+                Height="385px">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号"  Width="65px"  />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
                     <ext:BoundField DataField="Dept" HeaderText="部门" />
                 </Columns>
             </ext:Grid>

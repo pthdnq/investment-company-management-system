@@ -76,6 +76,9 @@ namespace TZMS.Web.Pages
         {
             if (!IsPostBack)
             {
+
+                wndRecevicers.OnClientCloseButtonClick = wndRecevicers.GetHideReference();
+
                 string strOperatorType = Page.Request.QueryString["Type"];
                 string strID = Page.Request.QueryString["ID"];
                 switch (strOperatorType)
@@ -256,6 +259,9 @@ namespace TZMS.Web.Pages
             if (result == -1)
             {
                 Alert.Show("消息发送成功!");
+                Session[CurrentUser.ObjectId.ToString()] = null;
+                btnSend.Enabled = false;
+                btnRecevicer.Enabled = false;
             }
             else
             {
@@ -294,7 +300,19 @@ namespace TZMS.Web.Pages
         /// <param name="e"></param>
         protected void btnRecevicer_Click(object sender, EventArgs e)
         {
+            if (OperatorType == "Add")
+            {
+                wndRecevicers.Title = "设置收信人";
+                wndRecevicers.IFrameUrl = "SelectReceivers.aspx?Type=Add";
+                wndRecevicers.Hidden = false;
+            }
 
+            if (OperatorType == "ViewSentMessage")
+            {
+                wndRecevicers.Title = "查看收信人";
+                wndRecevicers.IFrameUrl = "SelectReceivers.aspx?Type=View&ID=" + SentMessageID;
+                wndRecevicers.Hidden = false;
+            }
         }
 
         #endregion
