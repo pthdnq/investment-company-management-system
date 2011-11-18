@@ -66,6 +66,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ViewDate",DbType.DateTime),
 				new SqlParameter("@IsView",DbType.Boolean),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                new SqlParameter("@SentMessageId",DbType.Guid)
 				};
 
                 int i = 0;
@@ -81,6 +82,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MessageInfo.ViewDate;
                 sqlparam[i++].Value = MessageInfo.IsView;
                 sqlparam[i++].Value = MessageInfo.IsDelete;
+                sqlparam[i++].Value = MessageInfo.SentMessageId;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -147,6 +149,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ViewDate",DbType.DateTime),
 				new SqlParameter("@IsView",DbType.Boolean),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                new SqlParameter("@SentMessageId",DbType.Guid)
                 };
 
                 int i = 0;
@@ -162,6 +165,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MessageInfo.ViewDate;
                 sqlparam[i++].Value = MessageInfo.IsView;
                 sqlparam[i++].Value = MessageInfo.IsDelete;
+                sqlparam[i++].Value = MessageInfo.SentMessageId;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -293,6 +297,10 @@ namespace com.TZMS.DataAccess
             if (MessageInfoInfoDataRow["IsDelete"] != null)
             {
                 MessageInfoInfo.IsDelete = bool.Parse(DataUtil.GetStringValueOfRow(MessageInfoInfoDataRow, "IsDelete"));
+            }
+            if (MessageInfoInfoDataRow["SentMessageId"] != null)
+            {
+                MessageInfoInfo.SentMessageId = new Guid(DataUtil.GetStringValueOfRow(MessageInfoInfoDataRow, "SentMessageId"));
             }
 
             return MessageInfoInfo;

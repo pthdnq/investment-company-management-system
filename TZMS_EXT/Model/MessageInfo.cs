@@ -45,6 +45,7 @@ namespace com.TZMS.Model
         private DateTime _viewDate = DBEmptyDate;
         private bool _isView;
         private bool _isDelete;
+        private Guid _sentMessageId;
         #endregion
 
         #region Property
@@ -154,6 +155,12 @@ namespace com.TZMS.Model
         {
             get { return _isDelete; }
             set { _isDelete = value; }
+        }
+
+        public Guid SentMessageId
+        {
+            get { return _sentMessageId; }
+            set { _sentMessageId = value; }
         }
 
         #endregion

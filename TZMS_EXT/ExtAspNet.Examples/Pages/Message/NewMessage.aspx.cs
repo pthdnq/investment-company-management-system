@@ -87,6 +87,7 @@ namespace TZMS.Web.Pages
                     case "Add":
                         {
                             OperatorType = strOperatorType;
+                            SentMessageID = Guid.NewGuid().ToString();
                             BindMessageInfo();
                             SetControlsState();
                         }
@@ -96,6 +97,7 @@ namespace TZMS.Web.Pages
                         {
                             OperatorType = strOperatorType;
                             SentMessageID = strID;
+
                             BindMessageInfo();
                             SetControlsState();
                         }
@@ -105,6 +107,7 @@ namespace TZMS.Web.Pages
                         {
                             OperatorType = strOperatorType;
                             MessageID = strID;
+
                             BindMessageInfo();
                             SetControlsState();
                         }
@@ -129,6 +132,8 @@ namespace TZMS.Web.Pages
             if (OperatorType == "Add")
             {
                 lblSentDate.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+
+                MUDAttachment.RecordID = SentMessageID;
             }
 
             // 绑定发送消息.
@@ -140,6 +145,8 @@ namespace TZMS.Web.Pages
                     lblSentDate.Text = _info.SendDate.ToString("yyyy-MM-dd HH:mm");
                     tbxTitle.Text = _info.Tile;
                     taaContent.Text = _info.Context;
+
+                    MUDAttachment.RecordID = _info.ObjectId.ToString();
                 }
             }
 
@@ -153,6 +160,8 @@ namespace TZMS.Web.Pages
                     lblSentDate.Text = _info.SendDate.ToString("yyyy-MM-dd HH:mm");
                     tbxTitle.Text = _info.Tile;
                     taaContent.Text = _info.Context;
+
+                    MUDAttachment.RecordID = _info.SentMessageId.ToString();
                 }
             }
         }
@@ -173,6 +182,10 @@ namespace TZMS.Web.Pages
                         break;
                     case "ViewSentMessage":
                         {
+
+                            MUDAttachment.ShowAddBtn = "false";
+                            MUDAttachment.ShowDelBtn = "false";
+
                             lblSender.Hidden = true;
                             btnSend.Enabled = false;
                             tbxTitle.Required = false;
@@ -185,6 +198,9 @@ namespace TZMS.Web.Pages
                         break;
                     case "ViewMessage":
                         {
+                            MUDAttachment.ShowAddBtn = "false";
+                            MUDAttachment.ShowDelBtn = "false";
+
                             btnSend.Enabled = false;
                             btnSend.Hidden = true;
                             btnRecevicer.Enabled = false;
@@ -221,7 +237,7 @@ namespace TZMS.Web.Pages
 
             // 创建发送消息实例.
             SentMessageInfo _sentInfo = new SentMessageInfo();
-            _sentInfo.ObjectId = Guid.NewGuid();
+            _sentInfo.ObjectId = new Guid(SentMessageID);
             _sentInfo.SenderId = CurrentUser.ObjectId;
             _sentInfo.SenderName = CurrentUser.Name;
             _sentInfo.DeptName = CurrentUser.Dept;
@@ -251,6 +267,7 @@ namespace TZMS.Web.Pages
                 _info.ViewDate = ACommonInfo.DBEmptyDate;
                 _info.IsView = false;
                 _info.IsDelete = false;
+                _info.SentMessageId = _sentInfo.ObjectId;
 
                 _manage.AddNewMessage(_info);
                 _info = null;
@@ -262,6 +279,8 @@ namespace TZMS.Web.Pages
                 Session[CurrentUser.ObjectId.ToString()] = null;
                 btnSend.Enabled = false;
                 btnRecevicer.Enabled = false;
+                MUDAttachment.ShowAddBtn = "false";
+                MUDAttachment.ShowDelBtn = "false";
             }
             else
             {
