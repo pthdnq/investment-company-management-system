@@ -38,7 +38,7 @@
                     </ext:Button>
                 </Items>
             </ext:Panel>
-            <ext:Grid ID="gridSelectdUsers" Title="我的审批人" ShowBorder="true" ShowHeader="true"
+            <ext:Grid ID="gridSelectdUsers" Title="常用审批人" ShowBorder="true" ShowHeader="true"
                 EnableMultiSelect="false" ColumnWidth="43%" runat="server" AutoHeight="true"
                 Height="385px">
                 <Columns>
