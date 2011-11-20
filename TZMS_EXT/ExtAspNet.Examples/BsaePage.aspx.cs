@@ -135,6 +135,8 @@ namespace TZMS.Web
 
         public string strArchiver = "B38C3283-B93F-4F5C-BECD-0298DD20ADC2";
 
+        public string Company = "合肥吉信财务管理有限公司";
+
         /// <summary>
         /// 本系统角色 枚举
         /// </summary>

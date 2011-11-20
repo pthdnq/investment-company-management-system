@@ -75,6 +75,9 @@
     <Compile Include="NoAttendCtrl.cs" />
     <Compile Include="ProjectProcessCtrl.cs" />
     <Compile Include="ProjectProcessHistoryCtrl.cs" />
+    <Compile Include="ProxyAccountingApplyCtrl.cs" />
+    <Compile Include="ProxyAccountingApproveCtrl.cs" />
+    <Compile Include="ProxyAccountingUnitCtrl.cs" />
     <Compile Include="ReceivablesAuditHistoryCtrl.cs" />
     <Compile Include="ReceivablesCtrl.cs" />
     <Compile Include="SentMessageCtrl.cs" />

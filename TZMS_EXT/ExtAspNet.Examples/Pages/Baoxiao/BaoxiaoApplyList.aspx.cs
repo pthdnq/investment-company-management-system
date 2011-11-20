@@ -126,6 +126,13 @@ namespace TZMS.Web
 
             DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
             DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+
+            if (DateTime.Compare(startTime, endTime) == 1)
+            {
+                Alert.Show("结束日期不可小于开始日期!");
+                return;
+            }
+
             strCondition.Append(" and ApplyTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
 
             #endregion
@@ -201,6 +208,7 @@ namespace TZMS.Web
                 BaoxiaoInfo _info = _manage.GetBaoxiaoByObjectID(strBaoxiaoID);
                 if (_info != null)
                 {
+                    _info.Isdelete = true;
                     _manage.UpdateBaoxiao(_info);
 
                     BindGrid(BaoxiaoState, DateRange);

@@ -61,6 +61,9 @@
     <Compile Include="NoAttendInfo.cs" />
     <Compile Include="ProjectProcessHistoryInfo.cs" />
     <Compile Include="ProjectProcessInfo.cs" />
+    <Compile Include="ProxyAccountingApplyInfo.cs" />
+    <Compile Include="ProxyAccountingApproveInfo.cs" />
+    <Compile Include="ProxyAccountingUnitInfo.cs" />
     <Compile Include="ReceivablesAuditHistoryInfo.cs" />
     <Compile Include="ReceivablesInfo.cs" />
     <Compile Include="SentMessageInfo.cs" />
