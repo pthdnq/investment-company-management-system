@@ -10,7 +10,7 @@
 namespace TZMS.Web {
     
     
-    public partial class index {
+    public partial class ProxyAccountApplyNew {
         
         /// <summary>
         /// form1 control.
@@ -31,249 +31,6 @@ namespace TZMS.Web {
         protected global::ExtAspNet.PageManager PageManager1;
         
         /// <summary>
-        /// RegionPanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.RegionPanel RegionPanel1;
-        
-        /// <summary>
-        /// Region1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Region Region1;
-        
-        /// <summary>
-        /// ContentPanel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.ContentPanel ContentPanel2;
-        
-        /// <summary>
-        /// labCurrentVersion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labCurrentVersion;
-        
-        /// <summary>
-        /// Region2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Region Region2;
-        
-        /// <summary>
-        /// Accordion1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Accordion Accordion1;
-        
-        /// <summary>
-        /// AccordionPane2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.AccordionPane AccordionPane2;
-        
-        /// <summary>
-        /// Tree1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Tree Tree1;
-        
-        /// <summary>
-        /// AccordionPane3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.AccordionPane AccordionPane3;
-        
-        /// <summary>
-        /// Tree2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Tree Tree2;
-        
-        /// <summary>
-        /// AccordionPane8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.AccordionPane AccordionPane8;
-        
-        /// <summary>
-        /// Tree4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Tree Tree4;
-        
-        /// <summary>
-        /// AccordionPane9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.AccordionPane AccordionPane9;
-        
-        /// <summary>
-        /// Tree5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Tree Tree5;
-        
-        /// <summary>
-        /// AccordionPane7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.AccordionPane AccordionPane7;
-        
-        /// <summary>
-        /// Tree3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Tree Tree3;
-        
-        /// <summary>
-        /// AccordionPane1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.AccordionPane AccordionPane1;
-        
-        /// <summary>
-        /// TreeInvestmentLoan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Tree TreeInvestmentLoan;
-        
-        /// <summary>
-        /// AccordionPane4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.AccordionPane AccordionPane4;
-        
-        /// <summary>
-        /// TreeInvestmentProject control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Tree TreeInvestmentProject;
-        
-        /// <summary>
-        /// AccordionPane5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.AccordionPane AccordionPane5;
-        
-        /// <summary>
-        /// TreeBankLoan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Tree TreeBankLoan;
-        
-        /// <summary>
-        /// AccordionPane6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.AccordionPane AccordionPane6;
-        
-        /// <summary>
-        /// TreeFolkFinancing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Tree TreeFolkFinancing;
-        
-        /// <summary>
-        /// mainRegion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Region mainRegion;
-        
-        /// <summary>
-        /// tabManage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TabStrip tabManage;
-        
-        /// <summary>
-        /// systemTab control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Tab systemTab;
-        
-        /// <summary>
         /// pelMain control.
         /// </summary>
         /// <remarks>
@@ -292,57 +49,219 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Toolbar Toolbar1;
         
         /// <summary>
-        /// myMessage control.
+        /// btnClose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button myMessage;
+        protected global::ExtAspNet.Button btnClose;
         
         /// <summary>
-        /// changePsw control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button changePsw;
+        protected global::ExtAspNet.Button btnSubmit;
         
         /// <summary>
-        /// setChecker control.
+        /// pelOperator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button setChecker;
+        protected global::ExtAspNet.Panel pelOperator;
         
         /// <summary>
-        /// newSetCheckerWindow control.
+        /// mainForm2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Window newSetCheckerWindow;
+        protected global::ExtAspNet.Form mainForm2;
         
         /// <summary>
-        /// myMessageWindow control.
+        /// FormRow2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Window myMessageWindow;
+        protected global::ExtAspNet.FormRow FormRow2;
         
         /// <summary>
-        /// changePswWindow control.
+        /// ddlstNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Window changePswWindow;
+        protected global::ExtAspNet.DropDownList ddlstNext;
+        
+        /// <summary>
+        /// ddlstApproveUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DropDownList ddlstApproveUser;
+        
+        /// <summary>
+        /// TabStrip1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TabStrip TabStrip1;
+        
+        /// <summary>
+        /// Tab1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tab Tab1;
+        
+        /// <summary>
+        /// mainForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Form mainForm;
+        
+        /// <summary>
+        /// FormRow1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow1;
+        
+        /// <summary>
+        /// ddlstUnit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DropDownList ddlstUnit;
+        
+        /// <summary>
+        /// FormRow7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow7;
+        
+        /// <summary>
+        /// lblCNMoney control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label lblCNMoney;
+        
+        /// <summary>
+        /// tbxMoney control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbxMoney;
+        
+        /// <summary>
+        /// FormRow8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow8;
+        
+        /// <summary>
+        /// tbxSument control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbxSument;
+        
+        /// <summary>
+        /// FormRow6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow6;
+        
+        /// <summary>
+        /// ddlstCollectMethod control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DropDownList ddlstCollectMethod;
+        
+        /// <summary>
+        /// dpkOpeningDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DatePicker dpkOpeningDate;
+        
+        /// <summary>
+        /// FormRow5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow5;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Label1;
+        
+        /// <summary>
+        /// Tab2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tab Tab2;
+        
+        /// <summary>
+        /// gridApproveHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Grid gridApproveHistory;
     }
 }

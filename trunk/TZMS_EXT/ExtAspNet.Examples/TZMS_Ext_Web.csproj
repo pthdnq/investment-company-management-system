@@ -522,6 +522,13 @@
     <Content Include="Pages\Message\NewMessage.aspx" />
     <Content Include="Pages\Message\SelectReceivers.aspx" />
     <Content Include="Pages\Message\SentMessage.aspx" />
+    <Content Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx" />
+    <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApplyList.aspx" />
+    <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApprove.aspx" />
+    <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApproveList.aspx" />
+    <Content Include="Pages\ProxyAccountingPages\ProxyAccountingUnitList.aspx" />
+    <Content Include="Pages\ProxyAccountingPages\ProxyAccountingUnitNew.aspx" />
+    <Content Include="Pages\ProxyAccountingPages\SelectAccountancy.aspx" />
     <Content Include="Pages\system\ChangePsw.aspx" />
     <Content Include="Pages\system\MyMessage.aspx" />
     <Content Include="Pages\system\MyWeb.aspx" />
@@ -1202,6 +1209,55 @@
     </Compile>
     <Compile Include="Pages\Message\SentMessage.aspx.designer.cs">
       <DependentUpon>SentMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx.cs">
+      <DependentUpon>ProxyAccountApplyNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx.designer.cs">
+      <DependentUpon>ProxyAccountApplyNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingApplyList.aspx.cs">
+      <DependentUpon>ProxyAccountingApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingApplyList.aspx.designer.cs">
+      <DependentUpon>ProxyAccountingApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingApprove.aspx.cs">
+      <DependentUpon>ProxyAccountingApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingApprove.aspx.designer.cs">
+      <DependentUpon>ProxyAccountingApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingApproveList.aspx.cs">
+      <DependentUpon>ProxyAccountingApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingApproveList.aspx.designer.cs">
+      <DependentUpon>ProxyAccountingApproveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingUnitList.aspx.cs">
+      <DependentUpon>ProxyAccountingUnitList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingUnitList.aspx.designer.cs">
+      <DependentUpon>ProxyAccountingUnitList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingUnitNew.aspx.cs">
+      <DependentUpon>ProxyAccountingUnitNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingUnitNew.aspx.designer.cs">
+      <DependentUpon>ProxyAccountingUnitNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\SelectAccountancy.aspx.cs">
+      <DependentUpon>SelectAccountancy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\SelectAccountancy.aspx.designer.cs">
+      <DependentUpon>SelectAccountancy.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\system\ChangePsw.aspx.cs">
       <DependentUpon>ChangePsw.aspx</DependentUpon>

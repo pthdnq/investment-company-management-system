@@ -336,7 +336,7 @@ namespace TZMS.Web
             // 获取数据.
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append("ApplyID = '" + BaoxiaoObjectID + "'");
-            strCondition.Append(" and (Checkstate <> 0 or (Checkstate = 0 and CheckOp = '0'))");
+            strCondition.Append(" and (Checkstate <> 0 or (Checkstate = 0 and CheckOp = 0))");
             List<BaoxiaoCheckInfo> lstBaoxiaoCheckInfo = new BaoxiaoManage().GetBaoxiaoCheckByCondition(strCondition.ToString());
 
             lstBaoxiaoCheckInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
