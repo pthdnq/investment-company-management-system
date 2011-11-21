@@ -15,7 +15,9 @@
         <Toolbars>
             <ext:Toolbar ID="Toolbar1" runat="server">
                 <Items>
-                    <ext:Button ID="btnSave" Text="保存" OnClick="btnSave_Click" runat="server" Icon="Disk" />
+                    <ext:Button ID="btnClose" OnClick="btnClose_Click" runat="server" Icon="Cancel" Text="关闭">
+                    </ext:Button>
+                    <ext:Button ID="btnSave" Text="设置" OnClick="btnSave_Click" runat="server" Icon="Disk" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>

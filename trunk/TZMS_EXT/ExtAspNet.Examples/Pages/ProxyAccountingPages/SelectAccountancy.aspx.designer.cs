@@ -49,6 +49,15 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Toolbar Toolbar1;
         
         /// <summary>
+        /// btnClose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Button btnClose;
+        
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>

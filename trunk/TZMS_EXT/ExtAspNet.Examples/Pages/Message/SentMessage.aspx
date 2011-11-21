@@ -35,7 +35,8 @@
                 <Toolbars>
                     <ext:Toolbar ID="toolApp" runat="server">
                         <Items>
-                            <ext:Button ID="btnNewMessage" Text="发送消息" ToolTip="发送消息" Icon="Add" runat="server">
+                            <ext:Button ID="btnNewMessage" Text="发送消息" ToolTip="发送消息" Icon="Add" runat="server"
+                                Hidden="true" Enabled="false">
                             </ext:Button>
                         </Items>
                     </ext:Toolbar>

@@ -122,10 +122,13 @@
                                     <ext:Tree ID="Tree4" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
                                             <ext:TreeNode Leaf="true" Icon="Time" NodeID="wdxx" OnClientClick=" tabs('wdxx','UserKey');"
-                                                Text="接受消息">
+                                                Text="我的消息">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" Icon="TimeGo" NodeID="yfxx" OnClientClick=" tabs('yfxx','UserKey');"
                                                 Text="已发消息">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="TimeGo" NodeID="fsxx" OnClientClick=" tabs('fsxx','UserKey');"
+                                                Text="发送消息">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
@@ -340,6 +343,9 @@
                     break;
                 case "yfxx":
                     LoadTab("Pages/Message/SentMessage.aspx", "已发消息", icon);
+                    break;
+                case "fsxx":
+                    LoadTab("Pages/Message/NewMessage.aspx?Type=Add", "发送消息", icon);
                     break;
 
                 // 代帐管理

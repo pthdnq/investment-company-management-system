@@ -231,7 +231,7 @@ namespace TZMS.Web.Pages
             }
 
             Session[CurrentUser.ObjectId.ToString()] = stringBuilder.ToString();
-            Alert.Show("保存收信人成功!");
+            Alert.Show("设置收信人成功!");
         }
 
         /// <summary>
@@ -248,14 +248,22 @@ namespace TZMS.Web.Pages
                 return;
             }
 
-            int index = gridUnSelectUser.SelectedRowIndexArray[0];
-
             List<UserInfo> lstSelected = SelectedUser;
             List<UserInfo> lstUnSelect = UnSelectUser;
 
-            UserInfo user = UnSelectUser[index];
-            lstSelected.Add(user);
-            lstUnSelect.RemoveAt(index);
+            for (int i = 0; i < gridUnSelectUser.SelectedRowIndexArray.Length; i++)
+            {
+                int index = gridUnSelectUser.SelectedRowIndexArray[i];
+
+                UserInfo user = UnSelectUser[index];
+                lstSelected.Add(user);
+            }
+
+            for (int i = gridUnSelectUser.SelectedRowIndexArray.Length -1; i >= 0; --i)
+            {
+                int index = gridUnSelectUser.SelectedRowIndexArray[i];
+                lstUnSelect.RemoveAt(index);
+            }
 
             lstSelected.Sort(delegate(UserInfo x, UserInfo y) { return string.Compare(x.JobNo, y.JobNo); });
             lstUnSelect.Sort(delegate(UserInfo x, UserInfo y) { return string.Compare(x.JobNo, y.JobNo); });
@@ -283,14 +291,22 @@ namespace TZMS.Web.Pages
                 Alert.Show("请选择要移除的收信人！");
                 return;
             }
-            int index = gridSelectdUsers.SelectedRowIndexArray[0];
 
             List<UserInfo> lstSelected = SelectedUser;
             List<UserInfo> lstUnSelect = UnSelectUser;
 
-            UserInfo user = SelectedUser[index];
-            lstUnSelect.Add(user);
-            lstSelected.RemoveAt(index);
+            for (int i = 0; i < gridSelectdUsers.SelectedRowIndexArray.Length; i++)
+            {
+                int index = gridSelectdUsers.SelectedRowIndexArray[i];
+                UserInfo user = SelectedUser[index];
+                lstUnSelect.Add(user);
+            }
+
+            for (int i = gridSelectdUsers.SelectedRowIndexArray.Length - 1; i >= 0; --i)
+            {
+                int index = gridSelectdUsers.SelectedRowIndexArray[i];
+                lstSelected.RemoveAt(index);
+            }
 
             lstSelected.Sort(delegate(UserInfo x, UserInfo y) { return string.Compare(x.JobNo, y.JobNo); });
             lstUnSelect.Sort(delegate(UserInfo x, UserInfo y) { return string.Compare(x.JobNo, y.JobNo); });
@@ -303,6 +319,16 @@ namespace TZMS.Web.Pages
 
             SelectedUser = lstSelected;
             UnSelectUser = lstUnSelect;
+        }
+
+        /// <summary>
+        /// 关闭窗口事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
         }
     }
 }

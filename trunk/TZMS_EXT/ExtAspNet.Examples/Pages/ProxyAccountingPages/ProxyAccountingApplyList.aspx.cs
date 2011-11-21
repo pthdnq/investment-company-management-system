@@ -46,6 +46,7 @@ namespace TZMS.Web
             StringBuilder strCondition = new StringBuilder();
 
             strCondition.Append(" IsDelete <> 1");
+            strCondition.Append(" and ProxyAccountingID ='" + CurrentUser.ObjectId.ToString() + "'");
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
                 strCondition.Append(" and PayUnitName Like '%" + tbxSearch.Text.Trim() + "%'");

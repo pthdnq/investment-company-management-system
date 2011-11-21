@@ -67,15 +67,6 @@ namespace TZMS.Web.Pages {
         protected global::ExtAspNet.Button btnSend;
         
         /// <summary>
-        /// btnRecevicer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Button btnRecevicer;
-        
-        /// <summary>
         /// pelOperator control.
         /// </summary>
         /// <remarks>
@@ -110,6 +101,33 @@ namespace TZMS.Web.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.Label lblSender;
+        
+        /// <summary>
+        /// FormRow5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow5;
+        
+        /// <summary>
+        /// lblRecevices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label lblRecevices;
+        
+        /// <summary>
+        /// btnRecevicer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Button btnRecevicer;
         
         /// <summary>
         /// FormRow4 control.

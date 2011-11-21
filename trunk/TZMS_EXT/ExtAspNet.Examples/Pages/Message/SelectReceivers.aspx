@@ -15,13 +15,15 @@
         <Toolbars>
             <ext:Toolbar ID="Toolbar1" runat="server">
                 <Items>
-                    <ext:Button ID="btnSave" Text="保存" OnClick="btnSave_Click" runat="server" Icon="Disk" />
+                    <ext:Button ID="btnClose" runat="server" OnClick="btnClose_Click" Icon="Cancel" Text="关闭">
+                    </ext:Button>
+                    <ext:Button ID="btnSave" Text="设置" OnClick="btnSave_Click" runat="server" Icon="Disk" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
         <Items>
             <ext:Grid ID="gridUnSelectUser" Title="员工列表" ShowBorder="true" ShowHeader="true"
-                ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="false">
+                ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="true">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
                     <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
@@ -39,7 +41,7 @@
                     </ext:Button>
                 </Items>
             </ext:Panel>
-            <ext:Grid ID="gridSelectdUsers" Title="收信人" ShowBorder="true" ShowHeader="true" EnableMultiSelect="false"
+            <ext:Grid ID="gridSelectdUsers" Title="收信人" ShowBorder="true" ShowHeader="true" EnableMultiSelect="true"
                 ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />

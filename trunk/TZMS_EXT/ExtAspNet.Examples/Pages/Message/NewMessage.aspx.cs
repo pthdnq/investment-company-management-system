@@ -76,8 +76,7 @@ namespace TZMS.Web.Pages
         {
             if (!IsPostBack)
             {
-
-                wndRecevicers.OnClientCloseButtonClick = wndRecevicers.GetHideReference();
+                wndRecevicers.OnClientCloseButtonClick = wndRecevicers.GetHidePostBackReference();
 
                 string strOperatorType = Page.Request.QueryString["Type"];
                 string strID = Page.Request.QueryString["ID"];
@@ -146,6 +145,22 @@ namespace TZMS.Web.Pages
                     tbxTitle.Text = _info.Tile;
                     taaContent.Text = _info.Context;
 
+                    string[] arrayRecevicers = _info.Recevicer.Split('|');
+                    string strRecevicers = string.Empty;
+                    for (int i = 0; i < arrayRecevicers.Length; i++)
+                    {
+                        if (i != 0)
+                        {
+                            strRecevicers += "," + arrayRecevicers[i].Split(',')[1];
+                        }
+                        else
+                        {
+                            strRecevicers += arrayRecevicers[i].Split(',')[1];
+                        }
+                    }
+
+                    lblRecevices.Text = strRecevicers;
+
                     MUDAttachment.RecordID = _info.ObjectId.ToString();
                 }
             }
@@ -205,6 +220,7 @@ namespace TZMS.Web.Pages
                             btnSend.Hidden = true;
                             btnRecevicer.Enabled = false;
                             btnRecevicer.Hidden = true;
+                            lblRecevices.Hidden = true;
                             tbxTitle.Required = false;
                             tbxTitle.ShowRedStar = false;
                             tbxTitle.Enabled = false;
@@ -331,6 +347,33 @@ namespace TZMS.Web.Pages
                 wndRecevicers.Title = "查看收信人";
                 wndRecevicers.IFrameUrl = "SelectReceivers.aspx?Type=View&ID=" + SentMessageID;
                 wndRecevicers.Hidden = false;
+            }
+        }
+
+        /// <summary>
+        /// 收信人关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndRecevicers_Close(object sender, WindowCloseEventArgs e)
+        {
+            if (Session[CurrentUser.ObjectId.ToString()] != null)
+            {
+                string[] arrayRecevicers = Session[CurrentUser.ObjectId.ToString()].ToString().Split('|');
+                string strRecevicers = string.Empty;
+                for (int i = 0; i < arrayRecevicers.Length; i++)
+                {
+                    if (i != 0)
+                    {
+                        strRecevicers += "," + arrayRecevicers[i].Split(',')[1];
+                    }
+                    else
+                    {
+                        strRecevicers += arrayRecevicers[i].Split(',')[1];
+                    }
+                }
+
+                lblRecevices.Text = strRecevicers;
             }
         }
 
