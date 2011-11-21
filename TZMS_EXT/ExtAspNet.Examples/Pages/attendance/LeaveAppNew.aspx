@@ -64,30 +64,30 @@
                                                         Label="开始时间">
                                                     </ext:DatePicker>
                                                     <ext:DropDownList ID="ddlstStartHour" runat="server" ShowLabel="false" Width="70 px">
-                                                        <ext:ListItem Text="00" Value="0" Selected="true" />
-                                                        <ext:ListItem Text="01" Value="1" />
-                                                        <ext:ListItem Text="02" Value="2" />
-                                                        <ext:ListItem Text="03" Value="3" />
-                                                        <ext:ListItem Text="04" Value="4" />
-                                                        <ext:ListItem Text="05" Value="5" />
-                                                        <ext:ListItem Text="06" Value="6" />
-                                                        <ext:ListItem Text="07" Value="7" />
-                                                        <ext:ListItem Text="08" Value="8" />
-                                                        <ext:ListItem Text="09" Value="9" />
-                                                        <ext:ListItem Text="10" Value="10" />
-                                                        <ext:ListItem Text="11" Value="11" />
-                                                        <ext:ListItem Text="12" Value="12" />
-                                                        <ext:ListItem Text="13" Value="13" />
-                                                        <ext:ListItem Text="14" Value="14" />
-                                                        <ext:ListItem Text="15" Value="15" />
-                                                        <ext:ListItem Text="16" Value="16" />
-                                                        <ext:ListItem Text="17" Value="17" />
-                                                        <ext:ListItem Text="18" Value="18" />
-                                                        <ext:ListItem Text="19" Value="19" />
-                                                        <ext:ListItem Text="20" Value="20" />
-                                                        <ext:ListItem Text="21" Value="21" />
-                                                        <ext:ListItem Text="22" Value="22" />
-                                                        <ext:ListItem Text="23" Value="23" />
+                                                        <ext:ListItem Text="0点" Value="0" Selected="true" />
+                                                        <ext:ListItem Text="1点" Value="1" />
+                                                        <ext:ListItem Text="2点" Value="2" />
+                                                        <ext:ListItem Text="3点" Value="3" />
+                                                        <ext:ListItem Text="4点" Value="4" />
+                                                        <ext:ListItem Text="5点" Value="5" />
+                                                        <ext:ListItem Text="6点" Value="6" />
+                                                        <ext:ListItem Text="7点" Value="7" />
+                                                        <ext:ListItem Text="8点" Value="8" />
+                                                        <ext:ListItem Text="9点" Value="9" />
+                                                        <ext:ListItem Text="10点" Value="10" />
+                                                        <ext:ListItem Text="11点" Value="11" />
+                                                        <ext:ListItem Text="12点" Value="12" />
+                                                        <ext:ListItem Text="13点" Value="13" />
+                                                        <ext:ListItem Text="14点" Value="14" />
+                                                        <ext:ListItem Text="15点" Value="15" />
+                                                        <ext:ListItem Text="16点" Value="16" />
+                                                        <ext:ListItem Text="17点" Value="17" />
+                                                        <ext:ListItem Text="18点" Value="18" />
+                                                        <ext:ListItem Text="19点" Value="19" />
+                                                        <ext:ListItem Text="20点" Value="20" />
+                                                        <ext:ListItem Text="21点" Value="21" />
+                                                        <ext:ListItem Text="22点" Value="22" />
+                                                        <ext:ListItem Text="23点" Value="23" />
                                                     </ext:DropDownList>
                                                 </Items>
                                             </ext:FormRow>
@@ -97,30 +97,30 @@
                                                         Label="结束时间">
                                                     </ext:DatePicker>
                                                     <ext:DropDownList ID="ddlstEndHour" runat="server" ShowLabel="false" Width="70px">
-                                                        <ext:ListItem Text="00" Value="0" Selected="true" />
-                                                        <ext:ListItem Text="01" Value="1" />
-                                                        <ext:ListItem Text="02" Value="2" />
-                                                        <ext:ListItem Text="03" Value="3" />
-                                                        <ext:ListItem Text="04" Value="4" />
-                                                        <ext:ListItem Text="05" Value="5" />
-                                                        <ext:ListItem Text="06" Value="6" />
-                                                        <ext:ListItem Text="07" Value="7" />
-                                                        <ext:ListItem Text="08" Value="8" />
-                                                        <ext:ListItem Text="09" Value="9" />
-                                                        <ext:ListItem Text="10" Value="10" />
-                                                        <ext:ListItem Text="11" Value="11" />
-                                                        <ext:ListItem Text="12" Value="12" />
-                                                        <ext:ListItem Text="13" Value="13" />
-                                                        <ext:ListItem Text="14" Value="14" />
-                                                        <ext:ListItem Text="15" Value="15" />
-                                                        <ext:ListItem Text="16" Value="16" />
-                                                        <ext:ListItem Text="17" Value="17" />
-                                                        <ext:ListItem Text="18" Value="18" />
-                                                        <ext:ListItem Text="19" Value="19" />
-                                                        <ext:ListItem Text="20" Value="20" />
-                                                        <ext:ListItem Text="21" Value="21" />
-                                                        <ext:ListItem Text="22" Value="22" />
-                                                        <ext:ListItem Text="23" Value="23" />
+                                                        <ext:ListItem Text="0点" Value="0" Selected="true" />
+                                                        <ext:ListItem Text="1点" Value="1" />
+                                                        <ext:ListItem Text="2点" Value="2" />
+                                                        <ext:ListItem Text="3点" Value="3" />
+                                                        <ext:ListItem Text="4点" Value="4" />
+                                                        <ext:ListItem Text="5点" Value="5" />
+                                                        <ext:ListItem Text="6点" Value="6" />
+                                                        <ext:ListItem Text="7点" Value="7" />
+                                                        <ext:ListItem Text="8点" Value="8" />
+                                                        <ext:ListItem Text="9点" Value="9" />
+                                                        <ext:ListItem Text="10点" Value="10" />
+                                                        <ext:ListItem Text="11点" Value="11" />
+                                                        <ext:ListItem Text="12点" Value="12" />
+                                                        <ext:ListItem Text="13点" Value="13" />
+                                                        <ext:ListItem Text="14点" Value="14" />
+                                                        <ext:ListItem Text="15点" Value="15" />
+                                                        <ext:ListItem Text="16点" Value="16" />
+                                                        <ext:ListItem Text="17点" Value="17" />
+                                                        <ext:ListItem Text="18点" Value="18" />
+                                                        <ext:ListItem Text="19点" Value="19" />
+                                                        <ext:ListItem Text="20点" Value="20" />
+                                                        <ext:ListItem Text="21点" Value="21" />
+                                                        <ext:ListItem Text="22点" Value="22" />
+                                                        <ext:ListItem Text="23点" Value="23" />
                                                     </ext:DropDownList>
                                                 </Items>
                                             </ext:FormRow>
@@ -131,18 +131,18 @@
                                                     </ext:DropDownList>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="60%">
-                                                <Items>
-                                                    <ext:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableBackgroundColor="true"
-                                                        ShowBorder="false" ShowHeader="false" Hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ucl:MudFlexCtrl ID="MUDAttachment" runat="server" AttributeName="病假属性" SystemName="病假"></ucl:MudFlexCtrl>
-                                                    </ext:ContentPanel>
-                                                </Items>
-                                            </ext:FormRow>
                                             <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
                                                     <ext:TextArea ID="taaLeaveReason" ShowRedStar="true" MaxLength="100" MaxLengthMessage="最多只能输入100个字！"
                                                         Height="50px" Required="true" runat="server" Label="请假原因">
                                                     </ext:TextArea>
+                                                </Items>
+                                            </ext:FormRow>
+                                            <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="60%">
+                                                <Items>
+                                                    <ext:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableBackgroundColor="true"
+                                                        ShowBorder="false" ShowHeader="false" Hidden="true">附件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ucl:MudFlexCtrl ID="MUDAttachment" runat="server" AttributeName="病假属性" SystemName="病假"></ucl:MudFlexCtrl>
+                                                    </ext:ContentPanel>
                                                 </Items>
                                             </ext:FormRow>
                                         </Rows>

@@ -220,6 +220,24 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DropDownList ddlstLeaveType;
         
         /// <summary>
+        /// FormRow2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow2;
+        
+        /// <summary>
+        /// taaLeaveReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea taaLeaveReason;
+        
+        /// <summary>
         /// FormRow6 control.
         /// </summary>
         /// <remarks>
@@ -245,24 +263,6 @@ namespace TZMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::TZMS.Web.CommonControls.MudFlexCtrl MUDAttachment;
-        
-        /// <summary>
-        /// FormRow2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow2;
-        
-        /// <summary>
-        /// taaLeaveReason control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextArea taaLeaveReason;
         
         /// <summary>
         /// tabApproveHistory control.

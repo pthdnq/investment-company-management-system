@@ -297,5 +297,15 @@ namespace TZMS.Web
             SelectedUser = lstSelected;
             UnSelectUser = lstUnSelect;
         }
+
+        /// <summary>
+        /// 关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
+        }
     }
 }
