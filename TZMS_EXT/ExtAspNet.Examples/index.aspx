@@ -142,6 +142,9 @@
                                             <ext:TreeNode Leaf="true" Icon="Time" NodeID="dzfsq" OnClientClick=" tabs('dzfsq','UserKey');"
                                                 Text="代帐费申请">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="dzfsp" OnClientClick=" tabs('dzfsp','UserKey');"
+                                                Text="代帐费审批">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -345,6 +348,9 @@
                     break;
                 case "dzfsq":
                     LoadTab("Pages/ProxyAccountingPages/ProxyAccountingApplyList.aspx", "代帐费申请", icon);
+                    break;
+                case "dzfsp":
+                    LoadTab("Pages/ProxyAccountingPages/ProxyAccountingApproveList.aspx", "代帐费审批", icon);
                     break;
 
                 //投资部借款 InvestmentLoan                      

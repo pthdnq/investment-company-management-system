@@ -44,7 +44,7 @@
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
                         AutoHeight="true" Height="389px">
                         <Tabs>
-                            <ext:Tab ID="Tab1" Title="报销申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab1" Title="代帐费申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Form EnableBackgroundColor="true" LabelWidth="65px" ShowHeader="false" ShowBorder="true"
                                         BodyPadding="5px" ID="mainForm" runat="server">
