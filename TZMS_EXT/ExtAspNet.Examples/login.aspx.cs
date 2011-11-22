@@ -62,20 +62,16 @@ namespace TZMS.Web
         /// <param name="e">e</param>
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            //if (tbxCaptcha.Text != Session["CaptchaImageText"].ToString())
-            //{
-            //    Alert.ShowInParent("验证码输入有误!", "登录", MessageBoxIcon.Information);
-            //    return;
-            //}
-
-            if (CheckUserLogin(tbxUserName.Text.Trim(), tbxPassword.Text.Trim()))
+            if (CheckUserLogin(tbxUserName.Value.Trim(), tbxPassword.Value.Trim()))
             {
                 //Alert.ShowInParent("Login Successful!");
                 Response.Redirect("index.aspx");
             }
             else
             {
-                Alert.ShowInParent("用户名或密码有误!", "登录", MessageBoxIcon.Information);
+                //Alert.ShowInParent("用户名或密码有误!", "登录", MessageBoxIcon.Information);
+                this.ClientScript.RegisterClientScriptBlock(this.GetType(), "", "<script>alert('帐号或密码不正确!');</script>");
+
             }
         }
 
