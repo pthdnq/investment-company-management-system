@@ -139,6 +139,24 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Tree Tree4;
         
         /// <summary>
+        /// AccordionPane10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.AccordionPane AccordionPane10;
+        
+        /// <summary>
+        /// Tree6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tree Tree6;
+        
+        /// <summary>
         /// AccordionPane9 control.
         /// </summary>
         /// <remarks>

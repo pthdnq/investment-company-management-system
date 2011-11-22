@@ -51,7 +51,7 @@ namespace com.TZMS.DataAccess
             try
             {
                 //存储过程名称
-                string strsql = " WuZhi_Add";
+                string strsql = "WuZhi_Add";
                 SqlParameter[] sqlparam =
                 {
 				new SqlParameter("@ObjectId",DbType.Guid),
@@ -106,7 +106,7 @@ namespace com.TZMS.DataAccess
         {
             try
             {
-                string strsql = " WuZhi_Delete";
+                string strsql = "WuZhi_Delete";
 
                 SqlParameter[] sqlparam =
 				{
@@ -136,7 +136,7 @@ namespace com.TZMS.DataAccess
             try
             {
                 //存储过程名称
-                string strsql = " WuZhi_Update";
+                string strsql = "WuZhi_Update";
                 SqlParameter[] sqlparam =
                 {
 				new SqlParameter("@ObjectId",DbType.Guid),
@@ -193,7 +193,7 @@ namespace com.TZMS.DataAccess
             try
             {
                 //存储过程名称
-                string strsql = " WuZhi_Search";
+                string strsql = "WuZhi_Search";
                 SqlParameter[] sqlparam =
                 {
 					new SqlParameter("@Condition",SqlDbType.NVarChar), 

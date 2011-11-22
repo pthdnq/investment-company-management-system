@@ -67,7 +67,8 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow8" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxSument" runat="server" Required="true" ShowRedStar="true" Label="收款事由">
+                                                    <ext:TextBox ID="tbxSument" runat="server" Required="true" ShowRedStar="true" Label="收款事由"
+                                                        MaxLength="100" MaxLengthMessage="最多只能输入100个字！">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
@@ -92,7 +93,7 @@
                                     </ext:Form>
                                 </Items>
                             </ext:Tab>
-                            <ext:Tab ID="Tab2" Title="审批历史" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="tabApproveHistory" Title="审批历史" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Grid ID="gridApproveHistory" Title="Grid1" ShowBorder="true" ShowHeader="false"
                                         runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true"
@@ -101,8 +102,7 @@
                                             <ext:BoundField DataField="ApproverName" HeaderText="执行人" />
                                             <ext:BoundField DataField="ApproveDate" HeaderText="审批时间" />
                                             <ext:BoundField DataField="ApproveOp" HeaderText="审批结果" />
-                                            <ext:BoundField DataField="Sugest" HeaderText="执行人意见" DataTooltipField="Sugest"
-                                                ExpandUnusedSpace="true" />
+                                            <ext:BoundField DataField="Sugest" HeaderText="执行人意见" DataTooltipField="Sugest" ExpandUnusedSpace="true" />
                                         </Columns>
                                     </ext:Grid>
                                 </Items>
