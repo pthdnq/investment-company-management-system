@@ -144,7 +144,7 @@
         </div>
     </div>
     <div style="visibility:hidden">
-        <asp:Button ID="btnLogin" OnClick="btnLogin_Click" runat="server" Text="Button" />
+        <asp:Button ID="btnLogin" OnClick="btnLogin_Click" runat="server" Text="" />
     </div>
     </form>
 </body>
