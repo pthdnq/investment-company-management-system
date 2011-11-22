@@ -73,6 +73,7 @@ namespace TZMS.Web
                             dpkStartTime.SelectedDate = DateTime.Now;
                             dpkEndTime.SelectedDate = DateTime.Now;
 
+                            tabApproveHistory.Hidden = true;
                             // 绑定下一步.
                             BindNext();
                             // 绑定审批人.
@@ -252,6 +253,7 @@ namespace TZMS.Web
             {
                 Alert.Show("申请提交成功!");
                 btnSubmit.Enabled = false;
+                tabApproveHistory.Hidden = false;
                 BaoxiaoObjectID = _baoxiaoInfo.ObjectId.ToString();
                 BindApproveHistory();
             }
@@ -336,7 +338,7 @@ namespace TZMS.Web
             // 获取数据.
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append("ApplyID = '" + BaoxiaoObjectID + "'");
-            strCondition.Append(" and (Checkstate <> 0 or (Checkstate = 0 and CheckOp = 0))");
+            strCondition.Append(" and (Checkstate <> 0 or (Checkstate = 0 and CheckOp = '0'))");
             List<BaoxiaoCheckInfo> lstBaoxiaoCheckInfo = new BaoxiaoManage().GetBaoxiaoCheckByCondition(strCondition.ToString());
 
             lstBaoxiaoCheckInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });

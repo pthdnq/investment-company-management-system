@@ -134,7 +134,7 @@ namespace TZMS.Web
             }
 
             strCondition.Append(" and ApplyTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
-
+            strCondition.Append(" order by ApplyTime desc");
             #endregion
 
             //获得员工
