@@ -541,6 +541,10 @@
     <Content Include="Pages\system\MyMessage.aspx" />
     <Content Include="Pages\system\MyWeb.aspx" />
     <Content Include="Pages\system\SetMyChecker.aspx" />
+    <Content Include="Pages\WuZhiPages\WuZhiApplyList.aspx" />
+    <Content Include="Pages\WuZhiPages\WuZhiApplyNew.aspx" />
+    <Content Include="Pages\WuZhiPages\WuZhiCheck.aspx" />
+    <Content Include="Pages\WuZhiPages\WuZhiCheckList.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1308,6 +1312,34 @@
     </Compile>
     <Compile Include="Pages\system\SetMyChecker.aspx.designer.cs">
       <DependentUpon>SetMyChecker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiApplyList.aspx.cs">
+      <DependentUpon>WuZhiApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiApplyList.aspx.designer.cs">
+      <DependentUpon>WuZhiApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiApplyNew.aspx.cs">
+      <DependentUpon>WuZhiApplyNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiApplyNew.aspx.designer.cs">
+      <DependentUpon>WuZhiApplyNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiCheck.aspx.cs">
+      <DependentUpon>WuZhiCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiCheck.aspx.designer.cs">
+      <DependentUpon>WuZhiCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiCheckList.aspx.cs">
+      <DependentUpon>WuZhiCheckList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiCheckList.aspx.designer.cs">
+      <DependentUpon>WuZhiCheckList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="config\ajax.aspx.cs">
