@@ -65,7 +65,7 @@
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanApplyEdit.aspx?Type=Edit&ID={0}"
                                 Title="编辑"  WindowID="wndNew"/>
-                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
+                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>

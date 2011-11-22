@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProjectInfo.aspx.cs" Inherits="TZMS.Web.Pages.BankLoanPages.ProjectInfo" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>ProjectInfo</title>
@@ -25,103 +24,62 @@
         </Toolbars>
         <Items>
             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
-                runat="server">
+                runat="server" Hidden="true">
                 <Rows>
-                    <ext:FormRow ColumnWidths="50% 50%">
+                    <ext:FormRow>
                         <Items>
-                            <ext:TextBox ID="tbxAccountNo" Label="账号" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个字母或数字！" Regex="^[a-zA-Z0-9]*$" RegexMessage="只能输入字母或数字!">
-                            </ext:TextBox>
-                            <ext:TextBox ID="tbxJobNo" Label="工号" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:TextBox ID="tbxName" Label="姓名" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                RegexMessage="不能输入特殊字符!">
-                            </ext:TextBox>
-                            <ext:RadioButtonList ID="rblSex" Label="性别" runat="server">
-                                <ext:RadioItem Selected="true" Text="男" Value="1" />
-                                <ext:RadioItem Text="女" Value="0" />
-                            </ext:RadioButtonList>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:DropDownList ID="ddlstDept" Label="所在部门" ShowRedStar="true" Required="true"
-                                runat="server">
+                            <ext:TwinTriggerBox runat="server" EmptyText="请输入项目名称查询" ShowLabel="false" ID="ttbSearch"
+                                Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click" />
+                            <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
+                                OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
+                            <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
+                                <ext:ListItem Text="在职" Value="1" Selected="true" />
+                                <ext:ListItem Text="离职" Value="0" />
                             </ext:DropDownList>
-                            <ext:TextBox ID="tbxPosition" Label="职位" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:DatePicker ID="dpkEntryDate" Label="入职时间" ShowRedStar="true" Required="true"
-                                runat="server">
-                            </ext:DatePicker>
-                            <ext:DatePicker ID="dpkBirthday" Label="出生年月" runat="server">
-                            </ext:DatePicker>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:TextBox ID="tbxGraduatedSchool" Label="毕业院校" runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
-                            </ext:TextBox>
-                            <ext:DropDownList ID="ddlstEducational" Label="学历" runat="server">
-                                <ext:ListItem Text="博士及以上" Value="博士及以上" />
-                                <ext:ListItem Text="硕士" Value="硕士" />
-                                <ext:ListItem Text="本科" Value="本科" Selected="true" />
-                                <ext:ListItem Text="大专" Value="大专" />
-                                <ext:ListItem Text="大专以下" Value="大专以下" />
-                            </ext:DropDownList>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:TextBox ID="tbxWorkYear" Label="工作年限" runat="server" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！"
-                                Regex="^[0-9]*$" RegexMessage="只能输入数字!">
-                            </ext:TextBox>
-                            <ext:RadioButtonList ID="rblState" Label="员工状态" runat="server">
-                                <ext:RadioItem Selected="true" Text="在职" Value="1" />
-                                <ext:RadioItem Text="离职" Value="0" />
-                            </ext:RadioButtonList>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:TextBox ID="tbxPhoneNumber" Label="联系电话" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}" RegexMessage="电话号码格式不正确!">
-                            </ext:TextBox>
-                            <ext:TextBox ID="tbxBackupPhoneNumber" Label="备用联系电话" runat="server" MaxLength="20"
-                                MaxLengthMessage="最多只能输入20个字符！" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
-                                RegexMessage="电话号码格式不正确!">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="100%">
-                        <Items>
-                            <ext:TextBox ID="tbxEmail" Label="电子邮箱" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                Regex="^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" RegexMessage="邮箱格式不正确!">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="100%">
-                        <Items>
-                            <ext:TextBox ID="tbxAddress" Label="住址" runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
-                            </ext:TextBox>
+                            <ext:Label ID="Label1" runat="server" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+                Layout="Fit" runat="server">
+                <Toolbars>
+                    <ext:Toolbar ID="toolUser" runat="server">
+                        <Items>
+                            <ext:Button ID="btnNew" Text="新增" Icon="Add" runat="server" />
+                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server" />
+                        </Items>
+                    </ext:Toolbar>
+                </Toolbars>
+                <Items>
+                    <ext:Grid ID="gridData" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
+                        PageSize="1" runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                        OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
+                        OnRowDataBound="gridData_RowDataBound" Width="100%">
+                        <Columns>
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField Width="70px" DataField="JobNo" HeaderText="实施阶段" />
+                            <ext:BoundField Width="80px" DataField="JobNo" HeaderText="支用金额" />
+                            <ext:BoundField Width="80px" DataField="Name" HeaderText="支用时间" />
+                            <ext:BoundField Width="130px" DataField="Dept" HeaderText="备用金额" />
+                            <ext:BoundField Width="145px" DataField="PhoneNumber" HeaderText="备注" />
+                            <ext:TemplateField Width="70px" HeaderText="状态">
+                                <ItemTemplate>
+                                    <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "未确认" : "已确认" %>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <%--     <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ImprestPayConfirm.aspx?Type=Edit&ID={0}"
+                                Title="确认" WindowID="wndNew"  Hidden="true"/>--%>
+                            <%--     <ext:LinkButtonField Width="38px" Text="确认" ConfirmText="确定已确认该收款信息?" CommandName="Delete" />--%>
+                        </Columns>
+                    </ext:Grid>
+                </Items>
+            </ext:Panel>
         </Items>
     </ext:Panel>
+    <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
     </form>
 </body>
 </html>

@@ -85,40 +85,13 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
-        /// tbxAccountNo control.
+        /// ttbSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxAccountNo;
-        
-        /// <summary>
-        /// tbxJobNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxJobNo;
-        
-        /// <summary>
-        /// tbxName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxName;
-        
-        /// <summary>
-        /// rblSex control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.RadioButtonList rblSex;
+        protected global::ExtAspNet.TwinTriggerBox ttbSearch;
         
         /// <summary>
         /// ddlstDept control.
@@ -130,102 +103,75 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.DropDownList ddlstDept;
         
         /// <summary>
-        /// tbxPosition control.
+        /// ddlstState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxPosition;
+        protected global::ExtAspNet.DropDownList ddlstState;
         
         /// <summary>
-        /// dpkEntryDate control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkEntryDate;
+        protected global::ExtAspNet.Label Label1;
         
         /// <summary>
-        /// dpkBirthday control.
+        /// pelGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkBirthday;
+        protected global::ExtAspNet.Panel pelGrid;
         
         /// <summary>
-        /// tbxGraduatedSchool control.
+        /// toolUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxGraduatedSchool;
+        protected global::ExtAspNet.Toolbar toolUser;
         
         /// <summary>
-        /// ddlstEducational control.
+        /// btnNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstEducational;
+        protected global::ExtAspNet.Button btnNew;
         
         /// <summary>
-        /// tbxWorkYear control.
+        /// btnDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxWorkYear;
+        protected global::ExtAspNet.Button btnDelete;
         
         /// <summary>
-        /// rblState control.
+        /// gridData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.RadioButtonList rblState;
+        protected global::ExtAspNet.Grid gridData;
         
         /// <summary>
-        /// tbxPhoneNumber control.
+        /// wndNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxPhoneNumber;
-        
-        /// <summary>
-        /// tbxBackupPhoneNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxBackupPhoneNumber;
-        
-        /// <summary>
-        /// tbxEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxEmail;
-        
-        /// <summary>
-        /// tbxAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxAddress;
+        protected global::ExtAspNet.Window wndNew;
     }
 }

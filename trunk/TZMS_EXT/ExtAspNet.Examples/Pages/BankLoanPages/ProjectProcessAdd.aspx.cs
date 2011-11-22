@@ -7,9 +7,9 @@ using ExtAspNet;
 namespace TZMS.Web.Pages.BankLoanPages
 {
     /// <summary>
-    /// BankLoanAudit
+    /// ProjectProcessAdd
     /// </summary>
-    public partial class BankLoanAudit : BasePage
+    public partial class ProjectProcessAdd : BasePage
     {
         #region 属性
         /// <summary>
@@ -98,13 +98,13 @@ namespace TZMS.Web.Pages.BankLoanPages
         private void BindDept()
         {
             // 设置部门下拉框的值.
-            ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.XINGZHENG, "行政部"));
-            ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.CAIWU, "财务部"));
-            ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.TOUZI, "投资部"));
-            ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.YEWU, "业务部"));
+            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.XINGZHENG, "行政部"));
+            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.CAIWU, "财务部"));
+            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.TOUZI, "投资部"));
+            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.YEWU, "业务部"));
 
-            // 设置默认值.
-            ddlstDept.SelectedIndex = 0;
+            //// 设置默认值.
+            //ddlstDept.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -124,32 +124,26 @@ namespace TZMS.Web.Pages.BankLoanPages
             // 绑定数据.
             if (_userInfo != null)
             {
-                // 账号.
-                tbxAccountNo.Text = _userInfo.AccountNo;
+
                 // 工号. 
                 tbxJobNo.Text = _userInfo.JobNo;
                 // 姓名.        
                 tbxName.Text = _userInfo.Name;
 
-                // 部门.
-                ddlstDept.SelectedValue = _userInfo.Dept;
-                // 职位.
-                tbxPosition.Text = _userInfo.Position;
                 // 入职时间.
                 if (DateTime.Compare(_userInfo.EntryDate, DateTime.Parse("1900-1-1 12:00")) != 0)
                 {
                     dpkEntryDate.SelectedDate = _userInfo.EntryDate;
                 }
-
-
-                // 工作年限.
-                tbxWorkYear.Text = _userInfo.WorkYear == -1 ? "" : _userInfo.WorkYear.ToString();
-
-                // 联系电话.
-                tbxPhoneNumber.Text = _userInfo.PhoneNumber;
+                // 出生日期.
+                if (DateTime.Compare(_userInfo.Birthday, DateTime.Parse("1900-1-1 12:00")) != 0)
+                {
+                    //    dpkBirthday.SelectedDate = _userInfo.Birthday;
+                }
+                // 学历.
 
                 // 住址.
-                tbxAddress.Text = _userInfo.Address;
+                //    tbxAddress.Text = _userInfo.Address;
             }
         }
         #endregion
@@ -162,7 +156,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            saveUserInfo();
+            //saveUserInfo();
         }
 
         #endregion
@@ -198,34 +192,26 @@ namespace TZMS.Web.Pages.BankLoanPages
                 }
             }
 
-            // 账号.
-            _userInfo.AccountNo = tbxAccountNo.Text.Trim();
+
             // 工号. 
             _userInfo.JobNo = tbxJobNo.Text.Trim();
             // 姓名.        
             _userInfo.Name = tbxName.Text.Trim();
 
-            // 部门.
-            _userInfo.Dept = ddlstDept.SelectedValue;
-            // 职位.
-            _userInfo.Position = tbxPosition.Text.Trim();
             // 入职时间.
             if (dpkEntryDate.SelectedDate is DateTime)
             {
                 _userInfo.EntryDate = Convert.ToDateTime(dpkEntryDate.SelectedDate);
             }
+            // 出生日期.
+            //if (dpkBirthday.SelectedDate is DateTime)
+            //{
+            //    _userInfo.Birthday = Convert.ToDateTime(dpkBirthday.SelectedDate);
+            //}
 
-            // 工作年限.
-            if (!string.IsNullOrEmpty(tbxWorkYear.Text.Trim()))
-            {
-                _userInfo.WorkYear = short.Parse(tbxWorkYear.Text.Trim());
-            }
-
-            // 联系电话.
-            _userInfo.PhoneNumber = tbxPhoneNumber.Text.Trim();
 
             // 住址.
-            _userInfo.Address = tbxAddress.Text.Trim();
+            //_userInfo.Address = tbxAddress.Text.Trim();
 
             // 在数据库中查看具有相同工号或账号的用户，如果存在，则添加失败.
             List<UserInfo> lstSameUsers = _userManage.GetUsersByCondtion("ObjectID <> '" + _userInfo.ObjectId.ToString() +
