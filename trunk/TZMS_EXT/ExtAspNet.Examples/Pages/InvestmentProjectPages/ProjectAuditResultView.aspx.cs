@@ -70,7 +70,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                         {
                             OperatorType = strOperatorType;
                             // 设置新工号.
-                            tbxJobNo.Text = new UserManage().GetNextJobNo();
+                            //     tbxJobNo.Text = new UserManage().GetNextJobNo();
                         }
                         break;
                     case "Edit":
@@ -97,14 +97,14 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// </summary>
         private void BindDept()
         {
-            // 设置部门下拉框的值.
-            ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.XINGZHENG, "行政部"));
-            ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.CAIWU, "财务部"));
-            ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.TOUZI, "投资部"));
-            ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.YEWU, "业务部"));
+            //// 设置部门下拉框的值.
+            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.XINGZHENG, "行政部"));
+            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.CAIWU, "财务部"));
+            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.TOUZI, "投资部"));
+            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.YEWU, "业务部"));
 
-            // 设置默认值.
-            ddlstDept.SelectedIndex = 0;
+            //// 设置默认值.
+            //ddlstDept.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -124,40 +124,23 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             // 绑定数据.
             if (_userInfo != null)
             {
-                // 账号.
-                tbxAccountNo.Text = _userInfo.AccountNo;
-                // 工号. 
-                tbxJobNo.Text = _userInfo.JobNo;
+
                 // 姓名.        
                 tbxName.Text = _userInfo.Name;
-                // 性别.          
-                rblSex.SelectedIndex = _userInfo.Sex ? 0 : 1;
-                // 部门.
-                ddlstDept.SelectedValue = _userInfo.Dept;
-                // 职位.
-                tbxPosition.Text = _userInfo.Position;
+
                 // 入职时间.
                 if (DateTime.Compare(_userInfo.EntryDate, DateTime.Parse("1900-1-1 12:00")) != 0)
                 {
                     dpkEntryDate.SelectedDate = _userInfo.EntryDate;
                 }
-                // 出生日期.
-                if (DateTime.Compare(_userInfo.Birthday, DateTime.Parse("1900-1-1 12:00")) != 0)
-                {
-                    dpkBirthday.SelectedDate = _userInfo.Birthday;
-                }
-                // 学历.
-                ddlstEducational.SelectedValue = _userInfo.Educational;
+
+
                 // 工作年限.
                 tbxWorkYear.Text = _userInfo.WorkYear == -1 ? "" : _userInfo.WorkYear.ToString();
-                // 员工状态.
-                rblState.SelectedIndex = _userInfo.State == 1 ? 0 : 1;
+
                 // 联系电话.
                 tbxPhoneNumber.Text = _userInfo.PhoneNumber;
-                // 备用联系电话.
-                tbxBackupPhoneNumber.Text = _userInfo.BackIpPhoneNumber;
-                // 电子邮箱.
-                tbxEmail.Text = _userInfo.Email;
+
                 // 住址.
                 tbxAddress.Text = _userInfo.Address;
             }
@@ -208,43 +191,27 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 }
             }
 
-            // 账号.
-            _userInfo.AccountNo = tbxAccountNo.Text.Trim();
-            // 工号. 
-            _userInfo.JobNo = tbxJobNo.Text.Trim();
+
             // 姓名.        
             _userInfo.Name = tbxName.Text.Trim();
-            // 性别.          
-            _userInfo.Sex = rblSex.SelectedIndex == 0 ? true : false;
-            // 部门.
-            _userInfo.Dept = ddlstDept.SelectedValue;
-            // 职位.
-            _userInfo.Position = tbxPosition.Text.Trim();
+
             // 入职时间.
             if (dpkEntryDate.SelectedDate is DateTime)
             {
                 _userInfo.EntryDate = Convert.ToDateTime(dpkEntryDate.SelectedDate);
             }
-            // 出生日期.
-            if (dpkBirthday.SelectedDate is DateTime)
-            {
-                _userInfo.Birthday = Convert.ToDateTime(dpkBirthday.SelectedDate);
-            }
-            // 学历.
-            _userInfo.Educational = ddlstEducational.SelectedValue;
+
+
             // 工作年限.
             if (!string.IsNullOrEmpty(tbxWorkYear.Text.Trim()))
             {
                 _userInfo.WorkYear = short.Parse(tbxWorkYear.Text.Trim());
             }
-            // 员工状态.
-            _userInfo.State = rblState.SelectedIndex == 0 ? (short)1 : (short)0;
+
             // 联系电话.
             _userInfo.PhoneNumber = tbxPhoneNumber.Text.Trim();
-            // 备用联系电话.
-            _userInfo.BackIpPhoneNumber = tbxBackupPhoneNumber.Text.Trim();
-            // 电子邮箱.
-            _userInfo.Email = tbxEmail.Text.Trim();
+
+
             // 住址.
             _userInfo.Address = tbxAddress.Text.Trim();
 
