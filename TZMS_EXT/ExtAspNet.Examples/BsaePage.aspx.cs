@@ -221,6 +221,17 @@ namespace TZMS.Web
             /// 考勤归档
             /// </summary>
             KQGD = 18,
+
+            /// <summary>
+            /// 物质申请（普通）
+            /// </summary>
+            WUSQ_PT = 19,
+
+            /// <summary>
+            /// 物质申请（固定资产）
+            /// </summary>
+            WZSQ_GD = 20,
+
         }
 
         /// <summary>
