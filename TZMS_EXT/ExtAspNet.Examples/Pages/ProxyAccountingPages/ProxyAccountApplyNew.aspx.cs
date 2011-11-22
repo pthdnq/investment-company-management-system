@@ -66,7 +66,7 @@ namespace TZMS.Web
                         {
                             OperatorType = strOperatorType;
                             dpkOpeningDate.SelectedDate = DateTime.Now;
-
+                            tabApproveHistory.Hidden = true;
                             // 绑定下一步.
                             BindNext();
                             // 绑定单位.
@@ -271,6 +271,7 @@ namespace TZMS.Web
             {
                 Alert.Show("申请提交成功!");
                 btnSubmit.Enabled = false;
+                tabApproveHistory.Hidden = false;
                 ApplyID = _applyInfo.ObjectID.ToString();
                 BindApproveHistory();
             }

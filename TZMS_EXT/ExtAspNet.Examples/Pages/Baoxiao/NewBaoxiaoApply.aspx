@@ -77,13 +77,14 @@
                                             <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextArea ID="taaSument" Height="50px" runat="server" Label="事项" Required="true"
-                                                        ShowRedStar="true">
+                                                        ShowRedStar="true" MaxLength="100" MaxLengthMessage="最多只能输入100个字！">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaOther" Height="100px" runat="server" Label="备注">
+                                                    <ext:TextArea ID="taaOther" Height="100px" runat="server" Label="备注" MaxLength="200"
+                                                        MaxLengthMessage="最多只能输入200个字！">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
@@ -91,7 +92,8 @@
                                     </ext:Form>
                                 </Items>
                             </ext:Tab>
-                            <ext:Tab ID="tabApproveHistory" Title="审批历史" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="tabApproveHistory" Title="审批历史" EnableBackgroundColor="true" runat="server"
+                                BodyPadding="5px">
                                 <Items>
                                     <ext:Grid ID="gridApproveHistory" Title="Grid1" ShowBorder="true" ShowHeader="false"
                                         runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true"

@@ -83,7 +83,7 @@ namespace com.TZMS.Business
         /// <param name="info">物资审批实例</param>
         /// <param name="boName">连接字符串Key</param>
         /// <returns>操作结果</returns>
-        public int UpdateWuZhi(WuzhiCheckInfo info, string boName = BoName)
+        public int UpdateWuZhiCheck(WuzhiCheckInfo info, string boName = BoName)
         {
             WuzhiCheckCtrl _ctrl = new WuzhiCheckCtrl();
             return _ctrl.UpDate(boName, info);
