@@ -466,6 +466,7 @@
     <Content Include="Pages\BankLoanPages\ProcessAuditList.aspx" />
     <Content Include="Pages\BankLoanPages\ProjectInfo.aspx" />
     <Content Include="Pages\BankLoanPages\ProjectInfoList.aspx" />
+    <Content Include="Pages\BankLoanPages\ProjectProcessAdd.aspx" />
     <Content Include="Pages\Baoxiao\BaoxiaoApplyList.aspx" />
     <Content Include="Pages\Baoxiao\BaoxiaoCheckList.aspx" />
     <Content Include="Pages\Baoxiao\BaoxiaoToFile.aspx" />
@@ -516,6 +517,7 @@
     <Content Include="Pages\InvestmentProjectPages\ProjectAuditResultView.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectInfo.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectInfoList.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\ProjectProcessAdd.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectProcessAdult.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectProcessList.aspx" />
     <Content Include="Pages\Message\MyMessageList.aspx" />
@@ -817,6 +819,13 @@
     </Compile>
     <Compile Include="Pages\BankLoanPages\ProjectInfoList.aspx.designer.cs">
       <DependentUpon>ProjectInfoList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\ProjectProcessAdd.aspx.cs">
+      <DependentUpon>ProjectProcessAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\ProjectProcessAdd.aspx.designer.cs">
+      <DependentUpon>ProjectProcessAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Baoxiao\BaoxiaoApplyList.aspx.cs">
       <DependentUpon>BaoxiaoApplyList.aspx</DependentUpon>
@@ -1167,6 +1176,13 @@
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectInfoList.aspx.designer.cs">
       <DependentUpon>ProjectInfoList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectProcessAdd.aspx.cs">
+      <DependentUpon>ProjectProcessAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectProcessAdd.aspx.designer.cs">
+      <DependentUpon>ProjectProcessAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectProcessAdult.aspx.cs">
       <DependentUpon>ProjectProcessAdult.aspx</DependentUpon>
