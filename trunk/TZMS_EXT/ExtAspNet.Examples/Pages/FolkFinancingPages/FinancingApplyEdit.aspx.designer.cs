@@ -85,24 +85,6 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
-        /// tbxAccountNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxAccountNo;
-        
-        /// <summary>
-        /// tbxJobNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxJobNo;
-        
-        /// <summary>
         /// tbxName control.
         /// </summary>
         /// <remarks>
@@ -112,31 +94,31 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.TextBox tbxName;
         
         /// <summary>
-        /// rblSex control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.RadioButtonList rblSex;
+        protected global::ExtAspNet.TextBox TextBox1;
         
         /// <summary>
-        /// ddlstDept control.
+        /// TextBox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstDept;
+        protected global::ExtAspNet.TextBox TextBox2;
         
         /// <summary>
-        /// tbxPosition control.
+        /// tbxJobNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxPosition;
+        protected global::ExtAspNet.TextBox tbxJobNo;
         
         /// <summary>
         /// dpkEntryDate control.
@@ -157,13 +139,22 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.DatePicker dpkBirthday;
         
         /// <summary>
-        /// tbxGraduatedSchool control.
+        /// tbxPosition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxGraduatedSchool;
+        protected global::ExtAspNet.TextBox tbxPosition;
+        
+        /// <summary>
+        /// tbxAccountNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbxAccountNo;
         
         /// <summary>
         /// ddlstEducational control.
@@ -175,24 +166,6 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.DropDownList ddlstEducational;
         
         /// <summary>
-        /// tbxWorkYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxWorkYear;
-        
-        /// <summary>
-        /// rblState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.RadioButtonList rblState;
-        
-        /// <summary>
         /// tbxPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -200,24 +173,6 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextBox tbxPhoneNumber;
-        
-        /// <summary>
-        /// tbxBackupPhoneNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxBackupPhoneNumber;
-        
-        /// <summary>
-        /// tbxEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxEmail;
         
         /// <summary>
         /// tbxAddress control.
