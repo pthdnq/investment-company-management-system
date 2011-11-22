@@ -64,6 +64,7 @@
     <Compile Include="ProxyAccounting\ProxyAccountingManage.cs" />
     <Compile Include="UserManage\RolesManage.cs" />
     <Compile Include="UserManage\UserManage.cs" />
+    <Compile Include="WuZhiManage\WuZhiManage.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
