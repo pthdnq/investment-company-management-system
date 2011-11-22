@@ -10,7 +10,7 @@
 namespace TZMS.Web.Pages.BankLoanPages {
     
     
-    public partial class BankLoanAuditResultView {
+    public partial class ProjectProcessAdd {
         
         /// <summary>
         /// form1 control.
@@ -94,40 +94,40 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.TextBox tbxName;
         
         /// <summary>
-        /// ddlstDept control.
+        /// TextBox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstDept;
+        protected global::ExtAspNet.TextBox TextBox2;
         
         /// <summary>
-        /// tbxJobNo control.
+        /// TextBox3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxJobNo;
+        protected global::ExtAspNet.TextBox TextBox3;
         
         /// <summary>
-        /// tbxAccountNo control.
+        /// TextBox4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxAccountNo;
+        protected global::ExtAspNet.TextBox TextBox4;
         
         /// <summary>
-        /// tbxPosition control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxPosition;
+        protected global::ExtAspNet.TextBox TextBox1;
         
         /// <summary>
         /// dpkEntryDate control.
@@ -139,48 +139,21 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.DatePicker dpkEntryDate;
         
         /// <summary>
-        /// tbxWorkYear control.
+        /// tbxJobNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxWorkYear;
+        protected global::ExtAspNet.TextBox tbxJobNo;
         
         /// <summary>
-        /// tbxGraduatedSchool control.
+        /// taRemark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxGraduatedSchool;
-        
-        /// <summary>
-        /// tbxPhoneNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxPhoneNumber;
-        
-        /// <summary>
-        /// tbxAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxAddress;
-        
-        /// <summary>
-        /// TextArea2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextArea TextArea2;
+        protected global::ExtAspNet.TextArea taRemark;
     }
 }
