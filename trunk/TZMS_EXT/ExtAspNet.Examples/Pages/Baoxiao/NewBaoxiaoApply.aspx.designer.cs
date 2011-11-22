@@ -247,13 +247,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.TextArea taaOther;
         
         /// <summary>
-        /// Tab2 control.
+        /// tabApproveHistory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Tab Tab2;
+        protected global::ExtAspNet.Tab tabApproveHistory;
         
         /// <summary>
         /// gridApproveHistory control.

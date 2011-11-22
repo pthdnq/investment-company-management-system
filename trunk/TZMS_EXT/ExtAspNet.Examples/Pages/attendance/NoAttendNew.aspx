@@ -80,13 +80,14 @@
                                             <ext:FormRow ID="FormRow1" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextArea ID="taaSument" Height="100px" runat="server" Label="事项" Required="true"
-                                                        ShowRedStar="true">
+                                                        ShowRedStar="true" MaxLength="1000" MaxLengthMessage="最多只能输入1000个字!">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaOther" Height="100px" runat="server" Label="备注">
+                                                    <ext:TextArea ID="taaOther" Height="100px" runat="server" Label="备注" MaxLength="200"
+                                                        MaxLengthMessage="最多只能输入200个字!">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>

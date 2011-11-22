@@ -66,7 +66,9 @@ namespace TZMS.Web
                     case "Add":
                         {
                             OperatorType = strOperatorType;
-
+                            lblName.Text = CurrentUser.Name;
+                            lblAppDate.Text = DateTime.Now.ToString("yyyy-MM-dd hh:mm");
+                            tabApproveHistory.Hidden = true;
                             BindNext();
                             BindApproveUser();
                             BindYear();
@@ -145,19 +147,23 @@ namespace TZMS.Web
             if (_info != null)
             {
                 // 查找最早的记录.
-                CommSelect _commSelect = new CommSelect();
-                ComHelp _comHelp = new ComHelp();
-                _comHelp.TableName = "NoAttendCheck";
-                _comHelp.SelectList = "top 1 CheckerID";
-                _comHelp.SearchCondition = "ApplyID = '" + _info.ObjectId.ToString() + "' and CheckOp <> '0'";
-                _comHelp.PageSize = PageCounts;
-                _comHelp.PageIndex = 0;
-                _comHelp.OrderExpression = "CheckDateTime desc";
-
-                DataTable dtbLeaveApproves = _commSelect.ComSelect(ref _comHelp);
-                if (dtbLeaveApproves.Rows.Count > 0)
+                List<NoAttendCheckInfo> lstApprove = _manage.GetNoAttendCheckInfoByCondition(" ApplyID = '" + NoAttendID +
+                    "' and CheckerID <> '" + _info.UserId.ToString() + "'");
+                if (lstApprove.Count == 1)
                 {
-                    ddlstApproveUser.SelectedValue = dtbLeaveApproves.Rows[0]["CheckerID"].ToString();
+                    ddlstApproveUser.SelectedValue = lstApprove[0].CheckerId.ToString();
+                }
+                else
+                {
+                    lstApprove.Sort(delegate(NoAttendCheckInfo x, NoAttendCheckInfo y) { return DateTime.Compare(x.CheckDateTime, y.CheckDateTime); });
+                    foreach (var item in lstApprove)
+                    {
+                        if (DateTime.Compare(item.CheckDateTime, ACommonInfo.DBEmptyDate) != 0)
+                        {
+                            ddlstApproveUser.SelectedValue = item.CheckerId.ToString();
+                            break;
+                        }
+                    }
                 }
 
                 // 绑定其它信息.
@@ -285,6 +291,7 @@ namespace TZMS.Web
 
                 // 当提交成功时，禁用提交按钮以及刷新审批历史.
                 btnSave.Enabled = false;
+                tabApproveHistory.Hidden = false;
                 NoAttendID = _info.ObjectId.ToString();
                 BindApproveHistory();
             }

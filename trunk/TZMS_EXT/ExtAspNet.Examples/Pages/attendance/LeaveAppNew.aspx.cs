@@ -220,19 +220,23 @@ namespace TZMS.Web
                 }
 
                 // 查找最早的审批记录.
-                CommSelect _commSelect = new CommSelect();
-                ComHelp _comHelp = new ComHelp();
-                _comHelp.TableName = "LeaveApprove";
-                _comHelp.SelectList = "top 1 ApproverID, ApproverName";
-                _comHelp.SearchCondition = "LeaveID = '" + _leaveInfo.ObjectId.ToString() + "'";
-                _comHelp.PageSize = PageCounts;
-                _comHelp.PageIndex = 0;
-                _comHelp.OrderExpression = "ApproveTime desc";
-
-                DataTable dtbLeaveApproves = _commSelect.ComSelect(ref _comHelp);
-                if (dtbLeaveApproves.Rows.Count > 0)
+                List<LeaveApproveInfo> lstApprove = _leaveManage.GetLeaveApprovesByCondition(" LeaveID = '" + _leaveInfo.ObjectId.ToString() +
+                                    "' and ApproverID <> '" + _leaveInfo.ObjectId.ToString() + "'");
+                if (lstApprove.Count == 1)
                 {
-                    ddlstApproveUser.SelectedValue = dtbLeaveApproves.Rows[0]["ApproverID"].ToString();
+                    ddlstApproveUser.SelectedValue = lstApprove[0].ApproverId.ToString();
+                }
+                else
+                {
+                    lstApprove.Sort(delegate(LeaveApproveInfo x, LeaveApproveInfo y) { return DateTime.Compare(x.ApproveTime, y.ApproveTime); });
+                    foreach (var item in lstApprove)
+                    {
+                        if (DateTime.Compare(item.ApproveTime, ACommonInfo.DBEmptyDate) != 0)
+                        {
+                            ddlstApproveUser.SelectedValue = item.ApproverId.ToString();
+                            break;
+                        }
+                    }
                 }
             }
         }
