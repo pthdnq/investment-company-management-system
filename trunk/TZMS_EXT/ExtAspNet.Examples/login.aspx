@@ -143,7 +143,7 @@
                     onclick="ReLogin0()" type="button" style="background-image: url(images/btn.png);" />
         </div>
     </div>
-    <div>
+    <div style="visibility:hidden">
         <asp:Button ID="btnLogin" OnClick="btnLogin_Click" runat="server" Text="Button" />
     </div>
     </form>
