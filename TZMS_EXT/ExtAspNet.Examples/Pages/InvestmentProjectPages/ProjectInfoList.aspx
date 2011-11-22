@@ -61,7 +61,7 @@
                             <ext:BoundField Width="145px" DataField="PhoneNumber" HeaderText="签订日期" />
                             <ext:BoundField DataField="BackIpPhoneNumber" Width="145px" HeaderText="合同金额" />
                             <ext:BoundField Width="130px" DataField="Name" HeaderText="预付订金" />
-                            <ext:WindowField Width="38px" Text="提交进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectInfo.aspx?Type=Edit&ID={0}"
+                            <ext:WindowField Width="76px" Text="提交进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectInfo.aspx?Type=Edit&ID={0}"
                                 Title="提交进展" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
                         </Columns>

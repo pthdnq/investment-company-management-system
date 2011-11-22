@@ -7,9 +7,9 @@ using ExtAspNet;
 namespace TZMS.Web.Pages.InvestmentProjectPages
 {
     /// <summary>
-    /// ImprestPayConfirm
+    /// ProjectProcessAdd
     /// </summary>
-    public partial class ImprestPayConfirm : BasePage
+    public partial class ProjectProcessAdd : BasePage
     {
         #region 属性
         /// <summary>
@@ -138,12 +138,12 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 // 出生日期.
                 if (DateTime.Compare(_userInfo.Birthday, DateTime.Parse("1900-1-1 12:00")) != 0)
                 {
-                    //    dpkBirthday.SelectedDate = _userInfo.Birthday;
+                //    dpkBirthday.SelectedDate = _userInfo.Birthday;
                 }
                 // 学历.
 
                 // 住址.
-                //    tbxAddress.Text = _userInfo.Address;
+            //    tbxAddress.Text = _userInfo.Address;
             }
         }
         #endregion
