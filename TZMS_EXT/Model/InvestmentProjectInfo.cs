@@ -44,7 +44,7 @@ namespace com.TZMS.Model
         private Decimal _contractAmount = DBEmptyDecimal;
         private Decimal _downPayment = DBEmptyDecimal;
         private string _remark = DBEmptyString;
-        private char _status = DBEmptyChar;
+        private int _status = DBEmptyChar;
         private Guid _nextOperaterId;
         private string _nextOperaterAccount = DBEmptyString;
         private string _nextOperaterName = DBEmptyString;
@@ -159,7 +159,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// Status 
         /// </summary> 
-        public char Status
+        public int Status
         {
             get { return _status; }
             set { _status = value; }
