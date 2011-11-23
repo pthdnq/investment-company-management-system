@@ -92,6 +92,7 @@ namespace TZMS.Web
                 return false;
             }
             CurrentUser = user;
+            
             return true;
         }
 
