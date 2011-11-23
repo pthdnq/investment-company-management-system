@@ -328,7 +328,7 @@ namespace com.TZMS.DataAccess
             }
             if (InvestmentProjectInfoInfoDataRow["Status"] != null)
             {
-                InvestmentProjectInfoInfo.Status =char.Parse( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "Status"));
+                InvestmentProjectInfoInfo.Status =int.Parse( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "Status"));
             }
             if (InvestmentProjectInfoInfoDataRow["NextOperaterId"] != null)
             {
