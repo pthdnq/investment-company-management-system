@@ -145,6 +145,9 @@
                                             <ext:TreeNode Leaf="true" Icon="Time" NodeID="wzsp" OnClientClick=" tabs('wzsp','UserKey');"
                                                 Text="物资审批">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="wzly" OnClientClick=" tabs('wzly','UserKey');"
+                                                Text="物资领用">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -370,6 +373,9 @@
                     break;
                 case "wzsp":
                     LoadTab("Pages/WuZhiPages/WuZhiCheckList.aspx", "物资审批", icon);
+                    break;
+                case "wzly":
+                    LoadTab("Pages/WuZhiPages/WuZhiRecordList.aspx", "物资领用", icon);
                     break;
 
                 // 代帐管理   

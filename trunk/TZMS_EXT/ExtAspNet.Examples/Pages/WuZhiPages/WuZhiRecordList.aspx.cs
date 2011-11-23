@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ExtAspNet;
-using System.Data;
-using com.TZMS.Business;
 using System.Text;
+using com.TZMS.Business;
+using com.TZMS.Model;
 
 namespace TZMS.Web
 {
-    public partial class WuZhiCheckList : BasePage
+    public partial class WuZhiRecordList : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,8 +19,6 @@ namespace TZMS.Web
             {
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
-
-                wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
 
                 BindDept();
                 BindGrid();
@@ -62,8 +60,8 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" CheckerID = '" + CurrentUser.ObjectId.ToString() + "' and CheckOp <> '0'");
-            strCondition.Append(" and Isdelete = 0");
+            strCondition.Append(" Isdelete = 0 and state = 2");
+            strCondition.Append(" and UserID <> '" + CurrentUser.ObjectId.ToString() + "'");
 
             // 查询文本
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
@@ -81,47 +79,38 @@ namespace TZMS.Web
                 strCondition.Append(" and type = 1");
             }
 
-            // 审批状态.
-            if (ddlstAproveState.SelectedIndex == 1)
-            {
-                strCondition.Append(" and Checkstate = 0");
-            }
-            else if (ddlstAproveState.SelectedIndex == 2)
-            {
-                strCondition.Append(" and Checkstate = 1");
-            }
-
             // 部门.
             if (ddlstDept.SelectedIndex != 0)
             {
                 strCondition.Append(" and Dept = '" + ddlstDept.SelectedText + "'");
             }
 
-            strCondition.Append(" and (CheckDateTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "' or CheckDateTime='1900-01-01 12:00:00.000')");
+            strCondition.Append(" and ApplyTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
 
             #endregion
 
-            CommSelect _commSelect = new CommSelect();
-            ComHelp _comHelp = new ComHelp();
-            _comHelp.TableName = "WuZhiView";
-            _comHelp.SelectList = "*";
-            _comHelp.SearchCondition = strCondition.ToString();
-            _comHelp.PageSize = PageCounts;
-            _comHelp.PageIndex = gridApprove.PageIndex;
-            _comHelp.OrderExpression = "CheckDateTime desc";
+            List<WuZhiInfo> lstWuZhi = new WuZhiManage().GetWuZhiByCondition(strCondition.ToString());
+            this.gridApprove.RecordCount = lstWuZhi.Count;
+            this.gridApprove.PageSize = PageCounts;
+            int currentIndex = this.gridApprove.PageIndex;
+            //计算当前页面显示行数据
+            if (lstWuZhi.Count > this.gridApprove.PageSize)
+            {
+                if (lstWuZhi.Count > (currentIndex + 1) * this.gridApprove.PageSize)
+                {
+                    lstWuZhi.RemoveRange((currentIndex + 1) * this.gridApprove.PageSize, lstWuZhi.Count - (currentIndex + 1) * this.gridApprove.PageSize);
+                }
+                lstWuZhi.RemoveRange(0, currentIndex * this.gridApprove.PageSize);
+            }
+            this.gridApprove.DataSource = lstWuZhi;
+            this.gridApprove.DataBind();
 
-            DataTable dtbLeaveApproves = _commSelect.ComSelect(ref _comHelp);
-            gridApprove.RecordCount = _comHelp.TotalCount;
-            gridApprove.PageSize = PageCounts;
-
-            gridApprove.DataSource = dtbLeaveApproves.Rows;
-            gridApprove.DataBind();
         }
 
         #endregion
 
         #region 页面事件
-
+        
         /// <summary>
         /// 查询事件
         /// </summary>
@@ -150,13 +139,24 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridApprove_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
-            string strApproveID = ((GridRow)gridApprove.Rows[e.RowIndex]).Values[0];
-            string strApplyID = ((GridRow)gridApprove.Rows[e.RowIndex]).Values[1];
-
-            if (e.CommandName == "Approve")
+            string strWuZhiID = ((GridRow)gridApprove.Rows[e.RowIndex]).Values[0];
+            if (e.CommandName == "Record")
             {
-                wndApprove.IFrameUrl = "WuZhiCheck.aspx?ApproveID=" + strApproveID + "&ApplyID=" + strApplyID;
+                wndApprove.IFrameUrl = "WuZhiRecord.aspx?Type=Record&ID=" + strWuZhiID;
                 wndApprove.Hidden = false;
+            }
+
+            if (e.CommandName == "Delete")
+            {
+                WuZhiManage _manage = new WuZhiManage();
+                WuZhiInfo _info = _manage.GetWuZhiByObjectID(strWuZhiID);
+                if (_info != null)
+                {
+                    _info.Isdelete = true;
+                    _manage.UpdateWuZhi(_info);
+
+                    BindGrid();
+                }
             }
         }
 
@@ -167,28 +167,16 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridApprove_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
+
             if (e.DataItem != null)
             {
-                e.Values[4] = e.Values[4].ToString() == "0" ? "一般物资" : "固定资产";
-                e.Values[8] = DateTime.Parse(e.Values[8].ToString()).ToString("yyyy-MM-dd HH:mm");
-                if (e.Values[9].ToString() == "0")
-                {
-                    e.Values[9] = "待审批";
-                    e.Values[10] = "";
-                    e.Values[11] = "";
-                }
-                else if (e.Values[9].ToString() == "1")
-                {
-                    e.Values[9] = "已审批";
-                    e.Values[10] = e.Values[10].ToString() == "0" ? "同意" : "不同意";
-                    e.Values[11] = DateTime.Parse(e.Values[11].ToString()).ToString("yyyy-MM-dd HH:mm");
-                    e.Values[12] = "<span class=\"gray\">审批</span>";
-                }
+                e.Values[3] = e.Values[3].ToString() == "0" ? "一般物资" : "固定资产";
+                e.Values[7] = DateTime.Parse(e.Values[7].ToString()).ToString("yyyy-MM-dd HH:mm");
             }
         }
 
         /// <summary>
-        /// 审批窗口关闭事件
+        /// 领用窗口关闭事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

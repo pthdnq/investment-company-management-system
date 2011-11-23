@@ -45,6 +45,7 @@ namespace com.TZMS.Model
         private Guid _recorderId;
         private string _recorderName = DBEmptyString;
         private bool _isdelete;
+        private DateTime _recordTime = DBEmptyDate;
         #endregion
 
         #region Property
@@ -154,6 +155,12 @@ namespace com.TZMS.Model
         {
             get { return _isdelete; }
             set { _isdelete = value; }
+        }
+
+        public DateTime RecordTime
+        {
+            get { return _recordTime; }
+            set { _recordTime = value; }
         }
 
         #endregion

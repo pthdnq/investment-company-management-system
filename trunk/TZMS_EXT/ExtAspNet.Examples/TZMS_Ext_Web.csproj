@@ -545,6 +545,8 @@
     <Content Include="Pages\WuZhiPages\WuZhiApplyNew.aspx" />
     <Content Include="Pages\WuZhiPages\WuZhiCheck.aspx" />
     <Content Include="Pages\WuZhiPages\WuZhiCheckList.aspx" />
+    <Content Include="Pages\WuZhiPages\WuZhiRecord.aspx" />
+    <Content Include="Pages\WuZhiPages\WuZhiRecordList.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1340,6 +1342,20 @@
     </Compile>
     <Compile Include="Pages\WuZhiPages\WuZhiCheckList.aspx.designer.cs">
       <DependentUpon>WuZhiCheckList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiRecord.aspx.cs">
+      <DependentUpon>WuZhiRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiRecord.aspx.designer.cs">
+      <DependentUpon>WuZhiRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiRecordList.aspx.cs">
+      <DependentUpon>WuZhiRecordList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WuZhiPages\WuZhiRecordList.aspx.designer.cs">
+      <DependentUpon>WuZhiRecordList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="config\ajax.aspx.cs">
