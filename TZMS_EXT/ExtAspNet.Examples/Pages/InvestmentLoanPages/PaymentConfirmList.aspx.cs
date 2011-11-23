@@ -87,11 +87,11 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             if (!IsPostBack)
             {
-                this.btnNew.OnClientClick = wndNew.GetShowReference("NewUser.aspx?Type=Add", "新增员工");
-                this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
+                this.btnNew.OnClientClick = wndNew.GetShowReference("PaymentApplyAdd.aspx?Type=Add", "新增 - 借款申请");
+                this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
 
                 // 绑定下拉框.
-                BindDDL();
+                //BindDDL();
                 // 绑定列表.
                 BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
             }
@@ -127,23 +127,23 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             StringBuilder strCondtion = new StringBuilder();
             if (!string.IsNullOrEmpty(dept) && dept != "全部")
             {
-                strCondtion.Append(" dept='" + dept + "' and ");
+                strCondtion.Append(" Status='" + dept + "' and ");
             }
             if (!string.IsNullOrEmpty(state))
             {
-                strCondtion.Append(" state=" + (state == "在职" ? 1 : 0) + " and ");
+                strCondtion.Append(" Status " + (state == "待确认" ? " = 3 " : " = 4 ") + " and ");
             }
             if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append(" (name like '%" + searchText + "%' or AccountNo like '%" + searchText + "%') and ");
+                strCondtion.Append(" (ProjectName like '%" + searchText + "%' or BorrowerNameA like '%" + searchText + "%') and ");
             }
             //未删除
-            strCondtion.Append(" state<>2 ");
+            strCondtion.Append(" Status<>9 ");
 
             #endregion
 
             //获得员工
-            List<UserInfo> lstUserInfo = new UserManage().GetUsersByCondtion(strCondtion.ToString());
+            List<InvestmentLoanInfo> lstUserInfo = new InvestmentLoanManage().GetUsersByCondtion(strCondtion.ToString());
             this.gridData.RecordCount = lstUserInfo.Count;
             this.gridData.PageSize = PageCounts;
             int currentIndex = this.gridData.PageIndex;
@@ -158,6 +158,22 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             this.gridData.DataSource = lstUserInfo;
             this.gridData.DataBind();
+        }
+
+        /// <summary>
+        /// 行绑定事件.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            //UserInfo _userInfo = (UserInfo)e.DataItem;
+
+            //if (_userInfo.State == 0)
+            //{
+            //    e.Values[9] = "<span class=\"gray\">权限</span>";
+            //    e.Values[10] = "<span class=\"gray\">离职</span>";
+            //}
         }
         #endregion
 
@@ -214,48 +230,28 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void gridData_RowCommand(object sender, GridCommandEventArgs e)
         {
-            UserManage userManage = new UserManage();
+            InvestmentLoanManage manage = new InvestmentLoanManage();
             string userID = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
 
-            UserInfo user = userManage.GetUserByObjectID(userID);
+            InvestmentLoanInfo info = manage.GetUserByObjectID(userID);
 
             if (e.CommandName == "Leave")
             {
                 // 离职
-                user.State = 0;
+                info.Status = 0;
             }
             else if (e.CommandName == "Delete")
             {
                 // 删除
-                user.State = 2;
+                info.Status = 9;
             }
-            else if (e.CommandName == "Edit")
-            {
-                this.wndNew.Title = "编辑员工";
-                this.wndNew.IFrameUrl = "NewUser.aspx?Type=Edit&ID=" + userID;
-                this.wndNew.Hidden = false;
-                return;
-            }
-            userManage.UpdateUser(user);
+
+            manage.Update(info);
 
             BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
 
-        /// <summary>
-        /// 行绑定事件.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
-        {
-            UserInfo _userInfo = (UserInfo)e.DataItem;
 
-            if (_userInfo.State == 0)
-            {
-                e.Values[9] = "<span class=\"gray\">权限</span>";
-                e.Values[10] = "<span class=\"gray\">离职</span>";
-            }
-        }
 
         /// <summary>
         /// 关闭新增员工页面. 

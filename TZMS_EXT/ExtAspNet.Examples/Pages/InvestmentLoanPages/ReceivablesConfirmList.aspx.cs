@@ -112,7 +112,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.ddlstDept.SelectedIndex = 0;
 
             ViewStateDept = ddlstDept.SelectedText;
-            ViewStateState = ddlstState.SelectedText;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -130,19 +130,19 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             if (!string.IsNullOrEmpty(state))
             {
-                strCondtion.Append(" state=" + (state == "在职" ? 1 : 0) + " and ");
+                strCondtion.Append(" status=" + state + " and ");
             }
             if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append(" (name like '%" + searchText + "%' or AccountNo like '%" + searchText + "%') and ");
+                strCondtion.Append(" (ProjectName like '%" + searchText + "%') and ");
             }
             //未删除
-            strCondtion.Append(" state<>2 ");
+            strCondtion.Append(" status<>9 ");
 
             #endregion
 
-            //获得员工
-            List<UserInfo> lstUserInfo = new UserManage().GetUsersByCondtion(strCondtion.ToString());
+            List<com.TZMS.Model.ReceivablesInfo> lstUserInfo = new InvestmentLoanManage().GetReceivablesByCondtion(strCondtion.ToString());
+      
             this.gridData.RecordCount = lstUserInfo.Count;
             this.gridData.PageSize = PageCounts;
             int currentIndex = this.gridData.PageIndex;
@@ -202,7 +202,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void ddlstState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ViewStateState = this.ddlstState.SelectedText;
+            ViewStateState = this.ddlstState.SelectedValue;
             BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
 
@@ -213,31 +213,25 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void gridData_RowCommand(object sender, GridCommandEventArgs e)
         {
-            UserManage userManage = new UserManage();
-            string userID = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
+            //UserManage userManage = new UserManage();
+            //string userID = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
 
-            UserInfo user = userManage.GetUserByObjectID(userID);
+            //UserInfo user = userManage.GetUserByObjectID(userID);
 
-            if (e.CommandName == "Leave")
-            {
-                // 离职
-                user.State = 0;
-            }
-            else if (e.CommandName == "Delete")
-            {
-                // 删除
-                user.State = 2;
-            }
-            else if (e.CommandName == "Edit")
-            {
-                this.wndNew.Title = "编辑员工";
-                this.wndNew.IFrameUrl = "NewUser.aspx?Type=Edit&ID=" + userID;
-                this.wndNew.Hidden = false;
-                return;
-            }
-            userManage.UpdateUser(user);
+            //if (e.CommandName == "Leave")
+            //{
+            //    // 离职
+            //    user.State = 0;
+            //}
+            //else if (e.CommandName == "Delete")
+            //{
+            //    // 删除
+            //    user.State = 9;
+            //}
+            
+            //userManage.UpdateUser(user);
 
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+            //BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
 
         /// <summary>
@@ -247,12 +241,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            UserInfo _userInfo = (UserInfo)e.DataItem;
+            com.TZMS.Model.ReceivablesInfo _Info = (com.TZMS.Model.ReceivablesInfo)e.DataItem;
 
-            if (_userInfo.State == 0)
+            if (_Info.Status == 2)
             {
-                e.Values[9] = "<span class=\"gray\">权限</span>";
-                e.Values[10] = "<span class=\"gray\">离职</span>";
+                e.Values[8] = "<span class=\"gray\">确认</span>";
+           
             }
         }
 

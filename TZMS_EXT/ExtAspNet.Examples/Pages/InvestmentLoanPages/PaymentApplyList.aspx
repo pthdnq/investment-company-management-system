@@ -24,8 +24,8 @@
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
                             <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                                <ext:ListItem Text="在职" Value="1" Selected="true" />
-                                <ext:ListItem Text="离职" Value="0" />
+                                <ext:ListItem Text="待审核" Value="1" Selected="true" />
+                                <ext:ListItem Text="审核中" Value="0" />
                             </ext:DropDownList>
                             <ext:Label ID="Label1" runat="server" />
                         </Items>
@@ -39,7 +39,7 @@
                         <Items>
                             <ext:Button ID="btnNew" Text="新增" Icon="Add" runat="server">
                             </ext:Button>
-                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server" />
+                            <ext:Button Hidden="true" ID="btnDelete" Text="删除" Icon="Delete" runat="server" />
                         </Items>
                     </ext:Toolbar>
                 </Toolbars>
@@ -50,26 +50,23 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="120px" DataField="JobNo" HeaderText="项目名称" />
-                            <ext:BoundField Width="110px" DataField="Name" HeaderText="借款人（甲方）" />
-                            <ext:BoundField Width="110px" DataField="AccountNo" HeaderText="付款人（乙方）" />
-                            <ext:TemplateField Width="90px" HeaderText="借款联系电话">
-                                <ItemTemplate>
-                                    <%# (Convert.ToBoolean(DataBinder.Eval(Container.DataItem,"Sex")) == true) ? "男" : "女" %>
-                                </ItemTemplate>
-                            </ext:TemplateField>
-                            <ext:BoundField Width="80px" DataField="Dept" HeaderText="借款金额" />
-                            <ext:BoundField Width="125px" DataField="PhoneNumber" HeaderText="借款日期" />
-                            <ext:BoundField DataField="BackIpPhoneNumber" Width="125px" HeaderText="提交时间" />
+                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
+                            <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
+                                <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
+                         
+                            <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
+                            <ext:BoundField Width="125px" DataField="LoanDate" HeaderText="借款日期" />
+                            <ext:BoundField DataField="SubmitTime" Width="125px" HeaderText="提交时间" />
                           
                           <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
+                                    <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "9") ? "已通过" : "审核中" %>
                                 </ItemTemplate>
                             </ext:TemplateField> 
-                            <ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentApplyEdit.aspx?Type=Edit&ID={0}"
+                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentApplyEdit.aspx?Type=Edit&ID={0}"
                                 Title="编辑" WindowID="wndNew" />
-                            <ext:LinkButtonField  Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
+                            <ext:LinkButtonField  Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>

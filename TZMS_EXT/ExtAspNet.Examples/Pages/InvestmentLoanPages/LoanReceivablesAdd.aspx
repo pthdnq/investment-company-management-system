@@ -29,30 +29,30 @@
                 <Rows>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox Enabled="false" ID="tbxName" Label="项目名称" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                            <ext:TextBox Hidden="true" Enabled="false" ID="tbProjectName" Label="项目名称" ShowRedStar="true" Required="true" runat="server"
+                                MaxLength="50" MaxLengthMessage="最多只能输入50个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:DatePicker ID="dpkEntryDate" Label="应收款日" ShowRedStar="true" Required="true"
+                            <ext:DatePicker ID="dpDueDateForReceivables" Label="应收款日" ShowRedStar="true" Required="true"
                                 runat="server">
                             </ext:DatePicker>
-                            <ext:DatePicker ID="dpkBirthday" Label="实收款日" runat="server">
+                            <ext:DatePicker ID="dpDateForReceivables" Label="实收款日" runat="server" ShowRedStar="true" Required="true">
                             </ext:DatePicker>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbxJobNo" Label="实收金额" ShowRedStar="true" Required="true" runat="server"
+                            <ext:TextBox ID="tbAmountofpaidUp" Label="实收金额" ShowRedStar="true" Required="true" runat="server"
                                 MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
-                            <ext:TextBox ID="tbxAddress" Label="收款帐号" runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！"
+                            <ext:TextBox ID="tbReceivablesAccount" Label="收款帐号" runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！"
                                 Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
                         </Items>
