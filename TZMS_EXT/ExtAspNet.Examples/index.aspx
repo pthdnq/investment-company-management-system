@@ -368,7 +368,7 @@
                     LoadTab("Pages/WuZhiPages/WuZhiApplyList.aspx", "物资申请", icon);
                     break;
                 case "wzsp":
-                    LoadTab("Pages/WuZhiPages/WuZhiCheck.aspx", "物资审批", icon);
+                    LoadTab("Pages/WuZhiPages/WuZhiCheckList.aspx", "物资审批", icon);
                     break;
 
                 // 代帐管理  

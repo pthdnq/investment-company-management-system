@@ -193,11 +193,13 @@ namespace TZMS.Web
                 _applyInfo.UserJobNo = _currentUser.JobNo;
                 _applyInfo.UserAccountNo = _currentUser.AccountNo;
                 _applyInfo.UserName = _currentUser.Name;
+                _applyInfo.Dept = _currentUser.Dept;
                 _applyInfo.Type = short.Parse(ddlstWuZhiType.SelectedValue);
                 _applyInfo.Title = tbxTitle.Text.Trim();
                 _applyInfo.Sument = taaSument.Text.Trim();
                 _applyInfo.Other = taaOther.Text.Trim();
                 _applyInfo.State = 0;
+                _applyInfo.ApplyTime = DateTime.Now;
                 _applyInfo.CurrentCheckerId = new Guid(ddlstApproveUser.SelectedValue);
                 _applyInfo.Isdelete = false;
 
@@ -329,6 +331,9 @@ namespace TZMS.Web
             ddlstNext.Required = false;
             ddlstNext.ShowRedStar = false;
             ddlstNext.Enabled = false;
+            ddlstWuZhiType.Required = false;
+            ddlstWuZhiType.ShowRedStar = false;
+            ddlstWuZhiType.Enabled = false;
             ddlstApproveUser.Required = false;
             ddlstApproveUser.ShowRedStar = false;
             ddlstApproveUser.Enabled = false;

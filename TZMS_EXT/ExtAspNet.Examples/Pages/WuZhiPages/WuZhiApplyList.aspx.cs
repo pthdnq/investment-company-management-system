@@ -166,7 +166,7 @@ namespace TZMS.Web
             if (e.DataItem != null)
             {
                 e.Values[1] = e.Values[1].ToString() == "0" ? "一般物资" : "固定资产";
-                e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd");
+                e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd HH:mm");
                 // 当前审批人.
                 if (e.Values[6].ToString() == SystemUser.ObjectId.ToString())
                 {
