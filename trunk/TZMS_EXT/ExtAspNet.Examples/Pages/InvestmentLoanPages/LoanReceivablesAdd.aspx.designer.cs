@@ -85,49 +85,49 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
-        /// tbxName control.
+        /// tbProjectName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxName;
+        protected global::ExtAspNet.TextBox tbProjectName;
         
         /// <summary>
-        /// dpkEntryDate control.
+        /// dpDueDateForReceivables control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkEntryDate;
+        protected global::ExtAspNet.DatePicker dpDueDateForReceivables;
         
         /// <summary>
-        /// dpkBirthday control.
+        /// dpDateForReceivables control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkBirthday;
+        protected global::ExtAspNet.DatePicker dpDateForReceivables;
         
         /// <summary>
-        /// tbxJobNo control.
+        /// tbAmountofpaidUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxJobNo;
+        protected global::ExtAspNet.TextBox tbAmountofpaidUp;
         
         /// <summary>
-        /// tbxAddress control.
+        /// tbReceivablesAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxAddress;
+        protected global::ExtAspNet.TextBox tbReceivablesAccount;
         
         /// <summary>
         /// taRemark control.

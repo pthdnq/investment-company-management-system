@@ -23,8 +23,8 @@
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
                             <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                                <ext:ListItem Text="在职" Value="1" Selected="true" />
-                                <ext:ListItem Text="离职" Value="0" />
+                                <ext:ListItem Text="执行中" Value="1" Selected="true" />
+                                <ext:ListItem Text="已终止" Value="0" />
                             </ext:DropDownList>
                             <ext:Label ID="Label1" runat="server" />
                         </Items>
@@ -49,25 +49,23 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="120px" DataField="JobNo" HeaderText="项目名称" />
-                            <ext:BoundField Width="110px" DataField="Name" HeaderText="借款人（甲方）" />
-                            <ext:BoundField Width="110px" DataField="AccountNo" HeaderText="付款人（乙方）" />
-                            <ext:TemplateField Width="90px" HeaderText="借款联系电话">
-                                <ItemTemplate>
-                                    <%# (Convert.ToBoolean(DataBinder.Eval(Container.DataItem,"Sex")) == true) ? "男" : "女" %>
-                                </ItemTemplate>
-                            </ext:TemplateField>
-                            <ext:BoundField Width="80px" DataField="Dept" HeaderText="借款金额" />
-                            <ext:BoundField Width="145px" DataField="PhoneNumber" HeaderText="借款日期" />
-                            <ext:BoundField DataField="BackIpPhoneNumber" Width="145px" HeaderText="应付借款日" />
+                               <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
+                            <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
+                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
+                         
+                            <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
+                            <ext:BoundField Width="145px" DataField="LoanDate" HeaderText="借款日期" />
+                            <ext:BoundField DataField="SubmitTime" Width="145px" HeaderText="应付借款日" />
+                        
                             <%--     
                           <ext:TemplateField Width="70px" HeaderText="员工状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
+                                    <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "在职" : "离职" %>
                                 </ItemTemplate>
                             </ext:TemplateField>--%>
-                            <ext:WindowField Width="76px" Text="还款进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanInfo.aspx?Type=Edit&ID={0}"
-                                WindowID="wndNew" DataWindowTitleField="JobNo" DataWindowTitleFormatString="还款进展 - {0}项目" />
+                            <ext:WindowField Width="76px" Text="还款进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanInfo.aspx?ID={0}"
+                                WindowID="wndNew" DataWindowTitleField="ProjectName" DataWindowTitleFormatString="还款进展 - {0}" />
                             <%--       <ext:LinkButtonField Width="38px" Text="收款"  CommandName="Repayment" /> --%>
                         </Columns>
                     </ext:Grid>
@@ -80,7 +78,7 @@
         Height="370px" Width="400px">
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="409px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="419px" Width="650px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

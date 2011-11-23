@@ -24,8 +24,8 @@
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
                             <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                                <ext:ListItem Text="在职" Value="1" Selected="true" />
-                                <ext:ListItem Text="离职" Value="0" />
+                                <ext:ListItem Text="执行中" Value="1" Selected="true" />
+                                <ext:ListItem Text="已终止" Value="9" />
                             </ext:DropDownList>
                             <ext:Label ID="Label1" runat="server" />
                         </Items>
@@ -49,24 +49,22 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="120px" DataField="JobNo" HeaderText="项目名称" />
-                            <ext:BoundField Width="110px" DataField="Name" HeaderText="借款人（甲方）" />
-                            <ext:BoundField Width="110px" DataField="AccountNo" HeaderText="付款人（乙方）" />
-                            <ext:TemplateField Width="90px" HeaderText="借款联系电话">
-                                <ItemTemplate>
-                                    <%# (Convert.ToBoolean(DataBinder.Eval(Container.DataItem,"Sex")) == true) ? "男" : "女" %>
-                                </ItemTemplate>
-                            </ext:TemplateField>
-                            <ext:BoundField Width="80px" DataField="Dept" HeaderText="借款金额" />
-                            <ext:BoundField Width="105px" DataField="dpkEntryDate" HeaderText="借款日期" />
-                            <ext:BoundField DataField="dpkEntryDate" Width="105px" HeaderText="终止合同日期" />
+                   <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
+                               <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
+                            <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
+                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
+                         
+                            <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
+                            <ext:BoundField Width="115px" DataField="LoanDate" HeaderText="借款日期" DataFormatString="{0:yyyy/MM/dd hh:mm}" />
+                            <ext:BoundField  Width="115px" DataField="SubmitTime" HeaderText="处理时间"  DataFormatString="{0:yyyy/MM/dd hh:mm}" />
+                   
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
+                                    <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "9") ? "已终止" : "执行中" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="76px" Text="终止合同" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?Type=Edit&ID={0}"
+                            <ext:WindowField Width="76px" Text="终止合同" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?ID={0}"
                                 Title="终止合同" WindowID="wndNew" />
                      <%--     <ext:WindowField Width="76px" Text="还款进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?Type=Edit&ID={0}"
                                 Title="还款进展" WindowID="wndNew" />--%>
