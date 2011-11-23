@@ -324,7 +324,7 @@ namespace com.TZMS.DataAccess
             }
             if (ReceivablesInfoInfoDataRow["Status"] != null)
             {
-                ReceivablesInfoInfo.Status = char.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "Status"));
+                ReceivablesInfoInfo.Status = int.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "Status"));
             }
 
             return ReceivablesInfoInfo;

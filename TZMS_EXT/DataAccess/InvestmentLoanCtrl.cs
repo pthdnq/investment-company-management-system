@@ -85,7 +85,7 @@ namespace com.TZMS.DataAccess
 				};
 
                 int i = 0;
-                sqlparam[i++].Value = InvestmentLoanInfo.ObjetctId;
+                sqlparam[i++].Value = InvestmentLoanInfo.ObjectId;
                 sqlparam[i++].Value = InvestmentLoanInfo.ProjectName;
                 sqlparam[i++].Value = InvestmentLoanInfo.ProjectOverview;
                 sqlparam[i++].Value = InvestmentLoanInfo.BorrowerNameA;
@@ -198,7 +198,7 @@ namespace com.TZMS.DataAccess
                 };
 
                 int i = 0;
-                sqlparam[i++].Value = InvestmentLoanInfo.ObjetctId;
+                sqlparam[i++].Value = InvestmentLoanInfo.ObjectId;
                 sqlparam[i++].Value = InvestmentLoanInfo.ProjectName;
                 sqlparam[i++].Value = InvestmentLoanInfo.ProjectOverview;
                 sqlparam[i++].Value = InvestmentLoanInfo.BorrowerNameA;
@@ -312,7 +312,7 @@ namespace com.TZMS.DataAccess
             InvestmentLoanInfo InvestmentLoanInfoInfo = new InvestmentLoanInfo();
             if (InvestmentLoanInfoInfoDataRow["ObjetctId"] != null)
             {
-                InvestmentLoanInfoInfo.ObjetctId = new Guid(  DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "ObjetctId"));
+                InvestmentLoanInfoInfo.ObjectId = new Guid(  DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "ObjetctId"));
             }
             if (InvestmentLoanInfoInfoDataRow["ProjectName"] != null)
             {
@@ -372,7 +372,7 @@ namespace com.TZMS.DataAccess
             }
             if (InvestmentLoanInfoInfoDataRow["Status"] != null)
             {
-                InvestmentLoanInfoInfo.Status =char.Parse( DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "Status"));
+                InvestmentLoanInfoInfo.Status = int.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "Status"));
             }
             if (InvestmentLoanInfoInfoDataRow["NextOperaterId"] != null)
             {
