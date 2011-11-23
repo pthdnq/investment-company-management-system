@@ -45,7 +45,7 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" ApproverID = '" + CurrentUser.ObjectId.ToString() + "'");
+            strCondition.Append(" ApproverID = '" + CurrentUser.ObjectId.ToString() + "' and ApproveOp <> 0");
 
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
