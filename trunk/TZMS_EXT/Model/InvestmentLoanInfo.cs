@@ -48,7 +48,7 @@ namespace com.TZMS.Model
         private char _rateOfReturn = DBEmptyChar;
         private DateTime _dueDateForPay = DBEmptyDate;
         private string _remark = DBEmptyString;
-        private char _status = DBEmptyChar;
+        private int _status = DBEmptyInt;
         private Guid _nextOperaterId;
         private string _nextOperaterAccount = DBEmptyString;
         private string _nextOperaterName = DBEmptyString;
@@ -67,7 +67,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// ObjetctID 
         /// </summary> 
-        public Guid ObjetctId
+        public Guid ObjectId
         {
             get { return _objetctId; }
             set { _objetctId = value; }
@@ -202,7 +202,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// Status 
         /// </summary> 
-        public char Status
+        public int Status
         {
             get { return _status; }
             set { _status = value; }
