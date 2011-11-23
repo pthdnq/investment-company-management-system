@@ -8,6 +8,7 @@ using System.Text;
 using ExtAspNet;
 using com.TZMS.Business;
 using com.TZMS.Model;
+using System.Net;
 
 namespace TZMS.Web
 {
@@ -23,7 +24,7 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 LoadData();
-        
+
             }
         }
 
@@ -92,7 +93,17 @@ namespace TZMS.Web
                 return false;
             }
             CurrentUser = user;
-            
+            //HttpCookie cookie = new HttpCookie("tzmsuser");
+            //cookie.Values.Add("userID", user.ObjectId.ToString());
+
+            //HttpCookie cookie = new HttpCookie("tzmsuser");
+            //HttpCookie cookie = Request.Cookies["tzmsuser"];
+            //string user_id = cookie.Values["userID"];
+            Response.Cookies["tzmsuser"].Value = user.ObjectId.ToString();//将客户端的IP地址保存在Cookies对象中
+            Response.Cookies["tzmsuser"].Expires = DateTime.MaxValue;//设计Cookies的失效期
+
+            //string str = Request.Cookies["tzmsuser"].Value.ToString();
+            Session["account"] = user.ObjectId.ToString();
             return true;
         }
 
