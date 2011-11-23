@@ -25,6 +25,7 @@ namespace TZMS.Web
                 // 审批人设置注册23:14
                 setChecker.OnClientClick = newSetCheckerWindow.GetShowReference(@"Pages\system\SetMyChecker.aspx") + " return false;";
                 this.myMessage.OnClientClick = myMessageWindow.GetShowReference(@"Pages\system\MyMessage.aspx") + " return false;";
+                //this.myMessage.OnClientClick = myMessageWindow.GetShowReference(@"http://211.86.153.66:57682/Default.aspx?account=" + Account) + " return false;";
                 this.changePsw.OnClientClick = changePswWindow.GetShowReference(@"Pages\system\ChangePsw.aspx") + " return false;";
 
             }
