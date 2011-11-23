@@ -10,7 +10,13 @@ namespace TZMS.Web
     public partial class index : BasePage
     {
 
-        public static string Account = "omit";
+        public string Account
+        {
+            get
+            {
+                return CurrentUser.ObjectId.ToString();
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,7 +26,7 @@ namespace TZMS.Web
                 setChecker.OnClientClick = newSetCheckerWindow.GetShowReference(@"Pages\system\SetMyChecker.aspx") + " return false;";
                 this.myMessage.OnClientClick = myMessageWindow.GetShowReference(@"Pages\system\MyMessage.aspx") + " return false;";
                 this.changePsw.OnClientClick = changePswWindow.GetShowReference(@"Pages\system\ChangePsw.aspx") + " return false;";
-           
+
             }
         }
 
