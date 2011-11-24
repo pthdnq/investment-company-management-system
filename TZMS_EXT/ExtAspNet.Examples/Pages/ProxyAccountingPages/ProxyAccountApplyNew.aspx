@@ -17,7 +17,7 @@
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
                     <ext:Button ID="btnSubmit" Text="提交" Icon="Disk" runat="server" ValidateForms="pelMain"
-                        OnClick="btnSubmit_Click">
+                        OnClick="btnSubmit_Click" ConfirmText="您确定提交该表单吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -44,7 +44,7 @@
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
                         AutoHeight="true" Height="389px">
                         <Tabs>
-                            <ext:Tab ID="Tab1" Title="代帐费申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab1" Title="代账费申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Form EnableBackgroundColor="true" LabelWidth="65px" ShowHeader="false" ShowBorder="true"
                                         BodyPadding="5px" ID="mainForm" runat="server">
@@ -100,8 +100,8 @@
                                         AutoHeight="true" OnRowDataBound="gridApproveHistory_RowDataBound">
                                         <Columns>
                                             <ext:BoundField DataField="ApproverName" HeaderText="执行人" />
-                                            <ext:BoundField DataField="ApproveDate" HeaderText="审批时间" />
-                                            <ext:BoundField DataField="ApproveOp" HeaderText="审批结果" />
+                                            <ext:BoundField DataField="ApproveDate" HeaderText="执行时间" />
+                                            <ext:BoundField DataField="ApproveOp" HeaderText="执行结果" />
                                             <ext:BoundField DataField="Sugest" HeaderText="执行人意见" DataTooltipField="Sugest" ExpandUnusedSpace="true" />
                                         </Columns>
                                     </ext:Grid>

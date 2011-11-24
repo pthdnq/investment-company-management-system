@@ -15,10 +15,10 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnPass" Text="通过" Icon="Accept" runat="server" ValidateForms="mainForm2"
-                        OnClick="btnPass_Click">
+                    <ext:Button ID="btnPass" Text="同意" Icon="Accept" runat="server" ValidateForms="mainForm2"
+                        OnClick="btnPass_Click" ConfirmText="您确认同意吗?">
                     </ext:Button>
-                    <ext:Button ID="btnRefuse" Text="不通过" Icon="Stop" runat="server" OnClick="btnRefuse_Click">
+                    <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click" ConfirmText="您确认不同意吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -99,8 +99,8 @@
                                         runat="server" EnableRowNumber="True" AutoScroll="true" AutoHeight="true" OnRowDataBound="gridApproveHistory_RowDataBound">
                                         <Columns>
                                             <ext:BoundField DataField="CheckerName" HeaderText="执行人" />
-                                            <ext:BoundField DataField="CheckDateTime" HeaderText="审批时间" />
-                                            <ext:BoundField DataField="CheckOp" HeaderText="审批结果" />
+                                            <ext:BoundField DataField="CheckDateTime" HeaderText="执行时间" />
+                                            <ext:BoundField DataField="CheckOp" HeaderText="执行结果" />
                                             <ext:BoundField DataField="CheckSugest" HeaderText="执行人意见" DataTooltipField="CheckSugest"
                                                 ExpandUnusedSpace="true" />
                                         </Columns>

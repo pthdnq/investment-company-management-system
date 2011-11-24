@@ -38,8 +38,11 @@
                             </ext:FormRow>
                             <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="50% 50%">
                                 <Items>
-                                    <ext:Label ID="lblRecevices" runat="server" Label="收信人">
-                                    </ext:Label>
+                                    <%--                                    <ext:Label ID="lblRecevices" runat="server" Label="收信人">
+                                    </ext:Label>--%>
+                                    <ext:TextBox ID="lblRecevices" runat="server" Label="收信人" ShowRedStar="true" Required="true"
+                                        Enabled="false">
+                                    </ext:TextBox>
                                     <ext:Button ID="btnRecevicer" OnClick="btnRecevicer_Click" runat="server" Text="设置收信人...">
                                     </ext:Button>
                                 </Items>

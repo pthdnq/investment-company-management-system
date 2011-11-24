@@ -177,10 +177,10 @@ namespace TZMS.Web
                         e.Values[8] = "审批中";
                         break;
                     case 2:
-                        e.Values[8] = "归档";
+                        e.Values[8] = "归档-已通过";
                         break;
                     case 3:
-                        e.Values[8] = "被打回";
+                        e.Values[8] = "归档-未通过";
                         break;
                     default:
                         break;

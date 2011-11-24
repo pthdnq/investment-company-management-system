@@ -17,7 +17,7 @@
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
                     <ext:Button ID="btnSubmit" Text="提交" Icon="Disk" runat="server" ValidateForms="pelMain"
-                        OnClick="btnSubmit_Click">
+                        OnClick="btnSubmit_Click" ConfirmText="您确定提交该表单吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -96,8 +96,8 @@
                                         AutoHeight="true" OnRowDataBound="gridApproveHistory_RowDataBound">
                                         <Columns>
                                             <ext:BoundField DataField="CheckerName" HeaderText="执行人" />
-                                            <ext:BoundField DataField="CheckDateTime" HeaderText="审批时间" />
-                                            <ext:BoundField DataField="CheckOp" HeaderText="审批结果" />
+                                            <ext:BoundField DataField="CheckDateTime" HeaderText="执行时间" />
+                                            <ext:BoundField DataField="CheckOp" HeaderText="执行结果" />
                                             <ext:BoundField DataField="CheckSugest" HeaderText="执行人意见" DataTooltipField="CheckSugest"
                                                 ExpandUnusedSpace="true" />
                                         </Columns>

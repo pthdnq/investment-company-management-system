@@ -22,7 +22,7 @@
                             <ext:DropDownList ID="ddlState" runat="server" Label="申请状态">
                                 <ext:ListItem Text="审批中" Value="0" Selected="true" />
                                 <ext:ListItem Text="归档" Value="2" />
-                                <ext:ListItem Text="被打回" Value="1" />
+                                <ext:ListItem Text="未通过" Value="1" />
                             </ext:DropDownList>
                             <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>

@@ -20,7 +20,7 @@ namespace TZMS.Web
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
-                wndNewProxy.Title = "代帐费申请";
+                wndNewProxy.Title = "代账费申请";
                 btnNewProxy.OnClientClick = wndNewProxy.GetShowReference("ProxyAccountApplyNew.aspx?Type=Add") + "return false;";
                 wndNewProxy.OnClientCloseButtonClick = wndNewProxy.GetHidePostBackReference();
 
@@ -168,7 +168,7 @@ namespace TZMS.Web
                         e.Values[14] = "<span class=\"gray\">删除</span>";
                         break;
                     case "1":
-                        e.Values[11] = "被打回";
+                        e.Values[11] = "未通过";
                         break;
                     case "2":
                         e.Values[11] = "归档";

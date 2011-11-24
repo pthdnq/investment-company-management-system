@@ -20,9 +20,9 @@
                     <ext:FormRow>
                         <Items>
                             <ext:DropDownList ID="ddlMessageState" runat="server" Label="消息类型">
-                                <ext:ListItem Text="所有消息" Value="2" />
-                                <ext:ListItem Text="未查看信息" Value="0" Selected="true" />
-                                <ext:ListItem Text="已查看信息" Value="1" />
+                                <ext:ListItem Text="所有" Value="2" />
+                                <ext:ListItem Text="未查看" Value="0" Selected="true" />
+                                <ext:ListItem Text="已查看" Value="1" />
                             </ext:DropDownList>
                             <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>

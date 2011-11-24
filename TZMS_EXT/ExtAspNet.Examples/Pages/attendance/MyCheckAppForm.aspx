@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" />
+    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" AutoScroll="false" ShowBorder="true" ShowHeader="false">
         <Toolbars>
@@ -19,9 +19,9 @@
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
                     <ext:Button ID="btnPass" Text="同意" Icon="Accept" runat="server" ValidateForms="mainForm2"
-                        OnClick="btnPass_Click">
+                        OnClick="btnPass_Click" ConfirmText="您确定同意吗?">
                     </ext:Button>
-                    <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click">
+                    <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click" ConfirmText="您确定不同意吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -53,7 +53,7 @@
                         </Rows>
                     </ext:Form>
                     <ext:TabStrip runat="server" ActiveTabIndex="0" ShowBorder="false" AutoHeight="true"
-                        Height="335px">
+                        Height="400px">
                         <Tabs>
                             <ext:Tab Title="请假申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
@@ -80,25 +80,21 @@
                                                 <Items>
                                                     <ext:Label ID="lblHours" runat="server" Label="时长">
                                                     </ext:Label>
-                                                </Items>
-                                            </ext:FormRow>
-                                            <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">
-                                                <Items>
                                                     <ext:Label ID="lblLeaveType" runat="server" Label="请假类型">
                                                     </ext:Label>
+                                                </Items>
+                                            </ext:FormRow>
+                                            <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="50% 50%">
+                                                <Items>
+                                                    <ext:TextArea ID="taaLeaveReason" Height="100px" runat="server" Label="请假原因" Enabled="false">
+                                                    </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow8" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableBackgroundColor="true"
-                                                        ShowBorder="false" ShowHeader="false" Hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ucl:MudFlexCtrl ID="MUDAttachment" runat="server" AttributeName="病假属性" SystemName="病假"></ucl:MudFlexCtrl>
+                                                        ShowBorder="false" ShowHeader="false" Hidden="true">附件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ucl:MudFlexCtrl ID="MUDAttachment" runat="server" AttributeName="病假属性" SystemName="病假"></ucl:MudFlexCtrl>
                                                     </ext:ContentPanel>
-                                                </Items>
-                                            </ext:FormRow>
-                                            <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="50% 50%">
-                                                <Items>
-                                                    <ext:TextArea ID="taaLeaveReason" Height="50px" runat="server" Label="请假原因" Enabled="false">
-                                                    </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
                                         </Rows>
@@ -112,8 +108,8 @@
                                         AutoHeight="true" OnRowDataBound="gridApproveHistory_RowDataBound">
                                         <Columns>
                                             <ext:BoundField DataField="ApproverName" HeaderText="执行人" />
-                                            <ext:BoundField DataField="ApproveTime" HeaderText="审批时间" />
-                                            <ext:BoundField DataField="ApproveResult" HeaderText="审批结果" />
+                                            <ext:BoundField DataField="ApproveTime" HeaderText="执行时间" />
+                                            <ext:BoundField DataField="ApproveResult" HeaderText="执行结果" />
                                             <ext:BoundField DataField="ApproveComment" HeaderText="执行人意见" DataTooltipField="ApproveComment"
                                                 ExpandUnusedSpace="true" />
                                         </Columns>

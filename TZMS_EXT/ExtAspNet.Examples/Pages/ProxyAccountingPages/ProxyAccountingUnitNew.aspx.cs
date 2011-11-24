@@ -46,23 +46,6 @@ namespace TZMS.Web
             }
         }
 
-        //public string AccountancyID
-        //{
-        //    get
-        //    {
-        //        if (ViewState["AccountancyID"] == null)
-        //        {
-        //            return null;
-        //        }
-
-        //        return ViewState["AccountancyID"].ToString();
-        //    }
-        //    set
-        //    {
-        //        ViewState["AccountancyID"] = value;
-        //    }
-        //}
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -83,6 +66,7 @@ namespace TZMS.Web
                         {
                             BindUnitInfo();
                             DisableAllControls();
+                            btnSetAccountancy.Hidden = true;
                         }
                         break;
                     case "Edit":
@@ -128,6 +112,9 @@ namespace TZMS.Web
             taaOther.Required = false;
             taaOther.ShowRedStar = false;
             taaOther.Enabled = false;
+            lblAccountancy.ShowRedStar = false;
+            lblAccountancy.Required = false;
+            lblAccountancy.Enabled = false;
         }
 
         private void SaveInfo()
@@ -137,7 +124,7 @@ namespace TZMS.Web
 
             if (Session["Accountancy:" + CurrentUser.ObjectId.ToString()] == null)
             {
-                Alert.Show("代帐会计尚未设置!");
+                Alert.Show("代账会计尚未设置!");
                 return;
             }
 
@@ -154,9 +141,11 @@ namespace TZMS.Web
                 int result = _manage.AddNewUnit(_info);
                 if (result == -1)
                 {
-                    Alert.Show("添加单位成功!");
-                    btnSave.Enabled = false;
-                    btnSetAccountancy.Enabled = false;
+                    //Alert.Show("添加单位成功!");
+                    //btnSave.Enabled = false;
+                    //btnSetAccountancy.Enabled = false;
+
+                    this.btnClose_Click(null, null);
                 }
                 else
                 {
@@ -176,10 +165,11 @@ namespace TZMS.Web
                 int result = _manage.UpdateUnit(_info);
                 if (result == -1)
                 {
-                    Alert.Show("编辑单位成功!");
-                    btnSave.Enabled = false;
-                    btnSetAccountancy.Enabled = false;
-                    btnSetAccountancy.Hidden = true;
+                    //Alert.Show("编辑单位成功!");
+                    //btnSave.Enabled = false;
+                    //btnSetAccountancy.Enabled = false;
+                    //btnSetAccountancy.Hidden = true;
+                    this.btnClose_Click(null, null);
                 }
                 else
                 {

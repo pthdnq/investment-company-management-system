@@ -16,9 +16,9 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnPass" Text="同意" Icon="Accept" runat="server" OnClick="btnPass_Click">
+                    <ext:Button ID="btnPass" Text="同意" Icon="Accept" runat="server" OnClick="btnPass_Click" ConfirmText="您确定同意吗?">
                     </ext:Button>
-                    <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click">
+                    <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click" ConfirmText="您确定不同意吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>

@@ -231,7 +231,8 @@ namespace TZMS.Web.Pages
             }
 
             Session[CurrentUser.ObjectId.ToString()] = stringBuilder.ToString();
-            Alert.Show("设置收信人成功!");
+            //Alert.Show("设置收信人成功!");
+            this.btnClose_Click(null, null);
         }
 
         /// <summary>

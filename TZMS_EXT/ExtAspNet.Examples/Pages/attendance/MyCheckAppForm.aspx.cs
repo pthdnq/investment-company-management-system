@@ -203,10 +203,10 @@ namespace TZMS.Web
                         e.Values[2] = "待审批";
                         break;
                     case "1":
-                        e.Values[2] = "同意";
+                        e.Values[2] = "审批-通过";
                         break;
                     case "2":
-                        e.Values[2] = "不同意";
+                        e.Values[2] = "审批-不通过";
                         break;
                     case "4":
                         e.Values[2] = "归档";
@@ -227,7 +227,6 @@ namespace TZMS.Web
             if (ddlstNext.SelectedIndex == 1)
             {
                 BindArchiver();
-
             }
             else
             {
@@ -305,14 +304,15 @@ namespace TZMS.Web
 
             if (result == -1)
             {
-                Alert.Show(ddlstNext.SelectedText + "成功!");
-                btnPass.Enabled = false;
-                btnRefuse.Enabled = false;
-                BindApproveHistory();
+                //Alert.Show( "审批成功(同意)!");
+                //btnPass.Enabled = false;
+                //btnRefuse.Enabled = false;
+                //BindApproveHistory();
+                this.btnClose_Click(null, null);
             }
             else
             {
-                Alert.Show(ddlstNext.SelectedText + "失败!");
+                Alert.Show("审批失败(同意)!");
             }
         }
 
@@ -355,14 +355,15 @@ namespace TZMS.Web
 
             if (result == -1)
             {
-                Alert.Show("打回成功!");
-                btnPass.Enabled = false;
-                btnRefuse.Enabled = false;
-                BindApproveHistory();
+                //Alert.Show("审批成功(不同意)!");
+                //btnPass.Enabled = false;
+                //btnRefuse.Enabled = false;
+                //BindApproveHistory();
+                this.btnClose_Click(null, null);
             }
             else
             {
-                Alert.Show("打回失败!");
+                Alert.Show("审批失败(不同意)!");
             }
         }
     }

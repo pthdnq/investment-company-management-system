@@ -74,7 +74,7 @@
             </ext:Panel>
         </items>
     </ext:Panel>
-    <ext:Window ID="wndApprove" Title="代帐审评" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndApprove" Title="代账审批" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
         Width="700px" onclose="wndApprove_Close">
     </ext:Window>

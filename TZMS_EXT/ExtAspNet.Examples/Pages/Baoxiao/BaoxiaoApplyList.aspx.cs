@@ -254,7 +254,7 @@ namespace TZMS.Web
                         e.Values[12] = "<span class=\"gray\">删除</span>";
                         break;
                     case "1":
-                        e.Values[9] = "被打回";
+                        e.Values[9] = "未通过";
                         break;
                     case "2":
                         e.Values[9] = "归档";

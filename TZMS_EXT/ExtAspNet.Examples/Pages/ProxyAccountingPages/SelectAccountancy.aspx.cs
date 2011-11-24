@@ -213,12 +213,12 @@ namespace TZMS.Web
 
             if (lstSelected.Count == 0)
             {
-                Alert.Show("请选择代理会计!");
+                Alert.Show("请选择代账会计!");
                 return;
             }
 
             Session["Accountancy:" + CurrentUser.ObjectId.ToString()] = lstSelected[0].UserObjectId.ToString() + "," + lstSelected[0].Name;
-            Alert.Show("保存代理会计成功!");
+            btnClose_Click(null, null);
         }
 
         /// <summary>
@@ -273,7 +273,7 @@ namespace TZMS.Web
             // 获取选中一行.
             if (gridSelectdUsers.SelectedRowIndexArray.Length == 0)
             {
-                Alert.Show("请选择要移除的代理会计！");
+                Alert.Show("请选择要移除的代账会计！");
                 return;
             }
             int index = gridSelectdUsers.SelectedRowIndexArray[0];
