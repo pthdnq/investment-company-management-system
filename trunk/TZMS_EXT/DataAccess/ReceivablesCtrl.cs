@@ -87,7 +87,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ReceivablesInfo.AccountingAccount;
                 sqlparam[i++].Value = ReceivablesInfo.CreaterId;
                 sqlparam[i++].Value = ReceivablesInfo.CreaterName;
-                sqlparam[i++].Value = ReceivablesInfo.CteateTime;
+                sqlparam[i++].Value = ReceivablesInfo.CreateTime;
                 sqlparam[i++].Value = ReceivablesInfo.Status;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
@@ -176,7 +176,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ReceivablesInfo.AccountingAccount;
                 sqlparam[i++].Value = ReceivablesInfo.CreaterId;
                 sqlparam[i++].Value = ReceivablesInfo.CreaterName;
-                sqlparam[i++].Value = ReceivablesInfo.CteateTime;
+                sqlparam[i++].Value = ReceivablesInfo.CreateTime;
                 sqlparam[i++].Value = ReceivablesInfo.Status;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
@@ -320,7 +320,7 @@ namespace com.TZMS.DataAccess
             }
             if (ReceivablesInfoInfoDataRow["CteateTime"] != null)
             {
-                ReceivablesInfoInfo.CteateTime = DateTime.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CteateTime"));
+                ReceivablesInfoInfo.CreateTime = DateTime.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CteateTime"));
             }
             if (ReceivablesInfoInfoDataRow["Status"] != null)
             {
