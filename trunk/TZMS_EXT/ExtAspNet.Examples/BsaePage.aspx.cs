@@ -218,7 +218,7 @@ namespace TZMS.Web
             CNKJ = 17,
 
             /// <summary>
-            /// 考勤归档
+            /// 考勤归档（需要行政人员归档）
             /// </summary>
             KQGD = 18,
 
@@ -231,6 +231,16 @@ namespace TZMS.Web
             /// 物质申请（固定资产）
             /// </summary>
             WZSQ_GD = 20,
+
+            /// <summary>
+            /// 代账费归档（具有归档权）
+            /// </summary>
+            DZFGD = 21,
+
+            /// <summary>
+            /// 物质审批归档（具有归档权）
+            /// </summary>
+            WZSPGD = 22,
 
         }
 
