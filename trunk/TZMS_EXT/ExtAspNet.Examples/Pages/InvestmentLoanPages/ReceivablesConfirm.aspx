@@ -29,7 +29,7 @@
                 <Rows>
                  <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox Enabled="false" ID="tbxName" Label="项目名称" ShowRedStar="true" Required="true" runat="server"
+                            <ext:TextBox Enabled="false" ID="tbProjectName" Label="项目名称" ShowRedStar="true" Required="true" runat="server"
                                 MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!" />
                         </Items>

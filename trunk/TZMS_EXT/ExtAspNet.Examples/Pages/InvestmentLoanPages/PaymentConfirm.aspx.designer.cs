@@ -94,6 +94,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextBox tbProjectName;
         
         /// <summary>
+        /// tbCustomerName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbCustomerName;
+        
+        /// <summary>
         /// tbProjectOverview control.
         /// </summary>
         /// <remarks>
@@ -103,103 +112,58 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextArea tbProjectOverview;
         
         /// <summary>
-        /// tbBorrowerNameA control.
+        /// dpSignDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbBorrowerNameA;
+        protected global::ExtAspNet.DatePicker dpSignDate;
         
         /// <summary>
-        /// tbBorrowerPhone control.
+        /// lblsmp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbBorrowerPhone;
+        protected global::ExtAspNet.Label lblsmp;
         
         /// <summary>
-        /// Label1 control.
+        /// tbContact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label Label1;
+        protected global::ExtAspNet.TextBox tbContact;
         
         /// <summary>
-        /// tbPayerBName control.
+        /// tbContactPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbPayerBName;
+        protected global::ExtAspNet.TextBox tbContactPhone;
         
         /// <summary>
-        /// tbGuarantor control.
+        /// tbContractAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbGuarantor;
+        protected global::ExtAspNet.TextBox tbContractAmount;
         
         /// <summary>
-        /// tbGuarantorPhone control.
+        /// tbDownPayment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbGuarantorPhone;
-        
-        /// <summary>
-        /// tbLoanAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbLoanAmount;
-        
-        /// <summary>
-        /// tbRateOfReturn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbRateOfReturn;
-        
-        /// <summary>
-        /// tbCollateral control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbCollateral;
-        
-        /// <summary>
-        /// dpLoanDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DatePicker dpLoanDate;
-        
-        /// <summary>
-        /// dpDueDateForPay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DatePicker dpDueDateForPay;
+        protected global::ExtAspNet.TextBox tbDownPayment;
         
         /// <summary>
         /// tbRemark control.
@@ -211,13 +175,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextArea tbRemark;
         
         /// <summary>
-        /// taAuditOpinion control.
+        /// tbAuditOpinion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextArea taAuditOpinion;
+        protected global::ExtAspNet.TextBox tbAuditOpinion;
         
         /// <summary>
         /// taAccountingRemark control.

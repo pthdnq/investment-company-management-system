@@ -2,7 +2,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title>LoanInfo</title>
 </head>
 <body>
@@ -17,8 +17,8 @@
                 <Items>
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
-                    <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        IconUrl="~/images/ico_16_xsht.gif" Text="提醒收款" />
+                    <%--  <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
+                        IconUrl="~/images/ico_16_xsht.gif" Text="提醒收款" />--%>
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -55,12 +55,14 @@
                     <ext:Grid ID="gridData" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
                         PageSize="1" runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
-                        OnRowDataBound="gridData_RowDataBound" Width="100%"  RowHeight="100%" Height="324">
+                        OnRowDataBound="gridData_RowDataBound" Width="100%" RowHeight="100%" Height="324">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                     <%--     <ext:BoundField Width="70px" DataField="ProjectName" HeaderText="项目名称" /> --%>
-                            <ext:BoundField Width="85px" DataField="DueDateForReceivables"  DataFormatString="{0:yyyy/MM/dd}" HeaderText="实收款日" />
-                            <ext:BoundField Width="85px" DataField="DateForReceivables" DataFormatString="{0:yyyy/MM/dd}" HeaderText="应收款日" />
+                            <%--     <ext:BoundField Width="70px" DataField="ProjectName" HeaderText="项目名称" /> --%>
+                            <ext:BoundField Width="85px" DataField="DueDateForReceivables" DataFormatString="{0:yyyy/MM/dd}"
+                                HeaderText="实收款日" />
+                            <ext:BoundField Width="85px" DataField="DateForReceivables" DataFormatString="{0:yyyy/MM/dd}"
+                                HeaderText="应收款日" />
                             <ext:BoundField Width="80px" DataField="AmountofpaidUp" HeaderText="实收金额" />
                             <ext:BoundField Width="120px" DataField="ReceivablesAccount" HeaderText="收款帐号/现金" />
                             <ext:BoundField Width="145px" DataField="Remark" HeaderText="备注" />
@@ -69,8 +71,8 @@
                                     <%# (DataBinder.Eval(Container.DataItem, "Status").ToString() == "1") ? "已确认" : "待确认"%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ReceivablesConfirm.aspx?ID={0}"
-                                Title="确认" WindowID="wndNew" Hidden="true" />
+                            <ext:WindowField Hidden="true" Width="38px" Text="确认" DataIFrameUrlFields="ObjectId"
+                                DataIFrameUrlFormatString="ReceivablesConfirm.aspx?ID={0}" Title="确认" WindowID="wndNew" />
                             <%--     <ext:LinkButtonField Width="38px" Text="确认" ConfirmText="确定已确认该收款信息?" CommandName="Delete" />--%>
                         </Columns>
                     </ext:Grid>

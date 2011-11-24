@@ -24,8 +24,8 @@
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
                             <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                                <ext:ListItem Text="在职" Value="1" Selected="true" />
-                                <ext:ListItem Text="离职" Value="0" />
+                                <ext:ListItem Text="待确认" Value="1" Selected="true" />
+                                <ext:ListItem Text="已确认" Value="0" />
                             </ext:DropDownList>
                             <ext:Label ID="Label1" runat="server" />
                         </Items>
@@ -49,20 +49,22 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="120px" DataField="JobNo" HeaderText="项目名称" />
-                            <ext:TemplateField Width="70px" HeaderText="项目状态">
+                            <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField Width="100px" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="100px" DataField="ImplementationPhase" HeaderText="实施阶段" />
+                            <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
+                            <ext:BoundField Width="110px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd hh:mm}"
+                                HeaderText="支用时间" />
+                            <ext:BoundField Width="90px" DataField="ImprestAmount" HeaderText="备用金额" />
+                            <ext:BoundField Width="115px" DataField="Remark" HeaderText="备注" />
+                            <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
+                                    <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "未确认" : "已确认" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:BoundField Width="145px" DataField="PhoneNumber" HeaderText="实施阶段" />
-                            <ext:BoundField DataField="BackIpPhoneNumber" Width="145px" HeaderText="支用金额" />
-                            <ext:BoundField Width="130px" DataField="Name" HeaderText="支用时间" />
-                            <ext:BoundField Width="110px" DataField="AccountNo" HeaderText="备用金额" />
-                            <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ImprestPayConfirm.aspx?Type=Edit&ID={0}"
-                                Title="确认"  WindowID="wndNew"/>
-                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
+                            <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="ImprestPayConfirm.aspx?Type=Edit&ID={0}"
+                                Title="确认" WindowID="wndNew" />
+                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该记录?"
                                 CommandName="Delete" />
                         </Columns>
                     </ext:Grid>

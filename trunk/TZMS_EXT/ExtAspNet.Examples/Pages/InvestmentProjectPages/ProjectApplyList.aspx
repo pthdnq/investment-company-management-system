@@ -39,7 +39,7 @@
                         <Items>
                             <ext:Button ID="btnNew" Text="新增" Icon="Add" runat="server">
                             </ext:Button>
-                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server" />
+                            <ext:Button ID="btnDelete" Hidden="true" Text="删除" Icon="Delete" runat="server" />
                         </Items>
                     </ext:Toolbar>
                 </Toolbars>
@@ -62,9 +62,9 @@
                             <ext:BoundField Width="145px" DataField="SignDate" HeaderText="签订日期" />
                             <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同金额" />
                             <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付订金" />
-                            <ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="ProjectApplyEdit.aspx?Type=Edit&ID={0}"
+                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="ProjectApplyEdit.aspx?Type=Edit&ID={0}"
                                 Title="编辑"  WindowID="wndNew"/>
-                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
+                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>

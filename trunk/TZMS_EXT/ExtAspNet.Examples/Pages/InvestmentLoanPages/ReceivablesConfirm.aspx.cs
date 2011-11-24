@@ -69,7 +69,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             // 通过 ID获取 信息实例.
             com.TZMS.Model.ReceivablesInfo info = new InvestmentLoanManage().GetReceivableByObjectID(strUserID);
            
-            tbxName.Text = info.ProjectName;
+            tbProjectName.Text = info.ProjectName;
             dpDueDateForReceivables.SelectedDate = info.DueDateForReceivables;
             dpDateForReceivables.SelectedDate = info.DateForReceivables;
             tbAmountofpaidUp.Text = info.AmountofpaidUp.ToString(); 
@@ -80,33 +80,34 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
         #region 页面及控件事件
         /// <summary>
-        /// 保存员工
+        /// 保存 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            saveUserInfo();
+            //确认4
+            saveInfo(4);
         }
 
         #endregion
 
         #region 自定义方法
         /// <summary>
-        /// 保存用户信息.
+        /// 保存 信息.
         /// </summary>
-        private void saveUserInfo()
+        private void saveInfo(int status)
         {
             com.TZMS.Model.ReceivablesInfo info = new InvestmentLoanManage().GetReceivableByObjectID(ObjectID);
           
             InvestmentLoanManage manage = new InvestmentLoanManage();
 
-            // 用户ID.
+            //  ID.
             //info.ObjetctId = Guid.NewGuid();
             //info.ForId = new Guid(ForID);  
 
             info.AuditOpinion = taAuditOpinionRemark.Text.Trim();
-            info.Status = 2;
+            info.Status = status;
             info.IsAccountingAudit = true;
         //    info.AccountingAccount =  ;
             info.AccountingName = "xxx";

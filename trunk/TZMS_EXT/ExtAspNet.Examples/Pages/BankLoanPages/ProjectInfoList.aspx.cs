@@ -87,7 +87,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             if (!IsPostBack)
             {
-                this.btnNew.OnClientClick = wndNew.GetShowReference("NewUser.aspx?Type=Add", "新增员工");
+                this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectApplyAdd.aspx?Type=Add", "新增 - 项目申请");
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
 
                 // 绑定下拉框.
@@ -131,32 +131,32 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
             if (!string.IsNullOrEmpty(state))
             {
-                strCondtion.Append(" state=" + (state == "在职" ? 1 : 0) + " and ");
+                strCondtion.Append(" Status" + (state == "待审核" ? " = 1 " : " <> 1 ") + " and ");
             }
             if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append(" (name like '%" + searchText + "%' or AccountNo like '%" + searchText + "%') and ");
+                strCondtion.Append(" (ProjectName like '%" + searchText + "%' or CustomerName like '%" + searchText + "%') and ");
             }
             //未删除
-            strCondtion.Append(" state<>2 ");
+            strCondtion.Append(" status<>9 ");
 
             #endregion
 
             //获得员工
-            List<UserInfo> lstUserInfo = new UserManage().GetUsersByCondtion(strCondtion.ToString());
-            this.gridData.RecordCount = lstUserInfo.Count;
+            List<BankLoanInfo> lstInfo = new BankLoanManage().GetUsersByCondtion(strCondtion.ToString());
+            this.gridData.RecordCount = lstInfo.Count;
             this.gridData.PageSize = PageCounts;
             int currentIndex = this.gridData.PageIndex;
             //计算当前页面显示行数据
-            if (lstUserInfo.Count > this.gridData.PageSize)
+            if (lstInfo.Count > this.gridData.PageSize)
             {
-                if (lstUserInfo.Count > (currentIndex + 1) * this.gridData.PageSize)
+                if (lstInfo.Count > (currentIndex + 1) * this.gridData.PageSize)
                 {
-                    lstUserInfo.RemoveRange((currentIndex + 1) * this.gridData.PageSize, lstUserInfo.Count - (currentIndex + 1) * this.gridData.PageSize);
+                    lstInfo.RemoveRange((currentIndex + 1) * this.gridData.PageSize, lstInfo.Count - (currentIndex + 1) * this.gridData.PageSize);
                 }
-                lstUserInfo.RemoveRange(0, currentIndex * this.gridData.PageSize);
+                lstInfo.RemoveRange(0, currentIndex * this.gridData.PageSize);
             }
-            this.gridData.DataSource = lstUserInfo;
+            this.gridData.DataSource = lstInfo;
             this.gridData.DataBind();
         }
         #endregion
@@ -214,29 +214,18 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <param name="e"></param>
         protected void gridData_RowCommand(object sender, GridCommandEventArgs e)
         {
-            UserManage userManage = new UserManage();
-            string userID = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
+            BankLoanManage userManage = new BankLoanManage();
+            string iD = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
 
-            UserInfo user = userManage.GetUserByObjectID(userID);
+            BankLoanInfo info = userManage.GetUserByObjectID(iD);
 
-            if (e.CommandName == "Leave")
-            {
-                // 离职
-                user.State = 0;
-            }
-            else if (e.CommandName == "Delete")
+            if (e.CommandName == "Delete")
             {
                 // 删除
-                user.State = 2;
+                info.Status = 9;
             }
-            else if (e.CommandName == "Edit")
-            {
-                this.wndNew.Title = "编辑员工";
-                this.wndNew.IFrameUrl = "NewUser.aspx?Type=Edit&ID=" + userID;
-                this.wndNew.Hidden = false;
-                return;
-            }
-            userManage.UpdateUser(user);
+
+            userManage.Update(info);
 
             BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
@@ -248,13 +237,13 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            UserInfo _userInfo = (UserInfo)e.DataItem;
+            //InvestmentProjectInfo _Info = (InvestmentProjectInfo)e.DataItem;
 
-            if (_userInfo.State == 0)
-            {
-                e.Values[9] = "<span class=\"gray\">权限</span>";
-                e.Values[10] = "<span class=\"gray\">离职</span>";
-            }
+            //if (_Info.Status == 0)
+            //{
+            //    e.Values[9] = "<span class=\"gray\">权限</span>";
+            //    e.Values[10] = "<span class=\"gray\">离职</span>";
+            //}
         }
 
         /// <summary>

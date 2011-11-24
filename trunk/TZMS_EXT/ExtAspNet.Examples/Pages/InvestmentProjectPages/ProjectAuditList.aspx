@@ -24,8 +24,8 @@
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
                             <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                                <ext:ListItem Text="在职" Value="1" Selected="true" />
-                                <ext:ListItem Text="离职" Value="0" />
+                                <ext:ListItem Text="待审核" Value="1" Selected="true" />
+                                <ext:ListItem Text="审核中" Value="0" />
                             </ext:DropDownList>
                             <ext:Label ID="Label1" runat="server" />
                         </Items>
@@ -49,19 +49,20 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                                <ext:BoundField Width="120px" DataField="JobNo" HeaderText="项目名称" />
-                            <ext:TemplateField Width="70px" HeaderText="项目状态">
+                           <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
+                                     <ext:BoundField Width="80px" DataField="CustomerName" HeaderText="客户" />
+                            <ext:TemplateField Width="60px" HeaderText="项目状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
+                                    <%# (DataBinder.Eval(Container.DataItem, "Status").ToString() == "1") ? "待审核" : "审核中"%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:BoundField Width="110px" DataField="AccountNo" HeaderText="联系人" />
-                            <ext:BoundField Width="80px" DataField="Dept" HeaderText="联系电话" />
-                            <ext:BoundField Width="145px" DataField="PhoneNumber" HeaderText="签订日期" />
-                            <ext:BoundField DataField="BackIpPhoneNumber" Width="145px" HeaderText="合同金额" />
-                            <ext:BoundField Width="130px" DataField="Name" HeaderText="预付订金" />
-                            <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectAudit.aspx?Type=Edit&ID={0}"
+                            <ext:BoundField Width="110px" DataField="Contact" HeaderText="联系人" />
+                            <ext:BoundField Width="80px" DataField="ContactPhone" HeaderText="联系电话" />
+                            <ext:BoundField Width="145px" DataField="SignDate" HeaderText="签订日期" />
+                            <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同金额" />
+                            <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付订金" />
+                            <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="ProjectAudit.aspx?Type=Edit&ID={0}"
                                 Title="审核" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
                         </Columns>

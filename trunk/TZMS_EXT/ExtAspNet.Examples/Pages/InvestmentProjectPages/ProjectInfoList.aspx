@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProjectInfoList.aspx.cs" Inherits="TZMS.Web.Pages.InvestmentProjectPages.ProjectInfoList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProjectInfoList.aspx.cs"
+    Inherits="TZMS.Web.Pages.InvestmentProjectPages.ProjectInfoList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>项目信息列表</title>
@@ -24,8 +24,8 @@
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
                             <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                                <ext:ListItem Text="在职" Value="1" Selected="true" />
-                                <ext:ListItem Text="离职" Value="0" />
+                                <ext:ListItem Text="待审核" Value="1" Selected="true" />
+                                <ext:ListItem Text="审核中" Value="0" />
                             </ext:DropDownList>
                             <ext:Label ID="Label1" runat="server" />
                         </Items>
@@ -39,7 +39,7 @@
                         <Items>
                             <ext:Button ID="btnNew" Text="终止" Icon="Add" runat="server">
                             </ext:Button>
-                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server"  Hidden="true"/>
+                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server" Hidden="true" />
                         </Items>
                     </ext:Toolbar>
                 </Toolbars>
@@ -49,33 +49,31 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                              <ext:BoundField Width="120px" DataField="JobNo" HeaderText="项目名称" />
-                            <ext:TemplateField Width="70px" HeaderText="项目状态">
+                            <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="80px" DataField="CustomerName" HeaderText="客户" />
+                            <ext:TemplateField Width="60px" HeaderText="项目状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
+                                    <%# (DataBinder.Eval(Container.DataItem, "Status").ToString() == "1") ? "待审核" : "审核中"%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:BoundField Width="110px" DataField="AccountNo" HeaderText="联系人" />
-                            <ext:BoundField Width="80px" DataField="Dept" HeaderText="联系电话" />
-                            <ext:BoundField Width="145px" DataField="PhoneNumber" HeaderText="签订日期" />
-                            <ext:BoundField DataField="BackIpPhoneNumber" Width="145px" HeaderText="合同金额" />
-                            <ext:BoundField Width="130px" DataField="Name" HeaderText="预付订金" />
-                            <ext:WindowField Width="76px" Text="提交进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectInfo.aspx?Type=Edit&ID={0}"
+                            <ext:BoundField Width="110px" DataField="Contact" HeaderText="联系人" />
+                            <ext:BoundField Width="80px" DataField="ContactPhone" HeaderText="联系电话" />
+                            <ext:BoundField Width="145px" DataField="SignDate" HeaderText="签订日期" />
+                            <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同金额" />
+                            <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付订金" />
+                            <ext:WindowField Width="76px" Text="提交进展" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
                                 Title="提交进展" WindowID="wndNew" />
-                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
+                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
+                                CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
-        IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
-        Height="370px" Width="400px">
-    </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="439px" Width="640px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

@@ -85,40 +85,40 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
-        /// tbxName control.
+        /// tbImplementationPhase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxName;
+        protected global::ExtAspNet.TextBox tbImplementationPhase;
         
         /// <summary>
-        /// TextBox1 control.
+        /// tbAmountExpended control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox1;
+        protected global::ExtAspNet.TextBox tbAmountExpended;
         
         /// <summary>
-        /// dpkEntryDate control.
+        /// dpExpendedTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkEntryDate;
+        protected global::ExtAspNet.DatePicker dpExpendedTime;
         
         /// <summary>
-        /// tbxJobNo control.
+        /// tbImprestAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxJobNo;
+        protected global::ExtAspNet.TextBox tbImprestAmount;
         
         /// <summary>
         /// taRemark control.
@@ -130,12 +130,21 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         protected global::ExtAspNet.TextArea taRemark;
         
         /// <summary>
-        /// TextArea2 control.
+        /// taAuditOpinion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextArea TextArea2;
+        protected global::ExtAspNet.TextArea taAuditOpinion;
+        
+        /// <summary>
+        /// taAccountingRemark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea taAccountingRemark;
     }
 }

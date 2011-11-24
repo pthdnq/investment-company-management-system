@@ -13,7 +13,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
     {
         #region 属性
         /// <summary>
-        /// ObjectID
+        /// ID
         /// </summary>
         public string ObjectID
         {
@@ -37,70 +37,58 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         protected void Page_Load(object sender, EventArgs e)
         {
             InitControl();
-
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
-                ObjectID = strID;
-
-                bindUserInterface(strID);
+                bindInterface(strID);
             }
         }
 
         private void InitControl()
         {
-            this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
+            this.btnClose.OnClientClick = ActiveWindow.GetConfirmHideReference();
         }
+
 
         /// <summary>
         /// 绑定指定用户ID的数据到界面.
         /// </summary>
-        /// <param name="strUserID">用户ID</param>
-        private void bindUserInterface(string strUserID)
+        /// <param name="strID">用户ID</param>
+        private void bindInterface(string strID)
         {
-            if (string.IsNullOrEmpty(strUserID))
+            if (string.IsNullOrEmpty(strID))
             {
                 return;
             }
-            InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
+            ObjectID = strID;
+
+            InvestmentProjectInfo _Info = new InvestmentProjectManage().GetUserByObjectID(strID);
+
             this.tbProjectName.Text = _Info.ProjectName;
             this.tbProjectOverview.Text = _Info.ProjectOverview;
-            this.tbBorrowerNameA.Text = _Info.BorrowerNameA;
-            this.tbBorrowerPhone.Text = _Info.BorrowerPhone;
-            this.tbPayerBName.Text = _Info.PayerBName;
-            this.tbGuarantor.Text = _Info.Guarantor;
-            this.tbGuarantorPhone.Text = _Info.GuarantorPhone;
-            this.tbCollateral.Text = _Info.Collateral;
-            this.dpDueDateForPay.SelectedDate = _Info.DueDateForPay;
-            this.dpLoanDate.SelectedDate = _Info.LoanDate;
+            this.tbCustomerName.Text = _Info.CustomerName;
 
+            this.tbContact.Text = _Info.Contact;
+            this.tbContactPhone.Text = _Info.ContactPhone;
+            this.tbContractAmount.Text = _Info.ContractAmount.ToString();
+            this.tbDownPayment.Text = _Info.DownPayment.ToString();
+            this.dpSignDate.SelectedDate = _Info.SignDate;
             this.tbRemark.Text = _Info.Remark;
 
-            this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
-
-             this.taAuditOpinion.Text  = _Info.AuditOpinion;
         }
-
         #endregion
 
         #region 页面及控件事件
-        /// <summary>
-        /// 保存
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void btnDismissed_Click(object sender, EventArgs e)
-        {
-            //打回状态2
-            saveInfo(2);
-        }
+        //protected void btnDismissed_Click(object sender, EventArgs e)
+        //{
+        //    saveInfo(2);
+        //}
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            //支付确认4
+            //确认4
             saveInfo(4);
         }
-
         #endregion
 
         #region 自定义方法
@@ -109,24 +97,33 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void saveInfo(int status)
         {
-            InvestmentLoanManage _Manage = new InvestmentLoanManage();
-            InvestmentLoanInfo _Info = _Manage.GetUserByObjectID(ObjectID);
+            InvestmentProjectManage _Manage = new InvestmentProjectManage();
+            InvestmentProjectInfo _Info = _Manage.GetUserByObjectID(ObjectID);
 
+
+            _Info.AuditOpinion = this.tbAuditOpinion.Text.Trim();
             _Info.Status = status;
-            _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
-              
+            //补充申请人及下一步审核人信息
+            _Info.SubmitTime = DateTime.Now;
+
+            // 出生日期.
+            //if (dpkBirthday.SelectedDate is DateTime)
+            //{
+            //    _userInfo.Birthday = Convert.ToDateTime(dpkBirthday.SelectedDate);
+            //} 
+
             int result = 3;
 
             result = _Manage.Update(_Info);
 
             if (result == -1)
             {
-                Alert.Show("确认成功!");
+                Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
             {
-                Alert.Show("确认失败!");
+                Alert.Show("操作失败!");
             }
         }
 

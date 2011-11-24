@@ -27,34 +27,40 @@
             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
                 runat="server">
                 <Rows>
-                    <ext:FormRow ColumnWidths="50% 50%">
+                             <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox Enabled="false" ID="tbxName" Label="项目名称" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                            <ext:TextBox   ID="tbImplementationPhase" Label="实施阶段" ShowRedStar="true" Required="true"
+                                runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!" />
                         </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
+                    </ext:FormRow> 
+                    <ext:FormRow ColumnWidths="60% 40%">
                         <Items>
-                            <ext:TextBox ID="TextBox1" Label="支用金额" ShowRedStar="true" Required="true" runat="server"
-                                Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
+                            <ext:TextBox ID="tbAmountExpended" Label="支用金额" ShowRedStar="true" Required="true"
+                                runat="server" Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
+                                RegexMessage="只能输入字母!">
                             </ext:TextBox>
+                            <ext:Label runat="server" />
                         </Items>
                     </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
+                    <ext:FormRow ColumnWidths="60% 40%">
                         <Items>
-                            <ext:DatePicker ID="dpkEntryDate" Label="支用时间" runat="server">
+                            <ext:DatePicker ID="dpExpendedTime" Label="支用时间 至" runat="server" ShowRedStar="true"
+                                Required="true">
                             </ext:DatePicker>
+                            <ext:Label ID="Label1" runat="server" />
                         </Items>
                     </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
+                    <ext:FormRow ColumnWidths="60% 40%">
                         <Items>
-                            <ext:TextBox ID="tbxJobNo" Label="备用金额" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
+                            <ext:TextBox ID="tbImprestAmount" Label="备用金额" ShowRedStar="true" Required="true"
+                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
+                                RegexMessage="只能输入字母!">
                             </ext:TextBox>
+                            <ext:Label ID="Label2" runat="server" />
                         </Items>
                     </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
+                    <ext:FormRow ColumnWidths="60% 40%">
                         <Items>
                             <ext:TextArea ID="taRemark" Label="备注" runat="server" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
