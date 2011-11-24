@@ -247,6 +247,16 @@ namespace TZMS.Web
             /// </summary>
             JKSQ = 23,
 
+            /// <summary>
+            /// 民间融资申请归档（具有归档权）
+            /// </summary>
+            MJRZ = 24,
+
+            /// <summary>
+            /// 银行贷款申请归档（具有归档权）
+            /// </summary>
+            YHDK = 25,
+
         }
 
         /// <summary>

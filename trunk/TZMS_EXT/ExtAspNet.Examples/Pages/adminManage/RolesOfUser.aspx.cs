@@ -317,6 +317,12 @@ namespace TZMS.Web
                 case RoleType.JKSQ:
                     strRole = "借款申请归档";
                     break;
+                case RoleType.MJRZ:
+                    strRole = "民间融资申请归档";
+                    break;
+                case RoleType.YHDK:
+                    strRole = "银行贷款申请归档";
+                    break;
             }
 
             return strRole;
