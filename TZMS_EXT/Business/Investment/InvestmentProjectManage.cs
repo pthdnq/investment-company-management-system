@@ -119,7 +119,7 @@ namespace com.TZMS.Business
         /// <param name="boName">连接字符串Key</param>
         /// <param name="user">InvestmentProjectInfo 实体</param>
         /// <returns>返回执行结果</returns>
-        public int AddReceivable(ProjectProcessInfo info, string boName = BoName)
+        public int AddProcess(ProjectProcessInfo info, string boName = BoName)
         {
             return rctrl.Insert(boName, info);
         }
@@ -130,7 +130,7 @@ namespace com.TZMS.Business
         /// <param name="boName">连接字符串Key</param>
         /// <param name="info">用户实体</param>
         /// <returns>执行结果</returns>
-        public int UpdateReceivable(ProjectProcessInfo info, string boName = BoName)
+        public int UpdateProcess(ProjectProcessInfo info, string boName = BoName)
         {
             return rctrl.UpDate(boName, info);
         }
@@ -141,7 +141,7 @@ namespace com.TZMS.Business
         /// <param name="boName">连接字符串Key</param>
         /// <param name="objectID">ObjectID</param>
         /// <returns> 唯一ID（GUID）</returns>
-        public ProjectProcessInfo GetReceivableByObjectID(string objectID, string boName = BoName)
+        public ProjectProcessInfo GetProcessByObjectID(string objectID, string boName = BoName)
         {
             List<ProjectProcessInfo> users = rctrl.SelectAsList(boName, " status <> 9 and ObjetctID ='" + objectID + "' ");
             if (users.Count == 0)
@@ -158,7 +158,7 @@ namespace com.TZMS.Business
         /// <param name="boName">连接字符串Key</param>
         /// <param name="condtion">条件</param>
         /// <returns>集合</returns>
-        public List<ProjectProcessInfo> GetReceivablesByCondtion(string condtion, string boName = BoName)
+        public List<ProjectProcessInfo> GetProcessByCondtion(string condtion, string boName = BoName)
         {
             return rctrl.SelectAsList(boName, condtion);
         }
