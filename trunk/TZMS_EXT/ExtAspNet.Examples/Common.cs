@@ -180,5 +180,12 @@ namespace TZMS
             fileCtrl.ResetFiles(string.Empty, systemName, recordId, attributeName);
         }
         #endregion
+
+        public static class Position {
+            /// <summary>
+            /// 董事长
+            /// </summary>
+            static public string Chairman = "董事长";
+        }
     }
 }
