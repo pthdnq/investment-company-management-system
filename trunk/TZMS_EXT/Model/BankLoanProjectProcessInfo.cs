@@ -42,10 +42,10 @@ namespace com.TZMS.Model
         private string _implementationPhase = DBEmptyString;
         private Decimal _imprestAmount = DBEmptyDecimal;
         private Decimal _amountExpended = DBEmptyDecimal;
-        private string _expendedTime = DBEmptyString;
+        private DateTime _expendedTime = DBEmptyDate;
         private Decimal _imprestAmountBalance = DBEmptyDecimal;
         private string _remark = DBEmptyString;
-        private char _status = DBEmptyChar;
+        private int _status = DBEmptyChar;
         private Guid _nextOperaterId;
         private string _nextOperaterAccount = DBEmptyString;
         private string _nextOperaterName = DBEmptyString;
@@ -143,7 +143,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// ExpendedTime 
         /// </summary> 
-        public string ExpendedTime
+        public DateTime ExpendedTime
         {
             get { return _expendedTime; }
             set { _expendedTime = value; }
@@ -170,7 +170,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// Status 
         /// </summary> 
-        public char Status
+        public int Status
         {
             get { return _status; }
             set { _status = value; }
