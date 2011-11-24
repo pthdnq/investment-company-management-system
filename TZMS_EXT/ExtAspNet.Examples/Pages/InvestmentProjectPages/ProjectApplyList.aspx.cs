@@ -138,7 +138,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 strCondtion.Append(" (ProjectName like '%" + searchText + "%' or CustomerName like '%" + searchText + "%') and ");
             }
             //未删除
-            strCondtion.Append(" state<>9 ");
+            strCondtion.Append(" status<>9 ");
 
             #endregion
 
@@ -219,12 +219,12 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             InvestmentProjectInfo info = userManage.GetUserByObjectID(iD);
 
-         if (e.CommandName == "Delete")
+            if (e.CommandName == "Delete")
             {
                 // 删除
                 info.Status = 9;
             }
-          
+
             userManage.Update(info);
 
             BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);

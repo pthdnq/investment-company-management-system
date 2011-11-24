@@ -85,40 +85,58 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
-        /// tbxName control.
+        /// tbImplementationPhase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxName;
+        protected global::ExtAspNet.TextBox tbImplementationPhase;
         
         /// <summary>
-        /// TextBox1 control.
+        /// tbAmountExpended control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox1;
+        protected global::ExtAspNet.TextBox tbAmountExpended;
         
         /// <summary>
-        /// dpkEntryDate control.
+        /// dpExpendedTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkEntryDate;
+        protected global::ExtAspNet.DatePicker dpExpendedTime;
         
         /// <summary>
-        /// tbxJobNo control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxJobNo;
+        protected global::ExtAspNet.Label Label1;
+        
+        /// <summary>
+        /// tbImprestAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbImprestAmount;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Label2;
         
         /// <summary>
         /// taRemark control.

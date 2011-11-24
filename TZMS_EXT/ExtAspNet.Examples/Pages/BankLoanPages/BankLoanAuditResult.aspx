@@ -24,8 +24,8 @@
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
                             <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                                <ext:ListItem Text="在职" Value="1" Selected="true" />
-                                <ext:ListItem Text="离职" Value="0" />
+                              <ext:ListItem Text="待审核" Value="1" Selected="true" />
+                                <ext:ListItem Text="已审核" Value="0" />
                             </ext:DropDownList>
                             <ext:Label ID="Label1" runat="server" />
                         </Items>
@@ -49,21 +49,21 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="100px" DataField="JobNo" HeaderText="客户名称" />
-                            <ext:BoundField Width="100px" DataField="AccountNo" HeaderText="贷款公司" />
-                            <ext:BoundField Width="80px" DataField="Dept" HeaderText="贷款金额" />
-                            <ext:BoundField Width="105px" DataField="PhoneNumber" HeaderText="贷款手续费" />
-                            <ext:BoundField Width="105px" DataField="BackIpPhoneNumber" HeaderText="抵押物公司" />
-                            <ext:BoundField Width="110px" DataField="Name" HeaderText="签订日期" />
-                            <ext:BoundField Width="110px" DataField="Name" HeaderText="预付订金" />
-                            <ext:BoundField Width="110px" DataField="Name" HeaderText="联系方式" />
+                        <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField Width="100px" DataField="CustomerName" HeaderText="客户名称" />
+                            <ext:BoundField Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
+                            <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="贷款金额" />
+                            <ext:BoundField Width="105px" DataField="LoanFee" HeaderText="贷款手续费" />
+                            <ext:BoundField Width="105px" DataField="CollateralCompany"  HeaderText="抵押物公司" />
+                            <ext:BoundField Width="110px" DataField="SignDate" HeaderText="签订日期" />
+                            <ext:BoundField Width="110px" DataField="DownPayment" HeaderText="预付订金" />
+                            <ext:BoundField Width="110px" DataField="Contact" HeaderText="联系方式" />
                             <ext:TemplateField Width="38px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
+                                    <%# (DataBinder.Eval(Container.DataItem, "Status").ToString() == "1") ? "待确认" : "已确认"%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?Type=Edit&ID={0}"
+                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}"
                                 Title="查看" WindowID="wndNew" />
                             <ext:LinkButtonField Width="38px" Hidden="true" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />

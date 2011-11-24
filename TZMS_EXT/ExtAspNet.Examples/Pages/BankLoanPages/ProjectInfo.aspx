@@ -33,8 +33,8 @@
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
                             <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                                <ext:ListItem Text="在职" Value="1" Selected="true" />
-                                <ext:ListItem Text="离职" Value="0" />
+                                    <ext:ListItem Text="待审核" Value="1" Selected="true" />
+                                <ext:ListItem Text="已审核" Value="0" />
                             </ext:DropDownList>
                             <ext:Label ID="Label1" runat="server" />
                         </Items>
@@ -55,14 +55,14 @@
                     <ext:Grid ID="gridData" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
                         PageSize="1" runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
-                        OnRowDataBound="gridData_RowDataBound" Width="100%">
+                        OnRowDataBound="gridData_RowDataBound" Width="100%" RowHeight="100%" Height="346">
                         <Columns>
-                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="70px" DataField="JobNo" HeaderText="实施阶段" />
-                            <ext:BoundField Width="80px" DataField="JobNo" HeaderText="支用金额" />
-                            <ext:BoundField Width="80px" DataField="Name" HeaderText="支用时间" />
-                            <ext:BoundField Width="130px" DataField="Dept" HeaderText="备用金额" />
-                            <ext:BoundField Width="145px" DataField="PhoneNumber" HeaderText="备注" />
+                            <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField Width="70px" DataField="ImplementationPhase" HeaderText="实施阶段" />
+                            <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
+                            <ext:BoundField Width="80px" DataField="ExpendedTime" HeaderText="支用时间" />
+                            <ext:BoundField Width="130px" DataField="ImprestAmount" HeaderText="备用金额" />
+                            <ext:BoundField Width="145px" DataField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "未确认" : "已确认" %>

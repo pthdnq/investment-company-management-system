@@ -87,7 +87,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             if (!IsPostBack)
             {
-                this.btnNew.OnClientClick = wndNew.GetShowReference("NewUser.aspx?Type=Add", "新增员工");
+                //this.btnNew.OnClientClick = wndNew.GetShowReference("NewUser.aspx?Type=Add", "新增员工");
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
 
                 // 绑定下拉框.
@@ -103,14 +103,14 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         private void BindDDL()
         {
             // 设置部门下拉框的值.
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem("全部", "-1"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.XINGZHENG, "0"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.CAIWU, "1"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.TOUZI, "2"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.YEWU, "3"));
+            //this.ddlstDept.Items.Add(new ExtAspNet.ListItem("全部", "-1"));
+            //this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.XINGZHENG, "0"));
+            //this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.CAIWU, "1"));
+            //this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.TOUZI, "2"));
+            //this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.YEWU, "3"));
 
-            // 设置默认值.
-            this.ddlstDept.SelectedIndex = 0;
+            //// 设置默认值.
+            //this.ddlstDept.SelectedIndex = 0;
 
             ViewStateDept = ddlstDept.SelectedText;
             ViewStateState = ddlstState.SelectedText;
@@ -131,19 +131,20 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             }
             if (!string.IsNullOrEmpty(state))
             {
-                strCondtion.Append(" state=" + (state == "在职" ? 1 : 0) + " and ");
+                strCondtion.Append(" Status=" + (state == "待确认" ? 1 : 0) + " and ");
             }
             if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append(" (name like '%" + searchText + "%' or AccountNo like '%" + searchText + "%') and ");
+                strCondtion.Append(" (ProjectName like '%" + searchText + "%' or ImplementationPhase like '%" + searchText + "%') and ");
             }
             //未删除
-            strCondtion.Append(" state<>2 ");
+            strCondtion.Append(" status<>9 ");
 
             #endregion
 
             //获得员工
-            List<UserInfo> lstUserInfo = new UserManage().GetUsersByCondtion(strCondtion.ToString());
+            List<com.TZMS.Model.ProjectProcessInfo> lstUserInfo = new InvestmentProjectManage().GetProcessByCondtion(strCondtion.ToString());
+
             this.gridData.RecordCount = lstUserInfo.Count;
             this.gridData.PageSize = PageCounts;
             int currentIndex = this.gridData.PageIndex;
@@ -214,29 +215,23 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// <param name="e"></param>
         protected void gridData_RowCommand(object sender, GridCommandEventArgs e)
         {
-            UserManage userManage = new UserManage();
+            InvestmentProjectManage userManage = new InvestmentProjectManage();
             string userID = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
 
-            UserInfo user = userManage.GetUserByObjectID(userID);
+            ProjectProcessInfo user = userManage.GetProcessByObjectID(userID);
 
             if (e.CommandName == "Leave")
             {
                 // 离职
-                user.State = 0;
+                user.Status = 0;
             }
             else if (e.CommandName == "Delete")
             {
                 // 删除
-                user.State = 2;
+                user.Status = 9;
             }
-            else if (e.CommandName == "Edit")
-            {
-                this.wndNew.Title = "编辑员工";
-                this.wndNew.IFrameUrl = "NewUser.aspx?Type=Edit&ID=" + userID;
-                this.wndNew.Hidden = false;
-                return;
-            }
-            userManage.UpdateUser(user);
+
+            userManage.UpdateProcess(user);
 
             BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
@@ -248,13 +243,13 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            UserInfo _userInfo = (UserInfo)e.DataItem;
+            //UserInfo _userInfo = (UserInfo)e.DataItem;
 
-            if (_userInfo.State == 0)
-            {
-                e.Values[9] = "<span class=\"gray\">权限</span>";
-                e.Values[10] = "<span class=\"gray\">离职</span>";
-            }
+            //if (_userInfo.State == 0)
+            //{
+            //    e.Values[9] = "<span class=\"gray\">权限</span>";
+            //    e.Values[10] = "<span class=\"gray\">离职</span>";
+            //}
         }
 
         /// <summary>

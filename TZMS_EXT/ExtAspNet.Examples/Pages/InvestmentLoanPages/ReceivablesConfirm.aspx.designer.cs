@@ -85,13 +85,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
-        /// tbxName control.
+        /// tbProjectName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxName;
+        protected global::ExtAspNet.TextBox tbProjectName;
         
         /// <summary>
         /// dpDueDateForReceivables control.
