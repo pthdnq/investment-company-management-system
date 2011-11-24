@@ -285,7 +285,7 @@
                                         <Items>
                                             <ext:ContentPanel runat="server" ShowHeader="false" AutoWidth="true" AutoHeight="true"
                                                 Height="500px"><%--http://localhost:19429/CM/Mycalendar/123--%>
-                                                    <iframe src="http://211.86.153.66:57682/CM/Mycalendar/<%=Account %>" width="100%" height="500px"></iframe>
+                                                    <iframe src="http://enroll.sse.ustc.edu.cn/rili/Default.aspx?account=<%=Account %>" width="100%" height="500px"></iframe>
                             <%--                  <iframe src="http://211.86.153.66:57682/Default.aspx?account=<%=Account %>" width="100%" height="500px"></iframe>--%>
                                             </ext:ContentPanel>
                                         </Items>
