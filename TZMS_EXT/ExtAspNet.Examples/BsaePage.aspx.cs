@@ -242,6 +242,11 @@ namespace TZMS.Web
             /// </summary>
             WZSPGD = 22,
 
+            /// <summary>
+            /// 借款申请归档（具有归档权）
+            /// </summary>
+            JKSQ = 23,
+
         }
 
         /// <summary>
