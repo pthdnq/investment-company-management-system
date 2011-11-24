@@ -60,7 +60,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             if (!IsPostBack)
             {
-
+                // 绑定下一步.
+                BindNext();
+                // 绑定审批人.
+                ApproveUser();
             }
         }
 
@@ -112,7 +115,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.Remark = this.tbRateOfReturn.Text.Trim();
 
             _Info.RateOfReturn = this.tbRateOfReturn.Text[0];
-             
+
+            #region  创建人
+            _Info.CreateTime = DateTime.Now;
+            _Info.CreaterId = this.CurrentUser.ObjectId;
+            _Info.CreaterName = this.CurrentUser.Name;
+            _Info.CreaterAccount = this.CurrentUser.AccountNo;
+            #endregion
             // 出生日期.
             //if (dpkBirthday.SelectedDate is DateTime)
             //{
@@ -138,7 +147,28 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
         }
 
+        /// <summary>
+        /// 绑定下一步
+        /// </summary>
+        private void BindNext()
+        {
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
+         //   ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+            ddlstNext.SelectedIndex = 0;
+        }
 
+        /// <summary>
+        /// 绑定审批人
+        /// </summary>
+        private void ApproveUser()
+        {
+            foreach (UserInfo user in CurrentChecker)
+            {
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+            }
+
+            ddlstApproveUser.SelectedIndex = 0;
+        }
         #endregion
     }
 }

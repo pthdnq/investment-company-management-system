@@ -62,18 +62,22 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             ObjectID = strID;
 
-            InvestmentProjectInfo _Info = new InvestmentProjectManage().GetUserByObjectID(strID);
+            InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(strID);
 
             this.tbProjectName.Text = _Info.ProjectName;
             this.tbProjectOverview.Text = _Info.ProjectOverview;
-            this.tbCustomerName.Text = _Info.CustomerName;
+            this.tbBorrowerNameA.Text = _Info.BorrowerNameA;
+            this.tbBorrowerPhone.Text = _Info.BorrowerPhone;
+            this.tbPayerBName.Text = _Info.PayerBName;
+            this.tbGuarantor.Text = _Info.Guarantor;
+            this.tbGuarantorPhone.Text = _Info.GuarantorPhone;
+            this.tbCollateral.Text = _Info.Collateral;
+            this.dpDueDateForPay.SelectedDate = _Info.DueDateForPay;
+            this.dpLoanDate.SelectedDate = _Info.LoanDate;
 
-            this.tbContact.Text = _Info.Contact;
-            this.tbContactPhone.Text = _Info.ContactPhone;
-            this.tbContractAmount.Text = _Info.ContractAmount.ToString();
-            this.tbDownPayment.Text = _Info.DownPayment.ToString();
-            this.dpSignDate.SelectedDate = _Info.SignDate;
             this.tbRemark.Text = _Info.Remark;
+
+            this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
 
         }
         #endregion
@@ -86,8 +90,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            //确认4
-            saveInfo(4);
+            //会计审核/支付确认/收款确认5
+            saveInfo(5);
         }
         #endregion
 
@@ -97,14 +101,14 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void saveInfo(int status)
         {
-            InvestmentProjectManage _Manage = new InvestmentProjectManage();
-            InvestmentProjectInfo _Info = _Manage.GetUserByObjectID(ObjectID);
+            InvestmentLoanManage _Manage = new InvestmentLoanManage();
+            InvestmentLoanInfo _Info = _Manage.GetUserByObjectID(ObjectID);
 
-
-            _Info.AuditOpinion = this.tbAuditOpinion.Text.Trim();
+            _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
             _Info.Status = status;
-            //补充申请人及下一步审核人信息
+         
             _Info.SubmitTime = DateTime.Now;
+            
 
             // 出生日期.
             //if (dpkBirthday.SelectedDate is DateTime)

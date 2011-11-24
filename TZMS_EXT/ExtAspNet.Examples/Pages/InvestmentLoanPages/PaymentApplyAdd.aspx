@@ -18,7 +18,7 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        Icon="Disk" Text="保存" />
+                        Icon="Disk" Text="提交" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -26,6 +26,16 @@
             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
                 runat="server">
                 <Rows>
+                   <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
+                                <Items>
+                                    <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
+                                        Label="下一步">
+                                    </ext:DropDownList>
+                                    <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
+                                        RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
+                                    </ext:DropDownList>
+                                </Items>
+                            </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox ID="tbProjectName" Label="项目名称" ShowRedStar="true" Required="true" runat="server"

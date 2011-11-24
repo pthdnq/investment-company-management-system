@@ -43,11 +43,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 BindDept();
 
-                string strID = Request.QueryString["ID"];
-
-                ForID = strID;
-
+                string strID = Request.QueryString["ID"]; 
+                ForID = strID; 
                 bindUserInterface(strID);
+                // 绑定下一步.
+                BindNext();
+                // 绑定审批人.
+                ApproveUser();
             }
         }
 
@@ -96,7 +98,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            saveUserInfo();
+            saveInfo();
         }
 
         #endregion
@@ -105,24 +107,22 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <summary>
         /// 保存用户信息.
         /// </summary>
-        private void saveUserInfo()
+        private void saveInfo()
         {
             com.TZMS.Model.ReceivablesInfo info = new com.TZMS.Model.ReceivablesInfo();
+       
             InvestmentLoanManage manage = new InvestmentLoanManage();
-            
-            // 用户ID.
+             
             info.ObjetctId = Guid.NewGuid();
-            info.ForId = new Guid(ForID);
-
+            info.ForId = new Guid(ForID); 
 
             info.ProjectName = manage.GetUserByObjectID(ForID).ProjectName;
-
-            // 入职时间.
+ 
             if (dpDueDateForReceivables.SelectedDate is DateTime)
             {
                 info.DueDateForReceivables = Convert.ToDateTime(dpDueDateForReceivables.SelectedDate);
             }
-            // 出生日期.
+         
             if (dpDateForReceivables.SelectedDate is DateTime)
             {
                 info.DateForReceivables = Convert.ToDateTime(dpDateForReceivables.SelectedDate);
@@ -135,8 +135,16 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
 
             info.Remark = taRemark.Text.Trim();
-            info.Status = 1;
-
+            //等待会计收款确认
+            info.Status = 4;
+        
+            //  创建人
+            info.CreateTime = DateTime.Now;
+            info.CreaterId = this.CurrentUser.ObjectId;
+            info.CreaterName = this.CurrentUser.Name;
+           // info.CreaterAccount = this.CurrentUser.AccountNo;
+          //下一步操作人
+          
 
             // 执行操作.
             int result = 3;
@@ -154,6 +162,28 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
         }
 
+        /// <summary>
+        /// 绑定下一步
+        /// </summary>
+        private void BindNext()
+        {
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("收款确认", "0"));
+            //   ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+            ddlstNext.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// 绑定审批人
+        /// </summary>
+        private void ApproveUser()
+        {
+            foreach (UserInfo user in CurrentChecker)
+            {
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+            }
+
+            ddlstApproveUser.SelectedIndex = 0;
+        }
         #endregion
     }
 }
