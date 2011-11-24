@@ -181,7 +181,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// CteateTime 
         /// </summary> 
-        public DateTime CteateTime
+        public DateTime CreateTime
         {
             get { return _cteateTime; }
             set { _cteateTime = value; }
