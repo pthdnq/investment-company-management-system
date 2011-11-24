@@ -36,7 +36,7 @@ namespace com.TZMS.Model
         private Guid _objetctId;
         private string _customerName = DBEmptyString;
         private Guid _customerId;
-        private char _projectName = DBEmptyChar;
+        private string _projectName = DBEmptyString;
         private string _projectOverview = DBEmptyString;
         private DateTime _signDate = DBEmptyDate;
         private string _contact = DBEmptyString;
@@ -87,7 +87,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// ProjectName 
         /// </summary> 
-        public char ProjectName
+        public string ProjectName
         {
             get { return _projectName; }
             set { _projectName = value; }
