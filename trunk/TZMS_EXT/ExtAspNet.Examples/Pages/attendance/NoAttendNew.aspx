@@ -15,7 +15,7 @@
                 <Items>
                     <ext:Button ID="btnClose" OnClick="btnClose_Click" runat="server" Icon="Cancel" Text="关闭">
                     </ext:Button>
-                    <ext:Button ID="btnSave" OnClick="btnSave_Click" runat="server" Icon="Disk" Text="提交">
+                    <ext:Button ID="btnSave" OnClick="btnSave_Click" runat="server" Icon="Disk" Text="提交" ConfirmText="您确定提交该表单吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>

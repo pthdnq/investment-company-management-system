@@ -251,11 +251,13 @@ namespace TZMS.Web
 
             if (result == -1)
             {
-                Alert.Show("申请提交成功!");
-                btnSubmit.Enabled = false;
-                tabApproveHistory.Hidden = false;
-                BaoxiaoObjectID = _baoxiaoInfo.ObjectId.ToString();
-                BindApproveHistory();
+                //Alert.Show("申请提交成功!");
+                //btnSubmit.Enabled = false;
+                //tabApproveHistory.Hidden = false;
+                //BaoxiaoObjectID = _baoxiaoInfo.ObjectId.ToString();
+                //BindApproveHistory();
+
+                this.btnClose_Click(null, null);
             }
             else
             {
@@ -365,10 +367,10 @@ namespace TZMS.Web
                         e.Values[2] = "起草";
                         break;
                     case "1":
-                        e.Values[2] = "审批";
+                        e.Values[2] = "审批-通过";
                         break;
                     case "2":
-                        e.Values[2] = "打回修改";
+                        e.Values[2] = "审批-不通过";
                         break;
                     case "3":
                         e.Values[2] = "归档";

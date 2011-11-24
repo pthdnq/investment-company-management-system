@@ -139,7 +139,7 @@ namespace TZMS.Web
         private void BindUnit()
         {
             ProxyAccountingManage _manage = new ProxyAccountingManage();
-            List<ProxyAccountingUnitInfo> lstUnit = _manage.GetUnitByCondition(" IsDelete <> 1");
+            List<ProxyAccountingUnitInfo> lstUnit = _manage.GetUnitByCondition(" IsDelete <> 1 and AccountancyID = '" + CurrentUser.ObjectId.ToString() + "'");
             foreach (var unit in lstUnit)
             {
                 ddlstUnit.Items.Add(new ExtAspNet.ListItem(unit.UnitName, unit.ObjectID.ToString()));
@@ -180,7 +180,7 @@ namespace TZMS.Web
             if (OperatorType == "Add" && _unitInfo != null)
             {
                 // 创建报销单实例.
-                
+
                 _applyInfo = new ProxyAccountingApplyInfo();
                 _applyInfo.ObjectID = Guid.NewGuid();
                 _applyInfo.PayUnitID = new Guid(ddlstUnit.SelectedValue);
@@ -269,11 +269,13 @@ namespace TZMS.Web
 
             if (result == -1)
             {
-                Alert.Show("申请提交成功!");
-                btnSubmit.Enabled = false;
-                tabApproveHistory.Hidden = false;
-                ApplyID = _applyInfo.ObjectID.ToString();
-                BindApproveHistory();
+                //Alert.Show("申请提交成功!");
+                //btnSubmit.Enabled = false;
+                //tabApproveHistory.Hidden = false;
+                //ApplyID = _applyInfo.ObjectID.ToString();
+                //BindApproveHistory();
+
+                this.btnClose_Click(null, null);
             }
             else
             {
@@ -618,7 +620,7 @@ namespace TZMS.Web
             if (double.TryParse(tbxMoney.Text.Trim(), out money))
             {
                 lblCNMoney.Text = Format(money);
-                tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日代帐") + tbxMoney.Text.Trim() + "元";
+                tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日代账") + tbxMoney.Text.Trim() + "元";
             }
         }
 
@@ -629,7 +631,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void dpkOpeningDate_TextChanged(object sender, EventArgs e)
         {
-            tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日代帐") + tbxMoney.Text.Trim() + "元";
+            tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日代账") + tbxMoney.Text.Trim() + "元";
         }
 
         /// <summary>
@@ -648,10 +650,10 @@ namespace TZMS.Web
                         e.Values[2] = "起草";
                         break;
                     case "1":
-                        e.Values[2] = "审批";
+                        e.Values[2] = "审批-通过";
                         break;
                     case "2":
-                        e.Values[2] = "打回修改";
+                        e.Values[2] = "审批-不通过";
                         break;
                     case "3":
                         e.Values[2] = "归档";

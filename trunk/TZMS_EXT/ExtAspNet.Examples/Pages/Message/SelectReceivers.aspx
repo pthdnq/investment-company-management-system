@@ -17,7 +17,7 @@
                 <Items>
                     <ext:Button ID="btnClose" runat="server" OnClick="btnClose_Click" Icon="Cancel" Text="关闭">
                     </ext:Button>
-                    <ext:Button ID="btnSave" Text="设置" OnClick="btnSave_Click" runat="server" Icon="Disk" />
+                    <ext:Button ID="btnSave" Text="设置并保存" OnClick="btnSave_Click" runat="server" Icon="Disk" ConfirmText="您确认设置并保存吗?" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>

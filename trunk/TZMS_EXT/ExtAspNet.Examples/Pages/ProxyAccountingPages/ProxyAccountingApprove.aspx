@@ -16,10 +16,10 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnPass" Text="通过" Icon="Accept" runat="server" ValidateForms="mainForm2"
-                        OnClick="btnPass_Click">
+                    <ext:Button ID="btnPass" Text="同意" Icon="Accept" runat="server" ValidateForms="mainForm2"
+                        OnClick="btnPass_Click" ConfirmText="您确定同意吗?">
                     </ext:Button>
-                    <ext:Button ID="btnRefuse" Text="不通过" Icon="Stop" runat="server" OnClick="btnRefuse_Click">
+                    <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click" ConfirmText="您确定不同意吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -53,7 +53,7 @@
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
                         AutoHeight="true" Height="335px">
                         <Tabs>
-                            <ext:Tab ID="Tab1" Title="代帐费申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab1" Title="代账费申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Form EnableBackgroundColor="true" LabelWidth="55px" ShowHeader="false" ShowBorder="false"
                                         BodyPadding="5px" ID="mainForm" runat="server">
@@ -102,8 +102,8 @@
                                         runat="server" EnableRowNumber="True" AutoScroll="true" AutoHeight="true" OnRowDataBound="gridApproveHistory_RowDataBound">
                                         <Columns>
                                             <ext:BoundField DataField="ApproverName" HeaderText="执行人" />
-                                            <ext:BoundField DataField="ApproveDate" HeaderText="审批时间" />
-                                            <ext:BoundField DataField="ApproveOp" HeaderText="审批结果" />
+                                            <ext:BoundField DataField="ApproveDate" HeaderText="执行时间" />
+                                            <ext:BoundField DataField="ApproveOp" HeaderText="执行结果" />
                                             <ext:BoundField DataField="Sugest" HeaderText="执行人意见" DataTooltipField="Sugest" ExpandUnusedSpace="true" />
                                         </Columns>
                                     </ext:Grid>

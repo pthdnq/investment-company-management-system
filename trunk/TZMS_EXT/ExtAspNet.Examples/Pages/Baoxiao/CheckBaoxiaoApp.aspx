@@ -16,10 +16,10 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnPass" Text="通过" Icon="Accept" runat="server" ValidateForms="mainForm2"
-                        OnClick="btnPass_Click">
+                    <ext:Button ID="btnPass" Text="同意" Icon="Accept" runat="server" ValidateForms="mainForm2"
+                        OnClick="btnPass_Click" ConfirmText="您确定同意吗?">
                     </ext:Button>
-                    <ext:Button ID="btnRefuse" Text="不通过" Icon="Stop" runat="server" OnClick="btnRefuse_Click">
+                    <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click" ConfirmText="您确定不同意吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -82,7 +82,7 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaSument" Height="50px" runat="server" Label="事项" Enabled="false">
+                                                    <ext:TextArea ID="taaSument" Height="100px" runat="server" Label="事项" Enabled="false">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
@@ -102,8 +102,8 @@
                                         runat="server" EnableRowNumber="True" AutoScroll="true" AutoHeight="true" OnRowDataBound="gridApproveHistory_RowDataBound">
                                         <Columns>
                                             <ext:BoundField DataField="CheckerName" HeaderText="执行人" />
-                                            <ext:BoundField DataField="CheckDateTime" HeaderText="审批时间" />
-                                            <ext:BoundField DataField="CheckOp" HeaderText="审批结果" />
+                                            <ext:BoundField DataField="CheckDateTime" HeaderText="执行时间" />
+                                            <ext:BoundField DataField="CheckOp" HeaderText="执行结果" />
                                             <ext:BoundField DataField="CheckSugest" HeaderText="执行人意见" DataTooltipField="CheckSugest"
                                                 ExpandUnusedSpace="true" />
                                         </Columns>

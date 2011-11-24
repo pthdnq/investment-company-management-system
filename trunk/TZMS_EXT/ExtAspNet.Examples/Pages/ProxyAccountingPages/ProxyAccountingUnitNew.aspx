@@ -17,7 +17,7 @@
                     <ext:Button ID="btnClose" OnClick="btnClose_Click" runat="server" Icon="Cancel" Text="关闭">
                     </ext:Button>
                     <ext:Button ID="btnSave" OnClick="btnSave_Click" runat="server" Icon="Disk" Text="保存"
-                        ValidateForms="mainForm">
+                        ValidateForms="mainForm" ConfirmText="您确认保存该单位吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -38,9 +38,12 @@
                             </ext:FormRow>
                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="50% 50%">
                                 <Items>
-                                    <ext:Label ID="lblAccountancy" runat="server" Label="代帐会计">
-                                    </ext:Label>
-                                    <ext:Button ID="btnSetAccountancy" runat="server" Text="设置代帐会计..." OnClick="btnSetAccountancy_Click">
+                                    <%--<ext:Label ID="lblAccountancy" runat="server" Label="代账会计">
+                                    </ext:Label>--%>
+                                    <ext:TextBox ID="lblAccountancy" runat="server" Label="代账会计" Required="true" ShowRedStar="true"
+                                        Enabled="false">
+                                    </ext:TextBox>
+                                    <ext:Button ID="btnSetAccountancy" runat="server" Text="设置代账会计..." OnClick="btnSetAccountancy_Click">
                                     </ext:Button>
                                 </Items>
                             </ext:FormRow>
@@ -64,9 +67,9 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndAccountancy" Title="设置代帐会计" Popup="false" EnableIFrame="true"
+    <ext:Window ID="wndAccountancy" Title="设置代账会计" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Top" runat="server" IsModal="true" Width="560px"
-        EnableConfirmOnClose="true" Height="450px" onclose="wndAccountancy_Close">
+        EnableConfirmOnClose="true" Height="450px" OnClose="wndAccountancy_Close">
     </ext:Window>
     </form>
 </body>

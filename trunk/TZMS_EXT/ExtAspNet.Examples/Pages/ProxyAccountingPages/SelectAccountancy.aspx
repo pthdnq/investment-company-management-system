@@ -17,7 +17,7 @@
                 <Items>
                     <ext:Button ID="btnClose" OnClick="btnClose_Click" runat="server" Icon="Cancel" Text="关闭">
                     </ext:Button>
-                    <ext:Button ID="btnSave" Text="设置" OnClick="btnSave_Click" runat="server" Icon="Disk" />
+                    <ext:Button ID="btnSave" Text="设置并保存" OnClick="btnSave_Click" runat="server" Icon="Disk" ConfirmText="您确认设置并保存吗?" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -41,7 +41,7 @@
                     </ext:Button>
                 </Items>
             </ext:Panel>
-            <ext:Grid ID="gridSelectdUsers" Title="代帐会计" ShowBorder="true" ShowHeader="true"
+            <ext:Grid ID="gridSelectdUsers" Title="代账会计" ShowBorder="true" ShowHeader="true"
                 EnableMultiSelect="false" ColumnWidth="46%" runat="server" AutoHeight="true"
                 Height="385px">
                 <Columns>

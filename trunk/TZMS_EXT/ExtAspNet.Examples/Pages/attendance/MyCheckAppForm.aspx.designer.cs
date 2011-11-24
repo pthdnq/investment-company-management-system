@@ -220,15 +220,6 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Label lblHours;
         
         /// <summary>
-        /// FormRow4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow4;
-        
-        /// <summary>
         /// lblLeaveType control.
         /// </summary>
         /// <remarks>
@@ -236,6 +227,24 @@ namespace TZMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.Label lblLeaveType;
+        
+        /// <summary>
+        /// FormRow5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow5;
+        
+        /// <summary>
+        /// taaLeaveReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea taaLeaveReason;
         
         /// <summary>
         /// FormRow8 control.
@@ -263,24 +272,6 @@ namespace TZMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::TZMS.Web.CommonControls.MudFlexCtrl MUDAttachment;
-        
-        /// <summary>
-        /// FormRow5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow5;
-        
-        /// <summary>
-        /// taaLeaveReason control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextArea taaLeaveReason;
         
         /// <summary>
         /// gridApproveHistory control.

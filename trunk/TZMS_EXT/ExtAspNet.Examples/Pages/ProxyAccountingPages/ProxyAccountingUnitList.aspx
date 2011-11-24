@@ -50,7 +50,7 @@
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="AccountancyID" Hidden="true" />
                             <ext:BoundField DataField="UnitName" HeaderText="单位名称" />
-                            <ext:BoundField DataField="AccountancyName" HeaderText="代帐会计" />
+                            <ext:BoundField DataField="AccountancyName" HeaderText="代账会计" />
                             <ext:BoundField DataField="UnitAddress" HeaderText="单位地址" DataTooltipField="UnitAddress"
                                 ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="Other" HeaderText="备注" DataTooltipField="Other" />

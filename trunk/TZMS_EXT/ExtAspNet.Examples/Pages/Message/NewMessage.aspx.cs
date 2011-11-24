@@ -209,6 +209,9 @@ namespace TZMS.Web.Pages
                             taaContent.Required = false;
                             taaContent.ShowRedStar = false;
                             taaContent.Enabled = false;
+                            lblRecevices.ShowRedStar = false;
+                            lblRecevices.Required = false;
+                            lblRecevices.Enabled = false;
                         }
                         break;
                     case "ViewMessage":
@@ -220,6 +223,8 @@ namespace TZMS.Web.Pages
                             btnSend.Hidden = true;
                             btnRecevicer.Enabled = false;
                             btnRecevicer.Hidden = true;
+                            lblRecevices.ShowRedStar = false;
+                            lblRecevices.Required = false;
                             lblRecevices.Hidden = true;
                             tbxTitle.Required = false;
                             tbxTitle.ShowRedStar = false;

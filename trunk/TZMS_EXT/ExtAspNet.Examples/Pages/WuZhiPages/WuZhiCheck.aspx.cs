@@ -78,7 +78,7 @@ namespace TZMS.Web
             {
                 if (roleType == RoleType.WZSPGD)
                 {
-                    ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                    ddlstNext.Items.Add(new ExtAspNet.ListItem("同意并归档", "1"));
                     break;
                 }
             }
@@ -198,7 +198,7 @@ namespace TZMS.Web
 
                 #region 归档
 
-                if (ddlstNext.SelectedText == "归档")
+                if (ddlstNext.SelectedText == "同意并归档")
                 {
                     // 修改申请单信息.
                     _applyInfo.State = 2;
@@ -229,14 +229,16 @@ namespace TZMS.Web
             }
             if (result == -1)
             {
-                Alert.Show(ddlstNext.SelectedText + "成功!");
-                btnPass.Enabled = false;
-                btnRefuse.Enabled = false;
-                BindApproveHistory();
+                //Alert.Show(ddlstNext.SelectedText + "成功!");
+                //btnPass.Enabled = false;
+                //btnRefuse.Enabled = false;
+                //BindApproveHistory();
+
+                this.btnClose_Click(null, null);
             }
             else
             {
-                Alert.Show(ddlstNext.SelectedText + "失败!");
+                Alert.Show("审批失败(" + ddlstNext.SelectedText +")!");
             }
         }
 
@@ -276,16 +278,17 @@ namespace TZMS.Web
 
                 if (result == -1)
                 {
-                    Alert.Show("打回成功!");
+                    //Alert.Show("打回成功!");
 
-                    // 重新设置按钮状态并刷新审批历史.
-                    btnPass.Enabled = false;
-                    btnRefuse.Enabled = false;
-                    BindApproveHistory();
+                    //// 重新设置按钮状态并刷新审批历史.
+                    //btnPass.Enabled = false;
+                    //btnRefuse.Enabled = false;
+                    //BindApproveHistory();
+                    this.btnClose_Click(null, null);
                 }
                 else
                 {
-                    Alert.Show("打回失败!");
+                    Alert.Show("审批失败(不同意)!");
                 }
             }
         }
@@ -303,7 +306,8 @@ namespace TZMS.Web
                 ddlstApproveUser.Required = false;
                 ddlstApproveUser.ShowRedStar = false;
                 ddlstApproveUser.Enabled = false;
-                btnPass.Text = "归档";
+                btnPass.Text = "同意并归档";
+                btnPass.ConfirmText = "您确认同意并归档吗?";
             }
             else
             {
@@ -312,6 +316,7 @@ namespace TZMS.Web
                 ddlstApproveUser.ShowRedStar = true;
                 ddlstApproveUser.Enabled = true;
                 btnPass.Text = "通过";
+                btnPass.ConfirmText = "您确认同意吗?";
             }
         }
 
@@ -331,10 +336,10 @@ namespace TZMS.Web
                         e.Values[2] = "起草";
                         break;
                     case "1":
-                        e.Values[2] = "审批";
+                        e.Values[2] = "审批-通过";
                         break;
                     case "2":
-                        e.Values[2] = "打回修改";
+                        e.Values[2] = "审批-不通过";
                         break;
                     case "3":
                         e.Values[2] = "归档";

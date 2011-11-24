@@ -399,14 +399,16 @@ namespace TZMS.Web
 
                 if (result == -1)
                 {
-                    Alert.Show("申请提交成功!");
+                    //Alert.Show("申请提交成功!");
 
-                    // 设置页面各按钮的状态.
-                    LeaveAppID = _leaveInfo.ObjectId.ToString();
-                    btnSave.Enabled = false;
-                    tabApproveHistory.Hidden = false;
+                    //// 设置页面各按钮的状态.
+                    //LeaveAppID = _leaveInfo.ObjectId.ToString();
+                    //btnSave.Enabled = false;
+                    //tabApproveHistory.Hidden = false;
 
-                    BindHistory();
+                    //BindHistory();
+
+                    this.btnClose_Click(null, null);
                 }
                 else
                 {
@@ -448,14 +450,16 @@ namespace TZMS.Web
 
                 if (result == -1)
                 {
-                    Alert.Show("申请提交成功!");
+                    //Alert.Show("申请提交成功!");
 
-                    // 设置页面各按钮的状态.
-                    LeaveAppID = _leaveInfo.ObjectId.ToString();
-                    btnSave.Enabled = false;
-                    tabApproveHistory.Hidden = false;
+                    //// 设置页面各按钮的状态.
+                    //LeaveAppID = _leaveInfo.ObjectId.ToString();
+                    //btnSave.Enabled = false;
+                    //tabApproveHistory.Hidden = false;
 
-                    BindHistory();
+                    //BindHistory();
+
+                    this.btnClose_Click(null, null);
                 }
                 else
                 {
@@ -553,10 +557,10 @@ namespace TZMS.Web
                         e.Values[2] = "待审批";
                         break;
                     case "1":
-                        e.Values[2] = "通过";
+                        e.Values[2] = "审批-通过";
                         break;
                     case "2":
-                        e.Values[2] = "打回修改";
+                        e.Values[2] = "审批-不通过";
                         break;
                     case "4":
                         e.Values[2] = "归档";

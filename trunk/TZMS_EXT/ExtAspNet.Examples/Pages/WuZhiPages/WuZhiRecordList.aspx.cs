@@ -61,7 +61,7 @@ namespace TZMS.Web
 
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append(" Isdelete = 0 and state = 2");
-            strCondition.Append(" and UserID <> '" + CurrentUser.ObjectId.ToString() + "'");
+            //strCondition.Append(" and UserID <> '" + CurrentUser.ObjectId.ToString() + "'");
 
             // 查询文本
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))

@@ -17,7 +17,7 @@
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
                     <ext:Button ID="btnSubmit" Text="提交" Icon="Disk" runat="server" ValidateForms="pelMain"
-                        OnClick="btnSubmit_Click">
+                        OnClick="btnSubmit_Click" ConfirmText="您确定提交该表单吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -76,14 +76,14 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaSument" Height="50px" runat="server" Label="事项" Required="true"
+                                                    <ext:TextArea ID="taaSument" Height="100px" runat="server" Label="事项" Required="true"
                                                         ShowRedStar="true" MaxLength="100" MaxLengthMessage="最多只能输入100个字！">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaOther" Height="100px" runat="server" Label="备注" MaxLength="200"
+                                                    <ext:TextArea ID="taaOther" Height="150px" runat="server" Label="备注" MaxLength="200"
                                                         MaxLengthMessage="最多只能输入200个字！">
                                                     </ext:TextArea>
                                                 </Items>
@@ -100,8 +100,8 @@
                                         AutoHeight="true" OnRowDataBound="gridApproveHistory_RowDataBound">
                                         <Columns>
                                             <ext:BoundField DataField="CheckerName" HeaderText="执行人" />
-                                            <ext:BoundField DataField="CheckDateTime" HeaderText="审批时间" />
-                                            <ext:BoundField DataField="CheckOp" HeaderText="审批结果" />
+                                            <ext:BoundField DataField="CheckDateTime" HeaderText="执行时间" />
+                                            <ext:BoundField DataField="CheckOp" HeaderText="执行结果" />
                                             <ext:BoundField DataField="CheckSugest" HeaderText="执行人意见" DataTooltipField="CheckSugest"
                                                 ExpandUnusedSpace="true" />
                                         </Columns>
