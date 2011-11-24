@@ -64,8 +64,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 return;
             }
             InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
-            UserInfo user = new UserManage().GetUserByObjectID(_Info.NextOperaterId.ToString());
-            if (_Info.LoanAmount > 3000000 && !user.Position.Equals(Common.Position.Chairman))
+            //UserInfo user = new UserManage().GetUserByObjectID(_Info.NextOperaterId.ToString());
+            if (_Info.LoanAmount > 3000000 && !CurrentRoles.Contains(RoleType.DSZ))
             {
                 //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
                 BindNext(false);
