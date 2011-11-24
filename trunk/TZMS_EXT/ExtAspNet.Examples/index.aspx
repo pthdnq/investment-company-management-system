@@ -80,127 +80,127 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane3" runat="server" Icon="PageWhiteKey" Title="假勤管理"
+                            <ext:AccordionPane ID="AccordionPane3" runat="server"  IconUrl="images/16/假勤管理.gif"  Title="假勤管理"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="Tree2" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="ygkq" OnClientClick=" tabs('ygkq','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/员工考勤.gif" NodeID="ygkq" OnClientClick=" tabs('ygkq','UserKey');"
                                                 Text="员工考勤">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="TimeGo" NodeID="wdkq" OnClientClick=" tabs('wdkq','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/我的考勤.gif" NodeID="wdkq" OnClientClick=" tabs('wdkq','UserKey');"
                                                 Text="我的考勤">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserComment" NodeID="qjsq" OnClientClick=" tabs('qjsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/请假申请.gif" NodeID="qjsq" OnClientClick=" tabs('qjsq','UserKey');"
                                                 Text="请假申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserEarth" NodeID="txsq" OnClientClick=" tabs('txsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/调休申请.gif" NodeID="txsq" OnClientClick=" tabs('txsq','UserKey');"
                                                 Text="调休申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserStar" NodeID="wdsp" OnClientClick=" tabs('wdsp','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/我的审批.gif" NodeID="wdsp" OnClientClick=" tabs('wdsp','UserKey');"
                                                 Text="我的审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserStar" NodeID="qjgd" OnClientClick=" tabs('qjgd','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/请假归档.gif" NodeID="qjgd" OnClientClick=" tabs('qjgd','UserKey');"
                                                 Text="请假归档">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserStar" NodeID="wdksm" OnClientClick=" tabs('wdksm','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/未打卡申请.gif" NodeID="wdksm" OnClientClick=" tabs('wdksm','UserKey');"
                                                 Text="未打卡申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserStar" NodeID="wdksp" OnClientClick=" tabs('wdksp','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/未打卡审批.gif" NodeID="wdksp" OnClientClick=" tabs('wdksp','UserKey');"
                                                 Text="未打卡审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserStar" NodeID="wdkgd" OnClientClick=" tabs('wdkgd','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/未打卡归档.gif" NodeID="wdkgd" OnClientClick=" tabs('wdkgd','UserKey');"
                                                 Text="未打卡归档">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane8" runat="server" Icon="PageWhiteKey" Title="消息管理"
+                            <ext:AccordionPane ID="AccordionPane8" runat="server"  IconUrl="images/16/消息管理.gif" Title="消息管理"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="Tree4" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="wdxx" OnClientClick=" tabs('wdxx','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/我的消息.gif" NodeID="wdxx" OnClientClick=" tabs('wdxx','UserKey');"
                                                 Text="我的消息">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="TimeGo" NodeID="yfxx" OnClientClick=" tabs('yfxx','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/已发消息.gif" NodeID="yfxx" OnClientClick=" tabs('yfxx','UserKey');"
                                                 Text="已发消息">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="TimeGo" NodeID="fsxx" OnClientClick=" tabs('fsxx','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="fsxx" OnClientClick=" tabs('fsxx','UserKey');"
                                                 Text="发送消息">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane10" runat="server" Icon="PageWhiteKey" Title="物资管理"
+                            <ext:AccordionPane ID="AccordionPane10" runat="server" IconUrl="images/16/物资管理.gif" Title="物资管理"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="Tree6" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="wzsq" OnClientClick=" tabs('wzsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzsq" OnClientClick=" tabs('wzsq','UserKey');"
                                                 Text="物资申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="wzsp" OnClientClick=" tabs('wzsp','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资审批.gif" NodeID="wzsp" OnClientClick=" tabs('wzsp','UserKey');"
                                                 Text="物资审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="wzly" OnClientClick=" tabs('wzly','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资领用.gif" NodeID="wzly" OnClientClick=" tabs('wzly','UserKey');"
                                                 Text="物资领用">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane9" runat="server" Icon="PageWhiteKey" Title="代帐管理"
+                            <ext:AccordionPane ID="AccordionPane9" runat="server"  IconUrl="images/16/代账管理.gif" Title="代账管理"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="Tree5" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="paal" OnClientClick=" tabs('paal','UserKey');"
-                                                Text="代帐单位">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/代账单位.gif" NodeID="paal" OnClientClick=" tabs('paal','UserKey');"
+                                                Text="代账单位">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="dzfsq" OnClientClick=" tabs('dzfsq','UserKey');"
-                                                Text="代帐费申请">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/代账申请.gif" NodeID="dzfsq" OnClientClick=" tabs('dzfsq','UserKey');"
+                                                Text="代账费申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="Time" NodeID="dzfsp" OnClientClick=" tabs('dzfsp','UserKey');"
-                                                Text="代帐费审批">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/代账审批.gif" NodeID="dzfsp" OnClientClick=" tabs('dzfsp','UserKey');"
+                                                Text="代账费审批">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane7" runat="server" Title="网络报销" Icon="Cog" BodyPadding="1px 1px"
+                            <ext:AccordionPane ID="AccordionPane7" runat="server" Title="网络报销" IconUrl="images/16/网络报销.png" BodyPadding="1px 1px"
                                 ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="Tree3" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="bxsq" AutoPostBack="false" OnClientClick=" tabs('bxsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销申请.gif" NodeID="bxsq" AutoPostBack="false" OnClientClick=" tabs('bxsq','UserKey');"
                                                 Text="报销申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="bxsp" AutoPostBack="false" OnClientClick=" tabs('bxsp','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销审批.gif" NodeID="bxsp" AutoPostBack="false" OnClientClick=" tabs('bxsp','UserKey');"
                                                 Text="报销审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserStar" NodeID="bxgd" OnClientClick=" tabs('bxgd','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销列表.gif" NodeID="bxgd" OnClientClick=" tabs('bxgd','UserKey');"
                                                 Text="报销归档">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane1" runat="server" Title="投资部借款" IconUrl="images/16/1.png"
+                            <ext:AccordionPane ID="AccordionPane1" runat="server" Title="投资部借款" IconUrl="images/16/借款申请.gif"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="TreeInvestmentLoan" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" NodeID="fksq" OnClientClick=" tabs('fksq','');" Text="借款申请列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="fksh" OnClientClick=" tabs('fksh','');" Text="借款审核列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="fkqr" OnClientClick=" tabs('fkqr','');" Text="借款确认列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="jkxx" OnClientClick=" tabs('jkxx','');" Text="借款信息列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="skqr" OnClientClick=" tabs('skqr','');" Text="收款确认列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="skxx" OnClientClick=" tabs('skxx','');" Text="收款信息列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="zzht" OnClientClick=" tabs('zzht','');" Text="终止合同列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="fksq" IconUrl="images/16/借款申请.gif" OnClientClick=" tabs('fksq','');" Text="借款申请列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="fksh" IconUrl="images/16/借款审核.gif" OnClientClick=" tabs('fksh','');" Text="借款审核列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="fkqr" IconUrl="images/16/借款确认.gif" OnClientClick=" tabs('fkqr','');" Text="借款确认列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="jkxx" IconUrl="images/16/借款信息.gif" OnClientClick=" tabs('jkxx','');" Text="借款信息列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="skqr" IconUrl="images/16/收款确认.gif" OnClientClick=" tabs('skqr','');" Text="收款确认列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="skxx" IconUrl="images/16/收款信息.gif" OnClientClick=" tabs('skxx','');" Text="收款信息列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="zzht" IconUrl="images/16/终止合同.gif" OnClientClick=" tabs('zzht','');" Text="终止合同列表" />
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
