@@ -20,7 +20,7 @@
         </Toolbars>
         <Items>
             <ext:Grid ID="gridUnSelectRoles" Title="Grid1" ShowBorder="true" ShowHeader="false"
-                ColumnWidth="44%" runat="server" AutoHeight="true" Height="305px" EnableMultiSelect="false">
+                ColumnWidth="44%" runat="server" AutoHeight="true" Height="405px" EnableMultiSelect="false">
                 <Columns>
                     <ext:BoundField DataField="RoleName" HeaderText="角色名称" Width="140px" />
                 </Columns>
@@ -38,7 +38,7 @@
             </ext:Panel>
             <ext:Grid ID="gridSelectdRoles" Title="Grid2" ShowBorder="true" ShowHeader="false"
                 EnableMultiSelect="false" ColumnWidth="43%" runat="server" AutoHeight="true"
-                Height="305px">
+                Height="405px">
                 <Columns>
                     <ext:BoundField DataField="RoleName" HeaderText="我拥有的角色" Width="135px" />
                 </Columns>
