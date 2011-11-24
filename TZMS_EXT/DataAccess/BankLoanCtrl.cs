@@ -364,7 +364,7 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanInfoInfoDataRow["Status"] != null)
             {
-                BankLoanInfoInfo.Status = char.Parse(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "Status"));
+                BankLoanInfoInfo.Status = int.Parse(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "Status"));
             }
 
             return BankLoanInfoInfo;

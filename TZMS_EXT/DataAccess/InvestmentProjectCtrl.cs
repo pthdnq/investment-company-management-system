@@ -296,7 +296,7 @@ namespace com.TZMS.DataAccess
             }
             if (InvestmentProjectInfoInfoDataRow["ProjectName"] != null)
             {
-                InvestmentProjectInfoInfo.ProjectName =char.Parse( DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ProjectName"));
+                InvestmentProjectInfoInfo.ProjectName =  DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ProjectName");
             }
             if (InvestmentProjectInfoInfoDataRow["ProjectOverview"] != null)
             {
