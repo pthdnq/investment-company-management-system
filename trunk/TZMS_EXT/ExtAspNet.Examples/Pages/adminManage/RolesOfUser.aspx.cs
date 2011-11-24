@@ -314,6 +314,9 @@ namespace TZMS.Web
                 case RoleType.WZSPGD:
                     strRole = "物质审批归档";
                     break;
+                case RoleType.JKSQ:
+                    strRole = "借款申请归档";
+                    break;
             }
 
             return strRole;
