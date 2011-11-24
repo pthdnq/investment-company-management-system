@@ -316,7 +316,7 @@ namespace com.TZMS.DataAccess
             }
             if (ProjectProcessInfoInfoDataRow["ExpendedTime"] != null)
             {
-                ProjectProcessInfoInfo.ExpendedTime = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ExpendedTime");
+                ProjectProcessInfoInfo.ExpendedTime = DateTime.Parse( DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ExpendedTime"));
             }
             if (ProjectProcessInfoInfoDataRow["ImprestAmount"] != null)
             {
@@ -340,7 +340,7 @@ namespace com.TZMS.DataAccess
             }
             if (ProjectProcessInfoInfoDataRow["Status"] != null)
             {
-                ProjectProcessInfoInfo.Status = char.Parse(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "Status"));
+                ProjectProcessInfoInfo.Status = int.Parse(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "Status"));
             }
             if (ProjectProcessInfoInfoDataRow["NextOperaterId"] != null)
             {

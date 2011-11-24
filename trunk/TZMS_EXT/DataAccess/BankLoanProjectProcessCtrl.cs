@@ -292,11 +292,11 @@ namespace com.TZMS.DataAccess
             BankLoanProjectProcessInfo BankLoanProjectProcessInfoInfo = new BankLoanProjectProcessInfo();
             if (BankLoanProjectProcessInfoInfoDataRow["ObjetctId"] != null)
             {
-                BankLoanProjectProcessInfoInfo.ObjetctId =new Guid( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ObjetctId"));
+                BankLoanProjectProcessInfoInfo.ObjetctId = new Guid(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ObjetctId"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["ForId"] != null)
             {
-                BankLoanProjectProcessInfoInfo.ForId =new Guid( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ForId"));
+                BankLoanProjectProcessInfoInfo.ForId = new Guid(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ForId"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["ProjectName"] != null)
             {
@@ -304,7 +304,7 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanProjectProcessInfoInfoDataRow["NeedImprest"] != null)
             {
-                BankLoanProjectProcessInfoInfo.NeedImprest =char.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NeedImprest"));
+                BankLoanProjectProcessInfoInfo.NeedImprest = char.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NeedImprest"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["LoanBank"] != null)
             {
@@ -320,19 +320,19 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanProjectProcessInfoInfoDataRow["ImprestAmount"] != null)
             {
-                BankLoanProjectProcessInfoInfo.ImprestAmount =Decimal.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImprestAmount"));
+                BankLoanProjectProcessInfoInfo.ImprestAmount = Decimal.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImprestAmount"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["AmountExpended"] != null)
             {
-                BankLoanProjectProcessInfoInfo.AmountExpended =Decimal.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "AmountExpended"));
+                BankLoanProjectProcessInfoInfo.AmountExpended = Decimal.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "AmountExpended"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["ExpendedTime"] != null)
             {
-                BankLoanProjectProcessInfoInfo.ExpendedTime = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ExpendedTime");
+                BankLoanProjectProcessInfoInfo.ExpendedTime = DateTime.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ExpendedTime"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["ImprestAmountBalance"] != null)
             {
-                BankLoanProjectProcessInfoInfo.ImprestAmountBalance =Decimal.Parse (DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImprestAmountBalance"));
+                BankLoanProjectProcessInfoInfo.ImprestAmountBalance = Decimal.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImprestAmountBalance"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["Remark"] != null)
             {
@@ -340,11 +340,11 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanProjectProcessInfoInfoDataRow["Status"] != null)
             {
-                BankLoanProjectProcessInfoInfo.Status =char.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "Status"));
+                BankLoanProjectProcessInfoInfo.Status = int.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "Status"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["NextOperaterId"] != null)
             {
-                BankLoanProjectProcessInfoInfo.NextOperaterId =new Guid( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NextOperaterId"));
+                BankLoanProjectProcessInfoInfo.NextOperaterId = new Guid(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NextOperaterId"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["NextOperaterAccount"] != null)
             {
@@ -356,11 +356,11 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanProjectProcessInfoInfoDataRow["CreateTime"] != null)
             {
-                BankLoanProjectProcessInfoInfo.CreateTime =DateTime.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreateTime"));
+                BankLoanProjectProcessInfoInfo.CreateTime = DateTime.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreateTime"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["CreaterId"] != null)
             {
-                BankLoanProjectProcessInfoInfo.CreaterId =new Guid( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreaterId"));
+                BankLoanProjectProcessInfoInfo.CreaterId = new Guid(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "CreaterId"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["CreaterName"] != null)
             {
@@ -372,7 +372,7 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanProjectProcessInfoInfoDataRow["SubmitTime"] != null)
             {
-                BankLoanProjectProcessInfoInfo.SubmitTime =DateTime.Parse( DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "SubmitTime"));
+                BankLoanProjectProcessInfoInfo.SubmitTime = DateTime.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "SubmitTime"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["AuditOpinion"] != null)
             {
