@@ -302,6 +302,18 @@ namespace TZMS.Web
                 case RoleType.ZJL:
                     strRole = "总经理";
                     break;
+                case RoleType.WUSQ_PT:
+                    strRole = "一般物质申请";
+                    break;
+                case RoleType.WZSQ_GD:
+                    strRole = "固定资产申请";
+                    break;
+                case RoleType.DZFGD:
+                    strRole = "代账费归档";
+                    break;
+                case RoleType.WZSPGD:
+                    strRole = "物质审批归档";
+                    break;
             }
 
             return strRole;

@@ -80,7 +80,7 @@
     </ext:Panel>
     <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
         IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
-        Height="370px" Width="400px">
+        Height="470px" Width="500px">
     </ext:Window>
     <ext:Window ID="wndNewUser" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNewUser_Close">
