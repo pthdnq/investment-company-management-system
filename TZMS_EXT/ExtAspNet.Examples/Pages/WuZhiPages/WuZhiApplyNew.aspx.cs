@@ -144,7 +144,7 @@ namespace TZMS.Web
         /// </summary>
         private void BindWuZhiType()
         {
-            ddlstWuZhiType.Items.Add(new ExtAspNet.ListItem("一般物资", "0"));
+            ddlstWuZhiType.Items.Add(new ExtAspNet.ListItem("办公用品", "0"));
             foreach (RoleType roleType in CurrentRoles)
             {
                 if (roleType == RoleType.WZSQ_GD)

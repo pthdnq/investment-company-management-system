@@ -64,9 +64,9 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectId" Hidden="true" />
                             <ext:BoundField DataField="Type" HeaderText="物资类型" />
-                            <ext:BoundField DataField="Title" HeaderText="标题" DataTooltipField="Title" />
+                            <ext:BoundField DataField="Title" Width="160px" HeaderText="标题" DataTooltipField="Title" />
                             <ext:BoundField DataField="Sument" HeaderText="事项" DataTooltipField="Sument" ExpandUnusedSpace="true" />
-                            <ext:BoundField DataField="Other" HeaderText="备注" DataTooltipField="Other" />
+                            <ext:BoundField DataField="Other" HeaderText="备注" Hidden="true" DataTooltipField="Other" />
                             <ext:BoundField DataField="ApplyTime" HeaderText="申请时间" />
                             <ext:BoundField DataField="CurrentCheckerId" HeaderText="当前执行人" />
                             <ext:BoundField DataField="State" HeaderText="申请状态" />

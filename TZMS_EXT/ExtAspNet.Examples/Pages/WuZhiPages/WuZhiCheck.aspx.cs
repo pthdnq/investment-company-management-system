@@ -110,7 +110,7 @@ namespace TZMS.Web
                 {
                     lblUser.Text = _info.UserName;
                     lblApplyDate.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
-                    lblWuZhiType.Text = _info.Type == 0 ? "一般物资" : "固定物资";
+                    lblWuZhiType.Text = _info.Type == 0 ? "办公用品" : "固定物资";
                     lblTitle.Text = _info.Title;
                     taaSument.Text = _info.Sument;
                     taaOther.Text = _info.Other;
