@@ -73,7 +73,7 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow8" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaSument" runat="server" Label="事项" Required="true" ShowRedStar="true"
+                                                    <ext:TextArea ID="taaSument" runat="server" EmptyText="请输入待购物品名称（规格、型号）、数量及用途" Label="事项" Required="true" ShowRedStar="true"
                                                         MaxLength="1000" MaxLengthMessage="最多只能输入1000个字！" Height="150px">
                                                     </ext:TextArea>
                                                 </Items>

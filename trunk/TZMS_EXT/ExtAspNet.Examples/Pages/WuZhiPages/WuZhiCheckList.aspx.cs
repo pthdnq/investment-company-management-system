@@ -169,7 +169,7 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[4] = e.Values[4].ToString() == "0" ? "一般物资" : "固定资产";
+                e.Values[4] = e.Values[4].ToString() == "0" ? "办公用品" : "固定资产";
                 e.Values[8] = DateTime.Parse(e.Values[8].ToString()).ToString("yyyy-MM-dd HH:mm");
                 if (e.Values[9].ToString() == "0")
                 {

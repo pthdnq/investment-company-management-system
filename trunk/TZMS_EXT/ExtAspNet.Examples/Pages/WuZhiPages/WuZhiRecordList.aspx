@@ -23,7 +23,7 @@
                             </ext:TextBox>
                             <ext:DropDownList ID="ddlstWuZhiType" runat="server" Label="物资类型">
                                 <ext:ListItem Text="全部" Value="3" />
-                                <ext:ListItem Text="一般物资" Value="0" Selected="true" />
+                                <ext:ListItem Text="办公用品" Value="0" Selected="true" />
                                 <ext:ListItem Text="固定资产" Value="1" />
                             </ext:DropDownList>
                             <ext:DropDownList ID="ddlstDept" runat="server" Label="部门名称">

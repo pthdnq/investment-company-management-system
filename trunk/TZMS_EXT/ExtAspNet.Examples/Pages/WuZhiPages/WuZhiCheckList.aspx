@@ -23,7 +23,7 @@
                             </ext:TextBox>
                             <ext:DropDownList ID="ddlstWuZhiType" runat="server" Label="物资类型">
                                 <ext:ListItem Text="全部" Value="3" />
-                                <ext:ListItem Text="一般物资" Value="0" Selected="true" />
+                                <ext:ListItem Text="办公用品" Value="0" Selected="true" />
                                 <ext:ListItem Text="固定资产" Value="1" />
                             </ext:DropDownList>
                             <ext:DropDownList ID="ddlstAproveState" runat="server" Label="审批状态">
@@ -62,9 +62,9 @@
                             <ext:BoundField DataField="UserName" HeaderText="申请人" />
                             <ext:BoundField DataField="Dept" HeaderText="部门" />
                             <ext:BoundField DataField="Type" HeaderText="物资类型" />
-                            <ext:BoundField DataField="Title" HeaderText="标题" DataTooltipField="Title" />
+                            <ext:BoundField DataField="Title" Width="160px" HeaderText="标题" DataTooltipField="Title" />
                             <ext:BoundField DataField="Sument" HeaderText="事项" DataTooltipField="Sument" ExpandUnusedSpace="true" />
-                            <ext:BoundField DataField="Other" HeaderText="备注" DataTooltipField="Other" />
+                            <ext:BoundField DataField="Other" Hidden="true" HeaderText="备注" DataTooltipField="Other" />
                             <ext:BoundField DataField="ApplyTime" HeaderText="申请时间" />
                             <ext:BoundField DataField="Checkstate" Width="60px" HeaderText="审批状态" />
                             <ext:BoundField DataField="Result" Width="60px" HeaderText="审批结果" />

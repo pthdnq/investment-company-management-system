@@ -32,13 +32,13 @@ namespace TZMS.Web
 
         private void BindWuZhiType()
         {
-            ddlstWuZhiType.Items.Add(new ExtAspNet.ListItem("一般物资", "0"));
+            ddlstWuZhiType.Items.Add(new ExtAspNet.ListItem("办公用品", "0"));
             foreach (RoleType roleType in CurrentRoles)
             {
                 if (roleType == RoleType.WZSQ_GD)
                 {
                     ddlstWuZhiType.Items.Add(new ExtAspNet.ListItem("全部", "3"));
-                    ddlstWuZhiType.Items.Add(new ExtAspNet.ListItem("一般物资", "0"));
+                    ddlstWuZhiType.Items.Add(new ExtAspNet.ListItem("办公用品", "0"));
                     ddlstWuZhiType.Items.Add(new ExtAspNet.ListItem("固定物资", "1"));
                     break;
                 }
@@ -165,7 +165,7 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[1] = e.Values[1].ToString() == "0" ? "一般物资" : "固定资产";
+                e.Values[1] = e.Values[1].ToString() == "0" ? "办公用品" : "固定资产";
                 e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd HH:mm");
                 // 当前审批人.
                 if (e.Values[6].ToString() == SystemUser.ObjectId.ToString())
