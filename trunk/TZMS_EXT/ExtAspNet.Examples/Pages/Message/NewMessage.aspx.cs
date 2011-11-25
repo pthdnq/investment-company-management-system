@@ -212,6 +212,7 @@ namespace TZMS.Web.Pages
                             lblRecevices.ShowRedStar = false;
                             lblRecevices.Required = false;
                             lblRecevices.Enabled = false;
+                            btnRecevicer.Hidden = true;
                         }
                         break;
                     case "ViewMessage":
