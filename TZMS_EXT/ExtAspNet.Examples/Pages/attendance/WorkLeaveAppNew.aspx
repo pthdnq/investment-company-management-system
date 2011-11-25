@@ -133,7 +133,7 @@
                                             <ext:FormRow ID="FormRow12" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
                                                     <ext:TextArea ID="taaLeaveReason" ShowRedStar="true" MaxLength="100" MaxLengthMessage="最多只能输入100个字！"
-                                                        Height="50px" Required="true" runat="server" Label="请假原因">
+                                                        Height="100px" Required="true" runat="server" Label="请假原因">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>

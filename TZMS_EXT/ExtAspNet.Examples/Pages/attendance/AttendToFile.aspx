@@ -40,6 +40,7 @@
                         OnRowCommand="gridLeave_RowCommand" OnRowDataBound="gridLeave_RowDataBound" OnPageIndexChange="gridLeave_PageIndexChange">
                         <Columns>
                             <ext:BoundField HeaderText="ID" Hidden="true" />
+                            <ext:BoundField HeaderText="申请人" />
                             <ext:BoundField HeaderText="申请时间" />
                             <ext:BoundField HeaderText="开始时间" />
                             <ext:BoundField HeaderText="结束时间" />
@@ -49,7 +50,7 @@
                             <ext:BoundField HeaderText="执行人" />
                             <ext:BoundField HeaderText="审批结果" />
                             <ext:BoundField HeaderText="归档状态" />
-                            <ext:LinkButtonField Width="38px" Text="归档" CommandName="Archive" ConfirmText="确定归档该请假申请单?"
+                            <ext:LinkButtonField Width="38px" Text="归档" CommandName="Archive" ConfirmText="确定归档该申请单?"
                                 ConfirmTarget="Parent" />
                         </Columns>
                     </ext:Grid>

@@ -51,7 +51,7 @@
                                             <ext:FormRow ID="FormRow8" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextArea ID="taaRecord" runat="server" Label="记录" Required="true" ShowRedStar="true"
-                                                        MaxLength="1000" MaxLengthMessage="最多只能输入1000个字！" Height="150px">
+                                                        MaxLength="1000" MaxLengthMessage="最多只能输入1000个字！" Height="300px">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>

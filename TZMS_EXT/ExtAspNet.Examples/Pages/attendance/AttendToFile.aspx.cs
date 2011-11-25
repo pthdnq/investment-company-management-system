@@ -157,18 +157,19 @@ namespace TZMS.Web
                         + "' and (ApproveResult = 1 or ApproveResult = 2) order by ApproveTime desc");
 
                     e.Values[0] = _approveInfo.ObjectId.ToString();
-                    e.Values[1] = _leaveInfo.WriteTime.ToString("yyyy-MM-dd HH:mm");
-                    e.Values[2] = _leaveInfo.StartTime.ToString("yyyy-MM-dd HH:00");
-                    e.Values[3] = _leaveInfo.StopTime.ToString("yyyy-MM-dd HH:00");
-                    e.Values[4] = ((TimeSpan)(DateTime.Parse(e.Values[3].ToString()) - DateTime.Parse(e.Values[2].ToString()))).TotalHours.ToString();
-                    e.Values[5] = _leaveInfo.Type;
-                    e.Values[6] = _leaveInfo.Reason;
-                    e.Values[7] = lstLeaveApproveInfo[0].ApproverName;
-                    e.Values[8] = lstLeaveApproveInfo[0].ApproveResult == 1 ? "同意" : "不同意";
-                    e.Values[9] = _approveInfo.ApproveResult == 3 ? "待归档" : "已归档";
+                    e.Values[1] = _leaveInfo.Name;
+                    e.Values[2] = _leaveInfo.WriteTime.ToString("yyyy-MM-dd HH:mm");
+                    e.Values[3] = _leaveInfo.StartTime.ToString("yyyy-MM-dd HH:00");
+                    e.Values[4] = _leaveInfo.StopTime.ToString("yyyy-MM-dd HH:00");
+                    e.Values[5] = ((TimeSpan)(DateTime.Parse(e.Values[4].ToString()) - DateTime.Parse(e.Values[3].ToString()))).TotalHours.ToString();
+                    e.Values[6] = _leaveInfo.Type;
+                    e.Values[7] = _leaveInfo.Reason;
+                    e.Values[8] = lstLeaveApproveInfo[0].ApproverName;
+                    e.Values[9] = lstLeaveApproveInfo[0].ApproveResult == 1 ? "同意" : "不同意";
+                    e.Values[10] = _approveInfo.ApproveResult == 3 ? "待归档" : "已归档";
                     if (_approveInfo.ApproveResult == 4)
                     {
-                        e.Values[10] = "<span class=\"gray\">归档</span>";
+                        e.Values[11] = "<span class=\"gray\">归档</span>";
                     }
                 }
             }

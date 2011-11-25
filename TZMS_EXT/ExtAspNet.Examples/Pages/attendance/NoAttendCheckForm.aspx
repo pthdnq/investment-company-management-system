@@ -81,7 +81,7 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaOther" Height="100px" runat="server" Label="备注" Enabled="false">
+                                                    <ext:TextArea ID="taaOther" Height="150px" runat="server" Label="备注" Enabled="false">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
