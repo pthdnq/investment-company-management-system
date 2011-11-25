@@ -35,7 +35,7 @@
                                         Label="下一步">
                                     </ext:DropDownList>
                                     <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
-                                        RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
+                                        RequiredMessage="您的“执行人”为空，请在我的首页->设置执行人！" Label="执行人">
                                     </ext:DropDownList>
                                 </Items>
                             </ext:FormRow>
@@ -59,32 +59,30 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow6" runat="server">
                                                 <Items>
-                                                    <ext:DatePicker ID="dpkStartTime" ShowRedStar="true" Required="true" runat="server"
-                                                        Label="开始日期">
+                                                    <ext:DatePicker ID="dpkStartTime" Required="true" runat="server" Label="开始日期">
                                                     </ext:DatePicker>
-                                                    <ext:DatePicker ID="dpkEndTime" ShowRedStar="true" Required="true" runat="server"
-                                                        Label="结束日期">
+                                                    <ext:DatePicker ID="dpkEndTime" Required="true" runat="server" Label="结束日期">
                                                     </ext:DatePicker>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxMoney" runat="server" Label="总金额(元)" Required="true" ShowRedStar="true"
-                                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
+                                                    <ext:TextBox ID="tbxMoney" runat="server" Label="金额(元)" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                                        RegexMessage="金额格式不正确!">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaSument" Height="100px" runat="server" Label="事项" Required="true"
-                                                        ShowRedStar="true" MaxLength="100" MaxLengthMessage="最多只能输入100个字！">
+                                                    <ext:TextArea ID="taaSument" Height="170px" runat="server" Label="事项" Required="true"
+                                                        MaxLength="800" EmptyText="请填写报销明细（时间、具体明细、金额、报销类型）" MaxLengthMessage="最多只能输入800个字！">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaOther" Height="150px" runat="server" Label="备注" MaxLength="200"
-                                                        MaxLengthMessage="最多只能输入200个字！">
+                                                    <ext:TextArea ID="taaOther" Height="80px" runat="server" Label="备注" MaxLength="180"
+                                                        MaxLengthMessage="最多只能输入180个字！">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
