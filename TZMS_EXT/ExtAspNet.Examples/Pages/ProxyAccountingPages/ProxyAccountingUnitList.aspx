@@ -49,11 +49,11 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="AccountancyID" Hidden="true" />
-                            <ext:BoundField DataField="UnitName" HeaderText="单位名称" />
-                            <ext:BoundField DataField="AccountancyName" HeaderText="代账会计" />
+                            <ext:BoundField DataField="UnitName" Width="250px" HeaderText="单位名称" />
                             <ext:BoundField DataField="UnitAddress" HeaderText="单位地址" DataTooltipField="UnitAddress"
                                 ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="Other" HeaderText="备注" DataTooltipField="Other" />
+                            <ext:BoundField DataField="AccountancyName" Width="70px" HeaderText="代账会计" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmTarget="Parent" ConfirmText="确定删除该单位?"

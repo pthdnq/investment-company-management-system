@@ -29,13 +29,6 @@
                     <ext:Form EnableBackgroundColor="true" ShowHeader="false" ShowBorder="false" BodyPadding="5px"
                         ID="mainForm" runat="server" LabelWidth="60px">
                         <Rows>
-                            <ext:FormRow ID="FormRow1" runat="server" ColumnWidths="50% 50%">
-                                <Items>
-                                    <ext:TextBox ID="tbxUnitName" runat="server" Required="true" ShowRedStar="true" Label="单位名称"
-                                        MaxLength="50" MaxLengthMessage="最多只能输入50个字!">
-                                    </ext:TextBox>
-                                </Items>
-                            </ext:FormRow>
                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="50% 50%">
                                 <Items>
                                     <%--<ext:Label ID="lblAccountancy" runat="server" Label="代账会计">
@@ -47,6 +40,13 @@
                                     </ext:Button>
                                 </Items>
                             </ext:FormRow>
+                            <ext:FormRow ID="FormRow1" runat="server" ColumnWidths="50% 50%">
+                                <Items>
+                                    <ext:TextBox ID="tbxUnitName" runat="server" Required="true" ShowRedStar="true" Label="单位名称"
+                                        MaxLength="50" MaxLengthMessage="最多只能输入50个字!">
+                                    </ext:TextBox>
+                                </Items>
+                            </ext:FormRow>
                             <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="60%">
                                 <Items>
                                     <ext:TextBox ID="tbxTitle" runat="server" Required="true" ShowRedStar="true" Label="单位地址"
@@ -56,7 +56,7 @@
                             </ext:FormRow>
                             <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">
                                 <Items>
-                                    <ext:TextArea ID="taaOther" MaxLength="200" MaxLengthMessage="最多只能输入200个字！" Height="200px"
+                                    <ext:TextArea ID="taaOther" MaxLength="200" EmptyText="可以填写单位联系电话等基本信息" MaxLengthMessage="最多只能输入200个字！" Height="200px"
                                         runat="server" Label="备注">
                                     </ext:TextArea>
                                 </Items>
