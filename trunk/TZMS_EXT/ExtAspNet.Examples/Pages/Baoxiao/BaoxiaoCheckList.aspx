@@ -58,16 +58,16 @@
                             <ext:BoundField DataField="BaoxiaoCheckID" Hidden="true" />
                             <ext:BoundField DataField="UserName" Width="70px" HeaderText="姓名" />
                             <ext:BoundField DataField="Dept" Width="70px" HeaderText="部门" />
-                            <ext:BoundField DataField="TellPhone" Width="70px" HeaderText="联系电话" />
-                            <ext:BoundField DataField="ApplyTime" Width="140px" HeaderText="申请时间" />
-                            <ext:BoundField DataField="StartTime" HeaderText="开始日期" />
-                            <ext:BoundField DataField="EndTime" HeaderText="结束日期" />
-                            <ext:BoundField DataField="Money" Width="70px" HeaderText="总金额(元)" />
-                            <ext:BoundField DataField="Sument" HeaderText="事项" ExpandUnusedSpace="true" DataTooltipField="Sument" />
-                            <ext:BoundField DataField="Other" Width="150px" HeaderText="备注" DataTooltipField="Other" />
+                            <ext:BoundField DataField="TellPhone" Width="80px" HeaderText="联系电话" />
+                            <ext:BoundField DataField="ApplyTime"  Hidden="true"  Width="120px" HeaderText="申请时间" />
+                            <ext:BoundField DataField="StartTime"  Hidden="true"  Width="70px" HeaderText="开始日期" />
+                            <ext:BoundField DataField="EndTime" Width="70px" HeaderText="结束日期" />
+                            <ext:BoundField DataField="Money" Width="60px" HeaderText="金额(元)" />
+                            <ext:BoundField DataField="Sument"  HeaderText="事项" ExpandUnusedSpace="true" DataTooltipField="Sument" />
+                            <ext:BoundField DataField="Other" Hidden="true"  HeaderText="备注" DataTooltipField="Other" />
                             <ext:BoundField DataField="Checkstate" Width="60px" HeaderText="审批状态" />
                             <ext:BoundField DataField="Result" Width="60px" HeaderText="审批结果" />
-                            <ext:BoundField DataField="CheckDateTime" Width="140px" HeaderText="审批时间" />
+                            <ext:BoundField DataField="CheckDateTime" Width="110px" HeaderText="审批时间" />
                             <ext:LinkButtonField Width="38px" Text="审批" CommandName="Approve" />
                         </Columns>
                     </ext:Grid>

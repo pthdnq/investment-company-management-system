@@ -43,7 +43,7 @@
                             </ext:FormRow>
                             <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="50% 50%">
                                 <Items>
-                                    <ext:TextArea ID="taaCheckSugest" Height="50px" runat="server" Label="审批意见" MaxLength="100"
+                                    <ext:TextArea ID="taaCheckSugest" Height="40px" runat="server" Label="审批意见" MaxLength="100"
                                         MaxLengthMessage="最多只能输入100个字！">
                                     </ext:TextArea>
                                 </Items>
@@ -51,7 +51,7 @@
                         </Rows>
                     </ext:Form>
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                        AutoHeight="true" Height="335px">
+                        AutoHeight="true" Height="345px">
                         <Tabs>
                             <ext:Tab ID="Tab1" Title="报销申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
@@ -82,13 +82,13 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaSument" Height="100px" runat="server" Label="事项" Enabled="false">
+                                                    <ext:TextArea ID="taaSument" Height="180px" runat="server" Label="事项" Enabled="false">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaOther" Height="100px" runat="server" Label="备注" Enabled="false">
+                                                    <ext:TextArea ID="taaOther" Height="60px" runat="server" Label="备注" Enabled="false">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
