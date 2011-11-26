@@ -73,6 +73,8 @@
     <Compile Include="MessageCtrl.cs" />
     <Compile Include="NoAttendCheckCtrl.cs" />
     <Compile Include="NoAttendCtrl.cs" />
+    <Compile Include="ProbationApplyCtrl.cs" />
+    <Compile Include="ProbationApproveCtrl.cs" />
     <Compile Include="ProjectProcessCtrl.cs" />
     <Compile Include="ProjectProcessHistoryCtrl.cs" />
     <Compile Include="ProxyAccountingApplyCtrl.cs" />

@@ -563,6 +563,9 @@
     <Content Include="Pages\Message\NewMessage.aspx" />
     <Content Include="Pages\Message\SelectReceivers.aspx" />
     <Content Include="Pages\Message\SentMessage.aspx" />
+    <Content Include="Pages\ProbationPages\ProbationApply.aspx" />
+    <Content Include="Pages\ProbationPages\ProbationApprove.aspx" />
+    <Content Include="Pages\ProbationPages\ProbationApproveList.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApplyList.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApprove.aspx" />
@@ -1270,6 +1273,27 @@
     </Compile>
     <Compile Include="Pages\Message\SentMessage.aspx.designer.cs">
       <DependentUpon>SentMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\ProbationApply.aspx.cs">
+      <DependentUpon>ProbationApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\ProbationApply.aspx.designer.cs">
+      <DependentUpon>ProbationApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\ProbationApprove.aspx.cs">
+      <DependentUpon>ProbationApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\ProbationApprove.aspx.designer.cs">
+      <DependentUpon>ProbationApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\ProbationApproveList.aspx.cs">
+      <DependentUpon>ProbationApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\ProbationApproveList.aspx.designer.cs">
+      <DependentUpon>ProbationApproveList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx.cs">
       <DependentUpon>ProxyAccountApplyNew.aspx</DependentUpon>

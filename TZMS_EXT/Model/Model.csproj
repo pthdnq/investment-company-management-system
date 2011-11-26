@@ -59,6 +59,8 @@
     <Compile Include="MessageInfo.cs" />
     <Compile Include="NoAttendCheckInfo.cs" />
     <Compile Include="NoAttendInfo.cs" />
+    <Compile Include="ProbationApplyInfo.cs" />
+    <Compile Include="ProbationApproveInfo.cs" />
     <Compile Include="ProjectProcessHistoryInfo.cs" />
     <Compile Include="ProjectProcessInfo.cs" />
     <Compile Include="ProxyAccountingApplyInfo.cs" />
