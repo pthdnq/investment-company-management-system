@@ -41,7 +41,7 @@ namespace com.TZMS.Model
         private string _userDept = DBEmptyString;
         private string _sument = DBEmptyString;
         private string _other = DBEmptyString;
-        private DateTime _applyTime = DBEmptyDate;
+        private DateTime _applyTime = DBMAXDate;
         private Guid _currentApproverId;
         private short _state = DBEmptyShort;
         private bool _isDelete;
