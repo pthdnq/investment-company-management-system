@@ -201,6 +201,8 @@ namespace TZMS.Web
 
         #endregion
 
+        #region 页面事件
+
         /// <summary>
         /// 提交事件
         /// </summary>
@@ -241,6 +243,7 @@ namespace TZMS.Web
                 _draftInfo.ApproverName = _applyInfo.UserName;
                 _draftInfo.ApproverDept = _applyInfo.UserDept;
                 _draftInfo.ApproveTime = _applyInfo.ApplyTime;
+                _draftInfo.ApproveState = 0;
                 _draftInfo.ApproveOp = 0;
                 _draftInfo.ApplyID = _applyInfo.ObjectID;
 
@@ -255,7 +258,6 @@ namespace TZMS.Web
                     _approveInfo.ApproverID = _approveUser.ObjectId;
                     _approveInfo.ApproverName = _approveUser.Name;
                     _approveInfo.ApproverDept = _approveUser.Dept;
-                    _approveInfo.ApproveTime = ACommonInfo.DBEmptyDate;
                     _approveInfo.ApproveState = 0;
                     _approveInfo.ApplyID = _applyInfo.ObjectID;
 
@@ -265,6 +267,7 @@ namespace TZMS.Web
                 if (result == -1)
                 {
                     Alert.Show("转正申请单提交成功!");
+                    ApplyID = _applyInfo.ObjectID.ToString();
                     tabApproveHistory.Hidden = false;
                     BindApproveHistory();
                     DisableAllControls();
@@ -299,7 +302,6 @@ namespace TZMS.Web
                         _approveInfo.ApproverID = _approveUser.ObjectId;
                         _approveInfo.ApproverName = _approveUser.Name;
                         _approveInfo.ApproverDept = _approveUser.Dept;
-                        _approveInfo.ApproveTime = ACommonInfo.DBEmptyDate;
                         _approveInfo.ApproveState = 0;
                         _approveInfo.ApplyID = _applyInfo.ObjectID;
 
@@ -309,6 +311,7 @@ namespace TZMS.Web
                     if (result == -1)
                     {
                         Alert.Show("转正申请单提交成功!");
+                        tabApproveHistory.Hidden = false;
                         BindApproveHistory();
                         DisableAllControls();
                     }
@@ -350,7 +353,7 @@ namespace TZMS.Web
                         case "2":
                             e.Values[2] = "审批-不通过";
                             break;
-                        case "3":
+                        case "4":
                             e.Values[2] = "归档";
                             break;
                         default:
@@ -359,5 +362,7 @@ namespace TZMS.Web
                 }
             }
         }
+
+        #endregion
     }
 }
