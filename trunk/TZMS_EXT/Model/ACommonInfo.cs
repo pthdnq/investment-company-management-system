@@ -17,6 +17,11 @@ namespace com.TZMS.Model
         public static DateTime DBEmptyDate = DateTime.Parse("1900-1-1 12:00");
 
         /// <summary>
+        /// 最大时间
+        /// </summary>
+        public static DateTime DBMAXDate = DateTime.Parse("9999-1-1 12:00");
+
+        /// <summary>
         /// 数据库空tinyint
         /// </summary>
         public const char DBEmptyChar = (char)199;

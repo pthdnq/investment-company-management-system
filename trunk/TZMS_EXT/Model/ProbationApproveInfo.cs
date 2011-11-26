@@ -37,11 +37,11 @@ namespace com.TZMS.Model
         private Guid _approverId;
         private string _approverName = DBEmptyString;
         private string _approverDept = DBEmptyString;
-        private DateTime _approveTime = DBEmptyDate;
-        private short _approveState = DBEmptyShort;
-        private short _result = DBEmptyShort;
+        private DateTime _approveTime = DBMAXDate;
+        private short _approveState = -1;
+        private short _result = -1;
         private string _approveSugest = DBEmptyString;
-        private short _approveOp = DBEmptyShort;
+        private short _approveOp = -1;
         private Guid _applyId;
         #endregion
 

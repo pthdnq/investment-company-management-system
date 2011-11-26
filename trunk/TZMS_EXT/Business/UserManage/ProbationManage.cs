@@ -36,6 +36,24 @@ namespace com.TZMS.Business
         }
 
         /// <summary>
+        /// 根据用户ID获取转正申请单
+        /// </summary>
+        /// <param name="userID">用户ID</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>转正申请单实例</returns>
+        public ProbationApplyInfo GetApplyByUserID(string userID, string boName = BoName)
+        {
+            ProbationApplyCtrl _ctrl = new ProbationApplyCtrl();
+            List<ProbationApplyInfo> lstApplys = _ctrl.SelectAsList(boName, " UserID = '" + userID + "'");
+            if (lstApplys.Count == 0)
+            {
+                return null;
+            }
+
+            return lstApplys[0];
+        }
+
+        /// <summary>
         /// 根据ID获取申请单实例
         /// </summary>
         /// <param name="objectID">ID</param>

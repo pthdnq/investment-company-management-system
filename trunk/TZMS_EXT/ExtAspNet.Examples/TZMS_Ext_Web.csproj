@@ -566,6 +566,7 @@
     <Content Include="Pages\ProbationPages\ProbationApply.aspx" />
     <Content Include="Pages\ProbationPages\ProbationApprove.aspx" />
     <Content Include="Pages\ProbationPages\ProbationApproveList.aspx" />
+    <Content Include="Pages\ProbationPages\ProbationToFile.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApplyList.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApprove.aspx" />
@@ -1294,6 +1295,13 @@
     </Compile>
     <Compile Include="Pages\ProbationPages\ProbationApproveList.aspx.designer.cs">
       <DependentUpon>ProbationApproveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\ProbationToFile.aspx.cs">
+      <DependentUpon>ProbationToFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\ProbationToFile.aspx.designer.cs">
+      <DependentUpon>ProbationToFile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx.cs">
       <DependentUpon>ProxyAccountApplyNew.aspx</DependentUpon>

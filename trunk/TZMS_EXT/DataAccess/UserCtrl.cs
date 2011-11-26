@@ -72,6 +72,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Educational",DbType.String),
 				new SqlParameter("@WorkYear",DbType.Int16),
 				new SqlParameter("@GraduatedSchool",DbType.String),
+                new SqlParameter("@IsProbation",DbType.Boolean)
 				};
 
                 int i = 0;
@@ -93,6 +94,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.Educational;
                 sqlparam[i++].Value = UserInfo.WorkYear;
                 sqlparam[i++].Value = UserInfo.GraduatedSchool;
+                sqlparam[i++].Value = UserInfo.IsProbation;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -166,6 +168,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Educational",DbType.String),
 				new SqlParameter("@WorkYear",DbType.Int16),
 				new SqlParameter("@GraduatedSchool",DbType.String),
+                new SqlParameter("@IsProbation",DbType.Boolean)
                 };
 
                 int i = 0;
@@ -187,6 +190,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.Educational;
                 sqlparam[i++].Value = UserInfo.WorkYear;
                 sqlparam[i++].Value = UserInfo.GraduatedSchool;
+                sqlparam[i++].Value = UserInfo.IsProbation;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -336,7 +340,7 @@ namespace com.TZMS.DataAccess
             {
                 UserInfoInfo.Educational = UserInfoInfoDataRow["Educational"].ToString();
             }
-            if (UserInfoInfoDataRow["WorkYear"] != null && UserInfoInfoDataRow["WorkYear"].ToString()!="")
+            if (UserInfoInfoDataRow["WorkYear"] != null && UserInfoInfoDataRow["WorkYear"].ToString() != "")
             {
                 UserInfoInfo.WorkYear = short.Parse(UserInfoInfoDataRow["WorkYear"].ToString());
             }
@@ -344,7 +348,11 @@ namespace com.TZMS.DataAccess
             {
                 UserInfoInfo.GraduatedSchool = UserInfoInfoDataRow["GraduatedSchool"].ToString();
             }
-
+            if (UserInfoInfoDataRow["IsProbation"] != null)
+            {
+                if (!string.IsNullOrEmpty(UserInfoInfoDataRow["IsProbation"].ToString()))
+                    UserInfoInfo.IsProbation = bool.Parse(UserInfoInfoDataRow["IsProbation"].ToString());
+            }
             return UserInfoInfo;
         }
         #endregion
