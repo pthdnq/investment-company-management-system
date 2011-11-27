@@ -131,6 +131,16 @@ namespace TZMS.Web
                 if (strApproveResult == "同意")
                 {
                     _applyInfo.State = 1;
+
+                    // 设置转正属性.
+                    UserManage _userManage = new UserManage();
+                    UserInfo _applyUser = _userManage.GetUserByObjectID(_applyInfo.UserID.ToString());
+                    if (_applyUser != null)
+                    {
+                        _applyUser.IsProbation = true;
+                        _applyUser.ProbationTime = DateTime.Now;
+                        _userManage.UpdateUser(_applyUser);
+                    }
                 }
                 else
                 {
