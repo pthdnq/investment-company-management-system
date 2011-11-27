@@ -567,6 +567,11 @@
     <Content Include="Pages\ProbationPages\ProbationApprove.aspx" />
     <Content Include="Pages\ProbationPages\ProbationApproveList.aspx" />
     <Content Include="Pages\ProbationPages\ProbationToFile.aspx" />
+    <Content Include="Pages\ProbationPages\UserLeaveApply.aspx" />
+    <Content Include="Pages\ProbationPages\UserLeaveApprove.aspx" />
+    <Content Include="Pages\ProbationPages\UserLeaveApproveList.aspx" />
+    <Content Include="Pages\ProbationPages\UserLeaveTransfer.aspx" />
+    <Content Include="Pages\ProbationPages\UserLeaveTransferList.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApplyList.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApprove.aspx" />
@@ -1302,6 +1307,41 @@
     </Compile>
     <Compile Include="Pages\ProbationPages\ProbationToFile.aspx.designer.cs">
       <DependentUpon>ProbationToFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveApply.aspx.cs">
+      <DependentUpon>UserLeaveApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveApply.aspx.designer.cs">
+      <DependentUpon>UserLeaveApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveApprove.aspx.cs">
+      <DependentUpon>UserLeaveApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveApprove.aspx.designer.cs">
+      <DependentUpon>UserLeaveApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveApproveList.aspx.cs">
+      <DependentUpon>UserLeaveApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveApproveList.aspx.designer.cs">
+      <DependentUpon>UserLeaveApproveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveTransfer.aspx.cs">
+      <DependentUpon>UserLeaveTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveTransfer.aspx.designer.cs">
+      <DependentUpon>UserLeaveTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveTransferList.aspx.cs">
+      <DependentUpon>UserLeaveTransferList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveTransferList.aspx.designer.cs">
+      <DependentUpon>UserLeaveTransferList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx.cs">
       <DependentUpon>ProxyAccountApplyNew.aspx</DependentUpon>
