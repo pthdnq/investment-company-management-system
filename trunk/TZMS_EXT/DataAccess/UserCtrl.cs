@@ -72,7 +72,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Educational",DbType.String),
 				new SqlParameter("@WorkYear",DbType.Int16),
 				new SqlParameter("@GraduatedSchool",DbType.String),
-                new SqlParameter("@IsProbation",DbType.Boolean)
+                new SqlParameter("@IsProbation",DbType.Boolean),
+                new SqlParameter("@ProbationTime",DbType.DateTime)
 				};
 
                 int i = 0;
@@ -95,6 +96,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.WorkYear;
                 sqlparam[i++].Value = UserInfo.GraduatedSchool;
                 sqlparam[i++].Value = UserInfo.IsProbation;
+                sqlparam[i++].Value = UserInfo.ProbationTime;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -168,7 +170,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Educational",DbType.String),
 				new SqlParameter("@WorkYear",DbType.Int16),
 				new SqlParameter("@GraduatedSchool",DbType.String),
-                new SqlParameter("@IsProbation",DbType.Boolean)
+                new SqlParameter("@IsProbation",DbType.Boolean),
+                new SqlParameter("@ProbationTime",DbType.DateTime)
                 };
 
                 int i = 0;
@@ -191,6 +194,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.WorkYear;
                 sqlparam[i++].Value = UserInfo.GraduatedSchool;
                 sqlparam[i++].Value = UserInfo.IsProbation;
+                sqlparam[i++].Value = UserInfo.ProbationTime;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -352,6 +356,11 @@ namespace com.TZMS.DataAccess
             {
                 if (!string.IsNullOrEmpty(UserInfoInfoDataRow["IsProbation"].ToString()))
                     UserInfoInfo.IsProbation = bool.Parse(UserInfoInfoDataRow["IsProbation"].ToString());
+            }
+            if (UserInfoInfoDataRow["ProbationTime"] != null)
+            {
+                if (!string.IsNullOrEmpty(UserInfoInfoDataRow["ProbationTime"].ToString()))
+                UserInfoInfo.ProbationTime = DateTime.Parse(UserInfoInfoDataRow["ProbationTime"].ToString());
             }
             return UserInfoInfo;
         }

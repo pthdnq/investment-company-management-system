@@ -55,6 +55,7 @@ namespace com.TZMS.Model
         private short _workYear = 0;
         private string _graduatedSchool = string.Empty;
         private bool _isProbation;
+        private DateTime _probationTime;
         #endregion
 
         #region Property
@@ -223,6 +224,12 @@ namespace com.TZMS.Model
         {
             get { return _isProbation; }
             set { _isProbation = value; }
+        }
+
+        public DateTime ProbationTime
+        {
+            get { return _probationTime; }
+            set { _probationTime = value; }
         }
         #endregion
     }

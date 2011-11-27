@@ -71,6 +71,9 @@
     <Compile Include="SentMessageInfo.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserLeaveApplyInfo.cs" />
+    <Compile Include="UserLeaveApproveInfo.cs" />
+    <Compile Include="UserLeaveTransferInfo.cs" />
     <Compile Include="UserRoles.cs" />
     <Compile Include="WuzhiCheckInfo.cs" />
     <Compile Include="WuZhiInfo.cs" />
