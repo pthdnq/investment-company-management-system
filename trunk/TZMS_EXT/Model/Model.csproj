@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ACommonInfo.cs" />
+    <Compile Include="AddSalaryInfo.cs" />
     <Compile Include="AttendInfo.cs" />
     <Compile Include="BankLoanHistoryInfo.cs" />
     <Compile Include="BankLoanInfo.cs" />
@@ -68,6 +69,8 @@
     <Compile Include="ProxyAccountingUnitInfo.cs" />
     <Compile Include="ReceivablesAuditHistoryInfo.cs" />
     <Compile Include="ReceivablesInfo.cs" />
+    <Compile Include="SalaryCheckInfo.cs" />
+    <Compile Include="SalaryMsgInfo.cs" />
     <Compile Include="SentMessageInfo.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,9 +78,12 @@
     <Compile Include="UserLeaveApproveInfo.cs" />
     <Compile Include="UserLeaveTransferInfo.cs" />
     <Compile Include="UserRoles.cs" />
+    <Compile Include="WorkerSalaryMsgInfo.cs" />
     <Compile Include="WuzhiCheckInfo.cs" />
     <Compile Include="WuZhiInfo.cs" />
     <Compile Include="WuZhiRecordInfo.cs" />
+    <Compile Include="YeWuGudingDoingInfo.cs" />
+    <Compile Include="YeWuInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
