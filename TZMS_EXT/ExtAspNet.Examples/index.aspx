@@ -424,10 +424,10 @@
                     break;
                 // 业务管理         
                 case "ptyw":
-                    LoadTab("Pages/Message/CommonYewu.aspx", "普通业务", icon);
+                    LoadTab("Pages/Yewu/CommonYewu.aspx", "普通业务", icon);
                     break;
                 case "dzyw":
-                    LoadTab("Pages/Message/DingzhiYewu.aspx", "定制业务", icon);
+                    LoadTab("Pages/Yewu/DingzhiYewu.aspx", "定制业务", icon);
                     break;
 
 
