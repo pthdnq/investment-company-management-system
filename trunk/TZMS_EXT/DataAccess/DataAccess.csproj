@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddSalaryCtrl.cs" />
     <Compile Include="AttendInfoCtrl.cs" />
     <Compile Include="BankLoanCtrl.cs" />
     <Compile Include="BankLoanHistoryCtrl.cs" />
@@ -82,6 +83,8 @@
     <Compile Include="ProxyAccountingUnitCtrl.cs" />
     <Compile Include="ReceivablesAuditHistoryCtrl.cs" />
     <Compile Include="ReceivablesCtrl.cs" />
+    <Compile Include="SalaryCheckCtrl.cs" />
+    <Compile Include="SalaryMsgCtrl.cs" />
     <Compile Include="SentMessageCtrl.cs" />
     <Compile Include="UserCtrl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,9 +92,12 @@
     <Compile Include="UserLeaveApproveCtrl.cs" />
     <Compile Include="UserLeaveTransferCtrl.cs" />
     <Compile Include="UserRolesCtrl.cs" />
+    <Compile Include="WorkerSalaryMsgCtrl.cs" />
     <Compile Include="WuzhiCheckCtrl.cs" />
     <Compile Include="WuZhiCtrl.cs" />
     <Compile Include="WuZhiRecordCtrl.cs" />
+    <Compile Include="YeWuCtrl.cs" />
+    <Compile Include="YeWuGudingDoingCtrl.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
