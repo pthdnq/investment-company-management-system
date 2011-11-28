@@ -57,6 +57,7 @@ namespace com.TZMS.Model
         private bool _isProbation;
         private DateTime _probationTime;
         private DateTime _leaveTime;
+        private decimal _baseSalary;
         #endregion
 
         #region Property
@@ -237,6 +238,12 @@ namespace com.TZMS.Model
         {
             get { return _leaveTime; }
             set { _leaveTime = value; }
+        }
+
+        public decimal BaseSalary
+        {
+            get { return _baseSalary; }
+            set { _baseSalary = value; }
         }
         #endregion
     }
