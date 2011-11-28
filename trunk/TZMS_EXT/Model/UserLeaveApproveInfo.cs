@@ -41,6 +41,7 @@ namespace com.TZMS.Model
         private short _approveResult = -1;
         private string _approverSugest = DBEmptyString;
         private Guid _applyId;
+        private DateTime _approveTime = DBMAXDate;
         #endregion
 
         #region Property
@@ -114,6 +115,15 @@ namespace com.TZMS.Model
         {
             get { return _applyId; }
             set { _applyId = value; }
+        }
+
+        /// <summary>
+        /// ApproveTime 
+        /// </summary> 
+        public DateTime ApproveTime
+        {
+            get { return _approveTime; }
+            set { _approveTime = value; }
         }
 
         #endregion
