@@ -570,8 +570,10 @@
     <Content Include="Pages\ProbationPages\UserLeaveApply.aspx" />
     <Content Include="Pages\ProbationPages\UserLeaveApprove.aspx" />
     <Content Include="Pages\ProbationPages\UserLeaveApproveList.aspx" />
+    <Content Include="Pages\ProbationPages\UserLeaveApproveToFile.aspx" />
     <Content Include="Pages\ProbationPages\UserLeaveTransfer.aspx" />
     <Content Include="Pages\ProbationPages\UserLeaveTransferList.aspx" />
+    <Content Include="Pages\ProbationPages\UserLeaveTransferToFile.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApplyList.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApprove.aspx" />
@@ -1329,6 +1331,13 @@
     <Compile Include="Pages\ProbationPages\UserLeaveApproveList.aspx.designer.cs">
       <DependentUpon>UserLeaveApproveList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveApproveToFile.aspx.cs">
+      <DependentUpon>UserLeaveApproveToFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveApproveToFile.aspx.designer.cs">
+      <DependentUpon>UserLeaveApproveToFile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ProbationPages\UserLeaveTransfer.aspx.cs">
       <DependentUpon>UserLeaveTransfer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1342,6 +1351,13 @@
     </Compile>
     <Compile Include="Pages\ProbationPages\UserLeaveTransferList.aspx.designer.cs">
       <DependentUpon>UserLeaveTransferList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveTransferToFile.aspx.cs">
+      <DependentUpon>UserLeaveTransferToFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveTransferToFile.aspx.designer.cs">
+      <DependentUpon>UserLeaveTransferToFile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx.cs">
       <DependentUpon>ProxyAccountApplyNew.aspx</DependentUpon>

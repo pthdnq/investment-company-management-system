@@ -148,6 +148,15 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="zzgd" OnClientClick=" tabs('zzgd','UserKey');"
                                                 Text="转正归档">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="lzsq" OnClientClick=" tabs('lzsq','UserKey');"
+                                                Text="离职申请">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="lzsp" OnClientClick=" tabs('lzsp','UserKey');"
+                                                Text="离职审批">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="lzjj" OnClientClick=" tabs('lzjj','UserKey');"
+                                                Text="离职交接">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -400,6 +409,15 @@
                     break;
                 case "zzgd":
                     LoadTab("Pages/ProbationPages/ProbationToFile.aspx", "转正归档", icon);
+                    break;
+                case "lzsq":
+                    LoadTab("Pages/ProbationPages/UserLeaveApply.aspx", "离职申请", icon);
+                    break;
+                case "lzsp":
+                    LoadTab("Pages/ProbationPages/UserLeaveApproveList.aspx", "离职审批", icon);
+                    break; 
+                case "lzjj":
+                    LoadTab("Pages/ProbationPages/UserLeaveTransferList.aspx", "离职交接", icon);
                     break;
 
                 // 物资管理   
