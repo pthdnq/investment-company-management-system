@@ -24,8 +24,8 @@
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
                             <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                                <ext:ListItem Text="在职" Value="1" Selected="true" />
-                                <ext:ListItem Text="离职" Value="0" />
+                          <ext:ListItem Text="待审核" Value="1" Selected="true" />
+                                <ext:ListItem Text="审核中" Value="0" />
                             </ext:DropDownList>
                             <ext:Label ID="Label1" runat="server" />
                         </Items>

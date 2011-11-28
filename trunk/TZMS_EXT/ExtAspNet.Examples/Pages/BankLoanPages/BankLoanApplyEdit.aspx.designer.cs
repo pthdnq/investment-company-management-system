@@ -85,93 +85,84 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
-        /// tbxName control.
+        /// tbCustomerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxName;
+        protected global::ExtAspNet.TextBox tbCustomerName;
         
         /// <summary>
-        /// ddlstDept control.
+        /// tbLoanCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstDept;
+        protected global::ExtAspNet.TextBox tbLoanCompany;
         
         /// <summary>
-        /// tbxJobNo control.
+        /// tbLoanAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxJobNo;
+        protected global::ExtAspNet.TextBox tbLoanAmount;
         
         /// <summary>
-        /// tbxAccountNo control.
+        /// tbLoanFee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxAccountNo;
+        protected global::ExtAspNet.TextBox tbLoanFee;
         
         /// <summary>
-        /// tbxPosition control.
+        /// tbCollateralCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxPosition;
+        protected global::ExtAspNet.TextBox tbCollateralCompany;
         
         /// <summary>
-        /// dpkEntryDate control.
+        /// dpSignDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkEntryDate;
+        protected global::ExtAspNet.DatePicker dpSignDate;
         
         /// <summary>
-        /// tbxWorkYear control.
+        /// tbDownPayment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxWorkYear;
+        protected global::ExtAspNet.TextBox tbDownPayment;
         
         /// <summary>
-        /// tbxGraduatedSchool control.
+        /// taContact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxGraduatedSchool;
+        protected global::ExtAspNet.TextArea taContact;
         
         /// <summary>
-        /// tbxPhoneNumber control.
+        /// tbRemark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxPhoneNumber;
-        
-        /// <summary>
-        /// tbxAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxAddress;
+        protected global::ExtAspNet.TextArea tbRemark;
     }
 }
