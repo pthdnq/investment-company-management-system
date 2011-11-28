@@ -176,6 +176,142 @@ namespace TZMS.Web
             this.gridApproveHistory.DataBind();
         }
 
+        /// <summary>
+        /// 根据角色类型来获取用户
+        /// </summary>
+        /// <param name="roleType">角色类型</param>
+        /// <returns>用户集合</returns>
+        private List<UserRoles> GetUsersByRole(RoleType roleType, string strCondition)
+        {
+            List<UserRoles> lstUserRoles = new List<UserRoles>();
+            List<UserRoles> lstRoles = new RolesManage().GerRolesByCondition(strCondition);
+            if (lstRoles.Count > 0)
+            {
+                string[] arrayRoles = { };
+                bool isContain = false;
+                foreach (UserRoles role in lstRoles)
+                {
+                    isContain = false;
+                    arrayRoles = role.Roles.Split(',');
+                    foreach (string strRole in arrayRoles)
+                    {
+                        if ((int)roleType == Convert.ToInt32(strRole))
+                        {
+                            isContain = true;
+                            break;
+                        }
+                    }
+
+                    if (isContain)
+                    {
+                        lstUserRoles.Add(role);
+                    }
+                }
+            }
+
+            return lstUserRoles;
+        }
+
+        /// <summary>
+        /// 绑定交接人
+        /// </summary>
+        private void BindTransfer()
+        {
+            ddlstTransferCWDept.Hidden = false;
+            ddlstTransferCWDept.Enabled = true;
+            ddlstTransferSSDept.Hidden = false;
+            ddlstTransferSSDept.Enabled = true;
+            ddlstTransferXZDept.Hidden = false;
+            ddlstTransferXZDept.Enabled = true;
+            UserManage _userManage = new UserManage();
+            UserLeaveApplyInfo _applyInfo = new UserLeaveManage().GetApplyByObjectID(ApplyID);
+            UserInfo _applyUser = _userManage.GetUserByObjectID(_applyInfo.UserID.ToString());
+            if (_applyInfo == null || _applyUser == null)
+                return;
+
+            #region 绑定所属部门
+
+            {
+                List<UserRoles> lstUserRoles = null;
+                switch (_applyUser.Dept)
+                {
+                    case "行政部":
+                        lstUserRoles = GetUsersByRole(RoleType.XZZG, "1 = 1");
+                        break;
+                    case "财务部":
+                        lstUserRoles = GetUsersByRole(RoleType.CWZG, "1 = 1");
+                        break;
+                    case "投资部":
+                        lstUserRoles = GetUsersByRole(RoleType.TZZG, "1 = 1");
+                        break;
+                    case "业务部":
+                        lstUserRoles = GetUsersByRole(RoleType.YWZG, "1 = 1");
+                        break;
+                    default:
+                        break;
+                }
+                UserInfo _tempUser = null;
+                foreach (UserRoles role in lstUserRoles)
+                {
+                    _tempUser = _userManage.GetUserByObjectID(role.UserObjectId.ToString());
+                    if (_tempUser != null)
+                    {
+                        if (_tempUser.State != 2 && _tempUser.Dept == _applyUser.Dept)
+                        {
+                            ddlstTransferSSDept.Items.Add(new ExtAspNet.ListItem(_tempUser.Name, _tempUser.ObjectId.ToString()));
+                            _tempUser = null;
+                        }
+                    }
+                }
+            }
+
+            #endregion
+
+            #region 绑定财务部
+
+            {
+                List<UserRoles> lstUserRoles = null;
+                lstUserRoles = GetUsersByRole(RoleType.CWZG, "1 = 1");
+
+                UserInfo _tempUser = null;
+                foreach (UserRoles role in lstUserRoles)
+                {
+                    _tempUser = _userManage.GetUserByObjectID(role.UserObjectId.ToString());
+                    if (_tempUser != null)
+                    {
+                        if (_tempUser.State != 2)
+                        {
+                            ddlstTransferCWDept.Items.Add(new ExtAspNet.ListItem(_tempUser.Name, _tempUser.ObjectId.ToString()));
+                        }
+                    }
+                }
+            }
+
+            #endregion
+
+            #region 绑定行政部
+
+            {
+                List<UserRoles> lstUserRoles = null;
+                lstUserRoles = GetUsersByRole(RoleType.XZZG, "1 = 1");
+
+                UserInfo _tempUser = null;
+                foreach (UserRoles role in lstUserRoles)
+                {
+                    _tempUser = _userManage.GetUserByObjectID(role.UserObjectId.ToString());
+                    if (_tempUser != null)
+                    {
+                        if (_tempUser.State != 2)
+                        {
+                            ddlstTransferXZDept.Items.Add(new ExtAspNet.ListItem(_tempUser.Name, _tempUser.ObjectId.ToString()));
+                        }
+                    }
+                }
+            }
+
+            #endregion
+        }
+
         #endregion
 
         #region 页面事件
@@ -198,6 +334,7 @@ namespace TZMS.Web
         protected void btnPass_Click(object sender, EventArgs e)
         {
             UserLeaveManage _manage = new UserLeaveManage();
+            UserManage _userManage = new UserManage();
 
             // 更新申请表.
             UserLeaveApplyInfo _applyInfo = _manage.GetApplyByObjectID(ApplyID);
@@ -216,7 +353,7 @@ namespace TZMS.Web
             if (ddlstNext.SelectedText == "审批")
             {
                 UserLeaveApproveInfo _nextApproveInfo = new UserLeaveApproveInfo();
-                UserInfo _approveUser = new UserManage().GetUserByObjectID(ddlstApproveUser.SelectedValue);
+                UserInfo _approveUser = _userManage.GetUserByObjectID(ddlstApproveUser.SelectedValue);
                 if (_approveUser != null)
                 {
                     _nextApproveInfo.ObjectID = Guid.NewGuid();
@@ -232,7 +369,7 @@ namespace TZMS.Web
             else if (ddlstNext.SelectedText == "归档")
             {
                 UserLeaveApproveInfo _archiverApproveInfo = new UserLeaveApproveInfo();
-                UserInfo _approveUser = new UserManage().GetUserByObjectID(ddlstApproveUser.SelectedValue);
+                UserInfo _approveUser = _userManage.GetUserByObjectID(ddlstApproveUser.SelectedValue);
                 if (_approveUser != null)
                 {
                     _archiverApproveInfo.ObjectID = Guid.NewGuid();
@@ -245,6 +382,56 @@ namespace TZMS.Web
 
                     _manage.AddNewApprove(_archiverApproveInfo);
                 }
+
+                // 插入交接信息.
+                // 所属部门.
+                UserLeaveTransferInfo _transferInfo = new UserLeaveTransferInfo();
+                UserInfo _ssUser = _userManage.GetUserByObjectID(ddlstTransferSSDept.SelectedValue);
+                if (_ssUser != null)
+                {
+                    _transferInfo.ObjectID = Guid.NewGuid();
+                    _transferInfo.TransferID = _ssUser.ObjectId;
+                    _transferInfo.TransferName = _ssUser.Name;
+                    _transferInfo.TransferDept = _ssUser.Dept;
+                    _transferInfo.IsTransfer = false;
+                    _transferInfo.TransferType = -1;
+                    _transferInfo.ApplyID = _applyInfo.ObjectID;
+
+                    _manage.AddNewTransfer(_transferInfo);
+                }
+
+                // 财务交接人.
+                _transferInfo = new UserLeaveTransferInfo();
+                UserInfo _cwUser = _userManage.GetUserByObjectID(ddlstTransferCWDept.SelectedValue);
+                if (_cwUser != null)
+                {
+                    _transferInfo.ObjectID = Guid.NewGuid();
+                    _transferInfo.TransferID = _cwUser.ObjectId;
+                    _transferInfo.TransferName = _cwUser.Name;
+                    _transferInfo.TransferDept = _cwUser.Dept;
+                    _transferInfo.IsTransfer = false;
+                    _transferInfo.TransferType = -1;
+                    _transferInfo.ApplyID = _applyInfo.ObjectID;
+
+                    _manage.AddNewTransfer(_transferInfo);
+                }
+
+                // 行政交接人.
+                _transferInfo = new UserLeaveTransferInfo();
+                UserInfo _xzUser = _userManage.GetUserByObjectID(ddlstTransferXZDept.SelectedValue);
+                if (_xzUser != null)
+                {
+                    _transferInfo.ObjectID = Guid.NewGuid();
+                    _transferInfo.TransferID = _xzUser.ObjectId;
+                    _transferInfo.TransferName = _xzUser.Name;
+                    _transferInfo.TransferDept = _xzUser.Dept;
+                    _transferInfo.IsTransfer = false;
+                    _transferInfo.TransferType = -1;
+                    _transferInfo.ApplyID = _applyInfo.ObjectID;
+
+                    _manage.AddNewTransfer(_transferInfo);
+                }
+
             }
 
             if (result == -1)
@@ -317,10 +504,17 @@ namespace TZMS.Web
             if (ddlstNext.SelectedIndex == 0)
             {
                 BindApproveUser();
+                ddlstTransferCWDept.Hidden = true;
+                ddlstTransferCWDept.Enabled = false;
+                ddlstTransferSSDept.Hidden = true;
+                ddlstTransferSSDept.Enabled = false;
+                ddlstTransferXZDept.Hidden = true;
+                ddlstTransferXZDept.Enabled = false;
             }
             else if (ddlstNext.SelectedIndex == 1)
             {
                 BindArchiver();
+                BindTransfer();
             }
         }
 

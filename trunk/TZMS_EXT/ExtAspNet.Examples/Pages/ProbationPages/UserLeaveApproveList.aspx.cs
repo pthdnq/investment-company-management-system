@@ -16,13 +16,16 @@ namespace TZMS.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
-            dpkEndTime.SelectedDate = DateTime.Now;
+            if (!IsPostBack)
+            {
+                dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
+                dpkEndTime.SelectedDate = DateTime.Now;
 
-            wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
+                wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
 
-            BindDept();
-            BindGrid();
+                BindDept();
+                BindGrid();
+            }
         }
 
         #region 私有方法
@@ -151,7 +154,7 @@ namespace TZMS.Web
                 wndApprove.Hidden = false;
             }
         }
-        
+
         /// <summary>
         /// 数据行绑定事件
         /// </summary>
