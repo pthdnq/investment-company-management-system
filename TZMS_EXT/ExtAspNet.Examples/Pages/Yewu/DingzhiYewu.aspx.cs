@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace TZMS.Web.Pages
+namespace TZMS.Web
 {
     public partial class DingzhiYewu :  BasePage
     {

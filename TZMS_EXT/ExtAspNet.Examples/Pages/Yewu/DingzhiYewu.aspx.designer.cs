@@ -8,10 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace TZMS.Web {
-
-
-    public partial class DingzhiYewu
-    {
+    
+    
+    public partial class DingzhiYewu {
         
         /// <summary>
         /// form1 控件。
