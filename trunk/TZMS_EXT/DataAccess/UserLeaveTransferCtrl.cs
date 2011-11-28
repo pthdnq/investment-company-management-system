@@ -63,6 +63,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@TransferType",DbType.Int16),
 				new SqlParameter("@Other",DbType.String),
 				new SqlParameter("@ApplyID",DbType.Guid),
+                new SqlParameter("@TransferState",DbType.Int16)
 				};
 
                 int i = 0;
@@ -75,6 +76,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserLeaveTransferInfo.TransferType;
                 sqlparam[i++].Value = UserLeaveTransferInfo.Other;
                 sqlparam[i++].Value = UserLeaveTransferInfo.ApplyID;
+                sqlparam[i++].Value = UserLeaveTransferInfo.TransferState;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -138,6 +140,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@TransferType",DbType.Int16),
 				new SqlParameter("@Other",DbType.String),
 				new SqlParameter("@ApplyID",DbType.Guid),
+                new SqlParameter("@TransferState",DbType.Int16)
                 };
 
                 int i = 0;
@@ -150,6 +153,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserLeaveTransferInfo.TransferType;
                 sqlparam[i++].Value = UserLeaveTransferInfo.Other;
                 sqlparam[i++].Value = UserLeaveTransferInfo.ApplyID;
+                sqlparam[i++].Value = UserLeaveTransferInfo.TransferState;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -270,7 +274,10 @@ namespace com.TZMS.DataAccess
             {
                 Info.ApplyID =  new Guid( DataUtil.GetStringValueOfRow(InfoDataRow, "ApplyID"));
             }
-
+            if (InfoDataRow["TransferState"] != null)
+            {
+                Info.TransferState = short.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "TransferState"));
+            }
             return Info;
         }
         #endregion

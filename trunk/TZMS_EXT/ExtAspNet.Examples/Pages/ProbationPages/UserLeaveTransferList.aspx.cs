@@ -63,7 +63,7 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" TransferID = '" + CurrentUser.ObjectId.ToString() + "' and TransferType <> -1");
+            strCondition.Append(" TransferID = '" + CurrentUser.ObjectId.ToString() + "' and Expr1 <> -1 and TransferType <> 4");
             strCondition.Append(" and IsDelete = 0 and State = 1");
 
             // 查询文本
@@ -148,9 +148,9 @@ namespace TZMS.Web
             string strApproveID = ((GridRow)gridApprove.Rows[e.RowIndex]).Values[0];
             string strApplyID = ((GridRow)gridApprove.Rows[e.RowIndex]).Values[1];
 
-            if (e.CommandName == "Approve")
+            if (e.CommandName == "Transfer")
             {
-                wndTransfer.IFrameUrl = "UserLeaveTransfer.aspx?ApproveID=" + strApproveID + "&ApplyID=" + strApplyID;
+                wndTransfer.IFrameUrl = "UserLeaveTransfer.aspx?TransferID=" + strApproveID + "&ApplyID=" + strApplyID;
                 wndTransfer.Hidden = false;
             }
         }
@@ -164,21 +164,36 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd");
+                switch (e.Values[2].ToString())
+                {
+                    case "0":
+                        e.Values[2] = "所属部门交接";
+                        break;
+                    case "1":
+                        e.Values[2] = "财务部交接";
+                        break;
+                    case "2":
+                        e.Values[2] = "行政部交接";
+                        break;
+                    default:
+                        break;
+                }
+
                 e.Values[6] = DateTime.Parse(e.Values[6].ToString()).ToString("yyyy-MM-dd");
                 e.Values[7] = DateTime.Parse(e.Values[7].ToString()).ToString("yyyy-MM-dd");
-                e.Values[9] = DateTime.Parse(e.Values[9].ToString()).ToString("yyyy-MM-dd HH:mm");
-                e.Values[11] = DateTime.Parse(e.Values[11].ToString()).ToString("yyyy-MM-dd HH:mm");
-                switch (e.Values[10].ToString())
+                e.Values[8] = DateTime.Parse(e.Values[8].ToString()).ToString("yyyy-MM-dd");
+                e.Values[10] = DateTime.Parse(e.Values[10].ToString()).ToString("yyyy-MM-dd HH:mm");
+                e.Values[12] = DateTime.Parse(e.Values[12].ToString()).ToString("yyyy-MM-dd HH:mm");
+                switch (e.Values[11].ToString())
                 {
                     case "False":
-                        e.Values[10] = "待交接";
-                        e.Values[11] = "";
+                        e.Values[11] = "待交接";
+                        e.Values[12] = "";
                         break;
                     case "True":
-                        e.Values[10] = "已交接";
-                        e.Values[11] = DateTime.Parse(e.Values[11].ToString()).ToString("yyyy-MM-dd HH:mm");
-                        e.Values[12] = "<span class=\"gray\">交接</span>";
+                        e.Values[11] = "已交接";
+                        e.Values[12] = DateTime.Parse(e.Values[12].ToString()).ToString("yyyy-MM-dd HH:mm");
+                        e.Values[13] = "<span class=\"gray\">交接</span>";
                         break;
                     default:
                         break;

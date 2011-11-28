@@ -394,7 +394,8 @@ namespace TZMS.Web
                     _transferInfo.TransferName = _ssUser.Name;
                     _transferInfo.TransferDept = _ssUser.Dept;
                     _transferInfo.IsTransfer = false;
-                    _transferInfo.TransferType = -1;
+                    _transferInfo.TransferType = 0;
+                    _transferInfo.TransferState = -1;
                     _transferInfo.ApplyID = _applyInfo.ObjectID;
 
                     _manage.AddNewTransfer(_transferInfo);
@@ -410,7 +411,8 @@ namespace TZMS.Web
                     _transferInfo.TransferName = _cwUser.Name;
                     _transferInfo.TransferDept = _cwUser.Dept;
                     _transferInfo.IsTransfer = false;
-                    _transferInfo.TransferType = -1;
+                    _transferInfo.TransferType = 1;
+                    _transferInfo.TransferState = -1;
                     _transferInfo.ApplyID = _applyInfo.ObjectID;
 
                     _manage.AddNewTransfer(_transferInfo);
@@ -426,7 +428,8 @@ namespace TZMS.Web
                     _transferInfo.TransferName = _xzUser.Name;
                     _transferInfo.TransferDept = _xzUser.Dept;
                     _transferInfo.IsTransfer = false;
-                    _transferInfo.TransferType = -1;
+                    _transferInfo.TransferType = 2;
+                    _transferInfo.TransferState = -1;
                     _transferInfo.ApplyID = _applyInfo.ObjectID;
 
                     _manage.AddNewTransfer(_transferInfo);

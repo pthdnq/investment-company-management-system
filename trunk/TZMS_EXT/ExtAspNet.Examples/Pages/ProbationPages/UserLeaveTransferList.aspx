@@ -56,6 +56,7 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="ApplyID" Hidden="true" />
+                            <ext:BoundField DataField="TransferType" HeaderText="交接类型" />
                             <ext:BoundField DataField="UserName" HeaderText="申请人" />
                             <ext:BoundField DataField="UserDept" HeaderText="部门" />
                             <ext:BoundField DataField="UserPositon" HeaderText="职务" />
@@ -66,7 +67,7 @@
                             <ext:BoundField DataField="ApplyTime" HeaderText="申请时间" />
                             <ext:BoundField DataField="IsTransfer" HeaderText="交接状态" />
                             <ext:BoundField DataField="TransferTime" HeaderText="交接时间" />
-                            <ext:LinkButtonField Width="38px" Text="交接" CommandName="Approve" />
+                            <ext:LinkButtonField Width="38px" Text="交接" CommandName="Transfer" />
                         </Columns>
                     </ext:Grid>
                 </Items>

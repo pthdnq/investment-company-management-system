@@ -136,7 +136,7 @@ namespace TZMS.Web
                     List<UserLeaveTransferInfo> lstTransfer = _manage.GetTransferByCondition(" ApplyID = '" + _applyInfo.ObjectID.ToString() + "'");
                     foreach (var item in lstTransfer)
                     {
-                        item.TransferType = 0;
+                        item.TransferState = 0;
                         _manage.UpdateTransfer(item);
                     }
                 }
