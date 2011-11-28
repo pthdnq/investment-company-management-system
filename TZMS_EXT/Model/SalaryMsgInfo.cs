@@ -18,7 +18,7 @@ namespace com.TZMS.Model
     /// SalaryMsg实体类
     /// </summary>
     [Serializable]
-    public class SalaryMsgInfo
+    public class SalaryMsgInfo : ACommonInfo
     {
 
         #region Constructor
@@ -34,12 +34,12 @@ namespace com.TZMS.Model
 
         #region Field
         private Guid _objectId;
-        private int _year;
-        private short _month;
-        private DateTime _createTime;
+        private int _year = DBEmptyInt;
+        private short _month = DBEmptyShort;
+        private DateTime _createTime = DBEmptyDate;
         private Guid _createrId;
-        private string _name;
-        private short _state;
+        private string _name = DBEmptyString;
+        private short _state =DBEmptyShort;
         private Guid _currentCheckerId;
         #endregion
 

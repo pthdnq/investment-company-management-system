@@ -18,7 +18,7 @@ namespace com.TZMS.Model
     /// YeWu实体类
     /// </summary>
     [Serializable]
-    public class YeWuInfo
+    public class YeWuInfo : ACommonInfo
     {
 
         #region Constructor
@@ -35,17 +35,17 @@ namespace com.TZMS.Model
         #region Field
         private Guid _objectId;
         private Guid _userId;
-        private string _userName;
-        private string _userJobNo;
-        private string _userAccountNo;
-        private string _dept;
-        private string _title;
-        private string _sument;
-        private string _other;
+        private string _userName = DBEmptyString;
+        private string _userJobNo = DBEmptyString;
+        private string _userAccountNo = DBEmptyString;
+        private string _dept = DBEmptyString;
+        private string _title = DBEmptyString;
+        private string _sument = DBEmptyString;
+        private string _other = DBEmptyString;
         private Guid _currentCheckerId;
-        private short _state;
+        private short _state = DBEmptyShort;
         private bool _isdelete;
-        private short _type;
+        private short _type = DBEmptyShort;
         #endregion
 
         #region Property

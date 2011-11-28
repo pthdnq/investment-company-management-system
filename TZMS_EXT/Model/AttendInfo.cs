@@ -18,7 +18,7 @@ namespace com.TZMS.Model
     /// AttendInfo实体类
     /// </summary>
     [Serializable]
-    public class AttendInfo
+    public class AttendInfo : ACommonInfo
     {
 
         #region Constructor
