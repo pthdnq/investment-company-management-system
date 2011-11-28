@@ -33,7 +33,7 @@ namespace com.TZMS.Business
         }
 
         /// <summary>
-        /// 根据用户唯一ID删除(假删除，改变 state=2)
+        /// 根据 唯一ID删除(假删除，改变 state=9)
         /// </summary>
         /// <param name="boName">连接字符串Key</param>
         /// <param name="objectID">唯一ID（GUID）</param>
