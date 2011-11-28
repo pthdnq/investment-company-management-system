@@ -246,6 +246,7 @@ namespace TZMS.Web
             // 获取数据.
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append("ApplyID = '" + ApplyID + "'");
+            strCondition.Append(" and TransferState <> -1");
             List<UserLeaveTransferInfo> lstApprove = new UserLeaveManage().GetTransferByCondition(strCondition.ToString());
 
             lstApprove.Sort(delegate(UserLeaveTransferInfo x, UserLeaveTransferInfo y)
@@ -445,13 +446,13 @@ namespace TZMS.Web
                             e.Values[2] = "所属部门交接";
                             break;
                         case "1":
-                            e.Values[2] = "行政部交接";
+                            e.Values[2] = "财务部交接";
                             break;
                         case "2":
-                            e.Values[2] = "项目交接";
+                            e.Values[2] = "行政部交接";
                             break;
                         case "4":
-                            e.Values[2] = "财务部交接";
+                            e.Values[2] = "归档";
                             break;
                         default:
                             break;

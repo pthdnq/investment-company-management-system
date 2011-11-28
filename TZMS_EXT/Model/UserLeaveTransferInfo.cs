@@ -42,6 +42,7 @@ namespace com.TZMS.Model
         private short _transferType = -1;
         private string _other = DBEmptyString;
         private Guid _applyId;
+        private short _transferState = -1;
         #endregion
 
         #region Property
@@ -124,6 +125,15 @@ namespace com.TZMS.Model
         {
             get { return _applyId; }
             set { _applyId = value; }
+        }
+
+        /// <summary>
+        /// TransferType 
+        /// </summary> 
+        public short TransferState
+        {
+            get { return _transferState; }
+            set { _transferState = value; }
         }
 
         #endregion
