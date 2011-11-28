@@ -591,6 +591,8 @@
     <Content Include="Pages\WuZhiPages\WuZhiCheckList.aspx" />
     <Content Include="Pages\WuZhiPages\WuZhiRecord.aspx" />
     <Content Include="Pages\WuZhiPages\WuZhiRecordList.aspx" />
+    <Content Include="Pages\Yewu\CommonYewu.aspx" />
+    <Content Include="Pages\Yewu\DingzhiYewu.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1478,6 +1480,20 @@
     <Compile Include="Pages\WuZhiPages\WuZhiRecordList.aspx.designer.cs">
       <DependentUpon>WuZhiRecordList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Yewu\CommonYewu.aspx.cs">
+      <DependentUpon>CommonYewu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\CommonYewu.aspx.designer.cs">
+      <DependentUpon>CommonYewu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Yewu\DingzhiYewu.aspx.cs">
+      <DependentUpon>DingzhiYewu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\DingzhiYewu.aspx.designer.cs">
+      <DependentUpon>DingzhiYewu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="config\ajax.aspx.cs">
       <DependentUpon>ajax.aspx</DependentUpon>
@@ -1833,7 +1849,9 @@
     <None Include="images\step.psd" />
     <None Include="Template\考勤记录.xls" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Pages\Salary\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{8AD7E97C-6BE2-4A0C-8500-3B485E0F271F}</Project>
