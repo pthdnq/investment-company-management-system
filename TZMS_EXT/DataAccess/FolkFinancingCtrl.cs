@@ -380,7 +380,7 @@ namespace com.TZMS.DataAccess
             }
             if (FolkFinancingInfoInfoDataRow["Status"] != null)
             {
-                FolkFinancingInfoInfo.Status =char.Parse( DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "Status"));
+                FolkFinancingInfoInfo.Status =int.Parse( DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "Status"));
             }
 
             return FolkFinancingInfoInfo;

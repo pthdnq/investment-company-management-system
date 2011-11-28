@@ -348,7 +348,7 @@ namespace com.TZMS.DataAccess
             }
             if (FinancingFeePaymentInfoInfoDataRow["Status"] != null)
             {
-                FinancingFeePaymentInfoInfo.Status = char.Parse(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "Status"));
+                FinancingFeePaymentInfoInfo.Status = int.Parse(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "Status"));
             }
 
             return FinancingFeePaymentInfoInfo;
