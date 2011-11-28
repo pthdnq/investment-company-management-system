@@ -18,7 +18,7 @@ namespace com.TZMS.Model
     /// AddSalary实体类
     /// </summary>
     [Serializable]
-    public class AddSalaryInfo
+    public class AddSalaryInfo : ACommonInfo
     {
 
         #region Constructor
@@ -35,12 +35,12 @@ namespace com.TZMS.Model
         #region Field
         private Guid _objectId;
         private Guid _userId;
-        private string _name;
-        private string _dept;
-        private Decimal _baseSalary;
-        private Decimal _examSalary;
-        private Decimal _otherSalary;
-        private string _context;
+        private string _name = DBEmptyString;
+        private string _dept = DBEmptyString;
+        private Decimal _baseSalary = DBEmptyDecimal;
+        private Decimal _examSalary = DBEmptyDecimal;
+        private Decimal _otherSalary = DBEmptyDecimal;
+        private string _context = DBEmptyString;
         private Guid _currentCheckerId;
         #endregion
 

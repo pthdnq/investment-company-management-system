@@ -18,7 +18,7 @@ namespace com.TZMS.Model
     /// SalaryCheck实体类
     /// </summary>
     [Serializable]
-    public class SalaryCheckInfo
+    public class SalaryCheckInfo : ACommonInfo
     {
 
         #region Constructor
@@ -35,13 +35,13 @@ namespace com.TZMS.Model
         #region Field
         private Guid _objectId;
         private Guid _checkerId;
-        private string _checkerName;
-        private string _checkrDept;
-        private DateTime _checkDateTime;
-        private short _checkstate;
-        private string _result;
-        private string _checkSugest;
-        private string _checkOp;
+        private string _checkerName = DBEmptyString;
+        private string _checkrDept = DBEmptyString;
+        private DateTime _checkDateTime = DBEmptyDate;
+        private short _checkstate = DBEmptyShort;
+        private string _result = DBEmptyString;
+        private string _checkSugest = DBEmptyString;
+        private string _checkOp = DBEmptyString;
         private Guid _applyId;
         #endregion
 
