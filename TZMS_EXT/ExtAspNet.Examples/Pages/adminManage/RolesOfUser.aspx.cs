@@ -279,19 +279,19 @@ namespace TZMS.Web
                     strRole = "普通员工";
                     break;
                 case RoleType.TZZG:
-                    strRole = "投资部门总管";
+                    strRole = "投资部门主管";
                     break;
                 case RoleType.TZZJ:
                     strRole = "投资部门总监";
                     break;
                 case RoleType.XZZG:
-                    strRole = "行政部门总管";
+                    strRole = "行政部门主管";
                     break;
                 case RoleType.XZZJ:
                     strRole = "行政部门总监";
                     break;
                 case RoleType.YWZG:
-                    strRole = "业务部门总管";
+                    strRole = "业务部门主管";
                     break;
                 case RoleType.YWZJ:
                     strRole = "业务部门总监";

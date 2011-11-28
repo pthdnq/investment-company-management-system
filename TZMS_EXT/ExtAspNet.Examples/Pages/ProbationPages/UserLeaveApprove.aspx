@@ -30,7 +30,7 @@
                 BodyPadding="3px" ShowHeader="false" AnchorValue="100% -36">
                 <Items>
                     <ext:Form ID="mainForm2" EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px"
-                        runat="server">
+                        runat="server" LabelWidth="100px">
                         <Rows>
                             <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                                 <Items>
@@ -40,6 +40,33 @@
                                     <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
                                         RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
                                     </ext:DropDownList>
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ID="FormRow7" runat="server" ColumnWidths="50% 50%">
+                                <Items>
+                                    <ext:DropDownList ID="ddlstTransferSSDept" runat="server" ShowRedStar="true" Required="true"
+                                        Label="所属部门交接人" Hidden="true" Enabled="false">
+                                    </ext:DropDownList>
+                                    <ext:Label ID="lbl1" runat="server" Hidden="true">
+                                    </ext:Label>
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ID="FormRow8" runat="server" ColumnWidths="50% 50%">
+                                <Items>
+                                    <ext:DropDownList ID="ddlstTransferXZDept" runat="server" ShowRedStar="true" Required="true"
+                                        Label="行政部交接人" Hidden="true" Enabled="false">
+                                    </ext:DropDownList>
+                                    <ext:Label ID="Label1" runat="server" Hidden="true">
+                                    </ext:Label>
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ID="FormRow9" runat="server" ColumnWidths="50% 50%">
+                                <Items>
+                                    <ext:DropDownList ID="ddlstTransferCWDept" runat="server" ShowRedStar="true" Required="true"
+                                        Label="财务部交接人" Hidden="true" Enabled="false">
+                                    </ext:DropDownList>
+                                    <ext:Label ID="Label2" runat="server" Hidden="true">
+                                    </ext:Label>
                                 </Items>
                             </ext:FormRow>
                             <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="50% 50%">
