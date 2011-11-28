@@ -116,20 +116,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             _Info.RateOfReturn = this.tbRateOfReturn.Text[0];
 
-            #region  创建人
+            // 创建人
             _Info.CreateTime = DateTime.Now;
             _Info.CreaterId = this.CurrentUser.ObjectId;
             _Info.CreaterName = this.CurrentUser.Name;
             _Info.CreaterAccount = this.CurrentUser.AccountNo;
-            #endregion
-            // 出生日期.
-            //if (dpkBirthday.SelectedDate is DateTime)
-            //{
-            //    _userInfo.Birthday = Convert.ToDateTime(dpkBirthday.SelectedDate);
-            //}
-
-            // 联系电话.
-            // _userInfo.PhoneNumber = tbxPhoneNumber.Text.Trim();
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+         
+            
                 // 执行操作.
 
             int result = 3;
