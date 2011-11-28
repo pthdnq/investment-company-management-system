@@ -59,6 +59,7 @@
     <Compile Include="Baoxiao\BaoxiaoManage.cs" />
     <Compile Include="CommSelect.cs" />
     <Compile Include="Investment\BankLoanManage.cs" />
+    <Compile Include="Investment\FolkFinancingManage.cs" />
     <Compile Include="Investment\InvestmentProjectManage.cs" />
     <Compile Include="Investment\InvestmentLoanManage.cs" />
     <Compile Include="MessageManage\MessageManage.cs" />
