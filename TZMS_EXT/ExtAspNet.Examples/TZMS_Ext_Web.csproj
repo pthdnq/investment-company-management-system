@@ -595,6 +595,8 @@
     <Content Include="Pages\WuZhiPages\WuZhiRecord.aspx" />
     <Content Include="Pages\WuZhiPages\WuZhiRecordList.aspx" />
     <Content Include="Pages\Yewu\CommonYewu.aspx" />
+    <Content Include="Pages\Yewu\CommonYewuApp.aspx" />
+    <Content Include="Pages\Yewu\CommonYewuAppList.aspx" />
     <Content Include="Pages\Yewu\DingzhiYewu.aspx" />
     <Content Include="Pages\Yewu\NewCommonYeWu.aspx" />
     <Content Include="Test.aspx" />
@@ -1511,6 +1513,20 @@
     </Compile>
     <Compile Include="Pages\Yewu\CommonYewu.aspx.designer.cs">
       <DependentUpon>CommonYewu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Yewu\CommonYewuApp.aspx.cs">
+      <DependentUpon>CommonYewuApp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\CommonYewuApp.aspx.designer.cs">
+      <DependentUpon>CommonYewuApp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Yewu\CommonYewuAppList.aspx.cs">
+      <DependentUpon>CommonYewuAppList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\CommonYewuAppList.aspx.designer.cs">
+      <DependentUpon>CommonYewuAppList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Yewu\DingzhiYewu.aspx.cs">
       <DependentUpon>DingzhiYewu.aspx</DependentUpon>
