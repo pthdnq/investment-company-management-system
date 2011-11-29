@@ -19,8 +19,11 @@ namespace TZMS.Web
             {
                 BindYear();
 
-                ddlstYear.SelectedValue = DateTime.Now.Year.ToString();
-                ddlstMonth.SelectedValue = DateTime.Now.Month.ToString();
+                DateTime now = DateTime.Now;
+                dpkStartTime.SelectedDate = now.AddMonths(-1);
+                dpkEndTime.SelectedDate = now;
+                ddlstYear.SelectedValue = now.Year.ToString();
+                ddlstMonth.SelectedValue = now.Month.ToString();
 
                 BindGrid();
             }
@@ -144,7 +147,20 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridApply_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
+            string strApplyID = ((GridRow)gridApply.Rows[e.RowIndex]).Values[0];
+            if (e.CommandName == "Apply")
+            {
+                wndApply.Title = "薪资信息申请";
+                wndApply.IFrameUrl = "SalaryMsgApply.aspx?Type=Add&ID=" + strApplyID;
+                wndApply.Hidden = false;
+            }
 
+            if (e.CommandName == "View")
+            {
+                wndApply.Title = "薪资信息查看";
+                wndApply.IFrameUrl = "SalaryMsgApply.aspx?Type=View&ID=" + strApplyID;
+                wndApply.Hidden = false;
+            }
         }
 
         /// <summary>
@@ -156,7 +172,16 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[3] = DateTime.Parse(e.Values[3].ToString()).ToString("yyyy-MM-dd HH:mm");
+                DateTime _createTime = DateTime.Parse(e.Values[3].ToString());
+                if (DateTime.Compare(_createTime, ACommonInfo.DBMAXDate) == 0)
+                {
+                    e.Values[3] = "";
+                }
+                else
+                {
+                    e.Values[3] = _createTime.ToString("yyyy-MM-dd HH:mm");
+                }
+
                 switch (e.Values[4].ToString())
                 {
                     case "-1":
