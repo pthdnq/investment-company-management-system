@@ -66,7 +66,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ExpendedTime",DbType.String),
 				new SqlParameter("@ImprestAmountBalance",DbType.Guid),
 				new SqlParameter("@Remark",DbType.String),
-				new SqlParameter("@Status",DbType.Byte),
+				new SqlParameter("@Status",DbType.Int16),
 				new SqlParameter("@NextOperaterId",DbType.Guid),
 				new SqlParameter("@NextOperaterAccount",DbType.String),
 				new SqlParameter("@NextOperaterName",DbType.String),
@@ -169,7 +169,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ExpendedTime",DbType.String),
 				new SqlParameter("@ImprestAmountBalance",DbType.Guid),
 				new SqlParameter("@Remark",DbType.String),
-				new SqlParameter("@Status",DbType.Byte),
+				new SqlParameter("@Status",DbType.Int16),
 				new SqlParameter("@NextOperaterId",DbType.Guid),
 				new SqlParameter("@NextOperaterAccount",DbType.String),
 				new SqlParameter("@NextOperaterName",DbType.String),
@@ -304,7 +304,7 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanProjectProcessInfoInfoDataRow["NeedImprest"] != null)
             {
-                BankLoanProjectProcessInfoInfo.NeedImprest = char.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NeedImprest"));
+                BankLoanProjectProcessInfoInfo.NeedImprest = int.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "NeedImprest"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["LoanBank"] != null)
             {
