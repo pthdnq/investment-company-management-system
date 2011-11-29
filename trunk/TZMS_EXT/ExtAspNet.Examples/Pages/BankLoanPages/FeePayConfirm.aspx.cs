@@ -118,6 +118,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (result == -1)
             {
                 Alert.Show("操作成功!");
+                PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
             {

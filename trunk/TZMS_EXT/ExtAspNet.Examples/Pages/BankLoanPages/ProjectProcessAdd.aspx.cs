@@ -103,6 +103,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             var bankloan = manage.GetUserByObjectID(ForID);
        //  info.ProjectName = manage.GetUserByObjectID(ForID);
             info.ImplementationPhase = this.taImplementationPhase.Text.Trim();
+           
             //  info.LoanBank= bankloan.
             if (dpExpendedTime.SelectedDate is DateTime)
             {
