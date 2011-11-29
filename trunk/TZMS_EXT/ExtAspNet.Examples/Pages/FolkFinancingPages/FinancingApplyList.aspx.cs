@@ -136,7 +136,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             }
             //未删除
             strCondtion.Append(" Status<>9 ");
-
+            strCondtion.Append(" AND CreaterID = '" + this.CurrentUser.ObjectId + "' "); 
             #endregion
 
             //获得员工
