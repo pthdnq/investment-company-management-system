@@ -107,6 +107,43 @@ namespace TZMS.Web
             gridWorkerSalaryMsg.DataBind();
         }
 
+        /// <summary>
+        /// 保存当前页面的员工薪资信息.
+        /// </summary>
+        private void SaveCurrentWorkerSalary()
+        {
+            SalaryManage _manage = new SalaryManage();
+
+            for (int i = 0; i < gridWorkerSalaryMsg.Rows.Count; i++)
+            {
+                string strWorkerSalaryID = ((GridRow)gridWorkerSalaryMsg.Rows[i]).Values[0];
+                string strSalaryMsgID = ((GridRow)gridWorkerSalaryMsg.Rows[i]).Values[2];
+
+                string strBaseSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxBaseSalary"];
+                string strExamSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxExamSalary"];
+                string strBackSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxBackSalary"];
+                string strOtherSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxOtherSalary"];
+                string strShouldSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxShouldSalary"];
+                string strSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxSalary"];
+                string strContext = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxContext"];
+
+                WorkerSalaryMsgInfo _workerSalaryMsgInfo = _manage.GetWorkerSalaryMsgByObjectID(strWorkerSalaryID);
+                if (_workerSalaryMsgInfo != null)
+                {
+                    _workerSalaryMsgInfo.BaseSalary = Convert.ToDecimal(strBaseSalary);
+                    _workerSalaryMsgInfo.ExamSalary = Convert.ToDecimal(strExamSalary);
+                    _workerSalaryMsgInfo.BackSalary = Convert.ToDecimal(strBackSalary);
+                    _workerSalaryMsgInfo.OtherSalary = Convert.ToDecimal(strOtherSalary);
+                    _workerSalaryMsgInfo.ShouldSalary = Convert.ToDecimal(strShouldSalary);
+                    _workerSalaryMsgInfo.Salary = Convert.ToDecimal(strSalary);
+                    _workerSalaryMsgInfo.Context = strContext;
+
+                    _manage.UpdateWorkerSalaryMsg(_workerSalaryMsgInfo);
+                    _workerSalaryMsgInfo = null;
+                }
+            }
+        }
+
         #endregion
 
         #region 页面事件
@@ -139,7 +176,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnNewWorkerSalary_Click(object sender, EventArgs e)
         {
-
+            SaveCurrentWorkerSalary();
         }
 
         /// <summary>
@@ -192,11 +229,19 @@ namespace TZMS.Web
                     _workerSalaryMsgInfo.BackSalary = Convert.ToDecimal(strBackSalary);
                     _workerSalaryMsgInfo.OtherSalary = Convert.ToDecimal(strOtherSalary);
                     _workerSalaryMsgInfo.ShouldSalary = Convert.ToDecimal(strShouldSalary);
-                    _workerSalaryMsgInfo.Salary = Convert.ToDecimal(strContext);
+                    _workerSalaryMsgInfo.Salary = Convert.ToDecimal(strSalary);
+                    _workerSalaryMsgInfo.Context = strContext;
 
                     _manage.UpdateWorkerSalaryMsg(_workerSalaryMsgInfo);
                     _workerSalaryMsgInfo = null;
                 }
+            }
+
+            if (e.CommandName == "Delete")
+            {
+                _manage.DeleteWorkerSalaryMsg(strWorkerSalaryID);
+
+                BindGrid();
             }
         }
 
@@ -207,6 +252,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridWorkerSalaryMsg_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
+
         }
 
         /// <summary>

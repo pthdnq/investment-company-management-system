@@ -11,7 +11,6 @@ namespace com.TZMS.Business
         public SalaryManage()
         { }
 
-
         /// <summary>
         /// 添加新员工薪资信息
         /// </summary>
@@ -22,6 +21,17 @@ namespace com.TZMS.Business
         {
             WorkerSalaryMsgCtrl _ctrl = new WorkerSalaryMsgCtrl();
             return _ctrl.Insert(boName, info);
+        }
+
+        /// <summary>
+        /// 删除员工薪资信息.
+        /// </summary>
+        /// <param name="info">对象ID</param>
+        /// <param name="boName"></param>
+        public void DeleteWorkerSalaryMsg(string objectID, string boName = BoName)
+        {
+            WorkerSalaryMsgCtrl _ctrl = new WorkerSalaryMsgCtrl();
+            _ctrl.Delete(boName, " ObjectID = '" + objectID + "'");
         }
 
         /// <summary>
