@@ -37,6 +37,7 @@ namespace TZMS
             /// </summary>
             static public string YEWU = "业务部";
         }
+
         #region 附件
         /// <summary>
         /// 保存附件
@@ -180,12 +181,6 @@ namespace TZMS
             fileCtrl.ResetFiles(string.Empty, systemName, recordId, attributeName);
         }
         #endregion
-
-        public static class Position {
-            /// <summary>
-            /// 董事长
-            /// </summary>
-            static public string Chairman = "董事长";
-        }
+ 
     }
 }
