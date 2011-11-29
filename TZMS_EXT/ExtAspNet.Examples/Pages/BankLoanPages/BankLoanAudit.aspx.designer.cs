@@ -76,6 +76,15 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.Button btnSave;
         
         /// <summary>
+        /// btnDismissed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Button btnDismissed;
+        
+        /// <summary>
         /// HighMoneyTips control.
         /// </summary>
         /// <remarks>

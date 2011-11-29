@@ -13,7 +13,7 @@ namespace TZMS.Web.Pages.BankLoanPages
     {
         #region 属性
         /// <summary>
-        /// ID
+        /// ObjectID
         /// </summary>
         public string ObjectID
         {
@@ -61,8 +61,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            saveInfo();
-
+            saveInfo(); 
         }
 
         #endregion
@@ -95,18 +94,16 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.CreaterId = this.CurrentUser.ObjectId;
             _Info.CreaterName = this.CurrentUser.Name;
             _Info.CreaterAccount = this.CurrentUser.AccountNo;
+
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
             // 出生日期.
             //if (dpkBirthday.SelectedDate is DateTime)
             //{
             //    _userInfo.Birthday = Convert.ToDateTime(dpkBirthday.SelectedDate);
-            //}
+            //} 
 
-            // 联系电话.
-            // _userInfo.PhoneNumber = tbxPhoneNumber.Text.Trim();
-            // 执行操作.
-
-            int result = 3;
-
+            int result = 3; 
             result = _Manage.Add(_Info);
 
             if (result == -1)
