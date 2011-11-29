@@ -582,6 +582,8 @@
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingUnitList.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingUnitNew.aspx" />
     <Content Include="Pages\ProxyAccountingPages\SelectAccountancy.aspx" />
+    <Content Include="Pages\Salary\NewSalaryMsg.aspx" />
+    <Content Include="Pages\Salary\SalaryMsgManage.aspx" />
     <Content Include="Pages\system\ChangePsw.aspx" />
     <Content Include="Pages\system\MyMessage.aspx" />
     <Content Include="Pages\system\MyWeb.aspx" />
@@ -1419,6 +1421,20 @@
     <Compile Include="Pages\ProxyAccountingPages\SelectAccountancy.aspx.designer.cs">
       <DependentUpon>SelectAccountancy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Salary\NewSalaryMsg.aspx.cs">
+      <DependentUpon>NewSalaryMsg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salary\NewSalaryMsg.aspx.designer.cs">
+      <DependentUpon>NewSalaryMsg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salary\SalaryMsgManage.aspx.cs">
+      <DependentUpon>SalaryMsgManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salary\SalaryMsgManage.aspx.designer.cs">
+      <DependentUpon>SalaryMsgManage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\system\ChangePsw.aspx.cs">
       <DependentUpon>ChangePsw.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1865,9 +1881,7 @@
     <None Include="images\step.psd" />
     <None Include="Template\考勤记录.xls" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\Salary\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{8AD7E97C-6BE2-4A0C-8500-3B485E0F271F}</Project>
