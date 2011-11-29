@@ -214,6 +214,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void gridData_RowCommand(object sender, GridCommandEventArgs e)
         {
+            
             //UserManage userManage = new UserManage();
             //string userID = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
 
