@@ -42,22 +42,22 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 btnNewYewu.OnClientClick = wndNewYewu.GetShowReference("NewCommonYeWu.aspx") + "return false;";
-                DataBind();
+                DataBindData();
             }
         }
 
         /// <summary>
         /// 绑定列表
         /// </summary>
-        private void DataBind()
+        private void DataBindData()
         {
             //CommSelect commSelect = new CommSelect();
             #region 查询条件
 
-
             StringBuilder strCondition = new StringBuilder();
 
             strCondition.Append(" Isdelete <> 1 and state=0 ");
+            strCondition.Append(" and UserID='"+this.CurrentUser.ObjectId.ToString()+"' ");
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
                 strCondition.Append(" and Title Like '%" + tbxSearch.Text.Trim() + "%'");
@@ -90,8 +90,8 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridYewu_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
         {
-            //gridWuZhi.PageIndex = e.NewPageIndex;
-            //BindGrid();
+            gridYewu.PageIndex = e.NewPageIndex;
+            DataBindData();
         }
 
         /// <summary>
@@ -135,23 +135,24 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridYewu_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
-            //if (e.DataItem != null)
-            //{
+            return;
+            if (e.DataItem != null)
+            {
             //    e.Values[1] = e.Values[1].ToString() == "0" ? "办公用品" : "固定资产";
             //    e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd HH:mm");
             //    // 当前审批人.
-            //    if (e.Values[6].ToString() == SystemUser.ObjectId.ToString())
-            //    {
-            //        e.Values[6] = SystemUser.Name;
-            //    }
-            //    else
-            //    {
-            //        UserInfo _userInfo = new UserManage().GetUserByObjectID(e.Values[6].ToString());
-            //        if (_userInfo != null)
-            //        {
-            //            e.Values[6] = _userInfo.Name;
-            //        }
-            //    }
+              if (e.Values[3].ToString() == SystemUser.ObjectId.ToString())
+              {
+                  e.Values[3] = SystemUser.Name;
+              }
+              else
+              {
+                  UserInfo _userInfo = new UserManage().GetUserByObjectID(e.Values[3].ToString());
+                  if (_userInfo != null)
+                  {
+                      e.Values[3] = _userInfo.Name;
+                  }
+              }
             //    // 审批状态.
             //    switch (e.Values[7].ToString())
             //    {
@@ -171,7 +172,7 @@ namespace TZMS.Web
             //        default:
             //            break;
             //    }
-            //}
+            }
         }
 
         /// <summary>
@@ -181,7 +182,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndNewYewu_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
-            //BindGrid();
+            DataBindData();
         }
         #endregion
     }

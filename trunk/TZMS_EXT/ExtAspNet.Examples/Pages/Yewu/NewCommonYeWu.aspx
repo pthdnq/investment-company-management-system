@@ -31,11 +31,11 @@
                         <Rows>
                             <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                                 <Items>
-                                    <%-- <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
+                                    <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
                                         Label="下一步">
-                                    </ext:DropDownList>--%>
+                                    </ext:DropDownList>
                                     <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
-                                        RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="当前责任人">
+                                        RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="负责人">
                                     </ext:DropDownList>
                                 </Items>
                             </ext:FormRow>
@@ -56,10 +56,7 @@
                                                     </ext:DropDownList>
                                                     <ext:DatePicker ID="dpkSign" Label="签单时间" runat="server">
                                                     </ext:DatePicker>
-                                                    <%-- <ext:Label ID="lblUser" runat="server" Label="创建人">
-                                                    </ext:Label>
-                                                    <ext:Label ID="lblApplyDate" runat="server" Label="创建时间">
-                                                    </ext:Label>--%>
+                                                   
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow7" runat="server" ColumnWidths="60%">
@@ -81,58 +78,6 @@
                                                     <ext:TextArea ID="taaOther" runat="server" Label="备注" MaxLength="200" MaxLengthMessage="最多只能输入200个字！"
                                                         Height="80px">
                                                     </ext:TextArea>
-                                                </Items>
-                                            </ext:FormRow>
-                                        </Rows>
-                                    </ext:Form>
-                                </Items>
-                            </ext:Tab>
-                            <ext:Tab ID="tabChecker" Title="责任人设置" EnableBackgroundColor="true" runat="server"
-                                BodyPadding="5px">
-                                <Items>
-                                    <ext:Form EnableBackgroundColor="true" LabelWidth="70px" ShowHeader="false" ShowBorder="false"
-                                        BodyPadding="5px" ID="Form2" runat="server">
-                                        <Rows>
-                                            <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="60%">
-                                                <Items>
-                                                    <ext:DropDownList Required="true" ID="drpCheck1" runat="server" Label="1.业务转交">
-                                                    </ext:DropDownList>
-                                                    <ext:DropDownList Required="true" ID="drpCheck2" runat="server" Label="2.核名">
-                                                    </ext:DropDownList>
-                                                </Items>
-                                            </ext:FormRow>
-                                            <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">
-                                                <Items>
-                                                    <ext:DropDownList Required="true" ID="drpCheck3" runat="server" Label="3.刻章">
-                                                    </ext:DropDownList>
-                                                    <ext:DropDownList Required="true" ID="drpCheck4" runat="server" Label="4.开户">
-                                                    </ext:DropDownList>
-                                                </Items>
-                                            </ext:FormRow>
-                                            <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="60%">
-                                                <Items>
-                                                    <ext:DropDownList Required="true" ID="drpCheck5" runat="server" Label="5.验资报告">
-                                                    </ext:DropDownList>
-                                                    <ext:DropDownList Required="true" ID="drpCheck6" runat="server" Label="6.营业执照">
-                                                    </ext:DropDownList>
-                                                </Items>
-                                            </ext:FormRow>
-                                            <ext:FormRow ID="FormRow9" runat="server" ColumnWidths="60%">
-                                                <Items>
-                                                    <ext:DropDownList Required="true" ID="drpCheck7" runat="server" Label="7.办代码证">
-                                                    </ext:DropDownList>
-                                                    <ext:DropDownList Required="true" ID="drpCheck8" runat="server" Label="8.办国地税">
-                                                    </ext:DropDownList>
-                                                </Items>
-                                            </ext:FormRow>
-                                            <ext:FormRow ID="FormRow10" runat="server" ColumnWidths="60%">
-                                                <Items>
-                                                    <ext:DropDownList Required="true" ID="drpCheck9" runat="server" Label="9.转基本户">
-                                                    </ext:DropDownList>
-                                                    <ext:Label runat="server" Text="每个责任人需要处理相应阶段的工作"></ext:Label>
-                                                    <%--      <ext:DropDownList Required="true"  ID="DropDownList10" runat="server"
-                                                        Label="2.营业执照">
-                                                    </ext:DropDownList>--%>
                                                 </Items>
                                             </ext:FormRow>
                                         </Rows>
