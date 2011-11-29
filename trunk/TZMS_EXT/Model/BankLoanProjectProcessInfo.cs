@@ -36,7 +36,7 @@ namespace com.TZMS.Model
         private Guid _objetctId;
         private Guid _forId;
         private string _projectName =   DBEmptyString;
-        private char _needImprest = DBEmptyChar;
+        private int _needImprest = DBEmptyInt;
         private string _loanBank = DBEmptyString;
         private string _guaranteeCompany = DBEmptyString;
         private string _implementationPhase = DBEmptyString;
@@ -45,7 +45,7 @@ namespace com.TZMS.Model
         private DateTime _expendedTime = DBEmptyDate;
         private Decimal _imprestAmountBalance = DBEmptyDecimal;
         private string _remark = DBEmptyString;
-        private int _status = DBEmptyChar;
+        private int _status = DBEmptyInt;
         private Guid _nextOperaterId;
         private string _nextOperaterAccount = DBEmptyString;
         private string _nextOperaterName = DBEmptyString;
@@ -89,7 +89,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// NeedImprest 
         /// </summary> 
-        public char NeedImprest
+        public int NeedImprest
         {
             get { return _needImprest; }
             set { _needImprest = value; }
