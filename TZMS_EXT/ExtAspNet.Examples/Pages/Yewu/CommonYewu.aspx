@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>业务部-通用流程（固定的）</title>
+    <title>业务部-通用流程（固定的）--申请页面</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -44,23 +44,16 @@
                 <Items>
                     <ext:Grid ID="gridYewu" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
                         runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
-                        OnPageIndexChange="gridYewu_PageIndexChange" OnRowCommand="gridYewu_RowCommand"
+                        OnPageIndexChange="gridYewu_PageIndexChange"  OnRowCommand="gridYewu_RowCommand"
                         OnRowDataBound="gridYewu_RowDataBound">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" Hidden="true" />
                             <ext:BoundField DataField="Title" Width="300px" HeaderText="业务标题" DataTooltipField="Title" />
-                            <ext:BoundField DataField="Sument" Hidden="true" HeaderText="业务内容" DataTooltipField="Sument" />
-                            <ext:BoundField DataField="Other" HeaderText="当前责任人" DataTooltipField="Other" />
-                            <ext:BoundField DataField="ApplyTime" HeaderText="状态" />
-                            <ext:LinkButtonField Width="38px" Text="转交" CommandName="ZJ" />
-                            <ext:LinkButtonField Width="38px" Text="核名" CommandName="HM" />
-                            <ext:LinkButtonField Width="38px" Text="刻章" CommandName="KZ" />
-                            <ext:LinkButtonField Width="38px" Text="开户" CommandName="KH" />
-                            <ext:LinkButtonField Width="68px" Text="验资报告" CommandName="YZBG" />
-                            <ext:LinkButtonField Width="68px" Text="营业执照" CommandName="YYZZ" />
-                            <ext:LinkButtonField Width="68px" Text="办代码证" CommandName="BDMZ" />
-                            <ext:LinkButtonField Width="68px" Text="办国地税" CommandName="BGDS" />
-                            <ext:LinkButtonField Width="68px" Text="转基本户" CommandName="ZJBH" />
+                            <ext:BoundField DataField="ObjectId" Hidden="true" HeaderText="业务内容" DataTooltipField="Sument" />
+                            <ext:BoundField DataField="CurrentCheckerID" HeaderText="当前负责人"  />
+                            <ext:BoundField DataField="state" Width="60px" HeaderText="状态" />
+                            <ext:LinkButtonField Width="38px" Text="查看" CommandName="Approve" />
+                            <ext:LinkButtonField Width="38px" Text="删除" CommandName="Approve" />
                         </Columns>
                     </ext:Grid>
                 </Items>
