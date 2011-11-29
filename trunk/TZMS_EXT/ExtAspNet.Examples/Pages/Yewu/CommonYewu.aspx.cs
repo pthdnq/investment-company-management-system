@@ -135,7 +135,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridYewu_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
-            return;
+
             if (e.DataItem != null)
             {
             //    e.Values[1] = e.Values[1].ToString() == "0" ? "办公用品" : "固定资产";
@@ -153,25 +153,20 @@ namespace TZMS.Web
                       e.Values[3] = _userInfo.Name;
                   }
               }
-            //    // 审批状态.
-            //    switch (e.Values[7].ToString())
-            //    {
-            //        case "0":
-            //            e.Values[7] = "审批中";
-            //            e.Values[9] = "<span class=\"gray\">编辑</span>";
-            //            e.Values[10] = "<span class=\"gray\">删除</span>";
-            //            break;
-            //        case "1":
-            //            e.Values[7] = "未通过";
-            //            break;
-            //        case "2":
-            //            e.Values[7] = "归档";
-            //            e.Values[9] = "<span class=\"gray\">编辑</span>";
-            //            e.Values[10] = "<span class=\"gray\">删除</span>";
-            //            break;
-            //        default:
-            //            break;
-            //    }
+              // 审批状态.
+              switch (e.Values[4].ToString())
+              {
+                  case "0":
+                      e.Values[4] = "未完成";
+                      //e.Values[9] = "<span class=\"gray\">编辑</span>";
+                      //e.Values[10] = "<span class=\"gray\">删除</span>";
+                      break;
+                  case "1":
+                      e.Values[4] = "已完成";
+                      break;
+                  default:
+                      break;
+              }
             }
         }
 
