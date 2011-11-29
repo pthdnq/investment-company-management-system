@@ -4,14 +4,82 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ExtAspNet;
+using System.Text;
+using com.TZMS.Business;
+using com.TZMS.Model;
 
 namespace TZMS.Web
 {
     public partial class CommonYewu : BasePage
     {
+        /// <summary>
+        /// 查询Help
+        /// </summary>
+        public ComHelp SearchHelp
+        {
+            get
+            {
+                if (ViewState["SearchHelp%"] != null)
+                {
+                    return (ComHelp)ViewState["SearchHelp%"];
+                }
+                return new ComHelp();
+            }
+            set
+            {
+                ViewState["SearchHelp%"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 页面加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                btnNewYewu.OnClientClick = wndNewYewu.GetShowReference("NewCommonYeWu.aspx") + "return false;";
+                DataBind();
+            }
+        }
 
+        /// <summary>
+        /// 绑定列表
+        /// </summary>
+        private void DataBind()
+        {
+            //CommSelect commSelect = new CommSelect();
+            #region 查询条件
+
+
+            StringBuilder strCondition = new StringBuilder();
+
+            strCondition.Append(" Isdelete <> 1 and state=0 ");
+            if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
+            {
+                strCondition.Append(" and Title Like '%" + tbxSearch.Text.Trim() + "%'");
+            }
+           
+            #endregion
+
+            List<YeWuInfo> lstYewu = new YewuManage().GetYeWuForList(strCondition.ToString());
+            this.gridYewu.RecordCount = lstYewu.Count;
+            this.gridYewu.PageSize = PageCounts;
+            int currentIndex = this.gridYewu.PageIndex;
+            //计算当前页面显示行数据
+            if (lstYewu.Count > this.gridYewu.PageSize)
+            {
+                if (lstYewu.Count > (currentIndex + 1) * this.gridYewu.PageSize)
+                {
+                    lstYewu.RemoveRange((currentIndex + 1) * this.gridYewu.PageSize, lstYewu.Count - (currentIndex + 1) * this.gridYewu.PageSize);
+                }
+                lstYewu.RemoveRange(0, currentIndex * this.gridYewu.PageSize);
+            }
+            this.gridYewu.DataSource = lstYewu;
+            this.gridYewu.DataBind();
         }
 
         #region Grid

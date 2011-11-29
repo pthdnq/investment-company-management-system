@@ -20,8 +20,6 @@
                         <Items>
                             <ext:TextBox ID="tbxSearch" runat="server" EmptyText="请输入标题查询" ShowLabel="false">
                             </ext:TextBox>
-                            <ext:DropDownList ID="ddlstWuZhiType" runat="server" Label="物资类型">
-                            </ext:DropDownList>
                             <%--                            <ext:DropDownList ID="ddlstAproveState" runat="server" Label="申请状态">
                                 <ext:ListItem Text="审批中" Value="0" Selected="true" />
                                 <ext:ListItem Text="归档" Value="2" />
@@ -50,27 +48,26 @@
                         OnRowDataBound="gridYewu_RowDataBound">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" Hidden="true" />
-                            <ext:BoundField DataField="Type" HeaderText="物资类型" />
-                            <ext:BoundField DataField="Title" Width="160px" HeaderText="业务标题" DataTooltipField="Title" />
-                            <ext:BoundField DataField="Sument" HeaderText="业务内容" DataTooltipField="Sument" ExpandUnusedSpace="true" />
-                            <ext:BoundField DataField="Other" HeaderText="当前责任人" Hidden="true" DataTooltipField="Other" />
+                            <ext:BoundField DataField="Title" Width="300px" HeaderText="业务标题" DataTooltipField="Title" />
+                            <ext:BoundField DataField="Sument" Hidden="true" HeaderText="业务内容" DataTooltipField="Sument" />
+                            <ext:BoundField DataField="Other" HeaderText="当前责任人" DataTooltipField="Other" />
                             <ext:BoundField DataField="ApplyTime" HeaderText="状态" />
-                            <ext:LinkButtonField Width="38px" Text="转交" CommandName="View" />
-                            <ext:LinkButtonField Width="38px" Text="核名" CommandName="Edit" />
-                            <ext:LinkButtonField Width="38px" Text="刻章" CommandName="Edit" />
-                            <ext:LinkButtonField Width="38px" Text="开户" CommandName="Edit" />
-                            <ext:LinkButtonField Width="38px" Text="验资报告" CommandName="View" />
-                            <ext:LinkButtonField Width="38px" Text="营业执照" CommandName="Edit" />
-                            <ext:LinkButtonField Width="38px" Text="办代码证" CommandName="Edit" />
-                            <ext:LinkButtonField Width="38px" Text="国地税" CommandName="Edit" />
-                            <ext:LinkButtonField Width="38px" Text="转基本户" ConfirmTarget="Parent" />
+                            <ext:LinkButtonField Width="38px" Text="转交" CommandName="ZJ" />
+                            <ext:LinkButtonField Width="38px" Text="核名" CommandName="HM" />
+                            <ext:LinkButtonField Width="38px" Text="刻章" CommandName="KZ" />
+                            <ext:LinkButtonField Width="38px" Text="开户" CommandName="KH" />
+                            <ext:LinkButtonField Width="68px" Text="验资报告" CommandName="YZBG" />
+                            <ext:LinkButtonField Width="68px" Text="营业执照" CommandName="YYZZ" />
+                            <ext:LinkButtonField Width="68px" Text="办代码证" CommandName="BDMZ" />
+                            <ext:LinkButtonField Width="68px" Text="办国地税" CommandName="BGDS" />
+                            <ext:LinkButtonField Width="68px" Text="转基本户" CommandName="ZJBH" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndNewWuZhi" Title="新建普通业务" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndNewYewu" Title="新建普通业务" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
         Width="700px" OnClose="wndNewYewu_Close">
     </ext:Window>
