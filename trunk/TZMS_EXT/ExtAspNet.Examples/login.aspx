@@ -13,11 +13,11 @@
         }
         #login_bg
         {
-            background-image: url(images/bg.jpg);
+            background-image: url(images/bg2.jpg);
             background-repeat: no-repeat;
-            background-position: top center;
+            background-position:top center;
             width: 900px;
-            height: 375px;
+            height:375px;
             margin: 0 auto;
             padding-top: 200px;
         }
@@ -32,7 +32,7 @@
         .title
         {
             position: relative;
-            height: 70px;
+            height:70px;
         }
         .title img
         {
@@ -51,40 +51,10 @@
             right: 35px;
             top: 20px;
         }
-        .text
-        {
-            font-family: SimSun;
-            font-size: 14px;
-            color: #274069;
-            float: left;
-            margin-left: 60px;
-            margin-top: 8px;
-        }
-        .textbox
-        {
-            height: 23px;
-            line-height: 23px;
-            font-size: 14px;
-            width: 182px;
-            border: solid 1px #7a9fcb;
-            background: #fff;
-            float: left;
-            background-repeat: no-repeat;
-            background-position: center center;
-        }
-        .btn
-        {
-            width: 70px;
-            height: 26px;
-            border: 0;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        .margin
-        {
-            margin-left: 115px;
-            margin-right: 20px;
-        }
+        .text{ font-family:SimSun; font-size:14px; color:#274069; float:left;margin-left:60px; margin-top:8px;}
+        .textbox{height:23px; line-height:23px; font-size:14px; width:182px; border:solid 1px #7a9fcb; background:#fff; float:left;background-repeat:no-repeat; background-position:center center;}
+        .btn{ width:70px; height:26px; border:0;margin-top:10px; cursor:pointer;}
+        .margin{margin-left:115px; margin-right:20px;}
     </style>
     <script type="text/javascript">
         function tzmslogin_() {
