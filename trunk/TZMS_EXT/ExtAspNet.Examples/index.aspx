@@ -555,7 +555,7 @@
                     LoadTab("Pages/FolkFinancingPages/AccountingAuditList.aspx", "会计审核列表", icon);
                     break;
                 case "ldsh":
-                    LoadTab("Pages/FolkFinancingPages/LeaderAuditResult.aspx", "领导审核列表", icon);
+                    LoadTab("Pages/FolkFinancingPages/LeaderAuditList.aspx", "领导审核列表", icon);
                     break;
                 case "rzht":
                     LoadTab("Pages/FolkFinancingPages/FinancingContractList.aspx", "融资合同列表", icon);
