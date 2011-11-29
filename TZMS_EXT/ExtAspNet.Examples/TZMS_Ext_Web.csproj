@@ -583,7 +583,10 @@
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingUnitNew.aspx" />
     <Content Include="Pages\ProxyAccountingPages\SelectAccountancy.aspx" />
     <Content Include="Pages\Salary\NewSalaryMsg.aspx" />
+    <Content Include="Pages\Salary\SalaryMsgApply.aspx" />
     <Content Include="Pages\Salary\SalaryMsgApplyList.aspx" />
+    <Content Include="Pages\Salary\SalaryMsgApprove.aspx" />
+    <Content Include="Pages\Salary\SalaryMsgApproveList.aspx" />
     <Content Include="Pages\Salary\SalaryMsgManage.aspx" />
     <Content Include="Pages\system\ChangePsw.aspx" />
     <Content Include="Pages\system\MyMessage.aspx" />
@@ -1431,11 +1434,33 @@
     <Compile Include="Pages\Salary\NewSalaryMsg.aspx.designer.cs">
       <DependentUpon>NewSalaryMsg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Salary\SalaryMsgApply.aspx.cs">
+      <DependentUpon>SalaryMsgApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salary\SalaryMsgApply.aspx.designer.cs">
+      <DependentUpon>SalaryMsgApply.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Salary\SalaryMsgApplyList.aspx.cs">
       <DependentUpon>SalaryMsgApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Salary\SalaryMsgApplyList.aspx.designer.cs">
       <DependentUpon>SalaryMsgApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salary\SalaryMsgApprove.aspx.cs">
+      <DependentUpon>SalaryMsgApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salary\SalaryMsgApprove.aspx.designer.cs">
+      <DependentUpon>SalaryMsgApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salary\SalaryMsgApproveList.aspx.cs">
+      <DependentUpon>SalaryMsgApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salary\SalaryMsgApproveList.aspx.designer.cs">
+      <DependentUpon>SalaryMsgApproveList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Salary\SalaryMsgManage.aspx.cs">
       <DependentUpon>SalaryMsgManage.aspx</DependentUpon>

@@ -124,6 +124,12 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/我的消息.gif" NodeID="xzgl" OnClientClick=" tabs('xzgl','UserKey');"
                                                 Text="薪资信息管理">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/我的消息.gif" NodeID="xzsq" OnClientClick=" tabs('xzsq','UserKey');"
+                                                Text="薪资信息申请">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/我的消息.gif" NodeID="xzsp" OnClientClick=" tabs('xzsp','UserKey');"
+                                                Text="薪资信息审批">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -429,6 +435,12 @@
                 // 薪资管理. 
                 case "xzgl":
                     LoadTab("Pages/Salary/SalaryMsgManage.aspx", "薪资信息管理", icon);
+                    break;
+                case "xzsq":
+                    LoadTab("Pages/Salary/SalaryMsgApplyList.aspx", "薪资信息申请", icon);
+                    break;
+                case "xzgl":
+                    LoadTab("Pages/Salary/SalaryMsgApproveList.aspx", "薪资信息审批", icon);
                     break;
 
                 // 消息管理.           
