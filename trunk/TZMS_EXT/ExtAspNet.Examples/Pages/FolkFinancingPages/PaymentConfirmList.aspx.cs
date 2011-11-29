@@ -87,7 +87,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             if (!IsPostBack)
             {
-                this.btnNew.OnClientClick = wndNew.GetShowReference("NewUser.aspx?Type=Add", "新增员工");
+                // this.btnNew.OnClientClick = wndNew.GetShowReference("NewUser.aspx?Type=Add", "新增员工");
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
 
                 // 绑定下拉框.
@@ -131,19 +131,18 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             }
             if (!string.IsNullOrEmpty(state))
             {
-                strCondtion.Append(" state=" + (state == "在职" ? 1 : 0) + " and ");
+                strCondtion.Append(" Status " + (state == "待审核" ? " = 1 " : " <> 1 ") + " and ");
             }
             if (!string.IsNullOrEmpty(searchText))
             {
                 strCondtion.Append(" (name like '%" + searchText + "%' or AccountNo like '%" + searchText + "%') and ");
             }
             //未删除
-            strCondtion.Append(" state<>2 ");
-
+            strCondtion.Append(" status<>9 ");
+            strCondtion.Append(" AND NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
             #endregion
 
-            //获得员工
-            List<UserInfo> lstUserInfo = new UserManage().GetUsersByCondtion(strCondtion.ToString());
+            List<com.TZMS.Model.FinancingFeePaymentInfo> lstUserInfo = new FolkFinancingManage().GetProcessByCondtion(strCondtion.ToString());
             this.gridData.RecordCount = lstUserInfo.Count;
             this.gridData.PageSize = PageCounts;
             int currentIndex = this.gridData.PageIndex;
@@ -214,29 +213,23 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <param name="e"></param>
         protected void gridData_RowCommand(object sender, GridCommandEventArgs e)
         {
-            UserManage userManage = new UserManage();
+            FolkFinancingManage userManage = new FolkFinancingManage();
             string userID = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
 
-            UserInfo user = userManage.GetUserByObjectID(userID);
+            FinancingFeePaymentInfo user = userManage.GetProcessByObjectID(userID);
 
             if (e.CommandName == "Leave")
             {
                 // 离职
-                user.State = 0;
+                user.Status = 0;
             }
             else if (e.CommandName == "Delete")
             {
                 // 删除
-                user.State = 2;
+                user.Status = 9;
             }
-            else if (e.CommandName == "Edit")
-            {
-                this.wndNew.Title = "编辑员工";
-                this.wndNew.IFrameUrl = "NewUser.aspx?Type=Edit&ID=" + userID;
-                this.wndNew.Hidden = false;
-                return;
-            }
-            userManage.UpdateUser(user);
+
+            userManage.UpdateProcess(user);
 
             BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
         }
@@ -248,17 +241,17 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            UserInfo _userInfo = (UserInfo)e.DataItem;
+            //UserInfo _userInfo = (UserInfo)e.DataItem;
 
-            if (_userInfo.State == 0)
-            {
-                e.Values[9] = "<span class=\"gray\">权限</span>";
-                e.Values[10] = "<span class=\"gray\">离职</span>";
-            }
+            //if (_userInfo.State == 0)
+            //{
+            //    e.Values[9] = "<span class=\"gray\">权限</span>";
+            //    e.Values[10] = "<span class=\"gray\">离职</span>";
+            //}
         }
 
         /// <summary>
-        /// 关闭新增员工页面. 
+        /// 关闭新增页面. 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -108,7 +108,16 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            saveInfo(3);
+            if (this.ddlstNext.SelectedValue.Equals(0))
+            {
+                //同意，继续审核
+                saveInfo(3);
+            }
+            else
+            {
+                //待会计审核/支付确认
+                saveInfo(4);
+            }
         }
         #endregion
 

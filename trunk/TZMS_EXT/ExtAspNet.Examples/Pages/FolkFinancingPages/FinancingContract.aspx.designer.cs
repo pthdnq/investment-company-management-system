@@ -67,15 +67,6 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.ToolbarSeparator ToolbarSeparator2;
         
         /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Button btnSave;
-        
-        /// <summary>
         /// mainFrame control.
         /// </summary>
         /// <remarks>
@@ -85,57 +76,93 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
-        /// DatePicker1 control.
+        /// ttbSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker DatePicker1;
+        protected global::ExtAspNet.TwinTriggerBox ttbSearch;
         
         /// <summary>
-        /// DatePicker2 control.
+        /// ddlstDept control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker DatePicker2;
+        protected global::ExtAspNet.DropDownList ddlstDept;
         
         /// <summary>
-        /// TextBox5 control.
+        /// ddlstState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox5;
+        protected global::ExtAspNet.DropDownList ddlstState;
         
         /// <summary>
-        /// TextBox6 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox6;
+        protected global::ExtAspNet.Label Label1;
         
         /// <summary>
-        /// TextBox7 control.
+        /// pelGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox7;
+        protected global::ExtAspNet.Panel pelGrid;
         
         /// <summary>
-        /// TextBox8 control.
+        /// toolUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox8;
+        protected global::ExtAspNet.Toolbar toolUser;
+        
+        /// <summary>
+        /// btnNew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Button btnNew;
+        
+        /// <summary>
+        /// btnDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Button btnDelete;
+        
+        /// <summary>
+        /// gridData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Grid gridData;
+        
+        /// <summary>
+        /// wndNew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Window wndNew;
     }
 }

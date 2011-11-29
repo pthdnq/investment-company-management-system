@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PaymentAuditList.aspx.cs" Inherits="TZMS.Web.Pages.FolkFinancingPages.PaymentAuditList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PaymentAuditList.aspx.cs"
+    Inherits="TZMS.Web.Pages.FolkFinancingPages.PaymentAuditList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>支付审核列表</title>
@@ -24,7 +24,7 @@
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
                             <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                          <ext:ListItem Text="待审核" Value="1" Selected="true" />
+                                <ext:ListItem Text="待审核" Value="1" Selected="true" />
                                 <ext:ListItem Text="审核中" Value="0" />
                             </ext:DropDownList>
                             <ext:Label ID="Label1" runat="server" />
@@ -49,22 +49,28 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="100px" DataField="JobNo" HeaderText="借款人" />
-                            <ext:BoundField Width="100px" DataField="AccountNo" HeaderText="出款人" />
-                            <ext:BoundField Width="80px" DataField="Dept" HeaderText="担保人" />
-                            <ext:BoundField Width="105px" DataField="PhoneNumber" HeaderText="借款金额" />
-                            <ext:BoundField Width="105px" DataField="BackIpPhoneNumber" HeaderText="借款日期" />
-                            <ext:BoundField Width="110px" DataField="Name" HeaderText="应付款日" />
-                            <ext:BoundField Width="110px" DataField="Name" HeaderText="联系电话" />
-                            <ext:TemplateField Width="38px" HeaderText="状态">
+                            <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                            <%--     <ext:BoundField Width="100px" DataField="JobNo" HeaderText="借款人" />
+                            <ext:BoundField Width="100px" DataField="AccountNo" HeaderText="出款人" />--%>
+                            <ext:BoundField Width="120px" DataField="PaymentAccount" HeaderText="付款帐号" />
+                            <ext:BoundField Width="120px" DataField="ReceivablesAccount" HeaderText="收款帐号" />
+                            <ext:BoundField Width="105px" DataField="AmountOfPayment" HeaderText="支付金额" />
+                            <ext:BoundField Width="105px" DataField="DateForPay" DataFormatString="{0:yyyy/MM/dd }"
+                                HeaderText="支付日期" />
+                            <ext:BoundField Width="110px" DataField="DueDateForPay" DataFormatString="{0:yyyy/MM/dd }"
+                                HeaderText="应付款日" />
+                            <ext:BoundField Width="110px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
+                                HeaderText="提交时间" />
+                            <ext:BoundField Width="80px" DataField="CreaterName" HeaderText="创建人" />
+                            <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
+                                    <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "待确认" : "未确认" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentAudit.aspx?Type=Edit&ID={0}"
-                                Title="审核"  WindowID="wndNew"/>
-                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
+                            <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="PaymentAudit.aspx?Type=Edit&ID={0}"
+                                Title="审核" WindowID="wndNew" />
+                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
+                                CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>
