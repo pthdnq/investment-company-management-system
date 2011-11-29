@@ -67,6 +67,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@Isdelete",DbType.Boolean),
 				new SqlParameter("@Type",DbType.Int16),
+                new SqlParameter("@SignDate",DbType.DateTime),
 				};
 
                 int i = 0;
@@ -83,6 +84,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = YeWuInfo.State;
                 sqlparam[i++].Value = YeWuInfo.Isdelete;
                 sqlparam[i++].Value = YeWuInfo.Type;
+                sqlparam[i++].Value = YeWuInfo.SignDate;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -150,6 +152,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@Isdelete",DbType.Boolean),
 				new SqlParameter("@Type",DbType.Int16),
+                 new SqlParameter("@SignDate",DbType.DateTime),
                 };
 
                 int i = 0;
@@ -166,6 +169,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = YeWuInfo.State;
                 sqlparam[i++].Value = YeWuInfo.Isdelete;
                 sqlparam[i++].Value = YeWuInfo.Type;
+                sqlparam[i++].Value = YeWuInfo.SignDate;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -301,6 +305,10 @@ namespace com.TZMS.DataAccess
             if (YeWuInfoInfoDataRow["Type"] != null)
             {
                 YeWuInfoInfo.Type = short.Parse(DataUtil.GetStringValueOfRow(YeWuInfoInfoDataRow, "Type"));
+            }
+            if (YeWuInfoInfoDataRow["SignDate"] != null)
+            {
+                YeWuInfoInfo.SignDate = DateTime.Parse(DataUtil.GetStringValueOfRow(YeWuInfoInfoDataRow, "SignDate"));
             }
 
             return YeWuInfoInfo;
