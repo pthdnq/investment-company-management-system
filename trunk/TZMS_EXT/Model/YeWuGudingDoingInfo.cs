@@ -37,7 +37,7 @@ namespace com.TZMS.Model
         private Guid _checkerId;
         private string _checkerName= DBEmptyString;
         private string _checkrDept= DBEmptyString;
-        private DateTime _checkDateTime;
+        private DateTime _checkDateTime = DBEmptyDate;
         private short _checkstate =DBEmptyShort;
         private string _result= DBEmptyString;
         private string _checkSugest= DBEmptyString;
