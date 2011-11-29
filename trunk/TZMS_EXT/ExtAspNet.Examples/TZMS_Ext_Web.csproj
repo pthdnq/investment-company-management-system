@@ -518,6 +518,7 @@
     <Content Include="Pages\FolkFinancingPages\FinancingApplyList.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingContract.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingContractList.aspx" />
+    <Content Include="Pages\FolkFinancingPages\FinancingContractPayAdd.aspx" />
     <Content Include="Pages\FolkFinancingPages\LeaderAudit.aspx" />
     <Content Include="Pages\FolkFinancingPages\LeaderAuditList.aspx" />
     <Content Include="Pages\FolkFinancingPages\LeaderAuditResult.aspx" />
@@ -969,6 +970,13 @@
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\FinancingContractList.aspx.designer.cs">
       <DependentUpon>FinancingContractList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\FinancingContractPayAdd.aspx.cs">
+      <DependentUpon>FinancingContractPayAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\FinancingContractPayAdd.aspx.designer.cs">
+      <DependentUpon>FinancingContractPayAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\LeaderAudit.aspx.cs">
       <DependentUpon>LeaderAudit.aspx</DependentUpon>
