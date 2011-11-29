@@ -79,9 +79,9 @@
                             <ext:BoundField DataField="Year" HeaderText="年" />
                             <ext:BoundField DataField="Month" HeaderText="月" />
                             <ext:BoundField DataField="CreateTime" HeaderText="申请时间" />
-                            <ext:BoundField DataField="state" HeaderText="申请状态" />
-                            <ext:BoundField DataField="CurrentCheckerID" HeaderText="当前执行人" ExpandUnusedSpace="true" />
-                            <ext:LinkButtonField Width="38px" Text="申请" CommandName="View" />
+                            <ext:BoundField DataField="State" HeaderText="申请状态" />
+                            <ext:BoundField DataField="CurrentCheckerId" HeaderText="当前执行人" ExpandUnusedSpace="true" />
+                            <ext:LinkButtonField Width="38px" Text="申请" CommandName="Apply" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                         </Columns>
                     </ext:Grid>
@@ -91,7 +91,7 @@
     </ext:Panel>
     <ext:Window ID="wndApply" Title="" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
-        Width="700px" OnClose="wndApply_Close">
+        Width="900px" OnClose="wndApply_Close">
     </ext:Window>
     </form>
 </body>

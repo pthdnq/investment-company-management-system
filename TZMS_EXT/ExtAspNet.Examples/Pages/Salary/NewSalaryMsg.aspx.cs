@@ -72,7 +72,7 @@ namespace TZMS.Web
             _salaryMsgInfo.ObjectId = Guid.NewGuid();
             _salaryMsgInfo.Year = Convert.ToInt32(ddlstYear.SelectedValue);
             _salaryMsgInfo.Month = Convert.ToInt16(ddlstMonth.SelectedValue);
-            _salaryMsgInfo.CreateTime = DateTime.Now;
+            _salaryMsgInfo.CreateTime = ACommonInfo.DBMAXDate;
             _salaryMsgInfo.CreaterId = CurrentUser.ObjectId;
             _salaryMsgInfo.Name = CurrentUser.Name;
             _salaryMsgInfo.State = -1;
