@@ -55,10 +55,10 @@
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="贷款金额" />
                             <ext:BoundField Width="105px" DataField="LoanFee" HeaderText="贷款手续费" />
                             <ext:BoundField Width="105px" DataField="CollateralCompany"  HeaderText="抵押物公司" />
-                            <ext:BoundField Width="110px" DataField="SignDate" HeaderText="签订日期" />
+                            <ext:BoundField Width="100px" DataField="SignDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="签订日期" />
                             <ext:BoundField Width="110px" DataField="DownPayment" HeaderText="预付订金" />
                             <ext:BoundField Width="110px" DataField="Contact" HeaderText="联系方式" />
-                            <ext:TemplateField Width="38px" HeaderText="状态">
+                            <ext:TemplateField Width="76px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem, "Status").ToString() == "1") ? "待确认" : "已确认"%>
                                 </ItemTemplate>
@@ -72,12 +72,9 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
-        IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
-        Height="370px" Width="400px">
-    </ext:Window>
+    
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="425px" Width="590px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" runat="server" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true" Height="317px" Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true" Height="367px" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -30,8 +30,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox Enabled="false"   ID="tbImplementationPhase" Label="实施阶段" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                RegexMessage="不能输入特殊字符!" />
+                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
@@ -56,20 +55,17 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="taRemark"  Enabled="false" Label="备注" runat="server" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                RegexMessage="不能输入特殊字符!" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                            <ext:TextArea ID="taRemark"  Enabled="false" Label="备注" runat="server"   MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="taAuditOpinion"   Enabled="false" Label="审批说明" runat="server" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                RegexMessage="不能输入特殊字符!" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                            <ext:TextArea ID="taAuditOpinion"   Enabled="false" Label="审批说明" runat="server"  MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                         <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="taAccountingRemark" Label="支付备注" runat="server" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                RegexMessage="不能输入特殊字符!" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                            <ext:TextArea ID="taAccountingRemark" Label="支付备注" runat="server"   MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                 </Rows>

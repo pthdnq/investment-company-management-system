@@ -90,7 +90,6 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             //补充申请人及下一步审核人信息
             _Info.SubmitTime = DateTime.Now;
             _Info.CreateTime = DateTime.Now;
-
             _Info.CreaterId = this.CurrentUser.ObjectId;
             _Info.CreaterName = this.CurrentUser.Name;
             _Info.CreaterAccount = this.CurrentUser.AccountNo;

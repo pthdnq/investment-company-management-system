@@ -138,9 +138,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             }
             //未删除
             strCondtion.Append(" status<>9 ");
-
+            strCondtion.Append(" AND NextOperaterId = '" + this.CurrentUser.ObjectId + "' "); 
             #endregion
-
+         
+             
             //获得员工
             List<com.TZMS.Model.ProjectProcessInfo> lstUserInfo = new InvestmentProjectManage().GetProcessByCondtion(strCondtion.ToString());
     

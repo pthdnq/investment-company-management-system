@@ -76,6 +76,15 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.Button btnSave;
         
         /// <summary>
+        /// HighMoneyTips control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label HighMoneyTips;
+        
+        /// <summary>
         /// mainFrame control.
         /// </summary>
         /// <remarks>
@@ -85,67 +94,67 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
-        /// tbxName control.
+        /// FormRow2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxName;
+        protected global::ExtAspNet.FormRow FormRow2;
         
         /// <summary>
-        /// TextBox2 control.
+        /// ddlstNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox2;
+        protected global::ExtAspNet.DropDownList ddlstNext;
         
         /// <summary>
-        /// TextBox3 control.
+        /// ddlstApproveUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox3;
+        protected global::ExtAspNet.DropDownList ddlstApproveUser;
         
         /// <summary>
-        /// TextBox4 control.
+        /// taImplementationPhase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox4;
+        protected global::ExtAspNet.TextArea taImplementationPhase;
         
         /// <summary>
-        /// TextBox1 control.
+        /// tbAmountExpended control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox1;
+        protected global::ExtAspNet.TextBox tbAmountExpended;
         
         /// <summary>
-        /// dpkEntryDate control.
+        /// dpExpendedTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkEntryDate;
+        protected global::ExtAspNet.DatePicker dpExpendedTime;
         
         /// <summary>
-        /// tbxJobNo control.
+        /// tbImprestAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxJobNo;
+        protected global::ExtAspNet.TextBox tbImprestAmount;
         
         /// <summary>
         /// taRemark control.

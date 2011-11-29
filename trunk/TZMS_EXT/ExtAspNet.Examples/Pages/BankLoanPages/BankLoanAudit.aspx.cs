@@ -72,11 +72,11 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
                 BindNext(false);
-                HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。";
+             //   HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。";
             }
             else
             {
-                BindNext(true);
+                BindNext(false);
             } 
 
             this.tbCollateralCompany.Text = _Info.CollateralCompany;

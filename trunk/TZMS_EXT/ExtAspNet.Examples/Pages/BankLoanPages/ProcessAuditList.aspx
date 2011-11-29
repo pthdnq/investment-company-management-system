@@ -50,33 +50,29 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="110px" DataField="GuaranteeCompany" HeaderText="贷款公司" />
-                            <ext:BoundField Width="70px" DataField="ImplementationPhase" HeaderText="实施阶段" />
+                            <ext:BoundField Width="130px" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="120px" DataField="GuaranteeCompany" HeaderText="贷款公司" />
+                            <ext:BoundField Width="100px" DataField="ImplementationPhase" HeaderText="实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
-                            <ext:BoundField Width="80px" DataField="ExpendedTime" HeaderText="支用时间" />
-                            <ext:BoundField Width="130px" DataField="ImprestAmount" HeaderText="备用金额" />
-                            <ext:TemplateField Width="70px" HeaderText="状态">
+                            <ext:BoundField Width="80px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd}" HeaderText="支用时间" />
+                            <ext:BoundField Width="80px" DataField="ImprestAmount" HeaderText="备用金额" />
+                            <ext:TemplateField Width="72px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem, "Status").ToString() == "1") ? "待确认" : "已确认"%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="114px" Text="审核" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="ProcessAudit.aspx?ID={0}"
                                 Title="审核" WindowID="wndNew" />
-                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该记录?"
-                                CommandName="Delete" />
+            
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
-        IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
-        Height="370px" Width="400px">
-    </ext:Window>
+   
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="442px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

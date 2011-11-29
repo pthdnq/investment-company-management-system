@@ -41,6 +41,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             {
                 string strID = Request.QueryString["ID"];
                 bindInterface(strID);
+                // 绑定审批人.
+                ApproveUser();
             }
         }
 
@@ -63,6 +65,24 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             ObjectID = strID;
 
             InvestmentProjectInfo _Info = new InvestmentProjectManage().GetUserByObjectID(strID);
+
+            #region 下一步方式
+            if (CurrentRoles.Contains(RoleType.DSZ))
+            {
+                BindNext(true);
+            }
+            else if (CurrentRoles.Contains(RoleType.ZJL))
+            {      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
+                if (_Info.ContractAmount > 3000000)
+                { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
+                else
+                { BindNext(true); }
+            }
+            else
+            {
+                BindNext(false);
+            }
+            #endregion  
 
             this.tbProjectName.Text = _Info.ProjectName;
             this.tbProjectOverview.Text = _Info.ProjectOverview;
@@ -127,6 +147,31 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         }
 
 
+        /// <summary>
+        /// 绑定下一步
+        /// </summary>
+        private void BindNext(bool needAccountant)
+        {
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
+            if (needAccountant)
+            {
+                ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+            }
+            ddlstNext.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// 绑定审批人
+        /// </summary>
+        private void ApproveUser()
+        {
+            foreach (UserInfo user in CurrentChecker)
+            {
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+            }
+
+            ddlstApproveUser.SelectedIndex = 0;
+        }
         #endregion
     }
 }

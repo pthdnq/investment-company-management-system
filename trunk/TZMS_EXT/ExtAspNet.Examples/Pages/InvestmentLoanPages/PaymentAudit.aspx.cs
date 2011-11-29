@@ -64,18 +64,24 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 return;
             }
             InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
-            //UserInfo user = new UserManage().GetUserByObjectID(_Info.NextOperaterId.ToString());
-            if (_Info.LoanAmount > 3000000 && !CurrentRoles.Contains(RoleType.DSZ))
-            {
-                //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
-                BindNext(false);
-                HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。";
+
+            #region 下一步方式
+            if (CurrentRoles.Contains(RoleType.DSZ))
+            { 
+                BindNext(true); 
+            }
+            else if (CurrentRoles.Contains(RoleType.ZJL))
+            {      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
+                if (_Info.LoanAmount > 3000000)
+                { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
+                else 
+                { BindNext(true); }
             }
             else
             {
-                BindNext(true); 
+                BindNext(false);
             }
-
+            #endregion  
 
             this.tbProjectName.Text = _Info.ProjectName;
             this.tbProjectOverview.Text = _Info.ProjectOverview;
@@ -86,7 +92,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbGuarantorPhone.Text = _Info.GuarantorPhone;
             this.tbCollateral.Text = _Info.Collateral;
             this.dpDueDateForPay.SelectedDate = _Info.DueDateForPay;
-            this.dpLoanDate.SelectedDate = _Info.LoanDate; 
+            this.dpLoanDate.SelectedDate = _Info.LoanDate;
 
             this.tbRemark.Text = _Info.Remark;
 

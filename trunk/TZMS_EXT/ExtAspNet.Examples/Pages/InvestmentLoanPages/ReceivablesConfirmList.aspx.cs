@@ -138,9 +138,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             //未删除
             strCondtion.Append(" status<>9 ");
-
+           // strCondtion.Append(" AND NextOperaterId = " + this.CurrentUser.ObjectId + " "); 
             #endregion
-
+            ReceivablesInfo info = new ReceivablesInfo();
+           
             List<com.TZMS.Model.ReceivablesInfo> lstUserInfo = new InvestmentLoanManage().GetReceivablesByCondtion(strCondtion.ToString());
       
             this.gridData.RecordCount = lstUserInfo.Count;
