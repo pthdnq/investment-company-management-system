@@ -104,6 +104,7 @@ namespace TZMS.Web
             yewu.Sument = this.taaSument.Text.Trim();
             yewu.Title = this.tbxTitle.Text.Trim();
             yewu.Other = this.taaOther.Text.Trim();
+            yewu.SignDate = DateTime.Parse(dpkSign.Text.Trim());
             //流程单
             yewuCheck.CheckerId = checker.ObjectId;
             yewuCheck.CheckerName = checker.Name;
