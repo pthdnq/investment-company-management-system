@@ -139,7 +139,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             }
             //未删除
             strCondtion.Append(" state<>2 ");
-
+         //   strCondtion.Append(" AND NextOperaterId = '" + this.CurrentUser.ObjectId + "' "); 
             #endregion
 
             //获得员工

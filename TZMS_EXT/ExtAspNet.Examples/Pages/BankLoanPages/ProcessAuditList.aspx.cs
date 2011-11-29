@@ -139,9 +139,9 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
             //未删除
             strCondtion.Append(" status<>9 ");
-
+           strCondtion.Append(" AND NextOperaterId = '" + this.CurrentUser.ObjectId + "' "); 
             #endregion
-
+          
             //获得员工
             List<com.TZMS.Model.BankLoanProjectProcessInfo> lstInfo = new BankLoanManage().GetProcessByCondtion(strCondtion.ToString());
             this.gridData.RecordCount = lstInfo.Count;

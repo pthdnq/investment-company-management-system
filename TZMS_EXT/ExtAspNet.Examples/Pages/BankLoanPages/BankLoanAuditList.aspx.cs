@@ -10,8 +10,8 @@ using ExtAspNet;
 namespace TZMS.Web.Pages.BankLoanPages
 {
     /// <summary>
-        /// 申请审核列表
-        /// </summary>
+    /// 申请审核列表
+    /// </summary>
     public partial class BankLoanAuditList : BasePage
     {
         #region viewstate
@@ -138,7 +138,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
             //未删除
             strCondtion.Append(" status<>9 ");
-
+            strCondtion.Append(" AND NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
             #endregion
 
             //获得员工

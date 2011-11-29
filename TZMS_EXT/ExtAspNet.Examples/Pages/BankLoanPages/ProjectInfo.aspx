@@ -58,14 +58,14 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%" RowHeight="100%" Height="346">
                         <Columns>
                             <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="70px" DataField="ImplementationPhase" HeaderText="实施阶段" />
+                            <ext:BoundField Width="100px" DataField="ImplementationPhase" HeaderText="实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
                             <ext:BoundField Width="80px" DataField="ExpendedTime" HeaderText="支用时间" />
-                            <ext:BoundField Width="130px" DataField="ImprestAmount" HeaderText="备用金额" />
+                            <ext:BoundField Width="80px" DataField="ImprestAmount" HeaderText="备用余额" />
                             <ext:BoundField Width="145px" DataField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "未确认" : "已确认" %>
+                                    <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "未确认" : "已确认" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <%--     <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ImprestPayConfirm.aspx?Type=Edit&ID={0}"

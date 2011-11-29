@@ -64,19 +64,16 @@
                             </ext:TemplateField>
                             <ext:WindowField Width="76px" Text="支付确认" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="FeePayConfirm.aspx?ID={0}"
                                 Title="支付确认" WindowID="wndNew" />
-                            <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
+                 <%--           <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />--%>
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
-        IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
-        Height="370px" Width="400px">
-    </ext:Window>
+ 
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="434px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

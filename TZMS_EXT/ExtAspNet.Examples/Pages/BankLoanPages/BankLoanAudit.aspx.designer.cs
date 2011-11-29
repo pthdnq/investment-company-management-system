@@ -121,6 +121,15 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.DropDownList ddlstApproveUser;
         
         /// <summary>
+        /// taAuditOpinion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea taAuditOpinion;
+        
+        /// <summary>
         /// tbCustomerName control.
         /// </summary>
         /// <remarks>
@@ -200,14 +209,5 @@ namespace TZMS.Web.Pages.BankLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextArea tbRemark;
-        
-        /// <summary>
-        /// taAuditOpinion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextArea taAuditOpinion;
     }
 }

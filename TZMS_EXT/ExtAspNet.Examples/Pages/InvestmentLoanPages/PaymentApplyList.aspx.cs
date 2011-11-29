@@ -137,8 +137,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 strCondtion.Append(" (ProjectName like '%" + searchText + "%' or BorrowerNameA like '%" + searchText + "%') and ");
             }
             //未删除
-            strCondtion.Append(" Status<>9 ");
-
+            strCondtion.Append(" Status<>9 ");            
+            strCondtion.Append(" AND CreaterID = '" + this.CurrentUser.ObjectId + "' "); 
             #endregion
 
             //获得员工

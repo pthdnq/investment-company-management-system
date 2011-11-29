@@ -14,7 +14,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         #region 属性
 
         /// <summary>
-        ///  ID
+        ///  ForID
         /// </summary>
         public string ForID
         {
@@ -46,7 +46,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 string strID = Request.QueryString["ID"];
 
                 ForID = strID;
-
+                // 绑定下一步.
+                BindNext();
+                // 绑定审批人.
+                ApproveUser();
            
             }
         }
@@ -137,6 +140,28 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
         }
 
+        /// <summary>
+        /// 绑定下一步
+        /// </summary>
+        private void BindNext()
+        {
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
+            //   ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+            ddlstNext.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// 绑定审批人
+        /// </summary>
+        private void ApproveUser()
+        {
+            foreach (UserInfo user in CurrentChecker)
+            {
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+            }
+
+            ddlstApproveUser.SelectedIndex = 0;
+        }
         #endregion
     }
 }

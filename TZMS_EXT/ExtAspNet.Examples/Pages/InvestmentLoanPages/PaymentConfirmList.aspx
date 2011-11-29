@@ -49,8 +49,8 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                               <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField DataField="ObjetctID" HeaderText="ID" Hidden="true" />
+                      
                             <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
                             <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
@@ -64,7 +64,7 @@
                                     <%# (DataBinder.Eval(Container.DataItem, "Status").ToString() == "1") ? "审核中" : "审核中"%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentConfirm.aspx?ID={0}"
+                            <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjetctID" DataIFrameUrlFormatString="PaymentConfirm.aspx?ID={0}"
                                 Title="确认" WindowID="wndNew" />
                       <%--      <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />--%>
                         </Columns>

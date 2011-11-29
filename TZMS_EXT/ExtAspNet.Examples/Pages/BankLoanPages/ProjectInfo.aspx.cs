@@ -138,7 +138,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
             //未删除
             strCondtion.Append(" Status<>9 ");
-
+          //  strCondtion.Append(" AND CreaterID = '" + this.CurrentUser.ObjectId + "' "); 
             #endregion
 
             List<com.TZMS.Model.BankLoanProjectProcessInfo> lstUserInfo = new BankLoanManage().GetProcessByCondtion(strCondtion.ToString());

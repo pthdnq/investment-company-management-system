@@ -50,13 +50,13 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="100px" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="100px" DataField="ImplementationPhase" HeaderText="实施阶段" />
+                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="130px" DataField="ImplementationPhase" HeaderText="实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
                             <ext:BoundField Width="110px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd hh:mm}"
                                 HeaderText="支用时间" />
                             <ext:BoundField Width="90px" DataField="ImprestAmount" HeaderText="备用金额" />
-                            <ext:BoundField Width="115px" DataField="Remark" HeaderText="备注" />
+                            <ext:BoundField Width="135px" DataField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "未确认" : "已确认" %>
@@ -77,7 +77,7 @@
         Height="370px" Width="400px">
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="399px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

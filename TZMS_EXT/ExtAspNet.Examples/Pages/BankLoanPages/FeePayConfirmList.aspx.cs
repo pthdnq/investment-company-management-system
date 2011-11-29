@@ -138,8 +138,8 @@ namespace TZMS.Web.Pages.BankLoanPages
                 strCondtion.Append(" (ProjectName like '%" + searchText + "%' or CustomerName like '%" + searchText + "%') and ");
             }
             //未删除
-            strCondtion.Append(" status<>9 ");
-
+            strCondtion.Append(" Status<>9 ");
+        //    strCondtion.Append(" AND NextOperaterId = '" + this.CurrentUser.ObjectId + "' "); 
             #endregion
 
             //获得员工

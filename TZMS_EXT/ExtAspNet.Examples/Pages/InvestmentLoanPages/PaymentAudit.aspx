@@ -20,7 +20,8 @@
                         IconUrl="~/Images/ico_nextstep.gif" Text="通过" />
                     <ext:Button ID="btnDismissed" runat="server" ValidateForms="mainFrame" OnClick="btnDismissed_Click"
                         IconUrl="~/Images/ico_firststep.gif" Text="不通过" />
-                        <ext:Label runat="server" ID="HighMoneyTips"></ext:Label>
+                    <ext:Label runat="server" ID="HighMoneyTips"/>
+                  
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -36,6 +37,12 @@
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
                                 RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
                             </ext:DropDownList>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="50% 50%">
+                        <Items>
+                            <ext:TextArea ID="taAuditOpinion" Label="审核意见" ShowRedStar="true" Required="true"
+                                runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
@@ -118,13 +125,6 @@
                         <Items>
                             <ext:TextArea ID="tbRemark" Enabled="false" Label="备注" runat="server" MaxLength="200"
                                 MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!" />
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:TextArea ID="taAuditOpinion" Label="审核意见" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                RegexMessage="不能输入特殊字符!" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
