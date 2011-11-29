@@ -127,18 +127,18 @@ namespace TZMS.Web.Pages.BankLoanPages
             StringBuilder strCondtion = new StringBuilder();
             if (!string.IsNullOrEmpty(dept) && dept != "全部")
             {
-                strCondtion.Append(" dept='" + dept + "' and ");
+                strCondtion.Append(" dept='" + dept + "' AND ");
             }
             if (!string.IsNullOrEmpty(state))
             {
-                strCondtion.Append(" Status" + (state == "待审核" ? " = 1 " : " <> 1 ") + " and ");
+                strCondtion.Append(" Status" + (state == "已确认" ? " = 5 " : " <> 5 ") + " AND ");
             }
             if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append(" (ProjectName like '%" + searchText + "%' or CustomerName like '%" + searchText + "%') and ");
+                strCondtion.Append(" (ProjectName like '%" + searchText + "%' OR CustomerName like '%" + searchText + "%') AND ");
             }
             //未删除
-            strCondtion.Append(" status<>9 ");
+            strCondtion.Append(" Status<>9 AND Status <> 1 ");
 
             #endregion
 

@@ -19,7 +19,7 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        Icon="Disk" Text="保存" />
+                        Icon="Disk" Text="支付确认" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -82,13 +82,12 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="taAuditOpinion" Enabled="false" Label="审核意见" ShowRedStar="true"
-                                Required="true" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                            <ext:TextArea ID="taAuditOpinion" Enabled="false" Label="审核意见"  runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="taFeeConfirm" Label="支付确认备注" ShowRedStar="true" Required="true"
+                            <ext:TextArea ID="taFeeConfirm" Label="支付备注" ShowRedStar="true" Required="true"
                                 runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字母或数字！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!" />
                         </Items>

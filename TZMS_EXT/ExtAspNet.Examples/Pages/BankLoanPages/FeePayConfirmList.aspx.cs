@@ -139,7 +139,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
             //未删除
             strCondtion.Append(" Status<>9 ");
-        //    strCondtion.Append(" AND NextOperaterId = '" + this.CurrentUser.ObjectId + "' "); 
+           strCondtion.Append(" AND NextOperaterId = '" + this.CurrentUser.ObjectId + "' "); 
             #endregion
 
             //获得员工

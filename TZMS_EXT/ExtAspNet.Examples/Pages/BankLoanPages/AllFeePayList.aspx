@@ -24,8 +24,8 @@
                             <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
                                 OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
                             <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                                <ext:ListItem Text="在职" Value="1" Selected="true" />
-                                <ext:ListItem Text="离职" Value="0" />
+                                <ext:ListItem Text="待确认" Value="1"/>
+                                <ext:ListItem Text="已确认" Value="0"  Selected="true" />
                             </ext:DropDownList>
                             <ext:Label ID="Label1" runat="server" />
                         </Items>
@@ -51,10 +51,10 @@
                         <Columns>
                                 <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="110px" DataField="GuaranteeCompany" HeaderText="贷款公司" />
+                       <%--     <ext:BoundField Width="110px" DataField="GuaranteeCompany" HeaderText="贷款公司" />--%>
                          <ext:BoundField Width="70px" DataField="ImplementationPhase" HeaderText="实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
-                            <ext:BoundField Width="80px" DataField="ExpendedTime" HeaderText="支用时间" />
+                            <ext:BoundField Width="80px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd}" HeaderText="支用时间" />
                             <ext:BoundField Width="130px" DataField="ImprestAmount" HeaderText="备用金额" />
                       
                             <ext:TemplateField Width="70px" HeaderText="状态">
@@ -64,7 +64,7 @@
                             </ext:TemplateField>
                             <ext:WindowField  Hidden="true"  Width="76px" Text="支付确认" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="FeePayInfo.aspx?Type=Edit&ID={0}"
                                 Title="支付确认" WindowID="wndNew" />
-                            <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
+                        
                         </Columns>
                     </ext:Grid>
                 </Items>
