@@ -593,6 +593,7 @@
     <Content Include="Pages\WuZhiPages\WuZhiRecordList.aspx" />
     <Content Include="Pages\Yewu\CommonYewu.aspx" />
     <Content Include="Pages\Yewu\DingzhiYewu.aspx" />
+    <Content Include="Pages\Yewu\NewCommonYeWu.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1493,6 +1494,13 @@
     </Compile>
     <Compile Include="Pages\Yewu\DingzhiYewu.aspx.designer.cs">
       <DependentUpon>DingzhiYewu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Yewu\NewCommonYeWu.aspx.cs">
+      <DependentUpon>NewCommonYeWu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\NewCommonYeWu.aspx.designer.cs">
+      <DependentUpon>NewCommonYeWu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="config\ajax.aspx.cs">
