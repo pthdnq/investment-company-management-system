@@ -92,6 +92,7 @@ namespace com.TZMS.Business
             // todo
             orderExpression = "";
             pageIndex = 0;
+            selectList = "*";
         }
 
         /// <summary>
