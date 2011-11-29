@@ -4,6 +4,7 @@ using System.Text;
 
 namespace com.TZMS.Model
 {
+    [Serializable]
     public class ACommonInfo
     {
         /// <summary>

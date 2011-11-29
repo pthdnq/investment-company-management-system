@@ -46,9 +46,20 @@ namespace com.TZMS.Model
         private short _state = DBEmptyShort;
         private bool _isdelete;
         private short _type = DBEmptyShort;
+        private DateTime _signDate = DBEmptyDate;
         #endregion
 
         #region Property
+
+        /// <summary>
+        /// SignDate
+        /// </summary>
+        public DateTime SignDate
+        {
+            get { return _signDate; }
+            set { _signDate = value; }
+        }
+
         /// <summary>
         /// ObjectID 
         /// </summary> 
