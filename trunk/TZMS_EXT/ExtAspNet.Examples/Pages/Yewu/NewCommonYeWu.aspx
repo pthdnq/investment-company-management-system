@@ -56,7 +56,6 @@
                                                     </ext:DropDownList>
                                                     <ext:DatePicker ID="dpkSign" Label="签单时间" runat="server">
                                                     </ext:DatePicker>
-                                                   
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow7" runat="server" ColumnWidths="60%">
