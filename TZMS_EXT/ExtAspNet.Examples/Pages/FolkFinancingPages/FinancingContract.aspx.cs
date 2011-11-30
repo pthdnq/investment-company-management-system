@@ -121,14 +121,14 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             //this.ddlstDept.SelectedIndex = 0;
 
             //ForID = ddlstDept.SelectedText;
-            //ViewStateState = ddlstState.SelectedText;
+            // ViewStateState = ddlstState.SelectedValue;
             //ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
         /// <summary>
         /// 绑定列表
         /// </summary>
-        private void BindGridData(string dept, string state, string searchText)
+        private void BindGridData(string dept,string state, string searchText)
         {
             searchText = string.Empty;
             dept = ForID;
