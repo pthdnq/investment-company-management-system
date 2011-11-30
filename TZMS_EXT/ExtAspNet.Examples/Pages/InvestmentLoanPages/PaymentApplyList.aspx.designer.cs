@@ -85,13 +85,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.Button btnSearch;
         
         /// <summary>
-        /// Label1 control.
+        /// Labeltmp1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label Label1;
+        protected global::ExtAspNet.Label Labeltmp1;
         
         /// <summary>
         /// dpkStartTime control.
@@ -110,6 +110,24 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.DatePicker dpkEndTime;
+        
+        /// <summary>
+        /// Labeltmp2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Labeltmp2;
+        
+        /// <summary>
+        /// Labeltmp3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Labeltmp3;
         
         /// <summary>
         /// pelGrid control.

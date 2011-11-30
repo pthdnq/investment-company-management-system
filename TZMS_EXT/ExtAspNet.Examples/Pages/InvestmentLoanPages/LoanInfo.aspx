@@ -68,7 +68,7 @@
                             <ext:BoundField Width="145px" DataField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem, "Status").ToString() == "1") ? "已确认" : "待确认"%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Hidden="true" Width="38px" Text="确认" DataIFrameUrlFields="ObjectId"

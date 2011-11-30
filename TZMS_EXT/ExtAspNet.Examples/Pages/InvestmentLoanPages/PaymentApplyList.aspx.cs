@@ -71,7 +71,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
 
                 // 绑定下拉框.
-                //BindDDL();
+                BindDDL();
                 // 绑定列表.
                 BindGridData(ViewStateState, ViewStateSearchText);
             }
@@ -82,7 +82,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void BindDDL()
         {
-            ViewStateState = ddlstState.SelectedText;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
@@ -93,38 +93,72 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void BindGridData(string state, string searchText)
         {
-            #region 条件
-
+            #region 条件 
             StringBuilder strCondtion = new StringBuilder();
+            strCondtion.Append("  CreaterID = '" + this.CurrentUser.ObjectId + "' ");
+           // strCondtion.Append(" AND Status<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {
-                strCondtion.Append(" Status " + (state == "待审核" ? " = 1 " : " <> 1 ") + " and ");
+                //strCondtion.Append(" Status " + (state == "待审核" ? " = 1 " : " <> 1 ") + " AND ");
+                // 申请状态.
+                switch (state)
+                {
+                    case "0":
+                      //  strCondtion.Append(" AND Status = 1 ");
+                        break;
+                    case "1":
+                        strCondtion.Append(" AND Status = 1 ");
+                        break;
+                    case "2":
+                        strCondtion.Append(" AND Status = 2 ");
+                        break;
+                    case "3":
+                        strCondtion.Append(" AND (Status = 3 OR Status = 4) ");
+                        break;
+                    case "4":
+                        strCondtion.Append(" AND Status = 4 ");
+                        break;
+                    case "5":
+                        strCondtion.Append(" AND Status = 5 ");
+                        break;
+                    case "9":
+                        strCondtion.Append(" AND Status = 9 "); 
+                        break;
+                    default:
+                        break;
+                }
             }
             if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append(" (ProjectName like '%" + searchText + "%' or BorrowerNameA like '%" + searchText + "%') and ");
+                strCondtion.Append(" AND (ProjectName LIKE '%" + searchText + "%' )  ");
+            } 
+            //时间
+            DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate); 
+            if (DateTime.Compare(startTime, endTime) == 1)
+            {
+                Alert.Show("结束日期不可小于开始日期!");
+                return;
             }
-            //未删除
-            strCondtion.Append(" Status<>9 ");
-            strCondtion.Append(" AND CreaterID = '" + this.CurrentUser.ObjectId + "' ");
+            strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
+            strCondtion.Append(" ORDER BY CreateTime DESC");
             #endregion
-
-            //获得员工
-            List<InvestmentLoanInfo> lstUserInfo = new InvestmentLoanManage().GetUsersByCondtion(strCondtion.ToString());
-            this.gridData.RecordCount = lstUserInfo.Count;
+  
+            List<InvestmentLoanInfo> lstInfo = new InvestmentLoanManage().GetUsersByCondtion(strCondtion.ToString());
+            this.gridData.RecordCount = lstInfo.Count;
             this.gridData.PageSize = PageCounts;
             int currentIndex = this.gridData.PageIndex;
             //计算当前页面显示行数据
-            if (lstUserInfo.Count > this.gridData.PageSize)
+            if (lstInfo.Count > this.gridData.PageSize)
             {
-                if (lstUserInfo.Count > (currentIndex + 1) * this.gridData.PageSize)
+                if (lstInfo.Count > (currentIndex + 1) * this.gridData.PageSize)
                 {
-                    lstUserInfo.RemoveRange((currentIndex + 1) * this.gridData.PageSize, lstUserInfo.Count - (currentIndex + 1) * this.gridData.PageSize);
+                    lstInfo.RemoveRange((currentIndex + 1) * this.gridData.PageSize, lstInfo.Count - (currentIndex + 1) * this.gridData.PageSize);
                 }
-                lstUserInfo.RemoveRange(0, currentIndex * this.gridData.PageSize);
+                lstInfo.RemoveRange(0, currentIndex * this.gridData.PageSize);
             }
-            this.gridData.DataSource = lstUserInfo;
+            this.gridData.DataSource = lstInfo;
             this.gridData.DataBind();
         }
 
@@ -135,9 +169,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            //UserInfo _userInfo = (UserInfo)e.DataItem;
+            //InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
 
-            //if (_userInfo.State == 0)
+            //if (_Info.Status == 0)
             //{
             //    e.Values[9] = "<span class=\"gray\">权限</span>";
             //    e.Values[10] = "<span class=\"gray\">离职</span>";
@@ -153,9 +187,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
         {
-            ViewStateSearchText = this.ttbSearch.Text.Trim();
-
-            ViewStateState = this.ddlstState.SelectedText;
+            ViewStateSearchText = this.ttbSearch.Text.Trim(); 
+            ViewStateState = this.ddlstState.SelectedValue;
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
@@ -168,10 +201,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             this.gridData.PageIndex = e.NewPageIndex;
             BindGridData(ViewStateState, ViewStateSearchText);
-        }
-
-
-
+        } 
 
         /// <summary>
         /// 状态变动事件
@@ -180,7 +210,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void ddlstState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ViewStateState = this.ddlstState.SelectedText;
+            ViewStateState = this.ddlstState.SelectedValue;
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
@@ -224,6 +254,45 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
+        #endregion
+
+        #region 自定义方法
+        /// <summary>
+        /// 获取状态名字
+        /// </summary>
+        /// <param name="strStatus"></param>
+        /// <returns></returns>
+        protected string GetStatusName(string strStatus)
+        {
+            string StrStatusName = string.Empty;
+            switch (strStatus)
+            {
+                case "0":
+                    //  strCondtion.Append(" AND Status = 1 ");
+                    break;
+                case "1":
+                    StrStatusName = "待审核";
+                    break;
+                case "2":
+                    StrStatusName = "未通过";
+                    break;
+                case "3":
+                    StrStatusName = "审核中";
+                    break;
+                case "4":
+                    StrStatusName = "待确认";
+                    break;
+                case "5":
+                    StrStatusName = "已确认";
+                    break;
+                case "9":
+                    StrStatusName = "已删除";
+                    break;
+                default:
+                    break;
+            }
+            return StrStatusName;
+        }
         #endregion
     }
 }

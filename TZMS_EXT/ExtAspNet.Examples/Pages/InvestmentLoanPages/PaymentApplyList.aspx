@@ -23,22 +23,24 @@
                                 ID="ttbSearch" />
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
                                 <ext:ListItem Text="待审核" Value="1" Selected="true" />
-                                <ext:ListItem Text="审核中" Value="2" />
-                                <ext:ListItem Text="已确认" Value="2" />
+                                <ext:ListItem Text="审核中" Value="3" />
+                                <ext:ListItem Text="已通过" Value="4" />
+                                <ext:ListItem Text="未通过" Value="2" />
+                                <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
                             </ext:Button>
-                            <ext:Label ID="Label1" runat="server" />
+                            <ext:Label ID="Labeltmp1" runat="server" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow>
                         <Items>
                             <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
-                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="开始日期">
+                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
                             </ext:DatePicker>
-                            <ext:Label runat="server" />
-                            <ext:Label runat="server" />
+                            <ext:Label ID="Labeltmp2" runat="server" />
+                            <ext:Label ID="Labeltmp3" runat="server" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -66,11 +68,13 @@
                             <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
-                            <ext:BoundField Width="125px" DataField="LoanDate" HeaderText="借款日期" />
-                            <ext:BoundField DataField="SubmitTime" Width="125px" HeaderText="提交时间" />
+                            <ext:BoundField Width="125px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
+                                HeaderText="借款日期" />
+                            <ext:BoundField DataField="CreateTime" Width="125px" DataFormatString="{0:yyyy/MM/dd HH:mm}"
+                                HeaderText="创建时间" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "9") ? "已通过" : "审核中" %>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"

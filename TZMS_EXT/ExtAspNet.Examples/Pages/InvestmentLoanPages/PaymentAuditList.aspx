@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PaymentAuditList.aspx.cs" Inherits="TZMS.Web.Pages.InvestmentLoanPages.PaymentAuditList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PaymentAuditList.aspx.cs"
+    Inherits="TZMS.Web.Pages.InvestmentLoanPages.PaymentAuditList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,15 +19,29 @@
                 <Rows>
                     <ext:FormRow>
                         <Items>
-                            <ext:TwinTriggerBox runat="server" EmptyText="请输入项目名称查询" ShowLabel="false" ID="ttbSearch"
-                                Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click" />
-                            <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
-                                OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
-                            <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
+                            <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
+                                ID="ttbSearch" />
+                            <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
                                 <ext:ListItem Text="待审核" Value="1" Selected="true" />
-                                <ext:ListItem Text="审核中" Value="0" />
+                                <%--            <ext:ListItem Text="审核中" Value="3" />--%>
+                                <ext:ListItem Text="已审核" Value="4" />
+                                <%--  <ext:ListItem Text="已确认" Value="5" />--%>
+                                <ext:ListItem Text="未通过" Value="2" />
+                                <%--        <ext:ListItem Text="已删除" Value="9" />--%>
                             </ext:DropDownList>
+                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
+                            </ext:Button>
+                            <ext:Label ID="Label4" runat="server" />
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow>
+                        <Items>
+                            <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
+                            </ext:DatePicker>
+                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
+                            </ext:DatePicker>
                             <ext:Label ID="Label1" runat="server" />
+                            <ext:Label ID="Label2" runat="server" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -38,7 +53,7 @@
                         <Items>
                             <ext:Button ID="btnNew" Text="终止" Icon="Add" runat="server">
                             </ext:Button>
-                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server"  Hidden="true"/>
+                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server" Hidden="true" />
                         </Items>
                     </ext:Toolbar>
                 </Toolbars>
@@ -52,27 +67,27 @@
                             <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
                             <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
-                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
-                         
+                            <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
-                            <ext:BoundField Width="145px" DataField="LoanDate" HeaderText="借款日期" />
-                            <ext:BoundField DataField="SubmitTime" Width="145px" HeaderText="应付借款日" />
-                        
-                          <ext:TemplateField Width="70px" HeaderText="状态">
+                            <ext:BoundField Width="145px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
+                                HeaderText="借款日期" />
+                            <ext:BoundField DataField="DueDateForPay" Width="145px" HeaderText="应付借款日" />
+                            <ext:BoundField Width="80px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}" HeaderText="提交时间" />
+                            <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem, "Status").ToString() == "1") ? "审核中" : "审核中"%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
-                            </ext:TemplateField> 
+                            </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentAudit.aspx?ID={0}"
                                 Title="审核" WindowID="wndNew" />
-                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
+                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
+                                CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
- 
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="575px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
