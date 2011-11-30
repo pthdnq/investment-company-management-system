@@ -77,7 +77,7 @@ namespace TZMS.Web
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             foreach (RoleType roleType in CurrentRoles)
             {
-                if (roleType == RoleType.DZFGD)
+                if (roleType == RoleType.XZGLGD)
                 {
                     ddlstNext.Items.Add(new ExtAspNet.ListItem("同意并归档", "1"));
                     break;
