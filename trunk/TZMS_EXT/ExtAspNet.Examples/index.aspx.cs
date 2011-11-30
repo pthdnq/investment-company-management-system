@@ -22,6 +22,14 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                if (!string.IsNullOrEmpty(CurrentUser.Position))
+                {
+                    labuserName.Text = "您好！ " + CurrentUser.Name + "（" + CurrentUser.Position + "）  ";
+                }
+                else
+                {
+                    labuserName.Text = "您好！ " + CurrentUser.Name+"   ";
+                }
                 // 审批人设置注册23:14
                 setChecker.OnClientClick = newSetCheckerWindow.GetShowReference(@"Pages\system\SetMyChecker.aspx") + " return false;";
                 this.myMessage.OnClientClick = myMessageWindow.GetShowReference(@"Pages\system\MyMessage.aspx") + " return false;";
