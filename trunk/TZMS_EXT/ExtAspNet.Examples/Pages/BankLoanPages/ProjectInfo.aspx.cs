@@ -116,17 +116,17 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <summary>
         /// 绑定列表
         /// </summary>
-        private void BindGridData(string dept, string state, string searchText)
+        private void BindGridData(string forID,string state, string searchText)
         {
             searchText = string.Empty;
-            dept = ForID;
+            forID = ForID;
             state = string.Empty;
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            if (!string.IsNullOrEmpty(dept) && dept != "全部")
+            if (!string.IsNullOrEmpty(forID) && forID != "全部")
             {
-                strCondtion.Append(" ForID='" + dept + "' and ");
+                strCondtion.Append(" ForID='" + forID + "' and ");
             }
             if (!string.IsNullOrEmpty(state))
             {

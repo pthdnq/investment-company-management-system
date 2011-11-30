@@ -76,6 +76,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             BankLoanInfo _Info = new BankLoanInfo();
 
             _Info.ObjetctId = Guid.NewGuid();
+           
             _Info.CustomerName = this.tbCustomerName.Text.Trim();
             _Info.CollateralCompany = this.tbCollateralCompany.Text.Trim();
             _Info.Contact = this.taContact.Text.Trim();
