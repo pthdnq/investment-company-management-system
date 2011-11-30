@@ -93,7 +93,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 // 绑定下拉框.
                 BindDDL();
                 // 绑定列表.
-                BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+                BindGridData(ViewStateState, ViewStateSearchText);
             }
         }
 
@@ -102,44 +102,68 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// </summary>
         private void BindDDL()
         {
-            // 设置部门下拉框的值.
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem("全部", "-1"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.XINGZHENG, "0"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.CAIWU, "1"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.TOUZI, "2"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.YEWU, "3"));
-
-            // 设置默认值.
-            this.ddlstDept.SelectedIndex = 0;
-
-            ViewStateDept = ddlstDept.SelectedText;
-            ViewStateState = ddlstState.SelectedText;
+            dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
+            dpkEndTime.SelectedDate = DateTime.Now;
+             ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
         /// <summary>
         /// 绑定列表
         /// </summary>
-        private void BindGridData(string dept, string state, string searchText)
+        private void BindGridData(string state, string searchText)
         {
             #region 条件
-
             StringBuilder strCondtion = new StringBuilder();
-            if (!string.IsNullOrEmpty(dept) && dept != "全部")
+            //需要增加下一步审批人
+            strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "'  ");
+
+            if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append(" dept='" + dept + "' and ");
+                strCondtion.Append("AND  (ImplementationPhase LIKE '%" + searchText + "%'  )  ");
             }
             if (!string.IsNullOrEmpty(state))
             {
-                strCondtion.Append(" Status" + (state == "待审核" ? " = 1 " : " <> 1 ") + " and ");
+                //strCondtion.Append(" Status " + (state == "待审核" ? " = 1 " : " <> 1 ") + " AND ");
+                // 申请状态.
+                switch (state)
+                {
+                    case "0":
+                        //  strCondtion.Append(" AND Status = 1 ");
+                        break;
+                    case "1":
+                        strCondtion.Append(" AND (Status = 1 OR Status = 3) ");
+                        break;
+                    case "2":
+                        strCondtion.Append(" AND Status = 2 ");
+                        break;
+                    case "3":
+                        strCondtion.Append(" AND Status = 3  ");
+                        break;
+                    case "4":
+                        strCondtion.Append(" AND Status = 4 ");
+                        break;
+                    case "5":
+                        strCondtion.Append(" AND Status = 5 ");
+                        break;
+                    case "9":
+                        strCondtion.Append(" AND Status = 9 ");
+                        break;
+                    default:
+                        break;
+                }
             }
-            if (!string.IsNullOrEmpty(searchText))
+
+            //时间
+            DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+            if (DateTime.Compare(startTime, endTime) == 1)
             {
-                strCondtion.Append(" (ProjectName like '%" + searchText + "%' or CustomerName like '%" + searchText + "%') and ");
+                Alert.Show("结束日期不可小于开始日期!");
+                return;
             }
-            //未删除
-            strCondtion.Append(" Status<>9 ");
-           strCondtion.Append(" AND NextOperaterId = '" + this.CurrentUser.ObjectId + "' "); 
+            strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
+            strCondtion.Append(" ORDER BY CreateTime DESC");
             #endregion
 
             //获得员工
@@ -171,7 +195,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         protected void gridData_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
         {
             this.gridData.PageIndex = e.NewPageIndex;
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+            BindGridData(ViewStateState, ViewStateSearchText);
         }
 
         /// <summary>
@@ -181,20 +205,12 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <param name="e"></param>
         protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
         {
+            ViewStateState = this.ddlstState.SelectedValue;
             ViewStateSearchText = this.ttbSearch.Text.Trim();
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+            BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-        /// <summary>
-        /// 部门变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddlstDept_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ViewStateDept = this.ddlstDept.SelectedText;
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
-        }
+   
 
         /// <summary>
         /// 状态变动事件
@@ -203,8 +219,8 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <param name="e"></param>
         protected void ddlstState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ViewStateState = this.ddlstState.SelectedText;
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+            ViewStateState = this.ddlstState.SelectedValue;
+            BindGridData(ViewStateState, ViewStateSearchText);
         }
 
         /// <summary>
@@ -227,7 +243,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             userManage.UpdateProcess(info);
 
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+            BindGridData(ViewStateState, ViewStateSearchText);
         }
 
         /// <summary>
@@ -253,7 +269,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <param name="e"></param>
         protected void wndNew_Close(object sender, WindowCloseEventArgs e)
         {
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+            BindGridData(ViewStateState, ViewStateSearchText);
         }
 
         #endregion
