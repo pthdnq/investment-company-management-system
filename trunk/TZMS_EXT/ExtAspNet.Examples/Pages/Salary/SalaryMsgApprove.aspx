@@ -44,7 +44,7 @@
                             </ext:FormRow>
                             <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="50% 50%">
                                 <Items>
-                                    <ext:TextArea ID="taaApproveSugest" Height="50px" runat="server" Label="审批意见" MaxLength="100"
+                                    <ext:TextArea ID="taaApproveSugest" Height="50px" runat="server" Label="审批意见" EmptyText="请输入审批意见" MaxLength="100"
                                         MaxLengthMessage="最多只能输入100个字！">
                                     </ext:TextArea>
                                 </Items>

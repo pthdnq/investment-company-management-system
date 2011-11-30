@@ -257,6 +257,15 @@ namespace TZMS.Web
             /// </summary>
             YHDK = 25,
 
+            /// <summary>
+            /// 薪资管理归档
+            /// </summary>
+            XZGLGD = 26,
+
+            /// <summary>
+            /// 加薪归档
+            /// </summary>
+            GXGD = 27
         }
 
         /// <summary>

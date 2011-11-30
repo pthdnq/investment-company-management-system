@@ -323,6 +323,12 @@ namespace TZMS.Web
                 case RoleType.YHDK:
                     strRole = "银行贷款申请归档";
                     break;
+                case RoleType.XZGLGD:
+                    strRole = "薪资管理归档";
+                    break;
+                case RoleType.GXGD:
+                    strRole = "加薪归档";
+                    break;
             }
 
             return strRole;
