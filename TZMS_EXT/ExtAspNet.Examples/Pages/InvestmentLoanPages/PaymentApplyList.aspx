@@ -19,22 +19,33 @@
                 <Rows>
                     <ext:FormRow>
                         <Items>
-                            <ext:TwinTriggerBox runat="server" EmptyText="请输入项目名称查询" ShowLabel="false" ID="ttbSearch"
-                                Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click" />
-                            <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
-                                OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
-                            <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
+                            <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
+                                ID="ttbSearch" />
+                            <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
                                 <ext:ListItem Text="待审核" Value="1" Selected="true" />
-                                <ext:ListItem Text="审核中" Value="0" />
+                                <ext:ListItem Text="审核中" Value="2" />
+                                <ext:ListItem Text="已确认" Value="2" />
                             </ext:DropDownList>
+                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
+                            </ext:Button>
                             <ext:Label ID="Label1" runat="server" />
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow>
+                        <Items>
+                            <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
+                            </ext:DatePicker>
+                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="开始日期">
+                            </ext:DatePicker>
+                            <ext:Label runat="server" />
+                            <ext:Label runat="server" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
             <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
                 Layout="Fit" runat="server">
-                <Toolbars >
+                <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server">
                         <Items>
                             <ext:Button ID="btnNew" Text="新增" Icon="Add" runat="server">
@@ -53,20 +64,19 @@
                             <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
                             <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
-                                <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
-                         
+                            <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
                             <ext:BoundField Width="125px" DataField="LoanDate" HeaderText="借款日期" />
                             <ext:BoundField DataField="SubmitTime" Width="125px" HeaderText="提交时间" />
-                          
-                          <ext:TemplateField Width="70px" HeaderText="状态">
+                            <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "9") ? "已通过" : "审核中" %>
                                 </ItemTemplate>
-                            </ext:TemplateField> 
-                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentApplyEdit.aspx?Type=Edit&ID={0}"
-                                Title="编辑" WindowID="wndNew" />
-                            <ext:LinkButtonField  Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
+                            </ext:TemplateField>
+                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
+                                DataIFrameUrlFormatString="PaymentApplyEdit.aspx?Type=Edit&ID={0}" Title="编辑"
+                                WindowID="wndNew" />
+                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>
