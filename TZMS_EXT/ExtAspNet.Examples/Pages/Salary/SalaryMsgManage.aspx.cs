@@ -14,11 +14,52 @@ namespace TZMS.Web
 {
     public partial class SalaryMsgManage : BasePage
     {
+        /// <summary>
+        /// ApplyState
+        /// </summary>
+        public string ApplyState
+        {
+            get
+            {
+                if (ViewState["ApplyState"] == null)
+                {
+                    return null;
+                }
+                return ViewState["ApplyState"].ToString();
+            }
+
+            set
+            {
+                ViewState["ApplyState"] = value;
+            }
+        }
+
+        /// <summary>
+        /// ApplyState
+        /// </summary>
+        public string ApplyID
+        {
+            get
+            {
+                if (ViewState["ApplyID"] == null)
+                {
+                    return null;
+                }
+                return ViewState["ApplyID"].ToString();
+            }
+
+            set
+            {
+                ViewState["ApplyID"] = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 wndNewSalaryMsg.OnClientCloseButtonClick = wndNewSalaryMsg.GetHidePostBackReference();
+                wndNewWorkerSalaryMsg.OnClientCloseButtonClick = wndNewWorkerSalaryMsg.GetHidePostBackReference();
 
                 // 绑定页面元素.
                 BindDept();
@@ -68,6 +109,8 @@ namespace TZMS.Web
         /// </summary>
         private void BindGrid()
         {
+            ApplyState = null;
+
             #region 查询条件
 
             StringBuilder strCondition = new StringBuilder();
@@ -94,22 +137,14 @@ namespace TZMS.Web
 
             if (_comHelp.TotalCount > 0)
             {
-                btnNewSalaryMsg.Hidden = true;
-                btnSave.Hidden = false;
-                int state = Convert.ToInt32(dtbLeaveApproves.Rows[0]["state"]);
-                if (state != -1 && state != 2)
-                {
-                    btnSave.Hidden = true;
-                }
-            }
-            else
-            {
-                btnNewSalaryMsg.Hidden = false;
-                btnSave.Hidden = true;
+                ApplyID = dtbLeaveApproves.Rows[0]["SalaryMsgID"].ToString();
+                ApplyState = dtbLeaveApproves.Rows[0]["state"].ToString();
             }
 
             gridWorkerSalaryMsg.DataSource = dtbLeaveApproves;
             gridWorkerSalaryMsg.DataBind();
+
+            SetControlState();
         }
 
         /// <summary>
@@ -149,6 +184,33 @@ namespace TZMS.Web
             }
         }
 
+        /// <summary>
+        /// 设置控件状态
+        /// </summary>
+        private void SetControlState()
+        {
+            if (!string.IsNullOrEmpty(ApplyState))
+            {
+                btnNewSalaryMsg.Enabled = false;
+                if (ApplyState == "-1" || ApplyState == "1")
+                {
+                    btnSave.Enabled = true;
+                    btnNewWorkerSalary.Enabled = true;
+                }
+                else
+                {
+                    btnSave.Enabled = false;
+                    btnNewWorkerSalary.Enabled = false;
+                }
+            }
+            else
+            {
+                btnNewSalaryMsg.Enabled = true;
+                btnSave.Enabled = false;
+                btnNewWorkerSalary.Enabled = false;
+            }
+        }
+
         #endregion
 
         #region 页面事件
@@ -181,7 +243,8 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnNewWorkerSalary_Click(object sender, EventArgs e)
         {
-            
+            wndNewWorkerSalaryMsg.IFrameUrl = "NewWorkerSalaryMsg.aspx?ID=" + ApplyID;
+            wndNewWorkerSalaryMsg.Hidden = false;
         }
 
         /// <summary>
@@ -259,12 +322,24 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                DataRowView _view = (DataRowView)e.DataItem;
-                int state = Convert.ToInt32(_view["state"]);
-                if (state != -1 && state != 2)
+                //DataRowView _view = (DataRowView)e.DataItem;
+                //int state = Convert.ToInt32(_view["state"]);
+                //if (state != -1 && state != 2)
+                //{
+                //    e.Values[12] = "<span class=\"gray\">保存</span>";
+                //    e.Values[13] = "<span class=\"gray\">删除</span>";
+                //}
+                if (!string.IsNullOrEmpty(ApplyState))
                 {
-                    e.Values[12] = "<span class=\"gray\">保存</span>";
-                    e.Values[13] = "<span class=\"gray\">删除</span>";
+                    if (ApplyState == "-1" || ApplyState == "1")
+                    {
+
+                    }
+                    else
+                    {
+                        e.Values[12] = "<span class=\"gray\">保存</span>";
+                        e.Values[13] = "<span class=\"gray\">删除</span>";
+                    }
                 }
             }
         }
@@ -277,6 +352,16 @@ namespace TZMS.Web
         protected void wndNewSalaryMsg_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
             //BindGrid();
+        }
+
+        /// <summary>
+        /// 添加员工薪资信息.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndNewWorkerSalaryMsg_Close(object sender, WindowCloseEventArgs e)
+        {
+            BindGrid();
         }
 
         #endregion

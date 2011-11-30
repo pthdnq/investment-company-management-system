@@ -50,9 +50,9 @@
                         <Items>
                             <ext:Button ID="btnNewSalaryMsg" runat="server" Text="新增薪资信息" Icon="Add" OnClick="btnNewSalaryMsg_Click">
                             </ext:Button>
-                            <ext:Button ID="btnSave" runat="server" Text="保存所以员工薪资信息" Icon="Disk" OnClick="btnSave_Click">
+                            <ext:Button ID="btnSave" runat="server" Text="保存所有员工薪资信息" Icon="Disk" OnClick="btnSave_Click">
                             </ext:Button>
-                            <ext:Button ID="btnNewWorkerSalary" runat="server" Text="新增员工薪资信息" Icon="Add" OnClick="btnNewWorkerSalary_Click">
+                            <ext:Button ID="btnNewWorkerSalary" runat="server" Text="新增员工薪资信息" Hidden="false" Icon="Add" OnClick="btnNewWorkerSalary_Click">
                             </ext:Button>
                         </Items>
                     </ext:Toolbar>
@@ -111,7 +111,7 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:LinkButtonField Width="38px" Text="保存" CommandName="Save" />
-                            <ext:LinkButtonField Width="38px" Text="删除" CommandName="Delete" />
+                            <ext:LinkButtonField Width="38px" Text="删除" CommandName="Delete" ConfirmText="您确认删除该条员工薪资信息吗?" />
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -121,6 +121,10 @@
     <ext:Window ID="wndNewSalaryMsg" Title="添加薪资信息" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
         Height="500px" Width="700px" OnClose="wndNewSalaryMsg_Close">
+    </ext:Window>
+        <ext:Window ID="wndNewWorkerSalaryMsg" Title="添加员工薪资信息" Popup="false" EnableIFrame="true"
+        IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
+        Height="500px" Width="700px" onclose="wndNewWorkerSalaryMsg_Close">
     </ext:Window>
     </form>
 </body>

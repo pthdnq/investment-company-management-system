@@ -218,5 +218,14 @@ namespace TZMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.Window wndNewSalaryMsg;
+        
+        /// <summary>
+        /// wndNewWorkerSalaryMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Window wndNewWorkerSalaryMsg;
     }
 }

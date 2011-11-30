@@ -159,6 +159,7 @@ namespace TZMS.Web
                 return;
             int result = 3;
             SalaryManage _manage = new SalaryManage();
+            UserManage _userManage = new UserManage();
             SalaryMsgInfo _applyInfo = _manage.GetSalaryMsgByObjectID(ApplyID);
             SalaryCheckInfo _currentApproveInfo = _manage.GetSalaryCheckByObjectID(ApproveID);
             if (_applyInfo != null && _currentApproveInfo != null)
@@ -201,6 +202,19 @@ namespace TZMS.Web
                     _applyInfo.State = 2;
                     _applyInfo.CurrentCheckerId = SystemUser.ObjectId;
                     result = _manage.UpdateSalaryMsg(_applyInfo);
+
+                    // 更新员工信息表中的基本工资.
+                    List<WorkerSalaryMsgInfo> lstWorkerSalaryIMsgInfo = _manage.GetWorkerSalaryMsgByCondition(" SalaryMsgID = '" + _applyInfo.ObjectId.ToString() + "'");
+                    UserInfo _tempUserInfo = null;
+                    foreach (WorkerSalaryMsgInfo item in lstWorkerSalaryIMsgInfo)
+                    {
+                        _tempUserInfo = _userManage.GetUserByObjectID(item.UserId.ToString());
+                        if (_tempUserInfo != null)
+                        {
+                            _tempUserInfo.BaseSalary = item.BaseSalary;
+                            _userManage.UpdateUser(_tempUserInfo);
+                        }
+                    }
 
                     // 更新现有审批记录.
                     _currentApproveInfo.Checkstate = 1;
