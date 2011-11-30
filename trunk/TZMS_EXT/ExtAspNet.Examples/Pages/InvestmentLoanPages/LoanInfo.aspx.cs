@@ -121,24 +121,24 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             //this.ddlstDept.SelectedIndex = 0;
 
             //ForID = ddlstDept.SelectedText;
-            //ViewStateState = ddlstState.SelectedText;
+            // ViewStateState = ddlstState.SelectedValue;
             //ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
         /// <summary>
         /// 绑定列表
         /// </summary>
-        private void BindGridData(string dept, string state, string searchText)
+        private void BindGridData(string forID,string state, string searchText)
         {
             searchText = string.Empty;
-            dept = ForID;
+            forID = ForID;
             state = string.Empty;
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            if (!string.IsNullOrEmpty(dept) && dept != "全部")
+            if (!string.IsNullOrEmpty(forID) && forID != "全部")
             {
-                strCondtion.Append(" ForID='" + dept + "' and ");
+                strCondtion.Append(" ForID='" + forID + "' and ");
             }
             if (!string.IsNullOrEmpty(state))
             {
@@ -280,6 +280,45 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             BindGridData(ForID, ViewStateState, ViewStateSearchText);
         }
 
+        #endregion
+
+        #region 自定义方法
+        /// <summary>
+        /// 获取状态名字
+        /// </summary>
+        /// <param name="strStatus"></param>
+        /// <returns></returns>
+        protected string GetStatusName(string strStatus)
+        {
+            string StrStatusName = string.Empty;
+            switch (strStatus)
+            {
+                case "0":
+                    //  strCondtion.Append(" AND Status = 1 ");
+                    break;
+                case "1":
+                    StrStatusName = "待审核";
+                    break;
+                case "2":
+                    StrStatusName = "未通过";
+                    break;
+                case "3":
+                    StrStatusName = "审核中";
+                    break;
+                case "4":
+                    StrStatusName = "待确认";
+                    break;
+                case "5":
+                    StrStatusName = "已确认";
+                    break;
+                case "9":
+                    StrStatusName = "已删除";
+                    break;
+                default:
+                    break;
+            }
+            return StrStatusName;
+        }
         #endregion
     }
 }

@@ -142,6 +142,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             info.CreateTime = DateTime.Now;
             info.CreaterId = this.CurrentUser.ObjectId;
             info.CreaterName = this.CurrentUser.Name;
+         
            // info.CreaterAccount = this.CurrentUser.AccountNo;
           //下一步操作人
           
