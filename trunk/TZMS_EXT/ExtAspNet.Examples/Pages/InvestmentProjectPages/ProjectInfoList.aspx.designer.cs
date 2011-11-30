@@ -55,16 +55,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TwinTriggerBox ttbSearch;
-        
-        /// <summary>
-        /// ddlstDept control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstDept;
+        protected global::ExtAspNet.TextBox ttbSearch;
         
         /// <summary>
         /// ddlstState control.
@@ -76,13 +67,58 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         protected global::ExtAspNet.DropDownList ddlstState;
         
         /// <summary>
-        /// Label1 control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label Label1;
+        protected global::ExtAspNet.Button btnSearch;
+        
+        /// <summary>
+        /// Labeltmp1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Labeltmp1;
+        
+        /// <summary>
+        /// dpkStartTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DatePicker dpkStartTime;
+        
+        /// <summary>
+        /// dpkEndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DatePicker dpkEndTime;
+        
+        /// <summary>
+        /// Labeltmp2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Labeltmp2;
+        
+        /// <summary>
+        /// Labeltmp3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Labeltmp3;
         
         /// <summary>
         /// pelGrid control.
