@@ -68,7 +68,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@AccountingAccount",DbType.String),
 				new SqlParameter("@CreaterId",DbType.Guid),
 				new SqlParameter("@CreaterName",DbType.String),
-				new SqlParameter("@CteateTime",DbType.DateTime),
+				new SqlParameter("@CreateTime",DbType.DateTime),
 				new SqlParameter("@Status",DbType.Byte),
 				};
 
@@ -157,7 +157,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@AccountingAccount",DbType.String),
 				new SqlParameter("@CreaterId",DbType.Guid),
 				new SqlParameter("@CreaterName",DbType.String),
-				new SqlParameter("@CteateTime",DbType.DateTime),
+				new SqlParameter("@CreateTime",DbType.DateTime),
 				new SqlParameter("@Status",DbType.Byte),
                 };
 
@@ -318,9 +318,9 @@ namespace com.TZMS.DataAccess
             {
                 ReceivablesInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CreaterName");
             }
-            if (ReceivablesInfoInfoDataRow["CteateTime"] != null)
+            if (ReceivablesInfoInfoDataRow["CreateTime"] != null)
             {
-                ReceivablesInfoInfo.CreateTime = DateTime.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CteateTime"));
+                ReceivablesInfoInfo.CreateTime = DateTime.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CreateTime"));
             }
             if (ReceivablesInfoInfoDataRow["Status"] != null)
             {
