@@ -19,15 +19,28 @@
                 <Rows>
                     <ext:FormRow>
                         <Items>
-                            <ext:TwinTriggerBox runat="server" EmptyText="请输入项目名称查询" ShowLabel="false" ID="ttbSearch"
-                                Trigger1Icon="Search" ShowTrigger2="false" OnTrigger1Click="ttbSearch_Trigger1Click" />
-                            <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
-                                OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged" Hidden="true" />
-                            <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="状态" OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
-                                <ext:ListItem Text="待审核" Value="1" Selected="true" />
-                                <ext:ListItem Text="审核中" Value="0" />
+                            <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
+                                ID="ttbSearch" />
+                            <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
+                                <ext:ListItem Text="待审核" Value="1" />
+                                <ext:ListItem Text="审核中" Value="3" />
+                                <ext:ListItem Text="已通过" Value="4"  Selected="true"/>
+                                <ext:ListItem Text="未通过" Value="2" />
+                                <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
-                            <ext:Label ID="Label1" runat="server" />
+                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
+                            </ext:Button>
+                            <ext:Label ID="Labeltmp1" runat="server" />
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow>
+                        <Items>
+                            <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
+                            </ext:DatePicker>
+                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
+                            </ext:DatePicker>
+                            <ext:Label ID="Labeltmp2" runat="server" />
+                            <ext:Label ID="Labeltmp3" runat="server" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -54,7 +67,7 @@
                             <ext:BoundField Width="80px" DataField="CustomerName" HeaderText="客户" />
                             <ext:TemplateField Width="60px" HeaderText="项目状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem, "Status").ToString() == "1") ? "待审核" : "审核中"%>
+                                   <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:BoundField Width="110px" DataField="Contact" HeaderText="联系人" />
