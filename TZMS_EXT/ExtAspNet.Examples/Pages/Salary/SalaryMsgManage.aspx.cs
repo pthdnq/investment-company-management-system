@@ -92,16 +92,21 @@ namespace TZMS.Web
             gridWorkerSalaryMsg.RecordCount = _comHelp.TotalCount;
             gridWorkerSalaryMsg.PageSize = PageCounts;
 
-            //if (_comHelp.TotalCount > 0)
-            //{
-            //    btnNewSalaryMsg.Hidden = true;
-            //    btnSave.Hidden = false;
-            //}
-            //else
-            //{
-            //    btnNewSalaryMsg.Hidden = false;
-            //    btnSave.Hidden = true;
-            //}
+            if (_comHelp.TotalCount > 0)
+            {
+                btnNewSalaryMsg.Hidden = true;
+                btnSave.Hidden = false;
+                int state = Convert.ToInt32(dtbLeaveApproves.Rows[0]["state"]);
+                if (state != -1 && state != 2)
+                {
+                    btnSave.Hidden = true;
+                }
+            }
+            else
+            {
+                btnNewSalaryMsg.Hidden = false;
+                btnSave.Hidden = true;
+            }
 
             gridWorkerSalaryMsg.DataSource = dtbLeaveApproves;
             gridWorkerSalaryMsg.DataBind();
@@ -176,7 +181,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnNewWorkerSalary_Click(object sender, EventArgs e)
         {
-            SaveCurrentWorkerSalary();
+            
         }
 
         /// <summary>
@@ -186,7 +191,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-
+            SaveCurrentWorkerSalary();
         }
 
         /// <summary>
@@ -213,7 +218,7 @@ namespace TZMS.Web
             SalaryManage _manage = new SalaryManage();
             if (e.CommandName == "Save")
             {
-                string strBaseSalary =  Request.Form["gridWorkerSalaryMsg_" + e.RowIndex.ToString() + "$tbxBaseSalary"];
+                string strBaseSalary = Request.Form["gridWorkerSalaryMsg_" + e.RowIndex.ToString() + "$tbxBaseSalary"];
                 string strExamSalary = Request.Form["gridWorkerSalaryMsg_" + e.RowIndex.ToString() + "$tbxExamSalary"];
                 string strBackSalary = Request.Form["gridWorkerSalaryMsg_" + e.RowIndex.ToString() + "$tbxBackSalary"];
                 string strOtherSalary = Request.Form["gridWorkerSalaryMsg_" + e.RowIndex.ToString() + "$tbxOtherSalary"];
@@ -252,7 +257,16 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridWorkerSalaryMsg_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
-
+            if (e.DataItem != null)
+            {
+                DataRowView _view = (DataRowView)e.DataItem;
+                int state = Convert.ToInt32(_view["state"]);
+                if (state != -1 && state != 2)
+                {
+                    e.Values[12] = "<span class=\"gray\">保存</span>";
+                    e.Values[13] = "<span class=\"gray\">删除</span>";
+                }
+            }
         }
 
         /// <summary>
