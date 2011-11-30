@@ -47,7 +47,7 @@ namespace com.TZMS.Model
         private string _accountingAccount = DBEmptyString;
         private Guid _createrId;
         private string _createrName = DBEmptyString;
-        private DateTime _cteateTime = DBEmptyDate;
+        private DateTime _createTime = DBEmptyDate;
         private int _status = DBEmptyChar;
         #endregion
 
@@ -179,12 +179,12 @@ namespace com.TZMS.Model
         }
 
         /// <summary>
-        /// CteateTime 
+        /// CreateTime 
         /// </summary> 
         public DateTime CreateTime
         {
-            get { return _cteateTime; }
-            set { _cteateTime = value; }
+            get { return _createTime; }
+            set { _createTime = value; }
         }
 
         /// <summary>
