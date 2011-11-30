@@ -8,32 +8,13 @@ using System.Text;
 using com.TZMS.Model;
 using com.TZMS.Business;
 using ExtAspNet;
- 
+
 
 namespace TZMS.Web.Pages.InvestmentLoanPages
 {
     public partial class PaymentApplyList : BasePage
     {
         #region viewstate
-        /// <summary>
-        /// 用于存储部门名称的ViewState.
-        /// </summary>
-        public string ViewStateDept
-        {
-            get
-            {
-                if (ViewState["Dept"] == null)
-                {
-                    return null;
-                }
-
-                return ViewState["Dept"].ToString();
-            }
-            set
-            {
-                ViewState["Dept"] = value;
-            }
-        }
 
         /// <summary>
         /// 用于存储员工状态的ViewState.
@@ -92,7 +73,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 // 绑定下拉框.
                 //BindDDL();
                 // 绑定列表.
-                BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+                BindGridData(ViewStateState, ViewStateSearchText);
             }
         }
 
@@ -101,33 +82,21 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void BindDDL()
         {
-            // 设置部门下拉框的值.
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem("全部", "-1"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.XINGZHENG, "0"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.CAIWU, "1"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.TOUZI, "2"));
-            this.ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.YEWU, "3"));
-
-            // 设置默认值.
-            this.ddlstDept.SelectedIndex = 0;
-
-            ViewStateDept = ddlstDept.SelectedText;
             ViewStateState = ddlstState.SelectedText;
             ViewStateSearchText = ttbSearch.Text.Trim();
+            dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
+            dpkEndTime.SelectedDate = DateTime.Now;
         }
 
         /// <summary>
         /// 绑定列表
         /// </summary>
-        private void BindGridData(string dept, string state, string searchText)
+        private void BindGridData(string state, string searchText)
         {
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            if (!string.IsNullOrEmpty(dept) && dept != "全部")
-            {
-                strCondtion.Append(" Status='" + dept + "' and ");
-            }
+
             if (!string.IsNullOrEmpty(state))
             {
                 strCondtion.Append(" Status " + (state == "待审核" ? " = 1 " : " <> 1 ") + " and ");
@@ -137,8 +106,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 strCondtion.Append(" (ProjectName like '%" + searchText + "%' or BorrowerNameA like '%" + searchText + "%') and ");
             }
             //未删除
-            strCondtion.Append(" Status<>9 ");            
-            strCondtion.Append(" AND CreaterID = '" + this.CurrentUser.ObjectId + "' "); 
+            strCondtion.Append(" Status<>9 ");
+            strCondtion.Append(" AND CreaterID = '" + this.CurrentUser.ObjectId + "' ");
             #endregion
 
             //获得员工
@@ -177,6 +146,18 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         #endregion
 
         #region 页面事件
+        /// <summary>
+        /// 查询事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
+        {
+            ViewStateSearchText = this.ttbSearch.Text.Trim();
+
+            ViewStateState = this.ddlstState.SelectedText;
+            BindGridData(ViewStateState, ViewStateSearchText);
+        }
 
         /// <summary>
         /// 翻页
@@ -186,30 +167,11 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         protected void gridData_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
         {
             this.gridData.PageIndex = e.NewPageIndex;
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+            BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-        /// <summary>
-        /// 查询事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
-        {
-            ViewStateSearchText = this.ttbSearch.Text.Trim();
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
-        }
 
-        /// <summary>
-        /// 部门变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddlstDept_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ViewStateDept = this.ddlstDept.SelectedText;
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
-        }
+
 
         /// <summary>
         /// 状态变动事件
@@ -219,7 +181,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         protected void ddlstState_SelectedIndexChanged(object sender, EventArgs e)
         {
             ViewStateState = this.ddlstState.SelectedText;
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+            BindGridData(ViewStateState, ViewStateSearchText);
         }
 
         /// <summary>
@@ -244,13 +206,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 // 删除
                 info.Status = 9;
             }
- 
+
             manage.Update(info);
 
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+            BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-       
+
 
         /// <summary>
         /// 关闭新增员工页面. 
@@ -259,7 +221,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void wndNew_Close(object sender, WindowCloseEventArgs e)
         {
-            BindGridData(ViewStateDept, ViewStateState, ViewStateSearchText);
+            BindGridData(ViewStateState, ViewStateSearchText);
         }
 
         #endregion
