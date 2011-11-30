@@ -23,6 +23,7 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                Session.RemoveAll();
                 //LoadData();
                 if (Request.Cookies["Info"] != null)
                 {
