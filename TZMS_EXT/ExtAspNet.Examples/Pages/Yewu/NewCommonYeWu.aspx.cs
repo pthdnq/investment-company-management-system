@@ -100,7 +100,7 @@ namespace TZMS.Web
             yewu.CurrentCheckerId = new Guid(this.ddlstApproveUser.SelectedValue);
             //未完成，普通业务
             yewu.State = 0;
-            yewu.Type = 0;
+            yewu.Type = 1;
             yewu.Sument = this.taaSument.Text.Trim();
             yewu.Title = this.tbxTitle.Text.Trim();
             yewu.Other = this.taaOther.Text.Trim();

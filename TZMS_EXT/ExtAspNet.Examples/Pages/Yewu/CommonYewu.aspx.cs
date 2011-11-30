@@ -56,13 +56,13 @@ namespace TZMS.Web
 
             StringBuilder strCondition = new StringBuilder();
 
-            strCondition.Append(" Isdelete <> 1 and state=0 ");
-            strCondition.Append(" and UserID='"+this.CurrentUser.ObjectId.ToString()+"' ");
+            strCondition.Append(" Isdelete <> 1 ");
+            strCondition.Append(" and UserID='" + this.CurrentUser.ObjectId.ToString() + "' ");
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
                 strCondition.Append(" and Title Like '%" + tbxSearch.Text.Trim() + "%'");
             }
-           
+
             #endregion
 
             List<YeWuInfo> lstYewu = new YewuManage().GetYeWuForList(strCondition.ToString());
@@ -135,38 +135,79 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridYewu_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
-
             if (e.DataItem != null)
             {
-            //    e.Values[1] = e.Values[1].ToString() == "0" ? "办公用品" : "固定资产";
-            //    e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd HH:mm");
-            //    // 当前审批人.
-              if (e.Values[3].ToString() == SystemUser.ObjectId.ToString())
-              {
-                  e.Values[3] = SystemUser.Name;
-              }
-              else
-              {
-                  UserInfo _userInfo = new UserManage().GetUserByObjectID(e.Values[3].ToString());
-                  if (_userInfo != null)
-                  {
-                      e.Values[3] = _userInfo.Name;
-                  }
-              }
-              // 审批状态.
-              switch (e.Values[4].ToString())
-              {
-                  case "0":
-                      e.Values[4] = "未完成";
-                      //e.Values[9] = "<span class=\"gray\">编辑</span>";
-                      //e.Values[10] = "<span class=\"gray\">删除</span>";
-                      break;
-                  case "1":
-                      e.Values[4] = "已完成";
-                      break;
-                  default:
-                      break;
-              }
+                YeWuInfo _info = (YeWuInfo)e.DataItem;
+                if (e.Values[3].ToString() == SystemUser.ObjectId.ToString())
+                {
+                    e.Values[3] = SystemUser.Name;
+                }
+                else
+                {
+                    UserInfo _userInfo = new UserManage().GetUserByObjectID(e.Values[3].ToString());
+                    if (_userInfo != null)
+                    {
+                        e.Values[3] = _userInfo.Name;
+                    }
+                }
+
+                // 当前操作
+                switch (e.Values[4].ToString())
+                {
+                    case "1":
+                        e.Values[4] = "业务转交";
+                        break;
+                    case "2":
+                        e.Values[4] = "核名";
+                        break;
+                    case "3":
+                        e.Values[4] = "刻章";
+                        break;
+                    case "4":
+                        e.Values[4] = "开户";
+                        break;
+                    case "5":
+                        e.Values[4] = "验资报告";
+                        break;
+                    case "6":
+                        e.Values[4] = "营业执照";
+                        break;
+                    case "7":
+                        e.Values[4] = "办代码证";
+                        break;
+                    case "8":
+                        e.Values[4] = "办国地税";
+                        break;
+                    case "9":
+                        e.Values[4] = "转基本户";
+                        break;
+                    default:
+                        break;
+                }
+
+                // 审批状态.
+                switch (e.Values[5].ToString())
+                {
+                    case "0":
+                        e.Values[5] = "未完成";
+
+                        // 检查删除的状态.
+                        {
+                            YewuManage _mange = new YewuManage();
+                            List<YeWuGudingDoingInfo> lstGudingDoing = _mange.GetYeWuDoingForList(" ApplyID='" + _info.ObjectId.ToString() + "' and Checkstate = 1");
+                            if (lstGudingDoing.Count >= 2)
+                            {
+                                e.Values[7] = "<span class=\"gray\">删除</span>";
+                            }
+                        }
+                        break;
+                    case "1":
+                        e.Values[5] = "已完成";
+                        e.Values[7] = "<span class=\"gray\">删除</span>";
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
