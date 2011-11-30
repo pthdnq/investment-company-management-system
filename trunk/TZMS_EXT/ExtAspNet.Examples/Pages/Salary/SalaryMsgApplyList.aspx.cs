@@ -17,6 +17,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                wndApply.OnClientCloseButtonClick = wndApply.GetHidePostBackReference();
+
                 BindYear();
 
                 DateTime now = DateTime.Now;
@@ -200,12 +202,12 @@ namespace TZMS.Web
                         }
                         e.Values[6] = "<span class=\"gray\">申请</span>";
                         break;
-                    case "1":
+                    case "2":
                         e.Values[4] = "归档";
                         e.Values[5] = SystemUser.Name;
                         e.Values[6] = "<span class=\"gray\">申请</span>";
                         break;
-                    case "2":
+                    case "1":
                         e.Values[4] = "未通过";
                         {
                             UserInfo _approveUser = new UserManage().GetUserByObjectID(e.Values[5].ToString());

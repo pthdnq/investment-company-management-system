@@ -584,11 +584,13 @@
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingUnitNew.aspx" />
     <Content Include="Pages\ProxyAccountingPages\SelectAccountancy.aspx" />
     <Content Include="Pages\Salary\NewSalaryMsg.aspx" />
+    <Content Include="Pages\Salary\NewWorkerSalaryMsg.aspx" />
     <Content Include="Pages\Salary\SalaryMsgApply.aspx" />
     <Content Include="Pages\Salary\SalaryMsgApplyList.aspx" />
     <Content Include="Pages\Salary\SalaryMsgApprove.aspx" />
     <Content Include="Pages\Salary\SalaryMsgApproveList.aspx" />
     <Content Include="Pages\Salary\SalaryMsgManage.aspx" />
+    <Content Include="Pages\Salary\SelectWorker.aspx" />
     <Content Include="Pages\system\ChangePsw.aspx" />
     <Content Include="Pages\system\MyMessage.aspx" />
     <Content Include="Pages\system\MyWeb.aspx" />
@@ -1435,6 +1437,13 @@
     <Compile Include="Pages\Salary\NewSalaryMsg.aspx.designer.cs">
       <DependentUpon>NewSalaryMsg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Salary\NewWorkerSalaryMsg.aspx.cs">
+      <DependentUpon>NewWorkerSalaryMsg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salary\NewWorkerSalaryMsg.aspx.designer.cs">
+      <DependentUpon>NewWorkerSalaryMsg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Salary\SalaryMsgApply.aspx.cs">
       <DependentUpon>SalaryMsgApply.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1469,6 +1478,13 @@
     </Compile>
     <Compile Include="Pages\Salary\SalaryMsgManage.aspx.designer.cs">
       <DependentUpon>SalaryMsgManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salary\SelectWorker.aspx.cs">
+      <DependentUpon>SelectWorker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salary\SelectWorker.aspx.designer.cs">
+      <DependentUpon>SelectWorker.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\system\ChangePsw.aspx.cs">
       <DependentUpon>ChangePsw.aspx</DependentUpon>

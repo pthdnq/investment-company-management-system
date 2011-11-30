@@ -439,7 +439,7 @@
                 case "xzsq":
                     LoadTab("Pages/Salary/SalaryMsgApplyList.aspx", "薪资信息申请", icon);
                     break;
-                case "xzgl":
+                case "xzsp":
                     LoadTab("Pages/Salary/SalaryMsgApproveList.aspx", "薪资信息审批", icon);
                     break;
 
