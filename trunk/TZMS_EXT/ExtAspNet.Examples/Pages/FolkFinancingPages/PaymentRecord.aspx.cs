@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web.Pages.FolkFinancingPages
 {
@@ -33,22 +34,22 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         }
 
         /// <summary>
-        /// 用户ID
+        ///  ObjectID
         /// </summary>
-        public string UserID
+        public string ObjectID
         {
             get
             {
-                if (ViewState["UserID"] == null)
+                if (ViewState["ObjectID"] == null)
                 {
                     return null;
                 }
 
-                return ViewState["UserID"].ToString();
+                return ViewState["ObjectID"].ToString();
             }
             set
             {
-                ViewState["UserID"] = value;
+                ViewState["ObjectID"] = value;
             }
         }
         #endregion
@@ -56,36 +57,21 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitControl();
+              InitControl();
 
             if (!IsPostBack)
             {
-                BindDept();
+                string strID = Request.QueryString["ID"];
+                ObjectID = strID;
 
-                string strOperatorType = Request.QueryString["Type"];
-                string strUserID = Request.QueryString["ID"];
-                switch (strOperatorType)
-                {
-                    case "Add":
-                        {
-                            OperatorType = strOperatorType;
-                            // 设置新工号.
-
-                        }
-                        break;
-                    case "Edit":
-                        {
-                            OperatorType = strOperatorType;
-                            UserID = strUserID;
-
-                            bindUserInterface(strUserID);
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                bindUserInterface(strID);
+                // 绑定审批人.
+           //     ApproveUser();
+                // 绑定审批历史.
+                BindHistory();
             }
-        }
+            }
+  
 
         private void InitControl()
         {
@@ -101,31 +87,77 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
         }
 
+
         /// <summary>
         /// 绑定指定用户ID的数据到界面.
         /// </summary>
-        /// <param name="strUserID">用户ID</param>
-        private void bindUserInterface(string strUserID)
+        /// <param name="strID">用户ID</param>
+        private void bindUserInterface(string strID)
         {
-            if (string.IsNullOrEmpty(strUserID))
+            if (string.IsNullOrEmpty(strID))
             {
                 return;
             }
 
-            // 通过用户ID获取用户信息实例.
-            UserInfo _userInfo = new UserManage().GetUserByObjectID(strUserID);
+            // 通过 ID获取 信息实例.
+            com.TZMS.Model.FinancingFeePaymentInfo _info = new FolkFinancingManage().GetProcessByObjectID(strID);
 
             // 绑定数据.
-            if (_userInfo != null)
+            if (_info != null)
             {
+                //#region 下一步方式
+                //if (CurrentRoles.Contains(RoleType.DSZ))
+                //{
+                //    BindNext(true);
+                //}
+                //else if (CurrentRoles.Contains(RoleType.ZJL))
+                //{      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
+                //    if (_info.AmountOfPayment > 3000000)
+                //    { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
+                //    else
+                //    { BindNext(true); }
+                //}
+                //else
+                //{
+                //    BindNext(false);
+                //}
+                //#endregion
 
-                // 入职时间.
-                if (DateTime.Compare(_userInfo.EntryDate, DateTime.Parse("1900-1-1 12:00")) != 0)
+                this.tbPaymentAccount.Text = _info.PaymentAccount;
+                this.tbReceivablesAccount.Text = _info.ReceivablesAccount;
+                this.tbAmountOfPayment.Text = _info.AmountOfPayment.ToString();
+                this.taAuditOpinion.Text = _info.AuditOpinion;
+                this.taRemark.Text = _info.Remark;
+
+                if (DateTime.Compare(_info.DueDateForPay, DateTime.Parse("1900-1-1 12:00")) != 0)
                 {
-                    //   dpkEntryDate.SelectedDate = _userInfo.EntryDate;
+                    this.dpDueDateForPay.SelectedDate = _info.DueDateForPay;
                 }
 
+                if (DateTime.Compare(_info.DateForPay, DateTime.Parse("1900-1-1 12:00")) != 0)
+                {
+                    this.dpDateForPay.SelectedDate = _info.DateForPay;
+                }
             }
+        }
+
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            if (ObjectID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ForId = '" + ObjectID + "'");
+            strCondition.Append(" ORDER BY OperationTime DESC");
+            List<FinancingFeePaymentHistoryInfo> lstInfo = new FolkFinancingManage().GetProcessHistoryByCondtion(strCondition.ToString());
+            //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            gridHistory.RecordCount = lstInfo.Count;
+            this.gridHistory.DataSource = lstInfo;
+            this.gridHistory.DataBind();
         }
         #endregion
 
@@ -137,88 +169,13 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            saveUserInfo();
+           
         }
 
         #endregion
 
         #region 自定义方法
-        /// <summary>
-        /// 保存用户信息.
-        /// </summary>
-        private void saveUserInfo()
-        {
-            if (string.IsNullOrEmpty(OperatorType))
-            {
-                return;
-            }
-
-            UserInfo _userInfo = null;
-            UserManage _userManage = new UserManage();
-
-            // 判断操作类型.
-            if (OperatorType == "Add")
-            {
-                _userInfo = new UserInfo();
-
-                // 用户ID.
-                _userInfo.ObjectId = Guid.NewGuid();
-            }
-            else
-            {
-                _userInfo = _userManage.GetUserByObjectID(UserID);
-                if (_userInfo == null)
-                {
-                    return;
-                }
-            }
-
-
-
-            // 在数据库中查看具有相同工号或账号的用户，如果存在，则添加失败.
-            List<UserInfo> lstSameUsers = _userManage.GetUsersByCondtion("ObjectID <> '" + _userInfo.ObjectId.ToString() +
-                "' and (JobNo = '" + _userInfo.JobNo + "' or AccountNo = '" + _userInfo.AccountNo + "')");
-            if (lstSameUsers.Count > 0)
-            {
-                Alert.Show("该账号或工号已存在!");
-                return;
-            }
-
-            // 执行操作.
-            int result = 3;
-            if (OperatorType == "Add")
-            {
-                result = _userManage.AddUser(_userInfo);
-                if (result == -1)
-                {
-                    new RolesManage().AddRoles(new UserRoles()
-                    {
-                        UserObjectId = _userInfo.ObjectId,
-                        AccountNo = _userInfo.AccountNo,
-                        JobNo = _userInfo.JobNo,
-                        Name = _userInfo.Name,
-                        Roles = "12"
-                    });
-                    Alert.Show("添加员工成功!");
-                }
-                else
-                {
-                    Alert.Show("添加员工失败!");
-                }
-            }
-            else
-            {
-                result = _userManage.UpdateUser(_userInfo);
-                if (result == -1)
-                {
-                    Alert.Show("编辑员工成功!");
-                }
-                else
-                {
-                    Alert.Show("编辑员工失败!");
-                }
-            }
-        }
+     
 
         #endregion
     }
