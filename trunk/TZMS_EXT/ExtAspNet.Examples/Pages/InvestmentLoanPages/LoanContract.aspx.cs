@@ -47,6 +47,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 if (strType.Equals("View"))
                 {
                     this.btnSave.Hidden = true;
+                    this.taOpationRemark.Hidden = true;
                 }
                 bindUserInterface(strID);
                 // 绑定审批历史.
@@ -148,7 +149,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             if (result == -1)
             {
                 string statusName = "已终止";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
-                manage.AddHistory( _Info.ObjectId, "终止合同", string.Format("终止合同:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+                manage.AddHistory(_Info.ObjectId, "终止合同", string.Format("终止合同:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taOpationRemark.Text.Trim());
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

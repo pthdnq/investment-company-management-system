@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web.Pages.BankLoanPages
 {
@@ -48,6 +49,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
                 // 绑定审批人.
                 ApproveUser();
+                BindHistory();
             }
         }
 
@@ -90,6 +92,25 @@ namespace TZMS.Web.Pages.BankLoanPages
          
             this.dpSignDate.SelectedDate = _Info.SignDate;
              
+        }
+
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            if (ObjectID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ForId = '" + ObjectID + "'");
+            strCondition.Append(" ORDER BY OperationTime DESC");
+            List<BankLoanHistoryInfo> lstInfo = new BankLoanManage().GetHistoryByCondtion(strCondition.ToString());
+            //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            gridHistory.RecordCount = lstInfo.Count;
+            this.gridHistory.DataSource = lstInfo;
+            this.gridHistory.DataBind();
         }
 
         #endregion
@@ -145,7 +166,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (result == -1)
             {
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意";
-                manage.AddHistory(_Info.ObjetctId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+                manage.AddHistory(_Info.ObjetctId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

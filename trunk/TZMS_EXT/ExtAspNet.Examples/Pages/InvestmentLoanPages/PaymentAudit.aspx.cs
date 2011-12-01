@@ -172,7 +172,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             if (result == -1)
             {
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
-                manage.AddHistory(_Info.ObjectId, "审批", string.Format("借款审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+                manage.AddHistory(_Info.ObjectId, "审批", string.Format("借款审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
