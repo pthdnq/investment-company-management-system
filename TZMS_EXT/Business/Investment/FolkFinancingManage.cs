@@ -21,6 +21,7 @@ namespace com.TZMS.Business
         }
         #endregion
 
+        #region curd
         /// <summary>
         ///  添加到数据库
         /// </summary>
@@ -52,6 +53,7 @@ namespace com.TZMS.Business
         { 
             return ctrl.UpDate(boName, info);
         }
+        #endregion
 
         #region 获取 信息
         /// <summary>
@@ -162,6 +164,74 @@ namespace com.TZMS.Business
             return rctrl.SelectAsList(boName, condtion);
         }
       
+        #endregion
+
+        #region 历史记录
+        FolkFinancingHistoryCtrl hctrl = new FolkFinancingHistoryCtrl();
+        FinancingFeePaymentHistoryCtrl rhctrl = new FinancingFeePaymentHistoryCtrl();
+
+        public int AddHistory(Guid forID, string operationType, string operationDesc, string operationerAccount, string operationerName, DateTime operationTime, string remark)
+        {
+            return AddHistory(false, forID, operationType, operationDesc, operationerAccount, operationerName, operationTime, remark);
+        }
+
+        public int AddHistory(bool isProcess, Guid forID, string operationType, string operationDesc, string operationerAccount, string operationerName, DateTime operationTime, string remark)
+        {
+            int iResult = 0;
+            if (!isProcess)
+            {
+                FolkFinancingHistoryInfo info = new FolkFinancingHistoryInfo()
+                {
+                    Id = Guid.NewGuid(),
+                    ForId = forID,
+                    OperationType = operationType,
+                    OperationDesc = operationDesc,
+                    OperationerAccount = operationerAccount,
+                    OperationerName = operationerName,
+                    OperationTime = operationTime,
+                    Remark = remark
+
+                };
+                iResult = AddHistory(info);
+            }
+            else
+            {
+                FinancingFeePaymentHistoryInfo info = new FinancingFeePaymentHistoryInfo()
+                {
+                    Id = Guid.NewGuid(),
+                    ForId = forID,
+                    OperationType = operationType,
+                    OperationDesc = operationDesc,
+                    OperationerAccount = operationerAccount,
+                    OperationerName = operationerName,
+                    OperationTime = operationTime,
+                    Remark = remark
+                };
+                iResult = AddHistory(info);
+            }
+            return iResult;
+        }
+
+        public int AddHistory(FolkFinancingHistoryInfo info, string boName = BoName)
+        {
+            return hctrl.Insert(boName, info);
+        }
+
+        public List<FolkFinancingHistoryInfo> GetHistoryByCondtion(string condtion, string boName = BoName)
+        {
+            return hctrl.SelectAsList(boName, condtion);
+        }
+
+        public int AddHistory(FinancingFeePaymentHistoryInfo info, string boName = BoName)
+        {
+            return rhctrl.Insert(boName, info);
+        }
+
+        public List<FinancingFeePaymentHistoryInfo> GetProcessHistoryByCondtion(string condtion, string boName = BoName)
+        {
+            return rhctrl.SelectAsList(boName, condtion);
+        }
+
         #endregion
     }
 }

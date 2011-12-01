@@ -22,6 +22,7 @@ namespace com.TZMS.Business
         }
         #endregion
 
+        #region CRUD
         /// <summary>
         ///  添加到数据库
         /// </summary>
@@ -53,6 +54,7 @@ namespace com.TZMS.Business
         {
             return ctrl.UpDate(boName, info);
         }
+        #endregion
 
         #region 获取借款信息
         /// <summary>
@@ -161,6 +163,74 @@ namespace com.TZMS.Business
         public List<ProjectProcessInfo> GetProcessByCondtion(string condtion, string boName = BoName)
         {
             return rctrl.SelectAsList(boName, condtion);
+        }
+
+        #endregion
+
+        #region 历史记录
+        InvestmentProjectHistoryCtrl hctrl = new InvestmentProjectHistoryCtrl();
+        ProjectProcessHistoryCtrl rhctrl = new ProjectProcessHistoryCtrl();
+
+        public int AddHistory(Guid forID, string operationType, string operationDesc, string operationerAccount, string operationerName, DateTime operationTime, string remark)
+        {
+            return AddHistory(false, forID, operationType, operationDesc, operationerAccount, operationerName, operationTime, remark);
+        }
+
+        public int AddHistory(bool isProcess, Guid forID, string operationType, string operationDesc, string operationerAccount, string operationerName, DateTime operationTime, string remark)
+        {
+            int iResult = 0;
+            if (!isProcess)
+            {
+                InvestmentProjectHistoryInfo info = new InvestmentProjectHistoryInfo()
+                {
+                    Id = Guid.NewGuid(),
+                    ForId = forID,
+                    OperationType = operationType,
+                    OperationDesc = operationDesc,
+                    OperationerAccount = operationerAccount,
+                    OperationerName = operationerName,
+                    OperationTime = operationTime,
+                    Remark = remark
+
+                };
+                iResult = AddHistory(info);
+            }
+            else
+            {
+                ProjectProcessHistoryInfo info = new ProjectProcessHistoryInfo()
+                {
+                    Id = Guid.NewGuid(),
+                    ForId = forID,
+                    OperationType = operationType,
+                    OperationDesc = operationDesc,
+                    OperationerAccount = operationerAccount,
+                    OperationerName = operationerName,
+                    OperationTime = operationTime,
+                    Remark = remark
+                };
+                iResult = AddHistory(info);
+            }
+            return iResult;
+        }
+
+        public int AddHistory(InvestmentProjectHistoryInfo info, string boName = BoName)
+        {
+            return hctrl.Insert(boName, info);
+        }
+
+        public List<InvestmentProjectHistoryInfo> GetHistoryByCondtion(string condtion, string boName = BoName)
+        {
+            return hctrl.SelectAsList(boName, condtion);
+        }
+
+        public int AddHistory(ProjectProcessHistoryInfo info, string boName = BoName)
+        {
+            return rhctrl.Insert(boName, info);
+        }
+
+        public List<ProjectProcessHistoryInfo> GetProcessHistoryByCondtion(string condtion, string boName = BoName)
+        {
+            return rhctrl.SelectAsList(boName, condtion);
         }
 
         #endregion
