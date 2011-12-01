@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web.Pages.FolkFinancingPages
 {
@@ -46,6 +47,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 bindUserInterface(strID);
                 // 绑定审批人.
                 ApproveUser();
+                // 绑定审批历史.
+                BindHistory();
             }
         }
 
@@ -101,6 +104,25 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.ddlLoanType.SelectedValue = _Info.LoanType;
                 this.tbRemark.Text = _Info.Remark;   
             }
+        }
+
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            if (ObjectID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ForId = '" + ObjectID + "'");
+            strCondition.Append(" ORDER BY OperationTime DESC");
+            List<FolkFinancingHistoryInfo> lstInfo = new FolkFinancingManage().GetHistoryByCondtion(strCondition.ToString());
+            //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            gridHistory.RecordCount = lstInfo.Count;
+            this.gridHistory.DataSource = lstInfo;
+            this.gridHistory.DataBind();
         }
         #endregion
 

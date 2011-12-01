@@ -76,6 +76,24 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.Button btnSave;
         
         /// <summary>
+        /// TabStrip1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TabStrip TabStrip1;
+        
+        /// <summary>
+        /// TabForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tab TabForm;
+        
+        /// <summary>
         /// mainFrame control.
         /// </summary>
         /// <remarks>
@@ -85,75 +103,93 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
-        /// DatePicker1 control.
+        /// taAccountingRemark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker DatePicker1;
+        protected global::ExtAspNet.TextArea taAccountingRemark;
         
         /// <summary>
-        /// DatePicker2 control.
+        /// tbPaymentAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker DatePicker2;
+        protected global::ExtAspNet.TextBox tbPaymentAccount;
         
         /// <summary>
-        /// TextBox5 control.
+        /// tbReceivablesAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox5;
+        protected global::ExtAspNet.TextBox tbReceivablesAccount;
         
         /// <summary>
-        /// TextBox6 control.
+        /// tbAmountOfPayment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox6;
+        protected global::ExtAspNet.TextBox tbAmountOfPayment;
         
         /// <summary>
-        /// TextBox7 control.
+        /// dpDateForPay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox7;
+        protected global::ExtAspNet.DatePicker dpDateForPay;
         
         /// <summary>
-        /// TextBox8 control.
+        /// dpDueDateForPay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox TextBox8;
+        protected global::ExtAspNet.DatePicker dpDueDateForPay;
         
         /// <summary>
-        /// TextArea1 control.
+        /// taRemark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextArea TextArea1;
+        protected global::ExtAspNet.TextArea taRemark;
         
         /// <summary>
-        /// TextArea2 control.
+        /// taAuditOpinion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextArea TextArea2;
+        protected global::ExtAspNet.TextArea taAuditOpinion;
+        
+        /// <summary>
+        /// tabHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tab tabHistory;
+        
+        /// <summary>
+        /// gridHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Grid gridHistory;
     }
 }

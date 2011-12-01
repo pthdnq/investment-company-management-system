@@ -18,68 +18,91 @@
                 <Items>
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
-                    <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
+                    <ext:Button ID="btnSave" Hidden="true" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
                         Icon="Disk" Text="保存" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
         <Items>
+            <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
+                AutoHeight="true" Height="392px">
+                <Tabs>
+                    <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                        <Items>
             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
                 runat="server">
                 <Rows>
-                    <ext:FormRow ColumnWidths="100%">
+                        <ext:FormRow ColumnWidths="100%">
                         <Items>
-                            <ext:DatePicker ID="DatePicker1" Enabled="false" Label="应付款日" runat="server">
+                            <ext:TextArea ID="taAccountingRemark" Label="支付备注" runat="server" MaxLength="200"
+                                MaxLengthMessage="最多只能输入200个字符！">
+                            </ext:TextArea>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="50% 50%">
+                        <Items>
+                            <ext:TextBox ID="tbPaymentAccount" Enabled="false" Label="付款帐号" runat="server" MaxLength="60"
+                                MaxLengthMessage="最多只能输入60个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                            </ext:TextBox>
+                            <ext:TextBox ID="tbReceivablesAccount" Enabled="false" Label="收款帐号" runat="server"
+                                MaxLength="60" MaxLengthMessage="最多只能输入60个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                RegexMessage="不能输入特殊字符!">
+                            </ext:TextBox>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="50% 50%">
+                        <Items>
+                            <ext:TextBox ID="tbAmountOfPayment" Label="支付金额" Enabled="false" runat="server" MaxLength="8"
+                                MaxLengthMessage="最多只能输入8个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
+                            </ext:TextBox>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="50% 50%">
+                        <Items>
+                            <ext:DatePicker ID="dpDateForPay" Label="支付日期" runat="server" Enabled="false">
                             </ext:DatePicker>
-                            <ext:DatePicker ID="DatePicker2" Enabled="false" Label="实付款日" runat="server">
+                            <ext:DatePicker ID="dpDueDateForPay" Label="应付款日" runat="server" Enabled="false">
                             </ext:DatePicker>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
-                            <ext:TextBox ID="TextBox5" Enabled="false" Label="支付金额" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
-                                RegexMessage="只能输入字母!">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="100%">
-                        <Items>
-                            <ext:TextBox ID="TextBox6" Enabled="false" Label="付款帐号" runat="server" MaxLength="200"
-                                MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="100%">
-                        <Items>
-                            <ext:TextBox ID="TextBox7" Enabled="false" Label="收款帐号" runat="server" MaxLength="200"
-                                MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="100%">
-                        <Items>
-                            <ext:TextBox ID="TextBox8" Enabled="false" Label="备注" runat="server" MaxLength="200"
-                                MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="100%">
-                        <Items>
-                            <ext:TextArea ID="TextArea1" Enabled="false" Label="审核意见" runat="server" MaxLength="200"
-                                MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                            <ext:TextArea ID="taRemark" Enabled="false" Label="备注" runat="server" MaxLength="200"
+                                MaxLengthMessage="最多只能输入200个字符！">
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
-                            <ext:TextArea ID="TextArea2" Label="支付备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                            <ext:TextArea ID="taAuditOpinion" Enabled="false" Label="审核意见" runat="server" MaxLength="200"
+                                MaxLengthMessage="最多只能输入200个字符！">
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
+                      </Items>
+                    </ext:Tab>
+                    <ext:Tab ID="tabHistory" Title="操作历史" EnableBackgroundColor="true" runat="server"
+                        BodyPadding="5px">
+                        <Items>
+                            <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
+                                IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
+                                <Columns>
+                                    <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
+                                    <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />
+                                    <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
+                                        HeaderText="操作时间" />
+                                    <ext:BoundField Width="50px" DataField="OperationType" HeaderText="操作类型" />
+                                    <ext:BoundField Width="100px" DataField="OperationDesc" DataTooltipField="OperationDesc"
+                                        HeaderText="操作描述" />
+                                    <ext:BoundField DataField="Remark" HeaderText="操作人意见" DataTooltipField="Remark" ExpandUnusedSpace="true" />
+                                </Columns>
+                            </ext:Grid>
+                        </Items>
+                    </ext:Tab>
+                </Tabs>
+            </ext:TabStrip>
         </Items>
     </ext:Panel>
     </form>
