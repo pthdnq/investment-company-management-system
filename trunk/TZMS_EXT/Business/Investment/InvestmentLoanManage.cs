@@ -22,6 +22,7 @@ namespace com.TZMS.Business
         }
         #endregion
 
+        #region 借款CRUD
         /// <summary>
         ///  添加到数据库
         /// </summary>
@@ -34,7 +35,7 @@ namespace com.TZMS.Business
         }
 
         /// <summary>
-        /// 根据用户唯一ID删除(假删除，改变 state=2)
+        /// 根据 唯一ID删除(假删除，改变 state=9)
         /// </summary>
         /// <param name="boName">连接字符串Key</param>
         /// <param name="objectID">唯一ID（GUID）</param>
@@ -47,12 +48,13 @@ namespace com.TZMS.Business
         /// 更新信息
         /// </summary>
         /// <param name="boName">连接字符串Key</param>
-        /// <param name="info">用户实体</param>
+        /// <param name="info">实体</param>
         /// <returns>执行结果</returns>
         public int Update(InvestmentLoanInfo info, string boName = BoName)
         { 
             return ctrl.UpDate(boName, info);
         }
+        #endregion
 
         #region 获取借款信息
         /// <summary>
@@ -72,7 +74,7 @@ namespace com.TZMS.Business
         }
 
         /// <summary>
-        /// 通过帐号获得员工
+        /// 通过帐号获得 
         /// </summary>
         /// <param name="boName">连接字符串Key</param>
         /// <param name="accountNo">帐号</param>
@@ -88,7 +90,7 @@ namespace com.TZMS.Business
         }
 
         /// <summary>
-        /// 获得所有员工
+        /// 获得所有 
         /// </summary>
         /// <param name="boName">连接字符串Key</param>
         /// <returns>集合</returns>
@@ -163,6 +165,74 @@ namespace com.TZMS.Business
             return rctrl.SelectAsList(boName, condtion);
         }
       
+        #endregion
+
+        #region 历史记录
+        InvestmentLoanHistoryCtrl hctrl = new InvestmentLoanHistoryCtrl();
+        ReceivablesAuditHistoryCtrl rhctrl = new ReceivablesAuditHistoryCtrl();
+
+        public int AddHistory(Guid forID, string operationType, string operationDesc, string operationerAccount, string operationerName, DateTime operationTime, string remark)
+        {
+            return AddHistory(false, forID, operationType, operationDesc, operationerAccount, operationerName, operationTime, remark);
+        }
+
+        public int AddHistory(bool isProcess, Guid forID, string operationType, string operationDesc, string operationerAccount, string operationerName, DateTime operationTime, string remark)
+        {
+            int iResult = 0;
+            if (!isProcess)
+            {
+                InvestmentLoanHistoryInfo info = new InvestmentLoanHistoryInfo()
+                {
+                    Id = Guid.NewGuid(),
+                    ForId = forID,
+                    OperationType = operationType,
+                    OperationDesc = operationDesc,
+                    OperationerAccount = operationerAccount,
+                    OperationerName = operationerName,
+                    OperationTime = operationTime,
+                    Remark = remark
+
+                };
+                iResult = AddHistory(info);
+            }
+            else
+            {
+                ReceivablesAuditHistoryInfo info = new ReceivablesAuditHistoryInfo()
+                {
+                    Id = Guid.NewGuid(),
+                    ForId = forID,
+                    OperationType = operationType,
+                    OperationDesc = operationDesc,
+                    OperationerAccount = operationerAccount,
+                    OperationerName = operationerName,
+                    OperationTime = operationTime,
+                    Remark = remark
+                };
+                iResult = AddHistory(info);
+            }
+            return iResult;
+        }
+
+        public int AddHistory(InvestmentLoanHistoryInfo info, string boName = BoName)
+        {
+            return hctrl.Insert(boName, info);
+        }
+
+        public List<InvestmentLoanHistoryInfo> GetHistoryByCondtion(string condtion, string boName = BoName)
+        {
+            return hctrl.SelectAsList(boName, condtion);
+        }
+
+        public int AddHistory(ReceivablesAuditHistoryInfo info, string boName = BoName)
+        {
+            return rhctrl.Insert(boName, info);
+        }
+
+        public List<ReceivablesAuditHistoryInfo> GetProcessHistoryByCondtion(string condtion, string boName = BoName)
+        {
+            return rhctrl.SelectAsList(boName, condtion);
+        }
+
         #endregion
 
     }
