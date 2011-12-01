@@ -41,7 +41,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
-                btnNewYewu.OnClientClick = wndNewYewu.GetShowReference("NewCommonYeWu.aspx") + "return false;";
+                btnNewYewu.OnClientClick = wndNewYewu.GetShowReference("NewCommonYeWu.aspx?Type=Add") + "return false;";
+                wndNewYewu.OnClientCloseButtonClick = wndNewYewu.GetHidePostBackReference();
                 DataBindData();
             }
         }
@@ -58,6 +59,8 @@ namespace TZMS.Web
 
             strCondition.Append(" Isdelete <> 1 ");
             strCondition.Append(" and UserID='" + this.CurrentUser.ObjectId.ToString() + "' ");
+            strCondition.Append(" and state = " + ddlstAproveState.SelectedValue);
+
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
                 strCondition.Append(" and Title Like '%" + tbxSearch.Text.Trim() + "%'");
@@ -82,7 +85,8 @@ namespace TZMS.Web
             this.gridYewu.DataBind();
         }
 
-        #region Grid
+        #region 页面事件
+
         /// <summary>
         /// 翻页事件
         /// </summary>
@@ -101,31 +105,25 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridYewu_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
-            //string strWuZhiID = ((GridRow)gridWuZhi.Rows[e.RowIndex]).Values[0];
-            //if (e.CommandName == "View")
-            //{
-            //    wndNewWuZhi.IFrameUrl = "WuZhiApplyNew.aspx?Type=View&ID=" + strWuZhiID;
-            //    wndNewWuZhi.Hidden = false;
-            //}
+            string strWuZhiID = ((GridRow)gridYewu.Rows[e.RowIndex]).Values[0];
+            if (e.CommandName == "View")
+            {
+                wndNewYewu.IFrameUrl = "NewCommonYeWu.aspx?Type=View&ID=" + strWuZhiID;
+                wndNewYewu.Hidden = false;
+            }
 
-            //if (e.CommandName == "Edit")
-            //{
-            //    wndNewWuZhi.IFrameUrl = "WuZhiApplyNew.aspx?Type=Edit&ID=" + strWuZhiID;
-            //    wndNewWuZhi.Hidden = false;
-            //}
+            if (e.CommandName == "Delete")
+            {
+                WuZhiManage _manage = new WuZhiManage();
+                WuZhiInfo _info = _manage.GetWuZhiByObjectID(strWuZhiID);
+                if (_info != null)
+                {
+                    _info.Isdelete = true;
+                    _manage.UpdateWuZhi(_info);
 
-            //if (e.CommandName == "Delete")
-            //{
-            //    WuZhiManage _manage = new WuZhiManage();
-            //    WuZhiInfo _info = _manage.GetWuZhiByObjectID(strWuZhiID);
-            //    if (_info != null)
-            //    {
-            //        _info.Isdelete = true;
-            //        _manage.UpdateWuZhi(_info);
-
-            //        BindGrid();
-            //    }
-            //}
+                    DataBindData();
+                }
+            }
         }
 
         /// <summary>
@@ -220,6 +218,17 @@ namespace TZMS.Web
         {
             DataBindData();
         }
+
+        /// <summary>
+        /// 查询事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            DataBindData();
+        }
+
         #endregion
     }
 }

@@ -32,6 +32,8 @@ namespace com.TZMS.Model
             _birthday = DateTime.Parse("1900-1-1 12:00");
             _entryDate = DateTime.Parse("1900-1-1 12:00");
             _workYear = -1;
+            _probationTime = ACommonInfo.DBMAXDate;
+            _leaveTime = ACommonInfo.DBMAXDate;
         }
         #endregion
 

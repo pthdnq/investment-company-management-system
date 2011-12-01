@@ -24,7 +24,8 @@
                                 <ext:ListItem Text="未完成" Value="0" Selected="true" />
                                 <ext:ListItem Text="已完成" Value="1" />
                             </ext:DropDownList>
-                            <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier">
+                            <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" 
+                                OnClick="btnSearch_Click">
                             </ext:Button>
                         </Items>
                     </ext:FormRow>

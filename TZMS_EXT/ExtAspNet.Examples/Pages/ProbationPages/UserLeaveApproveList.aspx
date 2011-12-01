@@ -75,7 +75,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndApprove" Title="离职审批" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
+        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="550px"
         Width="700px" OnClose="wndApprove_Close">
     </ext:Window>
     </form>

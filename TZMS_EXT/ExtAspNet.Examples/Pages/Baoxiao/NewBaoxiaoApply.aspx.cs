@@ -284,19 +284,23 @@ namespace TZMS.Web
                 taaOther.Text = _info.Other;
 
                 // 查找最早的审批记录.
-                CommSelect _commSelect = new CommSelect();
-                ComHelp _comHelp = new ComHelp();
-                _comHelp.TableName = "BaoXiaoView";
-                _comHelp.SelectList = "top 1 CheckerID, CheckerName";
-                _comHelp.SearchCondition = "ObjectID = '" + _info.ObjectId.ToString() + "' and CheckOp <> '0'";
-                _comHelp.PageSize = PageCounts;
-                _comHelp.PageIndex = 0;
-                _comHelp.OrderExpression = "CheckDateTime desc";
-
-                DataTable dtbLeaveApproves = _commSelect.ComSelect(ref _comHelp);
-                if (dtbLeaveApproves.Rows.Count > 0)
+                List<BaoxiaoCheckInfo> lstApprove = _manage.GetBaoxiaoCheckByCondition(" ApplyID = '" + _info.ObjectId.ToString() +
+                    "' and CheckOp <> '0'");
+                if (lstApprove.Count == 1)
                 {
-                    ddlstApproveUser.SelectedValue = dtbLeaveApproves.Rows[0]["CheckerID"].ToString();
+                    ddlstApproveUser.SelectedValue = lstApprove[0].CheckerId.ToString();
+                }
+                else
+                {
+                    lstApprove.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(x.CheckDateTime, y.CheckDateTime); });
+                    foreach (var item in lstApprove)
+                    {
+                        if (DateTime.Compare(item.CheckDateTime, ACommonInfo.DBEmptyDate) != 0)
+                        {
+                            ddlstApproveUser.SelectedValue = item.CheckerId.ToString();
+                            break;
+                        }
+                    }
                 }
             }
         }

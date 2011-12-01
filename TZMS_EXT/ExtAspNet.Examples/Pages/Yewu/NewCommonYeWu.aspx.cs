@@ -7,29 +7,79 @@ using System.Web.UI.WebControls;
 using com.TZMS.Model;
 using com.TZMS.Business;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web
 {
     public partial class NewCommonYeWu : BasePage
     {
+        /// <summary>
+        /// 操作类型
+        /// </summary>
+        public string OperatorType
+        {
+            get
+            {
+                if (ViewState["OperatorType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperatorType"].ToString();
+            }
+            set
+            {
+                ViewState["OperatorType"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 报销单ID
+        /// </summary>
+        public string ApplyID
+        {
+            get
+            {
+                if (ViewState["ApplyID"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["ApplyID"].ToString();
+            }
+            set
+            {
+                ViewState["ApplyID"] = value;
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                InitCurrentChecker();
+                OperatorType = Request.QueryString["Type"];
+                ApplyID = Request.QueryString["ID"];
+                switch (OperatorType)
+                {
+                    case "Add":
+                        tabApproveHistory.Hidden = true;
+                        InitCurrentChecker();
+                        break;
+                    case "View":
+                        if (!string.IsNullOrEmpty(ApplyID))
+                        {
+                            BindYeWuInfo();
+                            BindHistory();
+                            DisabledAllControls();
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
-        /// <summary>
-        /// 关闭
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void btnClose_Click(object sender, EventArgs e)
-        {
-            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
-        }
+        #region 私有方法
 
         /// <summary>
         /// 初始化当前责任人、签单人、签单时间
@@ -60,6 +110,96 @@ namespace TZMS.Web
             ddlstNext.SelectedIndex = 0;
 
             dpkSign.Text = DateTime.Now.ToString("yyyy-MM-dd");
+        }
+
+        /// <summary>
+        /// 绑定业务信息
+        /// </summary>
+        private void BindYeWuInfo()
+        {
+           YewuManage _manage =  new YewuManage();
+            // 绑定第一步操作的人员.
+            List<YeWuGudingDoingInfo> lstYeWuGuding = new YewuManage().GetYeWuDoingForList(" ApplyID='" + ApplyID + "' and OrderIndex = 1");
+            if (lstYeWuGuding.Count > 0)
+            {
+                ddlstNext.Items.Add(new ExtAspNet.ListItem("业务转交", "1"));
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(lstYeWuGuding[0].CheckerName, lstYeWuGuding[0].CheckerId.ToString()));
+            }
+            // 绑定申请单信息.
+            // 绑定签单人.
+            lstYeWuGuding = new YewuManage().GetYeWuDoingForList(" ApplyID='" + ApplyID + "' and OrderIndex = 0");
+            if (lstYeWuGuding.Count > 0)
+            {
+                drpSigner.Items.Add(new ExtAspNet.ListItem(lstYeWuGuding[0].CheckerName, lstYeWuGuding[0].CheckerId.ToString()));
+            }
+            YeWuInfo _applyInfo = _manage.GetYeWuForObject(ApplyID);
+            if (_applyInfo != null)
+            {
+                dpkSign.SelectedDate = _applyInfo.SignDate;
+                tbxTitle.Text = _applyInfo.Title;
+                taaSument.Text = _applyInfo.Sument;
+                taaOther.Text = _applyInfo.Other;
+            }
+        }
+
+        /// <summary>
+        /// 禁用所有控件
+        /// </summary>
+        private void DisabledAllControls()
+        {
+            btnSubmit.Enabled = false;
+            ddlstNext.Required = false;
+            ddlstNext.ShowRedStar = false;
+            ddlstNext.Enabled = false;
+            ddlstApproveUser.Required = false;
+            ddlstApproveUser.ShowRedStar = false;
+            ddlstApproveUser.Enabled = false;
+            drpSigner.Required = false;
+            drpSigner.ShowRedStar = false;
+            drpSigner.Enabled = false;
+            dpkSign.Required = false;
+            dpkSign.ShowRedStar = false;
+            dpkSign.Enabled = false;
+            tbxTitle.Required = false;
+            tbxTitle.ShowRedStar = false;
+            tbxTitle.Enabled = false;
+            taaSument.Required = false;
+            taaSument.ShowRedStar = false;
+            taaSument.Enabled = false;
+            taaOther.Enabled = false;
+        }
+
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append(" ApplyID = '" + ApplyID + "'");
+            strCondition.Append(" and  Checkstate = 1 ");
+            List<YeWuGudingDoingInfo> lstBaoxiaoCheckInfo = new YewuManage().GetYeWuDoingForList(strCondition.ToString());
+
+            lstBaoxiaoCheckInfo.Sort(delegate(YeWuGudingDoingInfo x, YeWuGudingDoingInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            // 绑定列表.
+            gridApproveHistory.RecordCount = lstBaoxiaoCheckInfo.Count;
+            this.gridApproveHistory.DataSource = lstBaoxiaoCheckInfo;
+            this.gridApproveHistory.DataBind();
+        }
+
+        #endregion
+
+        #region 页面事件
+
+        /// <summary>
+        /// 关闭
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
         }
 
         /// <summary>
@@ -150,5 +290,20 @@ namespace TZMS.Web
             btnClose_Click(null, null);
 
         }
+
+        /// <summary>
+        /// 操作历史数据行绑定事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridApproveHistory_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            if (e.DataItem != null)
+            {
+                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd HH:mm");
+            }
+        }
+
+        #endregion
     }
 }

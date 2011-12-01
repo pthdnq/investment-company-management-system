@@ -37,7 +37,7 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 //btnNewYewu.OnClientClick = wndNewYewu.GetShowReference("NewCommonYeWu.aspx") + "return false;";
-                //wndNewYewu.OnClientCloseButtonClick = wndNewYewu.GetHidePostBackReference();
+                wndNewYewu.OnClientCloseButtonClick = wndNewYewu.GetHidePostBackReference();
                 DataBindData();
             }
         }
@@ -95,25 +95,6 @@ namespace TZMS.Web
                 wndNewYewu.IFrameUrl = "CommonYewuApp.aspx?ID=" + strWuZhiID;
                 wndNewYewu.Hidden = false;
             }
-
-            //if (e.CommandName == "Edit")
-            //{
-            //    wndNewWuZhi.IFrameUrl = "WuZhiApplyNew.aspx?Type=Edit&ID=" + strWuZhiID;
-            //    wndNewWuZhi.Hidden = false;
-            //}
-
-            //if (e.CommandName == "Delete")
-            //{
-            //    WuZhiManage _manage = new WuZhiManage();
-            //    WuZhiInfo _info = _manage.GetWuZhiByObjectID(strWuZhiID);
-            //    if (_info != null)
-            //    {
-            //        _info.Isdelete = true;
-            //        _manage.UpdateWuZhi(_info);
-
-            //        BindGrid();
-            //    }
-            //}
         }
 
         /// <summary>
@@ -126,31 +107,17 @@ namespace TZMS.Web
 
             if (e.DataItem != null)
             {
-                //    e.Values[1] = e.Values[1].ToString() == "0" ? "办公用品" : "固定资产";
-                //    e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd HH:mm");
-                //    // 当前审批人.
-                if (e.Values[3].ToString() == SystemUser.ObjectId.ToString())
-                {
-                    e.Values[3] = SystemUser.Name;
-                }
-                else
-                {
-                    UserInfo _userInfo = new UserManage().GetUserByObjectID(e.Values[3].ToString());
-                    if (_userInfo != null)
-                    {
-                        e.Values[3] = _userInfo.Name;
-                    }
-                }
                 // 审批状态.
-                switch (e.Values[5].ToString())
+                switch (e.Values[4].ToString())
                 {
                     case "0":
-                        e.Values[5] = "未完成";
-                        //e.Values[9] = "<span class=\"gray\">编辑</span>";
-                        //e.Values[10] = "<span class=\"gray\">删除</span>";
+                        e.Values[4] = "待操作";
+                        e.Values[5] = "";
                         break;
                     case "1":
-                        e.Values[5] = "已完成";
+                        e.Values[4] = "已操作";
+                        e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd HH:mm");
+                        e.Values[6] = "<span class=\"gray\">操作</span>";
                         break;
                     default:
                         break;

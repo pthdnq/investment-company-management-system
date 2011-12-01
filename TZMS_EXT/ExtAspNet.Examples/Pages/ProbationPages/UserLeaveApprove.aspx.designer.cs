@@ -139,24 +139,6 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DropDownList ddlstTransferSSDept;
         
         /// <summary>
-        /// lbl1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Label lbl1;
-        
-        /// <summary>
-        /// FormRow8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow8;
-        
-        /// <summary>
         /// ddlstTransferXZDept control.
         /// </summary>
         /// <remarks>
@@ -164,15 +146,6 @@ namespace TZMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.DropDownList ddlstTransferXZDept;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Label Label1;
         
         /// <summary>
         /// FormRow9 control.

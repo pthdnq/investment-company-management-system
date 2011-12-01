@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using com.TZMS.Model;
 using com.TZMS.Business;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web
 {
@@ -61,10 +62,11 @@ namespace TZMS.Web
                 {
                     string objectID = Request.QueryString["ID"].ToString();
                     YewuManage ym = new YewuManage();
-                   YeWu = ym.GetYeWuForObject(objectID);
-                   YeWuDoing_wei = ym.GetYeWuDoingForObject(" ApplyID='" + objectID + "' and Checkstate=0");
-                   //
-                   this.Title = "普通业务操作-"+YeWuDoing_wei.CheckOp;
+                    YeWu = ym.GetYeWuForObject(objectID);
+                    YeWuDoing_wei = ym.GetYeWuDoingForObject(" ApplyID='" + objectID + "' and Checkstate=0");
+                    BindHistory(objectID);
+                    //
+                    this.Title = "普通业务操作-" + YeWuDoing_wei.CheckOp;
                 }
                 else
                 {
@@ -74,14 +76,25 @@ namespace TZMS.Web
             }
         }
 
+        #region 私有方法
+
         /// <summary>
-        /// 关闭
+        /// 绑定历史
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void btnClose_Click(object sender, EventArgs e)
+        private void BindHistory(string objectID)
         {
-            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append(" ApplyID = '" + objectID + "'");
+            strCondition.Append(" and  Checkstate = 1 ");
+            List<YeWuGudingDoingInfo> lstBaoxiaoCheckInfo = new YewuManage().GetYeWuDoingForList(strCondition.ToString());
+
+            lstBaoxiaoCheckInfo.Sort(delegate(YeWuGudingDoingInfo x, YeWuGudingDoingInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            // 绑定列表.
+            gridApproveHistory.RecordCount = lstBaoxiaoCheckInfo.Count;
+            this.gridApproveHistory.DataSource = lstBaoxiaoCheckInfo;
+            this.gridApproveHistory.DataBind();
         }
 
         /// <summary>
@@ -117,6 +130,20 @@ namespace TZMS.Web
             this.taaSument.Text = YeWu.Sument;
             this.taaOther.Text = YeWu.Other;
             this.tbxTitle.Text = YeWu.Title;
+        }
+
+        #endregion
+
+        #region 页面事件
+
+        /// <summary>
+        /// 关闭
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
         }
 
         /// <summary>
@@ -169,5 +196,20 @@ namespace TZMS.Web
             btnClose_Click(null, null);
 
         }
+
+        /// <summary>
+        /// 数据行绑定事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridApproveHistory_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            if (e.DataItem != null)
+            {
+                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd HH:mm");
+            }
+        }
+
+        #endregion
     }
 }
