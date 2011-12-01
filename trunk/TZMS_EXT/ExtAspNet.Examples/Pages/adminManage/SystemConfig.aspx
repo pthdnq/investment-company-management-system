@@ -7,8 +7,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    </div>
+    <ext:PageManager ID="PageManager1" AutoSizePanelID="pelMain" HideScrollbar="true"
+        runat="server" />
+    <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
+        EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
+        Layout="Anchor">
+        <Items>
+            <ext:Form ID="Form2" ShowBorder="False" LabelWidth="55px" BodyPadding="5px" AnchorValue="100%"
+                EnableBackgroundColor="true" ShowHeader="False" runat="server">
+            </ext:Form>
+        </Items>
+    </ext:Panel>
     </form>
 </body>
 </html>
