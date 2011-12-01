@@ -20,11 +20,13 @@ using com.TZMS.Model;
 
 namespace com.TZMS.DataAccess
 {
+
+
     /// <summary>
     /// BankLoanCtrl
     /// programmer:shunlian
     /// </summary>
-    public class BankLoanCtrl
+    public class BankLoanCtrl 
     {
         #region 构造函数
 
@@ -292,7 +294,7 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanInfoInfoDataRow["CustomerId"] != null)
             {
-                BankLoanInfoInfo.CustomerId =new Guid( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CustomerId"));
+                BankLoanInfoInfo.CustomerId = new Guid(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CustomerId"));
             }
             if (BankLoanInfoInfoDataRow["LoanCompany"] != null)
             {
@@ -300,11 +302,11 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanInfoInfoDataRow["LoanAmount"] != null)
             {
-                BankLoanInfoInfo.LoanAmount =Decimal.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanAmount"));
+                BankLoanInfoInfo.LoanAmount = Decimal.Parse(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanAmount"));
             }
             if (BankLoanInfoInfoDataRow["LoanFee"] != null)
             {
-                BankLoanInfoInfo.LoanFee =Decimal.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanFee"));
+                BankLoanInfoInfo.LoanFee = Decimal.Parse(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanFee"));
             }
             if (BankLoanInfoInfoDataRow["CollateralCompany"] != null)
             {
@@ -312,11 +314,11 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanInfoInfoDataRow["SignDate"] != null)
             {
-                BankLoanInfoInfo.SignDate =DateTime.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "SignDate"));
+                BankLoanInfoInfo.SignDate = DateTime.Parse(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "SignDate"));
             }
             if (BankLoanInfoInfoDataRow["DownPayment"] != null)
             {
-                BankLoanInfoInfo.DownPayment =Decimal.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "DownPayment"));
+                BankLoanInfoInfo.DownPayment = Decimal.Parse(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "DownPayment"));
             }
             if (BankLoanInfoInfoDataRow["Contact"] != null)
             {
@@ -340,11 +342,11 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanInfoInfoDataRow["CreateTime"] != null)
             {
-                BankLoanInfoInfo.CreateTime =DateTime.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreateTime"));
+                BankLoanInfoInfo.CreateTime = DateTime.Parse(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreateTime"));
             }
             if (BankLoanInfoInfoDataRow["CreaterId"] != null)
             {
-                BankLoanInfoInfo.CreaterId =new Guid( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreaterId"));
+                BankLoanInfoInfo.CreaterId = new Guid(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "CreaterId"));
             }
             if (BankLoanInfoInfoDataRow["CreaterName"] != null)
             {
@@ -356,7 +358,7 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanInfoInfoDataRow["SubmitTime"] != null)
             {
-                BankLoanInfoInfo.SubmitTime =DateTime.Parse( DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "SubmitTime"));
+                BankLoanInfoInfo.SubmitTime = DateTime.Parse(DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "SubmitTime"));
             }
             if (BankLoanInfoInfoDataRow["AuditOpinion"] != null)
             {
