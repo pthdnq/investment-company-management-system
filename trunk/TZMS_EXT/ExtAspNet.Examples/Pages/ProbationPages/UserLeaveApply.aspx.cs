@@ -275,6 +275,15 @@ namespace TZMS.Web
 
             if (OperatorType == "Add")
             {
+                DateTime startTime = Convert.ToDateTime(dpkContractStartDate.SelectedDate);
+                DateTime endTime = Convert.ToDateTime(dpkContractEndDate.SelectedDate);
+
+                if (DateTime.Compare(startTime, endTime) == 1)
+                {
+                    Alert.Show("结束日期不可小于开始日期!");
+                    return;
+                }
+
                 // 插入申请单信息.
                 _applyInfo = new UserLeaveApplyInfo();
                 _applyInfo.ObjectID = Guid.NewGuid();
@@ -433,30 +442,28 @@ namespace TZMS.Web
                 DateTime approveDate = DateTime.Parse(e.Values[1].ToString());
                 if (DateTime.Compare(approveDate, ACommonInfo.DBMAXDate) == 0)
                 {
-                    e.Values[1] = "";
-                    e.Values[2] = "交接中...";
-
+                    e.Values[1] = "交接中...";
                 }
                 else
                 {
                     e.Values[1] = approveDate.ToString("yyyy-MM-dd HH:mm");
-                    switch (e.Values[2].ToString())
-                    {
-                        case "0":
-                            e.Values[2] = "所属部门交接";
-                            break;
-                        case "1":
-                            e.Values[2] = "财务部交接";
-                            break;
-                        case "2":
-                            e.Values[2] = "行政部交接";
-                            break;
-                        case "4":
-                            e.Values[2] = "归档";
-                            break;
-                        default:
-                            break;
-                    }
+                }
+                switch (e.Values[2].ToString())
+                {
+                    case "0":
+                        e.Values[2] = "所属部门交接";
+                        break;
+                    case "1":
+                        e.Values[2] = "财务部交接";
+                        break;
+                    case "2":
+                        e.Values[2] = "行政部交接";
+                        break;
+                    case "4":
+                        e.Values[2] = "归档";
+                        break;
+                    default:
+                        break;
                 }
             }
         }

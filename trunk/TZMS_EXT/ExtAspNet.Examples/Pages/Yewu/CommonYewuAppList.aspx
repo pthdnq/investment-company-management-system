@@ -25,8 +25,7 @@
                                 <ext:ListItem Text="待操作" Value="0" Selected="true" />
                                 <ext:ListItem Text="已操作" Value="1" />
                             </ext:DropDownList>
-                            <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" 
-                                OnClick="btnSearch_Click">
+                            <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
                             </ext:Button>
                         </Items>
                     </ext:FormRow>
@@ -34,14 +33,14 @@
             </ext:Form>
             <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
                 Layout="Fit" runat="server">
-                <Toolbars>
+                <%--                <Toolbars>
                     <ext:Toolbar ID="toolApp" runat="server">
                         <Items>
-                            <%-- <ext:Button ID="btnNewYewu" Text="新建普通业务" ToolTip="新建普通业务" Icon="Add" runat="server">
-                            </ext:Button>--%>
+                             <ext:Button ID="btnNewYewu" Text="新建普通业务" ToolTip="新建普通业务" Icon="Add" runat="server">
+                            </ext:Button>
                         </Items>
                     </ext:Toolbar>
-                </Toolbars>
+                </Toolbars>--%>
                 <Items>
                     <ext:Grid ID="gridYewu" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
                         runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
@@ -50,10 +49,10 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="Title" Width="300px" HeaderText="业务标题" DataTooltipField="Title" />
-                            <ext:BoundField DataField="ObjectID" Hidden="true" HeaderText="业务内容" DataTooltipField="Sument" />
-                            <ext:BoundField DataField="CurrentCheckerID" HeaderText="当前负责人" />
+                            <ext:BoundField DataField="Sument" HeaderText="业务内容" ExpandUnusedSpace="true" DataTooltipField="Sument" />
                             <ext:BoundField DataField="CheckOp" HeaderText="当前操作" />
-                            <ext:BoundField DataField="State" Width="60px" HeaderText="状态" />
+                            <ext:BoundField DataField="Checkstate" HeaderText="操作状态" />
+                            <ext:BoundField DataField="CheckDateTime" HeaderText="操作时间" />
                             <ext:LinkButtonField Width="38px" Text="操作" CommandName="CZ" />
                         </Columns>
                     </ext:Grid>

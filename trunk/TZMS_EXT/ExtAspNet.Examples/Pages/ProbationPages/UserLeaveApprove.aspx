@@ -47,17 +47,9 @@
                                     <ext:DropDownList ID="ddlstTransferSSDept" runat="server" ShowRedStar="true" Required="true"
                                         Label="所属部门交接人" Hidden="true" Enabled="false">
                                     </ext:DropDownList>
-                                    <ext:Label ID="lbl1" runat="server" Hidden="true">
-                                    </ext:Label>
-                                </Items>
-                            </ext:FormRow>
-                            <ext:FormRow ID="FormRow8" runat="server" ColumnWidths="50% 50%">
-                                <Items>
                                     <ext:DropDownList ID="ddlstTransferXZDept" runat="server" ShowRedStar="true" Required="true"
                                         Label="行政部交接人" Hidden="true" Enabled="false">
                                     </ext:DropDownList>
-                                    <ext:Label ID="Label1" runat="server" Hidden="true">
-                                    </ext:Label>
                                 </Items>
                             </ext:FormRow>
                             <ext:FormRow ID="FormRow9" runat="server" ColumnWidths="50% 50%">
@@ -118,7 +110,7 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow11" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaLeaveReason" runat="server" Height="200px" Enabled="false">
+                                                    <ext:TextArea ID="taaLeaveReason" Label="离职原因" runat="server" Height="200px" Enabled="false">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>

@@ -54,7 +54,7 @@
                                                     <ext:DropDownList Required="true" ShowRedStar="true" ID="drpSigner" runat="server"
                                                         RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="签单人">
                                                     </ext:DropDownList>
-                                                    <ext:DatePicker ID="dpkSign" Label="签单时间" runat="server">
+                                                    <ext:DatePicker ID="dpkSign" Required="true" ShowRedStar="true" Label="签单时间" runat="server">
                                                     </ext:DatePicker>
                                                 </Items>
                                             </ext:FormRow>
@@ -86,17 +86,15 @@
                             <ext:Tab ID="tabApproveHistory" Title="操作历史" EnableBackgroundColor="true" runat="server"
                                 BodyPadding="5px">
                                 <Items>
-                                    <%--                                    <ext:Grid ID="gridApproveHistory" Title="Grid1" ShowBorder="true" ShowHeader="false"
+                                    <ext:Grid ID="gridApproveHistory" Title="Grid1" ShowBorder="true" ShowHeader="false"
                                         runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true"
                                         AutoHeight="true" OnRowDataBound="gridApproveHistory_RowDataBound">
                                         <Columns>
-                                            <ext:BoundField DataField="CheckerName" HeaderText="执行人" />
-                                            <ext:BoundField DataField="CheckDateTime" HeaderText="执行时间" />
-                                            <ext:BoundField DataField="CheckOp" HeaderText="执行结果" />
-                                            <ext:BoundField DataField="CheckSugest" HeaderText="执行人意见" DataTooltipField="CheckSugest"
-                                                ExpandUnusedSpace="true" />
+                                            <ext:BoundField DataField="CheckerName" HeaderText="操作人" />
+                                            <ext:BoundField DataField="CheckDateTime" HeaderText="操作时间" />
+                                            <ext:BoundField DataField="CheckOp" HeaderText="操作类型" ExpandUnusedSpace="true" />
                                         </Columns>
-                                    </ext:Grid>--%>
+                                    </ext:Grid>
                                 </Items>
                             </ext:Tab>
                         </Tabs>
