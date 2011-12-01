@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web.Pages.InvestmentProjectPages
 {
@@ -41,6 +42,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             {
                 string strID = Request.QueryString["ID"];
                 bindInterface(strID);
+                BindHistory();
             }
         }
 
@@ -75,6 +77,25 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             this.dpSignDate.SelectedDate = _Info.SignDate;
             this.tbRemark.Text = _Info.Remark;
 
+        }
+
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            if (ObjectID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ForId = '" + ObjectID + "'");
+            strCondition.Append(" ORDER BY OperationTime DESC");
+            List<InvestmentProjectHistoryInfo> lstInfo = new InvestmentProjectManage().GetHistoryByCondtion(strCondition.ToString());
+            //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            gridHistory.RecordCount = lstInfo.Count;
+            this.gridHistory.DataSource = lstInfo;
+            this.gridHistory.DataBind();
         }
         #endregion
 

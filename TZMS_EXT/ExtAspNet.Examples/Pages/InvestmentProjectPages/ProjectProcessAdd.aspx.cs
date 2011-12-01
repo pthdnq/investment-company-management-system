@@ -130,7 +130,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             result = manage.AddProcess(_Info);
             if (result == -1)
             {
-                manage.AddHistory(true, _Info.ObjetctId, "新增", "新增项目进展", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+                manage.AddHistory(true, _Info.ObjetctId, "新增", "新增项目进展", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
            
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

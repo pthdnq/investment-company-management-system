@@ -135,6 +135,13 @@
                                                 Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!" />
                                         </Items>
                                     </ext:FormRow>
+                                        <ext:FormRow ColumnWidths="50% 50%">
+                                        <Items>
+                                            <ext:TextArea ID="taOpationRemark"  Label="操作备注" ShowRedStar="true"
+                                                Required="true" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！"
+                                               />
+                                        </Items>
+                                    </ext:FormRow>
                                 </Rows>
                             </ext:Form>
                         </Items>

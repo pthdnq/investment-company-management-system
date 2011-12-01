@@ -247,6 +247,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextArea taAccountingRemark;
         
         /// <summary>
+        /// taOpationRemark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea taOpationRemark;
+        
+        /// <summary>
         /// tabHistory control.
         /// </summary>
         /// <remarks>

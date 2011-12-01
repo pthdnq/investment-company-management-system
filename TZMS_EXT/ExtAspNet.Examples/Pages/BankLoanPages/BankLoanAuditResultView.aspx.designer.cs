@@ -76,6 +76,24 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.Button btnSave;
         
         /// <summary>
+        /// TabStrip1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TabStrip TabStrip1;
+        
+        /// <summary>
+        /// TabForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tab TabForm;
+        
+        /// <summary>
         /// mainFrame control.
         /// </summary>
         /// <remarks>
@@ -173,5 +191,23 @@ namespace TZMS.Web.Pages.BankLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextArea taAuditOpinion;
+        
+        /// <summary>
+        /// tabHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tab tabHistory;
+        
+        /// <summary>
+        /// gridHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Grid gridHistory;
     }
 }

@@ -133,7 +133,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             if (result == -1)
             {
-                manage.AddHistory(_Info.ObjectId, "申请", "借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+                manage.AddHistory(_Info.ObjectId, "申请", "借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
            
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

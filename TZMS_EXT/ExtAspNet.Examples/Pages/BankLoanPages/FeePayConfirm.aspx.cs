@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web.Pages.BankLoanPages
 {
@@ -44,7 +45,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 ObjectID = strID;
 
                 bindUserInterface(strID);
-          
+                BindHistory();
             }
         }
 
@@ -76,13 +77,32 @@ namespace TZMS.Web.Pages.BankLoanPages
                 this.tbAmountExpended.Text = _info.AmountExpended.ToString();
                 this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.Remark;
-
+            this.taAuditOpinion.Text   = _info.AuditOpinion  ;
                 if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
                 {
                     this.dpExpendedTime.SelectedDate = _info.ExpendedTime;
                 }
 
             }
+        }
+
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            if (ObjectID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ForId = '" + ObjectID + "'");
+            strCondition.Append(" ORDER BY OperationTime DESC");
+            List<BankLoanProjectProcessHistoryInfo> lstInfo = new BankLoanManage().GetProcessHistoryByCondtion(strCondition.ToString());
+            //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            gridHistory.RecordCount = lstInfo.Count;
+            this.gridHistory.DataSource = lstInfo;
+            this.gridHistory.DataBind();
         }
         #endregion
 
@@ -108,7 +128,8 @@ namespace TZMS.Web.Pages.BankLoanPages
             BankLoanManage manage = new BankLoanManage();
 
             com.TZMS.Model.BankLoanProjectProcessInfo _Info = manage.GetProcessByObjectID(ObjectID);
-            _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+            _Info.AccountingRemark = this.taFeeConfirm.Text.Trim();
+         
             _Info.Status = status;
 
             // 执行操作.
@@ -118,7 +139,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (result == -1)
             {
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
-                manage.AddHistory(_Info.ObjetctId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+                manage.AddHistory(_Info.ObjetctId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

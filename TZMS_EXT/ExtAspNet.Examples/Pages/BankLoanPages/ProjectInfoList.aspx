@@ -76,6 +76,8 @@
                                         <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
+                                <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}"
+                                Title="查看" WindowID="wndView" />
                             <ext:WindowField Width="114px" Text="提交项目进展" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
                                 Title="提交项目进展" WindowID="wndNew" />
                 <%--            <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />--%>
@@ -88,6 +90,9 @@
     
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="429px" Width="620px" OnClose="wndNew_Close">
+    </ext:Window>
+     <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="369px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

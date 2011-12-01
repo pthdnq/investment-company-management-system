@@ -150,11 +150,11 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void saveInfo(int status)
         {
-            BankLoanManage manage = new BankLoanManage();
-            BankLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
+            InvestmentLoanManage manage = new InvestmentLoanManage();
+           InvestmentLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
 
             _Info.Status = status;
-            // _Info. = this.taAccountingRemark.Text.Trim();
+            _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
 
             //下一步操作
             //_Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
@@ -168,7 +168,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
 
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
-                manage.AddHistory(_Info.ObjetctId, "会计审核", string.Format("借款审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+                manage.AddHistory(_Info.ObjectId, "会计审核", string.Format("借款审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
 
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

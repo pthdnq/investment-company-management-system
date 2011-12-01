@@ -101,7 +101,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             result = manage.Add(_Info);
             if (result == -1)
             {
-                manage.AddHistory(_Info.ObjetctId, "申请", "项目申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+                manage.AddHistory(_Info.ObjetctId, "申请", "项目申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
            
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

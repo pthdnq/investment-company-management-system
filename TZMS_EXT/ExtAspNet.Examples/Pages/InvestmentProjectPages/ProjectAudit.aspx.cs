@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web.Pages.InvestmentProjectPages
 {
@@ -43,6 +44,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 bindInterface(strID);
                 // 绑定审批人.
                 ApproveUser();
+                BindHistory();
             }
         }
 
@@ -96,6 +98,25 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             this.tbRemark.Text = _Info.Remark;
 
         }
+
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            if (ObjectID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ForId = '" + ObjectID + "'");
+            strCondition.Append(" ORDER BY OperationTime DESC");
+            List<InvestmentProjectHistoryInfo> lstInfo = new InvestmentProjectManage().GetHistoryByCondtion(strCondition.ToString());
+            //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            gridHistory.RecordCount = lstInfo.Count;
+            this.gridHistory.DataSource = lstInfo;
+            this.gridHistory.DataBind();
+        }
         #endregion
 
         #region 页面及控件事件
@@ -138,7 +159,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             if (result == -1)
             {
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
-                manage.AddHistory(_Info.ObjetctId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+                manage.AddHistory(_Info.ObjetctId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
