@@ -500,6 +500,7 @@
     <Content Include="index.aspx" />
     <Content Include="library\blowery.Web.HttpCompress.dll" />
     <Content Include="Pages\adminManage\NewUser.aspx" />
+    <Content Include="Pages\adminManage\SystemConfig.aspx" />
     <Content Include="Pages\attendance\ImportWorkerAttend.aspx" />
     <Content Include="Pages\attendance\NoAttend.aspx" />
     <Content Include="Pages\adminManage\RolesOfUser.aspx" />
@@ -696,6 +697,13 @@
     </Compile>
     <Compile Include="Pages\adminManage\NewUser.aspx.designer.cs">
       <DependentUpon>NewUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\SystemConfig.aspx.cs">
+      <DependentUpon>SystemConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\SystemConfig.aspx.designer.cs">
+      <DependentUpon>SystemConfig.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\attendance\ImportWorkerAttend.aspx.cs">
       <DependentUpon>ImportWorkerAttend.aspx</DependentUpon>
