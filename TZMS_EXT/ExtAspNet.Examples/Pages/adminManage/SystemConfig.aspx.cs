@@ -11,7 +11,10 @@ namespace TZMS.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                btnNewUser.OnClientClick = newSetCheckerWindow.GetShowReference(@"..\system\SetMyChecker.aspx") + " return false;";
+            }
         }
     }
 }

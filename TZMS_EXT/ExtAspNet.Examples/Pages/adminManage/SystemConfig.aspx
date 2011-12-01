@@ -13,11 +13,31 @@
         EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
         Layout="Anchor">
         <Items>
-            <ext:Form ID="Form2" ShowBorder="False" LabelWidth="55px" BodyPadding="5px" AnchorValue="100%"
+            <ext:Form ID="Form2" ShowBorder="False" LabelWidth="70px" BodyPadding="5px" AnchorValue="100%"
                 EnableBackgroundColor="true" ShowHeader="False" runat="server">
+                <Toolbars>
+                    <ext:Toolbar ID="toolUser" runat="server">
+                        <Items>
+                            <ext:Button ID="btnNewUser" Text="设置行政归档员..." Icon="UserAdd" runat="server">
+                            </ext:Button>
+                        </Items>
+                    </ext:Toolbar>
+                </Toolbars>
+                <Rows>
+                    <ext:FormRow>
+                        <Items>
+                            <ext:TextBox ID="txtXzgd" Readonly="true" Width="200px" runat="server" Label="行政归档员">
+                            </ext:TextBox>
+                        </Items>
+                    </ext:FormRow>
+                </Rows>
             </ext:Form>
         </Items>
     </ext:Panel>
+        <ext:Window ID="newSetCheckerWindow" Title="设置行政归档人" Popup="false" EnableIFrame="true"
+        IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" Width="600px"
+        Height="450px">
+    </ext:Window>
     </form>
 </body>
 </html>
