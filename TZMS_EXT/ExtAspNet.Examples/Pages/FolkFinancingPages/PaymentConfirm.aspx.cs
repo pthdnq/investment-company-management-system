@@ -140,16 +140,19 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             FolkFinancingManage manage = new FolkFinancingManage();
 
-            com.TZMS.Model.FinancingFeePaymentInfo _info = manage.GetProcessByObjectID(ObjectID);
-            _info.AccountingRemark = this.taAccountingRemark.Text.Trim();
-            _info.Status = status;
+            com.TZMS.Model.FinancingFeePaymentInfo _Info = manage.GetProcessByObjectID(ObjectID);
+            _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
+            _Info.Status = status;
 
             // 执行操作.
             int result = 3;
 
-            result = manage.UpdateProcess(_info);
+            result = manage.UpdateProcess(_Info);
             if (result == -1)
             {
+                string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
+                manage.AddHistory(_Info.ObjetctId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference("操作成功"));
             }

@@ -128,8 +128,8 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// </summary>
         private void saveInfo(int status)
         {
-            BankLoanManage _Manage = new BankLoanManage();
-            BankLoanInfo _Info = _Manage.GetUserByObjectID(ObjectID);
+            BankLoanManage manage = new BankLoanManage();
+            BankLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
 
             _Info.Status = status;
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
@@ -141,9 +141,12 @@ namespace TZMS.Web.Pages.BankLoanPages
 
 
             int result = 3;
-            result = _Manage.Update(_Info);
+            result = manage.Update(_Info);
             if (result == -1)
             {
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意";
+                manage.AddHistory(_Info.ObjetctId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
@@ -162,7 +165,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+                ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

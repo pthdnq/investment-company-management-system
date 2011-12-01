@@ -116,8 +116,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// </summary>
         private void saveInfo(int status)
         {
-            InvestmentProjectManage _Manage = new InvestmentProjectManage();
-            InvestmentProjectInfo _Info = _Manage.GetUserByObjectID(ObjectID);
+            InvestmentProjectManage manage = new InvestmentProjectManage();
+            InvestmentProjectInfo _Info = manage.GetUserByObjectID(ObjectID);
 
 
             _Info.AuditOpinion = this.tbAuditOpinion.Text.Trim();
@@ -133,10 +133,13 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             int result = 3;
 
-            result = _Manage.Update(_Info);
+            result = manage.Update(_Info);
 
             if (result == -1)
             {
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
+                manage.AddHistory(_Info.ObjetctId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

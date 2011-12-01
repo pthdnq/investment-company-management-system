@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web.Pages.InvestmentLoanPages
 {
@@ -47,6 +48,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 ObjectID = strID;
 
                 bindUserInterface(strID);
+                // 绑定审批历史.
+                BindHistory();
             }
         }
 
@@ -76,6 +79,25 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             tbReceivablesAccount.Text = info.ReceivablesAccount;   
             taRemark.Text = info.Remark;
         }
+
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            if (ObjectID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ForId = '" + ObjectID + "'");
+            strCondition.Append(" ORDER BY OperationTime DESC");
+            List<ReceivablesAuditHistoryInfo> lstInfo = new InvestmentLoanManage().GetProcessHistoryByCondtion(strCondition.ToString());
+            //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            gridHistory.RecordCount = lstInfo.Count;
+            this.gridHistory.DataSource = lstInfo;
+            this.gridHistory.DataBind();
+        }
         #endregion
 
         #region 页面及控件事件
@@ -86,8 +108,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            //确认4
-            saveInfo(4);
+            //确认5
+            saveInfo(5);
         }
 
         #endregion
@@ -98,7 +120,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void saveInfo(int status)
         {
-            com.TZMS.Model.ReceivablesInfo info = new InvestmentLoanManage().GetReceivableByObjectID(ObjectID);
+            com.TZMS.Model.ReceivablesInfo _Info = new InvestmentLoanManage().GetReceivableByObjectID(ObjectID);
           
             InvestmentLoanManage manage = new InvestmentLoanManage();
 
@@ -106,19 +128,19 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             //info.ObjetctId = Guid.NewGuid();
             //info.ForId = new Guid(ForID);  
 
-            info.AuditOpinion = taAuditOpinionRemark.Text.Trim();
-            info.Status = status;
-            info.IsAccountingAudit = true;
-        //    info.AccountingAccount =  ;
-            info.AccountingName = "xxx";
-           
-
+            _Info.AuditOpinion = taAuditOpinionRemark.Text.Trim();
+            _Info.Status = status;
+            _Info.IsAccountingAudit = true;
+    
             // 执行操作.
             int result = 3;
 
-            result = manage.UpdateReceivable(info);
+            result = manage.UpdateReceivable(_Info);
             if (result == -1)
             {
+                string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
+                manage.AddHistory(true,_Info.ObjetctId, "会计审核", string.Format("借款审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

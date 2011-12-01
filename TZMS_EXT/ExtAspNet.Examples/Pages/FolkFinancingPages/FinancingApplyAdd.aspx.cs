@@ -54,7 +54,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// </summary>
         private void saveInfo()
         {
-            FolkFinancingManage _Manage = new FolkFinancingManage();
+            FolkFinancingManage manage = new FolkFinancingManage();
             FolkFinancingInfo _Info = new FolkFinancingInfo();
 
             _Info.ObjetctId = Guid.NewGuid();
@@ -89,10 +89,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
 
             int result = 3;
-            result = _Manage.Add(_Info);
+            result = manage.Add(_Info);
 
             if (result == -1)
             {
+                manage.AddHistory(_Info.ObjetctId, "申请", "民间融资申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+          
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

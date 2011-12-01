@@ -94,42 +94,44 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// </summary>
         private void saveUserInfo()
         {
-            com.TZMS.Model.ProjectProcessInfo info = new com.TZMS.Model.ProjectProcessInfo();
+            com.TZMS.Model.ProjectProcessInfo _Info = new com.TZMS.Model.ProjectProcessInfo();
             InvestmentProjectManage manage = new InvestmentProjectManage();
 
             //  ID.
-            info.ObjetctId = Guid.NewGuid();
-            info.ForId = new Guid(ForID);
+            _Info.ObjetctId = Guid.NewGuid();
+            _Info.ForId = new Guid(ForID);
              
-            info.ProjectName = manage.GetUserByObjectID(ForID).ProjectName;
+            _Info.ProjectName = manage.GetUserByObjectID(ForID).ProjectName;
              
             if (dpExpendedTime.SelectedDate is DateTime)
             {
-                info.ExpendedTime = this.dpExpendedTime.SelectedDate.Value;
+                _Info.ExpendedTime = this.dpExpendedTime.SelectedDate.Value;
             }
 
             if (!string.IsNullOrEmpty(tbAmountExpended.Text))
             {
-                info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Trim());
+                _Info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Trim());
             }
             if (!string.IsNullOrEmpty(tbImprestAmount.Text))
             {
-                info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Trim());
+                _Info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Trim());
             }
-            info.ImplementationPhase = this.tbImplementationPhase.Text.Trim();
-            info.Remark = taRemark.Text.Trim();
+            _Info.ImplementationPhase = this.tbImplementationPhase.Text.Trim();
+            _Info.Remark = taRemark.Text.Trim();
 
-            info.CreateTime = DateTime.Now;
-            info.SubmitTime = DateTime.Now;
-            info.Status = 1;
+            _Info.CreateTime = DateTime.Now;
+            _Info.SubmitTime = DateTime.Now;
+            _Info.Status = 1;
 
 
             // 执行操作.
             int result = 3;
 
-            result = manage.AddProcess(info);
+            result = manage.AddProcess(_Info);
             if (result == -1)
             {
+                manage.AddHistory(true, _Info.ObjetctId, "新增", "新增项目进展", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+           
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
