@@ -72,7 +72,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// </summary>
         private void saveInfo()
         {
-            BankLoanManage _Manage = new BankLoanManage();
+            BankLoanManage manage = new BankLoanManage();
             BankLoanInfo _Info = new BankLoanInfo();
 
             _Info.ObjetctId = Guid.NewGuid();
@@ -105,10 +105,12 @@ namespace TZMS.Web.Pages.BankLoanPages
             //} 
 
             int result = 3; 
-            result = _Manage.Add(_Info);
+            result = manage.Add(_Info);
 
             if (result == -1)
             {
+                manage.AddHistory(_Info.ObjetctId, "申请", "银行贷款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+          
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

@@ -94,49 +94,51 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// </summary>
         private void saveUserInfo()
         {
-            com.TZMS.Model.BankLoanProjectProcessInfo info = new com.TZMS.Model.BankLoanProjectProcessInfo();
+            com.TZMS.Model.BankLoanProjectProcessInfo _Info = new com.TZMS.Model.BankLoanProjectProcessInfo();
             BankLoanManage manage = new BankLoanManage();
 
             //  ID.
-            info.ObjetctId = Guid.NewGuid();
-            info.ForId = new Guid(ForID);
+            _Info.ObjetctId = Guid.NewGuid();
+            _Info.ForId = new Guid(ForID);
             var bankloan = manage.GetUserByObjectID(ForID);
        //  info.ProjectName = manage.GetUserByObjectID(ForID);
-            info.ImplementationPhase = this.taImplementationPhase.Text.Trim();
+            _Info.ImplementationPhase = this.taImplementationPhase.Text.Trim();
            
             //  info.LoanBank= bankloan.
             if (dpExpendedTime.SelectedDate is DateTime)
             {
-                info.ExpendedTime = this.dpExpendedTime.SelectedDate.Value;
+                _Info.ExpendedTime = this.dpExpendedTime.SelectedDate.Value;
             }
 
             if (!string.IsNullOrEmpty(tbAmountExpended.Text))
             {
-                info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Trim());
+                _Info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Trim());
             }
             if (!string.IsNullOrEmpty(tbImprestAmount.Text))
             {
-                info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Trim());
+                _Info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Trim());
             }
 
-            info.Remark = taRemark.Text.Trim();
+            _Info.Remark = taRemark.Text.Trim();
 
-            info.CreateTime = DateTime.Now;
-            info.SubmitTime = DateTime.Now;
-            info.CreaterAccount = this.CurrentUser.AccountNo;
-            info.CreaterId = this.CurrentUser.ObjectId;
-            info.CreaterName = this.CurrentUser.Name;
-            info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
-            info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            info.NeedImprest = (info.AmountExpended == 0) ? 0 : 1;
+            _Info.CreateTime = DateTime.Now;
+            _Info.SubmitTime = DateTime.Now;
+            _Info.CreaterAccount = this.CurrentUser.AccountNo;
+            _Info.CreaterId = this.CurrentUser.ObjectId;
+            _Info.CreaterName = this.CurrentUser.Name;
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NeedImprest = (_Info.AmountExpended == 0) ? 0 : 1;
      
-            info.Status = 1;
+            _Info.Status = 1;
 
             // 执行操作.
             int result = 3;
-            result = manage.AddProcess(info);
+            result = manage.AddProcess(_Info);
             if (result == -1)
             {
+                manage.AddHistory(true, _Info.ObjetctId, "新增", "新增进展", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+           
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

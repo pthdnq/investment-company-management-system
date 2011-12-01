@@ -105,21 +105,26 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             InvestmentProjectManage manage = new InvestmentProjectManage();
 
-            com.TZMS.Model.ProjectProcessInfo _info = manage.GetProcessByObjectID(ObjectID);
-            _info.AccountingRemark = this.taAccountingRemark.Text.Trim();
-            _info.Status = status;
+            com.TZMS.Model.ProjectProcessInfo _Info = manage.GetProcessByObjectID(ObjectID);
+            _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
+            _Info.Status = status;
 
             // 执行操作.
             int result = 3;
 
-            result = manage.UpdateProcess(_info);
+            result = manage.UpdateProcess(_Info);
             if (result == -1)
             {
-                Alert.Show("编辑员工成功!");
+                string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
+                manage.AddHistory(_Info.ObjetctId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+
+                Alert.Show("操作成功!");
+                PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference("操作成功"));
+     
             }
             else
             {
-                Alert.Show("编辑员工失败!");
+                Alert.Show("操作失败!");
             }
         }
 

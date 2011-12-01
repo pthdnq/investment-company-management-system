@@ -111,7 +111,16 @@ namespace TZMS.Web.Pages.BankLoanPages
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            saveInfo(3);
+            if (this.ddlstNext.SelectedValue.Equals(0))
+            {
+                //同意，继续审核
+                saveInfo(3);
+            }
+            else
+            {
+                //待会计审核/支付确认
+                saveInfo(4);
+            }
         }
         #endregion
 
@@ -123,16 +132,19 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             BankLoanManage manage = new BankLoanManage();
 
-            com.TZMS.Model.BankLoanProjectProcessInfo _info = manage.GetProcessByObjectID(ObjectID);
-            _info.AuditOpinion = this.taAuditOpinion.Text.Trim();
-            _info.Status = status;
+            com.TZMS.Model.BankLoanProjectProcessInfo _Info = manage.GetProcessByObjectID(ObjectID);
+            _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+            _Info.Status = status;
 
             // 执行操作.
             int result = 3;
 
-            result = manage.UpdateProcess(_info);
+            result = manage.UpdateProcess(_Info);
             if (result == -1)
             {
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
+                manage.AddHistory(_Info.ObjetctId, "审批", string.Format("借款审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

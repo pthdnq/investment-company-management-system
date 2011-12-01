@@ -115,9 +115,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            //需要增加下一步审批人
-            //strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' AND ");
-            strCondtion.Append("   Status<>9 ");
+            //需要增加下一步审批人(暂用AccountingAccount存储，待修改)
+            strCondtion.Append("   AccountingAccount = '" + this.CurrentUser.ObjectId + "'   ");
+          //  strCondtion.Append("   Status<>9 ");
             if (!string.IsNullOrEmpty(searchText))
             {
                 strCondtion.Append("AND  (ProjectName LIKE '%" + searchText + "%'  )  ");

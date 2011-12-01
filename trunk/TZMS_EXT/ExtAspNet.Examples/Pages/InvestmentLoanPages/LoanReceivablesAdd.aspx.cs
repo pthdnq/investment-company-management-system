@@ -109,50 +109,54 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void saveInfo()
         {
-            com.TZMS.Model.ReceivablesInfo info = new com.TZMS.Model.ReceivablesInfo();
+            com.TZMS.Model.ReceivablesInfo _Info = new com.TZMS.Model.ReceivablesInfo();
        
             InvestmentLoanManage manage = new InvestmentLoanManage();
              
-            info.ObjetctId = Guid.NewGuid();
-            info.ForId = new Guid(ForID); 
+            _Info.ObjetctId = Guid.NewGuid();
+            _Info.ForId = new Guid(ForID); 
 
-            info.ProjectName = manage.GetUserByObjectID(ForID).ProjectName;
+            _Info.ProjectName = manage.GetUserByObjectID(ForID).ProjectName;
  
             if (dpDueDateForReceivables.SelectedDate is DateTime)
             {
-                info.DueDateForReceivables = Convert.ToDateTime(dpDueDateForReceivables.SelectedDate);
+                _Info.DueDateForReceivables = Convert.ToDateTime(dpDueDateForReceivables.SelectedDate);
             }
          
             if (dpDateForReceivables.SelectedDate is DateTime)
             {
-                info.DateForReceivables = Convert.ToDateTime(dpDateForReceivables.SelectedDate);
+                _Info.DateForReceivables = Convert.ToDateTime(dpDateForReceivables.SelectedDate);
             }
             if (!string.IsNullOrEmpty(tbAmountofpaidUp.Text))
             {
-                info.AmountofpaidUp = Decimal.Parse(tbAmountofpaidUp.Text.Trim());
+                _Info.AmountofpaidUp = Decimal.Parse(tbAmountofpaidUp.Text.Trim());
             }
-            info.ReceivablesAccount = tbReceivablesAccount.Text.Trim();
+            _Info.ReceivablesAccount = tbReceivablesAccount.Text.Trim();
 
 
-            info.Remark = taRemark.Text.Trim();
+            _Info.Remark = taRemark.Text.Trim();
             //等待会计收款确认
-            info.Status = 4;
+            _Info.Status = 4;
         
             //  创建人
-            info.CreateTime = DateTime.Now;
-            info.CreaterId = this.CurrentUser.ObjectId;
-            info.CreaterName = this.CurrentUser.Name;
-         
-           // info.CreaterAccount = this.CurrentUser.AccountNo;
+            _Info.CreateTime = DateTime.Now;
+            _Info.CreaterId = this.CurrentUser.ObjectId;
+            _Info.CreaterName = this.CurrentUser.Name;
+            _Info.AccountingName = this.ddlstApproveUser.SelectedText;
+         //   暂用AccountingAccount存储，待修改
+            _Info.AccountingAccount = this.ddlstApproveUser.SelectedValue;
+        
           //下一步操作人
           
 
             // 执行操作.
             int result = 3;
 
-            result = manage.AddReceivable(info);
+            result = manage.AddReceivable(_Info);
             if (result == -1)
             {
+                manage.AddHistory(true,_Info.ObjetctId, "新增", "新增回款信息", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+           
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

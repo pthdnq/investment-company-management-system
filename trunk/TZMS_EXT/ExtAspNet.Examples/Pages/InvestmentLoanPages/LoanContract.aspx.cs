@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web.Pages.InvestmentLoanPages
 {
@@ -42,8 +43,14 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
-
+                string strType = Request.QueryString["Type"]; 
+                if (strType.Equals("View"))
+                {
+                    this.btnSave.Hidden = true;
+                }
                 bindUserInterface(strID);
+                // 绑定审批历史.
+                BindHistory();
             }
         }
 
@@ -82,6 +89,24 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.taAccountingRemark.Text = _Info.AccountingRemark;
         }
 
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            if (ObjectID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ForId = '" + ObjectID + "'");
+            strCondition.Append(" ORDER BY OperationTime DESC");
+            List<InvestmentLoanHistoryInfo> lstInfo = new InvestmentLoanManage().GetHistoryByCondtion(strCondition.ToString());
+            //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            gridHistory.RecordCount = lstInfo.Count;
+            this.gridHistory.DataSource = lstInfo;
+            this.gridHistory.DataBind();
+        }
         #endregion
 
         #region 页面及控件事件
@@ -90,11 +115,11 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void btnDismissed_Click(object sender, EventArgs e)
-        {
-            //打回状态2
-            saveInfo(2);
-        }
+        //protected void btnDismissed_Click(object sender, EventArgs e)
+        //{
+        //    //打回状态2
+        //    saveInfo(2);
+        //}
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -110,18 +135,21 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void saveInfo(int status)
         {
-            InvestmentLoanManage _Manage = new InvestmentLoanManage();
-            InvestmentLoanInfo _Info = _Manage.GetUserByObjectID(ObjectID);
+            InvestmentLoanManage manage = new InvestmentLoanManage();
+            InvestmentLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
 
             _Info.Status = status;
         //    _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
 
             int result = 3;
 
-            result = _Manage.Update(_Info);
+            result = manage.Update(_Info);
 
             if (result == -1)
             {
+                string statusName = "已终止";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
+                manage.AddHistory( _Info.ObjectId, "终止合同", string.Format("终止合同:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

@@ -107,7 +107,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         protected void btnDismissed_Click(object sender, EventArgs e)
         {
             //打回
-            saveInfo(4);
+            saveInfo(2);
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -133,15 +133,18 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             FolkFinancingManage manage = new FolkFinancingManage();
 
-            com.TZMS.Model.FolkFinancingInfo _info = manage.GetUserByObjectID(ObjectID);
-            _info.AuditOpinion = this.taAuditOpinion.Text.Trim();
-            _info.Status = status;
+            com.TZMS.Model.FolkFinancingInfo _Info = manage.GetUserByObjectID(ObjectID);
+            _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+            _Info.Status = status;
 
             // 执行操作.
             int result = 3; 
-            result = manage.Update(_info);
+            result = manage.Update(_Info);
             if (result == -1)
             {
+                string statusName = (status == 2) ? "不同意" : (status == 5) ? "同意，继续审核" : "同意";
+                manage.AddHistory(_Info.ObjetctId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

@@ -62,7 +62,9 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                               <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
+                          <ext:WindowField DataTextField="ProjectName"   Width="120px" HeaderText="项目名称" DataIFrameUrlFields="ObjectId"
+                                DataIFrameUrlFormatString="LoanContract.aspx?Type=View&ID={0}" Title="查看"
+                                WindowID="wndView" />
                             <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
                             <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
                              <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
@@ -92,6 +94,9 @@
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="419px" Width="650px" OnClose="wndNew_Close">
+    </ext:Window>
+      <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="525px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

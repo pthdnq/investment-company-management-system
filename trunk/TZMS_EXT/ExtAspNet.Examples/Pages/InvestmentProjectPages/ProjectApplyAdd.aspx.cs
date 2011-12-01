@@ -73,7 +73,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         private void saveInfo()
         {
             InvestmentProjectInfo _Info = new InvestmentProjectInfo();
-            InvestmentProjectManage _Manage = new InvestmentProjectManage();
+            InvestmentProjectManage manage = new InvestmentProjectManage();
              
             _Info.ObjetctId = Guid.NewGuid();
             _Info.ProjectName = this.tbProjectName.Text.Trim();
@@ -98,9 +98,11 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             
             // 执行操作.
             int result = 3;
-            result = _Manage.Add(_Info);
+            result = manage.Add(_Info);
             if (result == -1)
             {
+                manage.AddHistory(_Info.ObjetctId, "申请", "项目申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
+           
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
