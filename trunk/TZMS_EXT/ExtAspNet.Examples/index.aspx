@@ -82,6 +82,9 @@
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="yggl" AutoPostBack="false" OnClientClick=" tabs('yggl','UserKey');"
                                                 Text="员工管理">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="TableKey" NodeID="xtpz" AutoPostBack="false" OnClientClick=" tabs('xtpz','UserKey');"
+                                                Text="系统配置">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -122,18 +125,18 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane13" runat="server" IconUrl="images/16/消息管理.gif"
+                            <ext:AccordionPane ID="AccordionPane13" runat="server" IconUrl="images/16/薪资管理.png"
                                 Title="薪资管理" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="Tree9" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/我的消息.gif" NodeID="xzgl" OnClientClick=" tabs('xzgl','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息管理.png" NodeID="xzgl" OnClientClick=" tabs('xzgl','UserKey');"
                                                 Text="薪资信息管理">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/我的消息.gif" NodeID="xzsq" OnClientClick=" tabs('xzsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息申请.png" NodeID="xzsq" OnClientClick=" tabs('xzsq','UserKey');"
                                                 Text="薪资信息申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/我的消息.gif" NodeID="xzsp" OnClientClick=" tabs('xzsp','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息审批.png" NodeID="xzsp" OnClientClick=" tabs('xzsp','UserKey');"
                                                 Text="薪资信息审批">
                                             </ext:TreeNode>
                                         </Nodes>
@@ -158,33 +161,33 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane11" runat="server" IconUrl="images/16/消息管理.gif"
-                                Title="转正管理" BodyPadding="1px 1px" ShowBorder="false">
+                            <ext:AccordionPane ID="AccordionPane11" runat="server" IconUrl="images/16/转正管理.png"
+                                Title="转正离职" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="Tree7" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/我的消息.gif" NodeID="zzsq" OnClientClick=" tabs('zzsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/转正申请.png" NodeID="zzsq" OnClientClick=" tabs('zzsq','UserKey');"
                                                 Text="转正申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/已发消息.gif" NodeID="zzsp" OnClientClick=" tabs('zzsp','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/转正审批.png" NodeID="zzsp" OnClientClick=" tabs('zzsp','UserKey');"
                                                 Text="转正审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="zzgd" OnClientClick=" tabs('zzgd','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/转正归档.png" NodeID="zzgd" OnClientClick=" tabs('zzgd','UserKey');"
                                                 Text="转正归档">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="lzsq" OnClientClick=" tabs('lzsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/离职申请.png" NodeID="lzsq" OnClientClick=" tabs('lzsq','UserKey');"
                                                 Text="离职申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="lzsp" OnClientClick=" tabs('lzsp','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/离职审批.png" NodeID="lzsp" OnClientClick=" tabs('lzsp','UserKey');"
                                                 Text="离职审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="lzspgd" OnClientClick=" tabs('lzspgd','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/离职审批归档.png" NodeID="lzspgd" OnClientClick=" tabs('lzspgd','UserKey');"
                                                 Text="离职审批归档">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="lzjj" OnClientClick=" tabs('lzjj','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/离职交接.png" NodeID="lzjj" OnClientClick=" tabs('lzjj','UserKey');"
                                                 Text="离职交接">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="lzjjgd" OnClientClick=" tabs('lzjjgd','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/离职交接归档.png" NodeID="lzjjgd" OnClientClick=" tabs('lzjjgd','UserKey');"
                                                 Text="离职交接归档">
                                             </ext:TreeNode>
                                         </Nodes>
@@ -429,8 +432,11 @@
                     //行政管理
                     LoadTab("Pages/adminManage/WorkerManage.aspx", "员工管理", icon);
                     break;
+                case "xtpz":
+                    LoadTab("Pages/adminManage/SystemConfig.aspx", "系统配置", icon);
+                    break;
 
-                //假勤管理                                                              
+                //假勤管理                                                               
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤", icon);
                     break;
@@ -459,7 +465,7 @@
                     LoadTab("Pages/attendance/NoAttendToFile.aspx", "未打卡归档", icon);
                     break;
 
-                // 薪资管理.         
+                // 薪资管理.          
                 case "xzgl":
                     LoadTab("Pages/Salary/SalaryMsgManage.aspx", "薪资信息管理", icon);
                     break;
@@ -470,7 +476,7 @@
                     LoadTab("Pages/Salary/SalaryMsgApproveList.aspx", "薪资信息审批", icon);
                     break;
 
-                // 消息管理.                   
+                // 消息管理.                    
                 case "wdxx":
                     LoadTab("Pages/Message/MyMessageList.aspx", "我的消息", icon);
                     break;
@@ -480,7 +486,7 @@
                 case "fsxx":
                     LoadTab("Pages/Message/NewMessage.aspx?Type=Add", "发送消息", icon);
                     break;
-                // 业务管理                   
+                // 业务管理                    
                 case "ptyw":
                     LoadTab("Pages/Yewu/CommonYewu.aspx", "普通业务创建", icon);
                     break;
@@ -517,7 +523,7 @@
                     LoadTab("Pages/ProbationPages/UserLeaveTransferToFile.aspx", "离职交接归档", icon);
                     break;
 
-                // 物资管理                
+                // 物资管理                 
                 case "wzsq":
                     LoadTab("Pages/WuZhiPages/WuZhiApplyList.aspx", "物资申请", icon);
                     break;
@@ -528,7 +534,7 @@
                     LoadTab("Pages/WuZhiPages/WuZhiRecordList.aspx", "物资领用", icon);
                     break;
 
-                // 代帐管理                 
+                // 代帐管理                  
                 case "paal":
                     LoadTab("Pages/ProxyAccountingPages/ProxyAccountingUnitList.aspx", "代帐单位", icon);
                     break;
@@ -539,7 +545,7 @@
                     LoadTab("Pages/ProxyAccountingPages/ProxyAccountingApproveList.aspx", "代帐费审批", icon);
                     break;
 
-                //投资部借款 InvestmentLoan                                       
+                //投资部借款 InvestmentLoan                                        
                 case "fksq":
                     LoadTab("Pages/InvestmentLoanPages/PaymentApplyList.aspx", "借款申请", icon);
                     break;
@@ -562,7 +568,7 @@
                     LoadTab("Pages/InvestmentLoanPages/LoanContractList.aspx", "借款合同", icon);
                     break;
 
-                //投资部项目实施 InvestmentProject                                         
+                //投资部项目实施 InvestmentProject                                          
                 case "xmsq":
                     LoadTab("Pages/InvestmentProjectPages/ProjectApplyList.aspx", "项目申请列表", icon);
                     break;
@@ -585,7 +591,7 @@
                     LoadTab("Pages/InvestmentProjectPages/AllProjectList.aspx", "所有项目列表", icon);
                     break;
 
-                //银行贷款 BankLoan                                           
+                //银行贷款 BankLoan                                            
                 case "dksq":
                     LoadTab("Pages/BankLoanPages/BankLoanApplyList.aspx", "贷款申请列表", icon);
                     break;
@@ -608,7 +614,7 @@
                     LoadTab("Pages/BankLoanPages/AllFeePayList.aspx", "所有费用支出列表", icon);
                     break;
 
-                //民间融资 FolkFinancing                                              
+                //民间融资 FolkFinancing                                               
                 case "rzsq":
                     LoadTab("Pages/FolkFinancingPages/FinancingApplyList.aspx", "融资申请列表", icon);
                     break;
@@ -631,7 +637,7 @@
                     LoadTab("Pages/FolkFinancingPages/PaymentRecordList.aspx", "支付记录列表", icon);
                     break;
 
-                //网络报销      Baoxiao                                           
+                //网络报销      Baoxiao                                            
                 case "bxsq":
                     LoadTab("Pages/Baoxiao/BaoxiaoApplyList.aspx", "报销申请", icon);
                     break;
