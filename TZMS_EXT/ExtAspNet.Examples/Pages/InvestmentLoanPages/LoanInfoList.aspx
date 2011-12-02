@@ -21,10 +21,10 @@
                             <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
                                 ID="ttbSearch" />
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
-                            <%--    <ext:ListItem Text="待审核" Value="1"/>
+                                <%--    <ext:ListItem Text="待审核" Value="1"/>
                                 <ext:ListItem Text="审核中" Value="3" />--%>
-                                <ext:ListItem Text="已确认" Value="4"  Selected="true" />
-                       <%--         <ext:ListItem Text="未通过" Value="2" />--%>
+                                <ext:ListItem Text="已确认" Value="4" Selected="true" />
+                                <%--         <ext:ListItem Text="未通过" Value="2" />--%>
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
@@ -62,23 +62,23 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                          <ext:WindowField DataTextField="ProjectName"   Width="120px" HeaderText="项目名称" DataIFrameUrlFields="ObjectId"
-                                DataIFrameUrlFormatString="LoanContract.aspx?Type=View&ID={0}" Title="查看"
-                                WindowID="wndView" />
+                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
                             <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
-                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
-                         
+                            <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
                             <ext:BoundField Width="145px" DataField="LoanDate" HeaderText="借款日期" />
                             <ext:BoundField DataField="DueDateForPay" Width="145px" HeaderText="应付借款日" />
-                                          <ext:BoundField Width="80px" DataField="SubmitTime"  DataFormatString="{0:yyyy/MM/dd HH:mm}"  HeaderText="提交时间" />
+                            <ext:BoundField Width="80px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
+                                HeaderText="提交时间" />
                             <%--     
                           <ext:TemplateField Width="70px" HeaderText="员工状态">
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "在职" : "离职" %>
                                 </ItemTemplate>
                             </ext:TemplateField>--%>
+                            <ext:WindowField Text="查看" Width="38px" HeaderText="" DataIFrameUrlFields="ObjectId"
+                                DataIFrameUrlFormatString="LoanContract.aspx?Type=View&ID={0}" Title="查看" WindowID="wndView" />
                             <ext:WindowField Width="76px" Text="还款进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanInfo.aspx?ID={0}"
                                 WindowID="wndNew" DataWindowTitleField="ProjectName" DataWindowTitleFormatString="还款进展 - {0}" />
                             <%--       <ext:LinkButtonField Width="38px" Text="收款"  CommandName="Repayment" /> --%>
@@ -95,7 +95,7 @@
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="419px" Width="650px" OnClose="wndNew_Close">
     </ext:Window>
-      <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="525px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
