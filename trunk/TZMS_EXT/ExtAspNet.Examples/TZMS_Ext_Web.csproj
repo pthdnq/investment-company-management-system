@@ -627,6 +627,7 @@
     <Content Include="Pages\Salary\AddSalaryApplyList.aspx" />
     <Content Include="Pages\Salary\AddSalaryApprove.aspx" />
     <Content Include="Pages\Salary\AddSalaryApproveList.aspx" />
+    <Content Include="Pages\Salary\MySalary.aspx" />
     <Content Include="Pages\Salary\NewSalaryMsg.aspx" />
     <Content Include="Pages\Salary\NewWorkerSalaryMsg.aspx" />
     <Content Include="Pages\Salary\SalaryMsgApply.aspx" />
@@ -1508,6 +1509,13 @@
     </Compile>
     <Compile Include="Pages\Salary\AddSalaryApproveList.aspx.designer.cs">
       <DependentUpon>AddSalaryApproveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salary\MySalary.aspx.cs">
+      <DependentUpon>MySalary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salary\MySalary.aspx.designer.cs">
+      <DependentUpon>MySalary.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Salary\NewSalaryMsg.aspx.cs">
       <DependentUpon>NewSalaryMsg.aspx</DependentUpon>
