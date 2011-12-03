@@ -46,11 +46,19 @@
                 Layout="Fit" runat="server">
                 <Items>
                     <ext:Grid ID="gridSalary" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
-                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" 
-                        AutoHeight="true" OnPageIndexChange="gridSalary_PageIndexChange" 
-                        OnRowCommand="gridSalary_RowCommand" OnRowDataBound="gridSalary_RowDataBound">
+                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                        OnPageIndexChange="gridSalary_PageIndexChange" OnRowCommand="gridSalary_RowCommand"
+                        OnRowDataBound="gridSalary_RowDataBound">
                         <Columns>
-                            
+                            <ext:BoundField DataField="Year" HeaderText="年份" />
+                            <ext:BoundField DataField="Month" HeaderText="月份" />
+                            <ext:BoundField DataField="BaseSalary" HeaderText="基本工资" />
+                            <ext:BoundField DataField="ExamSalary" HeaderText="考核工资" />
+                            <ext:BoundField DataField="BackSalary" HeaderText="补贴" />
+                            <ext:BoundField DataField="OtherSalary" HeaderText="其它" />
+                            <ext:BoundField DataField="ShouldSalary" HeaderText="应发工资总额" />
+                            <ext:BoundField DataField="Salary" HeaderText="实发工资总额" />
+                            <ext:BoundField DataField="Context" HeaderText="备注" ExpandUnusedSpace="true" DataTooltipField="Context" />
                         </Columns>
                     </ext:Grid>
                 </Items>
