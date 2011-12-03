@@ -63,6 +63,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@OtherSalary",DbType.Guid),
 				new SqlParameter("@Context",DbType.String),
 				new SqlParameter("@CurrentCheckerId",DbType.Guid),
+                new SqlParameter("@State",DbType.Int16),
+                new SqlParameter("@ApplyTime",DbType.DateTime)
 				};
 
                 int i = 0;
@@ -75,6 +77,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = AddSalaryInfo.OtherSalary;
                 sqlparam[i++].Value = AddSalaryInfo.Context;
                 sqlparam[i++].Value = AddSalaryInfo.CurrentCheckerId;
+                sqlparam[i++].Value = AddSalaryInfo.State;
+                sqlparam[i++].Value = AddSalaryInfo.ApplyTime;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -138,6 +142,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@OtherSalary",DbType.Guid),
 				new SqlParameter("@Context",DbType.String),
 				new SqlParameter("@CurrentCheckerId",DbType.Guid),
+                new SqlParameter("@State",DbType.Int16),
+                new SqlParameter("@ApplyTime",DbType.DateTime)
                 };
 
                 int i = 0;
@@ -150,6 +156,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = AddSalaryInfo.OtherSalary;
                 sqlparam[i++].Value = AddSalaryInfo.Context;
                 sqlparam[i++].Value = AddSalaryInfo.CurrentCheckerId;
+                sqlparam[i++].Value = AddSalaryInfo.State;
+                sqlparam[i++].Value = AddSalaryInfo.ApplyTime;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -269,6 +277,14 @@ namespace com.TZMS.DataAccess
             if (AddSalaryInfoInfoDataRow["CurrentCheckerId"] != null)
             {
                 AddSalaryInfoInfo.CurrentCheckerId = new Guid(DataUtil.GetStringValueOfRow(AddSalaryInfoInfoDataRow, "CurrentCheckerId"));
+            }
+            if (AddSalaryInfoInfoDataRow["State"] != null)
+            {
+                AddSalaryInfoInfo.State = short.Parse(DataUtil.GetStringValueOfRow(AddSalaryInfoInfoDataRow, "State"));
+            }
+            if (AddSalaryInfoInfoDataRow["ApplyTime"] != null)
+            {
+                AddSalaryInfoInfo.ApplyTime = DateTime.Parse(DataUtil.GetStringValueOfRow(AddSalaryInfoInfoDataRow, "ApplyTime"));
             }
 
             return AddSalaryInfoInfo;
