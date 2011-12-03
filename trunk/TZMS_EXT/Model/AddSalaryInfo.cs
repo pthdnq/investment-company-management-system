@@ -42,6 +42,8 @@ namespace com.TZMS.Model
         private Decimal _otherSalary = DBEmptyDecimal;
         private string _context = DBEmptyString;
         private Guid _currentCheckerId;
+        private short _state;
+        private DateTime _applyTime = DBMAXDate;
         #endregion
 
         #region Property
@@ -124,6 +126,18 @@ namespace com.TZMS.Model
         {
             get { return _currentCheckerId; }
             set { _currentCheckerId = value; }
+        }
+
+        public short State
+        {
+            get { return _state; }
+            set { _state = value; }
+        }
+
+        public DateTime ApplyTime
+        {
+            get { return _applyTime; }
+            set { _applyTime = value; }
         }
 
         #endregion
