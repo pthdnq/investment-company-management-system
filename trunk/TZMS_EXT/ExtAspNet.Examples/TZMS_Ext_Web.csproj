@@ -512,6 +512,10 @@
     <Content Include="images\zytz.jpg" />
     <Content Include="index.aspx" />
     <Content Include="library\blowery.Web.HttpCompress.dll" />
+    <Content Include="Pages\adminManage\JingShengApply.aspx" />
+    <Content Include="Pages\adminManage\JingShengApplyList.aspx" />
+    <Content Include="Pages\adminManage\JingShengApprove.aspx" />
+    <Content Include="Pages\adminManage\JingShengApproveList.aspx" />
     <Content Include="Pages\adminManage\NewUser.aspx" />
     <Content Include="Pages\adminManage\SystemConfig.aspx" />
     <Content Include="Pages\attendance\ImportWorkerAttend.aspx" />
@@ -704,6 +708,34 @@
     </Compile>
     <Compile Include="BsaePage.aspx.designer.cs">
       <DependentUpon>BsaePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\JingShengApply.aspx.cs">
+      <DependentUpon>JingShengApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\JingShengApply.aspx.designer.cs">
+      <DependentUpon>JingShengApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\JingShengApplyList.aspx.cs">
+      <DependentUpon>JingShengApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\JingShengApplyList.aspx.designer.cs">
+      <DependentUpon>JingShengApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\JingShengApprove.aspx.cs">
+      <DependentUpon>JingShengApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\JingShengApprove.aspx.designer.cs">
+      <DependentUpon>JingShengApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\JingShengApproveList.aspx.cs">
+      <DependentUpon>JingShengApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\JingShengApproveList.aspx.designer.cs">
+      <DependentUpon>JingShengApproveList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\NewUser.aspx.cs">
       <DependentUpon>NewUser.aspx</DependentUpon>
