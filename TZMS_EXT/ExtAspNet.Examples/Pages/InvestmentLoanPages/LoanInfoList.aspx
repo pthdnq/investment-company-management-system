@@ -67,9 +67,9 @@
                             <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
-                            <ext:BoundField Width="145px" DataField="LoanDate" HeaderText="借款日期" />
+                            <ext:BoundField Width="115px" DataField="LoanDate" HeaderText="借款日期"  DataFormatString="{0:yyyy/MM/dd}"/>
                             <ext:BoundField DataField="DueDateForPay" Width="145px" HeaderText="应付借款日" />
-                            <ext:BoundField Width="80px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
+                            <ext:BoundField Width="110px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                 HeaderText="提交时间" />
                             <%--     
                           <ext:TemplateField Width="70px" HeaderText="员工状态">
@@ -91,13 +91,14 @@
     <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
         IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
         Height="370px" Width="400px">
+    </ext:Window> 
+     <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="625px" Width="570px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="419px" Width="650px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="429px" Width="650px" OnClose="wndNew_Close">
     </ext:Window>
-    <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="525px" Width="550px" OnClose="wndNew_Close">
-    </ext:Window>
+  
     </form>
 </body>
 </html>

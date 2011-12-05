@@ -17,13 +17,13 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        IconUrl="~/Images/ico_nextstep.gif" Text="终止合同" />
+                        IconUrl="~/Images/ico_nextstep.gif" Text="终止合同"  ConfirmText="您确定要终止合同吗?"/>
                 </Items>
             </ext:Toolbar>
         </Toolbars>
         <Items>
             <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                AutoHeight="true"  Height="419px">
+                AutoHeight="true"  Height="556px">
                 <Tabs>
                     <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                         <Items>

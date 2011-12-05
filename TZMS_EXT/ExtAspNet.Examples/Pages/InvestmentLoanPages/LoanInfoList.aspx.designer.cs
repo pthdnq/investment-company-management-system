@@ -184,15 +184,6 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.Window wndRolesForUser;
         
         /// <summary>
-        /// wndNew control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Window wndNew;
-        
-        /// <summary>
         /// wndView control.
         /// </summary>
         /// <remarks>
@@ -200,5 +191,14 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.Window wndView;
+        
+        /// <summary>
+        /// wndNew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Window wndNew;
     }
 }
