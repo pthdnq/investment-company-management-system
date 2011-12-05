@@ -116,7 +116,8 @@ namespace TZMS.Web.Pages.BankLoanPages
             #region 条件
             StringBuilder strCondtion = new StringBuilder();
             //需要增加下一步审批人
-            strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "'  ");
+          strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "'  ");
+         //     strCondtion.Append("   Status <> 9 ");
 
             if (!string.IsNullOrEmpty(searchText))
             {

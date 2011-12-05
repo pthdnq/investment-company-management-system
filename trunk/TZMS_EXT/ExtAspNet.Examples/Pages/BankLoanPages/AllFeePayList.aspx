@@ -65,7 +65,7 @@
                                 <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
                          <%--   <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />--%>
                        <%--     <ext:BoundField Width="110px" DataField="GuaranteeCompany" HeaderText="贷款公司" />--%>
-                         <ext:BoundField Width="70px" DataField="ImplementationPhase" HeaderText="实施阶段" />
+                         <ext:BoundField Width="140px" DataField="ImplementationPhase" HeaderText="实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
                             <ext:BoundField Width="80px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd}" HeaderText="支用时间" />
                             <ext:BoundField Width="130px" DataField="ImprestAmount" HeaderText="备用金额" />
@@ -75,6 +75,8 @@
                                        <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
+                         <ext:BoundField  ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
+                      
                             <ext:WindowField  Hidden="true"  Width="76px" Text="支付确认" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="FeePayInfo.aspx?Type=Edit&ID={0}"
                                 Title="支付确认" WindowID="wndNew" />
                         
