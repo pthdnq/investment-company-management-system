@@ -55,6 +55,7 @@
     <Compile Include="InvestmentLoanInfo.cs" />
     <Compile Include="InvestmentProjectHistoryInfo.cs" />
     <Compile Include="InvestmentProjectInfo.cs" />
+    <Compile Include="JiangChengInfo.cs" />
     <Compile Include="JingShengApplyInfo.cs" />
     <Compile Include="JingShengApproveInfo.cs" />
     <Compile Include="LeaveApproveInfo.cs" />

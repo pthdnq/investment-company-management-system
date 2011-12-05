@@ -69,6 +69,7 @@
     <Compile Include="InvestmentLoanHistoryCtrl.cs" />
     <Compile Include="InvestmentProjectCtrl.cs" />
     <Compile Include="InvestmentProjectHistoryCtrl.cs" />
+    <Compile Include="JiangChengCtrl.cs" />
     <Compile Include="JingShengApplyCtrl.cs" />
     <Compile Include="JingShengApproveCtrl.cs" />
     <Compile Include="LeaveApproveCtrl.cs" />
