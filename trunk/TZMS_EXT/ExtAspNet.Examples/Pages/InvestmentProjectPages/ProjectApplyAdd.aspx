@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" runat="server" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true" Height="365px" Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true" Height="347px" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -19,7 +19,7 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        Icon="Disk" Text="保存" />
+                        Icon="Disk" Text="提交"  ConfirmText="您确定提交该表单吗?" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
