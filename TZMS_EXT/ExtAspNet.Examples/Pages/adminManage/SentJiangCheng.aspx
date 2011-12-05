@@ -78,11 +78,11 @@
     </ext:Panel>
     <ext:Window ID="wndChooseJC" Title="选取奖惩人" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="450px"
-        Width="560px" OnClose="btnSetJC_Click">
+        Width="560px" onclose="wndChooseJC_Close" >
     </ext:Window>
     <ext:Window ID="wndChooseZJ" Title="选取部门总监" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="450px"
-        Width="560px" OnClose="btnSetZJ_Click">
+        Width="560px" onclose="wndChooseZJ_Close">
     </ext:Window>
     </form>
 </body>

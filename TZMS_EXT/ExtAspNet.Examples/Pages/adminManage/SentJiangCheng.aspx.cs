@@ -55,8 +55,35 @@ namespace TZMS.Web
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            { 
-                
+            {
+                wndChooseJC.OnClientCloseButtonClick = wndChooseJC.GetHidePostBackReference();
+                wndChooseZJ.OnClientCloseButtonClick = wndChooseZJ.GetHidePostBackReference();
+
+                string strOperatorType = Request.QueryString["Type"];
+                string strApplyID = Request.QueryString["ID"];
+
+                switch (strOperatorType)
+                {
+                    case "Add":
+                        OperatorType = strOperatorType;
+                        ApplyID = strApplyID;
+                        lblName.Text = CurrentUser.Name;
+                        lblApplyTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+                        break;
+                    case "View":
+                        OperatorType = strOperatorType;
+                        ApplyID = strApplyID;
+                        BindApplyInfo();
+                        DisableAllControls();
+                        break;
+                    case "Edit":
+                        OperatorType = strOperatorType;
+                        ApplyID = strApplyID;
+                        BindApplyInfo();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -155,7 +182,15 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnSetJC_Click(object sender, EventArgs e)
         {
-
+            if (OperatorType == "Add")
+            {
+                wndChooseJC.IFrameUrl ="ChooseJiangCheng.aspx";
+            }
+            else
+            {
+                wndChooseJC.IFrameUrl = "ChooseJiangCheng.aspx?ID=" + ApplyID;
+            }
+            wndChooseJC.Hidden = false;
         }
 
         /// <summary>
@@ -165,9 +200,42 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnSetZJ_Click(object sender, EventArgs e)
         {
-
+            if (OperatorType == "Add")
+            {
+                wndChooseZJ.IFrameUrl = "ChooseZJ.aspx";
+            }
+            else
+            {
+                wndChooseZJ.IFrameUrl = "ChooseZJ.aspx?ID=" + ApplyID;
+            }
+            wndChooseZJ.Hidden = false;
         }
 
+        /// <summary>
+        /// 选择奖惩人关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndChooseJC_Close(object sender, WindowCloseEventArgs e)
+        {
+            if (Session["JC:" + CurrentUser.ObjectId.ToString()] != null)
+            {
+                tbxJCName.Text = Session["JC:" + CurrentUser.ObjectId.ToString()].ToString().Split(',')[1];
+            }
+        }
+
+        /// <summary>
+        /// 选择部门总监关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndChooseZJ_Close(object sender, WindowCloseEventArgs e)
+        {
+            if (Session["ZJ:" + CurrentUser.ObjectId.ToString()] != null)
+            {
+                tbxZJ.Text = Session["ZJ:" + CurrentUser.ObjectId.ToString()].ToString().Split(',')[1];
+            }
+        }
         #endregion
     }
 }
