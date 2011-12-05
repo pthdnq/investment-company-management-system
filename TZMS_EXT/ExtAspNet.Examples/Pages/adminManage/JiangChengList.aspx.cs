@@ -108,8 +108,13 @@ namespace TZMS.Web
             string strApplyID = ((GridRow)gridApply.Rows[e.RowIndex]).Values[0];
             if (e.CommandName == "View")
             {
-                wndNewJiangCheng.Title = "查看奖惩单";
                 wndNewJiangCheng.IFrameUrl = "SentJiangCheng.aspx?Type=View&ID=" + strApplyID;
+                wndNewJiangCheng.Hidden = false;
+            }
+
+            if (e.CommandName == "Edit")
+            {
+                wndNewJiangCheng.IFrameUrl = "SentJiangCheng.aspx?Type=Edit&ID=" + strApplyID;
                 wndNewJiangCheng.Hidden = false;
             }
         }
@@ -132,9 +137,11 @@ namespace TZMS.Web
                         break;
                     case "1":
                         e.Values[7] = "待部门总监确认";
+                        e.Values[9] = "<span class=\"gray\">编辑</span>";
                         break;
                     case "2":
                         e.Values[7] = "部门总监已确认";
+                        e.Values[9] = "<span class=\"gray\">编辑</span>";
                         break;
                     default:
                         break;
