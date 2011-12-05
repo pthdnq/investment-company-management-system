@@ -512,12 +512,15 @@
     <Content Include="images\zytz.jpg" />
     <Content Include="index.aspx" />
     <Content Include="library\blowery.Web.HttpCompress.dll" />
+    <Content Include="Pages\adminManage\JiangChengConfirm.aspx" />
+    <Content Include="Pages\adminManage\JiangChengList.aspx" />
     <Content Include="Pages\adminManage\JingShengApply.aspx" />
     <Content Include="Pages\adminManage\JingShengApplyList.aspx" />
     <Content Include="Pages\adminManage\JingShengApprove.aspx" />
     <Content Include="Pages\adminManage\JingShengApproveList.aspx" />
     <Content Include="Pages\adminManage\JingShengToFile.aspx" />
     <Content Include="Pages\adminManage\NewUser.aspx" />
+    <Content Include="Pages\adminManage\SentJiangCheng.aspx" />
     <Content Include="Pages\adminManage\SystemConfig.aspx" />
     <Content Include="Pages\attendance\ImportWorkerAttend.aspx" />
     <Content Include="Pages\attendance\NoAttend.aspx" />
@@ -710,6 +713,20 @@
     <Compile Include="BsaePage.aspx.designer.cs">
       <DependentUpon>BsaePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\adminManage\JiangChengConfirm.aspx.cs">
+      <DependentUpon>JiangChengConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\JiangChengConfirm.aspx.designer.cs">
+      <DependentUpon>JiangChengConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\JiangChengList.aspx.cs">
+      <DependentUpon>JiangChengList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\JiangChengList.aspx.designer.cs">
+      <DependentUpon>JiangChengList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\adminManage\JingShengApply.aspx.cs">
       <DependentUpon>JingShengApply.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -751,6 +768,13 @@
     </Compile>
     <Compile Include="Pages\adminManage\NewUser.aspx.designer.cs">
       <DependentUpon>NewUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\SentJiangCheng.aspx.cs">
+      <DependentUpon>SentJiangCheng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\SentJiangCheng.aspx.designer.cs">
+      <DependentUpon>SentJiangCheng.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\SystemConfig.aspx.cs">
       <DependentUpon>SystemConfig.aspx</DependentUpon>
