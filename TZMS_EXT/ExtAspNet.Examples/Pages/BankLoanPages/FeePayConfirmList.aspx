@@ -24,7 +24,7 @@
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
                                 <%--      <ext:ListItem Text="待审核" Value="1"/>
                                 <ext:ListItem Text="审核中" Value="3" />--%>
-                                <ext:ListItem Text="待确认" Value="1" Selected="true" />
+                                <ext:ListItem Text="待确认" Value="4" Selected="true" />
                                 <ext:ListItem Text="已确认" Value="5" />
                                 <%--     <ext:ListItem Text="已删除" Value="9" />--%>
                             </ext:DropDownList>
