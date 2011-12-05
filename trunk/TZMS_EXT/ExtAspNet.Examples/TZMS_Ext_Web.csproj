@@ -512,6 +512,8 @@
     <Content Include="images\zytz.jpg" />
     <Content Include="index.aspx" />
     <Content Include="library\blowery.Web.HttpCompress.dll" />
+    <Content Include="Pages\adminManage\ChooseJiangCheng.aspx" />
+    <Content Include="Pages\adminManage\ChooseZJ.aspx" />
     <Content Include="Pages\adminManage\JiangChengConfirm.aspx" />
     <Content Include="Pages\adminManage\JiangChengConfirmList.aspx" />
     <Content Include="Pages\adminManage\JiangChengList.aspx" />
@@ -713,6 +715,20 @@
     </Compile>
     <Compile Include="BsaePage.aspx.designer.cs">
       <DependentUpon>BsaePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChooseJiangCheng.aspx.cs">
+      <DependentUpon>ChooseJiangCheng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChooseJiangCheng.aspx.designer.cs">
+      <DependentUpon>ChooseJiangCheng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChooseZJ.aspx.cs">
+      <DependentUpon>ChooseZJ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChooseZJ.aspx.designer.cs">
+      <DependentUpon>ChooseZJ.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\JiangChengConfirm.aspx.cs">
       <DependentUpon>JiangChengConfirm.aspx</DependentUpon>

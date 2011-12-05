@@ -10,7 +10,7 @@
 namespace TZMS.Web {
     
     
-    public partial class SentJiangCheng {
+    public partial class ChooseZJ {
         
         /// <summary>
         /// form1 control.
@@ -58,120 +58,66 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Button btnClose;
         
         /// <summary>
-        /// btnSubmit control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button btnSubmit;
+        protected global::ExtAspNet.Button btnSave;
         
         /// <summary>
-        /// pelOperator control.
+        /// gridUnSelectUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Panel pelOperator;
+        protected global::ExtAspNet.Grid gridUnSelectUser;
         
         /// <summary>
-        /// mainForm control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Form mainForm;
+        protected global::ExtAspNet.Panel Panel1;
         
         /// <summary>
-        /// lblName control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label lblName;
+        protected global::ExtAspNet.Label Label1;
         
         /// <summary>
-        /// lblApplyTime control.
+        /// btnSelect control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label lblApplyTime;
+        protected global::ExtAspNet.Button btnSelect;
         
         /// <summary>
-        /// tbxJCName control.
+        /// btnUnselect control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxJCName;
+        protected global::ExtAspNet.Button btnUnselect;
         
         /// <summary>
-        /// btnSetJC control.
+        /// gridSelectdUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button btnSetJC;
-        
-        /// <summary>
-        /// tbxZJ control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxZJ;
-        
-        /// <summary>
-        /// btnSetZJ control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Button btnSetZJ;
-        
-        /// <summary>
-        /// ddlstType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstType;
-        
-        /// <summary>
-        /// taaReason control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextArea taaReason;
-        
-        /// <summary>
-        /// wndChooseJC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Window wndChooseJC;
-        
-        /// <summary>
-        /// wndChooseZJ control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Window wndChooseZJ;
+        protected global::ExtAspNet.Grid gridSelectdUsers;
     }
 }
