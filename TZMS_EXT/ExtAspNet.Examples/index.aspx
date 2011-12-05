@@ -94,6 +94,12 @@
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="jsdggd" AutoPostBack="false" OnClientClick=" tabs('jsdggd','UserKey');"
                                                 Text="晋升调岗归档">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="xfjcd" AutoPostBack="false" OnClientClick=" tabs('xfjcd','UserKey');"
+                                                Text="下发奖惩单">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="jcdqr" AutoPostBack="false" OnClientClick=" tabs('jcdqr','UserKey');"
+                                                Text="奖惩单确认">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -459,9 +465,16 @@
                 case "jsdggd":
                     LoadTab("Pages/adminManage/JingShengToFile.aspx", "晋升调岗审批归档", icon);
                     break;
+                case "xfjcd":
+                    LoadTab("Pages/adminManage/JiangChengList.aspx", "下发奖惩单", icon);
+                    break;
+                case "xtpz":
+                    LoadTab("Pages/adminManage/JiangChengConfirmList.aspx", "奖惩单确认", icon);
+                    break;
                 case "xtpz":
                     LoadTab("Pages/adminManage/SystemConfig.aspx", "系统配置", icon);
                     break;
+                
 
                 //假勤管理                                                                  
                 case "ygkq":
