@@ -513,6 +513,7 @@
     <Content Include="index.aspx" />
     <Content Include="library\blowery.Web.HttpCompress.dll" />
     <Content Include="Pages\adminManage\JiangChengConfirm.aspx" />
+    <Content Include="Pages\adminManage\JiangChengConfirmList.aspx" />
     <Content Include="Pages\adminManage\JiangChengList.aspx" />
     <Content Include="Pages\adminManage\JingShengApply.aspx" />
     <Content Include="Pages\adminManage\JingShengApplyList.aspx" />
@@ -719,6 +720,13 @@
     </Compile>
     <Compile Include="Pages\adminManage\JiangChengConfirm.aspx.designer.cs">
       <DependentUpon>JiangChengConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\JiangChengConfirmList.aspx.cs">
+      <DependentUpon>JiangChengConfirmList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\JiangChengConfirmList.aspx.designer.cs">
+      <DependentUpon>JiangChengConfirmList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\JiangChengList.aspx.cs">
       <DependentUpon>JiangChengList.aspx</DependentUpon>
