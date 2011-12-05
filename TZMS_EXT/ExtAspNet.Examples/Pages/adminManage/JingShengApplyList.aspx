@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="JingShengApplyList.aspx.cs" Inherits="TZMS.Web.JingShengApplyList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="JingShengApplyList.aspx.cs"
+    Inherits="TZMS.Web.JingShengApplyList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -21,8 +21,8 @@
                         <Items>
                             <ext:DropDownList ID="ddlstAproveState" runat="server" Label="申请状态">
                                 <ext:ListItem Text="审批中" Value="0" Selected="true" />
-                                <ext:ListItem Text="归档" Value="2" />
-                                <ext:ListItem Text="未通过" Value="1" />
+                                <ext:ListItem Text="归档-已通过" Value="2" />
+                                <ext:ListItem Text="归档-未通过" Value="1" />
                             </ext:DropDownList>
                             <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
@@ -60,7 +60,7 @@
                             <ext:BoundField DataField="ApproveID" HeaderText="当前执行人" />
                             <ext:BoundField DataField="State" HeaderText="申请状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
-                            <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
+                            <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" Hidden="true" />
                         </Columns>
                     </ext:Grid>
                 </Items>

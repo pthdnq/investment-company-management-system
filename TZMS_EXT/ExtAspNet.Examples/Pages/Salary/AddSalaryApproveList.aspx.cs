@@ -18,6 +18,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 

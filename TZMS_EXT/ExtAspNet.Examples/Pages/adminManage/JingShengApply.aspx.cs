@@ -345,7 +345,7 @@ namespace TZMS.Web
                     case "2":
                         e.Values[2] = "审批-不通过";
                         break;
-                    case "3":
+                    case "4":
                         e.Values[2] = "归档";
                         break;
                     default:
