@@ -63,19 +63,19 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="80px" DataField="CustomerName" HeaderText="客户" />
-                            <ext:TemplateField Width="60px" HeaderText="项目状态">
+                            <ext:BoundField  ExpandUnusedSpace="true"  DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="90px" DataField="CustomerName" HeaderText="客户" />
+                            <ext:TemplateField Width="66px" HeaderText="项目状态">
                                 <ItemTemplate>
                                               <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:BoundField Width="110px" DataField="Contact" HeaderText="联系人" />
                             <ext:BoundField Width="80px" DataField="ContactPhone" HeaderText="联系电话" />
-                            <ext:BoundField Width="145px" DataField="SignDate" HeaderText="签订日期" />
+                            <ext:BoundField Width="115px" DataField="SignDate" HeaderText="签订日期"  DataFormatString="{0:yyyy/MM/dd}"/>
                             <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同金额" />
                             <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付订金" />
-                            <ext:WindowField Width="76px" Text="提交进展" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
+                            <ext:WindowField Width="80px" Text="提交进展" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
                                 Title="提交进展" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />
@@ -86,7 +86,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="439px" Width="640px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="425px" Width="660px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

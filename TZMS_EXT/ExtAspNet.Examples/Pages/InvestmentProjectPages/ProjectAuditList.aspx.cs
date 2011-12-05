@@ -97,7 +97,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             StringBuilder strCondtion = new StringBuilder();
             strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-            // strCondtion.Append(" AND Status<>9 "); 
+           //  strCondtion.Append("   Status<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {

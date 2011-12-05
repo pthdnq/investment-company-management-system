@@ -64,8 +64,8 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="100px" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="100px" DataField="ImplementationPhase" HeaderText="实施阶段" />
+                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField  ExpandUnusedSpace="true"  DataField="ImplementationPhase" HeaderText="实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
                             <ext:BoundField Width="110px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd hh:mm}"
                                 HeaderText="支用时间" />
@@ -91,7 +91,7 @@
         Height="370px" Width="400px">
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="396px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>
