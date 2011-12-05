@@ -19,7 +19,7 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        Icon="Disk" Text="提交" />
+                        Icon="Disk" Text="提交"  ConfirmText="您确定提交该表单吗?"/>
                 </Items>
             </ext:Toolbar>
         </Toolbars>

@@ -15,7 +15,6 @@ namespace TZMS.Web.Pages.BankLoanPages
     public partial class BankLoanAuditList : BasePage
     {
         #region viewstate
-     
 
         /// <summary>
         /// 用于存储 状态的ViewState.
@@ -85,7 +84,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -98,7 +97,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             StringBuilder strCondtion = new StringBuilder();
             strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-            // strCondtion.Append(" AND Status<>9 "); 
+          //   strCondtion.Append("   Status<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {
@@ -146,7 +145,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
             strCondtion.Append(" ORDER BY CreateTime DESC");
             #endregion
- 
+
             List<BankLoanInfo> lstInfo = new BankLoanManage().GetUsersByCondtion(strCondtion.ToString());
             this.gridData.RecordCount = lstInfo.Count;
             this.gridData.PageSize = PageCounts;
@@ -189,7 +188,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             ViewStateSearchText = this.ttbSearch.Text.Trim();
             BindGridData(ViewStateState, ViewStateSearchText);
         }
- 
+
 
         /// <summary>
         /// 状态变动事件

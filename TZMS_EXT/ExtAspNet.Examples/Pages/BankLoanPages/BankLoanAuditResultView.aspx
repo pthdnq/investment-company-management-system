@@ -8,9 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" />
+    <ext:PageManager ID="PageManager1" runat="server"  AutoSizePanelID="pelMain"/>
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true" Height="317px" Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true"  AutoHeight="true" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -19,13 +19,13 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        Icon="Disk" Text="保存" />
+                        Icon="Disk" Text="保存"  Hidden="true"/>
                 </Items>
             </ext:Toolbar>
         </Toolbars>
         <Items>
              <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                AutoHeight="true" Height="392px">
+                AutoHeight="true" Height="372px">
                 <Tabs>
                     <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                         <Items>
@@ -35,13 +35,10 @@
                 <Rows>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbCustomerName" Enabled="false" Label="客户名称" ShowRedStar="true"
-                                Required="true" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                            <ext:TextBox ID="tbCustomerName" Enabled="false" Label="客户名称"   runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
+                               >
                             </ext:TextBox>
-                            <ext:TextBox ID="tbLoanCompany" Enabled="false" Label="贷款公司" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                RegexMessage="不能输入特殊字符!">
+                            <ext:TextBox ID="tbLoanCompany" Enabled="false" Label="贷款公司"  MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"  >
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>

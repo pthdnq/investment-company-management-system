@@ -24,7 +24,7 @@
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
                                 <%--      <ext:ListItem Text="待审核" Value="1"/>
                                 <ext:ListItem Text="审核中" Value="3" />--%>
-                                <ext:ListItem Text="待确认" Value="4" Selected="true" />
+                                <ext:ListItem Text="待确认" Value="1" Selected="true" />
                                 <ext:ListItem Text="已确认" Value="5" />
                                 <%--     <ext:ListItem Text="已删除" Value="9" />--%>
                             </ext:DropDownList>
@@ -64,8 +64,8 @@
                         <Columns>
                             <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
                             <%--  <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />--%>
-                            <ext:BoundField Width="70px" DataField="ImplementationPhase" HeaderText="实施阶段" />
-                            <ext:BoundField Width="110px" DataField="GuaranteeCompany" HeaderText="贷款公司" />
+                            <ext:BoundField Width="130px" DataField="ImplementationPhase" HeaderText="实施阶段" />
+                            <ext:BoundField Width="120px" DataField="GuaranteeCompany" HeaderText="贷款公司" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
                             <ext:BoundField Width="80px" DataField="ExpendedTime" HeaderText="支用时间" />
                             <ext:BoundField Width="130px" DataField="ImprestAmount" HeaderText="备用金额" />
@@ -74,6 +74,7 @@
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
+                   <ext:BoundField  ExpandUnusedSpace="true"  DataField="Remark" HeaderText="备注" />
                             <ext:WindowField Width="76px" Text="支付确认" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="FeePayConfirm.aspx?ID={0}"
                                 Title="支付确认" WindowID="wndNew" />
                             <%--           <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />--%>
@@ -84,7 +85,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="434px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="474px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>
