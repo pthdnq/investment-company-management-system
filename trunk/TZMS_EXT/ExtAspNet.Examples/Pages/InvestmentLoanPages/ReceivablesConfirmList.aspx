@@ -63,12 +63,12 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                            <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true"/>
-                          <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" /> 
+                          <ext:BoundField Width="130px" DataField="ProjectName" HeaderText="项目名称" /> 
                             <ext:BoundField Width="85px" DataField="DueDateForReceivables"  DataFormatString="{0:yyyy/MM/dd}" HeaderText="实收款日" />
                             <ext:BoundField Width="85px" DataField="DateForReceivables" DataFormatString="{0:yyyy/MM/dd}" HeaderText="应收款日" />
                             <ext:BoundField Width="80px" DataField="AmountofpaidUp" HeaderText="实收金额" />
                             <ext:BoundField Width="120px" DataField="ReceivablesAccount" HeaderText="收款帐号/现金" />
-                            <ext:BoundField Width="145px" DataField="Remark" HeaderText="备注" />
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>
                                        <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
@@ -85,7 +85,7 @@
     </ext:Panel>
   
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="366px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

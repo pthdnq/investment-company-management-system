@@ -99,7 +99,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             StringBuilder strCondtion = new StringBuilder();
             strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-           //  strCondtion.Append("   Status<>9 "); 
+          //   strCondtion.Append("   Status<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {

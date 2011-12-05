@@ -64,15 +64,15 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
                             <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
-                            <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
-                            <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
-                            <ext:BoundField Width="145px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
+                            <ext:BoundField Width="80px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
+                            <ext:BoundField Width="80px"  DataField="LoanAmount" HeaderText="借款金额" />
+                            <ext:BoundField Width="115px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="借款日期" />
                             <ext:BoundField DataField="DueDateForPay" Width="145px" HeaderText="应付借款日" />
-                            <ext:BoundField Width="90px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}" HeaderText="提交时间" />
+                            <ext:BoundField Width="110px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}" HeaderText="提交时间" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
@@ -89,7 +89,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="575px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="615px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

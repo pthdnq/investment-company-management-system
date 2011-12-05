@@ -68,8 +68,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 return;
             }
-            BankLoanInfo _Info = new BankLoanManage().GetUserByObjectID(ObjectID);
-
+            InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
+            
             //if (_Info.LoanAmount > 3000000 && !CurrentRoles.Contains(RoleType.DSZ))
             //{
             //    //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
@@ -81,16 +81,20 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             //    BindNext(true);
             //}
 
-            this.tbCollateralCompany.Text = _Info.CollateralCompany;
-            this.tbCustomerName.Text = _Info.CustomerName;
-            this.tbDownPayment.Text = _Info.DownPayment.ToString();
-            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
-            this.tbLoanCompany.Text = _Info.LoanCompany;
-            this.tbLoanFee.Text = _Info.LoanFee.ToString();
-            this.tbRemark.Text = _Info.Remark;
-            this.taContact.Text = _Info.Contact;
+            this.tbProjectName.Text = _Info.ProjectName;
+            this.tbProjectOverview.Text = _Info.ProjectOverview;
+            this.tbBorrowerNameA.Text = _Info.BorrowerNameA;
+            this.tbBorrowerPhone.Text = _Info.BorrowerPhone;
+            this.tbPayerBName.Text = _Info.PayerBName;
+            this.tbGuarantor.Text = _Info.Guarantor;
+            this.tbGuarantorPhone.Text = _Info.GuarantorPhone;
+            this.tbCollateral.Text = _Info.Collateral;
+            this.dpDueDateForPay.SelectedDate = _Info.DueDateForPay;
+            this.dpLoanDate.SelectedDate = _Info.LoanDate;
 
-            this.dpSignDate.SelectedDate = _Info.SignDate;
+            this.tbRemark.Text = _Info.Remark;
+
+            this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
             this.taAuditOpinion.Text = _Info.AuditOpinion;
         }
 

@@ -116,8 +116,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             StringBuilder strCondtion = new StringBuilder();
             //需要增加下一步审批人(暂用AccountingAccount存储，待修改)
-            strCondtion.Append("   AccountingAccount = '" + this.CurrentUser.ObjectId + "'   ");
-          //  strCondtion.Append("   Status<>9 ");
+         strCondtion.Append("   AccountingAccount = '" + this.CurrentUser.ObjectId + "'   ");
+        //       strCondtion.Append("   Status<>9 ");
             if (!string.IsNullOrEmpty(searchText))
             {
                 strCondtion.Append("AND  (ProjectName LIKE '%" + searchText + "%'  )  ");

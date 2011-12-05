@@ -47,7 +47,7 @@
                     <ext:Toolbar ID="toolUser" runat="server">
                         <Items>
                             <ext:Button ID="btnNew" Text="新增" Icon="Add" runat="server" />
-                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server" />
+                            <ext:Button ID="btnDelete" Hidden="true" Text="删除" Icon="Delete" runat="server" />
                         </Items>
                     </ext:Toolbar>
                 </Toolbars>
@@ -81,7 +81,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="259px" Width="530px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>
