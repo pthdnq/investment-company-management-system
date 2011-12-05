@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" />
+    <ext:PageManager ID="PageManager1" runat="server"   AutoSizePanelID="pelMain"/>
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Height="317px" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
@@ -45,7 +45,7 @@
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
                             <ext:TextArea ID="taAccountingRemark" Label="支付备注" runat="server" MaxLength="200"
-                                MaxLengthMessage="最多只能输入200个字符！">
+                                MaxLengthMessage="最多只能输入200个字符！" ShowRedStar="true" Required="true" >
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>

@@ -117,12 +117,11 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             StringBuilder strCondtion = new StringBuilder();
             strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-            // strCondtion.Append(" AND Status<>9 "); 
+            //    strCondtion.Append("   Status<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {
-                //strCondtion.Append(" Status " + (state == "待审核" ? " = 1 " : " <> 1 ") + " AND ");
-                // 申请状态.
+                // 状态.
                 switch (state)
                 {
                     case "0":
@@ -165,7 +164,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
             strCondtion.Append(" ORDER BY CreateTime DESC");
             #endregion
-        
+
             List<com.TZMS.Model.FinancingFeePaymentInfo> lstUserInfo = new FolkFinancingManage().GetProcessByCondtion(strCondtion.ToString());
             this.gridData.RecordCount = lstUserInfo.Count;
             this.gridData.PageSize = PageCounts;
@@ -209,7 +208,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-        
+
 
         /// <summary>
         /// 状态变动事件
@@ -257,13 +256,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            //UserInfo _userInfo = (UserInfo)e.DataItem;
+            FinancingFeePaymentInfo _Info = (FinancingFeePaymentInfo)e.DataItem;
 
-            //if (_userInfo.State == 0)
-            //{
-            //    e.Values[9] = "<span class=\"gray\">权限</span>";
-            //    e.Values[10] = "<span class=\"gray\">离职</span>";
-            //}
+            if (_Info.Status == 2 || _Info.Status == 4)
+            {
+                e.Values[9] = "<span class=\"gray\">审核</span>";
+            }
         }
 
         /// <summary>

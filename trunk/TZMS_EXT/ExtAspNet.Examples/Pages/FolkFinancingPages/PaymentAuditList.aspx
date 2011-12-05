@@ -66,8 +66,8 @@
                             <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
                             <%--     <ext:BoundField Width="100px" DataField="JobNo" HeaderText="借款人" />
                             <ext:BoundField Width="100px" DataField="AccountNo" HeaderText="出款人" />--%>
-                            <ext:BoundField Width="120px" DataField="PaymentAccount" HeaderText="付款帐号" />
-                            <ext:BoundField Width="120px" DataField="ReceivablesAccount" HeaderText="收款帐号" />
+                            <ext:BoundField Width="130px" DataField="PaymentAccount" HeaderText="付款帐号" />
+                            <ext:BoundField Width="130px" DataField="ReceivablesAccount" HeaderText="收款帐号" />
                             <ext:BoundField Width="105px" DataField="AmountOfPayment" HeaderText="支付金额" />
                             <ext:BoundField Width="105px" DataField="DateForPay" DataFormatString="{0:yyyy/MM/dd }"
                                 HeaderText="支付日期" />
@@ -91,12 +91,9 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
-        IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
-        Height="370px" Width="400px">
-    </ext:Window>
+    
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="389px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

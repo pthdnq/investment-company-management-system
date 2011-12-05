@@ -63,8 +63,8 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
-                                <ext:BoundField Width="120px" DataField="PaymentAccount" HeaderText="付款帐号" />
-                            <ext:BoundField Width="120px" DataField="ReceivablesAccount" HeaderText="收款帐号" />
+                                <ext:BoundField Width="130px" DataField="PaymentAccount" HeaderText="付款帐号" />
+                            <ext:BoundField Width="130px" DataField="ReceivablesAccount" HeaderText="收款帐号" />
                             <ext:BoundField Width="105px" DataField="AmountOfPayment" HeaderText="支付金额" />
                             <ext:BoundField Width="105px" DataField="DateForPay" DataFormatString="{0:yyyy/MM/dd }"
                                 HeaderText="支付日期" />
@@ -72,13 +72,13 @@
                                 HeaderText="应付款日" />
                             <ext:BoundField Width="110px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                 HeaderText="提交时间" />
-                            <ext:BoundField Width="80px" DataField="CreaterName" HeaderText="创建人" />
-                            <ext:TemplateField Width="60px" HeaderText="状态">
+                            <ext:BoundField Width="90px" DataField="CreaterName" HeaderText="创建人" />
+                            <ext:TemplateField Width="66px" HeaderText="状态">
                                 <ItemTemplate>
-                              <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>>
+                              <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="76px" Text="支付确认" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="PaymentConfirm.aspx?ID={0}"
+                            <ext:WindowField Width="79px" Text="支付确认" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="PaymentConfirm.aspx?ID={0}"
                                 Title="支付确认" WindowID="wndNew" />                        
                         </Columns>
                     </ext:Grid>
@@ -86,12 +86,9 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
-        IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
-        Height="370px" Width="400px">
-    </ext:Window>
+ 
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="409px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

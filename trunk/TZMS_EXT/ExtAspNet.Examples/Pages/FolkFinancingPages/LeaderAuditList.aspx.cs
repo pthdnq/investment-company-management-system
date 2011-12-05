@@ -110,8 +110,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-            // strCondtion.Append(" AND Status<>9 "); 
+           strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+           //   strCondtion.Append("   Status<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {

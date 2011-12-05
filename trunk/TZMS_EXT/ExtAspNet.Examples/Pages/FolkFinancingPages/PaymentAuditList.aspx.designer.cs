@@ -166,15 +166,6 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.Grid gridData;
         
         /// <summary>
-        /// wndRolesForUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Window wndRolesForUser;
-        
-        /// <summary>
         /// wndNew control.
         /// </summary>
         /// <remarks>

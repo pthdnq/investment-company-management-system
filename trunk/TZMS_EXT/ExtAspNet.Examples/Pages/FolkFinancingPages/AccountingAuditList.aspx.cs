@@ -97,8 +97,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-  
+           strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+         //    strCondtion.Append("   Status <>9 ");
             if (!string.IsNullOrEmpty(state))
             {
                 //strCondtion.Append(" Status " + (state == "待审核" ? " = 1 " : " <> 1 ") + " AND ");
