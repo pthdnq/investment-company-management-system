@@ -52,6 +52,40 @@ namespace TZMS.Web
             }
         }
 
+        private string ViewStateJC
+        {
+            get
+            {
+                if (ViewState["ViewStateJC"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["ViewStateJC"].ToString();
+            }
+            set
+            {
+                ViewState["ViewStateJC"] = value;
+            }
+        }
+
+        private string ViewStateZJ
+        {
+            get
+            {
+                if (ViewState["ViewStateZJ"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["ViewStateZJ"].ToString();
+            }
+            set
+            {
+                ViewState["ViewStateZJ"] = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -85,6 +119,10 @@ namespace TZMS.Web
                         break;
                 }
             }
+            else
+            {
+                string str = Request.Form["__EVENTARGUMENT"];
+            }
         }
 
         #region 私有方法
@@ -97,7 +135,71 @@ namespace TZMS.Web
             if (string.IsNullOrEmpty(OperatorType))
                 return;
 
+            if (string.IsNullOrEmpty(ViewStateJC))
+            {
+                Alert.Show("奖惩人尚未设置!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(ViewStateZJ))
+            {
+                Alert.Show("部门总监尚未设置!");
+                return;
+            }
+
+            if (ViewStateZJ == ViewStateJC)
+            {
+                Alert.Show("奖惩人与部门总监不可为同一人!");
+                return;
+            }
+
+            UserManage _userManage = new UserManage();
+            JiangChengManage _manage = new JiangChengManage();
+            JiangChengInfo _info = null;
             int result = 3;
+
+            UserInfo _JCUser = _userManage.GetUserByObjectID(ViewStateJC.Split(',')[0]);
+            UserInfo _ZJUser = _userManage.GetUserByObjectID(ViewStateZJ.Split(',')[0]);
+
+            if (OperatorType == "Add")
+            {
+                if (_JCUser != null && _ZJUser != null)
+                {
+                    _info = new JiangChengInfo();
+                    _info.ObjectID = Guid.NewGuid();
+                    _info.CreateUserID = CurrentUser.ObjectId;
+                    _info.CreateName = CurrentUser.Name;
+                    _info.CreateTime = DateTime.Now;
+                    _info.UserID = _JCUser.ObjectId;
+                    _info.UserName = _JCUser.Name;
+                    _info.UserDept = _JCUser.Dept;
+                    _info.ZjID = _ZJUser.ObjectId;
+                    _info.ZJName = _ZJUser.Name;
+                    _info.Type = Convert.ToInt16(ddlstType.SelectedValue);
+                    _info.Reason = taaReason.Text.Trim();
+                    _info.State = 0;
+
+                    result = _manage.AddNewJiangCheng(_info);
+                }
+            }
+
+            if (OperatorType == "Edit")
+            {
+                _info = _manage.GetJiangChengByObjectID(ApplyID);
+                if (_info != null && _JCUser != null && _ZJUser != null)
+                {
+                    _info.UserID = _JCUser.ObjectId;
+                    _info.UserName = _JCUser.Name;
+                    _info.UserDept = _JCUser.Dept;
+                    _info.ZjID = _ZJUser.ObjectId;
+                    _info.ZJName = _ZJUser.Name;
+                    _info.Type = Convert.ToInt16(ddlstType.SelectedValue);
+                    _info.Reason = taaReason.Text.Trim();
+                    _info.State = 0;
+
+                    result = _manage.UpdateJiangCheng(_info);
+                }
+            }
 
             if (result == -1)
             {
@@ -120,6 +222,8 @@ namespace TZMS.Web
             JiangChengInfo _info = _manage.GetJiangChengByObjectID(ApplyID);
             if (_info != null)
             {
+                ViewStateJC = _info.UserID.ToString() + ',' + _info.UserName;
+                ViewStateZJ = _info.ZjID.ToString() + "," + _info.ZJName;
                 lblName.Text = _info.CreateName;
                 lblApplyTime.Text = _info.CreateTime.ToString("yyyy-MM-dd HH:mm");
                 tbxJCName.Text = _info.UserName;
@@ -150,7 +254,6 @@ namespace TZMS.Web
             tbxZJ.Required = false;
             tbxZJ.ShowRedStar = false;
         }
-
         #endregion
 
         #region 页面事件
@@ -172,7 +275,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            SaveApply();
         }
 
         /// <summary>
@@ -184,7 +287,7 @@ namespace TZMS.Web
         {
             if (OperatorType == "Add")
             {
-                wndChooseJC.IFrameUrl ="ChooseJiangCheng.aspx";
+                wndChooseJC.IFrameUrl = "ChooseJiangCheng.aspx";
             }
             else
             {
@@ -218,9 +321,10 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndChooseJC_Close(object sender, WindowCloseEventArgs e)
         {
-            if (Session["JC:" + CurrentUser.ObjectId.ToString()] != null)
+            if (!string.IsNullOrEmpty(e.CloseArgument))
             {
-                tbxJCName.Text = Session["JC:" + CurrentUser.ObjectId.ToString()].ToString().Split(',')[1];
+                tbxJCName.Text = e.CloseArgument.Split(',')[1];
+                ViewStateJC = e.CloseArgument;
             }
         }
 
@@ -231,9 +335,10 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndChooseZJ_Close(object sender, WindowCloseEventArgs e)
         {
-            if (Session["ZJ:" + CurrentUser.ObjectId.ToString()] != null)
+            if (!string.IsNullOrEmpty(e.CloseArgument))
             {
-                tbxZJ.Text = Session["ZJ:" + CurrentUser.ObjectId.ToString()].ToString().Split(',')[1];
+                tbxZJ.Text = e.CloseArgument.Split(',')[1];
+                ViewStateZJ = e.CloseArgument;
             }
         }
         #endregion

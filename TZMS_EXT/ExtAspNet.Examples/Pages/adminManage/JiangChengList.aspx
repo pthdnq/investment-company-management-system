@@ -51,7 +51,7 @@
                         OnRowDataBound="gridApply_RowDataBound">
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
-                            <ext:BoundField DataField="UserID" HeaderText="奖惩人" />
+                            <ext:BoundField DataField="UserName" HeaderText="奖惩人" />
                             <ext:BoundField DataField="UserDept" HeaderText="部门" />
                             <ext:BoundField DataField="Type" HeaderText="奖惩类型" />
                             <ext:BoundField DataField="Reason" HeaderText="奖惩原因" DataTooltipField="Reason"
