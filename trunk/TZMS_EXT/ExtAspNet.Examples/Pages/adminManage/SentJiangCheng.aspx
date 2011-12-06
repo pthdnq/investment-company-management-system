@@ -66,7 +66,7 @@
                             <ext:FormRow ColumnWidths="60%">
                                 <Items>
                                     <ext:TextArea ID="taaReason" runat="server" Label="奖惩原因" Required="true" ShowRedStar="true"
-                                        EmptyText="请输入奖惩原因" MaxLength="1000" MaxLengthMessage="最多只能输入1000个字符!" Height="200px">
+                                        EmptyText="请输入奖惩原因" MaxLength="1000" MaxLengthMessage="最多只能输入1000个字符!" Height="300px">
                                     </ext:TextArea>
                                 </Items>
                             </ext:FormRow>

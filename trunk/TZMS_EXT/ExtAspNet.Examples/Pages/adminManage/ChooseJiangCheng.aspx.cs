@@ -149,9 +149,7 @@ namespace TZMS.Web
                 Alert.Show("请选择奖惩人!");
                 return;
             }
-
-            Session["JC:" + CurrentUser.ObjectId.ToString()] = lstSelected[0].ObjectId.ToString() + "," + lstSelected[0].Name;
-            btnClose_Click(null, null);
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference(lstSelected[0].ObjectId.ToString() + "," + lstSelected[0].Name));
         }
 
         /// <summary>
