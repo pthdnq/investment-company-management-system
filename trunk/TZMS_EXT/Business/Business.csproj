@@ -70,6 +70,7 @@
     <Compile Include="UserManage\JiangChengManage.cs" />
     <Compile Include="UserManage\JingShengManage.cs" />
     <Compile Include="UserManage\ProbationManage.cs" />
+    <Compile Include="UserManage\RecruitmentManage.cs" />
     <Compile Include="UserManage\RolesManage.cs" />
     <Compile Include="UserManage\UserLeaveManage.cs" />
     <Compile Include="UserManage\UserManage.cs" />
