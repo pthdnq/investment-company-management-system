@@ -530,6 +530,7 @@
     <Content Include="Pages\adminManage\RecruitmentToFile.aspx" />
     <Content Include="Pages\adminManage\SentJiangCheng.aspx" />
     <Content Include="Pages\adminManage\SetPersonOfXZ.aspx" />
+    <Content Include="Pages\adminManage\SuperUser.xml" />
     <Content Include="Pages\adminManage\SystemConfig.aspx" />
     <Content Include="Pages\adminManage\XZPerson.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
