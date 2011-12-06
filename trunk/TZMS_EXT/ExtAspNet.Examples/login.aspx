@@ -104,7 +104,7 @@
                     <td>
                         <div class="text">
                             密&nbsp;码：</div>
-                        <input class="textbox" id='tbxPassword' runat="server" type="password" />
+                        <input class="textbox" id='tbxPassword' runat="server" type="password"  value="1" />
                     </td>
                 </tr>
             </table>
