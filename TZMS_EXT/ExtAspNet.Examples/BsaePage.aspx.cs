@@ -11,6 +11,7 @@ using System.Data;
 using System.Web.Configuration;
 using com.TZMS.Model;
 using com.TZMS.Business;
+using System.Xml;
 
 namespace TZMS.Web
 {
@@ -133,8 +134,28 @@ namespace TZMS.Web
             }
         }
 
-        public string strArchiver = "B38C3283-B93F-4F5C-BECD-0298DD20ADC2";
+        /// <summary>
+        /// 行政归档人
+        /// </summary>
+        public string strArchiver
+        {
+            get
+            {
+                //新数据
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(path + "\\pages\\adminManage\\XZPerson.xml");
+                //查找<Person></Person>  
+                XmlNode root = xmlDoc.SelectSingleNode("Person");
+                //将子节点类型转换为XmlElement类型  
+                XmlElement xe = (XmlElement)root;
+                return xe.GetAttribute("id");
+            }
+        }
 
+        /// <summary>
+        /// 带帐费公司
+        /// </summary>
         public string Company = "合肥吉信财务管理有限公司";
 
         /// <summary>

@@ -8,6 +8,7 @@ using com.TZMS.Model;
 using com.TZMS.Business;
 using System.Text;
 using ExtAspNet;
+using System.Xml;
 
 namespace TZMS.Web
 {
@@ -74,7 +75,7 @@ namespace TZMS.Web
             //获得员工
             List<UserInfo> lstUserInfo = new UserManage().GetAllWorkUsers();
             CheckMange cm = new CheckMange();
-            List<ComCheckerInfo> checkUsers = cm.GetComCheckersByUserID(CurrentUser.ObjectId.ToString());
+            List<ComCheckerInfo> checkUsers = new List<ComCheckerInfo>();
 
             List<UserInfo> temp1 = new List<UserInfo>();
             List<UserInfo> temp2 = new List<UserInfo>();
@@ -92,11 +93,11 @@ namespace TZMS.Web
                     temp2.Add(use);
                     continue;
                 }
-                ////不能显示自己
-                //if (use.ObjectId != CurrentUser.ObjectId)
-                //{
-                //    temp1.Add(use);
-                //}
+                //不能显示自己
+                if (use.ObjectId.ToString() != strArchiver)
+                {
+                    temp1.Add(use);
+                }
             }
 
             UnSelectUser = temp1;
@@ -119,6 +120,11 @@ namespace TZMS.Web
             if (gridUnSelectUser.SelectedRowIndexArray.Length == 0)
             {
                 Alert.Show("请在左边选择用户！");
+                return;
+            }
+            if (SelectedUser.Count == 1)
+            {
+                Alert.Show("只能设置 1 位行政归档人！");
                 return;
             }
 
@@ -179,10 +185,25 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            if (SelectedUser.Count == 0)
+            {
+                return;
+            }
+            UserInfo user = SelectedUser[0]; 
             //新数据
-            ////CheckMange cm = new CheckMange();
-            ////cm.Add(CurrentUser, SelectedUser);
-            Alert.Show("设置行政归档人成功！");
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(path+"\\pages\\adminManage\\XZPerson.xml");
+            //查找<Person></Person>  
+            XmlNode root = xmlDoc.SelectSingleNode("Person"); 
+            //将子节点类型转换为XmlElement类型  
+            XmlElement xe = (XmlElement)root;
+            xe.SetAttribute("id", user.ObjectId.ToString());  
+            xe.SetAttribute("name", user.Name);
+            xe.SetAttribute("deptname", user.Dept); 
+            xmlDoc.Save(path + "\\pages\\adminManage\\XZPerson.xml");
+
+            //Alert.Show("设置行政归档人成功！");
         }
     }
 }
