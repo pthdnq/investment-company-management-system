@@ -75,17 +75,11 @@ namespace TZMS.Web
             //获得员工
             List<UserInfo> lstUserInfo = new UserManage().GetAllWorkUsers();
             CheckMange cm = new CheckMange();
-            List<ComCheckerInfo> checkUsers = new List<ComCheckerInfo>();
 
             List<UserInfo> temp1 = new List<UserInfo>();
             List<UserInfo> temp2 = new List<UserInfo>();
 
-            StringBuilder sb = new StringBuilder();
-            foreach (ComCheckerInfo cci in checkUsers)
-            {
-                sb.Append(cci.CheckerObjectId + ",");
-            }
-            string checkers = sb.ToString();
+            string checkers = strArchiver;
             foreach (UserInfo use in lstUserInfo)
             {
                 if (checkers.Contains(use.ObjectId.ToString()))
@@ -187,6 +181,7 @@ namespace TZMS.Web
         {
             if (SelectedUser.Count == 0)
             {
+                PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
                 return;
             }
             UserInfo user = SelectedUser[0]; 
@@ -202,7 +197,7 @@ namespace TZMS.Web
             xe.SetAttribute("name", user.Name);
             xe.SetAttribute("deptname", user.Dept); 
             xmlDoc.Save(path + "\\pages\\adminManage\\XZPerson.xml");
-
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
             //Alert.Show("设置行政归档人成功！");
         }
     }

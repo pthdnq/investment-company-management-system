@@ -13,8 +13,20 @@ namespace TZMS.Web
         {
             if(!IsPostBack)
             {
+                newSetCheckerWindow.OnClientCloseButtonClick = newSetCheckerWindow.GetHidePostBackReference();
                 btnNewUser.OnClientClick = newSetCheckerWindow.GetShowReference(@"SetPersonOfXZ.aspx") + " return false;";
+                this.txtXzgd.Text = strArchiverName;
             }
+        }
+
+        /// <summary>
+        /// 窗口关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void newSetCheckerWindow_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
+        {
+            this.txtXzgd.Text = strArchiverName;
         }
     }
 }
