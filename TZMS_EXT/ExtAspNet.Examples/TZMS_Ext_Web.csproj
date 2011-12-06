@@ -524,6 +524,7 @@
     <Content Include="Pages\adminManage\JingShengToFile.aspx" />
     <Content Include="Pages\adminManage\NewUser.aspx" />
     <Content Include="Pages\adminManage\SentJiangCheng.aspx" />
+    <Content Include="Pages\adminManage\SetPersonOfXZ.aspx" />
     <Content Include="Pages\adminManage\SystemConfig.aspx" />
     <Content Include="Pages\attendance\ImportWorkerAttend.aspx" />
     <Content Include="Pages\attendance\NoAttend.aspx" />
@@ -803,6 +804,13 @@
     </Compile>
     <Compile Include="Pages\adminManage\SentJiangCheng.aspx.designer.cs">
       <DependentUpon>SentJiangCheng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\SetPersonOfXZ.aspx.cs">
+      <DependentUpon>SetPersonOfXZ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\SetPersonOfXZ.aspx.designer.cs">
+      <DependentUpon>SetPersonOfXZ.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\SystemConfig.aspx.cs">
       <DependentUpon>SystemConfig.aspx</DependentUpon>
