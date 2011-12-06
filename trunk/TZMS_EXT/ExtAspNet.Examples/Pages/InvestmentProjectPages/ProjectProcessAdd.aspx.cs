@@ -76,6 +76,24 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         #endregion
 
         #region 页面及控件事件
+   
+
+        protected void cbIsAmountExpended_OnCheckedChanged(object sender,   EventArgs e)
+        {
+            if (cbIsAmountExpended.Checked)
+            {
+                gpAmount.Hidden = false;
+                tbAmountExpended.Hidden = false;
+                dpExpendedTime.Hidden = false;
+            }
+            else
+            {
+                gpAmount.Hidden = true;
+                tbAmountExpended.Hidden = true;
+                dpExpendedTime.Hidden = true;
+            }
+        }
+
         /// <summary>
         /// 保存员工
         /// </summary>
@@ -83,16 +101,24 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            saveUserInfo();
+            if (cbIsAmountExpended.Checked)
+            {
+                //有备用金
+                saveInfo(1);
+            }
+            else
+            {
+                //无备用金
+                saveInfo(5);
+            }
         }
-
         #endregion
 
         #region 自定义方法
         /// <summary>
         /// 保存用户信息.
         /// </summary>
-        private void saveUserInfo()
+        private void saveInfo(int status)
         {
             com.TZMS.Model.ProjectProcessInfo _Info = new com.TZMS.Model.ProjectProcessInfo();
             InvestmentProjectManage manage = new InvestmentProjectManage();
@@ -123,7 +149,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             _Info.SubmitTime = DateTime.Now;
             _Info.Status = 1;
 
-
+            _Info.NeedImprest = this.cbIsAmountExpended.Checked;
             // 执行操作.
             int result = 3;
 

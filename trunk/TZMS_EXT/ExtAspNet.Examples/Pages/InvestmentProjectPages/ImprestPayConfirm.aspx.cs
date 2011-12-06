@@ -114,7 +114,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         protected void btnSave_Click(object sender, EventArgs e)
         {
             //确认4
-            saveInfo(4);
+            saveInfo(5);
         }
         #endregion
 
@@ -149,7 +149,28 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             }
         }
 
+        /// <summary>
+        /// 绑定下一步
+        /// </summary>
+        private void BindNext()
+        {
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
+            //   ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+            ddlstNext.SelectedIndex = 0;
+        }
 
+        /// <summary>
+        /// 绑定审批人
+        /// </summary>
+        private void ApproveUser()
+        {
+            foreach (UserInfo user in CurrentChecker)
+            {
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+            }
+
+            ddlstApproveUser.SelectedIndex = 0;
+        }
         #endregion
     }
 }

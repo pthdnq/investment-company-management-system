@@ -74,17 +74,18 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (_info != null)
             {
                 #region 下一步方式
-                if (CurrentRoles.Contains(RoleType.DSZ))
+                //投资部总监归档
+                if (CurrentRoles.Contains(RoleType.TZZJ))
                 {
                     BindNext(true);
                 }
-                else if (CurrentRoles.Contains(RoleType.ZJL))
-                {      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
-                    if (_info.AmountExpended > 3000000)
-                    { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
-                    else
-                    { BindNext(true); }
-                }
+                //else if (CurrentRoles.Contains(RoleType.ZJL))
+                //{      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
+                //    if (_info.AmountExpended > 3000000)
+                //    { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
+                //    else
+                //    { BindNext(true); }
+                //}
                 else
                 {
                     BindNext(false);
@@ -135,12 +136,39 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (this.ddlstNext.SelectedValue.Equals(0))
             {
                 //同意，继续审核
-                saveInfo(3);
+                saveInfo(5);
             }
             else
             {
-                //待会计审核/支付确认
-                saveInfo(4);
+                //归档
+                saveInfo(6);
+            }
+        }
+
+        /// <summary>
+        /// 下一步下拉框变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ddlstNext_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlstNext.SelectedIndex == 1)
+            {
+                ddlstApproveUser.Hidden = true;
+                ddlstApproveUser.Required = false;
+                ddlstApproveUser.ShowRedStar = false;
+                ddlstApproveUser.Enabled = false;
+                btnSave.Text = "同意并归档";
+                btnSave.ConfirmText = "您确定同意并归档吗?";
+            }
+            else
+            {
+                ddlstApproveUser.Hidden = false;
+                ddlstApproveUser.Required = true;
+                ddlstApproveUser.ShowRedStar = true;
+                ddlstApproveUser.Enabled = true;
+                btnSave.Text = "同意";
+                btnSave.ConfirmText = "您确定同意吗?";
             }
         }
         #endregion
@@ -163,8 +191,8 @@ namespace TZMS.Web.Pages.BankLoanPages
             result = manage.UpdateProcess(_Info);
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
-                manage.AddHistory(_Info.ObjetctId, "审批", string.Format("借款审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，归档";
+                manage.AddHistory(_Info.ObjetctId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
@@ -184,7 +212,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+                ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

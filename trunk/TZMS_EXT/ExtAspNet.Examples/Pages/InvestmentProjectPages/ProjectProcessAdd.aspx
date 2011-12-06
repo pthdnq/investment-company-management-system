@@ -8,9 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" />
+    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true"  AutoHeight="true" Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true" AutoHeight="true" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -19,7 +19,7 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        Icon="Disk" Text="提交"  ConfirmText="您确定提交该表单吗?"/>
+                        Icon="Disk" Text="提交" ConfirmText="您确定提交该表单吗?" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -45,19 +45,7 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="60% 40%">
                         <Items>
-                            <ext:TextBox ID="tbAmountExpended" Label="支用金额" ShowRedStar="true" Required="true"
-                                runat="server" Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
-                                RegexMessage="只能输入字母!">
-                            </ext:TextBox>
-                            <ext:Label runat="server" />
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="60% 40%">
-                        <Items>
-                            <ext:DatePicker ID="dpExpendedTime" Label="支用时间 至" runat="server" ShowRedStar="true"
-                                Required="true">
-                            </ext:DatePicker>
-                            <ext:Label ID="Label1" runat="server" />
+                            <ext:TextArea ID="taRemark" Label="备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="60% 40%">
@@ -71,11 +59,38 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="60% 40%">
                         <Items>
-                            <ext:TextArea ID="taRemark" Label="备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                            <ext:CheckBox ID="cbIsAmountExpended" runat="server" Text="申请备用金" Checked="false"
+                                AutoPostBack="true" OnCheckedChanged="cbIsAmountExpended_OnCheckedChanged" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
+            <ext:GroupPanel runat="server" ID="gpAmount" Title="备用金申请">
+                <Items>
+                    <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame2"
+                        runat="server">
+                        <Rows>
+                            <ext:FormRow ColumnWidths="60% 40%">
+                                <Items>
+                                    <ext:TextBox Hidden="true" ID="tbAmountExpended" Label="支用金额" ShowRedStar="true"
+                                        Required="true" runat="server" Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
+                                        Regex="^[0-9]*$" RegexMessage="只能输入字母!">
+                                    </ext:TextBox>
+                                    <ext:Label runat="server" />
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ColumnWidths="60% 40%">
+                                <Items>
+                                    <ext:DatePicker Hidden="true" ID="dpExpendedTime" Label="支用时间 至" runat="server" ShowRedStar="true"
+                                        Required="true">
+                                    </ext:DatePicker>
+                                    <ext:Label ID="Label1" runat="server" />
+                                </Items>
+                            </ext:FormRow>
+                        </Rows>
+                    </ext:Form>
+                </Items>
+            </ext:GroupPanel>
         </Items>
     </ext:Panel>
     </form>
