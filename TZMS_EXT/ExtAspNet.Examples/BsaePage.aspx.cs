@@ -135,7 +135,7 @@ namespace TZMS.Web
         }
 
         /// <summary>
-        /// 行政归档人
+        /// 行政归档人ObjectID
         /// </summary>
         public string strArchiver
         {
@@ -150,6 +150,24 @@ namespace TZMS.Web
                 //将子节点类型转换为XmlElement类型  
                 XmlElement xe = (XmlElement)root;
                 return xe.GetAttribute("id");
+            }
+        }
+        /// <summary>
+        /// 行政归档人姓名
+        /// </summary>
+        public string strArchiverName
+        {
+            get
+            {
+                //新数据
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(path + "\\pages\\adminManage\\XZPerson.xml");
+                //查找<Person></Person>  
+                XmlNode root = xmlDoc.SelectSingleNode("Person");
+                //将子节点类型转换为XmlElement类型  
+                XmlElement xe = (XmlElement)root;
+                return xe.GetAttribute("name");
             }
         }
 
