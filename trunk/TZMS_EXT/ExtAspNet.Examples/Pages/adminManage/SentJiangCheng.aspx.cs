@@ -321,7 +321,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndChooseJC_Close(object sender, WindowCloseEventArgs e)
         {
-            if (!string.IsNullOrEmpty(e.CloseArgument))
+            if (e.CloseArgument != "undefined")
             {
                 tbxJCName.Text = e.CloseArgument.Split(',')[1];
                 ViewStateJC = e.CloseArgument;
@@ -335,7 +335,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndChooseZJ_Close(object sender, WindowCloseEventArgs e)
         {
-            if (!string.IsNullOrEmpty(e.CloseArgument))
+            if (e.CloseArgument != "undefined")
             {
                 tbxZJ.Text = e.CloseArgument.Split(',')[1];
                 ViewStateZJ = e.CloseArgument;
