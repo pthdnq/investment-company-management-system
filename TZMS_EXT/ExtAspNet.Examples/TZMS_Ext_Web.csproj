@@ -550,6 +550,8 @@
     <Content Include="Pages\BankLoanPages\BankLoanAuditList.aspx" />
     <Content Include="Pages\BankLoanPages\BankLoanAuditResult.aspx" />
     <Content Include="Pages\BankLoanPages\BankLoanAuditResultView.aspx" />
+    <Content Include="Pages\BankLoanPages\FeePayAudit.aspx" />
+    <Content Include="Pages\BankLoanPages\FeePayAuditList.aspx" />
     <Content Include="Pages\BankLoanPages\FeePayConfirm.aspx" />
     <Content Include="Pages\BankLoanPages\FeePayConfirmList.aspx" />
     <Content Include="Pages\BankLoanPages\FeePayInfo.aspx" />
@@ -598,6 +600,8 @@
     <Content Include="Pages\InvestmentLoanPages\ReceivablesInfo.aspx" />
     <Content Include="Pages\InvestmentLoanPages\ReceivablesInfoList.aspx" />
     <Content Include="Pages\InvestmentProjectPages\AllProjectList.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\ImprestPayAudit.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\ImprestPayAuditList.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ImprestPayConfirm.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ImprestPayConfirmList.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectApplyAdd.aspx" />
@@ -982,6 +986,20 @@
     <Compile Include="Pages\BankLoanPages\BankLoanAuditResultView.aspx.designer.cs">
       <DependentUpon>BankLoanAuditResultView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BankLoanPages\FeePayAudit.aspx.cs">
+      <DependentUpon>FeePayAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\FeePayAudit.aspx.designer.cs">
+      <DependentUpon>FeePayAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\FeePayAuditList.aspx.cs">
+      <DependentUpon>FeePayAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\FeePayAuditList.aspx.designer.cs">
+      <DependentUpon>FeePayAuditList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BankLoanPages\FeePayConfirm.aspx.cs">
       <DependentUpon>FeePayConfirm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1317,6 +1335,20 @@
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\AllProjectList.aspx.designer.cs">
       <DependentUpon>AllProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ImprestPayAudit.aspx.cs">
+      <DependentUpon>ImprestPayAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ImprestPayAudit.aspx.designer.cs">
+      <DependentUpon>ImprestPayAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ImprestPayAuditList.aspx.cs">
+      <DependentUpon>ImprestPayAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ImprestPayAuditList.aspx.designer.cs">
+      <DependentUpon>ImprestPayAuditList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ImprestPayConfirm.aspx.cs">
       <DependentUpon>ImprestPayConfirm.aspx</DependentUpon>
