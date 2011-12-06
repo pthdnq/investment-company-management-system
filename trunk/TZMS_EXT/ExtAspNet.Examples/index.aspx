@@ -100,6 +100,15 @@
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="jcdqr" AutoPostBack="false" OnClientClick=" tabs('jcdqr','UserKey');"
                                                 Text="奖惩单确认">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="zpsqd" AutoPostBack="false" OnClientClick=" tabs('zpsqd','UserKey');"
+                                                Text="招聘申请">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="zpsqsp" AutoPostBack="false" OnClientClick=" tabs('zpsqsp','UserKey');"
+                                                Text="招聘审批">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="zpsqgd" AutoPostBack="false" OnClientClick=" tabs('zpsqgd','UserKey');"
+                                                Text="招聘归档">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -474,6 +483,15 @@
                     break;
                 case "jcdqr":
                     LoadTab("Pages/adminManage/JiangChengConfirmList.aspx", "奖惩单确认", icon);
+                    break;
+                case "zpsqd":
+                    LoadTab("Pages/adminManage/RecruitmentApplyList.aspx", "招聘申请", icon);
+                    break;
+                case "zpsqsp":
+                    LoadTab("Pages/adminManage/RecruitmentApproveList.aspx", "招聘审批", icon);
+                    break;
+                case "zpsqgd":
+                    LoadTab("Pages/adminManage/RecruitmentToFile.aspx", "招聘归档", icon);
                     break;
                 case "xtpz":
                     LoadTab("Pages/adminManage/SystemConfig.aspx", "系统配置", icon);
