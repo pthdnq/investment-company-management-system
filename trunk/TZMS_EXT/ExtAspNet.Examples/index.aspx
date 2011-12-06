@@ -468,7 +468,7 @@
                 case "xfjcd":
                     LoadTab("Pages/adminManage/JiangChengList.aspx", "下发奖惩单", icon);
                     break;
-                case "xtpz":
+                case "jcdqr":
                     LoadTab("Pages/adminManage/JiangChengConfirmList.aspx", "奖惩单确认", icon);
                     break;
                 case "xtpz":
