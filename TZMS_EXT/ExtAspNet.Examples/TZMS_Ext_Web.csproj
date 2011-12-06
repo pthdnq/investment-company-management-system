@@ -523,6 +523,11 @@
     <Content Include="Pages\adminManage\JingShengApproveList.aspx" />
     <Content Include="Pages\adminManage\JingShengToFile.aspx" />
     <Content Include="Pages\adminManage\NewUser.aspx" />
+    <Content Include="Pages\adminManage\RecruitmentApply.aspx" />
+    <Content Include="Pages\adminManage\RecruitmentApplyList.aspx" />
+    <Content Include="Pages\adminManage\RecruitmentApprove.aspx" />
+    <Content Include="Pages\adminManage\RecruitmentApproveList.aspx" />
+    <Content Include="Pages\adminManage\RecruitmentToFile.aspx" />
     <Content Include="Pages\adminManage\SentJiangCheng.aspx" />
     <Content Include="Pages\adminManage\SetPersonOfXZ.aspx" />
     <Content Include="Pages\adminManage\SystemConfig.aspx" />
@@ -800,6 +805,41 @@
     </Compile>
     <Compile Include="Pages\adminManage\NewUser.aspx.designer.cs">
       <DependentUpon>NewUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentApply.aspx.cs">
+      <DependentUpon>RecruitmentApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentApply.aspx.designer.cs">
+      <DependentUpon>RecruitmentApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentApplyList.aspx.cs">
+      <DependentUpon>RecruitmentApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentApplyList.aspx.designer.cs">
+      <DependentUpon>RecruitmentApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentApprove.aspx.cs">
+      <DependentUpon>RecruitmentApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentApprove.aspx.designer.cs">
+      <DependentUpon>RecruitmentApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentApproveList.aspx.cs">
+      <DependentUpon>RecruitmentApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentApproveList.aspx.designer.cs">
+      <DependentUpon>RecruitmentApproveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentToFile.aspx.cs">
+      <DependentUpon>RecruitmentToFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentToFile.aspx.designer.cs">
+      <DependentUpon>RecruitmentToFile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\SentJiangCheng.aspx.cs">
       <DependentUpon>SentJiangCheng.aspx</DependentUpon>
