@@ -145,6 +145,33 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 saveInfo(6);
             }
         }
+
+        /// <summary>
+        /// 下一步下拉框变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ddlstNext_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlstNext.SelectedIndex == 1)
+            {
+                ddlstApproveUser.Hidden = true;
+                ddlstApproveUser.Required = false;
+                ddlstApproveUser.ShowRedStar = false;
+                ddlstApproveUser.Enabled = false;
+                btnSave.Text = "同意并归档";
+                btnSave.ConfirmText = "您确定同意并归档吗?";
+            }
+            else
+            {
+                ddlstApproveUser.Hidden = false;
+                ddlstApproveUser.Required = true;
+                ddlstApproveUser.ShowRedStar = true;
+                ddlstApproveUser.Enabled = true;
+                btnSave.Text = "同意";
+                btnSave.ConfirmText = "您确定同意吗?";
+            }
+        }
         #endregion
 
         #region 自定义方法

@@ -7,7 +7,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" />
+    <ext:PageManager ID="PageManager1" runat="server"   AutoSizePanelID="pelMain"/>
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true"  AutoHeight="true" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
@@ -78,7 +78,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="289px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>
