@@ -13,7 +13,7 @@ namespace TZMS.Web
         {
             if(!IsPostBack)
             {
-                btnNewUser.OnClientClick = newSetCheckerWindow.GetShowReference(@"..\system\SetMyChecker.aspx") + " return false;";
+                btnNewUser.OnClientClick = newSetCheckerWindow.GetShowReference(@"..\system\SetPersonOfXZ.aspx") + " return false;";
             }
         }
     }
