@@ -86,6 +86,8 @@
     <Compile Include="ProxyAccountingUnitCtrl.cs" />
     <Compile Include="ReceivablesAuditHistoryCtrl.cs" />
     <Compile Include="ReceivablesCtrl.cs" />
+    <Compile Include="RecruitmentApplyCtrl.cs" />
+    <Compile Include="RecruitmentApproveCtrl.cs" />
     <Compile Include="SalaryCheckCtrl.cs" />
     <Compile Include="SalaryMsgCtrl.cs" />
     <Compile Include="SentMessageCtrl.cs" />

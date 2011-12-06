@@ -72,6 +72,8 @@
     <Compile Include="ProxyAccountingUnitInfo.cs" />
     <Compile Include="ReceivablesAuditHistoryInfo.cs" />
     <Compile Include="ReceivablesInfo.cs" />
+    <Compile Include="RecruitmentApplyInfo.cs" />
+    <Compile Include="RecruitmentApproveInfo.cs" />
     <Compile Include="SalaryCheckInfo.cs" />
     <Compile Include="SalaryMsgInfo.cs" />
     <Compile Include="SentMessageInfo.cs" />
