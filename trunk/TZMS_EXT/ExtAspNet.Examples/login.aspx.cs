@@ -107,7 +107,7 @@ namespace TZMS.Web
 
             DateTime dt = DateTime.Now;//定义时间对象   
 
-            TimeSpan ts = new TimeSpan(1, 0, 0, 0);//cookie有效作用时间，具体查msdn   
+            TimeSpan ts = new TimeSpan(7, 0, 0, 0);//cookie有效作用时间，具体查msdn   
 
             cookie.Expires = dt.Add(ts);//添加作用时间   
 
