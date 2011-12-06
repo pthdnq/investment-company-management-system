@@ -328,10 +328,12 @@
                                                 Text="审核结果列表" />
                                             <ext:TreeNode Leaf="true" NodeID="xmxx" OnClientClick=" tabs('xmxx','');" IconUrl="images/16/项目信息列表.png"
                                                 Text="项目信息列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="jzsh" OnClientClick=" tabs('jzsh','');" IconUrl="images/16/进展审核列表.png"
-                                                Text="进展审核列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="byjsh" OnClientClick=" tabs('byjsh','');" IconUrl="images/16/进展审核列表.png"
+                                                Text="备用金审核列表" />
                                             <ext:TreeNode Leaf="true" NodeID="byjzf" OnClientClick=" tabs('byjzf','');" IconUrl="images/16/支付确认列表.gif"
                                                 Text="备用金支付确认" />
+                                                      <ext:TreeNode Leaf="true" NodeID="jzsh" OnClientClick=" tabs('jzsh','');" IconUrl="images/16/进展审核列表.png"
+                                                Text="进展审核列表" />
                                             <ext:TreeNode Leaf="true" NodeID="syxx" OnClientClick=" tabs('syxx','');" IconUrl="images/16/所有项目列表.png"
                                                 Text="所有项目列表" />
                                         </Nodes>
@@ -468,7 +470,7 @@
                 case "xfjcd":
                     LoadTab("Pages/adminManage/JiangChengList.aspx", "下发奖惩单", icon);
                     break;
-                case "jcdqr":
+                case "xtpz":
                     LoadTab("Pages/adminManage/JiangChengConfirmList.aspx", "奖惩单确认", icon);
                     break;
                 case "xtpz":
@@ -630,11 +632,14 @@
                 case "xmxx":
                     LoadTab("Pages/InvestmentProjectPages/ProjectInfoList.aspx", "项目信息列表", icon);
                     break;
-                case "jzsh":
-                    LoadTab("Pages/InvestmentProjectPages/ProjectProcessList.aspx", "进展审核列表", icon);
-                    break;
+                case "byjsh":
+                    LoadTab("Pages/InvestmentProjectPages/ImprestPayAuditList.aspx", "备用金审核列表", icon);
+                    break; 
                 case "byjzf":
                     LoadTab("Pages/InvestmentProjectPages/ImprestPayConfirmList.aspx", "备用金支付确认", icon);
+                    break;
+                case "jzsh":
+                    LoadTab("Pages/InvestmentProjectPages/ProjectProcessList.aspx", "进展审核列表", icon);
                     break;
                 case "syxx":
                     LoadTab("Pages/InvestmentProjectPages/AllProjectList.aspx", "所有项目列表", icon);
