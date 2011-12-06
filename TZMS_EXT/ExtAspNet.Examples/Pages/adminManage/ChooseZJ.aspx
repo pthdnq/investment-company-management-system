@@ -27,8 +27,8 @@
                 OnRowDataBound="gridUnSelectUser_RowDataBound">
                 <Columns>
                     <ext:BoundField DataField="UserObjectId" Hidden="true" />
-                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="100px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="140px" />
+                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
                     <ext:BoundField HeaderText="部门" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
@@ -48,8 +48,8 @@
                 Height="385px" OnRowDataBound="gridSelectdUsers_RowDataBound">
                 <Columns>
                     <ext:BoundField DataField="UserObjectId" Hidden="true" />
-                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="100px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="140px" />
+                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
                     <ext:BoundField HeaderText="部门" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>

@@ -26,8 +26,8 @@
             <ext:Grid ID="gridUnSelectUser" Title="员工列表" ShowBorder="true" ShowHeader="true"
                 ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="false">
                 <Columns>
-                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="100px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="140px" />
+                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
                     <ext:BoundField DataField="Dept" HeaderText="部门" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
@@ -45,8 +45,8 @@
             <ext:Grid ID="gridSelectdUsers" Title="奖惩人" ShowBorder="true" ShowHeader="true" EnableMultiSelect="false"
                 ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px">
                 <Columns>
-                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="100px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="140px" />
+                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
                     <ext:BoundField DataField="Dept" HeaderText="部门" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
