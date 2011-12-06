@@ -81,6 +81,14 @@
             document.getElementById("tbxPassword").value = '';
             document.getElementById("tbxUserName").value = '';
         }
+        function enterLogin() {
+            
+            var myEvent = event || window.event;
+            var keyCode = myEvent.keyCode;
+            if (keyCode == 13) {
+                tzmslogin_();
+            }
+        }
     </script>
 </head>
 <body>
@@ -104,7 +112,7 @@
                     <td>
                         <div class="text">
                             密&nbsp;码：</div>
-                        <input class="textbox" id='tbxPassword' runat="server" type="password"  value="1" />
+                        <input class="textbox" onkeypress="enterLogin();" id='tbxPassword' runat="server" type="password"  value="1" />
                     </td>
                 </tr>
             </table>
