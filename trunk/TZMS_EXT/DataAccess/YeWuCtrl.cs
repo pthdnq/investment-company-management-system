@@ -68,6 +68,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Isdelete",DbType.Boolean),
 				new SqlParameter("@Type",DbType.Int16),
                 new SqlParameter("@SignDate",DbType.DateTime),
+                new SqlParameter("@CelslOfYeWu",DbType.String),
 				};
 
                 int i = 0;
@@ -85,6 +86,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = YeWuInfo.Isdelete;
                 sqlparam[i++].Value = YeWuInfo.Type;
                 sqlparam[i++].Value = YeWuInfo.SignDate;
+                sqlparam[i++].Value = YeWuInfo.CelslOfYeWu;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -152,7 +154,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@Isdelete",DbType.Boolean),
 				new SqlParameter("@Type",DbType.Int16),
-                 new SqlParameter("@SignDate",DbType.DateTime),
+                new SqlParameter("@SignDate",DbType.DateTime),
+                new SqlParameter("@CelslOfYeWu",DbType.String),
                 };
 
                 int i = 0;
@@ -170,6 +173,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = YeWuInfo.Isdelete;
                 sqlparam[i++].Value = YeWuInfo.Type;
                 sqlparam[i++].Value = YeWuInfo.SignDate;
+                sqlparam[i++].Value = YeWuInfo.CelslOfYeWu;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -309,6 +313,11 @@ namespace com.TZMS.DataAccess
             if (YeWuInfoInfoDataRow["SignDate"] != null)
             {
                 YeWuInfoInfo.SignDate = DateTime.Parse(DataUtil.GetStringValueOfRow(YeWuInfoInfoDataRow, "SignDate"));
+            }
+
+            if (YeWuInfoInfoDataRow["CelslOfYeWu"] != null)
+            {
+                YeWuInfoInfo.CelslOfYeWu = DataUtil.GetStringValueOfRow(YeWuInfoInfoDataRow, "CelslOfYeWu");
             }
 
             return YeWuInfoInfo;
