@@ -263,7 +263,7 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane7" runat="server" Title="网络报销" IconUrl="images/16/网络报销.png"
+                            <ext:AccordionPane ID="AccordionPane7" runat="server" Title="财务报销" IconUrl="images/16/网络报销.png"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="Tree3" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
