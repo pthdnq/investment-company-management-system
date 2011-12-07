@@ -57,7 +57,7 @@ namespace TZMS.Web
 
             StringBuilder strCondition = new StringBuilder();
 
-            strCondition.Append(" Isdelete <> 1 ");
+            strCondition.Append(" Isdelete <> 1 and type = 0 ");
             strCondition.Append(" and UserID='" + this.CurrentUser.ObjectId.ToString() + "' ");
             strCondition.Append(" and state = " + ddlstAproveState.SelectedValue);
 
