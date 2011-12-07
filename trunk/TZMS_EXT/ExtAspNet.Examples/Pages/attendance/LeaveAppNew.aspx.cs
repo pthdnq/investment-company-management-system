@@ -317,6 +317,9 @@ namespace TZMS.Web
                 case AttedType.TX:
                     strAttedType = "调休";
                     break;
+                case AttedType.QT:
+                    strAttedType = "其他";
+                    break;
             }
 
             return strAttedType;
@@ -353,6 +356,8 @@ namespace TZMS.Web
                         return AttedType.SJ;
                     case "调休":
                         return AttedType.TX;
+                    case "其他":
+                        return AttedType.QT;
                 }
             }
 
