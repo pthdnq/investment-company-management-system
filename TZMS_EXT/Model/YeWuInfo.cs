@@ -47,9 +47,19 @@ namespace com.TZMS.Model
         private bool _isdelete;
         private short _type = DBEmptyShort;
         private DateTime _signDate = DBEmptyDate;
+        private string _celslOfYeWu = DBEmptyString;
         #endregion
 
         #region Property
+
+        /// <summary>
+        /// CelslOfYeWu(该业务包含那些操作)
+        /// </summary>
+        public string CelslOfYeWu
+        {
+            get { return _celslOfYeWu; }
+            set { _celslOfYeWu = value; }
+        }
 
         /// <summary>
         /// SignDate
