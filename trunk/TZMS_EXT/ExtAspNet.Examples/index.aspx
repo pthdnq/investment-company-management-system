@@ -292,8 +292,11 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/报销申请.gif" NodeID="ptywcz" AutoPostBack="false"
                                                 OnClientClick=" tabs('ptywcz','UserKey');" Text="普通业务操作">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务.gif" NodeID="bxsp" AutoPostBack="false"
-                                                OnClientClick=" tabs('dzyw','UserKey');" Text="定制业务创建">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务.gif" NodeID="dzywcj" AutoPostBack="false"
+                                                OnClientClick=" tabs('dzywcj','UserKey');" Text="定制业务创建">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务.gif" NodeID="dzywcz" AutoPostBack="false"
+                                                OnClientClick=" tabs('dzywcz','UserKey');" Text="定制业务操作">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
@@ -564,10 +567,12 @@
                 case "ptywcz":
                     LoadTab("Pages/Yewu/CommonYewuAppList.aspx", "普通业务操作", icon);
                     break;
-                case "dzyw":
+                case "dzywcj":
                     LoadTab("Pages/Yewu/DingzhiYewu.aspx", "定制业务创建", icon);
                     break;
-
+                case "dzywcz":
+                    LoadTab("Pages/Yewu/DingZhiYeWuAppList.aspx", "定制业务操作", icon);
+                    break;
 
                 case "zzsq":
                     LoadTab("Pages/ProbationPages/ProbationApply.aspx", "转正申请", icon);
