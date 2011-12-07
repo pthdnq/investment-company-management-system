@@ -361,7 +361,12 @@ namespace TZMS.Web
             /// <summary>
             /// 调休
             /// </summary>
-            TX = 9
+            TX = 9,
+
+            /// <summary>
+            /// 其他
+            /// </summary>
+            QT = 10
         }
 
         /// <summary>
