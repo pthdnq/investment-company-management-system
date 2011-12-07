@@ -326,7 +326,7 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane4" runat="server" Title="项目实施" IconUrl="images/16/项目实施.png"
+                            <ext:AccordionPane ID="AccordionPane4" runat="server" Title="投资部项目实施" IconUrl="images/16/项目实施.png"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="TreeInvestmentProject" EnableLines="false" ShowHeader="false" ShowBorder="false"
