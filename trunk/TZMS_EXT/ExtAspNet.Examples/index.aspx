@@ -109,6 +109,11 @@
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="zpsqgd" AutoPostBack="false" OnClientClick=" tabs('zpsqgd','UserKey');"
                                                 Text="招聘归档">
                                             </ext:TreeNode>
+
+                                            
+                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="cs" AutoPostBack="false" OnClientClick=" tabs('cs','UserKey');"
+                                                Text="测试">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -498,6 +503,9 @@
                     break;
                 case "xtpz":
                     LoadTab("Pages/adminManage/SystemConfig.aspx", "系统配置", icon);
+                    break;
+                case "cs":
+                    LoadTab("Test.aspx", "我的日历", icon);
                     break;
 
 
