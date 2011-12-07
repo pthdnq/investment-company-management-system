@@ -677,7 +677,10 @@
     <Content Include="Pages\Yewu\CommonYewuApp.aspx" />
     <Content Include="Pages\Yewu\CommonYewuAppList.aspx" />
     <Content Include="Pages\Yewu\DingzhiYewu.aspx" />
+    <Content Include="Pages\Yewu\DingZhiYeWuApp.aspx" />
+    <Content Include="Pages\Yewu\DingZhiYeWuAppList.aspx" />
     <Content Include="Pages\Yewu\NewCommonYeWu.aspx" />
+    <Content Include="Pages\Yewu\NewDingZhiYeWu.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1845,12 +1848,33 @@
     <Compile Include="Pages\Yewu\DingzhiYewu.aspx.designer.cs">
       <DependentUpon>DingzhiYewu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Yewu\DingZhiYeWuApp.aspx.cs">
+      <DependentUpon>DingZhiYeWuApp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\DingZhiYeWuApp.aspx.designer.cs">
+      <DependentUpon>DingZhiYeWuApp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Yewu\DingZhiYeWuAppList.aspx.cs">
+      <DependentUpon>DingZhiYeWuAppList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\DingZhiYeWuAppList.aspx.designer.cs">
+      <DependentUpon>DingZhiYeWuAppList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Yewu\NewCommonYeWu.aspx.cs">
       <DependentUpon>NewCommonYeWu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Yewu\NewCommonYeWu.aspx.designer.cs">
       <DependentUpon>NewCommonYeWu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Yewu\NewDingZhiYeWu.aspx.cs">
+      <DependentUpon>NewDingZhiYeWu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\NewDingZhiYeWu.aspx.designer.cs">
+      <DependentUpon>NewDingZhiYeWu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="config\ajax.aspx.cs">
