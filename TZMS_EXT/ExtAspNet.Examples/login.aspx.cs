@@ -102,29 +102,18 @@ namespace TZMS.Web
                 return false;
             }
             CurrentUser = user;
-            //HttpCookie cookie = new HttpCookie("tzmsuser");
-            //cookie.Values.Add("userID", user.ObjectId.ToString());
-
-            //HttpCookie cookie = new HttpCookie("tzmsuser");
-            //HttpCookie cookie = Request.Cookies["tzmsuser"];
-            //string user_id = cookie.Values["userID"];
-            HttpCookie cookie = new HttpCookie("Info");//定义cookie对象以及名为Info的项   
-
-            DateTime dt = DateTime.Now;//定义时间对象   
-
-            TimeSpan ts = new TimeSpan(7, 0, 0, 0);//cookie有效作用时间，具体查msdn   
-
-            cookie.Expires = dt.Add(ts);//添加作用时间   
-
-            cookie.Values.Add("userName", user.AccountNo);//增加属性   
-
-            //cookie.Values.Add("userid", "1203");
-
-            Response.AppendCookie(cookie);//确定写入cookie中   
-
-
-
-            //string str = Request.Cookies["tzmsuser"].Value.ToString();
+            //定义cookie对象以及名为Info的项  
+            HttpCookie cookie = new HttpCookie("Info");
+            //定义时间对象 
+            DateTime dt = DateTime.Now;
+            //cookie有效作用时间
+            TimeSpan ts = new TimeSpan(7, 0, 0, 0);
+            //添加作用时间  
+            cookie.Expires = dt.Add(ts);
+            //增加属性 
+            cookie.Values.Add("userName", user.AccountNo);
+            //确定写入cookie中   
+            Response.AppendCookie(cookie);
             Session["account"] = user.ObjectId.ToString();
             return true;
         }
