@@ -12,6 +12,7 @@ namespace TZMS.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Redirect("http://enroll.sse.ustc.edu.cn/rili/Default.aspx");
             //MUDFilesCtrl fileCtrl = new MUDFilesCtrl();
             //fileCtrl.AcceptFiles(string.Empty, "测试", "123", "12345");
             //this.BindAttachsRecordInfo(true);
