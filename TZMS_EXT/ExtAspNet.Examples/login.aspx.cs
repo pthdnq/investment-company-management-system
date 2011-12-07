@@ -96,6 +96,11 @@ namespace TZMS.Web
             {
                 return false;
             }
+            if (user.State == 2)
+            {
+                //已删除
+                return false;
+            }
             CurrentUser = user;
             //HttpCookie cookie = new HttpCookie("tzmsuser");
             //cookie.Values.Add("userID", user.ObjectId.ToString());
