@@ -574,6 +574,10 @@
     <Content Include="Pages\BankLoanPages\ProjectProcessAdd.aspx" />
     <Content Include="Pages\Baoxiao\BaoxiaoApplyList.aspx" />
     <Content Include="Pages\Baoxiao\BaoxiaoCheckList.aspx" />
+    <Content Include="Pages\Baoxiao\BaoXiaoPinZhengApply.aspx" />
+    <Content Include="Pages\Baoxiao\BaoXiaoPinZhengApplyList.aspx" />
+    <Content Include="Pages\Baoxiao\BaoXiaoPinZhengApprove.aspx" />
+    <Content Include="Pages\Baoxiao\BaoXiaoPinZhengApproveList.aspx" />
     <Content Include="Pages\Baoxiao\BaoxiaoToFile.aspx" />
     <Content Include="Pages\Baoxiao\CheckBaoxiaoApp.aspx" />
     <Content Include="Pages\Baoxiao\NewBaoxiaoApply.aspx" />
@@ -1126,6 +1130,34 @@
     </Compile>
     <Compile Include="Pages\Baoxiao\BaoxiaoCheckList.aspx.designer.cs">
       <DependentUpon>BaoxiaoCheckList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoXiaoPinZhengApply.aspx.cs">
+      <DependentUpon>BaoXiaoPinZhengApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoXiaoPinZhengApply.aspx.designer.cs">
+      <DependentUpon>BaoXiaoPinZhengApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoXiaoPinZhengApplyList.aspx.cs">
+      <DependentUpon>BaoXiaoPinZhengApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoXiaoPinZhengApplyList.aspx.designer.cs">
+      <DependentUpon>BaoXiaoPinZhengApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoXiaoPinZhengApprove.aspx.cs">
+      <DependentUpon>BaoXiaoPinZhengApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoXiaoPinZhengApprove.aspx.designer.cs">
+      <DependentUpon>BaoXiaoPinZhengApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoXiaoPinZhengApproveList.aspx.cs">
+      <DependentUpon>BaoXiaoPinZhengApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Baoxiao\BaoXiaoPinZhengApproveList.aspx.designer.cs">
+      <DependentUpon>BaoXiaoPinZhengApproveList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Baoxiao\BaoxiaoToFile.aspx.cs">
       <DependentUpon>BaoxiaoToFile.aspx</DependentUpon>
