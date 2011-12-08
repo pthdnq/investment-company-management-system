@@ -41,46 +41,56 @@
                             </ext:FormRow>
                             <ext:FormRow runat="server" ColumnWidths="25% 25% 25% 25%">
                                 <Items>
-                                    <ext:CheckBox ID="cbxCMBG" Text="名称变更" runat="server" AutoPostBack="true" 
-                                        ShowLabel="false" OnCheckedChanged="cbxCMBG_CheckedChanged">
+                                    <ext:CheckBox ID="cbxCMBG" Text="名称变更" runat="server" AutoPostBack="true" ShowLabel="false"
+                                        OnCheckedChanged="cbxCMBG_CheckedChanged">
                                     </ext:CheckBox>
-                                    <ext:CheckBox ID="cbxGDMCBG" Text="股东名称、发起人姓名变更" runat="server" ShowLabel="false">
+                                    <ext:CheckBox ID="cbxGDMCBG" Text="股东名称、发起人姓名变更" runat="server" ShowLabel="false"
+                                        AutoPostBack="true" OnCheckedChanged="CommonCheckedChanged">
                                     </ext:CheckBox>
-                                    <ext:CheckBox ID="cbxZCZBBG" Text="注册资本变更" runat="server" ShowLabel="false" 
-                                        AutoPostBack="true" OnCheckedChanged="cbxZCZBBG_CheckedChanged">
+                                    <ext:CheckBox ID="cbxZCZBBG" Text="注册资本变更" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="cbxZCZBBG_CheckedChanged">
                                     </ext:CheckBox>
-                                    <ext:CheckBox ID="cbxJYCSBG" Text="经营场所变更" runat="server" ShowLabel="false">
-                                    </ext:CheckBox>
-                                </Items>
-                            </ext:FormRow>
-                            <ext:FormRow runat="server" ColumnWidths="25% 25% 25% 25%">
-                                <Items>
-                                    <ext:CheckBox ID="cbxFDDBRBG" Text="法定代表人变更" runat="server" ShowLabel="false">
-                                    </ext:CheckBox>
-                                    <ext:CheckBox ID="cbxGDBG" Text="股东变更" runat="server" ShowLabel="false" 
-                                        AutoPostBack="true" OnCheckedChanged="cbxGDBG_CheckedChanged">
-                                    </ext:CheckBox>
-                                    <ext:CheckBox ID="cbxSSZBBG" Text="实收资本变更" runat="server" ShowLabel="false">
-                                    </ext:CheckBox>
-                                    <ext:CheckBox ID="cbxGSLXBG" Text="公司类型变更" runat="server" ShowLabel="false">
+                                    <ext:CheckBox ID="cbxJYCSBG" Text="经营场所变更" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="CommonCheckedChanged">
                                     </ext:CheckBox>
                                 </Items>
                             </ext:FormRow>
                             <ext:FormRow runat="server" ColumnWidths="25% 25% 25% 25%">
                                 <Items>
-                                    <ext:CheckBox ID="cbxYYQXBG" Text="营业期限变更" runat="server" ShowLabel="false">
+                                    <ext:CheckBox ID="cbxFDDBRBG" Text="法定代表人变更" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="CommonCheckedChanged">
                                     </ext:CheckBox>
-                                    <ext:CheckBox ID="cbxJYFWBG" Text="经营范围变更" runat="server" ShowLabel="false">
+                                    <ext:CheckBox ID="cbxGDBG" Text="股东变更" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="cbxGDBG_CheckedChanged">
                                     </ext:CheckBox>
-                                    <ext:CheckBox ID="cbxZXDJ" Text="注销登记" runat="server" ShowLabel="false">
+                                    <ext:CheckBox ID="cbxSSZBBG" Text="实收资本变更" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="CommonCheckedChanged">
                                     </ext:CheckBox>
-                                    <ext:CheckBox ID="cbxFGSBG" Text="分公司变更" runat="server" ShowLabel="false">
+                                    <ext:CheckBox ID="cbxGSLXBG" Text="公司类型变更" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="CommonCheckedChanged">
                                     </ext:CheckBox>
                                 </Items>
                             </ext:FormRow>
                             <ext:FormRow runat="server" ColumnWidths="25% 25% 25% 25%">
                                 <Items>
-                                    <ext:CheckBox ID="cbxFGSZX" Text="分公司注销" runat="server" ShowLabel="false">
+                                    <ext:CheckBox ID="cbxYYQXBG" Text="营业期限变更" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="CommonCheckedChanged">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxJYFWBG" Text="经营范围变更" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="CommonCheckedChanged">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxZXDJ" Text="注销登记" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="CommonCheckedChanged">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxFGSBG" Text="分公司变更" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="CommonCheckedChanged">
+                                    </ext:CheckBox>
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow runat="server" ColumnWidths="25% 25% 25% 25%">
+                                <Items>
+                                    <ext:CheckBox ID="cbxFGSZX" Text="分公司注销" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="CommonCheckedChanged">
                                     </ext:CheckBox>
                                 </Items>
                             </ext:FormRow>

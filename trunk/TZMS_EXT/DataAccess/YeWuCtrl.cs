@@ -64,11 +64,12 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Sument",DbType.String),
 				new SqlParameter("@Other",DbType.String),
 				new SqlParameter("@CurrentCheckerId",DbType.Guid),
+                new SqlParameter("@CurrentOp",DbType.Int16),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@Isdelete",DbType.Boolean),
 				new SqlParameter("@Type",DbType.Int16),
                 new SqlParameter("@SignDate",DbType.DateTime),
-                new SqlParameter("@CelslOfYeWu",DbType.String),
+                new SqlParameter("@CelslOfYeWu",DbType.String)
 				};
 
                 int i = 0;
@@ -82,6 +83,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = YeWuInfo.Sument;
                 sqlparam[i++].Value = YeWuInfo.Other;
                 sqlparam[i++].Value = YeWuInfo.CurrentCheckerId;
+                sqlparam[i++].Value = YeWuInfo.CurrentOp;
                 sqlparam[i++].Value = YeWuInfo.State;
                 sqlparam[i++].Value = YeWuInfo.Isdelete;
                 sqlparam[i++].Value = YeWuInfo.Type;
@@ -151,11 +153,12 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Sument",DbType.String),
 				new SqlParameter("@Other",DbType.String),
 				new SqlParameter("@CurrentCheckerId",DbType.Guid),
+                new SqlParameter("@CurrentOp",DbType.Int16),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@Isdelete",DbType.Boolean),
 				new SqlParameter("@Type",DbType.Int16),
                 new SqlParameter("@SignDate",DbType.DateTime),
-                new SqlParameter("@CelslOfYeWu",DbType.String),
+                new SqlParameter("@CelslOfYeWu",DbType.String)
                 };
 
                 int i = 0;
@@ -169,6 +172,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = YeWuInfo.Sument;
                 sqlparam[i++].Value = YeWuInfo.Other;
                 sqlparam[i++].Value = YeWuInfo.CurrentCheckerId;
+                sqlparam[i++].Value = YeWuInfo.CurrentOp;
                 sqlparam[i++].Value = YeWuInfo.State;
                 sqlparam[i++].Value = YeWuInfo.Isdelete;
                 sqlparam[i++].Value = YeWuInfo.Type;
@@ -297,6 +301,10 @@ namespace com.TZMS.DataAccess
             if (YeWuInfoInfoDataRow["CurrentCheckerId"] != null)
             {
                 YeWuInfoInfo.CurrentCheckerId = new Guid(DataUtil.GetStringValueOfRow(YeWuInfoInfoDataRow, "CurrentCheckerId"));
+            }
+            if (YeWuInfoInfoDataRow["CurrentOp"] != null)
+            {
+                YeWuInfoInfo.CurrentOp = short.Parse(DataUtil.GetStringValueOfRow(YeWuInfoInfoDataRow, "CurrentOp"));
             }
             if (YeWuInfoInfoDataRow["State"] != null)
             {

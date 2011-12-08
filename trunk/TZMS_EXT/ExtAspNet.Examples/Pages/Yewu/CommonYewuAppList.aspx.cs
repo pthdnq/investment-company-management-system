@@ -48,7 +48,7 @@ namespace TZMS.Web
         private void DataBindData()
         {
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" CheckerID='" + CurrentUser.ObjectId.ToString() + "' and isdelete=0 ");
+            strCondition.Append(" CheckerID='" + CurrentUser.ObjectId.ToString() + "' and isdelete=0 and type = 0 ");
 
             strCondition.Append(" and Title like '%" + this.tbxSearch.Text.Trim() + "%' ");
             strCondition.Append(" and Checkstate = '" + this.ddlstState.SelectedValue + "' ");
@@ -59,7 +59,7 @@ namespace TZMS.Web
             _comHelp.SelectList = "*";
             _comHelp.SearchCondition = strCondition.ToString();
             _comHelp.PageSize = PageCounts;
-            _comHelp.PageIndex = gridYewu.PageIndex;
+            _comHelp.PageIndex = gridYewu.PageIndex + 1;
             _comHelp.OrderExpression = "CheckDateTime desc";
             DataTable lstYewu = _commSelect.ComSelect(ref _comHelp);
 
