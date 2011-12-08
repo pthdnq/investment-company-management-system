@@ -52,7 +52,7 @@
                             <ext:BoundField DataField="Title" Width="100px" HeaderText="业务标题" DataTooltipField="Title" />
                             <ext:BoundField DataField="Sument" HeaderText="业务内容" ExpandUnusedSpace="true" DataTooltipField="Sument" />
                             <ext:BoundField DataField="CurrentCheckerId" HeaderText="当前负责人" />
-                            <ext:BoundField DataField="Type" HeaderText="当前操作" />
+                            <ext:BoundField DataField="CurrentOp" HeaderText="当前操作" />
                             <ext:BoundField DataField="State" Width="60px" HeaderText="状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="删除" CommandName="Delete" />

@@ -23,6 +23,7 @@
                             <ext:DropDownList ID="ddlstAproveState" runat="server" Label="业务状态">
                                 <ext:ListItem Text="未完成" Value="0" Selected="true" />
                                 <ext:ListItem Text="已完成" Value="1" />
+                                <ext:ListItem Text="异常终止" Value="2" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
                             </ext:Button>

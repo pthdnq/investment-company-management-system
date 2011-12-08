@@ -27,6 +27,8 @@
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
                             </ext:Button>
+                            <ext:Label ID="lbl1" runat="server">
+                            </ext:Label>
                         </Items>
                     </ext:FormRow>
                 </Rows>

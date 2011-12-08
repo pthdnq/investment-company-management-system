@@ -187,10 +187,10 @@ namespace TZMS.Web
                         }
                         break;
                     case "1":
-                        e.Values[4] = "";
-                        e.Values[5] = "";
                         e.Values[6] = "已完成";
-                        e.Values[8] = "<span class=\"gray\">删除</span>";
+                        break;
+                    case "2":
+                        e.Values[6] = "异常终止";
                         break;
                     default:
                         break;
