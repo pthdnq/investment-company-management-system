@@ -43,6 +43,7 @@ namespace com.TZMS.Model
         private string _sument = DBEmptyString;
         private string _other = DBEmptyString;
         private Guid _currentCheckerId;
+        private short _currentOp;
         private short _state = DBEmptyShort;
         private bool _isdelete;
         private short _type = DBEmptyShort;
@@ -158,6 +159,15 @@ namespace com.TZMS.Model
         {
             get { return _currentCheckerId; }
             set { _currentCheckerId = value; }
+        }
+
+        /// <summary>
+        /// CurrentOp 
+        /// </summary> 
+        public short CurrentOp
+        {
+            get { return _currentOp; }
+            set { _currentOp = value; }
         }
 
         /// <summary>
