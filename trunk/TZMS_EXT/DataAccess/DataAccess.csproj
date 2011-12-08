@@ -59,6 +59,8 @@
     <Compile Include="BankLoanProjectProcessHistoryCtrl.cs" />
     <Compile Include="BaoxiaoCheckCtrl.cs" />
     <Compile Include="BaoxiaoCtrl.cs" />
+    <Compile Include="BaoXiaoPinZhengApplyCtrl.cs" />
+    <Compile Include="BaoXiaoPinZhengApproveCtrl.cs" />
     <Compile Include="ComCheckerCtrl.cs" />
     <Compile Include="CustomerCtrl.cs" />
     <Compile Include="FinancingFeePaymentCtrl.cs" />
