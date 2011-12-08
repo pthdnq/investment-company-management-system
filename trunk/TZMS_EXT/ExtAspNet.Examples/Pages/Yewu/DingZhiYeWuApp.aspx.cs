@@ -227,6 +227,11 @@ namespace TZMS.Web
                 YeWu.CurrentOp = 14;
                 yewuManage.SaveYeWu(YeWu);
 
+                YeWuDoing_wei.Checkstate = 1;
+                YeWuDoing_wei.CheckSugest = this.taaApproveSugest.Text.Trim();
+                YeWuDoing_wei.CheckDateTime = DateTime.Now;
+                yewuManage.SaveYeWuDoing(YeWuDoing_wei);
+
                 List<YeWuGudingDoingInfo> _list = new List<YeWuGudingDoingInfo>();
                 YeWuGudingDoingInfo _ywInfo = new YeWuGudingDoingInfo();
                 _ywInfo.ObjectId = Guid.NewGuid();
@@ -237,7 +242,7 @@ namespace TZMS.Web
                 _ywInfo.ApplyId = YeWu.ObjectId;
                 _ywInfo.OrderIndex = short.Parse(ddlstNext.SelectedValue.Trim());
                 _ywInfo.CheckOp = ddlstNext.SelectedText.Trim();
-                _ywInfo.CheckDateTime = DateTime.Now;
+                _ywInfo.CheckDateTime = YeWuDoing_wei.CheckDateTime.AddSeconds(1);
 
                 _list.Add(_ywInfo);
                 yewuManage.AddRecord(_list);
@@ -254,6 +259,11 @@ namespace TZMS.Web
 
                 yewuManage.SaveYeWu(YeWu);
 
+                YeWuDoing_wei.Checkstate = 1;
+                YeWuDoing_wei.CheckSugest = this.taaApproveSugest.Text.Trim();
+                YeWuDoing_wei.CheckDateTime = DateTime.Now;
+                yewuManage.SaveYeWuDoing(YeWuDoing_wei);
+
                 List<YeWuGudingDoingInfo> _list = new List<YeWuGudingDoingInfo>();
                 YeWuGudingDoingInfo _ywInfo = new YeWuGudingDoingInfo();
                 _ywInfo.ObjectId = Guid.NewGuid();
@@ -264,11 +274,12 @@ namespace TZMS.Web
                 _ywInfo.ApplyId = YeWu.ObjectId;
                 _ywInfo.OrderIndex = short.Parse(ddlstNext.SelectedValue.Trim());
                 _ywInfo.CheckOp = ddlstNext.SelectedText.Trim();
-                _ywInfo.CheckDateTime = DateTime.Now;
+                _ywInfo.CheckDateTime = YeWuDoing_wei.CheckDateTime.AddSeconds(1);
 
                 _list.Add(_ywInfo);
                 yewuManage.AddRecord(_list);
 
+                this.btnClose_Click(null, null);
                 return;
             }
             
@@ -286,8 +297,8 @@ namespace TZMS.Web
                 }
             }
             
-            //更新
-            
+            // 更新
+            YeWu.CurrentOp = short.Parse(ddlstNext.SelectedValue);
             YeWu.CurrentCheckerId = zrenCheck.ObjectId;
             yewuManage.SaveYeWu(YeWu);
             YeWuDoing_wei.Checkstate = 1;
@@ -313,7 +324,6 @@ namespace TZMS.Web
             #endregion
 
             btnClose_Click(null, null);
-
         }
 
         /// <summary>

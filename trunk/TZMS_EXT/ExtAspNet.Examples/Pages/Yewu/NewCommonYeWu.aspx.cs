@@ -238,6 +238,7 @@ namespace TZMS.Web
             yewu.UserAccountNo = checker.AccountNo;
             yewu.Dept = checker.Dept;
             yewu.CurrentCheckerId = new Guid(this.ddlstApproveUser.SelectedValue);
+            yewu.CurrentOp = short.Parse(ddlstNext.SelectedValue);
             //未完成，普通业务
             yewu.State = 0;
             yewu.Type = 0;

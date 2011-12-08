@@ -171,12 +171,14 @@ namespace TZMS.Web
             YewuManage yewuManage = new YewuManage();
 
             //更新
+            YeWu.CurrentOp = short.Parse(ddlstNext.SelectedValue);
             YeWu.CurrentCheckerId = zrenCheck.ObjectId;
             yewuManage.SaveYeWu(YeWu);
             YeWuDoing_wei.Checkstate = 1;
             YeWuDoing_wei.CheckSugest = this.taaApproveSugest.Text.Trim();
             YeWuDoing_wei.CheckDateTime = DateTime.Now;
             yewuManage.SaveYeWuDoing(YeWuDoing_wei);
+
             #region 备用记录
             //新增记录表
             List<YeWuGudingDoingInfo> list = new List<YeWuGudingDoingInfo>();
@@ -193,6 +195,7 @@ namespace TZMS.Web
             yewuManage.AddRecord(list);
 
             #endregion
+
             btnClose_Click(null, null);
 
         }

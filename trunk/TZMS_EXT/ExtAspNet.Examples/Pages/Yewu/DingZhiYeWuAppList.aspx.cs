@@ -49,8 +49,7 @@ namespace TZMS.Web
         private void DataBindData()
         {
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" CheckerID='" + CurrentUser.ObjectId.ToString() + "' and isdelete=0 and type = 1 ");
-
+            strCondition.Append(" CheckerID='" + CurrentUser.ObjectId.ToString() + "' and isdelete=0 and type = 1 and OrderIndex <> 0 and OrderIndex <> 14 and OrderIndex <> 15 ");
             strCondition.Append(" and Title like '%" + this.tbxSearch.Text.Trim() + "%' ");
             strCondition.Append(" and Checkstate = '" + this.ddlstState.SelectedValue + "' ");
 
