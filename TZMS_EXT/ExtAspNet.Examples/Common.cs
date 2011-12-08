@@ -36,6 +36,17 @@ namespace TZMS
             /// 业务部
             /// </summary>
             static public string YEWU = "业务部";
+
+            /// <summary>
+            /// 总经办
+            /// </summary>
+            static public string ZJB = "总经办";
+
+            /// <summary>
+            /// 结算中心
+            /// </summary>
+            static public string JSZX = "结算中心";
+
         }
 
         #region 附件
@@ -181,6 +192,6 @@ namespace TZMS
             fileCtrl.ResetFiles(string.Empty, systemName, recordId, attributeName);
         }
         #endregion
- 
+
     }
 }
