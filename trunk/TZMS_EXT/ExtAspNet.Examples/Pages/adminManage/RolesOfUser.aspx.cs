@@ -329,6 +329,9 @@ namespace TZMS.Web
                 case RoleType.GXGD:
                     strRole = "加薪归档";
                     break;
+                case RoleType.PZGD:
+                    strRole = "报销凭证归档";
+                    break;
             }
 
             return strRole;

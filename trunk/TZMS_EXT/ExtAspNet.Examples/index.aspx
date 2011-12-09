@@ -282,6 +282,12 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/报销列表.gif" NodeID="bxgd" OnClientClick=" tabs('bxgd','UserKey');"
                                                 Text="报销归档">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销审批.gif" NodeID="bxpzsq" AutoPostBack="false"
+                                                OnClientClick=" tabs('bxpzsq','UserKey');" Text="报销凭证">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销审批.gif" NodeID="bxpzsp" AutoPostBack="false"
+                                                OnClientClick=" tabs('bxpzsp','UserKey');" Text="报销凭证审批">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -737,7 +743,12 @@
                 case "bxgd":
                     LoadTab("Pages/Baoxiao/BaoxiaoToFile.aspx", "报销归档", icon);
                     break;
-
+                case "bxpzsq":
+                    LoadTab("Pages/Baoxiao/BaoXiaoPinZhengApplyList.aspx", "报销凭证", icon);
+                    break;
+                case "bxpzsp":
+                    LoadTab("Pages/Baoxiao/BaoXiaoPinZhengApproveList.aspx", "报销凭证审批", icon);
+                    break;
                 default:
                     braek;
             }
