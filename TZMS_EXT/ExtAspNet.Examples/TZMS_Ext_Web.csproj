@@ -581,6 +581,15 @@
     <Content Include="Pages\Baoxiao\BaoxiaoToFile.aspx" />
     <Content Include="Pages\Baoxiao\CheckBaoxiaoApp.aspx" />
     <Content Include="Pages\Baoxiao\NewBaoxiaoApply.aspx" />
+    <Content Include="Pages\CashFlow\BankLoanBA.aspx" />
+    <Content Include="Pages\CashFlow\BankLoanBAList.aspx" />
+    <Content Include="Pages\CashFlow\CashFlowStatementList.aspx" />
+    <Content Include="Pages\CashFlow\FolkFinancingBA.aspx" />
+    <Content Include="Pages\CashFlow\FolkFinancingBAList.aspx" />
+    <Content Include="Pages\CashFlow\InvestmentLoanBA.aspx" />
+    <Content Include="Pages\CashFlow\InvestmentLoanBAList.aspx" />
+    <Content Include="Pages\CashFlow\InvestmentProjectBA.aspx" />
+    <Content Include="Pages\CashFlow\InvestmentProjectBAList.aspx" />
     <Content Include="Pages\FolkFinancingPages\AccountingAudit.aspx" />
     <Content Include="Pages\FolkFinancingPages\AccountingAuditList.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingApplyAdd.aspx" />
@@ -1179,6 +1188,69 @@
     </Compile>
     <Compile Include="Pages\Baoxiao\NewBaoxiaoApply.aspx.designer.cs">
       <DependentUpon>NewBaoxiaoApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CashFlow\BankLoanBA.aspx.cs">
+      <DependentUpon>BankLoanBA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CashFlow\BankLoanBA.aspx.designer.cs">
+      <DependentUpon>BankLoanBA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CashFlow\BankLoanBAList.aspx.cs">
+      <DependentUpon>BankLoanBAList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CashFlow\BankLoanBAList.aspx.designer.cs">
+      <DependentUpon>BankLoanBAList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CashFlow\CashFlowStatementList.aspx.cs">
+      <DependentUpon>CashFlowStatementList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CashFlow\CashFlowStatementList.aspx.designer.cs">
+      <DependentUpon>CashFlowStatementList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CashFlow\FolkFinancingBA.aspx.cs">
+      <DependentUpon>FolkFinancingBA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CashFlow\FolkFinancingBA.aspx.designer.cs">
+      <DependentUpon>FolkFinancingBA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CashFlow\FolkFinancingBAList.aspx.cs">
+      <DependentUpon>FolkFinancingBAList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CashFlow\FolkFinancingBAList.aspx.designer.cs">
+      <DependentUpon>FolkFinancingBAList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CashFlow\InvestmentLoanBA.aspx.cs">
+      <DependentUpon>InvestmentLoanBA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CashFlow\InvestmentLoanBA.aspx.designer.cs">
+      <DependentUpon>InvestmentLoanBA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CashFlow\InvestmentLoanBAList.aspx.cs">
+      <DependentUpon>InvestmentLoanBAList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CashFlow\InvestmentLoanBAList.aspx.designer.cs">
+      <DependentUpon>InvestmentLoanBAList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CashFlow\InvestmentProjectBA.aspx.cs">
+      <DependentUpon>InvestmentProjectBA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CashFlow\InvestmentProjectBA.aspx.designer.cs">
+      <DependentUpon>InvestmentProjectBA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CashFlow\InvestmentProjectBAList.aspx.cs">
+      <DependentUpon>InvestmentProjectBAList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CashFlow\InvestmentProjectBAList.aspx.designer.cs">
+      <DependentUpon>InvestmentProjectBAList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\AccountingAudit.aspx.cs">
       <DependentUpon>AccountingAudit.aspx</DependentUpon>
