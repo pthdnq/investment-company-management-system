@@ -304,7 +304,12 @@ namespace TZMS.Web
             /// <summary>
             /// 加薪归档
             /// </summary>
-            GXGD = 27
+            GXGD = 27,
+
+            /// <summary>
+            /// 报销凭证归档
+            /// </summary>
+            PZGD = 28
         }
 
         /// <summary>

@@ -221,6 +221,17 @@ namespace TZMS.Web
                     _archiveCheckInfo.CheckOp = "3";
                     _archiveCheckInfo.ApplyId = _baoxiaoInfo.ObjectId;
                     _manage.AddNewBaoxiaoCheck(_archiveCheckInfo);
+
+                    // 插入报销凭证信息.
+                    BaoXiaoPinZhengApplyInfo _PingZhengApplyInfo = new BaoXiaoPinZhengApplyInfo();
+                    _PingZhengApplyInfo.ObjectID = Guid.NewGuid();
+                    _PingZhengApplyInfo.Title = _baoxiaoInfo.UserName + "的网络报销单";
+                    _PingZhengApplyInfo.State = -1;
+                    _PingZhengApplyInfo.IsDelete = false;
+                    _PingZhengApplyInfo.ApplyTime = ACommonInfo.DBMAXDate;
+                    _PingZhengApplyInfo.BaoXiaoID = _baoxiaoInfo.ObjectId;
+
+                    _manage.AddNewPinZhengApply(_PingZhengApplyInfo);
                 }
 
                 #endregion
