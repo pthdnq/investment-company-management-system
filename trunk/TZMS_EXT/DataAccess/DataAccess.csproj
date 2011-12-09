@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountantAuditHistoryCtrl.cs" />
     <Compile Include="AddSalaryCtrl.cs" />
     <Compile Include="AttendInfoCtrl.cs" />
     <Compile Include="BankLoanCtrl.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="BaoxiaoCtrl.cs" />
     <Compile Include="BaoXiaoPinZhengApplyCtrl.cs" />
     <Compile Include="BaoXiaoPinZhengApproveCtrl.cs" />
+    <Compile Include="CashFlowStatementCtrl.cs" />
     <Compile Include="ComCheckerCtrl.cs" />
     <Compile Include="CustomerCtrl.cs" />
     <Compile Include="FinancingFeePaymentCtrl.cs" />
