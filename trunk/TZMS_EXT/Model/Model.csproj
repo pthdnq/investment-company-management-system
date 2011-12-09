@@ -36,6 +36,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountantAuditHistoryInfo.cs" />
     <Compile Include="ACommonInfo.cs" />
     <Compile Include="AddSalaryInfo.cs" />
     <Compile Include="AttendInfo.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="BaoxiaoInfo.cs" />
     <Compile Include="BaoXiaoPinZhengApplyInfo.cs" />
     <Compile Include="BaoXiaoPinZhengApproveInfo.cs" />
+    <Compile Include="CashFlowStatementInfo.cs" />
     <Compile Include="ComCheckerInfo.cs" />
     <Compile Include="CustomerInfo.cs" />
     <Compile Include="FinancingFeePaymentHistoryInfo.cs" />
