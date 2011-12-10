@@ -54,7 +54,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// ObjetctID 
         /// </summary> 
-        public Guid ObjetctId
+        public Guid ObjectId
         {
             get { return _objetctId; }
             set { _objetctId = value; }
