@@ -54,7 +54,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "BankLoanProjectProcess_Add";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjetctId",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@ForId",DbType.Guid),
 				new SqlParameter("@ProjectName",DbType.String),
 				new SqlParameter("@NeedImprest",DbType.Byte),
@@ -80,7 +80,7 @@ namespace com.TZMS.DataAccess
 				};
 
                 int i = 0;
-                sqlparam[i++].Value = BankLoanProjectProcessInfo.ObjetctId;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.ObjectId;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.ForId;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.ProjectName;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.NeedImprest;
@@ -157,7 +157,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "BankLoanProjectProcess_Update";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjetctId",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@ForId",DbType.Guid),
 				new SqlParameter("@ProjectName",DbType.String),
 				new SqlParameter("@NeedImprest",DbType.Byte),
@@ -183,7 +183,7 @@ namespace com.TZMS.DataAccess
                 };
 
                 int i = 0;
-                sqlparam[i++].Value = BankLoanProjectProcessInfo.ObjetctId;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.ObjectId;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.ForId;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.ProjectName;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.NeedImprest;
@@ -290,9 +290,9 @@ namespace com.TZMS.DataAccess
         internal BankLoanProjectProcessInfo BankLoanProjectProcessInfoRowToInfo(DataRow BankLoanProjectProcessInfoInfoDataRow)
         {
             BankLoanProjectProcessInfo BankLoanProjectProcessInfoInfo = new BankLoanProjectProcessInfo();
-            if (BankLoanProjectProcessInfoInfoDataRow["ObjetctId"] != null)
+            if (BankLoanProjectProcessInfoInfoDataRow["ObjectId"] != null)
             {
-                BankLoanProjectProcessInfoInfo.ObjetctId = new Guid(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ObjetctId"));
+                BankLoanProjectProcessInfoInfo.ObjectId = new Guid(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ObjectId"));
             }
             if (BankLoanProjectProcessInfoInfoDataRow["ForId"] != null)
             {

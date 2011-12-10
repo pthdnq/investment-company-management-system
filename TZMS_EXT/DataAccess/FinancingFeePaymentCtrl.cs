@@ -54,7 +54,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "FinancingFeePayment_Add";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjetctId",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@ForId",DbType.Guid),
 				new SqlParameter("@DueDateForPay",DbType.DateTime),
 				new SqlParameter("@DateForPay",DbType.DateTime),
@@ -76,7 +76,7 @@ namespace com.TZMS.DataAccess
 				};
 
                 int i = 0;
-                sqlparam[i++].Value = FinancingFeePaymentInfo.ObjetctId;
+                sqlparam[i++].Value = FinancingFeePaymentInfo.ObjectId;
                 sqlparam[i++].Value = FinancingFeePaymentInfo.ForId;
                 sqlparam[i++].Value = FinancingFeePaymentInfo.DueDateForPay;
                 sqlparam[i++].Value = FinancingFeePaymentInfo.DateForPay;
@@ -149,7 +149,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "FinancingFeePayment_Update";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjetctId",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@ForId",DbType.Guid),
 				new SqlParameter("@DueDateForPay",DbType.DateTime),
 				new SqlParameter("@DateForPay",DbType.DateTime),
@@ -171,7 +171,7 @@ namespace com.TZMS.DataAccess
                 };
 
                 int i = 0;
-                sqlparam[i++].Value = FinancingFeePaymentInfo.ObjetctId;
+                sqlparam[i++].Value = FinancingFeePaymentInfo.ObjectId;
                 sqlparam[i++].Value = FinancingFeePaymentInfo.ForId;
                 sqlparam[i++].Value = FinancingFeePaymentInfo.DueDateForPay;
                 sqlparam[i++].Value = FinancingFeePaymentInfo.DateForPay;
@@ -274,9 +274,9 @@ namespace com.TZMS.DataAccess
         internal FinancingFeePaymentInfo FinancingFeePaymentInfoRowToInfo(DataRow FinancingFeePaymentInfoInfoDataRow)
         {
             FinancingFeePaymentInfo FinancingFeePaymentInfoInfo = new FinancingFeePaymentInfo();
-            if (FinancingFeePaymentInfoInfoDataRow["ObjetctId"] != null)
+            if (FinancingFeePaymentInfoInfoDataRow["ObjectId"] != null)
             {
-                FinancingFeePaymentInfoInfo.ObjetctId = new Guid(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "ObjetctId"));
+                FinancingFeePaymentInfoInfo.ObjectId = new Guid(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "ObjectId"));
             }
             if (FinancingFeePaymentInfoInfoDataRow["ForId"] != null)
             {
