@@ -10,7 +10,7 @@ namespace com.TZMS.Business
     public class InvestmentLoanManage : ParentManage
     {
         #region 构造函数
-    
+
         InvestmentLoanCtrl ctrl = new InvestmentLoanCtrl();
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace com.TZMS.Business
         /// <param name="info">实体</param>
         /// <returns>执行结果</returns>
         public int Update(InvestmentLoanInfo info, string boName = BoName)
-        { 
+        {
             return ctrl.UpDate(boName, info);
         }
         #endregion
@@ -112,7 +112,7 @@ namespace com.TZMS.Business
         }
         #endregion
 
-        #region  还款信息  
+        #region  还款信息
         ReceivablesCtrl rctrl = new ReceivablesCtrl();
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace com.TZMS.Business
             return users[0];
         }
 
-      
+
         /// <summary>
         /// 根据条件获得信息集合
         /// </summary>
@@ -164,7 +164,7 @@ namespace com.TZMS.Business
         {
             return rctrl.SelectAsList(boName, condtion);
         }
-      
+
         #endregion
 
         #region 历史记录
@@ -232,6 +232,10 @@ namespace com.TZMS.Business
         {
             return rhctrl.SelectAsList(boName, condtion);
         }
+
+        #endregion
+
+        #region 借款人星级信息
 
         #endregion
 
