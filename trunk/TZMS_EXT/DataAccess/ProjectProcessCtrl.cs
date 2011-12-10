@@ -54,7 +54,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "ProjectProcess_Add";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjetctId",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@ForId",DbType.Guid),
 				new SqlParameter("@ProjectName",DbType.String),
 				new SqlParameter("@NeedImprest",DbType.Boolean),
@@ -80,7 +80,7 @@ namespace com.TZMS.DataAccess
 				};
 
                 int i = 0;
-                sqlparam[i++].Value = ProjectProcessInfo.ObjetctId;
+                sqlparam[i++].Value = ProjectProcessInfo.ObjectId;
                 sqlparam[i++].Value = ProjectProcessInfo.ForId;
                 sqlparam[i++].Value = ProjectProcessInfo.ProjectName;
                 sqlparam[i++].Value = ProjectProcessInfo.NeedImprest;
@@ -157,7 +157,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "ProjectProcess_Update";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjetctId",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@ForId",DbType.Guid),
 				new SqlParameter("@ProjectName",DbType.String),
 				new SqlParameter("@NeedImprest",DbType.Boolean),
@@ -183,7 +183,7 @@ namespace com.TZMS.DataAccess
                 };
 
                 int i = 0;
-                sqlparam[i++].Value = ProjectProcessInfo.ObjetctId;
+                sqlparam[i++].Value = ProjectProcessInfo.ObjectId;
                 sqlparam[i++].Value = ProjectProcessInfo.ForId;
                 sqlparam[i++].Value = ProjectProcessInfo.ProjectName;
                 sqlparam[i++].Value = ProjectProcessInfo.NeedImprest;
@@ -290,9 +290,9 @@ namespace com.TZMS.DataAccess
         internal ProjectProcessInfo ProjectProcessInfoRowToInfo(DataRow ProjectProcessInfoInfoDataRow)
         {
             ProjectProcessInfo ProjectProcessInfoInfo = new ProjectProcessInfo();
-            if (ProjectProcessInfoInfoDataRow["ObjetctId"] != null)
+            if (ProjectProcessInfoInfoDataRow["ObjectId"] != null)
             {
-                ProjectProcessInfoInfo.ObjetctId = new Guid(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ObjetctId"));
+                ProjectProcessInfoInfo.ObjectId = new Guid(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ObjectId"));
             }
             if (ProjectProcessInfoInfoDataRow["ForId"] != null)
             {

@@ -54,7 +54,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "Receivables_Add";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjetctId",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@ForId",DbType.Guid),
 				new SqlParameter("@ProjectName",DbType.String),
 				new SqlParameter("@DueDateForReceivables",DbType.DateTime),
@@ -73,7 +73,7 @@ namespace com.TZMS.DataAccess
 				};
 
                 int i = 0;
-                sqlparam[i++].Value = ReceivablesInfo.ObjetctId;
+                sqlparam[i++].Value = ReceivablesInfo.ObjectId;
                 sqlparam[i++].Value = ReceivablesInfo.ForId;
                 sqlparam[i++].Value = ReceivablesInfo.ProjectName;
                 sqlparam[i++].Value = ReceivablesInfo.DueDateForReceivables;
@@ -143,7 +143,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "Receivables_Update";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjetctId",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@ForId",DbType.Guid),
 				new SqlParameter("@ProjectName",DbType.String),
 				new SqlParameter("@DueDateForReceivables",DbType.DateTime),
@@ -162,7 +162,7 @@ namespace com.TZMS.DataAccess
                 };
 
                 int i = 0;
-                sqlparam[i++].Value = ReceivablesInfo.ObjetctId;
+                sqlparam[i++].Value = ReceivablesInfo.ObjectId;
                 sqlparam[i++].Value = ReceivablesInfo.ForId;
                 sqlparam[i++].Value = ReceivablesInfo.ProjectName;
                 sqlparam[i++].Value = ReceivablesInfo.DueDateForReceivables;
@@ -262,9 +262,9 @@ namespace com.TZMS.DataAccess
         internal ReceivablesInfo ReceivablesInfoRowToInfo(DataRow ReceivablesInfoInfoDataRow)
         {
             ReceivablesInfo ReceivablesInfoInfo = new ReceivablesInfo();
-            if (ReceivablesInfoInfoDataRow["ObjetctId"] != null)
+            if (ReceivablesInfoInfoDataRow["ObjectId"] != null)
             {
-                ReceivablesInfoInfo.ObjetctId = new Guid(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "ObjetctId"));
+                ReceivablesInfoInfo.ObjectId = new Guid(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "ObjectId"));
             }
             if (ReceivablesInfoInfoDataRow["ForId"] != null)
             {
