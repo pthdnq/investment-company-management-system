@@ -97,8 +97,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             InvestmentLoanInfo _Info = null;
             InvestmentLoanManage manage = new InvestmentLoanManage();
 
-            _Info = new InvestmentLoanInfo(); 
-            
+            _Info = new InvestmentLoanInfo();
+
             _Info.ObjectId = Guid.NewGuid();
             _Info.ProjectName = this.tbProjectName.Text.Trim();
             _Info.ProjectOverview = this.tbProjectOverview.Text.Trim();
@@ -123,9 +123,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.CreaterAccount = this.CurrentUser.AccountNo;
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
-         
-            
-                // 执行操作.
+            //会计审核
+            _Info.NextBAOperaterName = this.ddlstApproveUserBA.SelectedText;
+            _Info.NextBAOperaterId = new Guid(this.ddlstApproveUserBA.SelectedValue);
+            _Info.SubmitBATime = DateTime.Now;
+            _Info.BAStatus = 1;            
+
+            // 执行操作.
 
             int result = 3;
 
@@ -133,8 +137,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             if (result == -1)
             {
-                manage.AddHistory(_Info.ObjectId, "申请", "借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
-           
+                manage.AddHistory(_Info.ObjectId, "申请", "借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
+                new CashFlowManage().AddHistory(_Info.ObjectId, "申请", "投资部借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark,"InvestmentLoan");
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
@@ -150,8 +154,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         private void BindNext()
         {
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
-         //   ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+            //   ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
             ddlstNext.SelectedIndex = 0;
+
+            ddlstNextBA.Items.Add(new ExtAspNet.ListItem("会计核算", "0"));
+            ddlstNextBA.SelectedIndex = 0;
+
         }
 
         /// <summary>
@@ -162,9 +170,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             foreach (UserInfo user in CurrentChecker)
             {
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+                ddlstApproveUserBA.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
             }
-
             ddlstApproveUser.SelectedIndex = 0;
+            ddlstApproveUserBA.SelectedIndex = 0;
         }
         #endregion
 

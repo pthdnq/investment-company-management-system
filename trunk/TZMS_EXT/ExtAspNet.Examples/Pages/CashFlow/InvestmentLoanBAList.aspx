@@ -75,10 +75,10 @@
                             <ext:BoundField Width="110px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}" HeaderText="提交时间" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentAudit.aspx?ID={0}"
+                            <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="InvestmentLoanBA.aspx?ID={0}"
                                 Title="审核" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />

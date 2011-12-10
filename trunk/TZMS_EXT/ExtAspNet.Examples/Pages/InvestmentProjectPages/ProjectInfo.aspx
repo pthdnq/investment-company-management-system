@@ -57,7 +57,7 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%" RowHeight="100%" Height="324px">
                         <Columns>
-                            <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="100px" DataField="ImplementationPhase" HeaderText="实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
                             <ext:BoundField Width="110px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd hh:mm}" HeaderText="支用时间" />

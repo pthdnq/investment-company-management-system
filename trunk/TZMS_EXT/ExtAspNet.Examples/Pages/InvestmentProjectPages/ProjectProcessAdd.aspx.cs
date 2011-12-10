@@ -124,7 +124,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             InvestmentProjectManage manage = new InvestmentProjectManage();
 
             //  ID.
-            _Info.ObjetctId = Guid.NewGuid();
+            _Info.ObjectId = Guid.NewGuid();
             _Info.ForId = new Guid(ForID);
              
             _Info.ProjectName = manage.GetUserByObjectID(ForID).ProjectName;
@@ -156,7 +156,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             result = manage.AddProcess(_Info);
             if (result == -1)
             {
-                manage.AddHistory(true, _Info.ObjetctId, "新增", "新增项目进展", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
+                manage.AddHistory(true, _Info.ObjectId, "新增", "新增项目进展", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
            
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

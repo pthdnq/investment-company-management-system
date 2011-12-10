@@ -62,7 +62,7 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                           <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true"/>
+                           <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true"/>
                           <ext:BoundField Width="130px" DataField="ProjectName" HeaderText="项目名称" /> 
                             <ext:BoundField Width="85px" DataField="DueDateForReceivables"  DataFormatString="{0:yyyy/MM/dd}" HeaderText="实收款日" />
                             <ext:BoundField Width="85px" DataField="DateForReceivables" DataFormatString="{0:yyyy/MM/dd}" HeaderText="应收款日" />
@@ -74,7 +74,7 @@
                                        <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                             <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="ReceivablesConfirm.aspx?ID={0}"
+                             <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ReceivablesConfirm.aspx?ID={0}"
                                 Title="确认" WindowID="wndNew" /> 
                        <%--     <ext:LinkButtonField Width="38px"  Text="确认" ConfirmText="确定已确认该收款信息?" CommandName="Delete" />--%>
                         </Columns>

@@ -75,7 +75,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             BankLoanManage manage = new BankLoanManage();
             BankLoanInfo _Info = new BankLoanInfo();
 
-            _Info.ObjetctId = Guid.NewGuid();
+            _Info.ObjectId = Guid.NewGuid();
            
             _Info.CustomerName = this.tbCustomerName.Text.Trim();
             _Info.CollateralCompany = this.tbCollateralCompany.Text.Trim();
@@ -103,13 +103,19 @@ namespace TZMS.Web.Pages.BankLoanPages
             //{
             //    _userInfo.Birthday = Convert.ToDateTime(dpkBirthday.SelectedDate);
             //} 
+            //会计审核
+            _Info.NextBAOperaterName = this.ddlstApproveUserBA.SelectedText;
+            _Info.NextBAOperaterId = new Guid(this.ddlstApproveUserBA.SelectedValue);
+            _Info.SubmitBATime = DateTime.Now;
+            _Info.BAStatus = 1;            
 
             int result = 3; 
             result = manage.Add(_Info);
 
             if (result == -1)
             {
-                manage.AddHistory(_Info.ObjetctId, "申请", "银行贷款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
+                manage.AddHistory(_Info.ObjectId, "申请", "银行贷款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
+                 new CashFlowManage().AddHistory(_Info.ObjectId, "申请", "银行贷款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark,"BankLoan");
           
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
@@ -128,6 +134,9 @@ namespace TZMS.Web.Pages.BankLoanPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             //   ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
             ddlstNext.SelectedIndex = 0;
+
+            ddlstNextBA.Items.Add(new ExtAspNet.ListItem("会计核算", "0"));
+            ddlstNextBA.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -138,9 +147,12 @@ namespace TZMS.Web.Pages.BankLoanPages
             foreach (UserInfo user in CurrentChecker)
             {
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+                ddlstApproveUserBA.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+        
             }
 
             ddlstApproveUser.SelectedIndex = 0;
+            ddlstApproveUserBA.SelectedIndex = 0;
         }
         #endregion
     }

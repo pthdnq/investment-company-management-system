@@ -62,7 +62,7 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="90px" DataField="BorrowerNameA" HeaderText="借款人" />
                             <ext:BoundField Width="90px" DataField="Lenders" HeaderText="出款人" />
                             <ext:BoundField Width="90px" DataField="Guarantee" HeaderText="担保人" />
@@ -78,7 +78,7 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
-                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjetctId"
+                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="FinancingApplyEdit.aspx?Type=Edit&ID={0}" Title="编辑"
                                 WindowID="wndNew" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
@@ -89,7 +89,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="365px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="391px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

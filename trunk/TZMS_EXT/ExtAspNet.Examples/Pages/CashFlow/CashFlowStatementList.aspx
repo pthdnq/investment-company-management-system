@@ -73,7 +73,7 @@
                             <ext:BoundField Width="130px" DataField="RemainingAmount" HeaderText="余额" />
                             <ext:BoundField Width="100px" DataField="Biz" HeaderText="业务类型" />
                             <ext:BoundField ExpandUnusedSpace="true" DataField="Summary" HeaderText="项目摘要" />
-                            <%--         <ext:WindowField Width="76px" Text="审核" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="FeePayAudit.aspx?ID={0}"
+                            <%--         <ext:WindowField Width="76px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="FeePayAudit.aspx?ID={0}"
                                 Title="审核" WindowID="wndNew" />--%>
                             <%--           <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />--%>
                         </Columns>

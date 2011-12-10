@@ -62,7 +62,7 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                         <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                         <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <%--     <ext:BoundField Width="100px" DataField="JobNo" HeaderText="借款人" />
                             <ext:BoundField Width="100px" DataField="AccountNo" HeaderText="出款人" />--%>
                             <ext:BoundField Width="120px" DataField="PaymentAccount" HeaderText="付款帐号" />
@@ -80,7 +80,7 @@
                                 <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="PaymentRecord.aspx?Type=Edit&ID={0}"
+                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentRecord.aspx?Type=Edit&ID={0}"
                                 Title="查看 - 支付记录" WindowID="wndNew" />
               
                         </Columns>

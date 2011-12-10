@@ -98,35 +98,35 @@ namespace TZMS.Web.Pages.CashFlow
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-            //   strCondtion.Append("   Status<>9 "); 
+            strCondtion.Append("   NextBAOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+            //   strCondtion.Append("   BAStatus<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {
-                //strCondtion.Append(" Status " + (state == "待审核" ? " = 1 " : " <> 1 ") + " AND ");
+                //strCondtion.Append(" BAStatus " + (state == "待审核" ? " = 1 " : " <> 1 ") + " AND ");
                 // 申请状态.
                 switch (state)
                 {
                     case "0":
-                        //  strCondtion.Append(" AND Status = 1 ");
+                        //  strCondtion.Append(" AND BAStatus = 1 ");
                         break;
                     case "1":
-                        strCondtion.Append(" AND (Status = 1 OR Status = 3) ");
+                        strCondtion.Append(" AND (BAStatus = 1 OR BAStatus = 3) ");
                         break;
                     case "2":
-                        strCondtion.Append(" AND Status = 2 ");
+                        strCondtion.Append(" AND BAStatus = 2 ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND Status = 3  ");
+                        strCondtion.Append(" AND BAStatus = 3  ");
                         break;
                     case "4":
-                        strCondtion.Append(" AND Status = 4 ");
+                        strCondtion.Append(" AND BAStatus = 4 ");
                         break;
                     case "5":
-                        strCondtion.Append(" AND Status = 5 ");
+                        strCondtion.Append(" AND BAStatus = 5 ");
                         break;
                     case "9":
-                        strCondtion.Append(" AND Status = 9 ");
+                        strCondtion.Append(" AND BAStatus = 9 ");
                         break;
                     default:
                         break;
@@ -144,8 +144,8 @@ namespace TZMS.Web.Pages.CashFlow
                 Alert.Show("结束日期不可小于开始日期!");
                 return;
             }
-            strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
-            strCondtion.Append(" ORDER BY CreateTime DESC");
+            strCondtion.Append(" AND SubmitBATime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
+            strCondtion.Append(" ORDER BY SubmitBATime DESC");
             #endregion
 
             List<InvestmentLoanInfo> lstUserInfo = new InvestmentLoanManage().GetUsersByCondtion(strCondtion.ToString());
@@ -217,7 +217,7 @@ namespace TZMS.Web.Pages.CashFlow
             if (e.CommandName == "Delete")
             {
                 // 删除
-                info.Status = 9;
+                info.BAStatus = 9;
             }
 
             manage.Update(info);
@@ -257,38 +257,38 @@ namespace TZMS.Web.Pages.CashFlow
         /// <summary>
         /// 获取状态名字
         /// </summary>
-        /// <param name="strStatus"></param>
+        /// <param name="strBAStatus"></param>
         /// <returns></returns>
-        protected string GetStatusName(string strStatus)
+        protected string GetBAStatusName(string strBAStatus)
         {
-            string StrStatusName = string.Empty;
-            switch (strStatus)
+            string StrBAStatusName = string.Empty;
+            switch (strBAStatus)
             {
                 case "0":
-                    //  strCondtion.Append(" AND Status = 1 ");
+                    //  strCondtion.Append(" AND BAStatus = 1 ");
                     break;
                 case "1":
-                    StrStatusName = "待审核";
+                    StrBAStatusName = "待审核";
                     break;
                 case "2":
-                    StrStatusName = "未通过";
+                    StrBAStatusName = "未通过";
                     break;
                 case "3":
-                    StrStatusName = "审核中";
+                    StrBAStatusName = "审核中";
                     break;
                 case "4":
-                    StrStatusName = "待确认";
+                    StrBAStatusName = "待确认";
                     break;
                 case "5":
-                    StrStatusName = "已确认";
+                    StrBAStatusName = "已确认";
                     break;
                 case "9":
-                    StrStatusName = "已删除";
+                    StrBAStatusName = "已删除";
                     break;
                 default:
                     break;
             }
-            return StrStatusName;
+            return StrBAStatusName;
         }
         #endregion
     }

@@ -62,7 +62,7 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="100px" DataField="CustomerName" HeaderText="客户名称" />
                             <ext:BoundField Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="贷款金额" />
@@ -77,9 +77,9 @@
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}"
+                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}"
                                 Title="查看" WindowID="wndView" />
-                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjetctId"
+                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="BankLoanApplyEdit.aspx?Type=Edit&ID={0}" Title="编辑"
                                 WindowID="wndNew" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
@@ -90,7 +90,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="362px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="380px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
         <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="443px" Width="550px" OnClose="wndNew_Close">

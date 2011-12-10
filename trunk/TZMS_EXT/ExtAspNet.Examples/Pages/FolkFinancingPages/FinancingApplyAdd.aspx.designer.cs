@@ -112,6 +112,33 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.DropDownList ddlstApproveUser;
         
         /// <summary>
+        /// FormRow1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow1;
+        
+        /// <summary>
+        /// ddlstNextBA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DropDownList ddlstNextBA;
+        
+        /// <summary>
+        /// ddlstApproveUserBA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DropDownList ddlstApproveUserBA;
+        
+        /// <summary>
         /// tbBorrowerNameA control.
         /// </summary>
         /// <remarks>

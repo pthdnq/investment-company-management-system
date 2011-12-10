@@ -71,13 +71,13 @@ namespace TZMS.Web.Pages.BankLoanPages
             // 绑定数据.
             if (_info != null)
             {
-               
+
 
                 this.taImplementationPhase.Text = _info.ImplementationPhase;
                 this.tbAmountExpended.Text = _info.AmountExpended.ToString();
                 this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.Remark;
-            this.taAuditOpinion.Text   = _info.AuditOpinion  ;
+                this.taAuditOpinion.Text = _info.AuditOpinion;
                 if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
                 {
                     this.dpExpendedTime.SelectedDate = _info.ExpendedTime;
@@ -129,17 +129,39 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             com.TZMS.Model.BankLoanProjectProcessInfo _Info = manage.GetProcessByObjectID(ObjectID);
             _Info.AccountingRemark = this.taFeeConfirm.Text.Trim();
-         
+
             _Info.Status = status;
 
             // 执行操作.
             int result = 3;
 
+
             result = manage.UpdateProcess(_Info);
+
             if (result == -1)
             {
+
+                int itmp = new CashFlowManage().Add(new CashFlowStatementInfo()
+                {
+                    ObjectId = Guid.NewGuid(),
+                    Amount = _Info.AmountExpended,
+                    DateFor = DateTime.Now,
+                    FlowDirection = "Payment",
+                    FlowType = "",
+                    Biz = "BankLoan",
+                    ProjectName = _Info.ProjectName,
+                    IsAccountingAudit = 1
+                });
+                if (itmp != -1)
+                {
+                    _Info.Status = 4;
+                    manage.UpdateProcess(_Info);
+                    Alert.Show("操作失败!");
+                    return;
+                }
+
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
-                manage.AddHistory(_Info.ObjetctId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
+                manage.AddHistory(_Info.ObjectId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
