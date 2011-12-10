@@ -54,7 +54,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "Customer_Add";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjetctId",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@Name",DbType.String),
 				new SqlParameter("@Sex",DbType.Boolean),
 				new SqlParameter("@Birthday",DbType.DateTime),
@@ -72,7 +72,7 @@ namespace com.TZMS.DataAccess
 				};
 
                 int i = 0;
-                sqlparam[i++].Value = CustomerInfo.ObjetctId;
+                sqlparam[i++].Value = CustomerInfo.ObjectId;
                 sqlparam[i++].Value = CustomerInfo.Name;
                 sqlparam[i++].Value = CustomerInfo.Sex;
                 sqlparam[i++].Value = CustomerInfo.Birthday;
@@ -141,7 +141,7 @@ namespace com.TZMS.DataAccess
                 string strsql = "Customer_Update";
                 SqlParameter[] sqlparam =
                 {
-				new SqlParameter("@ObjetctId",DbType.Guid),
+				new SqlParameter("@ObjectId",DbType.Guid),
 				new SqlParameter("@Name",DbType.String),
 				new SqlParameter("@Sex",DbType.Boolean),
 				new SqlParameter("@Birthday",DbType.DateTime),
@@ -159,7 +159,7 @@ namespace com.TZMS.DataAccess
                 };
 
                 int i = 0;
-                sqlparam[i++].Value = CustomerInfo.ObjetctId;
+                sqlparam[i++].Value = CustomerInfo.ObjectId;
                 sqlparam[i++].Value = CustomerInfo.Name;
                 sqlparam[i++].Value = CustomerInfo.Sex;
                 sqlparam[i++].Value = CustomerInfo.Birthday;
@@ -258,9 +258,9 @@ namespace com.TZMS.DataAccess
         internal CustomerInfo CustomerInfoRowToInfo(DataRow CustomerInfoInfoDataRow)
         {
             CustomerInfo CustomerInfoInfo = new CustomerInfo();
-            if (CustomerInfoInfoDataRow["ObjetctId"] != null)
+            if (CustomerInfoInfoDataRow["ObjectId"] != null)
             {
-                CustomerInfoInfo.ObjetctId =new Guid( DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "ObjetctId"));
+                CustomerInfoInfo.ObjectId =new Guid( DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "ObjectId"));
             }
             if (CustomerInfoInfoDataRow["Name"] != null)
             {
