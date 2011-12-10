@@ -159,7 +159,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             if (result == -1)
             {
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待领导审批";
-                manage.AddHistory(_Info.ObjetctId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                manage.AddHistory(_Info.ObjectId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

@@ -94,35 +94,35 @@ namespace TZMS.Web.Pages.CashFlow
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-            //   strCondtion.Append("   Status<>9 "); 
+            strCondtion.Append("   NextBAOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+            //   strCondtion.Append("   BAStatus<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {
-                //strCondtion.Append(" Status " + (state == "待审核" ? " = 1 " : " <> 1 ") + " AND ");
+                //strCondtion.Append(" BAStatus " + (state == "待审核" ? " = 1 " : " <> 1 ") + " AND ");
                 // 申请状态.
                 switch (state)
                 {
                     case "0":
-                        //  strCondtion.Append(" AND Status = 1 ");
+                        //  strCondtion.Append(" AND BAStatus = 1 ");
                         break;
                     case "1":
-                        strCondtion.Append(" AND (Status = 1 OR Status = 3) ");
+                        strCondtion.Append(" AND (BAStatus = 1 OR BAStatus = 3) ");
                         break;
                     case "2":
-                        strCondtion.Append(" AND Status = 2 ");
+                        strCondtion.Append(" AND BAStatus = 2 ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND Status = 3  ");
+                        strCondtion.Append(" AND BAStatus = 3  ");
                         break;
                     case "4":
-                        strCondtion.Append(" AND Status = 4 ");
+                        strCondtion.Append(" AND BAStatus = 4 ");
                         break;
                     case "5":
-                        strCondtion.Append(" AND Status = 5 ");
+                        strCondtion.Append(" AND BAStatus = 5 ");
                         break;
                     case "9":
-                        strCondtion.Append(" AND Status = 9 ");
+                        strCondtion.Append(" AND BAStatus = 9 ");
                         break;
                     default:
                         break;
@@ -140,8 +140,8 @@ namespace TZMS.Web.Pages.CashFlow
                 Alert.Show("结束日期不可小于开始日期!");
                 return;
             }
-            strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
-            strCondtion.Append(" ORDER BY CreateTime DESC");
+            strCondtion.Append(" AND SubmitBATime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
+            strCondtion.Append(" ORDER BY SubmitBATime DESC");
             #endregion
 
             List<BankLoanInfo> lstInfo = new BankLoanManage().GetUsersByCondtion(strCondtion.ToString());
@@ -214,7 +214,7 @@ namespace TZMS.Web.Pages.CashFlow
             if (e.CommandName == "Delete")
             {
                 // 删除
-                info.Status = 9;
+                info.BAStatus = 9;
             }
 
             userManage.Update(info);
@@ -231,7 +231,7 @@ namespace TZMS.Web.Pages.CashFlow
         {
             //InvestmentProjectInfo _Info = (InvestmentProjectInfo)e.DataItem;
 
-            //if (_Info.Status == 0)
+            //if (_Info.BAStatus == 0)
             //{
             //    e.Values[9] = "<span class=\"gray\">权限</span>";
             //    e.Values[10] = "<span class=\"gray\">离职</span>";

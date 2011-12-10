@@ -63,7 +63,7 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                          <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                          <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="100px" DataField="CustomerName" HeaderText="客户名称" />
                             <ext:BoundField Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="贷款金额" />
@@ -74,10 +74,10 @@
                             <ext:BoundField  ExpandUnusedSpace="true" DataField="Contact" HeaderText="联系方式" />
                             <ext:TemplateField Width="76px" HeaderText="状态">
                                 <ItemTemplate>
-                                         <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
+                                         <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="BankLoanAudit.aspx?ID={0}"
+                            <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanBA.aspx?ID={0}"
                                 Title="审核" WindowID="wndNew" />
                             <ext:LinkButtonField Width="38px" Hidden="true" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
                         </Columns>

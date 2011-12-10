@@ -70,17 +70,17 @@ namespace TZMS.Web.Pages.CashFlow
             InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
 
             #region 下一步方式
-            if (CurrentRoles.Contains(RoleType.DSZ))
+            if (CurrentRoles.Contains(RoleType.HSKJ))
             {
                 BindNext(true);
             }
-            else if (CurrentRoles.Contains(RoleType.ZJL))
-            {      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
-                if (_Info.LoanAmount > 3000000)
-                { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
-                else
-                { BindNext(true); }
-            }
+            //else if (CurrentRoles.Contains(RoleType.ZJL))
+            //{      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
+            //    if (_Info.LoanAmount > 3000000)
+            //    { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
+            //    else
+            //    { BindNext(true); }
+            //}
             else
             {
                 BindNext(false);
@@ -115,7 +115,7 @@ namespace TZMS.Web.Pages.CashFlow
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append("ForId = '" + ObjectID + "'");
             strCondition.Append(" ORDER BY OperationTime DESC");
-            List<InvestmentLoanHistoryInfo> lstInfo = new InvestmentLoanManage().GetHistoryByCondtion(strCondition.ToString());
+            List<AccountantAuditHistoryInfo> lstInfo = new CashFlowManage().GetHistoryByCondtion(strCondition.ToString());
             //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
 
             gridHistory.RecordCount = lstInfo.Count;
@@ -145,7 +145,7 @@ namespace TZMS.Web.Pages.CashFlow
             }
             else
             {
-                //待会计审核/支付确认
+                //待会计审核/支付确认/归档
                 saveInfo(4);
             }
         }
@@ -161,21 +161,21 @@ namespace TZMS.Web.Pages.CashFlow
             InvestmentLoanManage manage = new InvestmentLoanManage();
             InvestmentLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
 
-            _Info.Status = status;
-            _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+            _Info.BAStatus = status;
+           // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
 
             //下一步操作
-            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
-            _Info.SubmitTime = DateTime.Now;
+            _Info.NextBAOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NextBAOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            _Info.SubmitBATime = DateTime.Now;
 
 
             int result = 3;
             result = manage.Update(_Info);
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
-                manage.AddHistory(_Info.ObjectId, "审批", string.Format("借款审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意，归档";
+                new CashFlowManage().AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion,"InvestmentLoan");
 
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
@@ -195,7 +195,7 @@ namespace TZMS.Web.Pages.CashFlow
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+                ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

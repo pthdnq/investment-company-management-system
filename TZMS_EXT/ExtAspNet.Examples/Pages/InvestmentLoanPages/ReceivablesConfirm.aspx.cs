@@ -125,7 +125,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             InvestmentLoanManage manage = new InvestmentLoanManage();
 
             //  ID.
-            //info.ObjetctId = Guid.NewGuid();
+            //info.ObjectId = Guid.NewGuid();
             //info.ForId = new Guid(ForID);  
 
             _Info.AuditOpinion = taAuditOpinionRemark.Text.Trim();
@@ -139,7 +139,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             if (result == -1)
             {
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
-                manage.AddHistory(true, _Info.ObjetctId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                manage.AddHistory(true, _Info.ObjectId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

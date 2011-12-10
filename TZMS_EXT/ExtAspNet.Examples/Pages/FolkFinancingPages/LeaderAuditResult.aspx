@@ -62,7 +62,7 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="80px" DataField="BorrowerNameA" HeaderText="借款人" />
                             <ext:BoundField Width="80px" DataField="Lenders" HeaderText="出款人" />
                             <ext:BoundField Width="80px" DataField="Guarantee" HeaderText="担保人" />
@@ -77,7 +77,7 @@
                             </ext:TemplateField>
                                    <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
                  
-                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="LeaderAuditResultView.aspx?ID={0}"
+                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LeaderAuditResultView.aspx?ID={0}"
                                 Title="查看"  WindowID="wndNew"/>
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
                         </Columns>

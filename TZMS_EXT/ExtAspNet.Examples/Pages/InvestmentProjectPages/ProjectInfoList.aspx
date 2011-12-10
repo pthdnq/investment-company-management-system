@@ -62,7 +62,7 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjetctId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField  ExpandUnusedSpace="true"  DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="90px" DataField="CustomerName" HeaderText="客户" />
                             <ext:TemplateField Width="66px" HeaderText="项目状态">
@@ -75,7 +75,7 @@
                             <ext:BoundField Width="115px" DataField="SignDate" HeaderText="签订日期"  DataFormatString="{0:yyyy/MM/dd}"/>
                             <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同金额" />
                             <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付订金" />
-                            <ext:WindowField Width="80px" Text="提交进展" DataIFrameUrlFields="ObjetctId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
+                            <ext:WindowField Width="80px" Text="提交进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
                                 Title="提交进展" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />

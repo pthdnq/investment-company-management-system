@@ -98,7 +98,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             BankLoanManage manage = new BankLoanManage();
 
             //  ID.
-            _Info.ObjetctId = Guid.NewGuid();
+            _Info.ObjectId = Guid.NewGuid();
             _Info.ForId = new Guid(ForID);
             var bankloan = manage.GetUserByObjectID(ForID);
        //  info.ProjectName = manage.GetUserByObjectID(ForID);
@@ -137,7 +137,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             result = manage.AddProcess(_Info);
             if (result == -1)
             {
-                manage.AddHistory(true, _Info.ObjetctId, "新增", "新增进展", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
+                manage.AddHistory(true, _Info.ObjectId, "新增", "新增进展", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
            
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

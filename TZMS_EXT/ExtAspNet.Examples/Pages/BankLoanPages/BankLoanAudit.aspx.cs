@@ -70,11 +70,15 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
             BankLoanInfo _Info = new BankLoanManage().GetUserByObjectID(ObjectID);
             //UserInfo user = new UserManage().GetUserByObjectID(_Info.NextOperaterId.ToString());
-            if (_Info.LoanAmount > 3000000 && !CurrentRoles.Contains(RoleType.DSZ))
+            if (CurrentRoles.Contains(RoleType.DSZ))
+            {
+                BindNext(true);
+            }
+            else  if (_Info.LoanAmount < 3000000 && CurrentRoles.Contains(RoleType.ZJL))
             {
                 //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
-                BindNext(false);
-             //   HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。";
+                BindNext(true);
+                //   HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。";
             }
             else
             {
@@ -192,7 +196,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (result == -1)
             {
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意";
-                manage.AddHistory(_Info.ObjetctId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                manage.AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
