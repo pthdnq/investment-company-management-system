@@ -54,13 +54,20 @@ namespace com.TZMS.Model
         private string _createrAccount = DBEmptyString;
         private DateTime _submitTime = DBEmptyDate;
         private string _auditOpinion = DBEmptyString;
+        private Guid _nextBAOperaterId;
+        private string _nextBAOperaterAccount = DBEmptyString;
+        private string _nextBAOperaterName = DBEmptyString;
+        private DateTime _submitBATime = DBEmptyDate;
+        private string _adulters = DBEmptyString;
+        private string _baadulters = DBEmptyString;
+        private int _bastatus = DBEmptyInt;
         #endregion
 
         #region Property
         /// <summary>
         /// ObjetctID 
         /// </summary> 
-        public Guid ObjetctId
+        public Guid ObjectId
         {
             get { return _objetctId; }
             set { _objetctId = value; }
@@ -246,6 +253,68 @@ namespace com.TZMS.Model
             set { _auditOpinion = value; }
         }
 
+        /// <summary>
+        /// NextBAOperaterID 
+        /// </summary> 
+        public Guid NextBAOperaterId
+        {
+            get { return _nextBAOperaterId; }
+            set { _nextBAOperaterId = value; }
+        }
+
+        /// <summary>
+        /// NextBAOperaterAccount 
+        /// </summary> 
+        public string NextBAOperaterAccount
+        {
+            get { return _nextBAOperaterAccount; }
+            set { _nextBAOperaterAccount = value; }
+        }
+
+        /// <summary>
+        /// NextBAOperaterName 
+        /// </summary> 
+        public string NextBAOperaterName
+        {
+            get { return _nextBAOperaterName; }
+            set { _nextBAOperaterName = value; }
+        }
+
+        /// <summary>
+        /// SubmitBATime 
+        /// </summary> 
+        public DateTime SubmitBATime
+        {
+            get { return _submitBATime; }
+            set { _submitBATime = value; }
+        }
+
+        /// <summary>
+        /// Adulters 
+        /// </summary> 
+        public string Adulters
+        {
+            get { return _adulters; }
+            set { _adulters = value; }
+        }
+
+        /// <summary>
+        /// BAAdulters 
+        /// </summary> 
+        public string BAAdulters
+        {
+            get { return _baadulters; }
+            set { _baadulters = value; }
+        }
+
+        /// <summary>
+        /// BAStatus 
+        /// </summary> 
+        public int BAStatus
+        {
+            get { return _bastatus; }
+            set { _bastatus = value; }
+        }
         #endregion
     }
 }
