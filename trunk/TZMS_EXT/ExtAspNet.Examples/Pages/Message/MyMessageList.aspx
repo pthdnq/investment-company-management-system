@@ -20,7 +20,7 @@
                     <ext:FormRow>
                         <Items>
                             <ext:DropDownList ID="ddlMessageState" runat="server" Label="消息类型">
-                                <ext:ListItem Text="所有" Value="2" />
+                                <ext:ListItem Text="全部" Value="2" />
                                 <ext:ListItem Text="未查看" Value="0" Selected="true" />
                                 <ext:ListItem Text="已查看" Value="1" />
                             </ext:DropDownList>
