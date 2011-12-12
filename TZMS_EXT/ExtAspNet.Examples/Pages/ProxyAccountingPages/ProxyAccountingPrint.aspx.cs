@@ -243,57 +243,69 @@ namespace TZMS.Web
                 }
 
                 pointX = 'A' - 1;
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 2; j++)
                 {
                     pointY = 2 + i;
                     pointX++;
-
                     string strValue = string.Empty;
                     switch (pointX)
                     {
-                        //case 65:
-                        //    strValue = lstAttendInfo[i].JobNo;
-                        //    break;
-                        //case 66:
-                        //    strValue = lstAttendInfo[i].Name;
-                        //    break;
-                        //case 67:
-                        //    strValue = lstAttendInfo[i].Dept;
-                        //    break;
-                        //case 68:
-                        //    strValue = lstAttendInfo[i].PushTime1.ToString("yyyy/MM/dd");
-                        //    break;
-                        //case 69:
-                        //    strValue = GetCNWeek((int)lstAttendInfo[i].PushTime1.DayOfWeek);
-                        //    break;
-                        //case 70:
-                        //    {
-                        //        string strPushTime1 = lstAttendInfo[i].PushTime1.ToString("HH:mm");
-                        //        strValue = (strPushTime1 == "00:00" ? "" : strPushTime1);
-                        //    }
-                        //    break;
-                        //case 71:
-                        //    {
-                        //        string strPushTime2 = lstAttendInfo[i].PushTime2.ToString("HH:mm");
-                        //        strValue = (strPushTime2 == "00:00" ? "" : strPushTime2);
-                        //    }
-                        //    break;
-                        //case 72:
-                        //    {
-                        //        string strPushTime1 = lstAttendInfo[i].PushTime1.ToString("HH:mm");
-                        //        string strPushTime2 = lstAttendInfo[i].PushTime2.ToString("HH:mm");
-                        //        if (strPushTime1 == "00:00" || strPushTime1 == "00:00")
-                        //        {
-                        //            strValue = "缺勤一天";
-                        //        }
-                        //    }
-                        //    break;
+                        case 65:
+                            if (i % 7 == 1)
+                            {
+                                strValue = "收款单据";
+                            }
+                            else if (i % 7 == 2)
+                            {
+                                strValue = "交款单位:" + lstAttendInfo[i/7].PayUnitName;
+                            }
+                            else if (i % 7 == 3)
+                            {
+                                strValue = "金额(大写):" + lstAttendInfo[i/7].CNMoney;
+                            }
+                            else if (i % 7 == 4)
+                            {
+                                strValue = "收款事由:" + lstAttendInfo[i/7].Sument;
 
-                        //default:
-                        //    break;
+                            }
+                            else if (i % 7 == 5)
+                            {
+                                strValue = "收款方式:" + lstAttendInfo[i/7].CollectMethod;
+                            }
+                            else if (i % 7 == 6)
+                            { }
+
+                            break;
+                        case 66:
+                            if (i % 7 == 1)
+                            {
+
+                            }
+                            else if (i % 7 == 2)
+                            {
+
+                            }
+                            else if (i % 7 == 3)
+                            {
+                                strValue = "￥" + lstAttendInfo[i/7].ENMoney.ToString();
+                            }
+                            else if (i % 7 == 4)
+                            {
+
+                            }
+                            else if (i % 7 == 5)
+                            {
+                                strValue = "开票日期:" + lstAttendInfo[i/7].OpeningDate.ToString("yyyy年-MM月-dd日");
+                            }
+                            else if (i % 7 == 6)
+                            {
+                                strValue = "收款单位:合肥吉信财务管理有限公司";
+                            }
+                            break;
                     }
 
-                    cells[cellName].PutValue(strValue);
+                    cells[i, j].PutValue(strValue);
+                    //cells[cellName].PutValue(strValue);
                 }
             }
             //保存文件
