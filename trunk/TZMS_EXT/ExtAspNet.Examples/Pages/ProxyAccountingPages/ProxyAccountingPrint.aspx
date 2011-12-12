@@ -31,21 +31,55 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
-                Layout="Fit" runat="server">
+            <ext:Panel ID="pelPrintMain" ShowBorder="true" ShowHeader="false" AnchorValue="100% -36"
+                runat="server" AutoScroll="true" EnableBackgroundColor="true">
                 <Toolbars>
                     <ext:Toolbar ID="toolApp" runat="server">
                         <Items>
-                            <ext:Button ID="btnNewProxy" Text="代账费申请" ToolTip="代账费申请" Icon="Add" runat="server">
+                            <ext:Button ID="btnPrint" Text="代账单打印" ToolTip="代账单打印" Icon="Printer" runat="server"
+                                OnClientClick="printProxyAccounting(); return false;">
                             </ext:Button>
                         </Items>
                     </ext:Toolbar>
                 </Toolbars>
                 <Items>
+                    <ext:Panel ID="pelPrint" ShowBorder="false" ShowHeader="false" AnchorValue="100% -36"
+                        runat="server" AutoScroll="false" EnableBackgroundColor="false">
+                    </ext:Panel>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
     </form>
+<%--    <script src="../../App_Flash/Printer.js" type="text/javascript"></script>
+    <script src="../../App_Flash/Base.js" type="text/javascript"></script>
+    <script src="../../App_Flash/Panel.js" type="text/javascript"></script>--%>
+    <script type="text/javascript">
+
+//        window.onload = function () {
+
+//            /**
+//            * Prints the contents of an Ext.Panel
+//            */
+//            Ext.ux.Printer.PanelRenderer = Ext.extend(Ext.ux.Printer.BaseRenderer, {
+
+//                /**
+//                * Generates the HTML fragment that will be rendered inside the <html> element of the printing window
+//                */
+//                generateBody: function (panel) {
+//                    return String.format("<div class='x-panel-print'>{0}</div>", panel.body.dom.innerHTML);
+//                }
+//            });
+
+//            Ext.ux.Printer.registerRenderer("panel", Ext.ux.Printer.PanelRenderer);
+//        }
+
+        function printProxyAccounting() {
+
+//            Ext.ux.Printer.BaseRenderer.prototype.stylesheetPath = "../../css/print.css";
+//            var print = Ext.getCmp('<%= pelPrint.ClientID %>');
+//            Ext.ux.Printer.print(print);
+        }
+    </script>
 </body>
 </html>
