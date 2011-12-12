@@ -328,6 +328,24 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Tree TreeFolkFinancing;
         
         /// <summary>
+        /// AccordionPane14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.AccordionPane AccordionPane14;
+        
+        /// <summary>
+        /// Tree10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tree Tree10;
+        
+        /// <summary>
         /// mainRegion control.
         /// </summary>
         /// <remarks>
