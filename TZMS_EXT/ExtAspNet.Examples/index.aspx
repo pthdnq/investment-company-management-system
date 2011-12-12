@@ -262,6 +262,9 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/代账审批.gif" NodeID="dzfsp" OnClientClick=" tabs('dzfsp','UserKey');"
                                                 Text="代账费审批">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/代账审批.gif" NodeID="dzfdy" OnClientClick=" tabs('dzfdy','UserKey');"
+                                                Text="代账单打印">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -650,6 +653,9 @@
                     break;
                 case "dzfsp":
                     LoadTab("Pages/ProxyAccountingPages/ProxyAccountingApproveList.aspx", "代帐费审批", icon);
+                    break;
+                case "dzfdy":
+                    LoadTab("Pages/ProxyAccountingPages/ProxyAccountingPrint.aspx", "代帐单打印", icon);
                     break;
 
                 //投资部借款 InvestmentLoan                                               
