@@ -660,6 +660,7 @@
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApplyList.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApprove.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApproveList.aspx" />
+    <Content Include="Pages\ProxyAccountingPages\ProxyAccountingPrint.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingUnitList.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingUnitNew.aspx" />
     <Content Include="Pages\ProxyAccountingPages\SelectAccountancy.aspx" />
@@ -1741,6 +1742,13 @@
     </Compile>
     <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingApproveList.aspx.designer.cs">
       <DependentUpon>ProxyAccountingApproveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingPrint.aspx.cs">
+      <DependentUpon>ProxyAccountingPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingPrint.aspx.designer.cs">
+      <DependentUpon>ProxyAccountingPrint.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProxyAccountingPages\ProxyAccountingUnitList.aspx.cs">
       <DependentUpon>ProxyAccountingUnitList.aspx</DependentUpon>

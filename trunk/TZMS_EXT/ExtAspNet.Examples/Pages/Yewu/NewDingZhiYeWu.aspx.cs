@@ -333,6 +333,11 @@ namespace TZMS.Web
         {
             if (cbxCMBG.Checked)
             {
+                if (cbxZCZBBG.Checked)
+                {
+                    Alert.Show("增资和名称不可同时变更!");
+                }
+
                 cbxZCZBBG.Checked = !cbxCMBG.Checked;
             }
             CommonCheckedChanged(null, null);
@@ -347,6 +352,15 @@ namespace TZMS.Web
         {
             if (cbxZCZBBG.Checked)
             {
+                if (cbxCMBG.Checked)
+                {
+                    Alert.Show("增资和名称不可同时变更!");
+                }
+                if (cbxGDBG.Checked)
+                {
+                    Alert.Show("增资和股权不可同时变更!");
+                }
+
                 cbxCMBG.Checked = !cbxZCZBBG.Checked;
                 cbxGDBG.Checked = !cbxZCZBBG.Checked;
             }
@@ -362,6 +376,10 @@ namespace TZMS.Web
         {
             if (cbxGDBG.Checked)
             {
+                if (cbxZCZBBG.Checked)
+                {
+                    Alert.Show("增资和股权不可同时变更!");
+                }
                 cbxZCZBBG.Checked = !cbxGDBG.Checked;
             }
 
@@ -428,12 +446,6 @@ namespace TZMS.Web
             {
                 ddlstNext.Items.Add(new ExtAspNet.ListItem("分公司注销", "13"));
             }
-
-            if (ddlstNext.Items.Count > 0)
-            {
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("完成", "14"));
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("异常终止", "15"));
-            }
         }
 
         /// <summary>
@@ -453,6 +465,12 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (ddlstNext.Items.Count == 0)
+            {
+                Alert.Show("请选择下一步!");
+                return;
+            }
+
             YeWuInfo yewu = new YeWuInfo();
             YeWuGudingDoingInfo yewuCheck = new YeWuGudingDoingInfo();
 
