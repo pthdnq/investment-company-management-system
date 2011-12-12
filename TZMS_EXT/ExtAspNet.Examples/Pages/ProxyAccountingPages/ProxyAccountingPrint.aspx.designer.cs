@@ -94,13 +94,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Button btnSearch;
         
         /// <summary>
-        /// pelGrid control.
+        /// pelPrintMain control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Panel pelGrid;
+        protected global::ExtAspNet.Panel pelPrintMain;
         
         /// <summary>
         /// toolApp control.
@@ -112,12 +112,21 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Toolbar toolApp;
         
         /// <summary>
-        /// btnNewProxy control.
+        /// btnPrint control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button btnNewProxy;
+        protected global::ExtAspNet.Button btnPrint;
+        
+        /// <summary>
+        /// pelPrint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Panel pelPrint;
     }
 }
