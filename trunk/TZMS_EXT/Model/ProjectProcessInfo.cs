@@ -60,7 +60,7 @@ namespace com.TZMS.Model
 
         #region Property
         /// <summary>
-        /// ObjetctID 
+        /// ObjectID 
         /// </summary> 
         public Guid ObjectId
         {
