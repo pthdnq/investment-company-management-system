@@ -41,7 +41,7 @@ namespace com.TZMS.Business
         /// <param name="objectID">唯一ID（GUID）</param>
         public void Delete(string objectID, string boName = BoName)
         {
-            ctrl.Delete(boName, " ObjetctID ='" + objectID + "' ");
+            ctrl.Delete(boName, " ObjectID ='" + objectID + "' ");
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace com.TZMS.Business
         /// <returns> 唯一ID（GUID）</returns>
         public InvestmentLoanInfo GetUserByObjectID(string objectID, string boName = BoName)
         {
-            List<InvestmentLoanInfo> users = ctrl.SelectAsList(boName, " status <> 9 and ObjetctID ='" + objectID + "' ");
+            List<InvestmentLoanInfo> users = ctrl.SelectAsList(boName, " status <> 9 and ObjectID ='" + objectID + "' ");
             if (users.Count == 0)
             {
                 return null;
@@ -145,7 +145,7 @@ namespace com.TZMS.Business
         /// <returns> 唯一ID（GUID）</returns>
         public ReceivablesInfo GetReceivableByObjectID(string objectID, string boName = BoName)
         {
-            List<ReceivablesInfo> users = rctrl.SelectAsList(boName, " status <> 9 and ObjetctID ='" + objectID + "' ");
+            List<ReceivablesInfo> users = rctrl.SelectAsList(boName, " status <> 9 and ObjectID ='" + objectID + "' ");
             if (users.Count == 0)
             {
                 return null;
