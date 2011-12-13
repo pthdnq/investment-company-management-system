@@ -55,7 +55,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNewYewu" Title="普通业务操作" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
+        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="600px"
         Width="700px" OnClose="wndNewYewu_Close">
     </ext:Window>
     </form>
