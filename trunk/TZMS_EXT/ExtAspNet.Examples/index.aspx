@@ -281,8 +281,8 @@
                                                 OnClientClick=" tabs('bxsp','UserKey');" Text="报销审批">
                                             </ext:TreeNode>
                                             <%--<ext:TreeNode Leaf="true" IconUrl="images/16/报销列表.gif" NodeID="bxgd" OnClientClick=" tabs('bxgd','UserKey');"
-                                                Text="报销归档">--%>
-                                            </ext:TreeNode>
+                                                Text="报销归档">
+                                            </ext:TreeNode>--%>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/报销审批.gif" NodeID="bxpzsq" AutoPostBack="false"
                                                 OnClientClick=" tabs('bxpzsq','UserKey');" Text="报销凭证">
                                             </ext:TreeNode>
