@@ -63,10 +63,10 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                           
-                            <ext:WindowField DataTextField="ProjectName"   Width="120px" HeaderText="项目名称" DataIFrameUrlFields="ObjectId"
+                            <%--      <ext:WindowField DataTextField="ProjectName"   Width="120px" HeaderText="项目名称" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="LoanContract.aspx?Type=View&ID={0}" Title="查看"
-                                WindowID="wndNew" />
+                                WindowID="wndView" />--%>
+                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
                             <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
@@ -83,6 +83,8 @@
                             <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="PaymentApplyEdit.aspx?Type=Edit&ID={0}" Title="编辑"
                                 WindowID="wndNew" />
+                            <ext:WindowField Text="查看"  Width="38px" HeaderText="" DataIFrameUrlFields="ObjectId"
+                                DataIFrameUrlFormatString="LoanContract.aspx?Type=View&ID={0}" Title="查看" WindowID="wndView" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
@@ -90,9 +92,11 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-  
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="512px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="542px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+    <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="622px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

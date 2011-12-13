@@ -65,14 +65,14 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="150px" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="120px" DataField="DateFor" DataFormatString="{0:yyyy/MM/dd}"
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="130px" DataField="DateFor" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="日期" />
-                            <ext:BoundField Width="90px" DataField="Amount" HeaderText="借方" />
-                            <ext:BoundField Width="90px" DataField="Amount" HeaderText="贷方" />
-                            <ext:BoundField Width="130px" DataField="RemainingAmount" HeaderText="余额" />
-                            <ext:BoundField Width="100px" DataField="Biz" HeaderText="业务类型" />
-                            <ext:BoundField ExpandUnusedSpace="true" DataField="Summary" HeaderText="项目摘要" />
+                            <ext:BoundField Width="90px" DataField="Amount" HeaderText="借方(元)" />
+                            <ext:BoundField Width="90px" DataField="Amount" HeaderText="贷方(元)" />
+                            <ext:BoundField Width="130px" DataField="RemainingAmount" HeaderText="余额(元)" />
+                            <ext:BoundField Width="150px" DataField="Biz" HeaderText="业务类型" />
+                            <ext:BoundField Hidden="true" Width="100px" DataField="Summary" HeaderText="项目摘要" />
                             <%--         <ext:WindowField Width="76px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="FeePayAudit.aspx?ID={0}"
                                 Title="审核" WindowID="wndNew" />--%>
                             <%--           <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />--%>
