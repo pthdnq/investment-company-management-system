@@ -27,7 +27,7 @@ namespace TZMS.Web
             {
                 timeMsg.Enabled = true;
                 StringBuilder strCondition = new StringBuilder();
-                strCondition.Append(" IsDelete <> 1 and ReceviceID = '" + CurrentUser.ObjectId.ToString() + "'");
+                strCondition.Append(" IsView =0 and IsDelete <> 1 and ReceviceID = '" + CurrentUser.ObjectId.ToString() + "'");
                 strCondition.Append(" order by SendDate desc");
 
                 MessageManage _manage = new MessageManage();
@@ -64,7 +64,7 @@ namespace TZMS.Web
         protected void timeMsg_Tick(object sender, EventArgs e)
         {
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" IsDelete <> 1 and ReceviceID = '" + CurrentUser.ObjectId.ToString() + "'");
+            strCondition.Append(" IsView =0 and IsDelete <> 1 and ReceviceID = '" + CurrentUser.ObjectId.ToString() + "'");
             strCondition.Append(" order by SendDate desc");
 
             MessageManage _manage = new MessageManage();
