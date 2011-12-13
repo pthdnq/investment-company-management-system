@@ -65,8 +65,8 @@
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                       
                             <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
-                            <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
+                            <ext:BoundField Width="100px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
+                            <ext:BoundField Width="100px" DataField="PayerBName" HeaderText="付款人（乙方）" />
                              <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
                          
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
