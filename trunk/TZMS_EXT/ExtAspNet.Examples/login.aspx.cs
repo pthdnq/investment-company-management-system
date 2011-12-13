@@ -112,6 +112,7 @@ namespace TZMS.Web
             cookie.Expires = dt.Add(ts);
             //增加属性 
             cookie.Values.Add("userName", user.AccountNo);
+            cookie.Domain = "enroll.sse.ustc.edu.cn";
             //确定写入cookie中   
             Response.AppendCookie(cookie);
             Session["account"] = user.ObjectId.ToString();
