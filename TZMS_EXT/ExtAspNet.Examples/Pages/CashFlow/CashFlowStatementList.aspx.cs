@@ -264,6 +264,16 @@ namespace TZMS.Web.Pages.CashFlow
                 e.Values[3] = "<span class=\"gray\">0</span>";
               
             }
+            string strTmp = string.Empty;
+            switch (_Info.Biz)
+            {
+                case "InvestmentLoan": strTmp = "投资部借款"; break;
+                case "InvestmentProject": strTmp = "项目实施"; break;
+                case "BankLoan": strTmp = "银行贷款"; break;
+                case "FolkFinancing": strTmp = "民间融资"; break;
+                default: break;
+            }
+            e.Values[6] =string.Format( "<span >{0}</span>",strTmp);
         }
 
         /// <summary>
