@@ -142,8 +142,143 @@ namespace TZMS.Web
 
             dpkSign.Text = YeWu.SignDate.ToString("yyyy-MM-dd");
             this.taaSument.Text = YeWu.Sument;
-            this.taaOther.Text = YeWu.Other;
             this.tbxTitle.Text = YeWu.Title;
+
+            switch (YeWuDoing_wei.OrderIndex)
+            {
+                case 1:
+                    taaOther.Text = "1、先核名(一个工作日):送核名  xxxx年xx月xx日\n" +
+                                  "                      拿核名  xxxx年xx月xx日\n" +
+                                  "2、送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                          拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、股东会决议(股东签字、盖章)\n" +
+                                  "               3、章程修正案(股东签字、盖章)\n" +
+                                  "               4、名称变更通知书(原件)\n" +
+                                  "               5、承诺书(原件)\n" +
+                                  "               6、执照正副书(原件)";
+                    break;
+                case 2:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                   "                      拿材料  xxxx年xx月xx日\n" +
+                                   "所需材料: 1、《公司变更登记申请表》\n" +
+                                   "          2、股东会决议(股东签字、盖章)\n" +
+                                   "               3、章程修正案(股东签字、盖章)\n" +
+                                   "               4、股东名称、发起人姓名变更证明(主体资格证明、自然人身份证明\n" +
+                                   "          原件、复印件)\n" +
+                                   "               5、执照正副书(原件)";
+                    break;
+                case 3:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                       拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、股东会决议(股东签字、盖章)\n" +
+                                  "               3、章程修正案(股东签字、签章、应载明出资情况)\n" +
+                                  "               4、验货报告(减少资本应提交公告并载明债权债务清理情况)\n" +
+                                  "               5、执照正副书(原件)";
+                    break;
+                case 4:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                       拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、股东会决议(股东签字、盖章)\n" +
+                                  "               3、章程修正案(股东签字、签章)\n" +
+                                  "               4、租房合同(原件)\n" +
+                                  "               5、产权证明(原件、复印件)\n" +
+                                  "               6、房主身份证(复印件)\n" +
+                                  "               7、执照正副书(原件)";
+                    break;
+                case 5:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                       拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、股东会决议(股东签字、盖章)\n" +
+                                  "               3、章程修正案(股东签字、签章、章程应载明董事长、执行董事、经\n" +
+                                  "          理、监事是否调整)\n" +
+                                  "               4、法定代表人登记表\n" +
+                                  "          5、法定代表人身份证明(原件、复印件)、暂住证、一寸照片\n" +
+                                  "          6、执照正副书";
+                    break;
+                case 6:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                       拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、股东会决议(新老股东签字、盖章)\n" +
+                                  "               3、章程修正案(新老股东签字、盖章、应载明管理机构人员是否调整)经\n" +
+                                  "          4、股权转让协议(应载明股权出资、债权债务转让情况、转让人受让\n" +
+                                  "          人签字)\n" +
+                                  "               5、新老股东身份证明(原件、复印件)\n" +
+                                  "               6、执照正副书";
+                    break;
+                case 7:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                       拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、股东会决议(股东签字、盖章)\n" +
+                                  "               3、章程修正案(股东签字、签章、应载明出资情况)\n" +
+                                  "               4、验资报告(原件)\n" +
+                                  "               5、执照正副书(原件)";
+                    break;
+                case 8:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                       拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、股东会决议(新老股东签字、盖章)\n" +
+                                  "               3、章程修正案(股东签字、签章、变更为一人公司须提交承诺书)\n" +
+                                  "               4、一人公司章程\n" +
+                                  "          5、股权转让协议\n" +
+                                  "          6、执照正副书";
+                    break;
+                case 9:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                       拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、股东会决议(新老股东签字、盖章)\n" +
+                                  "               3、章程修正案(股东签字、签章)\n" +
+                                  "               4、执照正副书";
+                    break;
+                case 10:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                       拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、股东会决议(股东签字、盖章)\n" +
+                                  "               3、章程修正案(股东签字、签章、增加经营范围涉及前置审批的须提\n" +
+                                  "          交批文或批准证书)\n" +
+                                  "               4、执照正副书";
+                    break;
+                case 11:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                       拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、股东会决议(股东签字、盖章)\n" +
+                                  "               3、清算组成员盖章\n" +
+                                  "          4、经确认的清算报告\n" +
+                                  "          5、刊登注销公告的报纸报样\n" +
+                                  "          6、营业执照正副本\n";
+                    break;
+                case 12:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                       拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、隶属公司股东会决议、执照副本复印件\n" +
+                                  "          3、名称变更的出具《准予变更通知书》\n" +
+                                  "          4、经营范围变更提交公司《企业法人营业执照》原件、复印件\n" +
+                                  "          5、变更营业场所的提供产权证明、租房合同(原件、复印件、房东身\n" +
+                                  "          份证)\n" +
+                                  "               6、变更负责人的提交《负责人登记表》和辛劳任免文件(身份证原\n" +
+                                  "          件、复印件)\n" +
+                                  "               7、营业执照正副书";
+                    break;
+                case 13:
+                    taaOther.Text = "送变更材料(五格工作日):送材料  xxxx年xx月xx日\n" +
+                                  "                       拿材料  xxxx年xx月xx日\n" +
+                                  "所需材料: 1、《公司变更登记申请表》\n" +
+                                  "          2、公司出具的注销决定(隶属公司作出)\n" +
+                                  "               3、执照正副本、公章\n";
+                    break;
+                default:
+                    break;
+            }
         }
 
         private string ConvertCellToString(string strCells)
@@ -282,7 +417,7 @@ namespace TZMS.Web
                 this.btnClose_Click(null, null);
                 return;
             }
-            
+
             List<UserInfo> listInfo = this.CurrentChecker;
             listInfo.Add(this.CurrentUser);
 
@@ -296,7 +431,7 @@ namespace TZMS.Web
                     break;
                 }
             }
-            
+
             // 更新
             YeWu.CurrentOp = short.Parse(ddlstNext.SelectedValue);
             YeWu.CurrentCheckerId = zrenCheck.ObjectId;
