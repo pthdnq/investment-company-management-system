@@ -103,13 +103,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.AccordionPane AccordionPane2;
         
         /// <summary>
-        /// Tree1 控件。
+        /// treeXZGL 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Tree Tree1;
+        protected global::ExtAspNet.Tree treeXZGL;
         
         /// <summary>
         /// AccordionPane3 控件。
@@ -121,13 +121,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.AccordionPane AccordionPane3;
         
         /// <summary>
-        /// Tree2 控件。
+        /// treeJQGL 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Tree Tree2;
+        protected global::ExtAspNet.Tree treeJQGL;
         
         /// <summary>
         /// AccordionPane13 控件。
@@ -139,13 +139,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.AccordionPane AccordionPane13;
         
         /// <summary>
-        /// Tree9 控件。
+        /// treeXZGL1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Tree Tree9;
+        protected global::ExtAspNet.Tree treeXZGL1;
         
         /// <summary>
         /// AccordionPane8 控件。
@@ -157,13 +157,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.AccordionPane AccordionPane8;
         
         /// <summary>
-        /// Tree4 控件。
+        /// treeXXGL 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Tree Tree4;
+        protected global::ExtAspNet.Tree treeXXGL;
         
         /// <summary>
         /// AccordionPane11 控件。
@@ -175,13 +175,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.AccordionPane AccordionPane11;
         
         /// <summary>
-        /// Tree7 控件。
+        /// treeZZLZ 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Tree Tree7;
+        protected global::ExtAspNet.Tree treeZZLZ;
         
         /// <summary>
         /// AccordionPane10 控件。
@@ -193,13 +193,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.AccordionPane AccordionPane10;
         
         /// <summary>
-        /// Tree6 控件。
+        /// treeWZGL 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Tree Tree6;
+        protected global::ExtAspNet.Tree treeWZGL;
         
         /// <summary>
         /// AccordionPane9 控件。
@@ -229,13 +229,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.AccordionPane AccordionPane7;
         
         /// <summary>
-        /// Tree3 控件。
+        /// treeCWBX 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Tree Tree3;
+        protected global::ExtAspNet.Tree treeCWBX;
         
         /// <summary>
         /// AccordionPane12 控件。
@@ -247,13 +247,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.AccordionPane AccordionPane12;
         
         /// <summary>
-        /// Tree8 控件。
+        /// treeYWGL 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::ExtAspNet.Tree Tree8;
+        protected global::ExtAspNet.Tree treeYWGL;
         
         /// <summary>
         /// AccordionPane1 控件。

@@ -309,7 +309,36 @@ namespace TZMS.Web
             /// <summary>
             /// 报销凭证归档
             /// </summary>
-            PZGD = 28
+            PZGD = 28,
+
+            /// <summary>
+            /// 员工管理 以下角色未管理其他页面
+            /// </summary>
+            YGGL = 29,
+
+            /// <summary>
+            /// 奖惩管理员 以下角色未管理其他页面
+            /// </summary>
+            JCGL = 30,
+
+            /// <summary>
+            /// 消息管理员 以下角色未管理其他页面
+            /// </summary>
+            XXGL = 31,
+
+            /// <summary>
+            /// 物资管理员 以下角色未管理其他页面
+            /// </summary>
+            WZGL = 32,
+            /// <summary>
+            /// 报销凭证创建 以下角色未管理其他页面
+            /// </summary>
+            BXPZCJ = 33,
+
+            /// <summary>
+            /// 业务员 以下角色未管理其他页面
+            /// </summary>
+            YWY = 34,
         }
 
         /// <summary>
