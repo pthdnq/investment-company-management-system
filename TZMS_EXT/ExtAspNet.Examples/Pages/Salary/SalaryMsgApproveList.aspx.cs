@@ -90,7 +90,7 @@ namespace TZMS.Web
             _comHelp.SelectList = "*";
             _comHelp.SearchCondition = strCondition.ToString();
             _comHelp.PageSize = PageCounts;
-            _comHelp.PageIndex = gridApprove.PageIndex + 1;
+            _comHelp.PageIndex = gridApprove.PageIndex;
             _comHelp.OrderExpression = "CheckDateTime desc";
 
             DataTable dtbLeaveApproves = _commSelect.ComSelect(ref _comHelp);
