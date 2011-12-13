@@ -77,9 +77,9 @@
                             <ext:AccordionPane ID="AccordionPane2" runat="server" Title="行政管理" Icon="Cog" BodyPadding="1px 1px"
                                 ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="Tree1" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                    <ext:Tree ID="treeXZGL" Hidden="false" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="yggl" AutoPostBack="false" OnClientClick=" tabs('yggl','UserKey');"
+                                            <ext:TreeNode Leaf="true"  Icon="UserKey" NodeID="yggl" AutoPostBack="false" OnClientClick=" tabs('yggl','UserKey');"
                                                 Text="员工管理">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" Icon="TableKey" NodeID="xtpz" AutoPostBack="false" OnClientClick=" tabs('xtpz','UserKey');"
@@ -119,7 +119,7 @@
                             <ext:AccordionPane ID="AccordionPane3" runat="server" IconUrl="images/16/假勤管理.gif"
                                 Title="假勤管理" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="Tree2" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                    <ext:Tree ID="treeJQGL" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/员工考勤.gif" NodeID="ygkq" OnClientClick=" tabs('ygkq','UserKey');"
                                                 Text="员工考勤">
@@ -155,7 +155,7 @@
                             <ext:AccordionPane ID="AccordionPane13" runat="server" IconUrl="images/16/薪资管理.png"
                                 Title="薪资管理" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="Tree9" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                    <ext:Tree ID="treeXZGL1" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息管理.png" NodeID="wdxz" OnClientClick=" tabs('wdxz','UserKey');"
                                                 Text="我的薪资">
@@ -182,7 +182,7 @@
                             <ext:AccordionPane ID="AccordionPane8" runat="server" IconUrl="images/16/消息管理.gif"
                                 Title="消息管理" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="Tree4" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                    <ext:Tree ID="treeXXGL" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/我的消息.gif" NodeID="wdxx" OnClientClick=" tabs('wdxx','UserKey');"
                                                 Text="我的消息">
@@ -200,7 +200,7 @@
                             <ext:AccordionPane ID="AccordionPane11" runat="server" IconUrl="images/16/转正管理.png"
                                 Title="转正离职" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="Tree7" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                    <ext:Tree ID="treeZZLZ" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/转正申请.png" NodeID="zzsq" OnClientClick=" tabs('zzsq','UserKey');"
                                                 Text="转正申请">
@@ -233,7 +233,7 @@
                             <ext:AccordionPane ID="AccordionPane10" runat="server" IconUrl="images/16/物资管理.gif"
                                 Title="物资管理" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="Tree6" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                    <ext:Tree ID="treeWZGL" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzsq" OnClientClick=" tabs('wzsq','UserKey');"
                                                 Text="物资申请">
@@ -272,7 +272,7 @@
                             <ext:AccordionPane ID="AccordionPane7" runat="server" Title="财务报销" IconUrl="images/16/网络报销.png"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="Tree3" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                    <ext:Tree ID="treeCWBX" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/报销申请.gif" NodeID="bxsq" AutoPostBack="false"
                                                 OnClientClick=" tabs('bxsq','UserKey');" Text="报销申请">
@@ -280,8 +280,8 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/报销审批.gif" NodeID="bxsp" AutoPostBack="false"
                                                 OnClientClick=" tabs('bxsp','UserKey');" Text="报销审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销列表.gif" NodeID="bxgd" OnClientClick=" tabs('bxgd','UserKey');"
-                                                Text="报销归档">
+                                            <%--<ext:TreeNode Leaf="true" IconUrl="images/16/报销列表.gif" NodeID="bxgd" OnClientClick=" tabs('bxgd','UserKey');"
+                                                Text="报销归档">--%>
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/报销审批.gif" NodeID="bxpzsq" AutoPostBack="false"
                                                 OnClientClick=" tabs('bxpzsq','UserKey');" Text="报销凭证">
@@ -296,7 +296,7 @@
                             <ext:AccordionPane ID="AccordionPane12" runat="server" Title="业务管理" IconUrl="images/16/业务管理.gif"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="Tree8" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                    <ext:Tree ID="treeYWGL" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/普通业务.gif" NodeID="ptyw" AutoPostBack="false"
                                                 OnClientClick=" tabs('ptyw','UserKey');" Text="普通业务创建">
