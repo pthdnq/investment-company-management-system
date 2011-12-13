@@ -9,6 +9,7 @@ using com.TZMS.Business;
 using com.TZMS.Model;
 using System.Data;
 using ExtAspNet;
+using System.Diagnostics;
 
 namespace TZMS.Web
 {
@@ -128,7 +129,7 @@ namespace TZMS.Web
             _comHelp.SelectList = "*";
             _comHelp.SearchCondition = strCondition.ToString();
             _comHelp.PageSize = PageCounts;
-            _comHelp.PageIndex = gridWorkerSalaryMsg.PageIndex + 1;
+            _comHelp.PageIndex = gridWorkerSalaryMsg.PageIndex;
             _comHelp.OrderExpression = "Dept desc";
 
             DataTable dtbLeaveApproves = _commSelect.ComSelect(ref _comHelp);

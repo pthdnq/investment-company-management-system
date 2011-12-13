@@ -59,7 +59,7 @@ namespace TZMS.Web
             _comHelp.SelectList = "*";
             _comHelp.SearchCondition = strCondition.ToString();
             _comHelp.PageSize = PageCounts;
-            _comHelp.PageIndex = gridYewu.PageIndex + 1;
+            _comHelp.PageIndex = gridYewu.PageIndex;
             _comHelp.OrderExpression = "CheckDateTime desc";
             DataTable lstYewu = _commSelect.ComSelect(ref _comHelp);
 

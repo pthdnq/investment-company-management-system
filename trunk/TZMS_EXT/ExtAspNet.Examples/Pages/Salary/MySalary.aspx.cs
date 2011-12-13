@@ -63,7 +63,7 @@ namespace TZMS.Web
             _comHelp.SearchCondition = strCondition.ToString();
             _comHelp.OrderExpression = " Dept desc";
             _comHelp.PageSize = PageCounts;
-            _comHelp.PageIndex = gridSalary.PageIndex + 1;
+            _comHelp.PageIndex = gridSalary.PageIndex;
 
             DataTable dtbLeaveApproves = _commSelect.ComSelect(ref _comHelp);
             gridSalary.RecordCount = _comHelp.TotalCount;
