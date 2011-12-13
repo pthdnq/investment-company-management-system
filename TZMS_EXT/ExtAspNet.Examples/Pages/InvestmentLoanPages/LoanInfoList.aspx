@@ -62,14 +62,14 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
-                            <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
+                            <ext:BoundField  ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="100px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
+                            <ext:BoundField Width="100px" DataField="PayerBName" HeaderText="付款人（乙方）" />
                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
-                            <ext:BoundField Width="115px" DataField="LoanDate" HeaderText="借款日期"  DataFormatString="{0:yyyy/MM/dd}"/>
-                            <ext:BoundField DataField="DueDateForPay" Width="145px" HeaderText="应付借款日" />
-                            <ext:BoundField Width="110px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
+                            <ext:BoundField Width="105px" DataField="LoanDate" HeaderText="借款日期"  DataFormatString="{0:yyyy/MM/dd}"/>
+                            <ext:BoundField DataField="DueDateForPay" Width="125px" HeaderText="应付借款日" />
+                            <ext:BoundField Width="100px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                 HeaderText="提交时间" />
                             <%--     
                           <ext:TemplateField Width="70px" HeaderText="员工状态">
@@ -79,7 +79,7 @@
                             </ext:TemplateField>--%>
                             <ext:WindowField Text="查看" Width="38px" HeaderText="" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="LoanContract.aspx?Type=View&ID={0}" Title="查看" WindowID="wndView" />
-                            <ext:WindowField Width="76px" Text="还款进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanInfo.aspx?ID={0}"
+                            <ext:WindowField Width="70px" Text="还款进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanInfo.aspx?ID={0}"
                                 WindowID="wndNew" DataWindowTitleField="ProjectName" DataWindowTitleFormatString="还款进展 - {0}" />
                             <%--       <ext:LinkButtonField Width="38px" Text="收款"  CommandName="Repayment" /> --%>
                         </Columns>
