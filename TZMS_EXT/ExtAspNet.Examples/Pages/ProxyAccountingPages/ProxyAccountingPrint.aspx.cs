@@ -11,6 +11,7 @@ using com.TZMS.Business;
 using Aspose.Cells;
 using System.IO;
 using System.Data;
+using System.Drawing;
 
 namespace TZMS.Web
 {
@@ -225,7 +226,7 @@ namespace TZMS.Web
             string cellName = string.Empty;
             int pointX;
             int pointY;
-            int rows = lstAttendInfo.Count * 7 - 1;
+            int rows = lstAttendInfo.Count * 7 ;
             //cells["A1"].PutValue("编号");
             //cells["B1"].PutValue("姓名");
             //cells["C1"].PutValue("部门");
@@ -235,6 +236,9 @@ namespace TZMS.Web
             //cells["G1"].PutValue("下班");
             //cells["H1"].PutValue("备注");
             //6列,rows行
+            cells.SetColumnWidth(0, 40);
+            cells.SetColumnWidth(1, 35);
+
             for (int i = 0; i < rows; i++)
             {
                 if (i > 0 && i % 7 == 0)
@@ -253,52 +257,120 @@ namespace TZMS.Web
                         case 65:
                             if (i % 7 == 1)
                             {
+                                cells.Merge(i, 0, 1, 2);
+                                cells.SetRowHeight(i, 40);
+                                Aspose.Cells.Style style = cells.Rows[i].Style;
+                                StyleFlag flag = new StyleFlag();
+
+                                style.HorizontalAlignment = TextAlignmentType.Center;
+                                style.Font.IsBold = true;
+
+                                flag.HorizontalAlignment = true;
+                                flag.Font = true;
+
+                                cells.ApplyRowStyle(i, style, flag);
+                                //cells.CreateRange(i, 0, 1, 2);
                                 strValue = "收款单据";
                             }
                             else if (i % 7 == 2)
                             {
-                                strValue = "交款单位:" + lstAttendInfo[i/7].PayUnitName;
+                                cells.Merge(i, 0, 1, 2);
+                                cells.SetRowHeight(i, 20);
+
+                                Cell cell = cells[i, j];
+                                Aspose.Cells.Style style = cell.Style;
+                                style.Borders[BorderType.TopBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.TopBorder].Color = Color.Black;
+                                style.Borders[BorderType.LeftBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.LeftBorder].Color = Color.Black;
+                                cell.SetStyle(style);
+
+                                strValue = "交款单位:" + lstAttendInfo[i / 7].PayUnitName;
                             }
                             else if (i % 7 == 3)
                             {
-                                strValue = "金额(大写):" + lstAttendInfo[i/7].CNMoney;
+                                cells.SetRowHeight(i, 20);
+                                Cell cell = cells[i, j];
+                                Aspose.Cells.Style style = cell.Style;
+                                style.Borders[BorderType.LeftBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.LeftBorder].Color = Color.Black;
+                                cell.SetStyle(style);
+                                strValue = "金额(大写):" + lstAttendInfo[i / 7].CNMoney;
                             }
                             else if (i % 7 == 4)
                             {
-                                strValue = "收款事由:" + lstAttendInfo[i/7].Sument;
+                                cells.Merge(i, 0, 1, 2);
+                                cells.SetRowHeight(i, 20);
+                                Cell cell = cells[i, j];
+                                Aspose.Cells.Style style = cell.Style;
+                                style.Borders[BorderType.LeftBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.LeftBorder].Color = Color.Black;
+                                cell.SetStyle(style);
+                                strValue = "收款事由:" + lstAttendInfo[i / 7].Sument;
 
                             }
                             else if (i % 7 == 5)
                             {
-                                strValue = "收款方式:" + lstAttendInfo[i/7].CollectMethod;
+                                cells.SetRowHeight(i, 20);
+                                Cell cell = cells[i, j];
+                                Aspose.Cells.Style style = cell.Style;
+                                style.Borders[BorderType.LeftBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.LeftBorder].Color = Color.Black;
+                                style.Borders[BorderType.BottomBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.BottomBorder].Color = Color.Black;
+                                cell.SetStyle(style);
+                                strValue = "收款方式:" + lstAttendInfo[i / 7].CollectMethod;
                             }
                             else if (i % 7 == 6)
-                            { }
+                            {
+                            }
 
                             break;
                         case 66:
                             if (i % 7 == 1)
                             {
-
                             }
                             else if (i % 7 == 2)
                             {
-
+                                Cell cell = cells[i, j];
+                                Aspose.Cells.Style style = cell.Style;
+                                style.Borders[BorderType.TopBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.TopBorder].Color = Color.Black;
+                                style.Borders[BorderType.RightBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.RightBorder].Color = Color.Black;
+                                cell.SetStyle(style);
                             }
                             else if (i % 7 == 3)
                             {
-                                strValue = "￥" + lstAttendInfo[i/7].ENMoney.ToString();
+                                Cell cell = cells[i, j];
+                                Aspose.Cells.Style style = cell.Style;
+                                style.Borders[BorderType.RightBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.RightBorder].Color = Color.Black;
+                                cell.SetStyle(style);
+                                strValue = "￥" + lstAttendInfo[i / 7].ENMoney.ToString();
                             }
                             else if (i % 7 == 4)
                             {
-
+                                Cell cell = cells[i, j];
+                                Aspose.Cells.Style style = cell.Style;
+                                style.Borders[BorderType.RightBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.RightBorder].Color = Color.Black;
+                                cell.SetStyle(style);
                             }
                             else if (i % 7 == 5)
                             {
-                                strValue = "开票日期:" + lstAttendInfo[i/7].OpeningDate.ToString("yyyy年-MM月-dd日");
+                                Cell cell = cells[i, j];
+                                Aspose.Cells.Style style = cell.Style;
+                                style.Borders[BorderType.BottomBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.BottomBorder].Color = Color.Black;
+                                style.Borders[BorderType.RightBorder].LineStyle = CellBorderType.Thin;
+                                style.Borders[BorderType.RightBorder].Color = Color.Black;
+                                cell.SetStyle(style);
+                                strValue = "开票日期:" + lstAttendInfo[i / 7].OpeningDate.ToString("yyyy年-MM月-dd日");
                             }
                             else if (i % 7 == 6)
                             {
+                                cells.SetRowHeight(i, 20);
                                 strValue = "收款单位:合肥吉信财务管理有限公司";
                             }
                             break;
