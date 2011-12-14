@@ -71,22 +71,7 @@ namespace com.TZMS.Business
             return users[0];
         }
 
-        /// <summary>
-        /// 通过帐号获得 
-        /// </summary>
-        /// <param name="boName">连接字符串Key</param>
-        /// <param name="accountNo">帐号</param>
-        /// <returns>用户实体</returns>
-        public CashFlowStatementInfo GetUserByAccountNo(string accountNo, string boName = BoName)
-        {
-            List<CashFlowStatementInfo> users = ctrl.SelectAsList(boName, " status <> 9 and  AccountNo ='" + accountNo + "' ");
-            if (users.Count == 0)
-            {
-                return null;
-            }
-            return users[0];
-        }
-
+         
         /// <summary>
         /// 获得所有 
         /// </summary>
@@ -147,6 +132,69 @@ namespace com.TZMS.Business
         }
 
 
+        #endregion
+
+        #region 资金初始化
+        CashFlowSetterCtrl cfsCtrl = new CashFlowSetterCtrl();
+        /// <summary>
+        ///  添加到数据库
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="user">BankLoanInfo 实体</param>
+        /// <returns>返回执行结果</returns>
+        public int AddCashFlowSetter(CashFlowSetterInfo info, string boName = BoName)
+        {
+            return cfsCtrl.Insert(boName, info);
+        }
+
+        /// <summary>
+        /// 根据 唯一ID删除(假删除，改变 state=9)
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="objectID">唯一ID（GUID）</param>
+        public void DeleteCashFlowSetter(string objectID, string boName = BoName)
+        {
+            cfsCtrl.Delete(boName, " ObjectID ='" + objectID + "' ");
+        }
+
+        /// <summary>
+        /// 更新信息
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="info">用户实体</param>
+        /// <returns>执行结果</returns>
+        public int UpdateCashFlowSetter(CashFlowSetterInfo info, string boName = BoName)
+        {
+            return cfsCtrl.UpDate(boName, info);
+        }
+
+
+        /// <summary>
+        /// 通过ObjectID获得 
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="objectID">ObjectID</param>
+        /// <returns> 唯一ID（GUID）</returns>
+        public CashFlowSetterInfo GetCashFlowSetterByObjectID(string objectID, string boName = BoName)
+        {
+            List<CashFlowSetterInfo> users = cfsCtrl.SelectAsList(boName, "  ObjectID ='" + objectID + "' ");
+            if (users.Count == 0)
+            {
+                return null;
+            }
+            return users[0];
+        }
+
+        /// <summary>
+        /// 根据条件获得信息集合
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="condtion">条件</param>
+        /// <returns>集合</returns>
+        public List<CashFlowSetterInfo> GetCashFlowSettersByCondtion(string condtion, string boName = BoName)
+        {
+            return cfsCtrl.SelectAsList(boName, condtion);
+        }
         #endregion
     }
 }
