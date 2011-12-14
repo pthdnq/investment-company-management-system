@@ -172,6 +172,8 @@ namespace TZMS.Web
                         dpkLeaveTime.SelectedDate = _userInfo.LeaveTime;
                     }
                 }
+                // 毕业院校.
+                tbxGraduatedSchool.Text = _userInfo.GraduatedSchool;
                 // 联系电话.
                 tbxPhoneNumber.Text = _userInfo.PhoneNumber;
                 // 备用联系电话.
@@ -257,6 +259,8 @@ namespace TZMS.Web
             {
                 _userInfo.LeaveTime = Convert.ToDateTime(dpkLeaveTime.SelectedDate);
             }
+            // 毕业院校.
+            _userInfo.GraduatedSchool = tbxGraduatedSchool.Text.Trim();
             // 联系电话.
             _userInfo.PhoneNumber = tbxPhoneNumber.Text.Trim();
             // 备用联系电话.

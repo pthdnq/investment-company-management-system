@@ -50,7 +50,7 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="70px" DataField="JobNo" HeaderText="工号" />
-                            <ext:BoundField Width="80px" DataField="Name" HeaderText="姓名" />
+                            <ext:BoundField DataField="Name" HeaderText="姓名" />
                             <ext:BoundField Width="80px" DataField="AccountNo" HeaderText="账号" />
                             <ext:TemplateField Width="60px" HeaderText="性别">
                                 <ItemTemplate>
