@@ -51,6 +51,43 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 ViewState["ID"] = value;
             }
         }
+
+        private string ViewStateZJ
+        {
+            get
+            {
+                if (ViewState["ViewStateZJ"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["ViewStateZJ"].ToString();
+            }
+            set
+            {
+                ViewState["ViewStateZJ"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 申请单ID
+        /// </summary>
+        public string ApplyID
+        {
+            get
+            {
+                if (ViewState["ApplyID"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["ApplyID"].ToString();
+            }
+            set
+            {
+                ViewState["ApplyID"] = value;
+            }
+        }
         #endregion
 
         #region 页面加载及数据初始化
@@ -60,6 +97,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             if (!IsPostBack)
             {
+                OperatorType = "Add";
                 // 绑定下一步.
                 BindNext();
                 // 绑定审批人.
@@ -70,6 +108,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
+ 
+            wndChooseZJ.OnClientCloseButtonClick = wndChooseZJ.GetHidePostBackReference();
         }
 
         #endregion
@@ -86,6 +126,38 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
         }
 
+        /// <summary>
+        /// 点击 TriggerBox 弹出窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void tbBorrowerNameA_TriggerClick(object sender, EventArgs e)
+        {
+            if (OperatorType == "Add")
+            {
+                wndChooseZJ.IFrameUrl = "ChooseJKR.aspx";
+            }
+            else
+            {
+                wndChooseZJ.IFrameUrl = "ChooseJKR.aspx?ID=" + ApplyID;
+            }
+            wndChooseZJ.Hidden = false;
+        }
+         
+
+        /// <summary>
+        /// 选择借款人关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndChooseZJ_Close(object sender, WindowCloseEventArgs e)
+        {
+            if (e.CloseArgument != "undefined")
+            {
+                tbBorrowerNameA.Text = e.CloseArgument.Split(',')[1];
+                ViewStateZJ = e.CloseArgument;
+            }
+        }
         #endregion
 
         #region 自定义方法
@@ -94,15 +166,22 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void saveInfo()
         {
+     
+
             InvestmentLoanInfo _Info = null;
             InvestmentLoanManage manage = new InvestmentLoanManage();
 
+            CustomerInfo _customer = manage.GetCustomerByObjectID(ViewStateZJ.Split(',')[0]);
+           
             _Info = new InvestmentLoanInfo();
 
             _Info.ObjectId = Guid.NewGuid();
             _Info.ProjectName = this.tbProjectName.Text.Trim();
             _Info.ProjectOverview = this.tbProjectOverview.Text.Trim();
-            _Info.BorrowerNameA = this.tbBorrowerNameA.Text.Trim();
+
+            _Info.BorrowerNameA = _customer.Name;
+            _Info.BorrowerAId = _customer.ObjectId; 
+
             _Info.BorrowerPhone = this.tbBorrowerPhone.Text.Trim();
             _Info.PayerBName = this.tbPayerBName.Text.Trim();
             _Info.Guarantor = this.tbGuarantor.Text.Trim();

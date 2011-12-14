@@ -13,6 +13,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
     public partial class PaymentApplyAdd {
         
         /// <summary>
+        /// Head1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
@@ -163,7 +172,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbBorrowerNameA;
+        protected global::ExtAspNet.TriggerBox tbBorrowerNameA;
         
         /// <summary>
         /// tbBorrowerPhone control.
@@ -173,6 +182,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextBox tbBorrowerPhone;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Label1;
         
         /// <summary>
         /// tbPayerBName control.
@@ -254,5 +272,14 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextArea tbRemark;
+        
+        /// <summary>
+        /// wndChooseZJ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Window wndChooseZJ;
     }
 }
