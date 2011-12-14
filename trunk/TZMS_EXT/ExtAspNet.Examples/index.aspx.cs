@@ -111,7 +111,9 @@ namespace TZMS.Web
                             flag = true;
                         break;
                     case "转正年数":
-
+                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.ZJL)
+                           && !CurrentRoles.Contains(RoleType.YGGL) && !CurrentRoles.Contains(RoleType.XZZJ))
+                            flag = true;
                         break;
                     case "系统配置":
                         if (!CurrentRoles.Contains(RoleType.CJGL))
