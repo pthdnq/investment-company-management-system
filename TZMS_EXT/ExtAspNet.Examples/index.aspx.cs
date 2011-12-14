@@ -381,7 +381,7 @@ namespace TZMS.Web
                             flag = true;
                         }
                         break;
-                    case "代账单打印":
+                    case "代账单导出":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                              && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
                             && !CurrentRoles.Contains(RoleType.DZKJ) && !CurrentRoles.Contains(RoleType.DZFGD))
