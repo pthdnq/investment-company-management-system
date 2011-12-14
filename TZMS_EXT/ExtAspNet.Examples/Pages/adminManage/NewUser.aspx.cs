@@ -72,6 +72,7 @@ namespace TZMS.Web
                             OperatorType = strOperatorType;
                             // 设置新工号.
                             tbxJobNo.Text = new UserManage().GetNextJobNo();
+                            dpkLeaveTime.Hidden = true;
                         }
                         break;
                     case "Edit":
@@ -152,6 +153,25 @@ namespace TZMS.Web
                 tbxWorkYear.Text = _userInfo.WorkYear == -1 ? "" : _userInfo.WorkYear.ToString();
                 // 员工状态.
                 rblState.SelectedIndex = _userInfo.State == 1 ? 0 : 1;
+                // 转正状态.
+                rblProbationState.SelectedIndex = _userInfo.IsProbation == true ? 0 : 1;
+                // 转正日期.
+                if (DateTime.Compare(_userInfo.ProbationTime, ACommonInfo.DBMAXDate) != 0)
+                {
+                    dpbProbationTime.SelectedDate = _userInfo.ProbationTime;
+                }
+                //离职时间
+                if (_userInfo.State != 0)
+                {
+                    dpkLeaveTime.Hidden = true;
+                }
+                else
+                {
+                    if (DateTime.Compare(_userInfo.LeaveTime, ACommonInfo.DBMAXDate) != 0)
+                    {
+                        dpkLeaveTime.SelectedDate = _userInfo.LeaveTime;
+                    }
+                }
                 // 联系电话.
                 tbxPhoneNumber.Text = _userInfo.PhoneNumber;
                 // 备用联系电话.
@@ -181,7 +201,7 @@ namespace TZMS.Web
             {
                 _userInfo = new UserInfo();
                 //默认密码：1111
-                _userInfo.Password = "1111";
+                _userInfo.Password = "1";
                 // 用户ID.
                 _userInfo.ObjectId = Guid.NewGuid();
             }
@@ -225,6 +245,18 @@ namespace TZMS.Web
             }
             // 员工状态.
             _userInfo.State = rblState.SelectedIndex == 0 ? (short)1 : (short)0;
+            // 转正状态.
+            _userInfo.IsProbation = rblProbationState.SelectedIndex == 0 ? true : false;
+            // 转正时间.
+            if (dpbProbationTime.SelectedDate is DateTime)
+            {
+                _userInfo.ProbationTime = Convert.ToDateTime(dpbProbationTime.SelectedDate);
+            }
+            // 离职时间.
+            if (dpkLeaveTime.SelectedDate is DateTime)
+            {
+                _userInfo.LeaveTime = Convert.ToDateTime(dpkLeaveTime.SelectedDate);
+            }
             // 联系电话.
             _userInfo.PhoneNumber = tbxPhoneNumber.Text.Trim();
             // 备用联系电话.
@@ -298,6 +330,24 @@ namespace TZMS.Web
         {
             saveUserInfo();
         }
+
+        /// <summary>
+        /// 员工状态变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void rblState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblState.SelectedIndex == 0)
+            {
+                dpkLeaveTime.Hidden = true;
+            }
+            else
+            {
+                dpkLeaveTime.Hidden = false;
+            }
+        }
+
         #endregion
     }
 }
