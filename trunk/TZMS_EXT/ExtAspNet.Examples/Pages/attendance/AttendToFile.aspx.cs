@@ -111,7 +111,7 @@ namespace TZMS.Web
         protected void gridLeave_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
             string strApproveID = ((GridRow)gridLeave.Rows[e.RowIndex]).Values[0];
-            string strApproveResult = ((GridRow)gridLeave.Rows[e.RowIndex]).Values[8];
+            string strApproveResult = ((GridRow)gridLeave.Rows[e.RowIndex]).Values[9];
             if (!string.IsNullOrEmpty(strApproveID))
             {
                 LeaveAppManage leaveAppManage = new LeaveAppManage();
