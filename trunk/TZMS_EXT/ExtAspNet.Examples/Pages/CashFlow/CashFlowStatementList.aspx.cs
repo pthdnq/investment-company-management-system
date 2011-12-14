@@ -84,8 +84,8 @@ namespace TZMS.Web.Pages.CashFlow
         {
             if (!IsPostBack)
             {
-                // this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectApplyAdd.aspx?Type=Add", "新增 - 项目申请");
-                this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
+                this.btnNew.OnClientClick = wndNew.GetShowReference("CashFlowSetterInit.aspx?Type=Add", "初始化 - 资金");
+                this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
 
                 // 绑定下拉框.
                 BindDDL();
@@ -122,36 +122,36 @@ namespace TZMS.Web.Pages.CashFlow
             }
 
             #region status
-            if (!string.IsNullOrEmpty(state))
-            { 
-                //  状态.
-                switch (state)
-                {
-                    case "0":
-                        //  strCondtion.Append(" AND Status = 1 ");
-                        break;
-                    case "1":
-                        strCondtion.Append(" AND Status = 1 ");
-                        break;
-                    case "2":
-                        strCondtion.Append(" AND Status = 2 ");
-                        break;
-                    case "3":
-                        strCondtion.Append(" AND Status = 3  ");
-                        break;
-                    case "4":
-                        strCondtion.Append(" AND Status = 4 ");
-                        break;
-                    case "5":
-                        strCondtion.Append(" AND Status = 5 ");
-                        break;
-                    case "9":
-                        strCondtion.Append(" AND Status = 9 ");
-                        break;
-                    default:
-                        break;
-                }
-            }
+            //if (!string.IsNullOrEmpty(state))
+            //{ 
+            //    //  状态.
+            //    switch (state)
+            //    {
+            //        case "0":
+            //            //  strCondtion.Append(" AND Status = 1 ");
+            //            break;
+            //        case "1":
+            //            strCondtion.Append(" AND Status = 1 ");
+            //            break;
+            //        case "2":
+            //            strCondtion.Append(" AND Status = 2 ");
+            //            break;
+            //        case "3":
+            //            strCondtion.Append(" AND Status = 3  ");
+            //            break;
+            //        case "4":
+            //            strCondtion.Append(" AND Status = 4 ");
+            //            break;
+            //        case "5":
+            //            strCondtion.Append(" AND Status = 5 ");
+            //            break;
+            //        case "9":
+            //            strCondtion.Append(" AND Status = 9 ");
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //}
             #endregion
 
             //时间
@@ -162,8 +162,8 @@ namespace TZMS.Web.Pages.CashFlow
                 Alert.Show("结束日期不可小于开始日期!");
                 return;
             }
-            strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
-            strCondtion.Append(" ORDER BY CreateTime DESC");
+            strCondtion.Append(" AND DateFor BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
+            strCondtion.Append(" ORDER BY DateFor DESC");
             #endregion
  
             List<com.TZMS.Model.CashFlowStatementInfo> lstInfo = new CashFlowManage().GetUsersByCondtion(strCondtion.ToString());
