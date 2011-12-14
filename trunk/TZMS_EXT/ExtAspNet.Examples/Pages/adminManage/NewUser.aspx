@@ -7,7 +7,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" />
+    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Layout="Fit" Height="317px" Title="Panel" AutoScroll="false"
         ShowBorder="true" ShowHeader="false">
@@ -85,10 +85,29 @@
                             <ext:TextBox ID="tbxWorkYear" Label="工作年限" runat="server" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！"
                                 Regex="^[0-9]*$" RegexMessage="只能输入数字!">
                             </ext:TextBox>
-                            <ext:RadioButtonList ID="rblState" Label="员工状态" runat="server">
+                            <ext:RadioButtonList ID="rblState" Label="员工状态" runat="server" AutoPostBack="True"
+                                OnSelectedIndexChanged="rblState_SelectedIndexChanged">
                                 <ext:RadioItem Selected="true" Text="在职" Value="1" />
                                 <ext:RadioItem Text="离职" Value="0" />
                             </ext:RadioButtonList>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="50% 50%">
+                        <Items>
+                            <ext:DatePicker ID="dpbProbationTime" Label="转正日期" runat="server">
+                            </ext:DatePicker>
+                            <ext:RadioButtonList ID="rblProbationState" Label="转正状态" runat="server">
+                                <ext:RadioItem Selected="true" Text="已转正" Value="1" />
+                                <ext:RadioItem Text="未转正" Value="0" />
+                            </ext:RadioButtonList>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="50% 50%">
+                        <Items>
+                            <ext:DatePicker ID="dpkLeaveTime" Label="离职日期" runat="server">
+                            </ext:DatePicker>
+                            <ext:Label ID="lblLeaveTime" runat="server" Hidden="true">
+                            </ext:Label>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">

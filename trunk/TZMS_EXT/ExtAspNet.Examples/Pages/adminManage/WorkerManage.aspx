@@ -20,11 +20,9 @@
                         <Items>
                             <ext:TextBox ID="tbxSearch" runat="server" EmptyText="请输入姓名或账号查询" ShowLabel="false">
                             </ext:TextBox>
-                            <ext:DropDownList ID="ddlstDept" AutoPostBack="true" runat="server" Label="部门名称"
-                                OnSelectedIndexChanged="ddlstDept_SelectedIndexChanged">
+                            <ext:DropDownList ID="ddlstDept" runat="server" Label="部门名称">
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddlstState" AutoPostBack="true" runat="server" Label="员工状态"
-                                OnSelectedIndexChanged="ddlstState_SelectedIndexChanged">
+                            <ext:DropDownList ID="ddlstState" runat="server" Label="员工状态">
                                 <ext:ListItem Text="在职" Value="1" Selected="true" />
                                 <ext:ListItem Text="离职" Value="0" />
                             </ext:DropDownList>
@@ -50,7 +48,7 @@
                         OnPageIndexChange="gridUser_PageIndexChange" OnRowCommand="gridUser_RowCommand"
                         OnRowDataBound="gridUser_RowDataBound" Width="100%">
                         <Columns>
-                            <ext:BoundField DataField="ObjectId"  HeaderText="ID" Hidden="true" />
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="70px" DataField="JobNo" HeaderText="工号" />
                             <ext:BoundField Width="80px" DataField="Name" HeaderText="姓名" />
                             <ext:BoundField Width="80px" DataField="AccountNo" HeaderText="账号" />
@@ -61,7 +59,7 @@
                             </ext:TemplateField>
                             <ext:BoundField Width="80px" DataField="Dept" HeaderText="部门" />
                             <ext:BoundField Width="145px" DataField="PhoneNumber" HeaderText="联系电话" />
-                            <ext:BoundField DataField="BackIpPhoneNumber" Width="145px" HeaderText="备用联系电话"  />
+                            <ext:BoundField DataField="BackIpPhoneNumber" Width="145px" HeaderText="备用联系电话" />
                             <ext:BoundField Width="150px" DataField="Email" HeaderText="邮箱" />
                             <ext:TemplateField Width="70px" HeaderText="员工状态">
                                 <ItemTemplate>
@@ -83,7 +81,7 @@
         Height="470px" Width="500px">
     </ext:Window>
     <ext:Window ID="wndNewUser" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNewUser_Close">
+        Target="Parent" runat="server" IsModal="true" Height="400px" Width="550px" OnClose="wndNewUser_Close">
     </ext:Window>
     </form>
 </body>
