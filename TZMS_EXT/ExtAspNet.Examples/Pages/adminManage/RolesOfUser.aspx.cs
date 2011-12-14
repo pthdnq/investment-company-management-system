@@ -332,6 +332,24 @@ namespace TZMS.Web
                 case RoleType.PZGD:
                     strRole = "报销凭证归档";
                     break;
+                case RoleType.YGGL:
+                    strRole = "员工管理员";
+                    break;
+                case RoleType.JCGL:
+                    strRole = "奖惩管理员";
+                    break;
+                case RoleType.XXGL:
+                    strRole = "消息管理员";
+                    break;
+                case RoleType.WZGL:
+                    strRole = "物资管理员";
+                    break;
+                case RoleType.BXPZCJ:
+                    strRole = "报销凭证创建";
+                    break;
+                case RoleType.YWY:
+                    strRole = "业务员";
+                    break;
             }
 
             return strRole;
