@@ -115,12 +115,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            //需要增加下一步审批人(暂用AccountingAccount存储，待修改)
-         strCondtion.Append("   AccountingAccount = '" + this.CurrentUser.ObjectId + "'   ");
-        //       strCondtion.Append("   Status<>9 ");
+            //需要增加下一步审批人(暂用AccountingAccount存储，待修改)fb3df884-16e9-44b5-953e-1a7e26
+          //  strCondtion.Append("   AccountingAccount LIKE '%" + this.CurrentUser.ObjectId + "%'   ");
+            strCondtion.Append("   AccountingAccount = '"+  this.CurrentUser.ObjectId.ToString().Trim() +"'   ");
+       //    strCondtion.Append("   Status<>9 ");
             if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append("AND  (ProjectName LIKE '%" + searchText + "%'  )  ");
+                strCondtion.Append(" AND (ProjectName LIKE '%" + searchText + "%'  )  ");
             }
             if (!string.IsNullOrEmpty(state))
             {
