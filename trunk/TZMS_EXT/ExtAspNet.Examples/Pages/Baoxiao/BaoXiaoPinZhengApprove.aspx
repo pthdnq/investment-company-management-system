@@ -83,7 +83,7 @@
                                     </ext:Form>
                                 </Items>
                             </ext:Tab>
-                            <ext:Tab ID="Tab3" Title="报销申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab3" Title="报销单据" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Form EnableBackgroundColor="true" LabelWidth="65px" ShowHeader="false" ShowBorder="true"
                                         BodyPadding="5px" ID="Form2" runat="server">
