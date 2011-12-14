@@ -591,6 +591,7 @@
     <Content Include="Pages\Baoxiao\NewBaoxiaoApply.aspx" />
     <Content Include="Pages\CashFlow\BankLoanBA.aspx" />
     <Content Include="Pages\CashFlow\BankLoanBAList.aspx" />
+    <Content Include="Pages\CashFlow\CashFlowSetterInit.aspx" />
     <Content Include="Pages\CashFlow\CashFlowStatementList.aspx" />
     <Content Include="Pages\CashFlow\FolkFinancingBA.aspx" />
     <Content Include="Pages\CashFlow\FolkFinancingBAList.aspx" />
@@ -616,6 +617,7 @@
     <Content Include="Pages\FolkFinancingPages\PaymentConfirmList.aspx" />
     <Content Include="Pages\FolkFinancingPages\PaymentRecord.aspx" />
     <Content Include="Pages\FolkFinancingPages\PaymentRecordList.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\ChooseJKR.aspx" />
     <Content Include="Pages\InvestmentLoanPages\LoanContract.aspx" />
     <Content Include="Pages\InvestmentLoanPages\LoanContractList.aspx" />
     <Content Include="Pages\InvestmentLoanPages\LoanInfo.aspx" />
@@ -1219,6 +1221,13 @@
     <Compile Include="Pages\CashFlow\BankLoanBAList.aspx.designer.cs">
       <DependentUpon>BankLoanBAList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CashFlow\CashFlowSetterInit.aspx.cs">
+      <DependentUpon>CashFlowSetterInit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CashFlow\CashFlowSetterInit.aspx.designer.cs">
+      <DependentUpon>CashFlowSetterInit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CashFlow\CashFlowStatementList.aspx.cs">
       <DependentUpon>CashFlowStatementList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1393,6 +1402,13 @@
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\PaymentRecordList.aspx.designer.cs">
       <DependentUpon>PaymentRecordList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\ChooseJKR.aspx.cs">
+      <DependentUpon>ChooseJKR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\ChooseJKR.aspx.designer.cs">
+      <DependentUpon>ChooseJKR.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\LoanContract.aspx.cs">
       <DependentUpon>LoanContract.aspx</DependentUpon>
