@@ -110,6 +110,9 @@ namespace TZMS.Web
                             && !CurrentRoles.Contains(RoleType.YGGL) && !CurrentRoles.Contains(RoleType.XZZJ))
                             flag = true;
                         break;
+                    case "转正年数":
+
+                        break;
                     case "系统配置":
                         if (!CurrentRoles.Contains(RoleType.CJGL))
                             flag = true;
@@ -486,7 +489,7 @@ namespace TZMS.Web
                     case "借款申请列表":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                         && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) )
+                         && !CurrentRoles.Contains(RoleType.TZZJ))
                         {
                             flag = true;
                         }
@@ -534,7 +537,7 @@ namespace TZMS.Web
                     case "终止合同列表":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                         && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) )
+                         && !CurrentRoles.Contains(RoleType.TZZJ))
                         {
                             flag = true;
                         }
@@ -570,7 +573,7 @@ namespace TZMS.Web
                     case "项目审核列表":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) )
+                        && !CurrentRoles.Contains(RoleType.TZZJ))
                         {
                             flag = true;
                         }
@@ -586,7 +589,7 @@ namespace TZMS.Web
                     case "项目信息列表":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) )
+                        && !CurrentRoles.Contains(RoleType.TZZJ))
                         {
                             flag = true;
                         }
@@ -594,7 +597,7 @@ namespace TZMS.Web
                     case "备用金审核列表":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) )
+                        && !CurrentRoles.Contains(RoleType.TZZJ))
                         {
                             flag = true;
                         }
@@ -783,7 +786,7 @@ namespace TZMS.Web
                             flag = true;
                         }
                         break;
-             
+
 
                 }
                 if (flag)

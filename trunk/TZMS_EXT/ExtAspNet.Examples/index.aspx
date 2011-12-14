@@ -82,6 +82,9 @@
                                             <ext:TreeNode Leaf="true"  Icon="UserKey" NodeID="yggl" AutoPostBack="false" OnClientClick=" tabs('yggl','UserKey');"
                                                 Text="员工管理">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true"  Icon="UserKey" NodeID="zzns" AutoPostBack="false" OnClientClick=" tabs('zzns','UserKey');"
+                                                Text="转正年数">
+                                            </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" Icon="TableKey" NodeID="xtpz" AutoPostBack="false" OnClientClick=" tabs('xtpz','UserKey');"
                                                 Text="系统配置">
                                             </ext:TreeNode>
@@ -533,6 +536,9 @@
                     break;
                 case "xtpz":
                     LoadTab("Pages/adminManage/SystemConfig.aspx", "系统配置", icon);
+                    break;
+                case "zzns":
+                    LoadTab("Pages/adminManage/ProbationYear.aspx", "转正年数", icon);
                     break;
                 case "cs":
                     LoadTab("Test.aspx", "我的日历", icon);
