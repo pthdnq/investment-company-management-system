@@ -73,7 +73,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             else if (CurrentRoles.Contains(RoleType.ZJL))
             {      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
-                if (_Info.LoanAmount > 3000000)
+                if (_Info.LoanAmount >= 300000)
                 { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
                 else
                 { BindNext(true); }
@@ -94,9 +94,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbCollateral.Text = _Info.Collateral;
             this.dpDueDateForPay.SelectedDate = _Info.DueDateForPay;
             this.dpLoanDate.SelectedDate = _Info.LoanDate;
-
+            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
             this.tbRemark.Text = _Info.Remark;
-
+           
             this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
 
         }

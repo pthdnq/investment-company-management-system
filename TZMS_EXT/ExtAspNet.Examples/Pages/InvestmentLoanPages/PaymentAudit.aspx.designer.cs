@@ -202,13 +202,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextBox tbBorrowerPhone;
         
         /// <summary>
-        /// Label1 control.
+        /// LabelStar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label Label1;
+        protected global::ExtAspNet.Label LabelStar;
         
         /// <summary>
         /// tbPayerBName control.

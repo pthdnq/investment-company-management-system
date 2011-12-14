@@ -70,7 +70,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
             
-            //if (_Info.LoanAmount > 3000000 && !CurrentRoles.Contains(RoleType.DSZ))
+            //if (_Info.LoanAmount >= 300000 && !CurrentRoles.Contains(RoleType.DSZ))
             //{
             //    //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
             //    BindNext(false);
@@ -91,7 +91,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbCollateral.Text = _Info.Collateral;
             this.dpDueDateForPay.SelectedDate = _Info.DueDateForPay;
             this.dpLoanDate.SelectedDate = _Info.LoanDate;
-
+            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
             this.tbRemark.Text = _Info.Remark;
 
             this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
