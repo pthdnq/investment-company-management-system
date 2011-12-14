@@ -3,7 +3,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title>PaymentApplyAdd</title>
 </head>
 <body>
@@ -62,24 +62,27 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbBorrowerNameA" Label="借款人（甲方）" ShowRedStar="true" Required="true"
+                            <%--          <ext:TextBox ID="tbBorrowerNameA" Label="借款人（甲方）" ShowRedStar="true" Required="true"
                                 runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!">
-                            </ext:TextBox>
+                            </ext:TextBox>--%>
+                            <ext:TriggerBox  EnableEdit="false" ID="tbBorrowerNameA" Label="借款人（甲方）" TriggerIconUrl="~/Images/ico_16_grxx.gif"
+                                OnTriggerClick="tbBorrowerNameA_TriggerClick" EmptyText="" runat="server">
+                            </ext:TriggerBox>
                             <ext:TextBox ID="tbBorrowerPhone" Label="联系电话" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
                                 Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}" RegexMessage="电话号码格式不正确!">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
+                    <ext:FormRow ColumnWidths="50% 50%" >
                         <Items>
-                            <ext:Label runat="server" Text="借款人信用星级：***" />
+                            <ext:Label ID="Label1" runat="server" Text="借款人信用星级：***"  Hidden="true"/>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbPayerBName" Label="付款人（乙方）" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                            <ext:TextBox ID="tbPayerBName" Label="付款人（乙方）" ShowRedStar="true" Required="true"
+                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
                         </Items>
@@ -134,6 +137,10 @@
             </ext:Form>
         </Items>
     </ext:Panel>
+    <ext:Window ID="wndChooseZJ" Title="选取借款人" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="460px"
+        Width="590px" OnClose="wndChooseZJ_Close">
+    </ext:Window>
     </form>
 </body>
 </html>
