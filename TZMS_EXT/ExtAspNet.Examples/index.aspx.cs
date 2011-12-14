@@ -35,8 +35,14 @@ namespace TZMS.Web
                 List<MessageInfo> lstMessage = _manage.GetMessageByCondition(strCondition.ToString());
                 if (lstMessage.Count > 0)
                 {
-                    //AccordionPane8.Title = "消息管理(您有新的消息)";
                     ExtAspNet.Alert.Show("您有新的消息！", "消息提示");
+                    AccordionPane8.Title = "消息管理(您有新的消息)";
+                    AccordionPane8.IconUrl = "images/16/消息管理_动态.gif";
+                }
+                else
+                {
+                    AccordionPane8.Title = "消息管理";
+                    AccordionPane8.IconUrl = "images/16/消息管理.gif";
                 }
 
                 if (!string.IsNullOrEmpty(CurrentUser.Position))
@@ -73,11 +79,12 @@ namespace TZMS.Web
             if (lstMessage.Count > 0)
             {
                 AccordionPane8.Title = "消息管理(您有新的消息)";
-                //AccordionPane8.IconUrl = "";
+                AccordionPane8.IconUrl = "images/16/消息管理_动态.gif";
             }
             else
             {
                 AccordionPane8.Title = "消息管理";
+                AccordionPane8.IconUrl = "images/16/消息管理.gif";
             }
         }
 

@@ -497,7 +497,7 @@
     <ext:Window ID="changePswWindow" Title="修改密码" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Width="350px" Height="200px">
     </ext:Window>
-    <ext:Timer ID="timeMsg" Interval="180" OnTick="timeMsg_Tick" runat="server">
+    <ext:Timer ID="timeMsg" Interval="120" OnTick="timeMsg_Tick" runat="server">
     </ext:Timer>
     </form>
     <script type="text/javascript">
