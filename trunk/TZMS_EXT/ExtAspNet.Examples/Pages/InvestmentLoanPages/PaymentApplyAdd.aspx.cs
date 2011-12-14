@@ -180,8 +180,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.ProjectOverview = this.tbProjectOverview.Text.Trim();
 
             _Info.BorrowerNameA = _customer.Name;
-            _Info.BorrowerAId = _customer.ObjectId; 
+            _Info.BorrowerAId = _customer.ObjectId;
 
+            _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text);
             _Info.BorrowerPhone = this.tbBorrowerPhone.Text.Trim();
             _Info.PayerBName = this.tbPayerBName.Text.Trim();
             _Info.Guarantor = this.tbGuarantor.Text.Trim();

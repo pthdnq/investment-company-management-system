@@ -78,7 +78,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 }
                 //else if (CurrentRoles.Contains(RoleType.ZJL))
                 //{      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
-                //    if (_info.AmountExpended > 3000000)
+                //    if (_info.AmountExpended >= 300000)
                 //    { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
                 //    else
                 //    { BindNext(true); }

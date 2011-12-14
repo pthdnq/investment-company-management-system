@@ -74,7 +74,7 @@ namespace TZMS.Web.Pages.CashFlow
             {
                 BindNext(true);
             }
-            //if (_Info.LoanAmount > 3000000 && !CurrentRoles.Contains(RoleType.DSZ))
+            //if (_Info.LoanAmount >= 300000 && !CurrentRoles.Contains(RoleType.DSZ))
             //{
             //    //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
             //    BindNext(false);
