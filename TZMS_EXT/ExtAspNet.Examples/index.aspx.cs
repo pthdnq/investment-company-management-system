@@ -349,10 +349,10 @@ namespace TZMS.Web
 
             #region 代账管理
 
-            for (int i = treeWZGL.Nodes.Count - 1; i > -1; i--)
+            for (int i = treeDZFGL.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (treeWZGL.Nodes[i].Text)
+                switch (treeDZFGL.Nodes[i].Text)
                 {
                     case "代账单位":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
@@ -392,10 +392,10 @@ namespace TZMS.Web
                 }
                 if (flag)
                 {
-                    treeWZGL.Nodes.RemoveAt(i);
+                    treeDZFGL.Nodes.RemoveAt(i);
                 }
             }
-            if (treeWZGL.Nodes.Count == 0)
+            if (treeDZFGL.Nodes.Count == 0)
             {
                 AccordionPane9.Hidden = true;
             }

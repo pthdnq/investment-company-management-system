@@ -254,7 +254,7 @@
                             <ext:AccordionPane ID="AccordionPane9" runat="server" IconUrl="images/16/代账管理.gif"
                                 Title="代账管理" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="Tree5" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                    <ext:Tree ID="treeDZFGL" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/代账单位.gif" NodeID="paal" OnClientClick=" tabs('paal','UserKey');"
                                                 Text="代账单位">
