@@ -94,8 +94,16 @@ namespace TZMS.Web
                     List<RoleType> lstRoleType = new List<RoleType>();
                     List<UserRoles> lstRoles = rm.GerRolesByCondition(" [UserObjectID]='" + CurrentUser.ObjectId.ToString() + "'");
 
+                    //添加超级管理员角色
+                    if (SystemUser.ObjectId == CurrentUser.ObjectId)
+                    {
+                        UserRoles ur = new UserRoles();
+                        ur.Roles = "0";
+                        lstRoles.Add(ur);
+                    }
                     if (lstRoles.Count == 0)
                     {
+                        Session["_RoleHaves"] = new List<RoleType>();
                         return new List<RoleType>();
                     }
                     string roles = lstRoles[0].Roles;
@@ -108,11 +116,7 @@ namespace TZMS.Web
                             lstRoleType.Add((RoleType)type);
                         }
                     }
-                    //添加超级管理员角色
-                    if (SystemUser.ObjectId == CurrentUser.ObjectId)
-                    {
-                        lstRoleType.Add(RoleType.CJGL);
-                    }
+
                     Session["_RoleHaves"] = lstRoleType;
                     return lstRoleType;
                 }
