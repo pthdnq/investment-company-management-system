@@ -108,6 +108,11 @@ namespace TZMS.Web
                             lstRoleType.Add((RoleType)type);
                         }
                     }
+                    //添加超级管理员角色
+                    if (SystemUser.ObjectId == CurrentUser.ObjectId)
+                    {
+                        lstRoleType.Add(RoleType.CJGL);
+                    }
                     Session["_RoleHaves"] = lstRoleType;
                     return lstRoleType;
                 }
