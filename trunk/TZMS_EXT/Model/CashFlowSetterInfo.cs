@@ -18,7 +18,7 @@ namespace com.TZMS.Model
     /// CashFlowSetter???
     /// </summary>
 	[Serializable]
-    public class CashFlowSetterInfo 
+    public class CashFlowSetterInfo : ACommonInfo
 	{	 
 		
 		#region Constructor
