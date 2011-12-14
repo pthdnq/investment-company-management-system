@@ -175,17 +175,18 @@ namespace TZMS.Web
                     e.Values[1] = _applyInfo.ObjectID.ToString();
                     e.Values[2] = _applyInfo.UserName;
                     e.Values[3] = _applyInfo.ApplyTime.ToString("yyyy-MM-dd HH:mm");
-                    e.Values[4] = "<span  ext:qtip=\"" + _applyInfo.Sument + "\">" + _applyInfo.Sument + "</span>";
-                    e.Values[5] = "<span  ext:qtip=\"" + _applyInfo.Other + "\">" + _applyInfo.Other + "</span>";
+                    e.Values[4] = _applyInfo.UserEntryDate.ToString("yyyy-MM-dd");
+                    e.Values[5] = "<span  ext:qtip=\"" + _applyInfo.Sument + "\">" + _applyInfo.Sument + "</span>";
+                    e.Values[6] = "<span  ext:qtip=\"" + _applyInfo.Other + "\">" + _applyInfo.Other + "</span>";
                     if (lstApprove.Count > 0)
                     {
-                        e.Values[6] = lstApprove[0].ApproverName;
-                        e.Values[7] = lstApprove[0].Result == 0 ? "同意" : "不同意";
+                        e.Values[7] = lstApprove[0].ApproverName;
+                        e.Values[8] = lstApprove[0].Result == 0 ? "同意" : "不同意";
                     }
-                    e.Values[8] = _approveInfo.ApproveOp == 3 ? "待归档" : "已归档";
+                    e.Values[9] = _approveInfo.ApproveOp == 3 ? "待归档" : "已归档";
                     if (_approveInfo.ApproveOp == 4)
                     {
-                        e.Values[9] = "<span class=\"gray\">归档</span>";
+                        e.Values[10] = "<span class=\"gray\">归档</span>";
                     }
                 }
             }

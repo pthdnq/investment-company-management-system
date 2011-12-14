@@ -63,6 +63,7 @@ namespace TZMS.Web
                     OperatorType = "Add";
                     lblName.Text = CurrentUser.Name;
                     lblAppDate.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+                    lblEntryDate.Text = CurrentUser.EntryDate.ToString("yyyy-MM-dd");
                     tabApproveHistory.Hidden = true;
                     BindNext();
                     BindApproveUser();
@@ -130,6 +131,7 @@ namespace TZMS.Web
             {
                 lblName.Text = _info.UserName;
                 lblAppDate.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
+                lblEntryDate.Text = _info.UserEntryDate.ToString("yyyy-MM-dd");
                 taaSument.Text = _info.Sument;
                 taaOther.Text = _info.Other;
 
@@ -233,6 +235,7 @@ namespace TZMS.Web
                 _applyInfo.CurrentApproverID = new Guid(ddlstApproveUser.SelectedValue);
                 _applyInfo.State = 0;
                 _applyInfo.IsDelete = false;
+                _applyInfo.UserEntryDate = CurrentUser.EntryDate;
 
                 result = _manage.AddNewProbationApply(_applyInfo);
 

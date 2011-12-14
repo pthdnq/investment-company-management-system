@@ -67,6 +67,14 @@
                                                     </ext:Label>
                                                 </Items>
                                             </ext:FormRow>
+                                            <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="50% 50%">
+                                                <Items>
+                                                    <ext:Label ID="lblEntryDate" runat="server" Label="入职时间">
+                                                    </ext:Label>
+                                                    <ext:Label ID="Label2" runat="server">
+                                                    </ext:Label>
+                                                </Items>
+                                            </ext:FormRow>
                                             <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextArea ID="taaSument" Height="150px" runat="server" Label="事项" Enabled="false">

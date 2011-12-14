@@ -58,7 +58,8 @@
                             <ext:BoundField DataField="ApplyID" Hidden="true" />
                             <ext:BoundField DataField="UserName" HeaderText="申请人" />
                             <ext:BoundField DataField="UserDept" HeaderText="部门" />
-                            <ext:BoundField DataField="Sument" HeaderText="收款事由" DataTooltipField="Sument" ExpandUnusedSpace="true" />
+                            <ext:BoundField DataField="UserEntryDate" HeaderText="入职时间" />
+                            <ext:BoundField DataField="Sument" HeaderText="转正事由" DataTooltipField="Sument" ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="Other" HeaderText="备注" DataTooltipField="Other" />
                             <ext:BoundField DataField="ApplyTime" HeaderText="申请时间" />
                             <ext:BoundField DataField="ApproveState" HeaderText="审批状态" />

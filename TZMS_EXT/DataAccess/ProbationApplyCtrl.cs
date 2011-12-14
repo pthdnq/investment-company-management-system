@@ -66,6 +66,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@CurrentApproverID",DbType.Guid),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                new SqlParameter("@UserEntryDate",DbType.DateTime)
 				};
 
                 int i = 0;
@@ -81,6 +82,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProbationApplyInfo.CurrentApproverID;
                 sqlparam[i++].Value = ProbationApplyInfo.State;
                 sqlparam[i++].Value = ProbationApplyInfo.IsDelete;
+                sqlparam[i++].Value = ProbationApplyInfo.UserEntryDate;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -147,6 +149,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@CurrentApproverId",DbType.Guid),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                new SqlParameter("@UserEntryDate",DbType.DateTime)
                 };
 
                 int i = 0;
@@ -162,6 +165,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProbationApplyInfo.CurrentApproverID;
                 sqlparam[i++].Value = ProbationApplyInfo.State;
                 sqlparam[i++].Value = ProbationApplyInfo.IsDelete;
+                sqlparam[i++].Value = ProbationApplyInfo.UserEntryDate;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -294,7 +298,10 @@ namespace com.TZMS.DataAccess
             {
                 Info.IsDelete = bool.Parse( DataUtil.GetStringValueOfRow(InfoDataRow, "IsDelete"));
             }
-
+            if (InfoDataRow["UserEntryDate"] != null)
+            {
+                Info.UserEntryDate = DateTime.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "UserEntryDate"));
+            }
             return Info;
         }
         #endregion
