@@ -18,7 +18,7 @@ namespace com.TZMS.Model
     /// CashFlowStatement???
     /// </summary>
 	[Serializable]
-    public class CashFlowStatementInfo 
+    public class CashFlowStatementInfo : ACommonInfo
 	{	 
 		
 		#region Constructor
@@ -48,7 +48,7 @@ namespace com.TZMS.Model
 		private string _accountingAccount;
 		private Guid _createrId;
 		private string _createrName;
-		private DateTime _cteateTime;
+        private DateTime _cteateTime ;
 		private int _status;
 		private string _biz;
 		private string _summary;
@@ -247,7 +247,9 @@ namespace com.TZMS.Model
 		}
 
 		#endregion
-	}
+
+        public DateTime DBEmptyDate { get; set; }
+    }
 }
 
 
