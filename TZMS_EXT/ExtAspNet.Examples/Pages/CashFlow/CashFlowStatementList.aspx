@@ -50,11 +50,11 @@
             <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
                 Layout="Fit" runat="server">
                 <Toolbars>
-                    <ext:Toolbar ID="toolUser" runat="server" Hidden="true">
+                    <ext:Toolbar ID="toolUser" runat="server">
                         <Items>
-                            <ext:Button ID="btnNew" Text="新增" Icon="Add" runat="server">
+                            <ext:Button ID="btnNew" Text="初始化资金" Icon="Add" runat="server">
                             </ext:Button>
-                            <ext:Button ID="btnDelete" Text="删除" Icon="Delete" runat="server" />
+                            <ext:Button ID="btnDelete" Hidden="true" Text="删除" Icon="Delete" runat="server" />
                         </Items>
                     </ext:Toolbar>
                 </Toolbars>
@@ -83,7 +83,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="474px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="154px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>
