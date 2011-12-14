@@ -138,7 +138,7 @@ namespace TZMS.Web.Pages.CashFlow
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.ddlstNext.SelectedValue.Equals(0))
+            if (this.ddlstNext.SelectedValue.Equals("0"))
             {
                 //同意，继续审核
                 saveInfo(3);

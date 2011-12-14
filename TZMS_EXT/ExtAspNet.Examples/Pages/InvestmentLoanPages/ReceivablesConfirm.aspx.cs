@@ -148,7 +148,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     FlowType = "",
                     Biz = "InvestmentLoan",
                     ProjectName = _Info.ProjectName,
-                    IsAccountingAudit = 1
+                    IsAccountingAudit = 1,
+                     CreateTime=DateTime.Now
                 });
                 if (itmp != -1)
                 {
