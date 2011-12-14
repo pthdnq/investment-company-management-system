@@ -271,7 +271,7 @@ namespace TZMS.Web
                     lblBaoXiaoApplyTime.Text = _baoxiaoInfo.ApplyTime.ToString("yyyy-MM-dd HH:mm");
                     lblStartTime.Text = _baoxiaoInfo.StartTime.ToString("yyyy-MM-dd");
                     lblEndTime.Text = _baoxiaoInfo.EndTime.ToString("yyyy-MM-dd");
-                    lblMoney.Text = _baoxiaoInfo.Money.ToString() + " 元";
+                    lblMoney.Text = _baoxiaoInfo.Money.ToString() + "元";
                     taaSument.Text = _baoxiaoInfo.Sument;
                     taaOther.Text = _baoxiaoInfo.Other;
                 }
