@@ -103,8 +103,9 @@ namespace TZMS.Web
                     }
                     if (lstRoles.Count == 0)
                     {
-                        Session["_RoleHaves"] = new List<RoleType>();
-                        return new List<RoleType>();
+                        UserRoles ur = new UserRoles();
+                        ur.Roles = "12";
+                        lstRoles.Add(ur);
                     }
                     string roles = lstRoles[0].Roles;
                     string[] role = roles.Split(',');
