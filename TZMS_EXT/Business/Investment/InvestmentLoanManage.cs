@@ -235,8 +235,83 @@ namespace com.TZMS.Business
 
         #endregion
 
-        #region 借款人星级信息
+        #region 借款人信息
+        CustomerCtrl cCtrl = new CustomerCtrl();
 
+        /// <summary>
+        ///  添加到数据库
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="user">InvestmentLoanInfo 实体</param>
+        /// <returns>返回执行结果</returns>
+        public int AddCustomer(CustomerInfo info, string boName = BoName)
+        {
+            return cCtrl.Insert(boName, info);
+        }
+
+        /// <summary>
+        /// 根据 唯一ID删除(假删除，改变 state=9)
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="objectID">唯一ID（GUID）</param>
+        public void DeleteCustomer(string objectID, string boName = BoName)
+        {
+            cCtrl.Delete(boName, " ObjectID ='" + objectID + "' ");
+        }
+
+        /// <summary>
+        /// 更新信息
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="info">实体</param>
+        /// <returns>执行结果</returns>
+        public int UpdateCustomer(CustomerInfo info, string boName = BoName)
+        {
+            return cCtrl.UpDate(boName, info);
+        }
+
+        /// <summary>
+        /// 通过ObjectID获得 
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="objectID">ObjectID</param>
+        /// <returns> 唯一ID（GUID）</returns>
+        public CustomerInfo GetCustomerByObjectID(string objectID, string boName = BoName)
+        {
+            List<CustomerInfo> users = cCtrl.SelectAsList(boName, "   ObjectID ='" + objectID + "' ");
+            if (users.Count == 0)
+            {
+                return null;
+            }
+            return users[0];
+        }
+
+        /// <summary>
+        /// 通过帐号获得 
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="accountNo">帐号</param>
+        /// <returns>用户实体</returns>
+        public CustomerInfo GetCustomerByAccountNo(string accountNo, string boName = BoName)
+        {
+            List<CustomerInfo> users = cCtrl.SelectAsList(boName, "    AccountNo ='" + accountNo + "' ");
+            if (users.Count == 0)
+            {
+                return null;
+            }
+            return users[0];
+        }
+
+        /// <summary>
+        /// 根据条件获得信息集合
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="condtion">条件</param>
+        /// <returns>集合</returns>
+        public List<CustomerInfo> GetCustomersByCondtion(string condtion, string boName = BoName)
+        {
+            return cCtrl.SelectAsList(boName, condtion);
+        }
         #endregion
 
     }
