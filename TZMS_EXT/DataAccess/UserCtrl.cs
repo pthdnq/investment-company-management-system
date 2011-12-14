@@ -373,7 +373,7 @@ namespace com.TZMS.DataAccess
             if (UserInfoInfoDataRow["LeaveTime"] != null)
             {
                 if (!string.IsNullOrEmpty(UserInfoInfoDataRow["LeaveTime"].ToString()))
-                    UserInfoInfo.ProbationTime = DateTime.Parse(UserInfoInfoDataRow["LeaveTime"].ToString());
+                    UserInfoInfo.LeaveTime = DateTime.Parse(UserInfoInfoDataRow["LeaveTime"].ToString());
             }
             if (UserInfoInfoDataRow["BaseSalary"] != null)
             {
