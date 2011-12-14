@@ -126,6 +126,7 @@ namespace TZMS.Web
                 {
                     lblName.Text = _info.UserName;
                     lblAppDate.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
+                    lblEntryDate.Text = _info.UserEntryDate.ToString("yyyy-MM-dd");
                     taaSument.Text = _info.Sument;
                     taaOther.Text = _info.Other;
                 }

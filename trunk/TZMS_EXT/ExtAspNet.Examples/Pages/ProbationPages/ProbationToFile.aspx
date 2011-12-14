@@ -45,6 +45,7 @@
                             <ext:BoundField HeaderText="ApplyID" Hidden="true" />
                             <ext:BoundField HeaderText="申请人" />
                             <ext:BoundField HeaderText="申请时间" />
+                            <ext:BoundField HeaderText="入职时间" />
                             <ext:BoundField HeaderText="事项" ExpandUnusedSpace="true" />
                             <ext:BoundField HeaderText="备注" />
                             <ext:BoundField HeaderText="执行人" />

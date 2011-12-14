@@ -193,6 +193,33 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Label lblAppDate;
         
         /// <summary>
+        /// FormRow3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow3;
+        
+        /// <summary>
+        /// lblEntryDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label lblEntryDate;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Label2;
+        
+        /// <summary>
         /// FormRow4 control.
         /// </summary>
         /// <remarks>

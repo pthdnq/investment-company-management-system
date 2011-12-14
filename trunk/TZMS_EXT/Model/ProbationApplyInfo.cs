@@ -45,6 +45,7 @@ namespace com.TZMS.Model
         private Guid _currentApproverId;
         private short _state = DBEmptyShort;
         private bool _isDelete;
+        private DateTime _userEntryDate = DBMAXDate;
         #endregion
 
         #region Property
@@ -154,6 +155,15 @@ namespace com.TZMS.Model
         {
             get { return _isDelete; }
             set { _isDelete = value; }
+        }
+
+        /// <summary>
+        /// 入职时间
+        /// </summary>
+        public DateTime UserEntryDate
+        {
+            get { return _userEntryDate; }
+            set { _userEntryDate = value; }
         }
 
         #endregion

@@ -165,19 +165,20 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[6] = DateTime.Parse(e.Values[6].ToString()).ToString("yyyy-MM-dd HH:mm");
-                switch (e.Values[7].ToString())
+                e.Values[4] = DateTime.Parse(e.Values[4].ToString()).ToString("yyyy-MM-dd");
+                e.Values[7] = DateTime.Parse(e.Values[7].ToString()).ToString("yyyy-MM-dd HH:mm");
+                switch (e.Values[8].ToString())
                 {
                     case "0":
-                        e.Values[7] = "待审批";
-                        e.Values[8] = "";
+                        e.Values[8] = "待审批";
                         e.Values[9] = "";
+                        e.Values[10] = "";
                         break;
                     case "1":
-                        e.Values[7] = "已审批";
-                        e.Values[8] = e.Values[8].ToString() == "0" ? "同意" : "不同意";
-                        e.Values[9] = DateTime.Parse(e.Values[9].ToString()).ToString("yyyy-MM-dd HH:mm");
-                        e.Values[10] = "<span class=\"gray\">审批</span>";
+                        e.Values[8] = "已审批";
+                        e.Values[9] = e.Values[9].ToString() == "0" ? "同意" : "不同意";
+                        e.Values[10] = DateTime.Parse(e.Values[10].ToString()).ToString("yyyy-MM-dd HH:mm");
+                        e.Values[11] = "<span class=\"gray\">审批</span>";
                         break;
                     default:
                         break;
