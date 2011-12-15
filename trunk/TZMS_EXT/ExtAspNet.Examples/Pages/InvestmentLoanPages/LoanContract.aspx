@@ -47,11 +47,11 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbBorrowerNameA" Enabled="false" Label="借款人" ShowRedStar="true"
+                                            <ext:TextBox ID="tbBorrowerNameA" Enabled="false" Label="借款人(甲方)" ShowRedStar="true"
                                                 Required="true" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
                                                 Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
-                                            <ext:TextBox ID="tbBorrowerPhone" Enabled="false" Label="联系电话" runat="server" MaxLength="20"
+                                            <ext:TextBox ID="tbBorrowerPhone" Enabled="false" Label="借款联系电话" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个字符！" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
                                                 RegexMessage="电话号码格式不正确!">
                                             </ext:TextBox>
@@ -64,7 +64,7 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbPayerBName" Enabled="false" Label="付款人" ShowRedStar="true" Required="true"
+                                            <ext:TextBox ID="tbPayerBName" Enabled="false" Label="付款人(乙方)" ShowRedStar="true" Required="true"
                                                 runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                                 RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
@@ -81,7 +81,7 @@
                                                 Required="true" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                                 RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
-                                            <ext:TextBox ID="tbGuarantorPhone" Enabled="false" Label="联系电话" runat="server" MaxLength="20"
+                                            <ext:TextBox ID="tbGuarantorPhone" Enabled="false" Label="担保人联系电话" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个字符！" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
                                                 RegexMessage="电话号码格式不正确!">
                                             </ext:TextBox>
