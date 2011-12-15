@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server"  AutoSizePanelID="pelMain"/>
+    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Height="317px" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
@@ -19,7 +19,7 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        Icon="Disk" Text="提交"  ConfirmText="您确定提交该表单吗?"/>
+                        Icon="Disk" Text="提交" ConfirmText="您确定提交该表单吗?" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -37,7 +37,7 @@
                             </ext:DropDownList>
                         </Items>
                     </ext:FormRow>
-                      <ext:FormRow ID="FormRow1" runat="server" ColumnWidths="50% 50%">
+       <%--             <ext:FormRow ID="FormRow1" runat="server" ColumnWidths="50% 50%">
                         <Items>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNextBA" runat="server"
                                 Label="下一步">
@@ -46,7 +46,7 @@
                                 RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
                             </ext:DropDownList>
                         </Items>
-                    </ext:FormRow>
+                    </ext:FormRow>--%>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox ID="tbCustomerName" Label="客户名称" ShowRedStar="true" Required="true"
@@ -93,9 +93,26 @@
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>
+                </Rows>
+            </ext:Form>
+            <ext:Form EnableBackgroundColor="true" EnableCollapse="true" Title="会计核算" BodyPadding="5px"
+                ID="Form2" runat="server">
+                <Rows>
+                    <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="60% 50%">
+                        <Items>
+                            <%--            <ext:DropDownList Required="true" ShowRedStar="true" ID="DropDownList1" runat="server"
+                                Label="下一步">
+                            </ext:DropDownList>--%>
+                            <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUserBA" runat="server"
+                                RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="核算会计">
+                            </ext:DropDownList>
+                            <ext:Label runat="server">
+                            </ext:Label>
+                        </Items>
+                    </ext:FormRow>
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
-                            <ext:TextArea ID="tbRemark" Label="备注" runat="server" MaxLength="300" MaxLengthMessage="最多只能输入300个字符！">
+                            <ext:TextArea ID="tbRemark" Label="备注(需提供材料)" runat="server" MaxLength="300" MaxLengthMessage="最多只能输入300个字符！">
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>

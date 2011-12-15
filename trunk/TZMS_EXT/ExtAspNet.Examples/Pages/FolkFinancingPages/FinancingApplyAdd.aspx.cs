@@ -119,8 +119,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
             ddlstNext.SelectedIndex = 1;
 
-            ddlstNextBA.Items.Add(new ExtAspNet.ListItem("会计核算", "0"));
-            ddlstNextBA.SelectedIndex = 0;
+            //ddlstNextBA.Items.Add(new ExtAspNet.ListItem("会计核算", "0"));
+            //ddlstNextBA.SelectedIndex = 0;
 
         }
 

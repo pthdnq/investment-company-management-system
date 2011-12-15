@@ -157,6 +157,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextBox tbPayerBName;
         
         /// <summary>
+        /// ddlLoanType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DropDownList ddlLoanType;
+        
+        /// <summary>
         /// tbGuarantor control.
         /// </summary>
         /// <remarks>
@@ -182,6 +191,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextBox tbLoanAmount;
+        
+        /// <summary>
+        /// tbLoanTimeLimit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbLoanTimeLimit;
         
         /// <summary>
         /// tbRateOfReturn control.
