@@ -61,7 +61,7 @@
                                                     <ext:DropDownList Enabled="false" ID="drpSigner" runat="server" RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！"
                                                         Label="签单人">
                                                     </ext:DropDownList>
-                                                    <ext:DatePicker ID="dpkSign" Enabled="false" Label="签单时间" runat="server">
+                                                    <ext:DatePicker ID="dpkSign" Enabled="false" Label="合同签订时间" runat="server">
                                                     </ext:DatePicker>
                                                 </Items>
                                             </ext:FormRow>

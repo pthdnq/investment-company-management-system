@@ -70,6 +70,8 @@
     <Compile Include="FinancingFeePaymentHistoryCtrl.cs" />
     <Compile Include="FolkFinancingCtrl.cs" />
     <Compile Include="FolkFinancingHistoryCtrl.cs" />
+    <Compile Include="ImprestApplyCtrl.cs" />
+    <Compile Include="ImprestApproveCtrl.cs" />
     <Compile Include="InvestmentLoanCtrl.cs" />
     <Compile Include="InvestmentLoanHistoryCtrl.cs" />
     <Compile Include="InvestmentProjectCtrl.cs" />

@@ -101,12 +101,14 @@ namespace TZMS.Web
             ddlstNext.Items.Add(new ExtAspNet.ListItem("业务转交", "1"));
             ddlstNext.Items.Add(new ExtAspNet.ListItem("核名", "2"));
             ddlstNext.Items.Add(new ExtAspNet.ListItem("刻章", "3"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("开户", "4"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("验资报告", "5"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("营业执照", "6"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("办代码证", "7"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("办国地税", "8"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("转基本户", "9"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("各类许可证", "4"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("开户", "5"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("验资报告", "6"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("营业执照", "7"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("办代码证", "8"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("办国地税", "9"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("转基本户", "10"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("增资(开户、验资报告、营业执照)", "11"));
             ddlstNext.SelectedIndex = 0;
 
             dpkSign.Text = DateTime.Now.ToString("yyyy-MM-dd");

@@ -162,22 +162,34 @@ namespace TZMS.Web
                         e.Values[4] = "刻章";
                         break;
                     case "4":
-                        e.Values[4] = "开户";
+                        e.Values[4] = "各类许可证";
                         break;
                     case "5":
-                        e.Values[4] = "验资报告";
+                        e.Values[4] = "开户";
                         break;
                     case "6":
-                        e.Values[4] = "营业执照";
+                        e.Values[4] = "验资报告";
                         break;
                     case "7":
-                        e.Values[4] = "办代码证";
+                        e.Values[4] = "营业执照";
                         break;
                     case "8":
-                        e.Values[4] = "办国地税";
+                        e.Values[4] = "办代码证";
                         break;
                     case "9":
+                        e.Values[4] = "办国地税";
+                        break;
+                    case "10":
                         e.Values[4] = "转基本户";
+                        break;
+                    case "11":
+                        e.Values[4] = "增资(开户、验资报告、营业执照)";
+                        break;
+                    case "12":
+                        e.Values[4] = "完成";
+                        break;
+                    case "13":
+                        e.Values[4] = "异常终止";
                         break;
                     default:
                         break;
