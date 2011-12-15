@@ -41,5 +41,10 @@ namespace com.TZMS.Model
         /// 数据库空int
         /// </summary>
         public const int DBEmptyInt = -1;
+
+        /// <summary>
+        /// 数据库空int
+        /// </summary>
+        public const int DBEmptyTinyInt = 0;
     }
 }

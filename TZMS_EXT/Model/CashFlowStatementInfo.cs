@@ -34,26 +34,26 @@ namespace com.TZMS.Model
 		
 		#region Field
 		private Guid _objectId;
-        private string _projectName;
-		private DateTime _dateFor;
-		private Decimal _amount;
-        private Decimal _remainingAmount;
-		private string _flowDirection;
-		private string _flowType;
-		private string _receivables;
-		private string _payment;
-		private int _isAccountingAudit;
-		private string _auditOpinion;
-		private string _accountingName;
-		private string _accountingAccount;
+        private string _projectName = DBEmptyString;
+		private DateTime _dateFor = DBEmptyDate;
+        private Decimal _amount = DBEmptyDecimal;
+        private Decimal _remainingAmount = DBEmptyDecimal;
+        private string _flowDirection = DBEmptyString;
+        private string _flowType = DBEmptyString;
+        private string _receivables = DBEmptyString;
+        private string _payment = DBEmptyString;
+        private int _isAccountingAudit = DBEmptyTinyInt;
+        private string _auditOpinion = DBEmptyString;
+        private string _accountingName = DBEmptyString;
+        private string _accountingAccount = DBEmptyString;
 		private Guid _createrId;
-		private string _createrName;
-        private DateTime _cteateTime ;
-		private int _status;
-		private string _biz;
-		private string _summary;
-		private string _matter;
-		private string _remark;
+		private string _createrName =DBEmptyString;
+        private DateTime _cteateTime = DBEmptyDate;
+        private int _status = DBEmptyTinyInt;
+        private string _biz = DBEmptyString;
+        private string _summary = DBEmptyString;
+        private string _matter = DBEmptyString;
+        private string _remark = DBEmptyString;
 		#endregion 
 
 		#region Property
@@ -248,7 +248,7 @@ namespace com.TZMS.Model
 
 		#endregion
 
-        public DateTime DBEmptyDate { get; set; }
+     
     }
 }
 
