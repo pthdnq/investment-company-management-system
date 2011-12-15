@@ -16,6 +16,8 @@ namespace com.TZMS.Business
 
         }
 
+        #region 业务
+
         /// <summary>
         /// 添加一条新业务记录（业务单和流程）
         /// </summary>
@@ -125,5 +127,119 @@ namespace com.TZMS.Business
             YeWuGudingDoingCtrl yewuCtrl = new YeWuGudingDoingCtrl();
             yewuCtrl.UpDate(boName, info);
         }
+
+        #endregion
+
+        #region 备用金
+
+        /// <summary>
+        /// 添加新申请单
+        /// </summary>
+        /// <param name="info">申请单实体</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>操作结果</returns>
+        public int AddNewImprestApply(ImprestApplyInfo info, string boName = BoName)
+        {
+            ImprestApplyCtrl _ctrl = new ImprestApplyCtrl();
+            return _ctrl.Insert(boName, info);
+        }
+
+        /// <summary>
+        /// 更新申请单
+        /// </summary>
+        /// <param name="info">申请单实例</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>操作结果</returns>
+        public int UpdateImprestApply(ImprestApplyInfo info, string boName = BoName)
+        {
+            ImprestApplyCtrl _ctrl = new ImprestApplyCtrl();
+            return _ctrl.UpDate(boName, info);
+        }
+
+        /// <summary>
+        /// 根据ID获取申请单实例
+        /// </summary>
+        /// <param name="objectID">ID</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>申请单实例</returns>
+        public ImprestApplyInfo GetImprestApplyByObjectID(string objectID, string boName = BoName)
+        {
+            ImprestApplyCtrl _ctrl = new ImprestApplyCtrl();
+            List<ImprestApplyInfo> lstApplys = _ctrl.SelectAsList(boName, "ObjectID='" + objectID + "'");
+            if (lstApplys.Count == 0)
+            {
+                return null;
+            }
+
+            return lstApplys[0];
+        }
+
+        /// <summary>
+        /// 根据查询条件获取申请单实例集合
+        /// </summary>
+        /// <param name="condition">查询条件</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>申请单实例集合</returns>
+        public List<ImprestApplyInfo> GetImprestApplyByCondition(string condition, string boName = BoName)
+        {
+            ImprestApplyCtrl _ctrl = new ImprestApplyCtrl();
+            return _ctrl.SelectAsList(boName, condition);
+        }
+
+        /// <summary>
+        /// 添加新申请单流程
+        /// </summary>
+        /// <param name="info">申请单流程实体</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>操作结果</returns>
+        public int AddNewImprestApprove(ImprestApproveInfo info, string boName = BoName)
+        {
+            ImprestApproveCtrl _ctrl = new ImprestApproveCtrl();
+            return _ctrl.Insert(boName, info);
+        }
+
+        /// <summary>
+        /// 更新申请单流程
+        /// </summary>
+        /// <param name="info">申请单流程实例</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>操作结果</returns>
+        public int UpdateImprestApprove(ImprestApproveInfo info, string boName = BoName)
+        {
+            ImprestApproveCtrl _ctrl = new ImprestApproveCtrl();
+            return _ctrl.UpDate(boName, info);
+        }
+
+        /// <summary>
+        /// 根据ID获取申请单流程实例
+        /// </summary>
+        /// <param name="objectID">ID</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>申请单流程实例</returns>
+        public ImprestApproveInfo GetImprestApproveByObjectID(string objectID, string boName = BoName)
+        {
+            ImprestApproveCtrl _ctrl = new ImprestApproveCtrl();
+            List<ImprestApproveInfo> lstApproves = _ctrl.SelectAsList(boName, "ObjectID='" + objectID + "'");
+            if (lstApproves.Count == 0)
+            {
+                return null;
+            }
+
+            return lstApproves[0];
+        }
+
+        /// <summary>
+        /// 根据查询条件获取申请单流程实例集合
+        /// </summary>
+        /// <param name="condition">查询条件</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>申请单流程实例集合</returns>
+        public List<ImprestApproveInfo> GetImprestApproveByCondition(string condition, string boName = BoName)
+        {
+            ImprestApproveCtrl _ctrl = new ImprestApproveCtrl();
+            return _ctrl.SelectAsList(boName, condition);
+        }
+
+        #endregion
     }
 }

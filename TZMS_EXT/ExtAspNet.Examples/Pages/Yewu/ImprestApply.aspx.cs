@@ -13,5 +13,43 @@ namespace TZMS.Web
         {
 
         }
+
+        #region 私有方法
+
+        #endregion
+
+        #region 页面事件
+
+        /// <summary>
+        /// 关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 提交事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 审批历史数据行绑定事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridApproveHistory_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
+        {
+
+        }
+
+        #endregion
     }
 }
