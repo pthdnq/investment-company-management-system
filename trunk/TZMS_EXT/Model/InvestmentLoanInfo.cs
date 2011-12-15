@@ -68,6 +68,8 @@ namespace com.TZMS.Model
         private string _adulters = DBEmptyString;
         private string _baadulters = DBEmptyString;
         private int _bastatus = DBEmptyInt;
+        private string _loanTimeLimit = DBEmptyString;
+        private string _loanType = DBEmptyString;
         #endregion
 
         #region Property
@@ -384,6 +386,18 @@ namespace com.TZMS.Model
         {
             get { return _bastatus; }
             set { _bastatus = value; }
+        }
+
+        public string LoanTimeLimit
+        {
+            get { return _loanTimeLimit; }
+            set { _loanTimeLimit = value; }
+        }
+
+        public string LoanType
+        {
+            get { return _loanType; }
+            set { _loanType = value; }
         }
         #endregion
     }

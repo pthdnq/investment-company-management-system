@@ -17,57 +17,57 @@ namespace com.TZMS.Model
     /// <summary>
     /// CashFlowSetter???
     /// </summary>
-	[Serializable]
+    [Serializable]
     public class CashFlowSetterInfo : ACommonInfo
-	{	 
-		
-		#region Constructor
-		
+    {
+
+        #region Constructor
+
         /// <summary>
         /// Constructor
         /// </summary>
         public CashFlowSetterInfo()
         {
-			//todo
+            //todo
         }
-        #endregion 
-		
-		#region Field
-		private Guid _objectId;
-		private Decimal _originalAmount;
-		private int _status;
-		#endregion 
+        #endregion
 
-		#region Property
-		/// <summary>
+        #region Field
+        private Guid _objectId;
+        private Decimal _originalAmount = DBEmptyDecimal;
+        private int _status = DBEmptyTinyInt;
+        #endregion
+
+        #region Property
+        /// <summary>
         /// ObjectID 
         /// </summary> 
-		public Guid ObjectId
-		{
-			get { return _objectId; }
-			set { _objectId = value; }
-		}
+        public Guid ObjectId
+        {
+            get { return _objectId; }
+            set { _objectId = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// OriginalAmount 
         /// </summary> 
-		public Decimal OriginalAmount
-		{
-			get { return _originalAmount; }
-			set { _originalAmount = value; }
-		}
+        public Decimal OriginalAmount
+        {
+            get { return _originalAmount; }
+            set { _originalAmount = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// Status 
         /// </summary> 
-		public int Status
-		{
-			get { return _status; }
-			set { _status = value; }
-		}
+        public int Status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }
 
 
