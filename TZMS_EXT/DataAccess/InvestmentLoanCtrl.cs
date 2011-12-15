@@ -9,11 +9,11 @@
 //---------------------------------------------------------------------------------------------------- 
 //----------------------------------------------------------------------------------------------------
 using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
-using Com.iFlytek.DatabaseAccess.DAL; 
+using Com.iFlytek.DatabaseAccess.DAL;
 using Com.iFlytek.BaseService;
 using Com.iFlytek.Utility;
 using com.TZMS.Model;
@@ -25,33 +25,33 @@ namespace com.TZMS.DataAccess
     /// programmer:
     /// </summary>
     public class InvestmentLoanCtrl
-    { 
+    {
         #region ????
-		 
-		/// <summary>
+
+        /// <summary>
         /// InvestmentLoanCtrl??????
         /// </summary>
         public InvestmentLoanCtrl()
         {
             //ToDo
         }
-		
-		#endregion
-        
-		#region ???????
-		
-		/// <summary>
+
+        #endregion
+
+        #region ???????
+
+        /// <summary>
         /// ??dbo.InvestmentLoan????
         /// </summary>
         /// <param name="boName">???????key??</param>
         /// <param name="InvestmentLoanInfo">InvestmentLoanInfo??</param>
-		/// <returns>????,0:??,1:??</returns>
+        /// <returns>????,0:??,1:??</returns>
         public int Insert(string boName, InvestmentLoanInfo InvestmentLoanInfo)
         {
             try
             {
-				//??????
-                string strsql = "InvestmentLoan_Add"; 
+                //??????
+                string strsql = "InvestmentLoan_Add";
                 SqlParameter[] sqlparam =
                 {
 				new SqlParameter("@ObjectId",DbType.Guid),
@@ -89,44 +89,48 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@SubmitBATime",DbType.DateTime),
 				new SqlParameter("@Adulters",DbType.String),
 				new SqlParameter("@BAAdulters",DbType.String),
+                	new SqlParameter("@LoanTimeLimit",DbType.String),
+                    new SqlParameter("@LoanType",DbType.String),
 				};
-				
-				int i=0;
-				sqlparam[i++].Value = InvestmentLoanInfo.ObjectId; 
-				sqlparam[i++].Value = InvestmentLoanInfo.ProjectName; 
-				sqlparam[i++].Value = InvestmentLoanInfo.ProjectOverview; 
-				sqlparam[i++].Value = InvestmentLoanInfo.BorrowerNameA; 
-				sqlparam[i++].Value = InvestmentLoanInfo.BorrowerAId; 
-				sqlparam[i++].Value = InvestmentLoanInfo.PayerBName; 
-				sqlparam[i++].Value = InvestmentLoanInfo.BorrowerPhone; 
-				sqlparam[i++].Value = InvestmentLoanInfo.LoanAmount; 
-				sqlparam[i++].Value = InvestmentLoanInfo.LoanDate; 
-				sqlparam[i++].Value = InvestmentLoanInfo.Collateral; 
-				sqlparam[i++].Value = InvestmentLoanInfo.Guarantor; 
-				sqlparam[i++].Value = InvestmentLoanInfo.GuarantorPhone; 
-				sqlparam[i++].Value = InvestmentLoanInfo.RateOfReturn; 
-				sqlparam[i++].Value = InvestmentLoanInfo.DueDateForPay; 
-				sqlparam[i++].Value = InvestmentLoanInfo.Remark; 
-				sqlparam[i++].Value = InvestmentLoanInfo.Status; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterId; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterAccount; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterName; 
-				sqlparam[i++].Value = InvestmentLoanInfo.CreateTime; 
-				sqlparam[i++].Value = InvestmentLoanInfo.CreaterId; 
-				sqlparam[i++].Value = InvestmentLoanInfo.CreaterName; 
-				sqlparam[i++].Value = InvestmentLoanInfo.CreaterAccount; 
-				sqlparam[i++].Value = InvestmentLoanInfo.SubmitTime; 
-				sqlparam[i++].Value = InvestmentLoanInfo.AuditOpinion; 
-				sqlparam[i++].Value = InvestmentLoanInfo.AccountingRemark; 
-				sqlparam[i++].Value = InvestmentLoanInfo.DueDateForReceivables; 
-				sqlparam[i++].Value = InvestmentLoanInfo.ReceivablesRemindInfo; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterId; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterAccount; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterName; 
-				sqlparam[i++].Value = InvestmentLoanInfo.BAStatus; 
-				sqlparam[i++].Value = InvestmentLoanInfo.SubmitBATime; 
-				sqlparam[i++].Value = InvestmentLoanInfo.Adulters; 
-				sqlparam[i++].Value = InvestmentLoanInfo.BAAdulters; 
+
+                int i = 0;
+                sqlparam[i++].Value = InvestmentLoanInfo.ObjectId;
+                sqlparam[i++].Value = InvestmentLoanInfo.ProjectName;
+                sqlparam[i++].Value = InvestmentLoanInfo.ProjectOverview;
+                sqlparam[i++].Value = InvestmentLoanInfo.BorrowerNameA;
+                sqlparam[i++].Value = InvestmentLoanInfo.BorrowerAId;
+                sqlparam[i++].Value = InvestmentLoanInfo.PayerBName;
+                sqlparam[i++].Value = InvestmentLoanInfo.BorrowerPhone;
+                sqlparam[i++].Value = InvestmentLoanInfo.LoanAmount;
+                sqlparam[i++].Value = InvestmentLoanInfo.LoanDate;
+                sqlparam[i++].Value = InvestmentLoanInfo.Collateral;
+                sqlparam[i++].Value = InvestmentLoanInfo.Guarantor;
+                sqlparam[i++].Value = InvestmentLoanInfo.GuarantorPhone;
+                sqlparam[i++].Value = InvestmentLoanInfo.RateOfReturn;
+                sqlparam[i++].Value = InvestmentLoanInfo.DueDateForPay;
+                sqlparam[i++].Value = InvestmentLoanInfo.Remark;
+                sqlparam[i++].Value = InvestmentLoanInfo.Status;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterId;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterAccount;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterName;
+                sqlparam[i++].Value = InvestmentLoanInfo.CreateTime;
+                sqlparam[i++].Value = InvestmentLoanInfo.CreaterId;
+                sqlparam[i++].Value = InvestmentLoanInfo.CreaterName;
+                sqlparam[i++].Value = InvestmentLoanInfo.CreaterAccount;
+                sqlparam[i++].Value = InvestmentLoanInfo.SubmitTime;
+                sqlparam[i++].Value = InvestmentLoanInfo.AuditOpinion;
+                sqlparam[i++].Value = InvestmentLoanInfo.AccountingRemark;
+                sqlparam[i++].Value = InvestmentLoanInfo.DueDateForReceivables;
+                sqlparam[i++].Value = InvestmentLoanInfo.ReceivablesRemindInfo;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterId;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterAccount;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterName;
+                sqlparam[i++].Value = InvestmentLoanInfo.BAStatus;
+                sqlparam[i++].Value = InvestmentLoanInfo.SubmitBATime;
+                sqlparam[i++].Value = InvestmentLoanInfo.Adulters;
+                sqlparam[i++].Value = InvestmentLoanInfo.BAAdulters;
+                sqlparam[i++].Value = InvestmentLoanInfo.LoanTimeLimit;
+                sqlparam[i++].Value = InvestmentLoanInfo.LoanType;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -138,8 +142,8 @@ namespace com.TZMS.DataAccess
                 throw e;
             }
         }
-        
-		/// <summary>
+
+        /// <summary>
         /// dbo.InvestmentLoan????(????ID ObjectID)
         /// </summary>
         /// <param name="boName">???????key??</param>
@@ -154,8 +158,8 @@ namespace com.TZMS.DataAccess
 				{
 					new SqlParameter ( "@ObjectID", SqlDbType.NVarChar )
 				};
-                int i = 0; 
-                sqlparam[i++].Value =  objectID ; 
+                int i = 0;
+                sqlparam[i++].Value = objectID;
 
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -166,8 +170,8 @@ namespace com.TZMS.DataAccess
                 throw e;
             }
         }
-		
-		/// <summary>
+
+        /// <summary>
         /// InvestmentLoan ????
         /// </summary>
         /// <param name="boName">???????key??</param>
@@ -216,44 +220,49 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@SubmitBATime",DbType.DateTime),
 				new SqlParameter("@Adulters",DbType.String),
 				new SqlParameter("@BAAdulters",DbType.String),
+                	new SqlParameter("@LoanTimeLimit",DbType.String),
+                    	new SqlParameter("@LoanType",DbType.String),
+                    
                 };
 
                 int i = 0;
-				sqlparam[i++].Value = InvestmentLoanInfo.ObjectId; 
-				sqlparam[i++].Value = InvestmentLoanInfo.ProjectName; 
-				sqlparam[i++].Value = InvestmentLoanInfo.ProjectOverview; 
-				sqlparam[i++].Value = InvestmentLoanInfo.BorrowerNameA; 
-				sqlparam[i++].Value = InvestmentLoanInfo.BorrowerAId; 
-				sqlparam[i++].Value = InvestmentLoanInfo.PayerBName; 
-				sqlparam[i++].Value = InvestmentLoanInfo.BorrowerPhone; 
-				sqlparam[i++].Value = InvestmentLoanInfo.LoanAmount; 
-				sqlparam[i++].Value = InvestmentLoanInfo.LoanDate; 
-				sqlparam[i++].Value = InvestmentLoanInfo.Collateral; 
-				sqlparam[i++].Value = InvestmentLoanInfo.Guarantor; 
-				sqlparam[i++].Value = InvestmentLoanInfo.GuarantorPhone; 
-				sqlparam[i++].Value = InvestmentLoanInfo.RateOfReturn; 
-				sqlparam[i++].Value = InvestmentLoanInfo.DueDateForPay; 
-				sqlparam[i++].Value = InvestmentLoanInfo.Remark; 
-				sqlparam[i++].Value = InvestmentLoanInfo.Status; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterId; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterAccount; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterName; 
-				sqlparam[i++].Value = InvestmentLoanInfo.CreateTime; 
-				sqlparam[i++].Value = InvestmentLoanInfo.CreaterId; 
-				sqlparam[i++].Value = InvestmentLoanInfo.CreaterName; 
-				sqlparam[i++].Value = InvestmentLoanInfo.CreaterAccount; 
-				sqlparam[i++].Value = InvestmentLoanInfo.SubmitTime; 
-				sqlparam[i++].Value = InvestmentLoanInfo.AuditOpinion; 
-				sqlparam[i++].Value = InvestmentLoanInfo.AccountingRemark; 
-				sqlparam[i++].Value = InvestmentLoanInfo.DueDateForReceivables; 
-				sqlparam[i++].Value = InvestmentLoanInfo.ReceivablesRemindInfo; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterId; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterAccount; 
-				sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterName; 
-				sqlparam[i++].Value = InvestmentLoanInfo.BAStatus; 
-				sqlparam[i++].Value = InvestmentLoanInfo.SubmitBATime; 
-				sqlparam[i++].Value = InvestmentLoanInfo.Adulters; 
-				sqlparam[i++].Value = InvestmentLoanInfo.BAAdulters; 
+                sqlparam[i++].Value = InvestmentLoanInfo.ObjectId;
+                sqlparam[i++].Value = InvestmentLoanInfo.ProjectName;
+                sqlparam[i++].Value = InvestmentLoanInfo.ProjectOverview;
+                sqlparam[i++].Value = InvestmentLoanInfo.BorrowerNameA;
+                sqlparam[i++].Value = InvestmentLoanInfo.BorrowerAId;
+                sqlparam[i++].Value = InvestmentLoanInfo.PayerBName;
+                sqlparam[i++].Value = InvestmentLoanInfo.BorrowerPhone;
+                sqlparam[i++].Value = InvestmentLoanInfo.LoanAmount;
+                sqlparam[i++].Value = InvestmentLoanInfo.LoanDate;
+                sqlparam[i++].Value = InvestmentLoanInfo.Collateral;
+                sqlparam[i++].Value = InvestmentLoanInfo.Guarantor;
+                sqlparam[i++].Value = InvestmentLoanInfo.GuarantorPhone;
+                sqlparam[i++].Value = InvestmentLoanInfo.RateOfReturn;
+                sqlparam[i++].Value = InvestmentLoanInfo.DueDateForPay;
+                sqlparam[i++].Value = InvestmentLoanInfo.Remark;
+                sqlparam[i++].Value = InvestmentLoanInfo.Status;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterId;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterAccount;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextOperaterName;
+                sqlparam[i++].Value = InvestmentLoanInfo.CreateTime;
+                sqlparam[i++].Value = InvestmentLoanInfo.CreaterId;
+                sqlparam[i++].Value = InvestmentLoanInfo.CreaterName;
+                sqlparam[i++].Value = InvestmentLoanInfo.CreaterAccount;
+                sqlparam[i++].Value = InvestmentLoanInfo.SubmitTime;
+                sqlparam[i++].Value = InvestmentLoanInfo.AuditOpinion;
+                sqlparam[i++].Value = InvestmentLoanInfo.AccountingRemark;
+                sqlparam[i++].Value = InvestmentLoanInfo.DueDateForReceivables;
+                sqlparam[i++].Value = InvestmentLoanInfo.ReceivablesRemindInfo;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterId;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterAccount;
+                sqlparam[i++].Value = InvestmentLoanInfo.NextBAOperaterName;
+                sqlparam[i++].Value = InvestmentLoanInfo.BAStatus;
+                sqlparam[i++].Value = InvestmentLoanInfo.SubmitBATime;
+                sqlparam[i++].Value = InvestmentLoanInfo.Adulters;
+                sqlparam[i++].Value = InvestmentLoanInfo.BAAdulters;
+                sqlparam[i++].Value = InvestmentLoanInfo.LoanTimeLimit;
+                sqlparam[i++].Value = InvestmentLoanInfo.LoanType;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -265,26 +274,26 @@ namespace com.TZMS.DataAccess
                 throw e;
             }
         }
-		
-		/// <summary>
+
+        /// <summary>
         /// InvestmentLoan ??,??Datatable
         /// </summary>
         /// <param name="boName">???????key??</param>
         /// <param name="selectCondition">????</param>
         /// <returns>DataTable</returns>
-        public DataTable Select(string boName,string condition)
+        public DataTable Select(string boName, string condition)
         {
             try
             {
-				//??????
+                //??????
                 string strsql = "InvestmentLoan_Search";
-				SqlParameter[] sqlparam =
+                SqlParameter[] sqlparam =
                 {
 					new SqlParameter("@Condition",SqlDbType.NVarChar), 
                 };
 
                 int i = 0;
-				sqlparam[i++].Value =condition;
+                sqlparam[i++].Value = condition;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 DataSet ds = (DataSet)dbaccess.ExecuteDataset(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -297,8 +306,8 @@ namespace com.TZMS.DataAccess
                 throw e;
             }
         }
-			
-		 ///<summary>
+
+        ///<summary>
         ///InvestmentLoan ??,??List
         ///</summary>
         ///<param name="boName">???????key??</param>
@@ -329,7 +338,7 @@ namespace com.TZMS.DataAccess
                 throw e;
             }
         }
-		
+
         /// <summary>
         /// DataRow To Object
         /// </summary>
@@ -337,150 +346,153 @@ namespace com.TZMS.DataAccess
         /// <returns>InvestmentLoanInfo</returns>
         internal InvestmentLoanInfo InvestmentLoanInfoRowToInfo(DataRow InvestmentLoanInfoInfoDataRow)
         {
-			InvestmentLoanInfo InvestmentLoanInfoInfo=new InvestmentLoanInfo();
-			if(InvestmentLoanInfoInfoDataRow["ObjectId"]!=null)
-			{
-				InvestmentLoanInfoInfo.ObjectId=new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"ObjectId"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["ProjectName"]!=null)
-			{
-				InvestmentLoanInfoInfo.ProjectName=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"ProjectName");
-			}
-			if(InvestmentLoanInfoInfoDataRow["ProjectOverview"]!=null)
-			{
-				InvestmentLoanInfoInfo.ProjectOverview=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"ProjectOverview");
-			}
-			if(InvestmentLoanInfoInfoDataRow["BorrowerNameA"]!=null)
-			{
-				InvestmentLoanInfoInfo.BorrowerNameA=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"BorrowerNameA");
-			}
-			if(InvestmentLoanInfoInfoDataRow["BorrowerAId"]!=null)
-			{
-				InvestmentLoanInfoInfo.BorrowerAId=new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"BorrowerAId"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["PayerBName"]!=null)
-			{
-				InvestmentLoanInfoInfo.PayerBName=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"PayerBName");
-			}
-			if(InvestmentLoanInfoInfoDataRow["BorrowerPhone"]!=null)
-			{
-				InvestmentLoanInfoInfo.BorrowerPhone=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"BorrowerPhone");
-			}
-			if(InvestmentLoanInfoInfoDataRow["LoanAmount"]!=null)
-			{
-				InvestmentLoanInfoInfo.LoanAmount=Decimal.Parse( DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"LoanAmount"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["LoanDate"]!=null)
-			{
-				InvestmentLoanInfoInfo.LoanDate=DateTime.Parse( DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"LoanDate"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["Collateral"]!=null)
-			{
-				InvestmentLoanInfoInfo.Collateral=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"Collateral");
-			}
-			if(InvestmentLoanInfoInfoDataRow["Guarantor"]!=null)
-			{
-				InvestmentLoanInfoInfo.Guarantor=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"Guarantor");
-			}
-			if(InvestmentLoanInfoInfoDataRow["GuarantorPhone"]!=null)
-			{
-				InvestmentLoanInfoInfo.GuarantorPhone=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"GuarantorPhone");
-			}
-			if(InvestmentLoanInfoInfoDataRow["RateOfReturn"]!=null)
-			{
-				InvestmentLoanInfoInfo.RateOfReturn=char.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"RateOfReturn"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["DueDateForPay"]!=null)
-			{
-				InvestmentLoanInfoInfo.DueDateForPay= DateTime.Parse( DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"DueDateForPay"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["Remark"]!=null)
-			{
-				InvestmentLoanInfoInfo.Remark=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"Remark");
-			}
-			if(InvestmentLoanInfoInfoDataRow["Status"]!=null)
-			{
-				InvestmentLoanInfoInfo.Status=int.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"Status"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["NextOperaterId"]!=null)
-			{
-				InvestmentLoanInfoInfo.NextOperaterId=new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"NextOperaterId"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["NextOperaterAccount"]!=null)
-			{
-				InvestmentLoanInfoInfo.NextOperaterAccount=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"NextOperaterAccount");
-			}
-			if(InvestmentLoanInfoInfoDataRow["NextOperaterName"]!=null)
-			{
-				InvestmentLoanInfoInfo.NextOperaterName=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"NextOperaterName");
-			}
-			if(InvestmentLoanInfoInfoDataRow["CreateTime"]!=null)
-			{
-				InvestmentLoanInfoInfo.CreateTime=DateTime.Parse( DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"CreateTime"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["CreaterId"]!=null)
-			{
-				InvestmentLoanInfoInfo.CreaterId=new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"CreaterId"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["CreaterName"]!=null)
-			{
-				InvestmentLoanInfoInfo.CreaterName=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"CreaterName");
-			}
-			if(InvestmentLoanInfoInfoDataRow["CreaterAccount"]!=null)
-			{
-				InvestmentLoanInfoInfo.CreaterAccount=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"CreaterAccount");
-			}
-			if(InvestmentLoanInfoInfoDataRow["SubmitTime"]!=null)
-			{
-				InvestmentLoanInfoInfo.SubmitTime=DateTime.Parse( DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"SubmitTime"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["AuditOpinion"]!=null)
-			{
-				InvestmentLoanInfoInfo.AuditOpinion=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"AuditOpinion");
-			}
-			if(InvestmentLoanInfoInfoDataRow["AccountingRemark"]!=null)
-			{
-				InvestmentLoanInfoInfo.AccountingRemark=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"AccountingRemark");
-			}
-			if(InvestmentLoanInfoInfoDataRow["DueDateForReceivables"]!=null)
-			{
-				InvestmentLoanInfoInfo.DueDateForReceivables=int.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"DueDateForReceivables"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["ReceivablesRemindInfo"]!=null)
-			{
-				InvestmentLoanInfoInfo.ReceivablesRemindInfo=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"ReceivablesRemindInfo");
-			}
-			if(InvestmentLoanInfoInfoDataRow["NextBAOperaterId"]!=null)
-			{
-				InvestmentLoanInfoInfo.NextBAOperaterId=new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"NextBAOperaterId"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["NextBAOperaterAccount"]!=null)
-			{
-				InvestmentLoanInfoInfo.NextBAOperaterAccount=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"NextBAOperaterAccount");
-			}
-			if(InvestmentLoanInfoInfoDataRow["NextBAOperaterName"]!=null)
-			{
-				InvestmentLoanInfoInfo.NextBAOperaterName=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"NextBAOperaterName");
-			}
-			if(InvestmentLoanInfoInfoDataRow["BAStatus"]!=null)
-			{
-				InvestmentLoanInfoInfo.BAStatus=int.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"BAStatus"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["SubmitBATime"]!=null)
-			{
-				InvestmentLoanInfoInfo.SubmitBATime=DateTime.Parse( DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"SubmitBATime"));
-			}
-			if(InvestmentLoanInfoInfoDataRow["Adulters"]!=null)
-			{
-				InvestmentLoanInfoInfo.Adulters=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"Adulters");
-			}
-			if(InvestmentLoanInfoInfoDataRow["BAAdulters"]!=null)
-			{
-				InvestmentLoanInfoInfo.BAAdulters=DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow,"BAAdulters");
-			}
-
+            InvestmentLoanInfo InvestmentLoanInfoInfo = new InvestmentLoanInfo();
+            if (InvestmentLoanInfoInfoDataRow["ObjectId"] != null)
+            {
+                InvestmentLoanInfoInfo.ObjectId = new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "ObjectId"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["ProjectName"] != null)
+            {
+                InvestmentLoanInfoInfo.ProjectName = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "ProjectName");
+            }
+            if (InvestmentLoanInfoInfoDataRow["ProjectOverview"] != null)
+            {
+                InvestmentLoanInfoInfo.ProjectOverview = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "ProjectOverview");
+            }
+            if (InvestmentLoanInfoInfoDataRow["BorrowerNameA"] != null)
+            {
+                InvestmentLoanInfoInfo.BorrowerNameA = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "BorrowerNameA");
+            }
+            if (InvestmentLoanInfoInfoDataRow["BorrowerAId"] != null)
+            {
+                InvestmentLoanInfoInfo.BorrowerAId = new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "BorrowerAId"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["PayerBName"] != null)
+            {
+                InvestmentLoanInfoInfo.PayerBName = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "PayerBName");
+            }
+            if (InvestmentLoanInfoInfoDataRow["BorrowerPhone"] != null)
+            {
+                InvestmentLoanInfoInfo.BorrowerPhone = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "BorrowerPhone");
+            }
+            if (InvestmentLoanInfoInfoDataRow["LoanAmount"] != null)
+            {
+                InvestmentLoanInfoInfo.LoanAmount = Decimal.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "LoanAmount"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["LoanDate"] != null)
+            {
+                InvestmentLoanInfoInfo.LoanDate = DateTime.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "LoanDate"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["Collateral"] != null)
+            {
+                InvestmentLoanInfoInfo.Collateral = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "Collateral");
+            }
+            if (InvestmentLoanInfoInfoDataRow["Guarantor"] != null)
+            {
+                InvestmentLoanInfoInfo.Guarantor = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "Guarantor");
+            }
+            if (InvestmentLoanInfoInfoDataRow["GuarantorPhone"] != null)
+            {
+                InvestmentLoanInfoInfo.GuarantorPhone = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "GuarantorPhone");
+            }
+            if (InvestmentLoanInfoInfoDataRow["RateOfReturn"] != null)
+            {
+                InvestmentLoanInfoInfo.RateOfReturn = char.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "RateOfReturn"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["DueDateForPay"] != null)
+            {
+                InvestmentLoanInfoInfo.DueDateForPay = DateTime.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "DueDateForPay"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["Remark"] != null)
+            {
+                InvestmentLoanInfoInfo.Remark = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "Remark");
+            }
+            if (InvestmentLoanInfoInfoDataRow["Status"] != null)
+            {
+                InvestmentLoanInfoInfo.Status = int.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "Status"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["NextOperaterId"] != null)
+            {
+                InvestmentLoanInfoInfo.NextOperaterId = new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "NextOperaterId"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["NextOperaterAccount"] != null)
+            {
+                InvestmentLoanInfoInfo.NextOperaterAccount = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "NextOperaterAccount");
+            }
+            if (InvestmentLoanInfoInfoDataRow["NextOperaterName"] != null)
+            {
+                InvestmentLoanInfoInfo.NextOperaterName = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "NextOperaterName");
+            }
+            if (InvestmentLoanInfoInfoDataRow["CreateTime"] != null)
+            {
+                InvestmentLoanInfoInfo.CreateTime = DateTime.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "CreateTime"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["CreaterId"] != null)
+            {
+                InvestmentLoanInfoInfo.CreaterId = new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "CreaterId"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["CreaterName"] != null)
+            {
+                InvestmentLoanInfoInfo.CreaterName = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "CreaterName");
+            }
+            if (InvestmentLoanInfoInfoDataRow["CreaterAccount"] != null)
+            {
+                InvestmentLoanInfoInfo.CreaterAccount = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "CreaterAccount");
+            }
+            if (InvestmentLoanInfoInfoDataRow["SubmitTime"] != null)
+            {
+                InvestmentLoanInfoInfo.SubmitTime = DateTime.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "SubmitTime"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["AuditOpinion"] != null)
+            {
+                InvestmentLoanInfoInfo.AuditOpinion = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "AuditOpinion");
+            }
+            if (InvestmentLoanInfoInfoDataRow["AccountingRemark"] != null)
+            {
+                InvestmentLoanInfoInfo.AccountingRemark = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "AccountingRemark");
+            }
+            if (InvestmentLoanInfoInfoDataRow["DueDateForReceivables"] != null)
+            {
+                InvestmentLoanInfoInfo.DueDateForReceivables = int.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "DueDateForReceivables"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["ReceivablesRemindInfo"] != null)
+            {
+                InvestmentLoanInfoInfo.ReceivablesRemindInfo = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "ReceivablesRemindInfo");
+            }
+            if (InvestmentLoanInfoInfoDataRow["NextBAOperaterId"] != null)
+            {
+                InvestmentLoanInfoInfo.NextBAOperaterId = new Guid(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "NextBAOperaterId"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["NextBAOperaterAccount"] != null)
+            {
+                InvestmentLoanInfoInfo.NextBAOperaterAccount = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "NextBAOperaterAccount");
+            }
+            if (InvestmentLoanInfoInfoDataRow["NextBAOperaterName"] != null)
+            {
+                InvestmentLoanInfoInfo.NextBAOperaterName = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "NextBAOperaterName");
+            }
+            if (InvestmentLoanInfoInfoDataRow["BAStatus"] != null)
+            {
+                InvestmentLoanInfoInfo.BAStatus = int.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "BAStatus"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["SubmitBATime"] != null)
+            {
+                InvestmentLoanInfoInfo.SubmitBATime = DateTime.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "SubmitBATime"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["Adulters"] != null)
+            {
+                InvestmentLoanInfoInfo.Adulters = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "Adulters");
+            }
+            if (InvestmentLoanInfoInfoDataRow["BAAdulters"] != null)
+            {
+                InvestmentLoanInfoInfo.BAAdulters = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "BAAdulters");
+            }
+            if (InvestmentLoanInfoInfoDataRow["LoanTimeLimit"] != null)
+            {
+                InvestmentLoanInfoInfo.LoanTimeLimit = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "LoanTimeLimit");
+            }
             return InvestmentLoanInfoInfo;
         }
-		#endregion
+        #endregion
     }
 }
