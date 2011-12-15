@@ -121,33 +121,6 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.DropDownList ddlstApproveUser;
         
         /// <summary>
-        /// FormRow1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow1;
-        
-        /// <summary>
-        /// ddlstNextBA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstNextBA;
-        
-        /// <summary>
-        /// ddlstApproveUserBA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstApproveUserBA;
-        
-        /// <summary>
         /// tbProjectName control.
         /// </summary>
         /// <remarks>
@@ -202,22 +175,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextBox tbPayerBName;
         
         /// <summary>
-        /// tbGuarantor control.
+        /// ddlLoanType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbGuarantor;
-        
-        /// <summary>
-        /// tbGuarantorPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbGuarantorPhone;
+        protected global::ExtAspNet.DropDownList ddlLoanType;
         
         /// <summary>
         /// tbLoanAmount control.
@@ -229,22 +193,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextBox tbLoanAmount;
         
         /// <summary>
-        /// tbRateOfReturn control.
+        /// tbLoanTimeLimit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbRateOfReturn;
-        
-        /// <summary>
-        /// tbCollateral control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbCollateral;
+        protected global::ExtAspNet.TextBox tbLoanTimeLimit;
         
         /// <summary>
         /// dpLoanDate control.
@@ -263,6 +218,51 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.DatePicker dpDueDateForPay;
+        
+        /// <summary>
+        /// tbCollateral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbCollateral;
+        
+        /// <summary>
+        /// tbGuarantor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbGuarantor;
+        
+        /// <summary>
+        /// tbGuarantorPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbGuarantorPhone;
+        
+        /// <summary>
+        /// tbRateOfReturn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbRateOfReturn;
+        
+        /// <summary>
+        /// ddlstApproveUserBA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DropDownList ddlstApproveUserBA;
         
         /// <summary>
         /// tbRemark control.

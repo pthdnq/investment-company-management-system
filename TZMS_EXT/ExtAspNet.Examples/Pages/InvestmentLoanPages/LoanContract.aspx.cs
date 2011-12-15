@@ -88,6 +88,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             this.taAuditOpinion.Text = _Info.AuditOpinion;
             this.taAccountingRemark.Text = _Info.AccountingRemark;
+
+            this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
+            this.ddlLoanType.SelectedValue = _Info.LoanType;
         }
 
         /// <summary>

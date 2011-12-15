@@ -207,7 +207,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.NextBAOperaterName = this.ddlstApproveUserBA.SelectedText;
             _Info.NextBAOperaterId = new Guid(this.ddlstApproveUserBA.SelectedValue);
             _Info.SubmitBATime = DateTime.Now;
-            _Info.BAStatus = 1;            
+            _Info.BAStatus = 1;
+
+            _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
+            _Info.LoanType = this.ddlLoanType.SelectedValue;
 
             // 执行操作.
 
@@ -237,8 +240,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             //   ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
             ddlstNext.SelectedIndex = 0;
 
-            ddlstNextBA.Items.Add(new ExtAspNet.ListItem("会计核算", "0"));
-            ddlstNextBA.SelectedIndex = 0;
+            //ddlstNextBA.Items.Add(new ExtAspNet.ListItem("会计核算", "0"));
+            //ddlstNextBA.SelectedIndex = 0;
 
         }
 

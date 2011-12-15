@@ -68,6 +68,11 @@
                                                 runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                                 RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
+                                                            <ext:DropDownList runat="server" Enabled="false" Label="付款方式" ID="ddlLoanType" ShowRedStar="true"
+                                                Required="true">
+                                                <ext:ListItem Text="现金" Value="Cash" />
+                                                <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
+                                            </ext:DropDownList>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
@@ -87,6 +92,9 @@
                                             <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="借款金额" ShowRedStar="true" Required="true"
                                                 runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
                                                 RegexMessage="只能输入数字!">
+                                            </ext:TextBox>
+                                                 <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" runat="server" ShowRedStar="true"
+                                                Required="true">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>

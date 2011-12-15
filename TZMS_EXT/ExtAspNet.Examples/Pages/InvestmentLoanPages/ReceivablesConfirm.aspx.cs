@@ -14,7 +14,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
     {
         #region 属性
 
-        
+
         /// <summary>
         ///   ObjectID
         /// </summary>
@@ -71,12 +71,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             //} 
             // 通过 ID获取 信息实例.
             com.TZMS.Model.ReceivablesInfo info = new InvestmentLoanManage().GetReceivableByObjectID(strUserID);
-           
+
             tbProjectName.Text = info.ProjectName;
             dpDueDateForReceivables.SelectedDate = info.DueDateForReceivables;
             dpDateForReceivables.SelectedDate = info.DateForReceivables;
-            tbAmountofpaidUp.Text = info.AmountofpaidUp.ToString(); 
-            tbReceivablesAccount.Text = info.ReceivablesAccount;   
+            tbAmountofpaidUp.Text = info.AmountofpaidUp.ToString();
+            tbReceivablesAccount.Text = info.ReceivablesAccount;
             taRemark.Text = info.Remark;
         }
 
@@ -121,7 +121,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         private void saveInfo(int status)
         {
             com.TZMS.Model.ReceivablesInfo _Info = new InvestmentLoanManage().GetReceivableByObjectID(ObjectID);
-          
+
             InvestmentLoanManage manage = new InvestmentLoanManage();
 
             //  ID.
@@ -131,7 +131,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.AuditOpinion = taAuditOpinionRemark.Text.Trim();
             _Info.Status = status;
             _Info.IsAccountingAudit = true;
-     
+
             // 执行操作.
             int result = 3;
 
@@ -149,7 +149,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     Biz = "InvestmentLoan",
                     ProjectName = _Info.ProjectName,
                     IsAccountingAudit = 1,
-                     CreateTime=DateTime.Now
+                    Status=1
+                 //   CreateTime = DateTime.Now,
+
                 });
                 if (itmp != -1)
                 {

@@ -96,9 +96,11 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.dpLoanDate.SelectedDate = _Info.LoanDate;
             this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
             this.tbRemark.Text = _Info.Remark;
-           
+
             this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
 
+            this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
+            this.ddlLoanType.SelectedValue = _Info.LoanType;
         }
 
         /// <summary>
