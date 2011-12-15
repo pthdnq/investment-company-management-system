@@ -117,13 +117,16 @@ namespace TZMS.Web
             ddlstNext.Items.Add(new ExtAspNet.ListItem("业务转交", "1"));
             ddlstNext.Items.Add(new ExtAspNet.ListItem("核名", "2"));
             ddlstNext.Items.Add(new ExtAspNet.ListItem("刻章", "3"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("开户", "4"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("验资报告", "5"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("营业执照", "6"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("办代码证", "7"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("办国地税", "8"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("转基本户", "9"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("完成", "10"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("各类许可证", "4"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("开户", "5"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("验资报告", "6"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("营业执照", "7"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("办代码证", "8"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("办国地税", "9"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("转基本户", "10"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("增资(开户、验资报告、营业执照)", "11"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("完成", "12"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("异常终止", "13"));
             ddlstNext.SelectedIndex = 0;
 
             dpkSign.Text = YeWu.SignDate.ToString("yyyy-MM-dd");
@@ -154,8 +157,74 @@ namespace TZMS.Web
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             YeWuGudingDoingInfo yewuCheck = new YeWuGudingDoingInfo();
+            YewuManage yewuManage = new YewuManage();
+
+            if (ddlstNext.SelectedValue == "12")
+            {
+                // 更新状态.
+                YeWu.State = 1;
+                YeWu.CurrentOp = 14;
+                yewuManage.SaveYeWu(YeWu);
+
+                YeWuDoing_wei.Checkstate = 1;
+                YeWuDoing_wei.CheckSugest = this.taaApproveSugest.Text.Trim();
+                YeWuDoing_wei.CheckDateTime = DateTime.Now;
+                yewuManage.SaveYeWuDoing(YeWuDoing_wei);
+
+                List<YeWuGudingDoingInfo> _list = new List<YeWuGudingDoingInfo>();
+                YeWuGudingDoingInfo _ywInfo = new YeWuGudingDoingInfo();
+                _ywInfo.ObjectId = Guid.NewGuid();
+                _ywInfo.CheckerId = CurrentUser.ObjectId;
+                _ywInfo.CheckerName = CurrentUser.Name;
+                _ywInfo.CheckrDept = CurrentUser.Dept;
+                _ywInfo.Checkstate = 1;
+                _ywInfo.ApplyId = YeWu.ObjectId;
+                _ywInfo.OrderIndex = short.Parse(ddlstNext.SelectedValue.Trim());
+                _ywInfo.CheckOp = ddlstNext.SelectedText.Trim();
+                _ywInfo.CheckDateTime = YeWuDoing_wei.CheckDateTime.AddSeconds(1);
+
+                _list.Add(_ywInfo);
+                yewuManage.AddRecord(_list);
+
+                this.btnClose_Click(null, null);
+                return;
+            }
+
+            if (ddlstNext.SelectedValue == "13")
+            {
+                // 更新状态.
+                YeWu.State = 2;
+                YeWu.CurrentOp = 15;
+
+                yewuManage.SaveYeWu(YeWu);
+
+                YeWuDoing_wei.Checkstate = 1;
+                YeWuDoing_wei.CheckSugest = this.taaApproveSugest.Text.Trim();
+                YeWuDoing_wei.CheckDateTime = DateTime.Now;
+                yewuManage.SaveYeWuDoing(YeWuDoing_wei);
+
+                List<YeWuGudingDoingInfo> _list = new List<YeWuGudingDoingInfo>();
+                YeWuGudingDoingInfo _ywInfo = new YeWuGudingDoingInfo();
+                _ywInfo.ObjectId = Guid.NewGuid();
+                _ywInfo.CheckerId = CurrentUser.ObjectId;
+                _ywInfo.CheckerName = CurrentUser.Name;
+                _ywInfo.CheckrDept = CurrentUser.Dept;
+                _ywInfo.Checkstate = 1;
+                _ywInfo.ApplyId = YeWu.ObjectId;
+                _ywInfo.OrderIndex = short.Parse(ddlstNext.SelectedValue.Trim());
+                _ywInfo.CheckOp = ddlstNext.SelectedText.Trim();
+                _ywInfo.CheckDateTime = YeWuDoing_wei.CheckDateTime.AddSeconds(1);
+
+                _list.Add(_ywInfo);
+                yewuManage.AddRecord(_list);
+
+                this.btnClose_Click(null, null);
+                return;
+            }
+
             List<UserInfo> listInfo = this.CurrentChecker;
             listInfo.Add(this.CurrentUser);
+
             //责任人
             UserInfo zrenCheck = new UserInfo();
             foreach (UserInfo user in listInfo)
@@ -167,10 +236,7 @@ namespace TZMS.Web
                 }
             }
 
-            //manage
-            YewuManage yewuManage = new YewuManage();
-
-            //更新
+            // 更新
             YeWu.CurrentOp = short.Parse(ddlstNext.SelectedValue);
             YeWu.CurrentCheckerId = zrenCheck.ObjectId;
             yewuManage.SaveYeWu(YeWu);
@@ -197,6 +263,51 @@ namespace TZMS.Web
             #endregion
 
             btnClose_Click(null, null);
+
+            //YeWuGudingDoingInfo yewuCheck = new YeWuGudingDoingInfo();
+            //List<UserInfo> listInfo = this.CurrentChecker;
+            //listInfo.Add(this.CurrentUser);
+            ////责任人
+            //UserInfo zrenCheck = new UserInfo();
+            //foreach (UserInfo user in listInfo)
+            //{
+            //    if (user.ObjectId.ToString() == this.ddlstApproveUser.SelectedValue.Trim())
+            //    {
+            //        zrenCheck = user;
+            //        break;
+            //    }
+            //}
+
+            ////manage
+            //YewuManage yewuManage = new YewuManage();
+
+            ////更新
+            //YeWu.CurrentOp = short.Parse(ddlstNext.SelectedValue);
+            //YeWu.CurrentCheckerId = zrenCheck.ObjectId;
+            //yewuManage.SaveYeWu(YeWu);
+            //YeWuDoing_wei.Checkstate = 1;
+            //YeWuDoing_wei.CheckSugest = this.taaApproveSugest.Text.Trim();
+            //YeWuDoing_wei.CheckDateTime = DateTime.Now;
+            //yewuManage.SaveYeWuDoing(YeWuDoing_wei);
+
+            //#region 备用记录
+            ////新增记录表
+            //List<YeWuGudingDoingInfo> list = new List<YeWuGudingDoingInfo>();
+            //YeWuGudingDoingInfo ywInfo = new YeWuGudingDoingInfo();
+            //ywInfo.CheckerId = zrenCheck.ObjectId;
+            //ywInfo.CheckerName = zrenCheck.Name;
+            //ywInfo.CheckrDept = zrenCheck.Dept;
+            //ywInfo.Checkstate = 0;
+            //ywInfo.ApplyId = YeWu.ObjectId;
+            //ywInfo.OrderIndex = short.Parse(ddlstNext.SelectedValue.Trim());
+            //ywInfo.CheckOp = ddlstNext.SelectedText.Trim();
+            //ywInfo.ObjectId = Guid.NewGuid();
+            //list.Add(ywInfo);
+            //yewuManage.AddRecord(list);
+
+            //#endregion
+
+            //btnClose_Click(null, null);
 
         }
 

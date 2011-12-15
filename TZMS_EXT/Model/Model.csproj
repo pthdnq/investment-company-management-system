@@ -56,6 +56,8 @@
     <Compile Include="FinancingFeePaymentInfo.cs" />
     <Compile Include="FolkFinancingHistoryInfo.cs" />
     <Compile Include="FolkFinancingInfo.cs" />
+    <Compile Include="ImprestApplyInfo.cs" />
+    <Compile Include="ImprestApproveInfo.cs" />
     <Compile Include="InvestmentLoanHistoryInfo.cs" />
     <Compile Include="InvestmentLoanInfo.cs" />
     <Compile Include="InvestmentProjectHistoryInfo.cs" />

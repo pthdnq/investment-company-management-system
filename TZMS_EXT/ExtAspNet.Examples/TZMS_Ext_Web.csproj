@@ -703,6 +703,10 @@
     <Content Include="Pages\Yewu\DingzhiYewu.aspx" />
     <Content Include="Pages\Yewu\DingZhiYeWuApp.aspx" />
     <Content Include="Pages\Yewu\DingZhiYeWuAppList.aspx" />
+    <Content Include="Pages\Yewu\ImprestApply.aspx" />
+    <Content Include="Pages\Yewu\ImprestApplyList.aspx" />
+    <Content Include="Pages\Yewu\ImprestApprove.aspx" />
+    <Content Include="Pages\Yewu\ImprestApproveList.aspx" />
     <Content Include="Pages\Yewu\NewCommonYeWu.aspx" />
     <Content Include="Pages\Yewu\NewDingZhiYeWu.aspx" />
     <Content Include="Test.aspx" />
@@ -2004,6 +2008,34 @@
     </Compile>
     <Compile Include="Pages\Yewu\DingZhiYeWuAppList.aspx.designer.cs">
       <DependentUpon>DingZhiYeWuAppList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Yewu\ImprestApply.aspx.cs">
+      <DependentUpon>ImprestApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\ImprestApply.aspx.designer.cs">
+      <DependentUpon>ImprestApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Yewu\ImprestApplyList.aspx.cs">
+      <DependentUpon>ImprestApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\ImprestApplyList.aspx.designer.cs">
+      <DependentUpon>ImprestApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Yewu\ImprestApprove.aspx.cs">
+      <DependentUpon>ImprestApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\ImprestApprove.aspx.designer.cs">
+      <DependentUpon>ImprestApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Yewu\ImprestApproveList.aspx.cs">
+      <DependentUpon>ImprestApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Yewu\ImprestApproveList.aspx.designer.cs">
+      <DependentUpon>ImprestApproveList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Yewu\NewCommonYeWu.aspx.cs">
       <DependentUpon>NewCommonYeWu.aspx</DependentUpon>
