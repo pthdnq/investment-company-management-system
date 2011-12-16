@@ -84,6 +84,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@SubmitBATime",DbType.DateTime),
 				new SqlParameter("@Adulters",DbType.String),
 				new SqlParameter("@BAAdulters",DbType.String),
+                   	new SqlParameter("@LoanTimeLimit",DbType.String),
 				};
 				
 				int i=0;
@@ -116,7 +117,8 @@ namespace com.TZMS.DataAccess
 				sqlparam[i++].Value = FolkFinancingInfo.BAStatus; 
 				sqlparam[i++].Value = FolkFinancingInfo.SubmitBATime; 
 				sqlparam[i++].Value = FolkFinancingInfo.Adulters; 
-				sqlparam[i++].Value = FolkFinancingInfo.BAAdulters; 
+				sqlparam[i++].Value = FolkFinancingInfo.BAAdulters;
+                sqlparam[i++].Value = FolkFinancingInfo.LoanTimeLimit;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -201,6 +203,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@SubmitBATime",DbType.DateTime),
 				new SqlParameter("@Adulters",DbType.String),
 				new SqlParameter("@BAAdulters",DbType.String),
+                   	new SqlParameter("@LoanTimeLimit",DbType.String),
                 };
 
                 int i = 0;
@@ -233,7 +236,8 @@ namespace com.TZMS.DataAccess
 				sqlparam[i++].Value = FolkFinancingInfo.BAStatus; 
 				sqlparam[i++].Value = FolkFinancingInfo.SubmitBATime; 
 				sqlparam[i++].Value = FolkFinancingInfo.Adulters; 
-				sqlparam[i++].Value = FolkFinancingInfo.BAAdulters; 
+				sqlparam[i++].Value = FolkFinancingInfo.BAAdulters;
+                sqlparam[i++].Value = FolkFinancingInfo.LoanTimeLimit;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -438,7 +442,10 @@ namespace com.TZMS.DataAccess
 			{
 				FolkFinancingInfoInfo.BAAdulters=DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow,"BAAdulters");
 			}
-
+            if (FolkFinancingInfoInfoDataRow["LoanTimeLimit"] != null)
+            {
+                FolkFinancingInfoInfo.LoanTimeLimit = DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "LoanTimeLimit");
+            }
             return FolkFinancingInfoInfo;
         }
 		#endregion
