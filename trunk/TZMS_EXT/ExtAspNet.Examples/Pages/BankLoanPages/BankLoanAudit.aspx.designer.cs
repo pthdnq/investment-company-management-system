@@ -166,6 +166,15 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.Form mainForm;
         
         /// <summary>
+        /// tbProjectName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbProjectName;
+        
+        /// <summary>
         /// tbCustomerName control.
         /// </summary>
         /// <remarks>

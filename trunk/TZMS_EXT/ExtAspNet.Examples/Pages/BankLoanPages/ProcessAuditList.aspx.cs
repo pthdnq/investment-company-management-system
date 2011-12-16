@@ -120,7 +120,7 @@ namespace TZMS.Web.Pages.BankLoanPages
           //   strCondtion.Append("   Status<>9 "); 
             if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append(" AND (ImplementationPhase LIKE '%" + searchText + "%')  ");
+                strCondtion.Append(" AND (ProjectName LIKE '%" + searchText + "%')  ");
             }
             if (!string.IsNullOrEmpty(state))
             { 

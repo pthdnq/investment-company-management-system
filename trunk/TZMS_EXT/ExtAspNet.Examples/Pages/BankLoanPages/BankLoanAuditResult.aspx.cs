@@ -152,7 +152,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
             if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append(" AND (CustomerName LIKE '%" + searchText + "%')  ");
+                strCondtion.Append(" AND (ProjectName LIKE '%" + searchText + "%')  ");
             }
             //时间
             DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);

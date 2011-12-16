@@ -71,10 +71,10 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:BoundField Width="110px" DataField="Contact" HeaderText="联系人" />
-                            <ext:BoundField Width="80px" DataField="ContactPhone" HeaderText="联系电话" />
+                            <ext:BoundField Width="80px" DataField="ContactPhone" HeaderText="联系人电话" />
                             <ext:BoundField Width="115px" DataField="SignDate" HeaderText="签订日期"  DataFormatString="{0:yyyy/MM/dd}"/>
-                            <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同金额" />
-                            <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付订金" />
+                            <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同总金额" />
+                            <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付定金" />
                             <ext:WindowField Width="80px" Text="提交进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
                                 Title="提交进展" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"

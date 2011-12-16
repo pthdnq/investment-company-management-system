@@ -77,6 +77,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             _Info.Remark = this.tbRemark.Text.Trim();
             _Info.Status = 1;
+
+            _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
             //补充申请人及下一步审核人信息
             _Info.SubmitTime = DateTime.Now;
             _Info.CreateTime = DateTime.Now;
