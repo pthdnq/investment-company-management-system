@@ -349,6 +349,11 @@ namespace TZMS.Web
             /// 业务员 以下角色未管理其他页面
             /// </summary>
             YWY = 34,
+
+            /// <summary>
+            /// 业务部备用金归档
+            /// </summary>
+            YWBBYJGD = 35
         }
 
         /// <summary>

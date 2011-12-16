@@ -60,7 +60,7 @@
                                                 <Items>
                                                     <ext:DropDownList ID="ddlstYeWu" runat="server" Label="项目名称" Required="true" ShowRedStar="true">
                                                     </ext:DropDownList>
-                                                    <ext:TextBox ID="tbxMoney" runat="server" Label="申请金额" Required="true" ShowRedStar="true"
+                                                    <ext:TextBox ID="tbxMoney" runat="server" Label="金额(元)" Required="true" ShowRedStar="true"
                                                         Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                                                     </ext:TextBox>
                                                 </Items>
@@ -68,7 +68,7 @@
                                             <ext:FormRow ID="FormRow8" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextArea ID="tbxSument" runat="server" Required="true" ShowRedStar="true" Label="申请事由"
-                                                        MaxLength="100" Height="300px" MaxLengthMessage="最多只能输入100个字！">
+                                                        MaxLength="100" Height="250px" MaxLengthMessage="最多只能输入100个字！">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>

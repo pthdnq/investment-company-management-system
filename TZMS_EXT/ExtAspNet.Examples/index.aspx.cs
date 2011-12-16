@@ -475,6 +475,20 @@ namespace TZMS.Web
                             flag = true;
                         }
                         break;
+                    case "备用金申请":
+                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
+                       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
+                        {
+                            flag = true;
+                        }
+                        break;
+                    case "备用金审批":
+                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
+                       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
+                        {
+                            flag = true;
+                        }
+                        break;
 
                 }
                 if (flag)

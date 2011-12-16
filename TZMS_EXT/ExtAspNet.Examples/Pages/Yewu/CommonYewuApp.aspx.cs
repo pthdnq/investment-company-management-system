@@ -163,7 +163,7 @@ namespace TZMS.Web
             {
                 // 更新状态.
                 YeWu.State = 1;
-                YeWu.CurrentOp = 14;
+                YeWu.CurrentOp = 12;
                 yewuManage.SaveYeWu(YeWu);
 
                 YeWuDoing_wei.Checkstate = 1;
@@ -194,7 +194,7 @@ namespace TZMS.Web
             {
                 // 更新状态.
                 YeWu.State = 2;
-                YeWu.CurrentOp = 15;
+                YeWu.CurrentOp = 13;
 
                 yewuManage.SaveYeWu(YeWu);
 

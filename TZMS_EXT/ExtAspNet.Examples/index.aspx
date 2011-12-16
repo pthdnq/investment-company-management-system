@@ -322,6 +322,12 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务.gif" NodeID="dzywcz" AutoPostBack="false"
                                                 OnClientClick=" tabs('dzywcz','UserKey');" Text="定制业务操作">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务.gif" NodeID="byjsq" AutoPostBack="false"
+                                                OnClientClick=" tabs('byjsq','UserKey');" Text="备用金申请">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务.gif" NodeID="byjsp" AutoPostBack="false"
+                                                OnClientClick=" tabs('byjsp','UserKey');" Text="备用金审批">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -625,6 +631,12 @@
                     break;
                 case "dzywcz":
                     LoadTab("Pages/Yewu/DingZhiYeWuAppList.aspx", "定制业务操作", icon);
+                    break;
+                case "byjsq":
+                    LoadTab("Pages/Yewu/ImprestApplyList.aspx", "备用金申请", icon);
+                    break;
+                case "byjsp":
+                    LoadTab("Pages/Yewu/ImprestApproveList.aspx", "备用金审批", icon);
                     break;
 
                 case "zzsq":
