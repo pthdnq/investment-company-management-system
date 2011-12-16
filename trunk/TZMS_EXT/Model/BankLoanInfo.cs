@@ -61,6 +61,7 @@ namespace com.TZMS.Model
         private string _adulters = DBEmptyString;
         private string _baadulters = DBEmptyString;
         private int _bastatus = DBEmptyInt;
+        private string _projectName = DBEmptyString;
 		#endregion 
 
 		#region Property
@@ -314,6 +315,12 @@ namespace com.TZMS.Model
         {
             get { return _bastatus; }
             set { _bastatus = value; }
+        }
+
+        public string ProjectName
+        {
+            get { return _projectName; }
+            set { _projectName = value; }
         }
 		#endregion
 	}
