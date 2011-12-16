@@ -217,8 +217,10 @@ namespace TZMS.Web
                 return;
             }
 
-            Session["Accountancy:" + CurrentUser.ObjectId.ToString()] = lstSelected[0].UserObjectId.ToString() + "," + lstSelected[0].Name;
-            btnClose_Click(null, null);
+            //Session["Accountancy:" + CurrentUser.ObjectId.ToString()] = lstSelected[0].UserObjectId.ToString() + "," + lstSelected[0].Name;
+            //btnClose_Click(null, null);
+
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference(lstSelected[0].UserObjectId.ToString() + "," + lstSelected[0].Name));
         }
 
         /// <summary>
