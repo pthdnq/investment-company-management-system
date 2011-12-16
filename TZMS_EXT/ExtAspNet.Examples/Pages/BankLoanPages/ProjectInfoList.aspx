@@ -63,6 +63,7 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
+                               <ext:BoundField  ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="120px" DataField="CustomerName" HeaderText="客户名称" />
                             <ext:BoundField Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="贷款金额" />

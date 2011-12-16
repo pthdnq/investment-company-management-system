@@ -118,7 +118,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append("AND  (ImplementationPhase LIKE '%" + searchText + "%'  )  ");
+                strCondtion.Append("AND  (ProjectName LIKE '%" + searchText + "%'  )  ");
             }
             if (!string.IsNullOrEmpty(state))
             {

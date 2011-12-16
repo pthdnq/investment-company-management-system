@@ -73,10 +73,10 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             // 绑定数据.
             if (_Info != null)
-            {   
+            {
                 BindNext(false);
                 #region 下一步方式
-          
+
                 //if (CurrentRoles.Contains(RoleType.DSZ))
                 //{
                 //    BindNext(true);
@@ -102,7 +102,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.tbLenders.Text = _Info.Lenders;
                 this.dpLoanDate.SelectedDate = _Info.LoanDate;
                 this.ddlLoanType.SelectedValue = _Info.LoanType;
-                this.tbRemark.Text = _Info.Remark;   
+                this.tbRemark.Text = _Info.Remark;
+
+                this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             }
         }
 
@@ -158,6 +160,27 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             result = manage.Update(_Info);
             if (result == -1)
             {
+                #region cashflow
+                int itmp = new CashFlowManage().Add(new CashFlowStatementInfo()
+                {
+                    ObjectId = Guid.NewGuid(),
+                    Amount = _Info.LoanAmount,
+                    DateFor = DateTime.Now,
+                    FlowDirection = "Receive",
+                    FlowType = "",
+                    Biz = "FolkFinancing",
+                    ProjectName =  _Info.Lenders+"出借"+_Info.BorrowerNameA,
+                    IsAccountingAudit = 1
+                });
+                if (itmp != -1)
+                {
+                    _Info.Status = 1;
+                    manage.Update(_Info);
+                    Alert.Show("操作失败!");
+                    return;
+                }
+                #endregion
+
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待领导审批";
                 manage.AddHistory(_Info.ObjectId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 

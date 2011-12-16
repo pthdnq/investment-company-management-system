@@ -100,8 +100,10 @@ namespace TZMS.Web.Pages.BankLoanPages
             //  ID.
             _Info.ObjectId = Guid.NewGuid();
             _Info.ForId = new Guid(ForID);
+
             var bankloan = manage.GetUserByObjectID(ForID);
-       //  info.ProjectName = manage.GetUserByObjectID(ForID);
+            _Info.ProjectName = bankloan.ProjectName;
+
             _Info.ImplementationPhase = this.taImplementationPhase.Text.Trim();
            
             //  info.LoanBank= bankloan.
@@ -129,7 +131,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
             _Info.NeedImprest = (_Info.AmountExpended == 0) ? 0 : 1;
-     
+  
             _Info.Status = 1;
 
             // 执行操作.

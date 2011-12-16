@@ -43,7 +43,7 @@
                                 runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
-                            <ext:TextBox ID="tbLenders" Label="出款人" ShowRedStar="true" Required="true" runat="server"
+                            <ext:TextBox ID="tbLenders" Label="出借人" ShowRedStar="true" Required="true" runat="server"
                                 MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
@@ -62,13 +62,17 @@
                             <ext:TextBox ID="tbLoanAmount" Label="借款金额" ShowRedStar="true" Required="true" runat="server"
                                 MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
                             </ext:TextBox>
+                            <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" ShowRedStar="true" Required="true" runat="server"
+                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                RegexMessage="不能输入特殊字符!">
+                            </ext:TextBox>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:DatePicker ID="dpLoanDate" Label="借款日期" runat="server">
                             </ext:DatePicker>
-                            <ext:TextBox ID="dpDueDateForPay" Label="应付款日" ShowRedStar="true" Required="true"
+                            <ext:TextBox ID="dpDueDateForPay" Label="应付账款款日" ShowRedStar="true" Required="true"
                                 runat="server" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="[1-3][0-9]*$"
                                 RegexMessage="只能输入数字!" Text="1">
                             </ext:TextBox>

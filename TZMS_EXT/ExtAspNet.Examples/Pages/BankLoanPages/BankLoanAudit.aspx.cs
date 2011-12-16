@@ -95,7 +95,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             this.taContact.Text = _Info.Contact;
          
             this.dpSignDate.SelectedDate = _Info.SignDate;
-             
+            this.tbProjectName.Text = _Info.ProjectName;
         }
 
         /// <summary>

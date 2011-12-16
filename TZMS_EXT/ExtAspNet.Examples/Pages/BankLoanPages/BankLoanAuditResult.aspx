@@ -19,7 +19,7 @@
                 <Rows>
                     <ext:FormRow>
                         <Items>
-                            <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入客户名称查询"
+                            <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
                                 ID="ttbSearch" />
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
                                 <ext:ListItem Text="待审核" Value="1" Selected="true" />
@@ -63,14 +63,15 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
+                               <ext:BoundField  ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="100px" DataField="CustomerName" HeaderText="客户名称" />
                             <ext:BoundField Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="贷款金额" />
                             <ext:BoundField Width="105px" DataField="LoanFee" HeaderText="贷款手续费" />
                             <ext:BoundField Width="105px" DataField="CollateralCompany" HeaderText="抵押物公司" />
                             <ext:BoundField Width="110px" DataField="SignDate" HeaderText="签订日期" DataFormatString="{0:yyyy/MM/dd}"/>
-                            <ext:BoundField Width="110px" DataField="DownPayment" HeaderText="预付订金" />
-                            <ext:BoundField  ExpandUnusedSpace="true" DataField="Contact" HeaderText="联系方式" />
+                            <ext:BoundField Width="110px" DataField="DownPayment" HeaderText="预付定金" />
+                          
                             <ext:TemplateField Width="76px" HeaderText="状态">
                                 <ItemTemplate>
                                           <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
@@ -85,7 +86,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="443px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="483px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

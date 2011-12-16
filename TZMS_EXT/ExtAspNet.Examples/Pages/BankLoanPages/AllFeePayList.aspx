@@ -19,7 +19,7 @@
                 <Rows>
                     <ext:FormRow>
                         <Items>
-                            <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目阶段查询"
+                            <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
                                 ID="ttbSearch" />
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
                                 <ext:ListItem Text="待审核" Value="1" Selected="true" />
@@ -63,7 +63,7 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                                 <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                         <%--   <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />--%>
+                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" /> 
                        <%--     <ext:BoundField Width="110px" DataField="GuaranteeCompany" HeaderText="贷款公司" />--%>
                          <ext:BoundField Width="140px" DataField="ImplementationPhase" HeaderText="实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
