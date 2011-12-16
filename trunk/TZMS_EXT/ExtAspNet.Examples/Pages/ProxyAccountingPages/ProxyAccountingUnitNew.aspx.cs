@@ -46,6 +46,23 @@ namespace TZMS.Web
             }
         }
 
+        public string Accountancy
+        {
+            get
+            {
+                if (ViewState["Accountancy"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["Accountancy"].ToString();
+            }
+            set
+            {
+                ViewState["Accountancy"] = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -122,7 +139,7 @@ namespace TZMS.Web
             ProxyAccountingManage _manage = new ProxyAccountingManage();
             ProxyAccountingUnitInfo _info = null;
 
-            if (Session["Accountancy:" + CurrentUser.ObjectId.ToString()] == null)
+            if (string.IsNullOrEmpty(Accountancy))
             {
                 Alert.Show("代账会计尚未设置!");
                 return;
@@ -135,8 +152,8 @@ namespace TZMS.Web
                 _info.UnitName = tbxUnitName.Text.Trim();
                 _info.UnitAddress = tbxTitle.Text.Trim();
                 _info.Other = taaOther.Text.Trim();
-                _info.AccountancyID = new Guid(Session["Accountancy:" + CurrentUser.ObjectId.ToString()].ToString().Split(',')[0]);
-                _info.AccountancyName = Session["Accountancy:" + CurrentUser.ObjectId.ToString()].ToString().Split(',')[1];
+                _info.AccountancyID = new Guid(Accountancy.Split(',')[0]);
+                _info.AccountancyName = Accountancy.Split(',')[1];
 
                 int result = _manage.AddNewUnit(_info);
                 if (result == -1)
@@ -159,8 +176,8 @@ namespace TZMS.Web
                 _info.UnitName = tbxUnitName.Text.Trim();
                 _info.UnitAddress = tbxTitle.Text.Trim();
                 _info.Other = taaOther.Text.Trim();
-                _info.AccountancyID = new Guid(Session["Accountancy:" + CurrentUser.ObjectId.ToString()].ToString().Split(',')[0]);
-                _info.AccountancyName = Session["Accountancy:" + CurrentUser.ObjectId.ToString()].ToString().Split(',')[1];
+                _info.AccountancyID = new Guid(Accountancy.Split(',')[0]);
+                _info.AccountancyName = Accountancy.Split(',')[1];
 
                 int result = _manage.UpdateUnit(_info);
                 if (result == -1)
@@ -235,9 +252,10 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndAccountancy_Close(object sender, WindowCloseEventArgs e)
         {
-            if (Session["Accountancy:" + CurrentUser.ObjectId.ToString()] != null)
+            if (e.CloseArgument != "undefined")
             {
-                lblAccountancy.Text = Session["Accountancy:" + CurrentUser.ObjectId.ToString()].ToString().Split(',')[1];
+                Accountancy = e.CloseArgument;
+                lblAccountancy.Text = e.CloseArgument.Split(',')[1];
             }
         }
 

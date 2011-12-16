@@ -119,10 +119,6 @@ namespace TZMS.Web
                         break;
                 }
             }
-            else
-            {
-                string str = Request.Form["__EVENTARGUMENT"];
-            }
         }
 
         #region 私有方法

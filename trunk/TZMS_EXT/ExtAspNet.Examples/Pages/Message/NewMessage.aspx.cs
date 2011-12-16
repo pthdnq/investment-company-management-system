@@ -72,6 +72,26 @@ namespace TZMS.Web.Pages
             }
         }
 
+        /// <summary>
+        /// 收信人
+        /// </summary>
+        public string Recevicers
+        {
+            get
+            {
+                if (ViewState["Recevicers"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["Recevicers"].ToString();
+            }
+            set
+            {
+                ViewState["Recevicers"] = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -247,15 +267,14 @@ namespace TZMS.Web.Pages
         private void SendMessage()
         {
             MessageManage _manage = new MessageManage();
-            if (Session[CurrentUser.ObjectId.ToString()] == null)
+            if (string.IsNullOrEmpty(Recevicers))
             {
                 Alert.Show("收信人尚未设置!");
                 return;
             }
 
             // 获取收信人.
-            string strRecevicers = Session[CurrentUser.ObjectId.ToString()].ToString();
-            string[] arrayRecevicers = strRecevicers.Split('|');
+            string[] arrayRecevicers = Recevicers.Split('|');
 
             // 创建发送消息实例.
             SentMessageInfo _sentInfo = new SentMessageInfo();
@@ -265,7 +284,7 @@ namespace TZMS.Web.Pages
             _sentInfo.DeptName = CurrentUser.Dept;
             _sentInfo.Tile = tbxTitle.Text.Trim();
             _sentInfo.Context = taaContent.Text.Trim();
-            _sentInfo.Recevicer = strRecevicers;
+            _sentInfo.Recevicer = Recevicers;
             _sentInfo.SendDate = DateTime.Now;
             _sentInfo.IsDelete = false;
 
@@ -363,9 +382,10 @@ namespace TZMS.Web.Pages
         /// <param name="e"></param>
         protected void wndRecevicers_Close(object sender, WindowCloseEventArgs e)
         {
-            if (Session[CurrentUser.ObjectId.ToString()] != null)
+            if (e.CloseArgument != "undefined")
             {
-                string[] arrayRecevicers = Session[CurrentUser.ObjectId.ToString()].ToString().Split('|');
+                Recevicers = e.CloseArgument;
+                string[] arrayRecevicers = e.CloseArgument.Split('|');
                 string strRecevicers = string.Empty;
                 for (int i = 0; i < arrayRecevicers.Length; i++)
                 {

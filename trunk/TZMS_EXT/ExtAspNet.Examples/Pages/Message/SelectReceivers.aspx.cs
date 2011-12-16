@@ -144,13 +144,13 @@ namespace TZMS.Web.Pages
                 }
             }
 
-            if (OperatorType == "Add")
-            {
-                if (Session[CurrentUser.ObjectId.ToString()] != null)
-                {
-                    arrayRecevicers = Session[CurrentUser.ObjectId.ToString()].ToString().Split('|');
-                }
-            }
+            //if (OperatorType == "Add")
+            //{
+            //    if (Session[CurrentUser.ObjectId.ToString()] != null)
+            //    {
+            //        arrayRecevicers = Session[CurrentUser.ObjectId.ToString()].ToString().Split('|');
+            //    }
+            //}
 
             bool bContain;
             foreach (UserInfo use in lstUserInfo)
@@ -230,9 +230,10 @@ namespace TZMS.Web.Pages
                 }
             }
 
-            Session[CurrentUser.ObjectId.ToString()] = stringBuilder.ToString();
+            //Session[CurrentUser.ObjectId.ToString()] = stringBuilder.ToString();
             //Alert.Show("设置收信人成功!");
-            this.btnClose_Click(null, null);
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference(stringBuilder.ToString()));
+            //this.btnClose_Click(null, null);
         }
 
         /// <summary>
