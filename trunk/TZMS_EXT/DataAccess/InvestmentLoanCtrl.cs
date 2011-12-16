@@ -491,6 +491,10 @@ namespace com.TZMS.DataAccess
             {
                 InvestmentLoanInfoInfo.LoanTimeLimit = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "LoanTimeLimit");
             }
+            if (InvestmentLoanInfoInfoDataRow["LoanType"] != null)
+            {
+                InvestmentLoanInfoInfo.LoanType = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "LoanType");
+            }
             return InvestmentLoanInfoInfo;
         }
         #endregion
