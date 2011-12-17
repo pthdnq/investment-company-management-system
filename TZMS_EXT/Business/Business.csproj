@@ -75,6 +75,7 @@
     <Compile Include="UserManage\RolesManage.cs" />
     <Compile Include="UserManage\UserLeaveManage.cs" />
     <Compile Include="UserManage\UserManage.cs" />
+    <Compile Include="WuZhiManage\MaterialsManage.cs" />
     <Compile Include="WuZhiManage\WuZhiManage.cs" />
     <Compile Include="YewuManage\YewuManage.cs" />
   </ItemGroup>
