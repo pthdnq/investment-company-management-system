@@ -651,6 +651,14 @@
     <Content Include="Pages\InvestmentProjectPages\ProjectProcessAdd.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectProcessAdult.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectProcessList.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsApply.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsApplyList.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsApprove.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsApproveList.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsComsume.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsManagePage.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsSubComsume.aspx" />
+    <Content Include="Pages\MaterialsPages\NewMaterials.aspx" />
     <Content Include="Pages\Message\MyMessageList.aspx" />
     <Content Include="Pages\Message\NewMessage.aspx" />
     <Content Include="Pages\Message\SelectReceivers.aspx" />
@@ -1644,6 +1652,62 @@
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectProcessList.aspx.designer.cs">
       <DependentUpon>ProjectProcessList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsApply.aspx.cs">
+      <DependentUpon>MaterialsApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsApply.aspx.designer.cs">
+      <DependentUpon>MaterialsApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsApplyList.aspx.cs">
+      <DependentUpon>MaterialsApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsApplyList.aspx.designer.cs">
+      <DependentUpon>MaterialsApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsApprove.aspx.cs">
+      <DependentUpon>MaterialsApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsApprove.aspx.designer.cs">
+      <DependentUpon>MaterialsApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsApproveList.aspx.cs">
+      <DependentUpon>MaterialsApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsApproveList.aspx.designer.cs">
+      <DependentUpon>MaterialsApproveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsComsume.aspx.cs">
+      <DependentUpon>MaterialsComsume.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsComsume.aspx.designer.cs">
+      <DependentUpon>MaterialsComsume.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsManagePage.aspx.cs">
+      <DependentUpon>MaterialsManagePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsManagePage.aspx.designer.cs">
+      <DependentUpon>MaterialsManagePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsSubComsume.aspx.cs">
+      <DependentUpon>MaterialsSubComsume.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsSubComsume.aspx.designer.cs">
+      <DependentUpon>MaterialsSubComsume.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\NewMaterials.aspx.cs">
+      <DependentUpon>NewMaterials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\NewMaterials.aspx.designer.cs">
+      <DependentUpon>NewMaterials.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Message\MyMessageList.aspx.cs">
       <DependentUpon>MyMessageList.aspx</DependentUpon>

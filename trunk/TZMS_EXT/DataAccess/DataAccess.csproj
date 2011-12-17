@@ -81,6 +81,9 @@
     <Compile Include="JingShengApproveCtrl.cs" />
     <Compile Include="LeaveApproveCtrl.cs" />
     <Compile Include="LeaveInfoCtrl.cs" />
+    <Compile Include="MaterialsApplyCtrl.cs" />
+    <Compile Include="MaterialsApproveCtrl.cs" />
+    <Compile Include="MaterialsManageCtrl.cs" />
     <Compile Include="MessageCtrl.cs" />
     <Compile Include="NoAttendCheckCtrl.cs" />
     <Compile Include="NoAttendCtrl.cs" />

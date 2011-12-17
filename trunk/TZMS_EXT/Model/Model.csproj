@@ -67,6 +67,9 @@
     <Compile Include="JingShengApproveInfo.cs" />
     <Compile Include="LeaveApproveInfo.cs" />
     <Compile Include="LeaveInfo.cs" />
+    <Compile Include="MaterialsApplyInfo.cs" />
+    <Compile Include="MaterialsApproveInfo.cs" />
+    <Compile Include="MaterialsManageInfo.cs" />
     <Compile Include="MessageInfo.cs" />
     <Compile Include="NoAttendCheckInfo.cs" />
     <Compile Include="NoAttendInfo.cs" />
