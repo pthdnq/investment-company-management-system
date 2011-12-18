@@ -244,14 +244,14 @@
                                     <ext:Tree ID="treeWZGL" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
                                         <Nodes>
+                                        <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzgl" OnClientClick=" tabs('wzgl','UserKey');"
+                                                Text="物资管理">
+                                            </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzsq" OnClientClick=" tabs('wzsq','UserKey');"
                                                 Text="物资申请">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/物资审批.gif" NodeID="wzsp" OnClientClick=" tabs('wzsp','UserKey');"
                                                 Text="物资审批">
-                                            </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资领用.gif" NodeID="wzly" OnClientClick=" tabs('wzly','UserKey');"
-                                                Text="物资领用">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
@@ -666,13 +666,13 @@
 
                 // 物资管理                          
                 case "wzsq":
-                    LoadTab("Pages/WuZhiPages/WuZhiApplyList.aspx", "物资申请", icon);
+                    LoadTab("Pages/MaterialsPages/MaterialsApplyList.aspx", "物资申请", icon);
                     break;
                 case "wzsp":
-                    LoadTab("Pages/WuZhiPages/WuZhiCheckList.aspx", "物资审批", icon);
+                    LoadTab("Pages/MaterialsPages/MaterialsApproveList.aspx", "物资审批", icon);
                     break;
-                case "wzly":
-                    LoadTab("Pages/WuZhiPages/WuZhiRecordList.aspx", "物资领用", icon);
+                case "wzgl":
+                    LoadTab("Pages/MaterialsPages/MaterialsManagePage.aspx", "物资管理", icon);
                     break;
 
                 // 代帐管理                           

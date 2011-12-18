@@ -340,7 +340,7 @@ namespace TZMS.Web
                     case "物资审批":
 
 
-                    case "物资领用":
+                    case "物资管理":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.WZGL))
                         {
                             flag = true;
