@@ -68,6 +68,11 @@
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
         Width="700px" OnClose="wndNewMaterials_Close">
     </ext:Window>
+        <ext:Window ID="wndMaterialComsume" Title="物资领用" Popup="false" 
+        EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
+        Width="700px" onclose="wndMaterialComsume_Close">
+    </ext:Window>
     </form>
 </body>
 </html>
