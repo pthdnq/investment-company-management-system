@@ -18,6 +18,7 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 wndNewMaterials.OnClientCloseButtonClick = wndNewMaterials.GetHidePostBackReference();
+                wndMaterialComsume.OnClientCloseButtonClick = wndMaterialComsume.GetHidePostBackReference();
 
                 BindType();
                 BindGrid();
@@ -31,7 +32,7 @@ namespace TZMS.Web
             ddlstType.Items.Add(new ExtAspNet.ListItem("办公用品", "0"));
             //if (CurrentRoles.Contains(RoleType.WZSQ_GD))
             //{
-                ddlstType.Items.Add(new ExtAspNet.ListItem("固定资产", "1"));
+            ddlstType.Items.Add(new ExtAspNet.ListItem("固定资产", "1"));
             //}
 
             ddlstType.SelectedIndex = 0;
@@ -128,8 +129,9 @@ namespace TZMS.Web
             }
 
             if (e.CommandName == "Comsume")
-            { 
-                
+            {
+                wndMaterialComsume.IFrameUrl = "MaterialsComsume.aspx?ID=" + strObjectID;
+                wndMaterialComsume.Hidden = false;
             }
         }
 
@@ -153,6 +155,11 @@ namespace TZMS.Web
                     default:
                         break;
                 }
+
+                if (Convert.ToInt32(e.Values[4].ToString()) == 0)
+                {
+                    e.Values[5] = "<span class=\"gray\">确认领用</span>";
+                }
             }
         }
 
@@ -174,6 +181,16 @@ namespace TZMS.Web
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void wndNewMaterials_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
+        {
+            BindGrid();
+        }
+
+        /// <summary>
+        /// 领用窗口关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndMaterialComsume_Close(object sender, WindowCloseEventArgs e)
         {
             BindGrid();
         }
