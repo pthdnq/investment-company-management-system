@@ -59,6 +59,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@MaterialsName",DbType.String),
 				new SqlParameter("@Numbers",DbType.Int32),
 				new SqlParameter("@CurrentNumbers",DbType.Int32),
+                new SqlParameter("@IsDelete",DbType.Boolean)
 				};
 
                 int i = 0;
@@ -67,6 +68,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MaterialsManageInfo.MaterialsName;
                 sqlparam[i++].Value = MaterialsManageInfo.Numbers;
                 sqlparam[i++].Value = MaterialsManageInfo.CurrentNumbers;
+                sqlparam[i++].Value = MaterialsManageInfo.IsDelete;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -126,6 +128,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@MaterialsName",DbType.String),
 				new SqlParameter("@Numbers",DbType.Int32),
 				new SqlParameter("@CurrentNumbers",DbType.Int32),
+                new SqlParameter("@IsDelete",DbType.Boolean)
                 };
 
                 int i = 0;
@@ -134,6 +137,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MaterialsManageInfo.MaterialsName;
                 sqlparam[i++].Value = MaterialsManageInfo.Numbers;
                 sqlparam[i++].Value = MaterialsManageInfo.CurrentNumbers;
+                sqlparam[i++].Value = MaterialsManageInfo.IsDelete;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -237,6 +241,10 @@ namespace com.TZMS.DataAccess
             if (InfoDataRow["CurrentNumbers"] != null)
             {
                 Info.CurrentNumbers = int.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "CurrentNumbers"));
+            }
+            if (InfoDataRow["IsDelete"] != null)
+            {
+                Info.IsDelete = bool.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "IsDelete"));
             }
 
             return Info;
