@@ -1103,12 +1103,14 @@
     </Compile>
     <Compile Include="Pages\BankLoanPages\BankLoanAuditTransfer.aspx.cs">
       <DependentUpon>BankLoanAuditTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\BankLoanPages\BankLoanAuditTransfer.aspx.designer.cs">
       <DependentUpon>BankLoanAuditTransfer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\BankLoanPages\BankLoanAuditTransferList.aspx.cs">
       <DependentUpon>BankLoanAuditTransferList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\BankLoanPages\BankLoanAuditTransferList.aspx.designer.cs">
       <DependentUpon>BankLoanAuditTransferList.aspx</DependentUpon>
@@ -1164,12 +1166,14 @@
     </Compile>
     <Compile Include="Pages\BankLoanPages\ProcessAuditTransfer.aspx.cs">
       <DependentUpon>ProcessAuditTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\BankLoanPages\ProcessAuditTransfer.aspx.designer.cs">
       <DependentUpon>ProcessAuditTransfer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\BankLoanPages\ProcessAuditTransferList.aspx.cs">
       <DependentUpon>ProcessAuditTransferList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\BankLoanPages\ProcessAuditTransferList.aspx.designer.cs">
       <DependentUpon>ProcessAuditTransferList.aspx</DependentUpon>
@@ -1414,12 +1418,14 @@
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\LeaderAuditTransfer.aspx.cs">
       <DependentUpon>LeaderAuditTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\LeaderAuditTransfer.aspx.designer.cs">
       <DependentUpon>LeaderAuditTransfer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\LeaderAuditTransferList.aspx.cs">
       <DependentUpon>LeaderAuditTransferList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\LeaderAuditTransferList.aspx.designer.cs">
       <DependentUpon>LeaderAuditTransferList.aspx</DependentUpon>
@@ -1440,12 +1446,14 @@
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\PaymentAuditTransfer.aspx.cs">
       <DependentUpon>PaymentAuditTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\PaymentAuditTransfer.aspx.designer.cs">
       <DependentUpon>PaymentAuditTransfer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\PaymentAuditTransferList.aspx.cs">
       <DependentUpon>PaymentAuditTransferList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\PaymentAuditTransferList.aspx.designer.cs">
       <DependentUpon>PaymentAuditTransferList.aspx</DependentUpon>
@@ -1487,6 +1495,7 @@
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\CustomerList.aspx.cs">
       <DependentUpon>CustomerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\CustomerList.aspx.designer.cs">
       <DependentUpon>CustomerList.aspx</DependentUpon>
@@ -1563,12 +1572,14 @@
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\PaymentAuditTransfer.aspx.cs">
       <DependentUpon>PaymentAuditTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\PaymentAuditTransfer.aspx.designer.cs">
       <DependentUpon>PaymentAuditTransfer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\PaymentAuditTransferList.aspx.cs">
       <DependentUpon>PaymentAuditTransferList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\PaymentAuditTransferList.aspx.designer.cs">
       <DependentUpon>PaymentAuditTransferList.aspx</DependentUpon>
@@ -1701,12 +1712,14 @@
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectAuditTransfer.aspx.cs">
       <DependentUpon>ProjectAuditTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectAuditTransfer.aspx.designer.cs">
       <DependentUpon>ProjectAuditTransfer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectAuditTransferList.aspx.cs">
       <DependentUpon>ProjectAuditTransferList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectAuditTransferList.aspx.designer.cs">
       <DependentUpon>ProjectAuditTransferList.aspx</DependentUpon>
@@ -1748,12 +1761,14 @@
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectProcessTransfer.aspx.cs">
       <DependentUpon>ProjectProcessTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectProcessTransfer.aspx.designer.cs">
       <DependentUpon>ProjectProcessTransfer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectProcessTransferList.aspx.cs">
       <DependentUpon>ProjectProcessTransferList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectProcessTransferList.aspx.designer.cs">
       <DependentUpon>ProjectProcessTransferList.aspx</DependentUpon>
