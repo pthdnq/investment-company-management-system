@@ -25,8 +25,9 @@
                             </ext:DropDownList>
                             <ext:DropDownList ID="ddlstAproveState" runat="server" Label="申请状态">
                                 <ext:ListItem Text="审批中" Value="0" Selected="true" />
-                                <ext:ListItem Text="待领用" Value="2" />
                                 <ext:ListItem Text="未通过" Value="1" />
+                                <ext:ListItem Text="待领用" Value="2" />
+                                <ext:ListItem Text="已领用" Value="3" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
                             </ext:Button>
@@ -69,7 +70,7 @@
                             <ext:BoundField DataField="ApplyCount" HeaderText="申请数量" />
                             <ext:BoundField DataField="Other" HeaderText="备注" ExpandUnusedSpace="true" DataTooltipField="Other" />
                             <ext:BoundField DataField="ApplyTime" HeaderText="申请时间" />
-                            <ext:BoundField DataField="ApproverID" HeaderText="当前执行人" />
+                            <ext:BoundField DataField="CurrentApproverID" HeaderText="当前执行人" />
                             <ext:BoundField DataField="State" HeaderText="申请状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />

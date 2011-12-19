@@ -200,7 +200,7 @@ namespace TZMS.Web
                 _applyInfo.UserDept = CurrentUser.Dept;
                 _applyInfo.ApplyTime = DateTime.Now;
                 _applyInfo.MaterialsID = new Guid(ddlstMaterials.SelectedValue);
-                _applyInfo.Numbers = Convert.ToInt32(tbxNumbers.Text.Trim());
+                _applyInfo.ApplyCount = Convert.ToInt32(tbxNumbers.Text.Trim());
                 _applyInfo.Other = taaOther.Text.Trim();
                 _applyInfo.State = 0;
                 _applyInfo.CurrentApproverID = new Guid(ddlstApproveUser.SelectedValue);
@@ -246,10 +246,10 @@ namespace TZMS.Web
                 {
                     // 更新申请单中的数据.
                     _applyInfo.MaterialsID = new Guid(ddlstMaterials.SelectedValue);
-                    _applyInfo.Numbers = Convert.ToInt32(tbxNumbers.Text.Trim());
+                    _applyInfo.ApplyCount = Convert.ToInt32(tbxNumbers.Text.Trim());
                     _applyInfo.Other = taaOther.Text.Trim();
                     _applyInfo.State = 0;
-                    _applyInfo.CurrentApproverID= new Guid(ddlstApproveUser.SelectedValue);
+                    _applyInfo.CurrentApproverID = new Guid(ddlstApproveUser.SelectedValue);
 
                     result = _manage.UpdateApply(_applyInfo);
 
@@ -299,7 +299,7 @@ namespace TZMS.Web
                 }
                 lblName.Text = _info.UserName;
                 lblApplyTime.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
-                tbxNumbers.Text = _info.Numbers.ToString();
+                tbxNumbers.Text = _info.ApplyCount.ToString();
                 taaOther.Text = _info.Other;
 
                 // 查找最早的审批记录.
@@ -427,6 +427,9 @@ namespace TZMS.Web
                         break;
                     case "3":
                         e.Values[2] = "批准领用";
+                        break;
+                    case "4":
+                        e.Values[2] = "确认领用";
                         break;
                     default:
                         break;

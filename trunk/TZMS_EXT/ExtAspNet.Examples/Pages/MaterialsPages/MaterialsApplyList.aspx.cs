@@ -194,6 +194,10 @@ namespace TZMS.Web
                         e.Values[10] = "<span class=\"gray\">编辑</span>";
                         e.Values[11] = "<span class=\"gray\">删除</span>";
                         break;
+                    case "3":
+                        e.Values[8] = "已领用";
+                        e.Values[10] = "<span class=\"gray\">编辑</span>";
+                        break;
                     default:
                         break;
                 }
