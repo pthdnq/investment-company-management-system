@@ -48,9 +48,14 @@ namespace com.TZMS.Model
         private string _homeAddress = DBEmptyString;
         private string _homePhone = DBEmptyString;
         private string _remark = DBEmptyString;
+        private int _status = DBEmptyTinyInt;
+        private DateTime _createTime = DBEmptyDate;
         #endregion
 
         #region Property
+        
+
+
         /// <summary>
         /// ObjectID 
         /// </summary> 
@@ -184,6 +189,25 @@ namespace com.TZMS.Model
         {
             get { return _remark; }
             set { _remark = value; }
+        }
+
+
+        /// <summary>
+        /// Status 
+        /// </summary> 
+        public int Status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
+
+        /// <summary>
+        /// CreateTime 
+        /// </summary> 
+        public DateTime CreateTime
+        {
+            get { return _createTime; }
+            set { _createTime = value; }
         }
 
         #endregion
