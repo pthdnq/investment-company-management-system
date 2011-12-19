@@ -521,6 +521,10 @@
     <Content Include="library\blowery.Web.HttpCompress.dll" />
     <Content Include="Pages\adminManage\ChooseJiangCheng.aspx" />
     <Content Include="Pages\adminManage\ChooseZJ.aspx" />
+    <Content Include="Pages\adminManage\ChuRuApply.aspx" />
+    <Content Include="Pages\adminManage\ChuRuApplyList.aspx" />
+    <Content Include="Pages\adminManage\ChuRuApprove.aspx" />
+    <Content Include="Pages\adminManage\ChuRuApproveList.aspx" />
     <Content Include="Pages\adminManage\JiangChengConfirm.aspx" />
     <Content Include="Pages\adminManage\JiangChengConfirmList.aspx" />
     <Content Include="Pages\adminManage\JiangChengList.aspx" />
@@ -806,6 +810,34 @@
     </Compile>
     <Compile Include="Pages\adminManage\ChooseZJ.aspx.designer.cs">
       <DependentUpon>ChooseZJ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChuRuApply.aspx.cs">
+      <DependentUpon>ChuRuApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChuRuApply.aspx.designer.cs">
+      <DependentUpon>ChuRuApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChuRuApplyList.aspx.cs">
+      <DependentUpon>ChuRuApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChuRuApplyList.aspx.designer.cs">
+      <DependentUpon>ChuRuApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChuRuApprove.aspx.cs">
+      <DependentUpon>ChuRuApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChuRuApprove.aspx.designer.cs">
+      <DependentUpon>ChuRuApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChuRuApproveList.aspx.cs">
+      <DependentUpon>ChuRuApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\ChuRuApproveList.aspx.designer.cs">
+      <DependentUpon>ChuRuApproveList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\JiangChengConfirm.aspx.cs">
       <DependentUpon>JiangChengConfirm.aspx</DependentUpon>

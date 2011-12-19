@@ -64,6 +64,7 @@
     <Compile Include="BaoXiaoPinZhengApproveCtrl.cs" />
     <Compile Include="CashFlowSetterCtrl.cs" />
     <Compile Include="CashFlowStatementCtrl.cs" />
+    <Compile Include="ChuRuCtrl.cs" />
     <Compile Include="ComCheckerCtrl.cs" />
     <Compile Include="CustomerCtrl.cs" />
     <Compile Include="FinancingFeePaymentCtrl.cs" />

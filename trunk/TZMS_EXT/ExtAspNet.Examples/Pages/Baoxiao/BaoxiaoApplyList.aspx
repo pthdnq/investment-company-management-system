@@ -26,7 +26,7 @@
                             </ext:DropDownList>
                             <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
-                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="开始日期">
+                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
                             </ext:DatePicker>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="btnSearch_Click">
                             </ext:Button>
