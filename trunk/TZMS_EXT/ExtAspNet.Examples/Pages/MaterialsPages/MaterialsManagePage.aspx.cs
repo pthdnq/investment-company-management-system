@@ -46,7 +46,7 @@ namespace TZMS.Web
             #region 查询条件
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" 1 = 1");
+            strCondition.Append(" IsDelete <> 1");
 
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
@@ -125,7 +125,14 @@ namespace TZMS.Web
             if (e.CommandName == "Delete")
             {
                 MaterialsManage _manage = new MaterialsManage();
-                _manage.DeleteMaterial(strObjectID);
+                MaterialsManageInfo _manageInfo = _manage.GetMaterialByObjectID(strObjectID);
+                if (_manageInfo != null)
+                {
+                    _manageInfo.IsDelete = true;
+                    _manage.UpdateMaterial(_manageInfo);
+
+                    BindGrid();
+                }
             }
 
             if (e.CommandName == "Comsume")

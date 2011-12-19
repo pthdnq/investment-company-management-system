@@ -38,6 +38,7 @@ namespace com.TZMS.Model
         private string _materialsName = DBEmptyString;
         private int _numbers = 0;
         private int _currentNumbers = 0;
+        private bool _isDelete = false;
         #endregion
 
         #region Property
@@ -84,6 +85,15 @@ namespace com.TZMS.Model
         {
             get { return _currentNumbers; }
             set { _currentNumbers = value; }
+        }
+
+        /// <summary>
+        /// IsDelete 
+        /// </summary> 
+        public bool IsDelete
+        {
+            get { return _isDelete; }
+            set { _isDelete = value; }
         }
 
         #endregion
