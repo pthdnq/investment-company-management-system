@@ -78,7 +78,7 @@
                                          <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="审核转移" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAudit.aspx?ID={0}"
+                            <ext:WindowField Width="76px" Text="审核转移" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditTransfer.aspx?ID={0}"
                                 Title="审核转移" WindowID="wndNew" />
                             <ext:LinkButtonField Width="38px" Hidden="true" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
                         </Columns>
