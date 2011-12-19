@@ -576,6 +576,7 @@
     <Content Include="Pages\BankLoanPages\FeePayAuditList.aspx" />
     <Content Include="Pages\BankLoanPages\FeePayConfirm.aspx" />
     <Content Include="Pages\BankLoanPages\FeePayConfirmList.aspx" />
+    <Content Include="Pages\BankLoanPages\FeePayConfirmPrinter.aspx" />
     <Content Include="Pages\BankLoanPages\FeePayInfo.aspx" />
     <Content Include="Pages\BankLoanPages\ProcessAudit.aspx" />
     <Content Include="Pages\BankLoanPages\ProcessAuditList.aspx" />
@@ -605,6 +606,7 @@
     <Content Include="Pages\CashFlow\InvestmentProjectBAList.aspx" />
     <Content Include="Pages\FolkFinancingPages\AccountingAudit.aspx" />
     <Content Include="Pages\FolkFinancingPages\AccountingAuditList.aspx" />
+    <Content Include="Pages\FolkFinancingPages\AccountingAuditPrinter.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingApplyAdd.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingApplyEdit.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingApplyList.aspx" />
@@ -623,9 +625,11 @@
     <Content Include="Pages\FolkFinancingPages\PaymentAuditTransferList.aspx" />
     <Content Include="Pages\FolkFinancingPages\PaymentConfirm.aspx" />
     <Content Include="Pages\FolkFinancingPages\PaymentConfirmList.aspx" />
+    <Content Include="Pages\FolkFinancingPages\PaymentConfirmPrinter.aspx" />
     <Content Include="Pages\FolkFinancingPages\PaymentRecord.aspx" />
     <Content Include="Pages\FolkFinancingPages\PaymentRecordList.aspx" />
     <Content Include="Pages\InvestmentLoanPages\ChooseJKR.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\CustomerInvestmentLoanInfo.aspx" />
     <Content Include="Pages\InvestmentLoanPages\CustomerList.aspx" />
     <Content Include="Pages\InvestmentLoanPages\LoanContract.aspx" />
     <Content Include="Pages\InvestmentLoanPages\LoanContractList.aspx" />
@@ -641,8 +645,10 @@
     <Content Include="Pages\InvestmentLoanPages\PaymentAuditTransferList.aspx" />
     <Content Include="Pages\InvestmentLoanPages\PaymentConfirm.aspx" />
     <Content Include="Pages\InvestmentLoanPages\PaymentConfirmList.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\PaymentConfirmPrinter.aspx" />
     <Content Include="Pages\InvestmentLoanPages\ReceivablesConfirm.aspx" />
     <Content Include="Pages\InvestmentLoanPages\ReceivablesConfirmList.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\ReceivablesConfirmPrinter.aspx" />
     <Content Include="Pages\InvestmentLoanPages\ReceivablesInfo.aspx" />
     <Content Include="Pages\InvestmentLoanPages\ReceivablesInfoList.aspx" />
     <Content Include="Pages\InvestmentProjectPages\AllProjectList.aspx" />
@@ -650,6 +656,7 @@
     <Content Include="Pages\InvestmentProjectPages\ImprestPayAuditList.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ImprestPayConfirm.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ImprestPayConfirmList.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\ImprestPayConfirmPrinter.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectApplyAdd.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectApplyEdit.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectApplyList.aspx" />
@@ -1143,6 +1150,13 @@
     <Compile Include="Pages\BankLoanPages\FeePayConfirmList.aspx.designer.cs">
       <DependentUpon>FeePayConfirmList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BankLoanPages\FeePayConfirmPrinter.aspx.cs">
+      <DependentUpon>FeePayConfirmPrinter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\FeePayConfirmPrinter.aspx.designer.cs">
+      <DependentUpon>FeePayConfirmPrinter.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BankLoanPages\FeePayInfo.aspx.cs">
       <DependentUpon>FeePayInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1346,6 +1360,13 @@
     <Compile Include="Pages\FolkFinancingPages\AccountingAuditList.aspx.designer.cs">
       <DependentUpon>AccountingAuditList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FolkFinancingPages\AccountingAuditPrinter.aspx.cs">
+      <DependentUpon>AccountingAuditPrinter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\AccountingAuditPrinter.aspx.designer.cs">
+      <DependentUpon>AccountingAuditPrinter.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FolkFinancingPages\FinancingApplyAdd.aspx.cs">
       <DependentUpon>FinancingApplyAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1472,6 +1493,13 @@
     <Compile Include="Pages\FolkFinancingPages\PaymentConfirmList.aspx.designer.cs">
       <DependentUpon>PaymentConfirmList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FolkFinancingPages\PaymentConfirmPrinter.aspx.cs">
+      <DependentUpon>PaymentConfirmPrinter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\PaymentConfirmPrinter.aspx.designer.cs">
+      <DependentUpon>PaymentConfirmPrinter.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FolkFinancingPages\PaymentRecord.aspx.cs">
       <DependentUpon>PaymentRecord.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1492,6 +1520,13 @@
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\ChooseJKR.aspx.designer.cs">
       <DependentUpon>ChooseJKR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\CustomerInvestmentLoanInfo.aspx.cs">
+      <DependentUpon>CustomerInvestmentLoanInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\CustomerInvestmentLoanInfo.aspx.designer.cs">
+      <DependentUpon>CustomerInvestmentLoanInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\CustomerList.aspx.cs">
       <DependentUpon>CustomerList.aspx</DependentUpon>
@@ -1598,6 +1633,13 @@
     <Compile Include="Pages\InvestmentLoanPages\PaymentConfirmList.aspx.designer.cs">
       <DependentUpon>PaymentConfirmList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\PaymentConfirmPrinter.aspx.cs">
+      <DependentUpon>PaymentConfirmPrinter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\PaymentConfirmPrinter.aspx.designer.cs">
+      <DependentUpon>PaymentConfirmPrinter.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\InvestmentLoanPages\ReceivablesConfirm.aspx.cs">
       <DependentUpon>ReceivablesConfirm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1611,6 +1653,13 @@
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\ReceivablesConfirmList.aspx.designer.cs">
       <DependentUpon>ReceivablesConfirmList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\ReceivablesConfirmPrinter.aspx.cs">
+      <DependentUpon>ReceivablesConfirmPrinter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\ReceivablesConfirmPrinter.aspx.designer.cs">
+      <DependentUpon>ReceivablesConfirmPrinter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\ReceivablesInfo.aspx.cs">
       <DependentUpon>ReceivablesInfo.aspx</DependentUpon>
@@ -1660,6 +1709,13 @@
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ImprestPayConfirmList.aspx.designer.cs">
       <DependentUpon>ImprestPayConfirmList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ImprestPayConfirmPrinter.aspx.cs">
+      <DependentUpon>ImprestPayConfirmPrinter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ImprestPayConfirmPrinter.aspx.designer.cs">
+      <DependentUpon>ImprestPayConfirmPrinter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectApplyAdd.aspx.cs">
       <DependentUpon>ProjectApplyAdd.aspx</DependentUpon>
