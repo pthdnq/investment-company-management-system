@@ -76,7 +76,7 @@
                             <ext:BoundField Width="115px" DataField="SignDate" HeaderText="签订日期"  DataFormatString="{0:yyyy/MM/dd}"/>
                             <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同总金额" />
                             <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付定金" />
-                            <ext:WindowField Width="38px" Text="审核转移" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectAudit.aspx?Type=Edit&ID={0}"
+                            <ext:WindowField Width="80px" Text="审核转移" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectAuditTransfer.aspx?Type=Edit&ID={0}"
                                 Title="审核转移" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
                         </Columns>

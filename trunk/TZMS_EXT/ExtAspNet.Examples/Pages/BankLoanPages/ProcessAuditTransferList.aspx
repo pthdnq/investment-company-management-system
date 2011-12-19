@@ -77,7 +77,7 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                               <ext:BoundField  ExpandUnusedSpace="true"  DataField="Remark" HeaderText="备注" />
-                            <ext:WindowField Width="114px" Text="审核转移" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProcessAudit.aspx?ID={0}"
+                            <ext:WindowField Width="114px" Text="审核转移" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProcessAuditTransfer.aspx?ID={0}"
                                 Title="审核转移" WindowID="wndNew" />
                         </Columns>
                     </ext:Grid>
