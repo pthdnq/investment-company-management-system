@@ -7,10 +7,7 @@ using System.Text;
 
 namespace TZMS.Web.Pages.InvestmentProjectPages
 {
-    /// <summary>
-    /// ProjectAudit
-    /// </summary>
-    public partial class ProjectAudit : BasePage
+    public partial class ProjectAuditTransfer : BasePage
     {
         #region 属性
         /// <summary>
@@ -84,7 +81,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             {
                 BindNext(false);
             }
-            #endregion  
+            #endregion
 
             this.tbProjectName.Text = _Info.ProjectName;
             this.tbProjectOverview.Text = _Info.ProjectOverview;
@@ -141,12 +138,15 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             InvestmentProjectInfo _Info = manage.GetUserByObjectID(ObjectID);
 
 
-            _Info.AuditOpinion = this.tbAuditOpinion.Text.Trim();
-            _Info.Status = status;
+            //_Info.AuditOpinion = this.tbAuditOpinion.Text.Trim();
+            //_Info.Status = status;
+
+            string strLastNextOperaterName = _Info.NextOperaterName;
             //下一步操作
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.SubmitTime = DateTime.Now;
+
 
             int result = 3;
 
@@ -154,8 +154,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
-                manage.AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, _Info.NextOperaterName);//  (status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
+                manage.AddHistory(_Info.ObjectId, "审批转移", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.tbAuditOpinion.Text.Trim());
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
@@ -175,7 +175,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+               // ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

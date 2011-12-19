@@ -5,12 +5,9 @@ using com.TZMS.Model;
 using ExtAspNet;
 using System.Text;
 
-namespace TZMS.Web.Pages.BankLoanPages
+namespace TZMS.Web.Pages.FolkFinancingPages
 {
-    /// <summary>
-    /// ProcessAudit
-    /// </summary>
-    public partial class ProcessAudit : BasePage
+    public partial class PaymentAuditTransfer : BasePage
     {
         #region 属性
         /// <summary>
@@ -47,6 +44,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 bindUserInterface(strID);
                 // 绑定审批人.
                 ApproveUser();
+                // 绑定审批历史.
                 BindHistory();
             }
         }
@@ -68,40 +66,44 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
 
             // 通过 ID获取 信息实例.
-            com.TZMS.Model.BankLoanProjectProcessInfo _info = new BankLoanManage().GetProcessByObjectID(strID);
+            com.TZMS.Model.FinancingFeePaymentInfo _info = new FolkFinancingManage().GetProcessByObjectID(strID);
 
             // 绑定数据.
             if (_info != null)
             {
                 #region 下一步方式
-                //投资部总监归档
-                if (CurrentRoles.Contains(RoleType.TZZJ))
+                if (CurrentRoles.Contains(RoleType.DSZ))
                 {
                     BindNext(true);
                 }
-                //else if (CurrentRoles.Contains(RoleType.ZJL))
-                //{      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
-                //    if (_info.AmountExpended >= 300000)
-                //    { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
-                //    else
-                //    { BindNext(true); }
-                //}
+                else if (CurrentRoles.Contains(RoleType.ZJL))
+                {      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
+                    if (_info.AmountOfPayment >= 300000)
+                    { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
+                    else
+                    { BindNext(true); }
+                }
                 else
                 {
                     BindNext(false);
                 }
                 #endregion
 
-                this.taImplementationPhase.Text = _info.ImplementationPhase;
-                this.tbAmountExpended.Text = _info.AmountExpended.ToString();
-                this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
+                this.tbPaymentAccount.Text = _info.PaymentAccount;
+                this.tbReceivablesAccount.Text = _info.ReceivablesAccount;
+                this.tbAmountOfPayment.Text = _info.AmountOfPayment.ToString();
+
                 this.taRemark.Text = _info.Remark;
 
-                if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
+                if (DateTime.Compare(_info.DueDateForPay, DateTime.Parse("1900-1-1 12:00")) != 0)
                 {
-                    this.dpExpendedTime.SelectedDate = _info.ExpendedTime;
+                    this.dpDueDateForPay.SelectedDate = _info.DueDateForPay;
                 }
 
+                if (DateTime.Compare(_info.DateForPay, DateTime.Parse("1900-1-1 12:00")) != 0)
+                {
+                    this.dpDateForPay.SelectedDate = _info.DateForPay;
+                }
             }
         }
 
@@ -116,7 +118,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append("ForId = '" + ObjectID + "'");
             strCondition.Append(" ORDER BY OperationTime DESC");
-            List<BankLoanProjectProcessHistoryInfo> lstInfo = new BankLoanManage().GetProcessHistoryByCondtion(strCondition.ToString());
+            List<FinancingFeePaymentHistoryInfo> lstInfo = new FolkFinancingManage().GetProcessHistoryByCondtion(strCondition.ToString());
             //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
 
             gridHistory.RecordCount = lstInfo.Count;
@@ -128,6 +130,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         #region 页面及控件事件
         protected void btnDismissed_Click(object sender, EventArgs e)
         {
+            //打回
             saveInfo(2);
         }
 
@@ -136,39 +139,12 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (this.ddlstNext.SelectedValue.Equals("0"))
             {
                 //同意，继续审核
-                saveInfo(5);
+                saveInfo(3);
             }
             else
             {
-                //归档
-                saveInfo(6);
-            }
-        }
-
-        /// <summary>
-        /// 下一步下拉框变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void ddlstNext_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ddlstNext.SelectedIndex == 1)
-            {
-                ddlstApproveUser.Hidden = true;
-                ddlstApproveUser.Required = false;
-                ddlstApproveUser.ShowRedStar = false;
-                ddlstApproveUser.Enabled = false;
-                btnSave.Text = "同意并归档";
-                btnSave.ConfirmText = "您确定同意并归档吗?";
-            }
-            else
-            {
-                ddlstApproveUser.Hidden = false;
-                ddlstApproveUser.Required = true;
-                ddlstApproveUser.ShowRedStar = true;
-                ddlstApproveUser.Enabled = true;
-                btnSave.Text = "同意";
-                btnSave.ConfirmText = "您确定同意吗?";
+                //待会计审核/支付确认
+                saveInfo(4);
             }
         }
         #endregion
@@ -179,11 +155,13 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// </summary>
         private void saveInfo(int status)
         {
-            BankLoanManage manage = new BankLoanManage();
+            FolkFinancingManage manage = new FolkFinancingManage();
 
-            com.TZMS.Model.BankLoanProjectProcessInfo _Info = manage.GetProcessByObjectID(ObjectID);
-            _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
-            _Info.Status = status;
+            com.TZMS.Model.FinancingFeePaymentInfo _Info = manage.GetProcessByObjectID(ObjectID);
+            //_Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+            //_Info.Status = status; 
+             
+            string strLastNextOperaterName = _Info.NextOperaterName;
 
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
@@ -194,8 +172,8 @@ namespace TZMS.Web.Pages.BankLoanPages
             result = manage.UpdateProcess(_Info);
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，归档";
-                manage.AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, _Info.NextOperaterName);//(status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
+                manage.AddHistory(_Info.ObjectId, "审批转移", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
@@ -212,10 +190,10 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// </summary>
         private void BindNext(bool needAccountant)
         {
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("审批转移", "0"));
             if (needAccountant)
             {
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+              //  ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

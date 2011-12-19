@@ -5,12 +5,9 @@ using com.TZMS.Model;
 using ExtAspNet;
 using System.Text;
 
-namespace TZMS.Web.Pages.BankLoanPages
+namespace TZMS.Web.Pages.InvestmentProjectPages
 {
-    /// <summary>
-    /// ProcessAudit
-    /// </summary>
-    public partial class ProcessAudit : BasePage
+    public partial class ProjectProcessTransfer : BasePage
     {
         #region 属性
         /// <summary>
@@ -68,13 +65,13 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
 
             // 通过 ID获取 信息实例.
-            com.TZMS.Model.BankLoanProjectProcessInfo _info = new BankLoanManage().GetProcessByObjectID(strID);
+            com.TZMS.Model.ProjectProcessInfo _info = new InvestmentProjectManage().GetProcessByObjectID(strID);
 
             // 绑定数据.
             if (_info != null)
             {
                 #region 下一步方式
-                //投资部总监归档
+                //投资部总监可以归档
                 if (CurrentRoles.Contains(RoleType.TZZJ))
                 {
                     BindNext(true);
@@ -92,7 +89,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 }
                 #endregion
 
-                this.taImplementationPhase.Text = _info.ImplementationPhase;
+                this.tbImplementationPhase.Text = _info.ImplementationPhase;
                 this.tbAmountExpended.Text = _info.AmountExpended.ToString();
                 this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.Remark;
@@ -116,7 +113,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append("ForId = '" + ObjectID + "'");
             strCondition.Append(" ORDER BY OperationTime DESC");
-            List<BankLoanProjectProcessHistoryInfo> lstInfo = new BankLoanManage().GetProcessHistoryByCondtion(strCondition.ToString());
+            List<ProjectProcessHistoryInfo> lstInfo = new InvestmentProjectManage().GetProcessHistoryByCondtion(strCondition.ToString());
             //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
 
             gridHistory.RecordCount = lstInfo.Count;
@@ -140,7 +137,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
             else
             {
-                //归档
+                //归档             
                 saveInfo(6);
             }
         }
@@ -179,12 +176,14 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// </summary>
         private void saveInfo(int status)
         {
-            BankLoanManage manage = new BankLoanManage();
+            InvestmentProjectManage manage = new InvestmentProjectManage();
 
-            com.TZMS.Model.BankLoanProjectProcessInfo _Info = manage.GetProcessByObjectID(ObjectID);
-            _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
-            _Info.Status = status;
+            com.TZMS.Model.ProjectProcessInfo _Info = manage.GetProcessByObjectID(ObjectID);
+            //_Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+            //_Info.Status = status;
 
+            string strLastNextOperaterName = _Info.NextOperaterName;
+            //下一步操作
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.SubmitTime = DateTime.Now;
@@ -194,11 +193,10 @@ namespace TZMS.Web.Pages.BankLoanPages
             result = manage.UpdateProcess(_Info);
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，归档";
-                manage.AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, _Info.NextOperaterName);//(status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
+                manage.AddHistory(_Info.ObjectId, "审批转移", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
 
                 Alert.Show("操作成功!");
-                PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
             {
@@ -215,7 +213,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+               // ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

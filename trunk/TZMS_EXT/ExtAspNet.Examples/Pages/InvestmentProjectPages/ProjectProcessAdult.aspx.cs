@@ -181,7 +181,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             com.TZMS.Model.ProjectProcessInfo _Info = manage.GetProcessByObjectID(ObjectID);
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             _Info.Status = status;
-
+            //下一步操作
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            _Info.SubmitTime = DateTime.Now;
             // 执行操作.
             int result = 3;
 
