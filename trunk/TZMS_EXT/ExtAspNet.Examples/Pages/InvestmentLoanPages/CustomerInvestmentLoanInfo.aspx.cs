@@ -5,28 +5,31 @@ using com.TZMS.Model;
 using ExtAspNet;
 using System.Text;
 
-namespace TZMS.Web.Pages.CashFlow
+namespace TZMS.Web.Pages.InvestmentLoanPages
 {
-    public partial class CustomerList : BasePage
+    /// <summary>
+    /// CustomerInvestmentLoanInfo
+    /// </summary>
+    public partial class CustomerInvestmentLoanInfo : BasePage
     {
         #region viewstate
         /// <summary>
-        /// 用于存储部门名称的ViewState.
+        /// 用于ObjectID的ViewState.
         /// </summary>
-        public string ViewStateDept
+        public string ObjectID
         {
             get
             {
-                if (ViewState["Dept"] == null)
+                if (ViewState["ObjectID"] == null)
                 {
                     return null;
                 }
 
-                return ViewState["Dept"].ToString();
+                return ViewState["ObjectID"].ToString();
             }
             set
             {
-                ViewState["Dept"] = value;
+                ViewState["ObjectID"] = value;
             }
         }
 
@@ -81,9 +84,10 @@ namespace TZMS.Web.Pages.CashFlow
         {
             if (!IsPostBack)
             {
-                //   this.btnNew.OnClientClick = wndNew.GetShowReference("CashFlowSetterInit.aspx?Type=Add", "初始化 - 资金");
+                //this.btnNew.OnClientClick = wndNew.GetShowReference("PaymentApplyAdd.aspx?Type=Add", "新增 - 借款申请");
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
-
+                string strID = Request.QueryString["ID"];
+                ObjectID = strID;
                 // 绑定下拉框.
                 BindDDL();
                 // 绑定列表.
@@ -109,48 +113,44 @@ namespace TZMS.Web.Pages.CashFlow
         {
             #region 条件
             StringBuilder strCondtion = new StringBuilder();
-            //需要增加下一步审批人
-            // strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "'  ");
-            strCondtion.Append("   Status <> 9 ");
+            strCondtion.Append("  BorrowerAId = '" + ObjectID + "' ");
+         //   strCondtion.Append("   Status<>0 ");
 
+            if (!string.IsNullOrEmpty(state))
+            {
+                //strCondtion.Append(" Status " + (state == "待审核" ? " = 1 " : " <> 1 ") + " AND ");
+                // 申请状态.
+                switch (state)
+                {
+                    case "0":
+                        //  strCondtion.Append(" AND Status = 1 ");
+                        break;
+                    case "1":
+                        strCondtion.Append(" AND Status = 1 ");
+                        break;
+                    case "2":
+                        strCondtion.Append(" AND Status = 2 ");
+                        break;
+                    case "3":
+                        strCondtion.Append(" AND (Status = 3 OR Status = 4) ");
+                        break;
+                    case "4":
+                        strCondtion.Append(" AND Status = 4 ");
+                        break;
+                    case "5":
+                        strCondtion.Append(" AND Status = 5 ");
+                        break;
+                    case "9":
+                        strCondtion.Append(" AND Status = 9 ");
+                        break;
+                    default:
+                        break;
+                }
+            }
             if (!string.IsNullOrEmpty(searchText))
             {
-                strCondtion.Append(" AND  (Name LIKE '%" + searchText + "%'  )  ");
+                strCondtion.Append(" AND (ProjectName LIKE '%" + searchText + "%' )  ");
             }
-
-            #region status
-            //if (!string.IsNullOrEmpty(state))
-            //{ 
-            //    //  状态.
-            //    switch (state)
-            //    {
-            //        case "0":
-            //            //  strCondtion.Append(" AND Status = 1 ");
-            //            break;
-            //        case "1":
-            //            strCondtion.Append(" AND Status = 1 ");
-            //            break;
-            //        case "2":
-            //            strCondtion.Append(" AND Status = 2 ");
-            //            break;
-            //        case "3":
-            //            strCondtion.Append(" AND Status = 3  ");
-            //            break;
-            //        case "4":
-            //            strCondtion.Append(" AND Status = 4 ");
-            //            break;
-            //        case "5":
-            //            strCondtion.Append(" AND Status = 5 ");
-            //            break;
-            //        case "9":
-            //            strCondtion.Append(" AND Status = 9 ");
-            //            break;
-            //        default:
-            //            break;
-            //    }
-            //}
-            #endregion
-
             //时间
             DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
             DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
@@ -160,24 +160,39 @@ namespace TZMS.Web.Pages.CashFlow
                 return;
             }
             strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
-            strCondtion.Append(" ORDER BY CreditScore DESC");
+            strCondtion.Append(" ORDER BY CreateTime DESC");
             #endregion
 
-            List<com.TZMS.Model.CustomerInfo> lstInfo = new InvestmentLoanManage().GetCustomersByCondtion(strCondtion.ToString());
-            this.gridData.RecordCount = lstInfo.Count;
+            List<InvestmentLoanInfo> lstUserInfo = new InvestmentLoanManage().GetUsersByCondtion(strCondtion.ToString());
+            this.gridData.RecordCount = lstUserInfo.Count;
             this.gridData.PageSize = PageCounts;
             int currentIndex = this.gridData.PageIndex;
             //计算当前页面显示行数据
-            if (lstInfo.Count > this.gridData.PageSize)
+            if (lstUserInfo.Count > this.gridData.PageSize)
             {
-                if (lstInfo.Count > (currentIndex + 1) * this.gridData.PageSize)
+                if (lstUserInfo.Count > (currentIndex + 1) * this.gridData.PageSize)
                 {
-                    lstInfo.RemoveRange((currentIndex + 1) * this.gridData.PageSize, lstInfo.Count - (currentIndex + 1) * this.gridData.PageSize);
+                    lstUserInfo.RemoveRange((currentIndex + 1) * this.gridData.PageSize, lstUserInfo.Count - (currentIndex + 1) * this.gridData.PageSize);
                 }
-                lstInfo.RemoveRange(0, currentIndex * this.gridData.PageSize);
+                lstUserInfo.RemoveRange(0, currentIndex * this.gridData.PageSize);
             }
-            this.gridData.DataSource = lstInfo;
+            this.gridData.DataSource = lstUserInfo;
             this.gridData.DataBind();
+        }
+
+        /// <summary>
+        /// 行绑定事件.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
+
+            if (_Info.Status == 9)
+            {
+                e.Values[9] = "<span class=\"gray\"></span>";
+            }
         }
         #endregion
 
@@ -226,43 +241,28 @@ namespace TZMS.Web.Pages.CashFlow
         /// <param name="e"></param>
         protected void gridData_RowCommand(object sender, GridCommandEventArgs e)
         {
-            InvestmentLoanManage userManage = new InvestmentLoanManage();
-            string iD = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
+            InvestmentLoanManage manage = new InvestmentLoanManage();
+            string userID = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
 
-            CustomerInfo info = userManage.GetCustomerByObjectID(iD);
+            InvestmentLoanInfo info = manage.GetUserByObjectID(userID);
 
-            if (e.CommandName == "Delete")
+            if (e.CommandName == "Leave")
+            {
+                // 离职
+                info.Status = 0;
+            }
+            else if (e.CommandName == "Delete")
             {
                 // 删除
                 info.Status = 9;
             }
 
-            userManage.UpdateCustomer(info);
+            manage.Update(info);
 
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-        /// <summary>
-        /// 行绑定事件.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
-        {
-            CustomerInfo _Info = (CustomerInfo)e.DataItem;
-            int icount = Math.Abs(_Info.CreditScore) / 20;
-            string strIcons = "";
-            string strIconsType = (_Info.CreditScore > 0) ? "★" : "ㄣ";
 
-            for (int i = 0; i < icount; i++)
-            {
-                strIcons += strIconsType;
-            }
-
-            e.Values[3] = string.Format("<span class=\"gray\">{0}</span>", strIcons);
-
-
-        }
 
         /// <summary>
         /// 关闭新增员工页面. 
@@ -274,6 +274,45 @@ namespace TZMS.Web.Pages.CashFlow
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
+        #endregion
+
+        #region 自定义方法
+        /// <summary>
+        /// 获取状态名字
+        /// </summary>
+        /// <param name="strStatus"></param>
+        /// <returns></returns>
+        protected string GetStatusName(string strStatus)
+        {
+            string StrStatusName = string.Empty;
+            switch (strStatus)
+            {
+                case "0":
+                    //  strCondtion.Append(" AND Status = 1 ");
+                    break;
+                case "1":
+                    StrStatusName = "待审核";
+                    break;
+                case "2":
+                    StrStatusName = "未通过";
+                    break;
+                case "3":
+                    StrStatusName = "审核中";
+                    break;
+                case "4":
+                    StrStatusName = "待确认";
+                    break;
+                case "5":
+                    StrStatusName = "已确认";
+                    break;
+                case "9":
+                    StrStatusName = "已删除";
+                    break;
+                default:
+                    break;
+            }
+            return StrStatusName;
+        }
         #endregion
     }
 }

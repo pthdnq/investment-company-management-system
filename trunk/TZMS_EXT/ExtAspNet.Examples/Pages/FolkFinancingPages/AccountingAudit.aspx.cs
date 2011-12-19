@@ -55,6 +55,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
+            hlPrinter.NavigateUrl = "AccountingAuditPrinter.aspx?ID='" + ObjectID + "'";
         }
 
         /// <summary>

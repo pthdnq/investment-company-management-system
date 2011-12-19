@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AllFeePayList.aspx.cs" Inherits="TZMS.Web.Pages.BankLoanPages.AllFeePayList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AllFeePayList.aspx.cs"
+    Inherits="TZMS.Web.Pages.BankLoanPages.AllFeePayList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>所有费用支出列表</title>
@@ -27,7 +27,7 @@
                                 <ext:ListItem Text="已通过" Value="4" />
                                 <ext:ListItem Text="未通过" Value="2" />
                                 <ext:ListItem Text="已删除" Value="9" />
-                            </ext:DropDownList>
+                            </ext:DropDownList> 
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
                             </ext:Button>
                             <ext:Label ID="Labeltmp1" runat="server" />
@@ -62,31 +62,28 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                                <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" /> 
-                       <%--     <ext:BoundField Width="110px" DataField="GuaranteeCompany" HeaderText="贷款公司" />--%>
-                         <ext:BoundField Width="140px" DataField="ImplementationPhase" HeaderText="实施阶段" />
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
+                            <%--     <ext:BoundField Width="110px" DataField="GuaranteeCompany" HeaderText="贷款公司" />--%>
+                            <ext:BoundField Width="140px" DataField="ImplementationPhase" HeaderText="实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
-                            <ext:BoundField Width="80px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd}" HeaderText="支用时间" />
+                            <ext:BoundField Width="80px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd}"
+                                HeaderText="支用时间" />
                             <ext:BoundField Width="130px" DataField="ImprestAmount" HeaderText="备用金额" />
-                      
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
-                                       <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                         <ext:BoundField  ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
-                      
-                            <ext:WindowField  Hidden="true"  Width="76px" Text="支付确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="FeePayInfo.aspx?Type=Edit&ID={0}"
-                                Title="支付确认" WindowID="wndNew" />
-                        
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
+                            <ext:WindowField Hidden="true" Width="76px" Text="支付确认" DataIFrameUrlFields="ObjectId"
+                                DataIFrameUrlFormatString="FeePayInfo.aspx?Type=Edit&ID={0}" Title="支付确认" WindowID="wndNew" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-  
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="349px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>

@@ -52,6 +52,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
+            hlPrinter.NavigateUrl = "ImprestPayConfirmPrinter.aspx?ID='" + ObjectID + "'";
         }
 
         /// <summary>

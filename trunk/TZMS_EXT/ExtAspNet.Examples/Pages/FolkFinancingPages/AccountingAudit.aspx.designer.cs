@@ -85,6 +85,24 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.Button btnDismissed;
         
         /// <summary>
+        /// ToolbarSeparator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.ToolbarSeparator ToolbarSeparator1;
+        
+        /// <summary>
+        /// hlPrinter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.HyperLink hlPrinter;
+        
+        /// <summary>
         /// mainFrame control.
         /// </summary>
         /// <remarks>

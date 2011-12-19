@@ -44,7 +44,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
 
-                bindUserInterface(strID);
+                bindInterface(strID);
                 BindHistory();
             }
         }
@@ -52,13 +52,15 @@ namespace TZMS.Web.Pages.BankLoanPages
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
+            // btnPrinter.OnClientClick = wndNew.GetShowReference("BankLoanApplyAdd.aspx?Type=Add", "新增 - 贷款申请") ;
+            hlPrinter.NavigateUrl = "FeePayConfirmPrinter.aspx?ID='" + ObjectID + "'";
         }
 
         /// <summary>
         /// 绑定指定用户ID的数据到界面.
         /// </summary>
         /// <param name="strID">用户ID</param>
-        private void bindUserInterface(string strID)
+        private void bindInterface(string strID)
         {
             if (string.IsNullOrEmpty(strID))
             {
@@ -157,7 +159,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                     _Info.Status = 4;
                     manage.UpdateProcess(_Info);
                     Alert.Show("操作失败!");
-                    return ;
+                    return;
                 }
 
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
