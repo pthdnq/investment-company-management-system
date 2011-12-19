@@ -69,6 +69,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@HomeAddress",DbType.String),
 				new SqlParameter("@HomePhone",DbType.String),
 				new SqlParameter("@Remark",DbType.String),
+                new SqlParameter("@Status",DbType.Int16),
+                new SqlParameter("@CreateTime",DbType.DateTime),
+
 				};
 
                 int i = 0;
@@ -87,6 +90,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = CustomerInfo.HomeAddress;
                 sqlparam[i++].Value = CustomerInfo.HomePhone;
                 sqlparam[i++].Value = CustomerInfo.Remark;
+                sqlparam[i++].Value = CustomerInfo.Status;
+                sqlparam[i++].Value = CustomerInfo.CreateTime;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -156,6 +161,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@HomeAddress",DbType.String),
 				new SqlParameter("@HomePhone",DbType.String),
 				new SqlParameter("@Remark",DbType.String),
+                   new SqlParameter("@Status",DbType.Int16),
+                new SqlParameter("@CreateTime",DbType.DateTime),
                 };
 
                 int i = 0;
@@ -174,6 +181,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = CustomerInfo.HomeAddress;
                 sqlparam[i++].Value = CustomerInfo.HomePhone;
                 sqlparam[i++].Value = CustomerInfo.Remark;
+                sqlparam[i++].Value = CustomerInfo.Status;
+                sqlparam[i++].Value = CustomerInfo.CreateTime;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -260,7 +269,7 @@ namespace com.TZMS.DataAccess
             CustomerInfo CustomerInfoInfo = new CustomerInfo();
             if (CustomerInfoInfoDataRow["ObjectId"] != null)
             {
-                CustomerInfoInfo.ObjectId =new Guid( DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "ObjectId"));
+                CustomerInfoInfo.ObjectId = new Guid(DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "ObjectId"));
             }
             if (CustomerInfoInfoDataRow["Name"] != null)
             {
@@ -268,11 +277,11 @@ namespace com.TZMS.DataAccess
             }
             if (CustomerInfoInfoDataRow["Sex"] != null)
             {
-                CustomerInfoInfo.Sex =bool.Parse( DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Sex"));
+                CustomerInfoInfo.Sex = bool.Parse(DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Sex"));
             }
             if (CustomerInfoInfoDataRow["Birthday"] != null)
             {
-                CustomerInfoInfo.Birthday =DateTime.Parse( DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Birthday"));
+                CustomerInfoInfo.Birthday = DateTime.Parse(DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Birthday"));
             }
             if (CustomerInfoInfoDataRow["CardId"] != null)
             {
@@ -296,7 +305,7 @@ namespace com.TZMS.DataAccess
             }
             if (CustomerInfoInfoDataRow["CreditScore"] != null)
             {
-                CustomerInfoInfo.CreditScore =int.Parse( DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "CreditScore"));
+                CustomerInfoInfo.CreditScore = int.Parse(DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "CreditScore"));
             }
             if (CustomerInfoInfoDataRow["Company"] != null)
             {
