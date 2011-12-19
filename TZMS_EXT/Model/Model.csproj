@@ -50,6 +50,7 @@
     <Compile Include="BaoXiaoPinZhengApproveInfo.cs" />
     <Compile Include="CashFlowSetterInfo.cs" />
     <Compile Include="CashFlowStatementInfo.cs" />
+    <Compile Include="ChuRuInfo.cs" />
     <Compile Include="ComCheckerInfo.cs" />
     <Compile Include="CustomerInfo.cs" />
     <Compile Include="FinancingFeePaymentHistoryInfo.cs" />

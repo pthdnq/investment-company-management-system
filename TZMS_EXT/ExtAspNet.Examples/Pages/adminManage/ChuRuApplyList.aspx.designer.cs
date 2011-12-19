@@ -10,7 +10,7 @@
 namespace TZMS.Web {
     
     
-    public partial class WuZhiApplyList {
+    public partial class ChuRuApplyList {
         
         /// <summary>
         /// form1 control.
@@ -58,51 +58,6 @@ namespace TZMS.Web {
         protected global::ExtAspNet.FormRow FormRow1;
         
         /// <summary>
-        /// tbxSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxSearch;
-        
-        /// <summary>
-        /// ddlstWuZhiType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstWuZhiType;
-        
-        /// <summary>
-        /// ddlstAproveState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstAproveState;
-        
-        /// <summary>
-        /// btnSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Button btnSearch;
-        
-        /// <summary>
-        /// FormRow2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow2;
-        
-        /// <summary>
         /// dpkStartTime control.
         /// </summary>
         /// <remarks>
@@ -121,22 +76,22 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DatePicker dpkEndTime;
         
         /// <summary>
-        /// Label3 control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label Label3;
+        protected global::ExtAspNet.Button btnSearch;
         
         /// <summary>
-        /// Label4 control.
+        /// label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label Label4;
+        protected global::ExtAspNet.Label label1;
         
         /// <summary>
         /// pelGrid control.
@@ -157,30 +112,30 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Toolbar toolApp;
         
         /// <summary>
-        /// btnNewWuZhi control.
+        /// btnNewProxy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button btnNewWuZhi;
+        protected global::ExtAspNet.Button btnNewProxy;
         
         /// <summary>
-        /// gridWuZhi control.
+        /// gridChuRu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Grid gridWuZhi;
+        protected global::ExtAspNet.Grid gridChuRu;
         
         /// <summary>
-        /// wndNewWuZhi control.
+        /// wndNewProxy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Window wndNewWuZhi;
+        protected global::ExtAspNet.Window wndNewProxy;
     }
 }
