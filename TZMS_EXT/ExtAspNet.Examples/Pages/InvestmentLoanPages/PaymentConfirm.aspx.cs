@@ -173,6 +173,26 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             result = manage.Update(_Info);
             if (result == -1)
             {
+                #region cashflow
+                int itmp = new CashFlowManage().Add(new CashFlowStatementInfo()
+                {
+                    ObjectId = Guid.NewGuid(),
+                    Amount = _Info.LoanAmount,
+                    DateFor = DateTime.Now,
+                    FlowDirection = "Payment",
+                    FlowType = "",
+                    Biz = "InvestmentLoan",
+                    ProjectName = _Info.ProjectName,
+                    IsAccountingAudit = 1
+                });
+                if (itmp != -1)
+                {
+                    _Info.Status = 4;
+                    manage.Update(_Info);
+                    Alert.Show("操作失败!");
+                    return;
+                }
+                #endregion
 
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
                 manage.AddHistory(_Info.ObjectId, "会计审核", string.Format("借款审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
