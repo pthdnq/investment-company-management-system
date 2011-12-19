@@ -76,6 +76,24 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.Button btnSave;
         
         /// <summary>
+        /// ToolbarSeparator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.ToolbarSeparator ToolbarSeparator1;
+        
+        /// <summary>
+        /// hlPrinter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.HyperLink hlPrinter;
+        
+        /// <summary>
         /// TabStrip1 control.
         /// </summary>
         /// <remarks>

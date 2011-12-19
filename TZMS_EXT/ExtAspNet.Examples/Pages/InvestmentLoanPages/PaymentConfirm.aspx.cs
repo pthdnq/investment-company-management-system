@@ -56,6 +56,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
+            hlPrinter.NavigateUrl = "PaymentConfirmPrinter.aspx?ID='" + ObjectID + "'";
         }
 
         /// <summary>

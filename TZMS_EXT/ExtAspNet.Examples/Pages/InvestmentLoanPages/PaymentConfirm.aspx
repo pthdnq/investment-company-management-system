@@ -19,6 +19,9 @@
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
                         IconUrl="~/Images/ico_nextstep.gif" Text="收款确认" ConfirmText="您确定要确认该收款信息吗?" />
+                             <ext:ToolbarSeparator ID="ToolbarSeparator1" runat="server" />
+                    <ext:HyperLink runat="server" Text="打印明细单" ID="hlPrinter" Target="_blank">
+                    </ext:HyperLink>
                 </Items>
             </ext:Toolbar>
         </Toolbars>

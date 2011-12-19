@@ -26,6 +26,7 @@
                             </ext:DatePicker>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
                             </ext:Button>
+                      
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow Hidden="true">
@@ -62,10 +63,14 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" Hidden="true" />
-                            <ext:BoundField DataField="Name" HeaderText="姓名" Width="53px" />
-                            <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="71px" />
+                            <%--        <ext:BoundField DataField="Name" HeaderText="姓名" Width="73px" />--%>
+                            <ext:WindowField Width="76px" DataTextField="Name" DataIFrameUrlFields="ObjectId"
+                                DataIFrameUrlFormatString="CustomerInvestmentLoanInfo.aspx?ID={0}" Title="借款信息查看"
+                                WindowID="wndNew" />
+                            <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="101px" />
+                            <ext:BoundField DataField="CreditScore" HeaderText="星级" Width="95px" />
                             <ext:BoundField DataField="CreditScore" HeaderText="积分" Width="95px" />
-                            <ext:BoundField DataField="Remark"  ExpandUnusedSpace="true" HeaderText="备注" />
+                            <ext:BoundField DataField="Remark" ExpandUnusedSpace="true" HeaderText="备注" />
                             <%--         <ext:WindowField Width="76px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="FeePayAudit.aspx?ID={0}"
                                 Title="审核" WindowID="wndNew" />--%>
                             <%--           <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />--%>
@@ -76,7 +81,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="154px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="554px" Width="830px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>
