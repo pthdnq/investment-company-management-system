@@ -77,7 +77,7 @@
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="50%">
                                                 <Items>
-                                                    <ext:Label ID="tbxNumbers" runat="server" Label="物资数量">
+                                                    <ext:Label ID="tbxNumbers" runat="server" Label="申请数量">
                                                     </ext:Label>
                                                 </Items>
                                             </ext:FormRow>

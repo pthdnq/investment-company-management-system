@@ -54,7 +54,7 @@
                                 DataTooltipField="MaterialsName" />
                             <ext:BoundField DataField="Numbers" HeaderText="数量" />
                             <ext:BoundField DataField="CurrentNumbers" HeaderText="申请人个数" />
-                            <ext:LinkButtonField Width="70px" Text="确认领用" CommandName="Comsume" />
+                            <ext:LinkButtonField Width="38px" Text="领用" CommandName="Comsume" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmTarget="Parent" ConfirmText="确定删除该物资?" />

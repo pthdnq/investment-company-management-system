@@ -62,7 +62,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@UserDept",DbType.String),
 				new SqlParameter("@ApplyTime",DbType.DateTime),
 				new SqlParameter("@MaterialsID",DbType.Guid),
-				new SqlParameter("@Numbers",DbType.Int32),
+				new SqlParameter("@ApplyCount",DbType.Int32),
+                new SqlParameter("@ActualCount",DbType.Int32),
 				new SqlParameter("@Other",DbType.String),
 				new SqlParameter("@CurrentApproverID",DbType.Guid),
 				new SqlParameter("@State",DbType.Int16),
@@ -78,7 +79,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MaterialsApplyInfo.UserDept;
                 sqlparam[i++].Value = MaterialsApplyInfo.ApplyTime;
                 sqlparam[i++].Value = MaterialsApplyInfo.MaterialsID;
-                sqlparam[i++].Value = MaterialsApplyInfo.Numbers;
+                sqlparam[i++].Value = MaterialsApplyInfo.ApplyCount;
+                sqlparam[i++].Value = MaterialsApplyInfo.ActualCount;
                 sqlparam[i++].Value = MaterialsApplyInfo.Other;
                 sqlparam[i++].Value = MaterialsApplyInfo.CurrentApproverID;
                 sqlparam[i++].Value = MaterialsApplyInfo.State;
@@ -145,7 +147,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@UserDept",DbType.String),
 				new SqlParameter("@ApplyTime",DbType.DateTime),
 				new SqlParameter("@MaterialsID",DbType.Guid),
-				new SqlParameter("@Numbers",DbType.Int32),
+				new SqlParameter("@ApplyCount",DbType.Int32),
+                new SqlParameter("@ActualCount",DbType.Int32),
 				new SqlParameter("@Other",DbType.String),
 				new SqlParameter("@CurrentApproverID",DbType.Guid),
 				new SqlParameter("@State",DbType.Int16),
@@ -161,7 +164,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MaterialsApplyInfo.UserDept;
                 sqlparam[i++].Value = MaterialsApplyInfo.ApplyTime;
                 sqlparam[i++].Value = MaterialsApplyInfo.MaterialsID;
-                sqlparam[i++].Value = MaterialsApplyInfo.Numbers;
+                sqlparam[i++].Value = MaterialsApplyInfo.ApplyCount;
+                sqlparam[i++].Value = MaterialsApplyInfo.ActualCount;
                 sqlparam[i++].Value = MaterialsApplyInfo.Other;
                 sqlparam[i++].Value = MaterialsApplyInfo.CurrentApproverID;
                 sqlparam[i++].Value = MaterialsApplyInfo.State;
@@ -282,9 +286,13 @@ namespace com.TZMS.DataAccess
             {
                 Info.MaterialsID = new Guid(DataUtil.GetStringValueOfRow(InfoDataRow, "MaterialsID"));
             }
-            if (InfoDataRow["Numbers"] != null)
+            if (InfoDataRow["ApplyCount"] != null)
             {
-                Info.Numbers = int.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "Numbers"));
+                Info.ApplyCount = int.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "ApplyCount"));
+            }
+            if (InfoDataRow["ActualCount"] != null)
+            {
+                Info.ActualCount = int.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "ActualCount"));
             }
             if (InfoDataRow["Other"] != null)
             {

@@ -158,7 +158,7 @@ namespace TZMS.Web
 
                 if (Convert.ToInt32(e.Values[4].ToString()) == 0)
                 {
-                    e.Values[5] = "<span class=\"gray\">确认领用</span>";
+                    e.Values[5] = "<span class=\"gray\">领用</span>";
                 }
             }
         }

@@ -68,7 +68,7 @@
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="50%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxNumbers" runat="server" Required="true" ShowRedStar="true" Label="物资数量"
+                                                    <ext:TextBox ID="tbxNumbers" runat="server" Required="true" ShowRedStar="true" Label="申请数量"
                                                         Regex="^\d*$" RegexMessage="只能输入数字!">
                                                     </ext:TextBox>
                                                 </Items>

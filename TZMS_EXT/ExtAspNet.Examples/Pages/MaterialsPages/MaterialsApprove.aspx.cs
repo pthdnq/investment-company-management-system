@@ -118,7 +118,7 @@ namespace TZMS.Web
                     }
                     lblName.Text = _info.UserName;
                     lblApplyTime.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
-                    tbxNumbers.Text = _info.Numbers.ToString();
+                    tbxNumbers.Text = _info.ApplyCount.ToString();
                     taaOther.Text = _info.Other;
                 }
             }
@@ -345,6 +345,9 @@ namespace TZMS.Web
                         break;
                     case "3":
                         e.Values[2] = "批准领用";
+                        break;
+                    case "4":
+                        e.Values[2] = "确认领用";
                         break;
                     default:
                         break;

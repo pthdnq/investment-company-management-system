@@ -41,7 +41,8 @@ namespace com.TZMS.Model
         private string _userDept = DBEmptyString;
         private DateTime _applyTime = DBMAXDate;
         private Guid _materialsId;
-        private int _numbers;
+        private int _applyCount;
+        private int _actualCount;
         private string _other = DBEmptyString;
         private Guid _currentApproverId;
         private short _state = -1;
@@ -124,10 +125,16 @@ namespace com.TZMS.Model
         /// <summary>
         /// Numbers 
         /// </summary> 
-        public int Numbers
+        public int ApplyCount
         {
-            get { return _numbers; }
-            set { _numbers = value; }
+            get { return _applyCount; }
+            set { _applyCount = value; }
+        }
+
+        public int ActualCount
+        {
+            get { return _actualCount; }
+            set { _actualCount = value; }
         }
 
         /// <summary>
