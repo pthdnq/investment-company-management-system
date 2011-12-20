@@ -56,7 +56,8 @@
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>--%>
                             <ext:TriggerBox EnableEdit="false" ID="tbBorrowerNameA" Label="借款人(甲方)" TriggerIconUrl="~/Images/ico_16_grxx.gif"
-                                OnTriggerClick="tbBorrowerNameA_TriggerClick" EmptyText="" runat="server">
+                                OnTriggerClick="tbBorrowerNameA_TriggerClick" EmptyText="" runat="server" ShowRedStar="true"
+                                Required="true">
                             </ext:TriggerBox>
                             <ext:TextBox ID="tbBorrowerPhone" Label="借款联系电话" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
                                 Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}" RegexMessage="电话号码格式不正确!">
@@ -74,9 +75,10 @@
                                 runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
-                            <ext:DropDownList  runat="server" Label="付款方式" ID="ddlLoanType" ShowRedStar="true" Required="true">
-                            <ext:ListItem Text="现金" Value="Cash" />
-                            <ext:ListItem Text="转账" Value="TransferAccount"  Selected="true"/>
+                            <ext:DropDownList runat="server" Label="付款方式" ID="ddlLoanType" ShowRedStar="true"
+                                Required="true">
+                                <ext:ListItem Text="现金" Value="Cash" />
+                                <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
                             </ext:DropDownList>
                         </Items>
                     </ext:FormRow>
@@ -95,9 +97,10 @@
                         <Items>
                             <ext:DatePicker ID="dpLoanDate" Label="借款日期" ShowRedStar="true" Required="true" runat="server">
                             </ext:DatePicker>
-                            <ext:DatePicker ID="dpDueDateForPay" Label="应付借款日" runat="server" ShowRedStar="true"
-                                Required="true">
-                            </ext:DatePicker>
+                            <ext:TextBox ID="dpDueDateForPay" Label="应付借款日" ShowRedStar="true" Required="true"
+                                runat="server" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$"
+                                RegexMessage="只能输入数字!" >
+                            </ext:TextBox>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">

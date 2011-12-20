@@ -95,7 +95,7 @@ namespace TZMS.Web.Pages.CashFlow
             this.tbGuarantor.Text = _Info.Guarantor;
             this.tbGuarantorPhone.Text = _Info.GuarantorPhone;
             this.tbCollateral.Text = _Info.Collateral;
-            this.dpDueDateForPay.SelectedDate = _Info.DueDateForPay;
+            this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
             this.dpLoanDate.SelectedDate = _Info.LoanDate;
 
             this.tbRemark.Text = _Info.Remark;

@@ -72,16 +72,16 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             // 绑定数据.
             if (_info != null)
             {
-
-                this.tbImplementationPhase.Text = _info.ImplementationPhase;
+                this.tbProjectName.Text = _info.ProjectName;
+                this.tbImplementationPhase.Text = _info.Use;
                 this.tbAmountExpended.Text = _info.AmountExpended.ToString();
                 this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
-                this.taRemark.Text = _info.Remark;
+                this.taRemark.Text = _info.ImprestRemark;
 
-                if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
-                {
-                    this.dpExpendedTime.SelectedDate = _info.ExpendedTime;
-                }
+              //  if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
+             //  {
+                    this.dpExpendedTime.Text = _info.ExpendedTime;
+           //     }
              this.taAuditOpinion.Text=   _info.AuditOpinion;
             }
         }

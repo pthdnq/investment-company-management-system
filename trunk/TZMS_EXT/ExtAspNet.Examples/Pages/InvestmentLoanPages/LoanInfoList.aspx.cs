@@ -15,7 +15,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
     /// </summary>
     public partial class LoanInfoList : BasePage
     {
-        #region viewstate 
+        #region viewstate
         /// <summary>
         /// 用于存储 状态的ViewState.
         /// </summary>
@@ -67,7 +67,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             if (!IsPostBack)
             {
-              //  this.btnNew.OnClientClick = wndNew.GetShowReference("PaymentApplyAdd.aspx?Type=Add", "新增 - 借款申请");
+                //  this.btnNew.OnClientClick = wndNew.GetShowReference("PaymentApplyAdd.aspx?Type=Add", "新增 - 借款申请");
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
 
                 // 绑定下拉框.
@@ -81,8 +81,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// 绑定下拉框.
         /// </summary>
         private void BindDDL()
-        { 
-             ViewStateState = ddlstState.SelectedValue;
+        {
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
@@ -145,7 +145,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             strCondtion.Append(" AND SubmitTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
             strCondtion.Append(" ORDER BY SubmitTime DESC");
             #endregion
-             
+
             List<InvestmentLoanInfo> lstUserInfo = new InvestmentLoanManage().GetUsersByCondtion(strCondtion.ToString());
             this.gridData.RecordCount = lstUserInfo.Count;
             this.gridData.PageSize = PageCounts;
@@ -170,13 +170,20 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            //UserInfo _userInfo = (UserInfo)e.DataItem;
-
-            //if (_userInfo.State == 0)
-            //{
-            //    e.Values[9] = "<span class=\"gray\">权限</span>";
-            //    e.Values[10] = "<span class=\"gray\">离职</span>";
-            //}
+            InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
+            //提醒
+            if (_Info.DueDateForPay == DateTime.Now.Day)
+            {
+                e.Values[9] = "<span class=\"gray\">请收款！</span>";
+            }
+            else if (_Info.DueDateForPay < DateTime.Now.Day)
+            {
+                e.Values[9] = string.Format("<span class=\"gray\">还有{0}天</span>", DateTime.Now.Day - _Info.DueDateForPay);
+            }
+            else if (_Info.DueDateForPay > DateTime.Now.Day)
+            {
+                e.Values[9] = string.Format("<span class=\"gray\">请收款！</span>", DateTime.Now.Day - _Info.DueDateForPay);
+            }
         }
         #endregion
 
@@ -204,7 +211,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-        
+
 
         /// <summary>
         /// 状态变动事件

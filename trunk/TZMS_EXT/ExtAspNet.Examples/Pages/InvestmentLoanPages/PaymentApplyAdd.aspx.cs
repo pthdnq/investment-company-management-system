@@ -188,7 +188,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.Guarantor = this.tbGuarantor.Text.Trim();
             _Info.GuarantorPhone = this.tbGuarantorPhone.Text.Trim();
             _Info.Collateral = this.tbCollateral.Text.Trim();
-            _Info.DueDateForPay = DateTime.Parse(this.dpDueDateForPay.Text);
+            _Info.DueDateForPay = int.Parse(this.dpDueDateForPay.Text.Trim());
             _Info.LoanDate = DateTime.Parse(this.dpLoanDate.Text);
             _Info.Status = 1;
             _Info.SubmitTime = DateTime.Now;

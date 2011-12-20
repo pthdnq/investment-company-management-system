@@ -39,22 +39,13 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbImplementationPhase" Label="实施阶段" ShowRedStar="true" Required="true"
+                            <ext:TextBox ID="tbImplementationPhase" Label="项目实施阶段" ShowRedStar="true" Required="true"
                                 runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="60% 40%">
                         <Items>
                             <ext:TextArea ID="taRemark" Label="备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="60% 40%">
-                        <Items>
-                            <ext:TextBox ID="tbImprestAmount" Label="备用金额" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
-                                RegexMessage="只能输入数字!">
-                            </ext:TextBox>
-                            <ext:Label ID="Label2" runat="server" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="60% 40%">
@@ -72,19 +63,43 @@
                         <Rows>
                             <ext:FormRow ColumnWidths="60% 40%">
                                 <Items>
-                                    <ext:TextBox Hidden="true" ID="tbAmountExpended" Label="支用金额" ShowRedStar="true"
+                                    <ext:TextBox ID="tbImprestAmount" Label="备用金额" ShowRedStar="true" Required="true"
+                                        runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
+                                        RegexMessage="只能输入数字!">
+                                    </ext:TextBox>
+                                    <ext:Label ID="Label2" runat="server" />
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ColumnWidths="60% 40%">
+                                <Items>
+                                    <ext:TextBox Hidden="true" ID="tbAmountExpended" Label="预支金额" ShowRedStar="true"
                                         Required="true" runat="server" Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
-                                        Regex="^[0-9]*$" RegexMessage="只能输入字母!">
+                                        Regex="^[0-9]*$" RegexMessage="只能输入数字!">
                                     </ext:TextBox>
                                     <ext:Label runat="server" />
                                 </Items>
                             </ext:FormRow>
                             <ext:FormRow ColumnWidths="60% 40%">
                                 <Items>
-                                    <ext:DatePicker Hidden="true" ID="dpExpendedTime" Label="支用时间 至" runat="server" ShowRedStar="true"
-                                        Required="true">
-                                    </ext:DatePicker>
+                               
+                                    <ext:TextBox ID="tbExpendedTime" Label="支用时间" ShowRedStar="true" Required="true" runat="server"
+                                        Text="0" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
+                                    </ext:TextBox>
                                     <ext:Label ID="Label1" runat="server" />
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow>
+                                <Items>
+                                    <ext:TextBox ID="tbUse" Label="用途" ShowRedStar="true" Required="true" runat="server"
+                                        Text="0" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
+                                    </ext:TextBox>
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow>
+                                <Items>
+                                    <ext:TextBox ID="tbImprestRemark" Label="备注" ShowRedStar="true" Required="true" runat="server"
+                                        Text="0" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
+                                    </ext:TextBox>
                                 </Items>
                             </ext:FormRow>
                         </Rows>

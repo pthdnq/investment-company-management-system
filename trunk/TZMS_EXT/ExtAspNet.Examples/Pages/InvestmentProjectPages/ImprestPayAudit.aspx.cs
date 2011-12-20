@@ -96,10 +96,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.Remark;
 
-                if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
-                {
-                    this.dpExpendedTime.SelectedDate = _info.ExpendedTime;
-                }
+               // if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
+                //{
+                    this.dpExpendedTime.Text = _info.ExpendedTime;
+             //   }
 
             }
         }

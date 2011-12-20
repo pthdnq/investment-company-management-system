@@ -79,7 +79,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbGuarantor.Text = _Info.Guarantor;
             this.tbGuarantorPhone.Text = _Info.GuarantorPhone;
             this.tbCollateral.Text = _Info.Collateral;
-            this.dpDueDateForPay.SelectedDate = _Info.DueDateForPay;
+            this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
             this.dpLoanDate.SelectedDate = _Info.LoanDate;
             this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
             this.tbRemark.Text = _Info.Remark;

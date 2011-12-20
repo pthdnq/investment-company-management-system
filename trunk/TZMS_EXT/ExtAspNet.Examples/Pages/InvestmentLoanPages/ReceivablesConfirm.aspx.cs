@@ -133,6 +133,28 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.Status = status;
             _Info.IsAccountingAudit = true;
 
+            #region 积分
+            var loan = manage.GetUserByObjectID(_Info.ForId.ToString());
+            var customer = manage.GetCustomerByObjectID(loan.BorrowerAId.ToString());
+            int iPoints = 5;
+            if (_Info.DateForReceivables > _Info.DueDateForReceivables)
+            {
+                //推后交
+                int idelaydays = (_Info.DateForReceivables - _Info.DueDateForReceivables).Days;
+                iPoints -= idelaydays;
+            }
+            else if (_Info.DateForReceivables <= _Info.DueDateForReceivables)
+            {
+                //提前交
+                int idays = (_Info.DueDateForReceivables - _Info.DateForReceivables).Days;
+                iPoints += idays;
+            }
+            //更新积分
+            customer.CreditScore += iPoints;
+            manage.UpdateCustomer(customer);
+
+
+            #endregion
             // 执行操作.
             int result = 3;
 
@@ -150,8 +172,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     Biz = "InvestmentLoan",
                     ProjectName = _Info.ProjectName,
                     IsAccountingAudit = 1,
-                    Status=1
-                 //   CreateTime = DateTime.Now,
+                    Status = 1
+                    //   CreateTime = DateTime.Now,
 
                 });
                 if (itmp != -1)
