@@ -113,7 +113,7 @@
                                             <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="借款金额(元)" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
-                                            <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" runat="server" ShowRedStar="true"
+                                            <ext:TextBox ID="tbLoanTimeLimit" Enabled="false"  Label="借款期限" runat="server" ShowRedStar="true"
                                                 Required="true">
                                             </ext:TextBox>
                                         </Items>

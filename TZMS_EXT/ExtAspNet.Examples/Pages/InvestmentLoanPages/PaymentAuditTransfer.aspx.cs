@@ -192,7 +192,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void BindNext(bool needAccountant)
         {
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("转移审批", "0"));
             if (needAccountant)
             {
                 //ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
