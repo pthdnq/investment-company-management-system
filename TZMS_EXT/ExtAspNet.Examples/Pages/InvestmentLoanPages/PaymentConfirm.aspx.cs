@@ -37,7 +37,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitControl();
+      
 
             if (!IsPostBack)
             {
@@ -51,6 +51,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 // 绑定审批人.
               //  ApproveUser();
             }
+      InitControl();
+
         }
 
         private void InitControl()

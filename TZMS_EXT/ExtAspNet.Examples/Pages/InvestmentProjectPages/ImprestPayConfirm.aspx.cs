@@ -37,7 +37,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitControl();
+         
 
             if (!IsPostBack)
             {
@@ -46,13 +46,14 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                 bindUserInterface(strID);
                 BindHistory();
-            }
+            } 
+            InitControl();
         }
 
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
-            hlPrinter.NavigateUrl = "ImprestPayConfirmPrinter.aspx?ID='" + ObjectID + "'";
+            hlPrinter.NavigateUrl = "ImprestPayConfirmPrinter.aspx?ID=" + ObjectID ;
         }
 
         /// <summary>
