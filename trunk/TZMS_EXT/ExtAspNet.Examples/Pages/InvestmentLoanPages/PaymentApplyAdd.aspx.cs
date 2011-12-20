@@ -155,6 +155,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             if (e.CloseArgument != "undefined")
             {
                 tbBorrowerNameA.Text = e.CloseArgument.Split(',')[1];
+                this.tbBorrowerPhone .Text = e.CloseArgument.Split(',')[2];
                 ViewStateZJ = e.CloseArgument;
             }
         }

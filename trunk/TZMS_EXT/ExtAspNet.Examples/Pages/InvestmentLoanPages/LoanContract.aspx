@@ -57,9 +57,9 @@
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
-                                    <ext:FormRow ColumnWidths="50% 50%">
+                                    <ext:FormRow ColumnWidths="50% 50%" Hidden="true">
                                         <Items>
-                                            <ext:Label ID="Label1" runat="server" Text="借款人信用星级：***" />
+                                            <ext:Label  Hidden="true" ID="Label1" runat="server" Text="借款人信用星级：***" />
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">

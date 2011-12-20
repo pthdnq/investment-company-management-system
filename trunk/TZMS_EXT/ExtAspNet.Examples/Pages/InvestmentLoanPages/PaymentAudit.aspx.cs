@@ -41,7 +41,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
 
-                bindUserInterface(strID);
+                bindInterface(strID);
                 // 绑定审批人.
                 ApproveUser();
                 // 绑定审批历史.
@@ -55,12 +55,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         }
 
         /// <summary>
-        /// 绑定指定用户ID的数据到界面.
+        /// 绑定指定ID的数据到界面.
         /// </summary>
-        /// <param name="strUserID">用户ID</param>
-        private void bindUserInterface(string strUserID)
+        /// <param name="strID">ID</param>
+        private void bindInterface(string strID)
         {
-            if (string.IsNullOrEmpty(strUserID))
+            if (string.IsNullOrEmpty(strID))
             {
                 return;
             }
@@ -101,6 +101,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
+
+           
         }
 
         /// <summary>
@@ -168,6 +170,11 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.SubmitTime = DateTime.Now;
 
+            //审批人
+            if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            {
+                _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + ";";
+            }
 
             int result = 3;
             result = manage.Update(_Info);
