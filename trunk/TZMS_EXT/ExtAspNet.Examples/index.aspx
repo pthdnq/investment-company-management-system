@@ -105,31 +105,31 @@
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="zzns" AutoPostBack="false" OnClientClick=" tabs('zzns','UserKey');"
                                                 Text="转正年数">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="TableKey" NodeID="xtpz" AutoPostBack="false" OnClientClick=" tabs('xtpz','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/系统配置.png" NodeID="xtpz" AutoPostBack="false" OnClientClick=" tabs('xtpz','UserKey');"
                                                 Text="系统配置">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="jsdgsq" AutoPostBack="false" OnClientClick=" tabs('jsdgsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/调岗申请.png" NodeID="jsdgsq" AutoPostBack="false" OnClientClick=" tabs('jsdgsq','UserKey');"
                                                 Text="晋升调岗申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="jsdgsp" AutoPostBack="false" OnClientClick=" tabs('jsdgsp','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/调岗审批.png" NodeID="jsdgsp" AutoPostBack="false" OnClientClick=" tabs('jsdgsp','UserKey');"
                                                 Text="晋升调岗审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="jsdggd" AutoPostBack="false" OnClientClick=" tabs('jsdggd','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/调岗归档.png" NodeID="jsdggd" AutoPostBack="false" OnClientClick=" tabs('jsdggd','UserKey');"
                                                 Text="晋升调岗归档">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="xfjcd" AutoPostBack="false" OnClientClick=" tabs('xfjcd','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/下发奖惩单.png" NodeID="xfjcd" AutoPostBack="false" OnClientClick=" tabs('xfjcd','UserKey');"
                                                 Text="下发奖惩单">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="jcdqr" AutoPostBack="false" OnClientClick=" tabs('jcdqr','UserKey');"
+                                            <ext:TreeNode Leaf="true"  IconUrl="images/16/奖罚单确认.png" NodeID="jcdqr" AutoPostBack="false" OnClientClick=" tabs('jcdqr','UserKey');"
                                                 Text="奖惩单确认">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="zpsqd" AutoPostBack="false" OnClientClick=" tabs('zpsqd','UserKey');"
+                                            <ext:TreeNode Leaf="true"  IconUrl="images/16/招聘申请.png"  NodeID="zpsqd" AutoPostBack="false" OnClientClick=" tabs('zpsqd','UserKey');"
                                                 Text="招聘申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="zpsqsp" AutoPostBack="false" OnClientClick=" tabs('zpsqsp','UserKey');"
+                                            <ext:TreeNode Leaf="true"  IconUrl="images/16/招聘审批.png"  NodeID="zpsqsp" AutoPostBack="false" OnClientClick=" tabs('zpsqsp','UserKey');"
                                                 Text="招聘审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="zpsqgd" AutoPostBack="false" OnClientClick=" tabs('zpsqgd','UserKey');"
+                                            <ext:TreeNode Leaf="true"  IconUrl="images/16/招聘归档.png"  NodeID="zpsqgd" AutoPostBack="false" OnClientClick=" tabs('zpsqgd','UserKey');"
                                                 Text="招聘归档">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="cmdj" AutoPostBack="false" OnClientClick=" tabs('cmdj','UserKey');"
@@ -138,9 +138,9 @@
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="rmdj" AutoPostBack="false" OnClientClick=" tabs('rmdj','UserKey');"
                                                 Text="入门登记">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="cs" AutoPostBack="false" OnClientClick=" tabs('cs','UserKey');"
+<%--                                            <ext:TreeNode Leaf="true"  Icon="UserKey" NodeID="cs" AutoPostBack="false" OnClientClick=" tabs('cs','UserKey');"
                                                 Text="测试">
-                                            </ext:TreeNode>
+                                            </ext:TreeNode>--%>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -200,10 +200,10 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息审批.png" NodeID="xzsp" OnClientClick=" tabs('xzsp','UserKey');"
                                                 Text="薪资信息审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息审批.png" NodeID="jxsq" OnClientClick=" tabs('jxsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/加薪申请.png" NodeID="jxsq" OnClientClick=" tabs('jxsq','UserKey');"
                                                 Text="加薪申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息审批.png" NodeID="jxsp" OnClientClick=" tabs('jxsp','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/加薪审批.png" NodeID="jxsp" OnClientClick=" tabs('jxsp','UserKey');"
                                                 Text="加薪审批">
                                             </ext:TreeNode>
                                         </Nodes>
