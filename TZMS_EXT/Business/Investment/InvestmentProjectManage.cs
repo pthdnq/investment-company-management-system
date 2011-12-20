@@ -65,7 +65,7 @@ namespace com.TZMS.Business
         /// <returns> 唯一ID（GUID）</returns>
         public InvestmentProjectInfo GetUserByObjectID(string objectID, string boName = BoName)
         {
-            List<InvestmentProjectInfo> users = ctrl.SelectAsList(boName, " status <> 9 and ObjectID ='" + objectID + "' ");
+            List<InvestmentProjectInfo> users = ctrl.SelectAsList(boName, "  ObjectID ='" + objectID + "' ");
             if (users.Count == 0)
             {
                 return null;
@@ -81,7 +81,7 @@ namespace com.TZMS.Business
         /// <returns> 实体</returns>
         public InvestmentProjectInfo GetUserByAccountNo(string accountNo, string boName = BoName)
         {
-            List<InvestmentProjectInfo> users = ctrl.SelectAsList(boName, " status <> 9 and  AccountNo ='" + accountNo + "' ");
+            List<InvestmentProjectInfo> users = ctrl.SelectAsList(boName, "   AccountNo ='" + accountNo + "' ");
             if (users.Count == 0)
             {
                 return null;
@@ -145,7 +145,7 @@ namespace com.TZMS.Business
         /// <returns> 唯一ID（GUID）</returns>
         public ProjectProcessInfo GetProcessByObjectID(string objectID, string boName = BoName)
         {
-            List<ProjectProcessInfo> users = rctrl.SelectAsList(boName, " status <> 9 and ObjectID ='" + objectID + "' ");
+            List<ProjectProcessInfo> users = rctrl.SelectAsList(boName, "  ObjectID ='" + objectID + "' ");
             if (users.Count == 0)
             {
                 return null;
