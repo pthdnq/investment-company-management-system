@@ -45,7 +45,7 @@ namespace TZMS.Web
             StringBuilder strCondition = new StringBuilder();
 
             strCondition.Append(" UserID ='" + CurrentUser.ObjectId.ToString() + "'");
-            if (ddlstState.SelectedIndex == 1)
+            if (ddlstState.SelectedIndex != 0)
             {
                 strCondition.Append(" and State = " + Convert.ToInt32(ddlstState.SelectedValue));
             }
@@ -108,11 +108,11 @@ namespace TZMS.Web
                 switch (e.Values[5].ToString())
                 {
                     case "0":
-                        e.Values[5] = "已出门登记";
-                        e.Values[4] = "";
+                        e.Values[5] = "未入门登记";
+                        e.Values[3] = "";
                         break;
                     case "1":
-                        e.Values[4] = DateTime.Parse(e.Values[4].ToString()).ToString("yyyy-MM-dd HH:mm");
+                        e.Values[3] = DateTime.Parse(e.Values[3].ToString()).ToString("yyyy-MM-dd HH:mm");
                         e.Values[5] = "已入门登记";
                         break;
                     default:

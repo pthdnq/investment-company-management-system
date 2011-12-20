@@ -17,7 +17,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
-                dpkStartTime.SelectedDate = DateTime.Now;
+                dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
+                dpkEndTime.SelectedDate = DateTime.Now;
 
                 BindDept();
                 BindGrid();
@@ -52,6 +53,13 @@ namespace TZMS.Web
             #region 查询条件
 
             DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+
+            if (DateTime.Compare(startTime, endTime) == 1)
+            {
+                Alert.Show("结束日期不可小于开始日期!");
+                return;
+            }
 
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append(" 1 = 1 ");
@@ -66,10 +74,13 @@ namespace TZMS.Web
                 strCondition.Append(" and UserDept = '" + ddlstDept.SelectedText + "'");
             }
 
-            strCondition.Append(" and State = " + ddlstState.SelectedValue);
-
-            strCondition.Append(" and OutTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + startTime.ToString("yyyy-MM-dd 23:59")
+            if (ddlstState.SelectedIndex != 0)
+            {
+                strCondition.Append(" and State = " + ddlstState.SelectedValue);
+            }
+            strCondition.Append(" and OutTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59")
                 + "'");
+            strCondition.Append(" order by InTime desc");
 
             #endregion
 
@@ -156,11 +167,11 @@ namespace TZMS.Web
                 switch (e.Values[7].ToString())
                 {
                     case "0":
+                        e.Values[4] = "";
                         e.Values[5] = "";
-                        e.Values[6] = "";
                         break;
                     case "1":
-                        e.Values[6] = DateTime.Parse(e.Values[6].ToString()).ToString("yyyy-MM-dd HH:mm");
+                        e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd HH:mm");
                         e.Values[8] = "<span class=\"gray\">入门登记</span>";
                         break;
                     default:
