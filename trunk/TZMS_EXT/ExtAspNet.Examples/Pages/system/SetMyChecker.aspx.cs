@@ -182,7 +182,9 @@ namespace TZMS.Web
             //新数据
             CheckMange cm = new CheckMange();
             cm.Add(CurrentUser, SelectedUser);
-            Alert.Show("设置审批人成功！");
+            //Alert.Show("设置审批人成功！");
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
+            //this.btnClose_Click(null, null);
         }
     }
 }
