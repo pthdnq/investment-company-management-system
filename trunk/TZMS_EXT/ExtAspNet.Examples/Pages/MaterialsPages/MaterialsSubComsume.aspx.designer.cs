@@ -85,6 +85,33 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Form mainForm2;
         
         /// <summary>
+        /// tbxActualCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbxActualCount;
+        
+        /// <summary>
+        /// FormRow6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow6;
+        
+        /// <summary>
+        /// taaApproveSugest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea taaApproveSugest;
+        
+        /// <summary>
         /// lblName control.
         /// </summary>
         /// <remarks>
@@ -139,15 +166,6 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Label tbxNumbers;
         
         /// <summary>
-        /// tbxActualCount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbxActualCount;
-        
-        /// <summary>
         /// taaOther control.
         /// </summary>
         /// <remarks>
@@ -155,23 +173,5 @@ namespace TZMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextArea taaOther;
-        
-        /// <summary>
-        /// FormRow6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow6;
-        
-        /// <summary>
-        /// taaApproveSugest control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextArea taaApproveSugest;
     }
 }

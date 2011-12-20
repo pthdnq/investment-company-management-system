@@ -303,7 +303,7 @@ namespace TZMS.Web
                     strRole = "总经理";
                     break;
                 case RoleType.WUSQ_PT:
-                    strRole = "一般物质申请";
+                    strRole = "一般物资申请";
                     break;
                 case RoleType.WZSQ_GD:
                     strRole = "固定资产申请";
@@ -312,7 +312,7 @@ namespace TZMS.Web
                     strRole = "代账费归档";
                     break;
                 case RoleType.WZSPGD:
-                    strRole = "物质审批归档";
+                    strRole = "物资审批归档";
                     break;
                 case RoleType.JKSQ:
                     strRole = "借款申请归档";

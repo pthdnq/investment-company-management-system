@@ -184,6 +184,15 @@ namespace TZMS.Web {
         protected global::ExtAspNet.TextBox tbxNumbers;
         
         /// <summary>
+        /// lblTotalCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label lblTotalCount;
+        
+        /// <summary>
         /// taaOther control.
         /// </summary>
         /// <remarks>

@@ -159,6 +159,11 @@ namespace TZMS.Web
             {
                 ddlstMaterials.Items.Add(new ExtAspNet.ListItem(info.MaterialsName, info.ObjectID.ToString()));
             }
+
+            if (ddlstMaterials.Items.Count > 0)
+            {
+                BindTotalCount(ddlstMaterials.Items[0].Value);
+            }
         }
 
         /// <summary>
@@ -181,6 +186,13 @@ namespace TZMS.Web
         {
             if (OperatorType == null)
                 return;
+
+            if (Convert.ToInt32(tbxNumbers.Text.Trim()) > Convert.ToInt32(lblTotalCount.Text.Trim()))
+            {
+                Alert.Show("申请数量不可超过库存数量!");
+                return;
+            }
+
             MaterialsApplyInfo _applyInfo = null;
             MaterialsManage _manage = new MaterialsManage();
             int result = 3;
@@ -370,6 +382,25 @@ namespace TZMS.Web
             this.gridApproveHistory.DataBind();
         }
 
+        /// <summary>
+        /// 绑定总数量
+        /// </summary>
+        /// <param name="strObjectID"></param>
+        private void BindTotalCount(string strObjectID)
+        {
+            if (string.IsNullOrEmpty(strObjectID))
+            {
+                return;
+            }
+
+            MaterialsManage _manage = new MaterialsManage();
+            MaterialsManageInfo _manageInfo = _manage.GetMaterialByObjectID(strObjectID);
+            if (_manageInfo != null)
+            {
+                lblTotalCount.Text = _manageInfo.Numbers.ToString();
+            }
+        }
+
         #endregion
 
         #region 页面事件
@@ -437,7 +468,16 @@ namespace TZMS.Web
             }
         }
 
-        #endregion
+        /// <summary>
+        /// 物资名称变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ddlstMaterials_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindTotalCount(ddlstMaterials.SelectedValue);
+        }
 
+        #endregion
     }
 }
