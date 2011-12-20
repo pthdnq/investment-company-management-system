@@ -91,6 +91,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@BAAdulters",DbType.String),
                 	new SqlParameter("@LoanTimeLimit",DbType.String),
                     new SqlParameter("@LoanType",DbType.String),
+                       new SqlParameter("@Imprest",DbType.String),
+                          new SqlParameter("@Penalbond",DbType.String),
+                             new SqlParameter("@OpationRemark",DbType.String),
 				};
 
                 int i = 0;
@@ -131,6 +134,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = InvestmentLoanInfo.BAAdulters;
                 sqlparam[i++].Value = InvestmentLoanInfo.LoanTimeLimit;
                 sqlparam[i++].Value = InvestmentLoanInfo.LoanType;
+                sqlparam[i++].Value = InvestmentLoanInfo.Imprest;
+                sqlparam[i++].Value = InvestmentLoanInfo.Penalbond;
+                sqlparam[i++].Value = InvestmentLoanInfo.OpationRemark;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -222,7 +228,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@BAAdulters",DbType.String),
                 	new SqlParameter("@LoanTimeLimit",DbType.String),
                     	new SqlParameter("@LoanType",DbType.String),
-                    
+                      new SqlParameter("@Imprest",DbType.String),
+                          new SqlParameter("@Penalbond",DbType.String),
+                             new SqlParameter("@OpationRemark",DbType.String),
                 };
 
                 int i = 0;
@@ -263,6 +271,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = InvestmentLoanInfo.BAAdulters;
                 sqlparam[i++].Value = InvestmentLoanInfo.LoanTimeLimit;
                 sqlparam[i++].Value = InvestmentLoanInfo.LoanType;
+                sqlparam[i++].Value = InvestmentLoanInfo.Imprest;
+                sqlparam[i++].Value = InvestmentLoanInfo.Penalbond;
+                sqlparam[i++].Value = InvestmentLoanInfo.OpationRemark;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -494,6 +505,18 @@ namespace com.TZMS.DataAccess
             if (InvestmentLoanInfoInfoDataRow["LoanType"] != null)
             {
                 InvestmentLoanInfoInfo.LoanType = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "LoanType");
+            }
+            if (InvestmentLoanInfoInfoDataRow["LoanType"] != null)
+            {
+                InvestmentLoanInfoInfo.Imprest = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "Imprest");
+            }
+            if (InvestmentLoanInfoInfoDataRow["Imprest"] != null)
+            {
+                InvestmentLoanInfoInfo.Penalbond = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "Penalbond");
+            }
+            if (InvestmentLoanInfoInfoDataRow["OpationRemark"] != null)
+            {
+                InvestmentLoanInfoInfo.OpationRemark = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "OpationRemark");
             }
             return InvestmentLoanInfoInfo;
         }
