@@ -512,7 +512,7 @@ namespace TZMS.Web
                     case "借款申请列表":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                         && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ))
+                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
                         {
                             flag = true;
                         }
@@ -832,7 +832,7 @@ namespace TZMS.Web
                 {
                     case "资金流量表":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL))
+                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.CWZJ))
                         {
                             flag = true;
                         }
@@ -840,7 +840,7 @@ namespace TZMS.Web
                     case "投资借款会计核算":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ))
+                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
                         {
                             flag = true;
                         }
@@ -848,7 +848,7 @@ namespace TZMS.Web
                     case "项目实施会计核算":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ))
+                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
                         {
                             flag = true;
                         }
@@ -856,7 +856,7 @@ namespace TZMS.Web
                     case "银行贷款会计核算":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ))
+                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
                         {
                             flag = true;
                         }
@@ -865,7 +865,7 @@ namespace TZMS.Web
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ)
-                            && !CurrentRoles.Contains(RoleType.HSKJ))
+                            && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
                         {
                             flag = true;
                         }
