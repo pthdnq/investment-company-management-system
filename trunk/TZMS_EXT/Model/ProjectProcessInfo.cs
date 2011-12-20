@@ -39,7 +39,7 @@ namespace com.TZMS.Model
         private bool _needImprest;
         private string _implementationPhase = DBEmptyString;
         private Decimal _amountExpended = DBEmptyDecimal;
-        private DateTime _expendedTime = DBEmptyDate;
+        private string _expendedTime = DBEmptyString;
         private Decimal _imprestAmount = DBEmptyDecimal;
         private string _remark = DBEmptyString;
         private Decimal _prepaidAmount = DBEmptyDecimal;
@@ -116,7 +116,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// ExpendedTime 
         /// </summary> 
-        public DateTime ExpendedTime
+        public string ExpendedTime
         {
             get { return _expendedTime; }
             set { _expendedTime = value; }

@@ -46,7 +46,7 @@ namespace com.TZMS.Model
         private string _guarantor = DBEmptyString;
         private string _guarantorPhone = DBEmptyString;
         private char _rateOfReturn = DBEmptyChar;
-        private DateTime _dueDateForPay = DBEmptyDate;
+        private int _dueDateForPay = DBEmptyTinyInt;
         private string _remark = DBEmptyString;
         private int _status = DBEmptyInt;
         private Guid _nextOperaterId;
@@ -193,7 +193,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// DueDateForPay 
         /// </summary> 
-        public DateTime DueDateForPay
+        public int DueDateForPay
         {
             get { return _dueDateForPay; }
             set { _dueDateForPay = value; }
