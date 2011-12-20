@@ -56,7 +56,7 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:GroupPanel runat="server" ID="gpAmount" Title="备用金申请">
+            <ext:GroupPanel runat="server" ID="gpAmount" Title="备用金申请"   EnableBackgroundColor="true" >
                 <Items>
                     <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame2"
                         runat="server">
