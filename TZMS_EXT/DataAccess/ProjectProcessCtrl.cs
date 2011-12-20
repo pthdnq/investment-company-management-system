@@ -316,7 +316,7 @@ namespace com.TZMS.DataAccess
             }
             if (ProjectProcessInfoInfoDataRow["ExpendedTime"] != null)
             {
-                ProjectProcessInfoInfo.ExpendedTime = DateTime.Parse( DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ExpendedTime"));
+                ProjectProcessInfoInfo.ExpendedTime =   DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ExpendedTime");
             }
             if (ProjectProcessInfoInfoDataRow["ImprestAmount"] != null)
             {
