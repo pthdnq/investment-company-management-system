@@ -39,7 +39,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitControl();
+        
 
             if (!IsPostBack)
             {
@@ -50,13 +50,14 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 bindUserInterface(strID);
                 // 绑定审批历史.
                 BindHistory();
-            }
+            }  
+            InitControl();
         }
 
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
-            hlPrinter.NavigateUrl = "ReceivablesConfirmPrinter.aspx?ID='" + ObjectID + "'";
+            hlPrinter.NavigateUrl = "ReceivablesConfirmPrinter.aspx?ID=" + ObjectID;
         }
 
 
