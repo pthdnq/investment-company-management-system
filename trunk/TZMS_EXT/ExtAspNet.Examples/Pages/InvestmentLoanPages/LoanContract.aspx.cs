@@ -48,6 +48,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 {
                     this.btnSave.Hidden = true;
                     this.taOpationRemark.Hidden = true;
+                    this.tbPenalbond.Hidden = true;
+                    this.tbImprest.Hidden = true;
+
                 }
                 bindUserInterface(strID);
                 // 绑定审批历史.
@@ -86,8 +89,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
 
-            this.taAuditOpinion.Text = _Info.AuditOpinion;
-            this.taAccountingRemark.Text = _Info.AccountingRemark;
+            //this.taAuditOpinion.Text = _Info.AuditOpinion;
+            //this.taAccountingRemark.Text = _Info.AccountingRemark;
 
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
@@ -127,8 +130,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            //终止合同9
-            saveInfo(9);
+            //终止合同8
+            saveInfo(8);
         }
 
         #endregion
@@ -144,7 +147,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             _Info.Status = status;
         //    _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
-
+            
             int result = 3;
 
             result = manage.Update(_Info);

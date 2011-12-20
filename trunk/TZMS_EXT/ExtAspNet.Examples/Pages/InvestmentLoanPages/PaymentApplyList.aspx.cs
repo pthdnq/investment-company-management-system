@@ -245,9 +245,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            InvestmentLoanInfo _userInfo = (InvestmentLoanInfo)e.DataItem;
+            InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
 
-            if (_userInfo.Status == 9)
+            if (_Info.Status != 1)
             {
                 e.Values[12] = "<span class=\"gray\">删除</span>";
               
