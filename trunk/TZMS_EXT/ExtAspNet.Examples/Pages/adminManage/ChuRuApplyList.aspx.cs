@@ -45,10 +45,12 @@ namespace TZMS.Web
             StringBuilder strCondition = new StringBuilder();
 
             strCondition.Append(" UserID ='" + CurrentUser.ObjectId.ToString() + "'");
-
-            strCondition.Append(" and State = " + Convert.ToInt32(ddlstState.SelectedValue));
+            if (ddlstState.SelectedIndex == 1)
+            {
+                strCondition.Append(" and State = " + Convert.ToInt32(ddlstState.SelectedValue));
+            }
             strCondition.Append(" and OutTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
-
+            strCondition.Append(" order by OutTime desc");
             #endregion
 
             List<ChuRuInfo> lstChuRu = new ChuRuManage().GetUnitByCondition(strCondition.ToString());
@@ -102,16 +104,16 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd HH:mm");
-                switch (e.Values[4].ToString())
+                e.Values[2] = DateTime.Parse(e.Values[2].ToString()).ToString("yyyy-MM-dd HH:mm");
+                switch (e.Values[5].ToString())
                 {
                     case "0":
-                        e.Values[4] = "已出门登记";
-                        e.Values[3] = "";
+                        e.Values[5] = "已出门登记";
+                        e.Values[4] = "";
                         break;
                     case "1":
-                        e.Values[3] = DateTime.Parse(e.Values[3].ToString()).ToString("yyyy-MM-dd HH:mm");
-                        e.Values[4] = "已入门登记";
+                        e.Values[4] = DateTime.Parse(e.Values[4].ToString()).ToString("yyyy-MM-dd HH:mm");
+                        e.Values[5] = "已入门登记";
                         break;
                     default:
                         break;

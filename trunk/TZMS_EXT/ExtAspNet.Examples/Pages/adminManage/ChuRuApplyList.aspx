@@ -49,6 +49,7 @@
                         OnPageIndexChange="gridChuRu_PageIndexChange" OnRowDataBound="gridChuRu_RowDataBound">
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
+                            <ext:BoundField DataField="UserName" HeaderText="出门登记人" />
                             <ext:BoundField DataField="OutTime" HeaderText="出门登记时间" />
                             <ext:BoundField DataField="OutReason" HeaderText="出门事由" DataTooltipField="OutReason"
                                 ExpandUnusedSpace="true" />

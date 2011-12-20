@@ -29,15 +29,29 @@
                             </ext:Button>
                         </Items>
                     </ext:FormRow>
+                    <ext:FormRow>
+                        <Items>
+                            <ext:DropDownList ID="ddlstState" runat="server" Label="登记状态">
+                                <ext:ListItem Text="未登记" Value="0" Selected="true" />
+                                <ext:ListItem Text="已登记" Value="1" />
+                            </ext:DropDownList>
+                            <ext:Label ID="Label1" runat="server">
+                            </ext:Label>
+                            <ext:Label ID="Label2" runat="server">
+                            </ext:Label>
+                            <ext:Label ID="Label3" runat="server">
+                            </ext:Label>
+                        </Items>
+                    </ext:FormRow>
                 </Rows>
             </ext:Form>
             <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
                 Layout="Fit" runat="server">
                 <Items>
                     <ext:Grid ID="gridChuRu" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
-                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" 
-                        AutoHeight="true" OnPageIndexChange="gridChuRu_PageIndexChange" 
-                        OnRowCommand="gridChuRu_RowCommand" OnRowDataBound="gridChuRu_RowDataBound">
+                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                        OnPageIndexChange="gridChuRu_PageIndexChange" OnRowCommand="gridChuRu_RowCommand"
+                        OnRowDataBound="gridChuRu_RowDataBound">
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="UserName" HeaderText="出门登记人" />
@@ -45,6 +59,9 @@
                             <ext:BoundField DataField="OutTime" HeaderText="出门登记时间" />
                             <ext:BoundField DataField="OutReason" HeaderText="出门事由" DataTooltipField="OutReason"
                                 ExpandUnusedSpace="true" />
+                            <ext:BoundField DataField="InUserName" HeaderText="入门登记人" />
+                            <ext:BoundField DataField="InTime" HeaderText="出门登记时间" />
+                            <ext:BoundField DataField="State" Hidden="true" />
                             <ext:LinkButtonField Width="70px" Text="入门登记" CommandName="RMDJ" ConfirmText="您确定入门登记吗?" />
                         </Columns>
                     </ext:Grid>
