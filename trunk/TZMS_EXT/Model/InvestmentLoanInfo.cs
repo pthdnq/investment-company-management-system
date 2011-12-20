@@ -70,6 +70,9 @@ namespace com.TZMS.Model
         private int _bastatus = DBEmptyInt;
         private string _loanTimeLimit = DBEmptyString;
         private string _loanType = DBEmptyString;
+        private string _Imprest = DBEmptyString;
+        private string _Penalbond = DBEmptyString;
+        private string _OpationRemark = DBEmptyString;
         #endregion
 
         #region Property
@@ -398,6 +401,24 @@ namespace com.TZMS.Model
         {
             get { return _loanType; }
             set { _loanType = value; }
+        }
+
+        public string Imprest
+        {
+            get { return _Imprest; }
+            set { _Imprest = value; }
+        }
+
+        public string Penalbond
+        {
+            get { return _Penalbond; }
+            set { _Penalbond = value; }
+        }
+
+        public string OpationRemark
+        {
+            get { return _OpationRemark; }
+            set { _OpationRemark = value; }
         }
         #endregion
     }
