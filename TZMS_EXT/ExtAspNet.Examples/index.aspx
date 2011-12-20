@@ -278,7 +278,7 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/代账审批.gif" NodeID="dzfsp" OnClientClick=" tabs('dzfsp','UserKey');"
                                                 Text="代账费审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/代账审批.gif" NodeID="dzfdy" OnClientClick=" tabs('dzfdy','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/代帐单打印.png" NodeID="dzfdy" OnClientClick=" tabs('dzfdy','UserKey');"
                                                 Text="代账单导出">
                                             </ext:TreeNode>
                                         </Nodes>
@@ -300,10 +300,10 @@
                                             <%--<ext:TreeNode Leaf="true" IconUrl="images/16/报销列表.gif" NodeID="bxgd" OnClientClick=" tabs('bxgd','UserKey');"
                                                 Text="报销归档">
                                             </ext:TreeNode>--%>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销审批.gif" NodeID="bxpzsq" AutoPostBack="false"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销凭证.png" NodeID="bxpzsq" AutoPostBack="false"
                                                 OnClientClick=" tabs('bxpzsq','UserKey');" Text="报销凭证">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销审批.gif" NodeID="bxpzsp" AutoPostBack="false"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销凭证审批.png" NodeID="bxpzsp" AutoPostBack="false"
                                                 OnClientClick=" tabs('bxpzsp','UserKey');" Text="报销凭证审批">
                                             </ext:TreeNode>
                                         </Nodes>
@@ -322,10 +322,10 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/报销申请.gif" NodeID="ptywcz" AutoPostBack="false"
                                                 OnClientClick=" tabs('ptywcz','UserKey');" Text="普通业务操作">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务.gif" NodeID="dzywcj" AutoPostBack="false"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务创建.png" NodeID="dzywcj" AutoPostBack="false"
                                                 OnClientClick=" tabs('dzywcj','UserKey');" Text="定制业务创建">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务.gif" NodeID="dzywcz" AutoPostBack="false"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务操作.png" NodeID="dzywcz" AutoPostBack="false"
                                                 OnClientClick=" tabs('dzywcz','UserKey');" Text="定制业务操作">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务.gif" NodeID="byjsq" AutoPostBack="false"

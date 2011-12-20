@@ -112,6 +112,7 @@
     <Content Include="DLL\Wilco.SyntaxHighlighter.dll" />
     <Content Include="images\16\下发奖惩单.png" />
     <Content Include="images\16\业务管理.gif" />
+    <Content Include="images\16\代帐单打印.png" />
     <Content Include="images\16\代账单位.gif" />
     <Content Include="images\16\代账审批.gif" />
     <Content Include="images\16\代账申请.gif" />
@@ -128,12 +129,16 @@
     <Content Include="images\16\员工考勤.gif" />
     <Content Include="images\16\奖罚单确认.png" />
     <Content Include="images\16\定制业务.gif" />
+    <Content Include="images\16\定制业务创建.png" />
+    <Content Include="images\16\定制业务操作.png" />
     <Content Include="images\16\审核结果列表.png" />
     <Content Include="images\16\已发消息.gif" />
     <Content Include="images\16\我的审批.gif" />
     <Content Include="images\16\我的消息.gif" />
     <Content Include="images\16\我的考勤.gif" />
     <Content Include="images\16\所有项目列表.png" />
+    <Content Include="images\16\报销凭证.png" />
+    <Content Include="images\16\报销凭证审批.png" />
     <Content Include="images\16\报销列表.gif" />
     <Content Include="images\16\报销审批.gif" />
     <Content Include="images\16\报销申请.gif" />
