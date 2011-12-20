@@ -55,12 +55,13 @@
                                 runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>--%>
-                            <ext:TriggerBox EnableEdit="false" ID="tbBorrowerNameA" Label="借款人(甲方)" TriggerIconUrl="~/Images/ico_16_grxx.gif"
+                            <ext:TriggerBox EnableEdit="true" ID="tbBorrowerNameA" Label="借款人(甲方)" TriggerIconUrl="~/Images/ico_16_grxx.gif"
                                 OnTriggerClick="tbBorrowerNameA_TriggerClick" EmptyText="" runat="server" ShowRedStar="true"
                                 Required="true">
                             </ext:TriggerBox>
                             <ext:TextBox ID="tbBorrowerPhone" Label="借款联系电话" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}" RegexMessage="电话号码格式不正确!">
+                                Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}" RegexMessage="电话号码格式不正确!" ShowRedStar="true"
+                                Required="true">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>

@@ -98,7 +98,17 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("5")))
+            {
+                strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
+            }
+            else
+            {
+
+                strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+
+            }
           //   strCondtion.Append("   Status<>9 "); 
 
             if (!string.IsNullOrEmpty(state))

@@ -160,23 +160,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             this.gridData.DataSource = lstInfo;
             this.gridData.DataBind();
-        }
-
-        /// <summary>
-        /// 行绑定事件.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
-        {
-            //InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
-
-            //if (_Info.Status == 0)
-            //{
-            //    e.Values[9] = "<span class=\"gray\">权限</span>";
-            //    e.Values[10] = "<span class=\"gray\">离职</span>";
-            //}
-        }
+        } 
         #endregion
 
         #region 页面事件
@@ -253,6 +237,23 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             BindGridData(ViewStateState, ViewStateSearchText);
         }
+
+        /// <summary>
+        /// 行绑定事件.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            InvestmentLoanInfo _userInfo = (InvestmentLoanInfo)e.DataItem;
+
+            if (_userInfo.Status == 9)
+            {
+                e.Values[12] = "<span class=\"gray\">删除</span>";
+              
+            }
+        }
+
 
         #endregion
 

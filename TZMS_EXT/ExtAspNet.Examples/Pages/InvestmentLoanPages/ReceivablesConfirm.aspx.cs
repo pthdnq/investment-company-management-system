@@ -133,6 +133,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.Status = status;
             _Info.IsAccountingAudit = true;
 
+      
+
             #region 积分
             var loan = manage.GetUserByObjectID(_Info.ForId.ToString());
             var customer = manage.GetCustomerByObjectID(loan.BorrowerAId.ToString());

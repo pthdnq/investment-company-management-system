@@ -73,7 +73,7 @@
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
                             <ext:BoundField Width="125px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="借款日期" />
-                                                            <ext:BoundField DataField="DueDateForPay" Width="35px" HeaderText="应付借款日" />
+                            <ext:BoundField DataField="DueDateForPay" Width="95px" HeaderText="应付借款日" />
                             <ext:BoundField DataField="CreateTime" Width="125px" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                 HeaderText="创建时间" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
@@ -84,7 +84,7 @@
                             <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="PaymentApplyEdit.aspx?Type=Edit&ID={0}" Title="编辑"
                                 WindowID="wndNew" />
-                            <ext:WindowField Text="查看"  Width="38px" HeaderText="" DataIFrameUrlFields="ObjectId"
+                            <ext:WindowField Text="查看" Width="38px" HeaderText="" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="LoanContract.aspx?Type=View&ID={0}" Title="查看" WindowID="wndView" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
                         </Columns>

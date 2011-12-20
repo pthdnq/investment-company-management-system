@@ -165,7 +165,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 return;
             }
 
-            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference(lstSelected[0].ObjectId.ToString() + "," + lstSelected[0].Name));
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference(lstSelected[0].ObjectId.ToString() + "," + lstSelected[0].Name + "," + lstSelected[0].MobilePhone));
         }
 
         /// <summary>

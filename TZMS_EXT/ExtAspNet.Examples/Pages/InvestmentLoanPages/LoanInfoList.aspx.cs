@@ -174,15 +174,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             //提醒
             if (_Info.DueDateForPay == DateTime.Now.Day)
             {
-                e.Values[9] = "<span class=\"gray\">请收款！</span>";
+                e.Values[8] = "<span class=\"gray\">请收款！</span>";
             }
             else if (_Info.DueDateForPay < DateTime.Now.Day)
             {
-                e.Values[9] = string.Format("<span class=\"gray\">还有{0}天</span>", DateTime.Now.Day - _Info.DueDateForPay);
+                e.Values[8] = string.Format("<span class=\"gray\">还有{0}天</span>", DateTime.Now.Day - _Info.DueDateForPay);
             }
             else if (_Info.DueDateForPay > DateTime.Now.Day)
             {
-                e.Values[9] = string.Format("<span class=\"gray\">请收款！</span>", DateTime.Now.Day - _Info.DueDateForPay);
+                e.Values[8] = string.Format("<span class=\"gray\">请收款！</span>", DateTime.Now.Day - _Info.DueDateForPay);
             }
         }
         #endregion
