@@ -20,8 +20,9 @@
                     <ext:FormRow ID="FormRow1" runat="server">
                         <Items>
                             <ext:DropDownList ID="ddlstState" runat="server" Label="当前状态">
-                                <ext:ListItem Text="已出门登记" Value="0" Selected="true" />
-                                <ext:ListItem Text="已入门登记" Value="1" Selected="true" />
+                                <ext:ListItem Text="全部" Value="3" />
+                                <ext:ListItem Text="已入门登记" Value="1" />
+                                <ext:ListItem Text="未入门登记" Value="0" />
                             </ext:DropDownList>
                             <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
@@ -51,9 +52,9 @@
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="UserName" HeaderText="出门登记人" />
                             <ext:BoundField DataField="OutTime" HeaderText="出门登记时间" />
+                            <ext:BoundField DataField="InTime" HeaderText="入门登记时间" />
                             <ext:BoundField DataField="OutReason" HeaderText="出门事由" DataTooltipField="OutReason"
                                 ExpandUnusedSpace="true" />
-                            <ext:BoundField DataField="InTime" HeaderText="入门登记时间" />
                             <ext:BoundField DataField="State" HeaderText="当前状态" />
                         </Columns>
                     </ext:Grid>

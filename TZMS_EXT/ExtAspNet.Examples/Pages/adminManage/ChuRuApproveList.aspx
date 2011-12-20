@@ -21,9 +21,12 @@
                         <Items>
                             <ext:TextBox ID="tbxSearch" runat="server" EmptyText="请输入登记人查询" ShowLabel="false">
                             </ext:TextBox>
-                            <ext:DatePicker ID="dpkStartTime" runat="server" Label="登记日期">
-                            </ext:DatePicker>
                             <ext:DropDownList ID="ddlstDept" runat="server" Label="部门名称">
+                            </ext:DropDownList>
+                            <ext:DropDownList ID="ddlstState" runat="server" Label="登记状态">
+                                <ext:ListItem Text="全部" Value="3" Selected="true" />
+                                <ext:ListItem Text="未登记" Value="0" />
+                                <ext:ListItem Text="已登记" Value="1" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
                             </ext:Button>
@@ -31,12 +34,10 @@
                     </ext:FormRow>
                     <ext:FormRow>
                         <Items>
-                            <ext:DropDownList ID="ddlstState" runat="server" Label="登记状态">
-                                <ext:ListItem Text="未登记" Value="0" Selected="true" />
-                                <ext:ListItem Text="已登记" Value="1" />
-                            </ext:DropDownList>
-                            <ext:Label ID="Label1" runat="server">
-                            </ext:Label>
+                            <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
+                            </ext:DatePicker>
+                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
+                            </ext:DatePicker>
                             <ext:Label ID="Label2" runat="server">
                             </ext:Label>
                             <ext:Label ID="Label3" runat="server">
@@ -57,10 +58,10 @@
                             <ext:BoundField DataField="UserName" HeaderText="出门登记人" />
                             <ext:BoundField DataField="UserDept" HeaderText="部门" />
                             <ext:BoundField DataField="OutTime" HeaderText="出门登记时间" />
-                            <ext:BoundField DataField="OutReason" HeaderText="出门事由" DataTooltipField="OutReason"
-                                ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="InUserName" HeaderText="入门登记人" />
                             <ext:BoundField DataField="InTime" HeaderText="出门登记时间" />
+                            <ext:BoundField DataField="OutReason" HeaderText="出门事由" DataTooltipField="OutReason"
+                                ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="State" Hidden="true" />
                             <ext:LinkButtonField Width="70px" Text="入门登记" CommandName="RMDJ" ConfirmText="您确定入门登记吗?" />
                         </Columns>
