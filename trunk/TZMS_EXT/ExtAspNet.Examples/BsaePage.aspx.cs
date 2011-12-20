@@ -355,6 +355,11 @@ namespace TZMS.Web
             /// 业务部备用金归档
             /// </summary>
             YWBBYJGD = 35,
+
+            /// <summary>
+            /// 前台（入门登记）
+            /// </summary>
+            QT = 36,
         }
 
         /// <summary>
