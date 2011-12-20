@@ -353,6 +353,9 @@ namespace TZMS.Web
                 case RoleType.YWBBYJGD:
                     strRole = "业务部备用金归档";
                     break;
+                case RoleType.QT:
+                    strRole = "前台";
+                    break;
             }
 
             return strRole;
