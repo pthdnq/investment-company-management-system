@@ -250,9 +250,10 @@ namespace TZMS.Web
                         break;
                     case "薪资信息审批":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.ZJL)
-                           && !CurrentRoles.Contains(RoleType.YGGL) && !CurrentRoles.Contains(RoleType.CWZJ)
+                          && !CurrentRoles.Contains(RoleType.CWZJ)
                            && !CurrentRoles.Contains(RoleType.DSZ)
-                            && !CurrentRoles.Contains(RoleType.XZGLGD))
+                            && !CurrentRoles.Contains(RoleType.XZGLGD)
+                             && !CurrentRoles.Contains(RoleType.XZZJ))
                             flag = true;
                         break;
                     case "加薪申请":
