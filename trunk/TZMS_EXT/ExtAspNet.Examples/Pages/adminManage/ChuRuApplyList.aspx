@@ -19,14 +19,16 @@
                 <Rows>
                     <ext:FormRow ID="FormRow1" runat="server">
                         <Items>
+                            <ext:DropDownList ID="ddlstState" runat="server" Label="当前状态">
+                                <ext:ListItem Text="已出门登记" Value="0" Selected="true" />
+                                <ext:ListItem Text="已入门登记" Value="1" Selected="true" />
+                            </ext:DropDownList>
                             <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
                             <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
                             </ext:DatePicker>
                             <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
                             </ext:Button>
-                            <ext:Label ID="Label1" runat="server">
-                            </ext:Label>
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -43,17 +45,22 @@
                 </Toolbars>
                 <Items>
                     <ext:Grid ID="gridChuRu" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
-                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true">
+                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                        OnPageIndexChange="gridChuRu_PageIndexChange" OnRowDataBound="gridChuRu_RowDataBound">
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
-                            <ext:BoundField DataField="PayUnitName" HeaderText="出门时间" />
+                            <ext:BoundField DataField="OutTime" HeaderText="出门登记时间" />
+                            <ext:BoundField DataField="OutReason" HeaderText="出门事由" DataTooltipField="OutReason"
+                                ExpandUnusedSpace="true" />
+                            <ext:BoundField DataField="InTime" HeaderText="入门登记时间" />
+                            <ext:BoundField DataField="State" HeaderText="当前状态" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndNewProxy" Title="报销审批" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndNewProxy" Title="出门登记" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
         Width="700px" OnClose="wndNewProxy_Close">
     </ext:Window>

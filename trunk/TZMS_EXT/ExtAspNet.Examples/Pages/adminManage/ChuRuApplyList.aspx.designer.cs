@@ -58,6 +58,15 @@ namespace TZMS.Web {
         protected global::ExtAspNet.FormRow FormRow1;
         
         /// <summary>
+        /// ddlstState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DropDownList ddlstState;
+        
+        /// <summary>
         /// dpkStartTime control.
         /// </summary>
         /// <remarks>
@@ -83,15 +92,6 @@ namespace TZMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.Button btnSearch;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Label Label1;
         
         /// <summary>
         /// pelGrid control.

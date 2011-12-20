@@ -132,6 +132,12 @@
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="zpsqgd" AutoPostBack="false" OnClientClick=" tabs('zpsqgd','UserKey');"
                                                 Text="招聘归档">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="cmdj" AutoPostBack="false" OnClientClick=" tabs('cmdj','UserKey');"
+                                                Text="出门登记">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="rmdj" AutoPostBack="false" OnClientClick=" tabs('rmdj','UserKey');"
+                                                Text="入门登记">
+                                            </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="cs" AutoPostBack="false" OnClientClick=" tabs('cs','UserKey');"
                                                 Text="测试">
                                             </ext:TreeNode>
@@ -244,7 +250,7 @@
                                     <ext:Tree ID="treeWZGL" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
                                         <Nodes>
-                                        <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzgl" OnClientClick=" tabs('wzgl','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzgl" OnClientClick=" tabs('wzgl','UserKey');"
                                                 Text="物资管理">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzsq" OnClientClick=" tabs('wzsq','UserKey');"
@@ -571,12 +577,18 @@
                 case "zzns":
                     LoadTab("Pages/adminManage/ProbationYear.aspx", "转正年数", icon);
                     break;
+                case "cmdj":
+                    LoadTab("Pages/adminManage/ChuRuApplyList.aspx", "出门登记", icon);
+                    break;
+                case "rmdj":
+                    LoadTab("Pages/adminManage/ChuRuApproveList.aspx", "入门登记", icon);
+                    break;
                 case "cs":
                     LoadTab("Test.aspx", "我的日历", icon);
                     break;
 
 
-                //假勤管理                                                                            
+                //假勤管理                                                                             
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤", icon);
                     break;
@@ -605,7 +617,7 @@
                     LoadTab("Pages/attendance/NoAttendToFile.aspx", "未打卡归档", icon);
                     break;
 
-                // 薪资管理.              
+                // 薪资管理.               
                 case "wdxz":
                     LoadTab("Pages/Salary/MySalary.aspx", "我的薪资", icon);
                     break;
@@ -625,7 +637,7 @@
                     LoadTab("Pages/Salary/AddSalaryApproveList.aspx", "加薪审批", icon);
                     break;
 
-                // 消息管理.                                 
+                // 消息管理.                                  
                 case "wdxx":
                     LoadTab("Pages/Message/MyMessageList.aspx", "我的消息", icon);
                     break;
@@ -635,7 +647,7 @@
                 case "fsxx":
                     LoadTab("Pages/Message/NewMessage.aspx?Type=Add", "发送消息", icon);
                     break;
-                // 业务管理                                 
+                // 业务管理                                  
                 case "ptyw":
                     LoadTab("Pages/Yewu/CommonYewu.aspx", "普通业务创建", icon);
                     break;
@@ -680,7 +692,7 @@
                     LoadTab("Pages/ProbationPages/UserLeaveTransferToFile.aspx", "离职交接归档", icon);
                     break;
 
-                // 物资管理                              
+                // 物资管理                               
                 case "wzsq":
                     LoadTab("Pages/MaterialsPages/MaterialsApplyList.aspx", "物资申请", icon);
                     break;
@@ -691,7 +703,7 @@
                     LoadTab("Pages/MaterialsPages/MaterialsManagePage.aspx", "物资管理", icon);
                     break;
 
-                // 代帐管理                               
+                // 代帐管理                                
                 case "paal":
                     LoadTab("Pages/ProxyAccountingPages/ProxyAccountingUnitList.aspx", "代帐单位", icon);
                     break;
@@ -705,7 +717,7 @@
                     LoadTab("Pages/ProxyAccountingPages/ProxyAccountingPrint.aspx", "代帐单导出", icon);
                     break;
 
-                //投资部借款 InvestmentLoan                                                     
+                //投资部借款 InvestmentLoan                                                      
                 case "fksq":
                     LoadTab("Pages/InvestmentLoanPages/PaymentApplyList.aspx", "借款申请", icon);
                     break;
@@ -728,7 +740,7 @@
                     LoadTab("Pages/InvestmentLoanPages/LoanContractList.aspx", "借款合同", icon);
                     break;
 
-                //投资部项目实施 InvestmentProject                                                       
+                //投资部项目实施 InvestmentProject                                                        
                 case "xmsq":
                     LoadTab("Pages/InvestmentProjectPages/ProjectApplyList.aspx", "项目申请列表", icon);
                     break;
@@ -754,7 +766,7 @@
                     LoadTab("Pages/InvestmentProjectPages/AllProjectList.aspx", "所有项目列表", icon);
                     break;
 
-                //银行贷款 BankLoan                                                         
+                //银行贷款 BankLoan                                                          
                 case "dksq":
                     LoadTab("Pages/BankLoanPages/BankLoanApplyList.aspx", "贷款申请列表", icon);
                     break;
@@ -780,7 +792,7 @@
                     LoadTab("Pages/BankLoanPages/AllFeePayList.aspx", "所有费用支出列表", icon);
                     break;
 
-                //民间融资 FolkFinancing                                                            
+                //民间融资 FolkFinancing                                                             
                 case "rzsq":
                     LoadTab("Pages/FolkFinancingPages/FinancingApplyList.aspx", "融资申请列表", icon);
                     break;
@@ -803,7 +815,7 @@
                     LoadTab("Pages/FolkFinancingPages/PaymentRecordList.aspx", "支付记录列表", icon);
                     break;
 
-                //资金流量        
+                //资金流量         
                 case "zjll":
                     LoadTab("Pages/CashFlow/CashFlowStatementList.aspx", "资金流量表", icon);
                     break;
@@ -820,7 +832,7 @@
                     LoadTab("Pages/CashFlow/FolkFinancingBAList.aspx", "民间融资会计核算", icon);
                     break;
 
-                //审批转移     
+                //审批转移      
                 case "dzysqspbl":
                     LoadTab("Pages/BankLoanPages/BankLoanAuditTransferList.aspx", "待转移申请审批", icon);
                     break;
@@ -850,7 +862,7 @@
                     LoadTab("Pages/InvestmentLoanPages/CustomerList.aspx", "客户一览表", icon);
                     break;
 
-                //网络报销      Baoxiao                                                         
+                //网络报销      Baoxiao                                                          
                 case "bxsq":
                     LoadTab("Pages/Baoxiao/BaoxiaoApplyList.aspx", "报销申请", icon);
                     break;
