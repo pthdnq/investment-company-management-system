@@ -64,24 +64,25 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" CreaterID ='" + CurrentUser.ObjectId.ToString() + "'");
+            //strCondition.Append(" CreaterID ='" + CurrentUser.ObjectId.ToString() + "'");
 
             // 申请状态.
-            switch (Convert.ToInt32(ddlState.SelectedValue))
-            {
-                case 0:
-                    strCondition.Append(" and (state = 0 or state = -1)");
-                    break;
-                case 1:
-                    strCondition.Append(" and (state = 1 or state = -1)");
-                    break;
-                case 2:
-                    strCondition.Append(" and (state = 2 or state = -1)");
-                    break;
-                default:
-                    break;
-            }
+            //switch (Convert.ToInt32(ddlState.SelectedValue))
+            //{
+            //    case 0:
+            //        strCondition.Append(" and (state = 0 or state = -1)");
+            //        break;
+            //    case 1:
+            //        strCondition.Append(" and (state = 1 or state = -1)");
+            //        break;
+            //    case 2:
+            //        strCondition.Append(" and (state = 2 or state = -1)");
+            //        break;
+            //    default:
+            //        break;
+            //}
 
+            strCondition.Append(" state = " + ddlState.SelectedValue);
             strCondition.Append(" and Year = " + ddlstYear.SelectedValue);
             strCondition.Append(" and Month = " + ddlstMonth.SelectedValue);
             strCondition.Append(" and (CreateTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59")
