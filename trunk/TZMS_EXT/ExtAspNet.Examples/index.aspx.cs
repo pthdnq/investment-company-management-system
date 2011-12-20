@@ -566,6 +566,22 @@ namespace TZMS.Web
                             flag = true;
                         }
                         break;
+                    case "待转移申请审批列表":
+                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                         && !CurrentRoles.Contains(RoleType.TZZJ))
+                        {
+                            flag = true;
+                        }
+                        break;
+                    case "客户一览表":
+                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                         && !CurrentRoles.Contains(RoleType.TZZJ))
+                        {
+                            flag = true;
+                        }
+                        break;
 
                 }
                 if (flag)
@@ -643,6 +659,22 @@ namespace TZMS.Web
                         }
                         break;
                     case "所有项目列表":
+                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                         && !CurrentRoles.Contains(RoleType.TZZJ))
+                        {
+                            flag = true;
+                        }
+                        break;
+                    case "待转移申请审批列表":
+                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                         && !CurrentRoles.Contains(RoleType.TZZJ))
+                        {
+                            flag = true;
+                        }
+                        break;
+                    case "待转移过程审批列表":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                         && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
                          && !CurrentRoles.Contains(RoleType.TZZJ))
@@ -734,6 +766,22 @@ namespace TZMS.Web
                             flag = true;
                         }
                         break;
+                    case "待转移申请审批列表":
+                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                        {
+                            flag = true;
+                        }
+                        break;
+                    case "待转移过程审批列表":
+                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                        {
+                            flag = true;
+                        }
+                        break;
 
                 }
                 if (flag)
@@ -803,6 +851,22 @@ namespace TZMS.Web
                         }
                         break;
                     case "支付记录列表":
+                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                        {
+                            flag = true;
+                        }
+                        break;
+                    case "待转移申请审批列表":
+                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                        {
+                            flag = true;
+                        }
+                        break;
+                    case "待转移过程审批列表":
                         if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
                         && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
                          && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
