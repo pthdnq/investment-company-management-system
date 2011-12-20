@@ -7,25 +7,29 @@
     <style type="text/css">
         body
         {
-            background: #85a7d8;
+            background: url(images/bodyback.jpg);
+background-repeat:repeat-x;
             margin: 0;
             padding: 0;
+            overflow:hidden;
         }
         #login_bg
         {
             background-image: url(images/bg2.jpg);
             background-repeat: no-repeat;
             background-position:top center;
-            width: 900px;
-            height:375px;
+            position:relative;
+            width: 1000px;
+            height:850px;
             margin: 0 auto;
-            padding-top: 200px;
         }
         #loginBox
         {
             background-image: url(images/bg_03.png);
             background-repeat: no-repeat;
-            margin: 0 auto;
+            position:absolute;
+            top:185px;
+            right:0px;
             width: 366px;
             height: 225px;
         }
@@ -34,27 +38,27 @@
             position: relative;
             height:70px;
         }
-        .title img
+        .titleimg
         {
-            position: absolute;
-            left: 37px;
-            top: -13px;
+             position:absolute;
+             top:30px;
+             left:375px;
         }
         .logintitle
         {
-            position: absolute;
+        	position:absolute;
             background-image: url(images/ff_06.png);
             background-repeat: no-repeat;
             background-position: center center;
-            width: 217px;
-            height: 24px;
-            right: 35px;
-            top: 20px;
+            width:318px;
+            height: 53px;
+            left: 11px;
+            top: 1px;
         }
-        .text{ font-family:SimSun; font-size:14px; color:#274069; float:left;margin-left:60px; margin-top:8px;}
+        .text{ font-family:SimSun; font-size:14px; color:#274069; float:left;margin-left:40px; margin-top:8px;}
         .textbox{height:23px; line-height:23px; font-size:14px; width:182px; border:solid 1px #7a9fcb; background:#fff; float:left;background-repeat:no-repeat; background-position:center center;}
         .btn{ width:70px; height:26px; border:0;margin-top:10px; cursor:pointer;}
-        .margin{margin-left:115px; margin-right:20px;}
+        .margin{margin-left:100px; margin-right:20px;}
     </style>
     <script type="text/javascript">
         function tzmslogin_() {
@@ -94,10 +98,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <img class="titleimg" alt="" src="images/title.png" />
     <div id="login_bg">
         <div id="loginBox">
             <div class="title">
-                <img alt="" src="images/computer.png" />
+               <%-- <img alt="" src="images/computer.png" />--%>
                 <div class="logintitle">
                 </div>
             </div>
@@ -122,6 +127,7 @@
                     onclick="ReLogin0()" type="button" style="background-image: url(images/btn.png);" />
         </div>
     </div>
+    
     <div style="visibility:hidden">
         <asp:Button ID="btnLogin" OnClick="btnLogin_Click" runat="server" Text="" />
     </div>
