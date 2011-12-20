@@ -340,6 +340,7 @@ namespace TZMS.Web
             /// 物资管理员 以下角色未管理其他页面
             /// </summary>
             WZGL = 32,
+
             /// <summary>
             /// 报销凭证创建 以下角色未管理其他页面
             /// </summary>
@@ -353,7 +354,7 @@ namespace TZMS.Web
             /// <summary>
             /// 业务部备用金归档
             /// </summary>
-            YWBBYJGD = 35
+            YWBBYJGD = 35,
         }
 
         /// <summary>

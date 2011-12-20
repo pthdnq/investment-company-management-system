@@ -29,6 +29,20 @@
                     <ext:Form ID="mainForm2" EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px"
                         LabelWidth="85px" runat="server">
                         <Rows>
+                            <ext:FormRow ColumnWidths="50%">
+                                <Items>
+                                    <ext:TextBox ID="tbxActualCount" runat="server" Label="实际领用数量" Required="true" ShowRedStar="true"
+                                        Regex="^\d*$" RegexMessage="只能输入数字!">
+                                    </ext:TextBox>
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="50% 50%">
+                                <Items>
+                                    <ext:TextArea ID="taaApproveSugest" Height="50px" runat="server" Label="领用意见" MaxLength="100"
+                                        MaxLengthMessage="最多只能输入100个字！">
+                                    </ext:TextArea>
+                                </Items>
+                            </ext:FormRow>
                             <ext:FormRow ColumnWidths="50% 50%">
                                 <Items>
                                     <ext:Label ID="lblName" runat="server" Label="申请人">
@@ -53,23 +67,9 @@
                                     </ext:Label>
                                 </Items>
                             </ext:FormRow>
-                            <ext:FormRow ColumnWidths="50%">
-                                <Items>
-                                    <ext:TextBox ID="tbxActualCount" runat="server" Label="实际领用数量" Required="true" ShowRedStar="true"
-                                        Regex="^\d*$" RegexMessage="只能输入数字!">
-                                    </ext:TextBox>
-                                </Items>
-                            </ext:FormRow>
                             <ext:FormRow ColumnWidths="60%">
                                 <Items>
                                     <ext:TextArea ID="taaOther" runat="server" Label="备注" Enabled="false" Height="200px">
-                                    </ext:TextArea>
-                                </Items>
-                            </ext:FormRow>
-                            <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="50% 50%">
-                                <Items>
-                                    <ext:TextArea ID="taaApproveSugest" Height="50px" runat="server" Label="领用意见" MaxLength="100"
-                                        MaxLengthMessage="最多只能输入100个字！">
                                     </ext:TextArea>
                                 </Items>
                             </ext:FormRow>

@@ -31,7 +31,8 @@
                         <Rows>
                             <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                                 <Items>
-                                    <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server" Label="下一步">
+                                    <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
+                                        Label="下一步">
                                     </ext:DropDownList>
                                     <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
                                         RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
@@ -62,15 +63,18 @@
                                                         Label="物资类型" AutoPostBack="True" OnSelectedIndexChanged="ddlstType_SelectedIndexChanged">
                                                     </ext:DropDownList>
                                                     <ext:DropDownList ID="ddlstMaterials" runat="server" Required="true" Label="物资名称"
-                                                        ShowRedStar="true">
+                                                        ShowRedStar="true" AutoPostBack="True" 
+                                                        OnSelectedIndexChanged="ddlstMaterials_SelectedIndexChanged">
                                                     </ext:DropDownList>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="50%">
+                                            <ext:FormRow ColumnWidths="50% 50%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxNumbers" runat="server" Required="true" ShowRedStar="true" Label="申请数量"
                                                         Regex="^\d*$" RegexMessage="只能输入数字!">
                                                     </ext:TextBox>
+                                                    <ext:Label ID="lblTotalCount" runat="server" Label="库存数量">
+                                                    </ext:Label>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="60%">
