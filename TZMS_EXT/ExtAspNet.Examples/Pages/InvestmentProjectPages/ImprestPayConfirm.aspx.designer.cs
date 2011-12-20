@@ -157,6 +157,15 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         protected global::ExtAspNet.Form mainFrame;
         
         /// <summary>
+        /// tbProjectName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbProjectName;
+        
+        /// <summary>
         /// tbImplementationPhase control.
         /// </summary>
         /// <remarks>
@@ -181,7 +190,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpExpendedTime;
+        protected global::ExtAspNet.TextBox dpExpendedTime;
         
         /// <summary>
         /// tbImprestAmount control.

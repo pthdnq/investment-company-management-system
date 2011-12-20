@@ -146,8 +146,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
          //   暂用AccountingAccount存储，待修改
             _Info.AccountingAccount = this.ddlstApproveUser.SelectedValue;
         
-          //下一步操作人
-          
+          //下一步操作人 
 
             // 执行操作.
             int result = 3;

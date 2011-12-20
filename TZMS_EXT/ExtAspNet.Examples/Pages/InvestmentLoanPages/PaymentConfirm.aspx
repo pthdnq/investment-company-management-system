@@ -124,8 +124,8 @@
                                         <Items>
                                             <ext:DatePicker ID="dpLoanDate" Enabled="false" Label="借款日期" runat="server">
                                             </ext:DatePicker>
-                                            <ext:DatePicker ID="dpDueDateForPay" Enabled="false" Label="应付款日" runat="server">
-                                            </ext:DatePicker>
+                                            <ext:TextBox ID="dpDueDateForPay" Enabled="false" Label="应付款日" runat="server">
+                                            </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">

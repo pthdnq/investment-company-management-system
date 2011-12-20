@@ -50,30 +50,32 @@
                             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
                                 runat="server">
                                 <Rows>
-                                    <ext:FormRow ColumnWidths="50% 50%">
+                                  <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox Enabled="false" ID="tbImplementationPhase" Label="实施阶段" ShowRedStar="true"
-                                                Required="true" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" />
+                                            <ext:TextBox Enabled="false" ID="tbProjectName" Label="项目名称"   runat="server"  />
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbAmountExpended" Enabled="false" Label="支用金额" ShowRedStar="true"
-                                                Required="true" runat="server" Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
+                                            <ext:TextBox Enabled="false" ID="tbImplementationPhase" Label="用途"   runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" />
+                                        </Items>
+                                    </ext:FormRow>
+                                    <ext:FormRow ColumnWidths="50% 50%">
+                                        <Items>
+                                            <ext:TextBox ID="tbAmountExpended" Enabled="false" Label="支用金额"  runat="server" Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
                                                 Regex="^[0-9]*$" RegexMessage="只能输入字母!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:DatePicker ID="dpExpendedTime" Enabled="false" Label="支用时间" runat="server">
-                                            </ext:DatePicker>
+                                            <ext:TextBox ID="dpExpendedTime" Enabled="false" Label="支用时间" runat="server">
+                                            </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbImprestAmount" Enabled="false" Label="备用金额" ShowRedStar="true"
-                                                Required="true" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
+                                            <ext:TextBox ID="tbImprestAmount" Enabled="false" Label="备用金额"   runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
                                                 Regex="^[0-9]*$" RegexMessage="只能输入字母!">
                                             </ext:TextBox>
                                         </Items>

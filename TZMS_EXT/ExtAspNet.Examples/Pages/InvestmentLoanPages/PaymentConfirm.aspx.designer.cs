@@ -253,7 +253,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpDueDateForPay;
+        protected global::ExtAspNet.TextBox dpDueDateForPay;
         
         /// <summary>
         /// tbRemark control.

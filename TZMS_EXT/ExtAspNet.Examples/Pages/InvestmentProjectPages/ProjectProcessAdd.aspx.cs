@@ -50,7 +50,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 BindNext();
                 // 绑定审批人.
                 ApproveUser();
-           
+
             }
         }
 
@@ -72,25 +72,25 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             //// 设置默认值.
             //ddlstDept.SelectedIndex = 0;
-        } 
+        }
         #endregion
 
         #region 页面及控件事件
-   
 
-        protected void cbIsAmountExpended_OnCheckedChanged(object sender,   EventArgs e)
+
+        protected void cbIsAmountExpended_OnCheckedChanged(object sender, EventArgs e)
         {
             if (cbIsAmountExpended.Checked)
             {
                 gpAmount.Hidden = false;
                 tbAmountExpended.Hidden = false;
-                dpExpendedTime.Hidden = false;
+                tbExpendedTime.Hidden = false;
             }
             else
             {
                 gpAmount.Hidden = true;
                 tbAmountExpended.Hidden = true;
-                dpExpendedTime.Hidden = true;
+                tbExpendedTime.Hidden = true;
             }
         }
 
@@ -126,17 +126,20 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             //  ID.
             _Info.ObjectId = Guid.NewGuid();
             _Info.ForId = new Guid(ForID);
-             
+
             _Info.ProjectName = manage.GetUserByObjectID(ForID).ProjectName;
-             
-            if (dpExpendedTime.SelectedDate is DateTime)
-            {
-                _Info.ExpendedTime = this.dpExpendedTime.SelectedDate.Value;
-            }
+
+
+            _Info.ExpendedTime = this.tbExpendedTime.Text.Trim();
+
+
+            _Info.Use = this.tbUse.Text.Trim();
+            _Info.ImprestRemark = this.tbImprestRemark.Text.Trim();
 
             if (!string.IsNullOrEmpty(tbAmountExpended.Text))
             {
                 _Info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Trim());
+                _Info.PrepaidAmount = Decimal.Parse(tbAmountExpended.Text.Trim());
             }
             if (!string.IsNullOrEmpty(tbImprestAmount.Text))
             {
@@ -157,7 +160,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             if (result == -1)
             {
                 manage.AddHistory(true, _Info.ObjectId, "新增", "新增项目进展", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
-           
+
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

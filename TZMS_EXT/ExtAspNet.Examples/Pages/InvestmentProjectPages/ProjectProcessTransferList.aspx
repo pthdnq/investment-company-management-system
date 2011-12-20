@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProjectProcessTransferList.aspx.cs" Inherits="TZMS.Web.Pages.InvestmentProjectPages.ProjectProcessTransferList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProjectProcessTransferList.aspx.cs"
+    Inherits="TZMS.Web.Pages.InvestmentProjectPages.ProjectProcessTransferList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -65,15 +65,14 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField  ExpandUnusedSpace="true"  DataField="ImplementationPhase" HeaderText="实施阶段" />
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="ImplementationPhase" HeaderText="实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
-                            <ext:BoundField Width="110px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd hh:mm}"
-                                HeaderText="支用时间" />
+                            <ext:BoundField Width="110px" DataField="ExpendedTime" HeaderText="支用时间" />
                             <ext:BoundField Width="90px" DataField="ImprestAmount" HeaderText="备用金额" />
                             <ext:BoundField Width="115px" DataField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>
-                                          <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="80px" Text="审核转移" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectProcessTransfer.aspx?Type=Edit&ID={0}"

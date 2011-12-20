@@ -19,7 +19,7 @@
             进展：
             <asp:Label runat="server" ID="lbImplementationPhase"></asp:Label></h2>
         <h3>
-           支用金额：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
+           预支金额：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
             <br />
             支用时间：
             <asp:Label runat="server" ID="lbLoanDate"></asp:Label>
