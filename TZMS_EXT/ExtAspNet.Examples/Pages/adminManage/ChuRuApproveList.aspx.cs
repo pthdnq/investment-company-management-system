@@ -54,7 +54,7 @@ namespace TZMS.Web
             DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" State = 0 ");
+            strCondition.Append(" 1 = 1 ");
 
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
@@ -65,6 +65,9 @@ namespace TZMS.Web
             {
                 strCondition.Append(" and UserDept = '" + ddlstDept.SelectedText + "'");
             }
+
+            strCondition.Append(" and State = " + ddlstState.SelectedValue);
+
             strCondition.Append(" and OutTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + startTime.ToString("yyyy-MM-dd 23:59")
                 + "'");
 
@@ -150,6 +153,19 @@ namespace TZMS.Web
             if (e.DataItem != null)
             {
                 e.Values[3] = DateTime.Parse(e.Values[3].ToString()).ToString("yyyy-MM-dd HH:mm");
+                switch (e.Values[7].ToString())
+                {
+                    case "0":
+                        e.Values[5] = "";
+                        e.Values[6] = "";
+                        break;
+                    case "1":
+                        e.Values[6] = DateTime.Parse(e.Values[6].ToString()).ToString("yyyy-MM-dd HH:mm");
+                        e.Values[8] = "<span class=\"gray\">入门登记</span>";
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
