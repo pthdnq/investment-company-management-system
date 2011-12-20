@@ -94,6 +94,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
+
+            this.taOpationRemark.Text = _Info.OpationRemark;
+            this.tbPenalbond.Text = _Info.Penalbond;
+            this.tbImprest.Text = _Info.Imprest;
         }
 
         /// <summary>
@@ -147,7 +151,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             _Info.Status = status;
         //    _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
-            
+            _Info.OpationRemark = this.taOpationRemark.Text.Trim();
+            _Info.Penalbond = this.tbPenalbond.Text.Trim();
+            _Info.Imprest = this.tbImprest.Text.Trim();
+
+
+
             int result = 3;
 
             result = manage.Update(_Info);

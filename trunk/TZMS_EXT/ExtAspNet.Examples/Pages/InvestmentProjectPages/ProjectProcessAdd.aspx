@@ -82,24 +82,24 @@
                             <ext:FormRow ColumnWidths="60% 40%">
                                 <Items>
                                
-                                    <ext:TextBox ID="tbExpendedTime" Label="支用时间" ShowRedStar="true" Required="true" runat="server"
-                                        Text="0" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
+                                    <ext:TextBox  Hidden="true"  ID="tbExpendedTime" Label="支用时间" ShowRedStar="true" Required="true" runat="server"
+                                          MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
                                     </ext:TextBox>
                                     <ext:Label ID="Label1" runat="server" />
                                 </Items>
                             </ext:FormRow>
                             <ext:FormRow>
                                 <Items>
-                                    <ext:TextBox ID="tbUse" Label="用途" ShowRedStar="true" Required="true" runat="server"
-                                        Text="0" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
-                                    </ext:TextBox>
+                                    <ext:TextArea  Hidden="true" ID="tbUse" Label="用途" ShowRedStar="true" Required="true" runat="server"
+                                         Height="50px"       MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
+                                    </ext:TextArea>
                                 </Items>
                             </ext:FormRow>
                             <ext:FormRow>
                                 <Items>
-                                    <ext:TextBox ID="tbImprestRemark" Label="备注" ShowRedStar="true" Required="true" runat="server"
-                                        Text="0" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
-                                    </ext:TextBox>
+                                    <ext:TextArea Hidden="true"  ID="tbImprestRemark" Label="备注" ShowRedStar="true" Required="true" runat="server"
+                                        Height="50px"    MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
+                                    </ext:TextArea>
                                 </Items>
                             </ext:FormRow>
                         </Rows>

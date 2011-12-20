@@ -85,12 +85,16 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 gpAmount.Hidden = false;
                 tbAmountExpended.Hidden = false;
                 tbExpendedTime.Hidden = false;
+                tbUse.Hidden = false;
+                tbImprestRemark.Hidden = false;
             }
             else
             {
                 gpAmount.Hidden = true;
                 tbAmountExpended.Hidden = true;
                 tbExpendedTime.Hidden = true;
+                tbUse.Hidden = true;
+                tbImprestRemark.Hidden = true;
             }
         }
 
