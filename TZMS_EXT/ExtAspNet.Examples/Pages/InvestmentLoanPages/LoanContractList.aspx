@@ -22,10 +22,11 @@
                             <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
                                 ID="ttbSearch" />
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
-                                <ext:ListItem Text="待审核" Value="1" />
+                         <%--       <ext:ListItem Text="待审核" Value="1" />
                                 <ext:ListItem Text="审核中" Value="3" />
-                                <ext:ListItem Text="已通过" Value="4" Selected="true" />
-                                <ext:ListItem Text="未通过" Value="2" />
+                                <ext:ListItem Text="已通过" Value="4"/>--%>
+                                <ext:ListItem Text="待终止" Value="0" />
+                                <ext:ListItem Text="已终止" Value="8"  Selected="true" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
@@ -63,7 +64,7 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                    <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                               <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
+                               <ext:BoundField  ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
                             <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
                              <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />

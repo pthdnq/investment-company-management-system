@@ -104,7 +104,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -115,8 +115,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             #region 条件
             StringBuilder strCondtion = new StringBuilder();
-         //   strCondtion.Append("  CreaterID = '" + this.CurrentUser.ObjectId + "' ");
-         strCondtion.Append("   Status<>0 "); 
+            //   strCondtion.Append("  CreaterID = '" + this.CurrentUser.ObjectId + "' ");
+            strCondtion.Append("   Status<>0 ");
 
             if (!string.IsNullOrEmpty(state))
             {
@@ -125,7 +125,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 switch (state)
                 {
                     case "0":
-                        //  strCondtion.Append(" AND Status = 1 ");
+                        strCondtion.Append(" AND Status in (1,2,3,4,5,6) ");
                         break;
                     case "1":
                         strCondtion.Append(" AND Status = 1 ");
@@ -141,6 +141,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                         break;
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
+                        break;
+                    case "8":
+                        strCondtion.Append(" AND Status = 8 ");
                         break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
@@ -164,7 +167,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
             strCondtion.Append(" ORDER BY CreateTime DESC");
             #endregion
- 
+
             List<InvestmentLoanInfo> lstUserInfo = new InvestmentLoanManage().GetUsersByCondtion(strCondtion.ToString());
             this.gridData.RecordCount = lstUserInfo.Count;
             this.gridData.PageSize = PageCounts;
@@ -191,9 +194,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
 
-            if (_Info.Status == 9)
+            if (_Info.Status == 9 || _Info.Status == 8)
             {
-                e.Values[9] = "<span class=\"gray\"></span>"; 
+                e.Values[9] = "<span class=\"gray\">终止合同</span>";
             }
         }
         #endregion
@@ -223,7 +226,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-        
+
 
         /// <summary>
         /// 状态变动事件

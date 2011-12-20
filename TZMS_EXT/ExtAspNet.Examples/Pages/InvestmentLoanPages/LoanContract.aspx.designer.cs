@@ -247,22 +247,22 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextArea tbRemark;
         
         /// <summary>
-        /// taAuditOpinion control.
+        /// tbPenalbond control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextArea taAuditOpinion;
+        protected global::ExtAspNet.TextBox tbPenalbond;
         
         /// <summary>
-        /// taAccountingRemark control.
+        /// tbImprest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextArea taAccountingRemark;
+        protected global::ExtAspNet.TextBox tbImprest;
         
         /// <summary>
         /// taOpationRemark control.

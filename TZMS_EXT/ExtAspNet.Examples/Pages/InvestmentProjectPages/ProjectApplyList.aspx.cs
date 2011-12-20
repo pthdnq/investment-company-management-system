@@ -104,7 +104,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -164,7 +164,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
             strCondtion.Append(" ORDER BY CreateTime DESC");
             #endregion
- 
+
             List<InvestmentProjectInfo> lstInfo = new InvestmentProjectManage().GetUsersByCondtion(strCondtion.ToString());
             this.gridData.RecordCount = lstInfo.Count;
             this.gridData.PageSize = PageCounts;
@@ -207,7 +207,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             ViewStateSearchText = this.ttbSearch.Text.Trim();
             BindGridData(ViewStateState, ViewStateSearchText);
         }
-          
+
         /// <summary>
         /// 状态变动事件
         /// </summary>
@@ -251,10 +251,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             InvestmentProjectInfo _Info = (InvestmentProjectInfo)e.DataItem;
 
-            if (_Info.Status == 9)
+            if (_Info.Status != 1)
             {
                 e.Values[10] = "<span class=\"gray\">删除</span>";
-         
+
             }
         }
 

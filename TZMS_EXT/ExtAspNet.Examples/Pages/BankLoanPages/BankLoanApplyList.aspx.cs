@@ -233,7 +233,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             BankLoanInfo _Info = (BankLoanInfo)e.DataItem;
 
-            if (_Info.Status == 9)
+            if (_Info.Status != 1)
             {
                 e.Values[12] = "<span class=\"gray\">删除</span>";
        

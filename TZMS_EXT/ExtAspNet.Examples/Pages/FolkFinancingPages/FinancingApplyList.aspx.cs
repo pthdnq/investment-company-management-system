@@ -189,7 +189,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             FolkFinancingInfo _Info = (FolkFinancingInfo)e.DataItem;
 
-            if (_Info.Status == 9)
+            if (_Info.Status != 1)
             {
                 e.Values[11] = "<span class=\"gray\">删除</span>"; 
             }
