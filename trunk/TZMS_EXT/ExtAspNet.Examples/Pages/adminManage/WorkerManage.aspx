@@ -58,9 +58,9 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:BoundField Width="80px" DataField="Dept" HeaderText="部门" />
-                            <ext:BoundField Width="145px" DataField="PhoneNumber" HeaderText="联系电话" />
-                            <ext:BoundField DataField="BackIpPhoneNumber" Width="145px" HeaderText="备用联系电话" />
-                            <ext:BoundField Width="150px" DataField="Email" HeaderText="邮箱" />
+                            <ext:BoundField Width="130px" DataField="PhoneNumber" HeaderText="联系电话" />
+                            <ext:BoundField DataField="BackIpPhoneNumber" Width="130px" HeaderText="备用联系电话" />
+                            <ext:BoundField Width="140px" DataField="Email" HeaderText="邮箱" />
                             <ext:TemplateField Width="70px" HeaderText="员工状态">
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
