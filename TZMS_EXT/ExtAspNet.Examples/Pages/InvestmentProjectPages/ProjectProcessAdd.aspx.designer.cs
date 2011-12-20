@@ -208,7 +208,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbUse;
+        protected global::ExtAspNet.TextArea tbUse;
         
         /// <summary>
         /// tbImprestRemark control.
@@ -217,6 +217,6 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbImprestRemark;
+        protected global::ExtAspNet.TextArea tbImprestRemark;
     }
 }
