@@ -72,7 +72,7 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%" Hidden="true">
                                         <Items>
-                                            <ext:TextBox ID="tbGuarantee" Label="担保人" Enabled="false" runat="server" MaxLength="20"
+                                            <ext:TextBox ID="tbGuarantee" Label="担保人"  Hidden="true"  Enabled="false" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                         </Items>

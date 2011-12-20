@@ -64,13 +64,13 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="130px" DataField="ProjectName" HeaderText="项目名称" /> 
-                            <ext:BoundField Width="140px" DataField="ImplementationPhase" HeaderText="实施阶段" />
+                            <ext:BoundField Width="135px" DataField="ProjectName" HeaderText="项目名称" /> 
+                            <ext:BoundField Width="140px" DataField="ImplementationPhase" HeaderText="项目实施阶段" />
                             <ext:BoundField Width="120px" DataField="GuaranteeCompany" HeaderText="贷款公司" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
                             <ext:BoundField Width="80px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="支用时间" />
-                            <ext:BoundField Width="80px" DataField="ImprestAmount" HeaderText="备用金额" />
+                            <ext:BoundField Width="80px" DataField="ImprestAmount" HeaderText="备用金余额" />
                             <ext:TemplateField Width="72px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>

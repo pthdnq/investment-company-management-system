@@ -59,9 +59,9 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:DatePicker ID="dpDateForPay" Label="支付日期" runat="server" Enabled="false">
+                            <ext:DatePicker ID="dpDateForPay" Label="实付账款日" runat="server" Enabled="false">
                             </ext:DatePicker>
-                            <ext:DatePicker ID="dpDueDateForPay" Label="应付款日" runat="server" Enabled="false">
+                            <ext:DatePicker ID="dpDueDateForPay" Label="应付账款日" runat="server" Enabled="false">
                             </ext:DatePicker>
                         </Items>
                     </ext:FormRow>
