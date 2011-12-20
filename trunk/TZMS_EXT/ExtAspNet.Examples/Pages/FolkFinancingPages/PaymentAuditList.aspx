@@ -69,10 +69,10 @@
                             <ext:BoundField Width="130px" DataField="PaymentAccount" HeaderText="付款帐号" />
                             <ext:BoundField Width="130px" DataField="ReceivablesAccount" HeaderText="收款帐号" />
                             <ext:BoundField Width="105px" DataField="AmountOfPayment" HeaderText="支付金额" />
-                            <ext:BoundField Width="105px" DataField="DateForPay" DataFormatString="{0:yyyy/MM/dd }"
-                                HeaderText="支付日期" />
+                            <ext:BoundField Width="110px" DataField="DateForPay" DataFormatString="{0:yyyy/MM/dd }"
+                                HeaderText="实付账款日" />
                             <ext:BoundField Width="110px" DataField="DueDateForPay" DataFormatString="{0:yyyy/MM/dd }"
-                                HeaderText="应付款日" />
+                                HeaderText="应付账款日" />
                             <ext:BoundField Width="110px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                 HeaderText="提交时间" />
                             <ext:BoundField Width="80px" DataField="CreaterName" HeaderText="创建人" />

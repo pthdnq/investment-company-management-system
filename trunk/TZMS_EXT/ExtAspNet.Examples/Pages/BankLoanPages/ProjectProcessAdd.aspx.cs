@@ -83,7 +83,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            saveUserInfo();
+            saveInfo();
         }
 
         #endregion
@@ -92,7 +92,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <summary>
         /// 保存用户信息.
         /// </summary>
-        private void saveUserInfo()
+        private void saveInfo()
         {
             com.TZMS.Model.BankLoanProjectProcessInfo _Info = new com.TZMS.Model.BankLoanProjectProcessInfo();
             BankLoanManage manage = new BankLoanManage();
@@ -102,11 +102,11 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.ForId = new Guid(ForID);
 
             var bankloan = manage.GetUserByObjectID(ForID);
-            _Info.ProjectName = bankloan.ProjectName;
-
-            _Info.ImplementationPhase = this.taImplementationPhase.Text.Trim();
-           
+            _Info.ProjectName = bankloan.ProjectName; 
+            _Info.GuaranteeCompany = bankloan.CollateralCompany;
             //  info.LoanBank= bankloan.
+            _Info.ImplementationPhase = this.taImplementationPhase.Text.Trim();
+
             if (dpExpendedTime.SelectedDate is DateTime)
             {
                 _Info.ExpendedTime = this.dpExpendedTime.SelectedDate.Value;

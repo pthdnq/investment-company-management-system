@@ -44,10 +44,10 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:DatePicker Enabled="false" ID="dpDueDateForReceivables" Label="应收款日" ShowRedStar="true"
+                                            <ext:DatePicker Enabled="false" ID="dpDueDateForReceivables" Label="应收借款日" ShowRedStar="true"
                                                 Required="true" runat="server">
                                             </ext:DatePicker>
-                                            <ext:DatePicker Enabled="false" ID="dpDateForReceivables" Label="实收款日" runat="server">
+                                            <ext:DatePicker Enabled="false" ID="dpDateForReceivables" Label="实收借款日" runat="server">
                                             </ext:DatePicker>
                                         </Items>
                                     </ext:FormRow>
@@ -61,9 +61,7 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="100%">
                                         <Items>
-                                            <ext:TextBox Enabled="false" ID="tbReceivablesAccount" Label="收款帐号" runat="server"
-                                                MaxLength="50" MaxLengthMessage="最多只能输入50个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                                RegexMessage="不能输入特殊字符!">
+                                            <ext:TextBox Enabled="false" ID="tbReceivablesAccount" Label="收款帐号或现金" runat="server">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>

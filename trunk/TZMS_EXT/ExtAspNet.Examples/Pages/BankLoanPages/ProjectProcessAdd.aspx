@@ -81,7 +81,7 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbImprestAmount" Label="备用金额余额" ShowRedStar="true" Required="true"
+                            <ext:TextBox ID="tbImprestAmount" Label="备用金余额" ShowRedStar="true" Required="true"
                                 runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
                                 RegexMessage="只能输入字母!">
                             </ext:TextBox>

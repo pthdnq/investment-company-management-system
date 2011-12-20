@@ -11,7 +11,7 @@
     <div>
         <input id="btnPrinter" type="button" value="打印" onclick="javascript: PrintBill();" />
         <h1>
-            项目：
+            
             <asp:Label runat="server" ID="tbProjectName"></asp:Label></h1>
         <h2>
             付款帐号：<asp:Label runat="server" ID="lbLenders"></asp:Label>
@@ -19,9 +19,9 @@
             收款帐号：
             <asp:Label runat="server" ID="lbBorrowerNameA"></asp:Label></h2>
         <h3>
-            出款金额：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
+            支付金额：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
             <br />
-            支付时间：
+            实付账款日：
             <asp:Label runat="server" ID="lbLoanDate"></asp:Label>
         </h3>
         <h4>
