@@ -162,8 +162,8 @@ namespace TZMS.Web
                             flag = true;
                         break;
                     case "出门登记":
-                        if (!CurrentRoles.Contains(RoleType.CJGL))
-                            flag = true;
+                        //if (!CurrentRoles.Contains(RoleType.CJGL))
+                        //    flag = true;
                         break;
                     case "入门登记":
                         if (!CurrentRoles.Contains(RoleType.CWZJ) && !CurrentRoles.Contains(RoleType.XZZG)
