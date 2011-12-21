@@ -58,13 +58,22 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         protected global::ExtAspNet.TextBox ttbSearch;
         
         /// <summary>
-        /// ddlstState control.
+        /// dpkStartTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstState;
+        protected global::ExtAspNet.DatePicker dpkStartTime;
+        
+        /// <summary>
+        /// dpkEndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DatePicker dpkEndTime;
         
         /// <summary>
         /// btnSearch control.
@@ -85,22 +94,13 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         protected global::ExtAspNet.Label Label4;
         
         /// <summary>
-        /// dpkStartTime control.
+        /// ddlstState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkStartTime;
-        
-        /// <summary>
-        /// dpkEndTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkEndTime;
+        protected global::ExtAspNet.DropDownList ddlstState;
         
         /// <summary>
         /// Label1 control.
