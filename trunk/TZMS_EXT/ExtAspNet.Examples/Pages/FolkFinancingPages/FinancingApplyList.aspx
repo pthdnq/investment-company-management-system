@@ -73,7 +73,7 @@
                                 HeaderText="应付款日" />
                             <ext:BoundField Width="110px" DataField="ContactPhone" HeaderText="联系电话" />
                        <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
-                               <ext:TemplateField Width="70px" HeaderText="状态">
+                               <ext:TemplateField Width="65px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
