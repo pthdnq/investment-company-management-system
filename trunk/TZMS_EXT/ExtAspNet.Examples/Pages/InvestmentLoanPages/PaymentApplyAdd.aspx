@@ -19,6 +19,7 @@
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="pelMain" OnClick="btnSave_Click"
                         Icon="Disk" Text="提交" ConfirmText="您确定提交该表单吗?" />
+                        <ext:Label Text="" ID="LbTooltip" runat="server" CssStyle="Color:Red;"></ext:Label>
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -60,7 +61,7 @@
                                 Required="true">
                             </ext:TriggerBox>
                             <ext:TextBox ID="tbBorrowerPhone" Label="借款联系电话" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}" RegexMessage="电话号码格式不正确!" ShowRedStar="true"
+                                Regex="^1[0-9]{10}$" RegexMessage="手机号码格式不正确!" ShowRedStar="true"
                                 Required="true">
                             </ext:TextBox>
                         </Items>

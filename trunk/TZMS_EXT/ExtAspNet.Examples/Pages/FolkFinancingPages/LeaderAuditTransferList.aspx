@@ -24,9 +24,9 @@
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
                                 <ext:ListItem Text="待审核" Value="1" Selected="true" />
                                 <%--            <ext:ListItem Text="审核中" Value="3" />--%>
-                                <ext:ListItem Text="已审核" Value="4" />
+                             <%--   <ext:ListItem Text="已审核" Value="4" />--%>
                                 <%--  <ext:ListItem Text="已确认" Value="5" />--%>
-                                <ext:ListItem Text="未通过" Value="2" />
+                   <%--             <ext:ListItem Text="未通过" Value="2" />--%>
                                 <%--        <ext:ListItem Text="已删除" Value="9" />--%>
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
@@ -71,7 +71,8 @@
                             <ext:BoundField Width="100px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="借款日期" />
                             <ext:BoundField Width="110px" DataField="DueDateForPay" DataFormatString="每月{0}日" HeaderText="应付款日" />
                             <ext:BoundField Width="110px" DataField="ContactPhone" HeaderText="联系电话" />
-                            <ext:TemplateField Width="70px" HeaderText="状态">
+                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
+                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
                                   <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>

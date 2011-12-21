@@ -71,7 +71,7 @@
                             <ext:BoundField Width="105px" DataField="CollateralCompany" HeaderText="抵押物公司" />
                             <ext:BoundField Width="110px" DataField="SignDate" HeaderText="签订日期" DataFormatString="{0:yyyy/MM/dd}"/>
                             <ext:BoundField Width="110px" DataField="DownPayment" HeaderText="预付定金" />
-                          
+                                  <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="76px" HeaderText="状态">
                                 <ItemTemplate>
                                           <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>

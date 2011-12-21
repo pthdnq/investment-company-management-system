@@ -85,6 +85,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.Button btnSave;
         
         /// <summary>
+        /// LbTooltip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label LbTooltip;
+        
+        /// <summary>
         /// mainFrame control.
         /// </summary>
         /// <remarks>

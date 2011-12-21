@@ -171,13 +171,13 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            //UserInfo _userInfo = (UserInfo)e.DataItem;
+            FolkFinancingInfo _Info = (FolkFinancingInfo)e.DataItem;
 
-            //if (_userInfo.State == 0)
-            //{
-            //    e.Values[9] = "<span class=\"gray\">权限</span>";
-            //    e.Values[10] = "<span class=\"gray\">离职</span>";
-            //}
+            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            {
+                e.Values[11] = "<span class=\"gray\">审核</span>";
+          
+            }
         }
         #endregion
 

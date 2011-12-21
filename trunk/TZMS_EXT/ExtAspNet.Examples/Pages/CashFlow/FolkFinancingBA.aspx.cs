@@ -137,12 +137,12 @@ namespace TZMS.Web.Pages.CashFlow
             if (this.ddlstNext.SelectedValue.Equals("0"))
             {
                 //同意，继续审核
-                saveInfo(5);
+                saveInfo(3);
             }
             else
             {
-                //审核结束，待执行
-                saveInfo(6);
+                //待会计审核/支付确认/归档
+                saveInfo(4);
             }
         }
 

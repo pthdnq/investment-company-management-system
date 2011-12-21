@@ -108,7 +108,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
- 
+
             wndChooseZJ.OnClientCloseButtonClick = wndChooseZJ.GetHidePostBackReference();
         }
 
@@ -143,7 +143,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             wndChooseZJ.Hidden = false;
         }
-         
+
 
         /// <summary>
         /// 选择借款人关闭事件
@@ -155,7 +155,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             if (e.CloseArgument != "undefined")
             {
                 tbBorrowerNameA.Text = e.CloseArgument.Split(',')[1];
-                this.tbBorrowerPhone .Text = e.CloseArgument.Split(',')[2];
+                this.tbBorrowerPhone.Text = e.CloseArgument.Split(',')[2];
                 ViewStateZJ = e.CloseArgument;
             }
         }
@@ -167,13 +167,38 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void saveInfo()
         {
-     
+
 
             InvestmentLoanInfo _Info = null;
             InvestmentLoanManage manage = new InvestmentLoanManage();
+            CustomerInfo _customer = null;
 
-            CustomerInfo _customer = manage.GetCustomerByObjectID(ViewStateZJ.Split(',')[0]);
-           
+            if (!string.IsNullOrEmpty(ViewStateZJ))
+            {
+                _customer = manage.GetCustomerByObjectID(ViewStateZJ.Split(',')[0]);
+            }
+            else
+            {
+                _customer = manage.GetCustomerByMobilePhone(this.tbBorrowerPhone.Text.Trim());
+       
+                if (_customer == null)
+                {
+                    _customer = new CustomerInfo()
+                    {
+                        ObjectId = Guid.NewGuid(),
+                        MobilePhone = this.tbBorrowerPhone.Text.Trim(),
+                        Name = this.tbBorrowerNameA.Text.Trim()
+                    };
+                    manage.AddCustomer(_customer);
+                }
+                if (!_customer.Name.Equals(this.tbBorrowerNameA.Text.Trim()))
+                {
+                   // LbTooltip.Text = "您输入手机号码的借款人姓名与已存储客户姓名不一致，请检查，谢谢！";
+                    Alert.Show("您输入手机号码的借款人姓名与已存储客户姓名不一致，请检查，谢谢！!");
+                    return;
+                }
+            }
+
             _Info = new InvestmentLoanInfo();
 
             _Info.ObjectId = Guid.NewGuid();
@@ -222,7 +247,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             if (result == -1)
             {
                 manage.AddHistory(_Info.ObjectId, "申请", "借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
-                new CashFlowManage().AddHistory(_Info.ObjectId, "申请", "投资部借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark,"InvestmentLoan");
+                new CashFlowManage().AddHistory(_Info.ObjectId, "申请", "投资部借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "InvestmentLoan");
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

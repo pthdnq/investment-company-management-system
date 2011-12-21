@@ -22,9 +22,9 @@
                             <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
                                 ID="ttbSearch" />
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
-                                <ext:ListItem Text="待审核" Value="1" Selected="true" />
+                                <ext:ListItem Text="待审核" Value="1"/>
                                 <ext:ListItem Text="审核中" Value="3" />
-                                <ext:ListItem Text="已通过" Value="4" />
+                                <ext:ListItem Text="已通过" Value="4" Selected="true"  />
                                 <ext:ListItem Text="未通过" Value="2" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
@@ -72,6 +72,7 @@
                             <ext:BoundField Width="110px" DataField="SignDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="签订日期" />
                             <ext:BoundField Width="80px" DataField="DownPayment" HeaderText="预付订金" />
                             <ext:BoundField  ExpandUnusedSpace="true" DataField="Contact" HeaderText="联系方式" />
+                                 <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="76px" HeaderText="状态">
                                 <ItemTemplate>
                                         <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>

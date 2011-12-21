@@ -264,7 +264,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             if (_Info.Status == 2)
             {
-                e.Values[8] = "<span class=\"gray\">确认</span>";
+                e.Values[9] = "<span class=\"gray\">确认</span>";
 
             }
         }

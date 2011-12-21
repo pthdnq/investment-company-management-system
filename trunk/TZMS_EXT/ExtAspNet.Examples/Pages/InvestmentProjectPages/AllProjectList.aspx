@@ -75,6 +75,8 @@
                             <ext:BoundField Width="145px" DataField="SignDate" HeaderText="签订日期" />
                             <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同金额" />
                             <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付订金" />
+                                    <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
+                 
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
                                 Title="查看" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"

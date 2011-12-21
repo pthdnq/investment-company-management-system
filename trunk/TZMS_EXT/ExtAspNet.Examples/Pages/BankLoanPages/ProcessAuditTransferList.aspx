@@ -24,9 +24,9 @@
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
                                 <ext:ListItem Text="待审核" Value="5" Selected="true" />
                                 <%--            <ext:ListItem Text="审核中" Value="3" />--%>
-                                <ext:ListItem Text="已审核" Value="6" />
+                          <%--      <ext:ListItem Text="已审核" Value="6" />--%>
                                 <%--  <ext:ListItem Text="已确认" Value="5" />--%>
-                                <ext:ListItem Text="未通过" Value="2" />
+                           <%--     <ext:ListItem Text="未通过" Value="2" />--%>
                                 <%--        <ext:ListItem Text="已删除" Value="9" />--%>
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
@@ -71,6 +71,7 @@
                             <ext:BoundField Width="80px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="支用时间" />
                             <ext:BoundField Width="80px" DataField="ImprestAmount" HeaderText="备用金余额" />
+                         <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="72px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>

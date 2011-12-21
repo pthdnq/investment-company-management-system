@@ -62,6 +62,7 @@
                             <ext:BoundField Width="70px" DataField="AmountExpended" HeaderText="支用金额" />
                             <ext:BoundField Width="80px" DataField="ExpendedTime" HeaderText="支用时间" DataFormatString="{0:yyyy/MM/dd}" />
                             <ext:BoundField Width="70px" DataField="ImprestAmount" HeaderText="备用金余额" />
+                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:BoundField Width="125px" DataField="Remark" DataTooltipField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
