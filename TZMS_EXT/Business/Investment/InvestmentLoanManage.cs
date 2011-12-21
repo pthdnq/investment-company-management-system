@@ -287,14 +287,14 @@ namespace com.TZMS.Business
         }
 
         /// <summary>
-        /// 通过帐号获得 
+        /// 通过手机号码获得 
         /// </summary>
         /// <param name="boName">连接字符串Key</param>
-        /// <param name="accountNo">帐号</param>
-        /// <returns>用户实体</returns>
-        public CustomerInfo GetCustomerByAccountNo(string accountNo, string boName = BoName)
+        /// <param name="mPhoneNo">手机号</param>
+        /// <returns>Customer</returns>
+        public CustomerInfo GetCustomerByMobilePhone(string mPhoneNo, string boName = BoName)
         {
-            List<CustomerInfo> users = cCtrl.SelectAsList(boName, "    AccountNo ='" + accountNo + "' ");
+            List<CustomerInfo> users = cCtrl.SelectAsList(boName, "    MobilePhone ='" + mPhoneNo + "' ");
             if (users.Count == 0)
             {
                 return null;
