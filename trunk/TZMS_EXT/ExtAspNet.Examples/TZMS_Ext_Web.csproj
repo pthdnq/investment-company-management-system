@@ -586,6 +586,7 @@
     <Content Include="Pages\BankLoanPages\AllFeePayList.aspx" />
     <Content Include="Pages\BankLoanPages\BankLoanApplyAdd.aspx" />
     <Content Include="Pages\BankLoanPages\BankLoanApplyEdit.aspx" />
+    <Content Include="Pages\BankLoanPages\BankLoanApplyEditBA.aspx" />
     <Content Include="Pages\BankLoanPages\BankLoanApplyList.aspx" />
     <Content Include="Pages\BankLoanPages\BankLoanAudit.aspx" />
     <Content Include="Pages\BankLoanPages\BankLoanAuditList.aspx" />
@@ -630,6 +631,7 @@
     <Content Include="Pages\FolkFinancingPages\AccountingAuditPrinter.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingApplyAdd.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingApplyEdit.aspx" />
+    <Content Include="Pages\FolkFinancingPages\FinancingApplyEditBA.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingApplyList.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingContract.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingContractList.aspx" />
@@ -659,6 +661,7 @@
     <Content Include="Pages\InvestmentLoanPages\LoanReceivablesAdd.aspx" />
     <Content Include="Pages\InvestmentLoanPages\PaymentApplyAdd.aspx" />
     <Content Include="Pages\InvestmentLoanPages\PaymentApplyEdit.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\PaymentApplyEditBA.aspx" />
     <Content Include="Pages\InvestmentLoanPages\PaymentApplyList.aspx" />
     <Content Include="Pages\InvestmentLoanPages\PaymentAudit.aspx" />
     <Content Include="Pages\InvestmentLoanPages\PaymentAuditList.aspx" />
@@ -680,6 +683,7 @@
     <Content Include="Pages\InvestmentProjectPages\ImprestPayConfirmPrinter.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectApplyAdd.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectApplyEdit.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\ProjectApplyEditBA.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectApplyList.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectAudit.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ProjectAuditList.aspx" />
@@ -1122,6 +1126,13 @@
     <Compile Include="Pages\BankLoanPages\BankLoanApplyEdit.aspx.designer.cs">
       <DependentUpon>BankLoanApplyEdit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BankLoanPages\BankLoanApplyEditBA.aspx.cs">
+      <DependentUpon>BankLoanApplyEditBA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\BankLoanApplyEditBA.aspx.designer.cs">
+      <DependentUpon>BankLoanApplyEditBA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BankLoanPages\BankLoanApplyList.aspx.cs">
       <DependentUpon>BankLoanApplyList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1430,6 +1441,13 @@
     <Compile Include="Pages\FolkFinancingPages\FinancingApplyEdit.aspx.designer.cs">
       <DependentUpon>FinancingApplyEdit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FolkFinancingPages\FinancingApplyEditBA.aspx.cs">
+      <DependentUpon>FinancingApplyEditBA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\FinancingApplyEditBA.aspx.designer.cs">
+      <DependentUpon>FinancingApplyEditBA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FolkFinancingPages\FinancingApplyList.aspx.cs">
       <DependentUpon>FinancingApplyList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1633,6 +1651,13 @@
     <Compile Include="Pages\InvestmentLoanPages\PaymentApplyEdit.aspx.designer.cs">
       <DependentUpon>PaymentApplyEdit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\PaymentApplyEditBA.aspx.cs">
+      <DependentUpon>PaymentApplyEditBA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\PaymentApplyEditBA.aspx.designer.cs">
+      <DependentUpon>PaymentApplyEditBA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\InvestmentLoanPages\PaymentApplyList.aspx.cs">
       <DependentUpon>PaymentApplyList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1779,6 +1804,13 @@
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectApplyEdit.aspx.designer.cs">
       <DependentUpon>ProjectApplyEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectApplyEditBA.aspx.cs">
+      <DependentUpon>ProjectApplyEditBA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\ProjectApplyEditBA.aspx.designer.cs">
+      <DependentUpon>ProjectApplyEditBA.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ProjectApplyList.aspx.cs">
       <DependentUpon>ProjectApplyList.aspx</DependentUpon>
