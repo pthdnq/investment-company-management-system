@@ -152,14 +152,14 @@ namespace TZMS.Web.Pages.CashFlow
             #endregion
 
             //时间
-            DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
-            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
-            if (DateTime.Compare(startTime, endTime) == 1)
-            {
-                Alert.Show("结束日期不可小于开始日期!");
-                return;
-            }
-            strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
+            //DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+            //DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+            //if (DateTime.Compare(startTime, endTime) == 1)
+            //{
+            //    Alert.Show("结束日期不可小于开始日期!");
+            //    return;
+            //}
+            //strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
             strCondtion.Append(" ORDER BY CreditScore DESC");
             #endregion
 

@@ -75,7 +75,8 @@
                                 HeaderText="应付账款日" />
                             <ext:BoundField Width="110px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                 HeaderText="提交时间" />
-                            <ext:BoundField Width="80px" DataField="CreaterName" HeaderText="创建人" />
+                            <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
+                             <ext:BoundField Width="80px" DataField="CreaterName" HeaderText="创建人" />
                             <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>
                                  <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>

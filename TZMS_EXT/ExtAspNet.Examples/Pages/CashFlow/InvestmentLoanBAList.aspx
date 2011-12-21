@@ -73,6 +73,7 @@
                                 HeaderText="借款日期" />
                             <ext:BoundField DataField="DueDateForPay" Width="145px" HeaderText="应付借款日" />
                             <ext:BoundField Width="110px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}" HeaderText="提交时间" />
+                             <ext:BoundField DataField="NextBAOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>

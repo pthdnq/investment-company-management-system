@@ -139,12 +139,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             if (this.ddlstNext.SelectedValue.Equals("0"))
             {
                 //同意，继续审核
-                saveInfo(5);
+                saveInfo(3);
             }
             else
             {
                 //审核结束，待执行
-                saveInfo(6);
+                saveInfo(4);
             }
         }
 

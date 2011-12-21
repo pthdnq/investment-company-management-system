@@ -249,7 +249,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             if (_Info.Status != 1)
             {
-                e.Values[12] = "<span class=\"gray\">删除</span>";
+                e.Values[13] = "<span class=\"gray\">删除</span>";
               
             }
         }

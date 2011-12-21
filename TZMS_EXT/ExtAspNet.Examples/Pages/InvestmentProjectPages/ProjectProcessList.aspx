@@ -69,7 +69,8 @@
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
                             <ext:BoundField Width="110px" DataField="ExpendedTime" HeaderText="支用时间" />
                             <ext:BoundField Width="90px" DataField="ImprestAmount" HeaderText="备用金额" />
-                            <ext:BoundField Width="115px" DataField="Remark" HeaderText="备注" />
+                                  <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
+                 <ext:BoundField Width="115px" DataField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>

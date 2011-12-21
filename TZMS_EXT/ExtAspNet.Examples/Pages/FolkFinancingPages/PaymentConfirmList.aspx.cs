@@ -258,9 +258,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             FinancingFeePaymentInfo _Info = (FinancingFeePaymentInfo)e.DataItem;
 
-            if (_Info.Status == 5)
-            { 
-                e.Values[9] = "<span class=\"gray\">支付确认</span>";
+            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            {
+                e.Values[10] = "<span class=\"gray\">支付确认</span>";
             }
         }
 

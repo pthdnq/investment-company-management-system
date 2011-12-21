@@ -28,9 +28,9 @@
                 <Columns>
                     <ext:BoundField DataField="ObjectId" Hidden="true" />
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="53px" />
-                    <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="71px" />
+                    <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="95px" />
                     <ext:BoundField DataField="CreditScore" HeaderText="积分" Width="35px" />
-                    <ext:BoundField ExpandUnusedSpace="true" HeaderText="公司" />
+                    <ext:BoundField Hidden="true" ExpandUnusedSpace="true" HeaderText="公司" />
                 </Columns>
             </ext:Grid>
             <ext:Panel ID="Panel1" ColumnWidth="8%" Layout="Row" EnableBackgroundColor="true"
@@ -50,9 +50,9 @@
                 <Columns>
                     <ext:BoundField DataField="ObjectId" Hidden="true" />
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="53px" />
-                    <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="71px" />
+                    <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="95px" />
                     <ext:BoundField DataField="CreditScore" HeaderText="积分" Width="35px" />
-                    <ext:BoundField ExpandUnusedSpace="true" HeaderText="公司" />
+                    <ext:BoundField  Hidden="true"  ExpandUnusedSpace="true" HeaderText="公司" />
                 </Columns>
             </ext:Grid>
         </Items>

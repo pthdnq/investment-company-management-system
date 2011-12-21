@@ -73,17 +73,27 @@
                             <ext:BoundField Width="100px" DataField="SignDate" DataFormatString="{0:yyyy/MM/dd hh:mm}"
                                 HeaderText="签订日期" />
                             <ext:BoundField Width="70px" DataField="DownPayment" HeaderText="预付定金" />
-                            <ext:TemplateField Width="76px" HeaderText="状态">
+                            <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
+     <ext:TemplateField Width="76px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}"
                                 Title="查看" WindowID="wndView" />
+                     
+                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
                             <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="BankLoanApplyEdit.aspx?Type=Edit&ID={0}" Title="编辑"
                                 WindowID="wndNew" />
-                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
+                                    <ext:TemplateField Width="70px" HeaderText="核算状态">
+                                <ItemTemplate>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:WindowField  Width="77px" Text="查看/修改" DataIFrameUrlFields="ObjectId"
+                                DataIFrameUrlFormatString="BankLoanApplyEditBA.aspx?Type=Edit&ID={0}" Title="会计核算"
+                                WindowID="wndNewBA" HeaderText="核算" />
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -95,6 +105,9 @@
     </ext:Window>
     <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="443px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+     <ext:Window ID="wndNewBA" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="478px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

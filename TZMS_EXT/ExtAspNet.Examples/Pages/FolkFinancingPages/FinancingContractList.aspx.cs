@@ -133,7 +133,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                         strCondtion.Append(" AND Status = 2 ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND (Status = 3 OR Status = 4) ");
+                        strCondtion.Append(" AND Status = 3 ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");
@@ -189,13 +189,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            //UserInfo _userInfo = (UserInfo)e.DataItem;
+            FolkFinancingInfo _userInfo = (FolkFinancingInfo)e.DataItem;
 
-            //if (_userInfo.State == 0)
-            //{
-            //    e.Values[9] = "<span class=\"gray\">权限</span>";
-            //    e.Values[10] = "<span class=\"gray\">离职</span>";
-            //}
+            if (_userInfo.Status != 5)
+            { 
+                e.Values[10] = "<span class=\"gray\">申请支付费用</span>";
+            }
         }
         #endregion
 

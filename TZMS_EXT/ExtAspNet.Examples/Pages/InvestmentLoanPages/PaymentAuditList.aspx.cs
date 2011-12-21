@@ -106,7 +106,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
             }
-          //   strCondtion.Append("   Status<>9 "); 
+            //   strCondtion.Append("   Status<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {
@@ -239,13 +239,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            //UserInfo _userInfo = (UserInfo)e.DataItem;
+            InvestmentLoanInfo _userInfo = (InvestmentLoanInfo)e.DataItem;
 
-            //if (_userInfo.State == 0)
-            //{
-            //    e.Values[9] = "<span class=\"gray\">权限</span>";
-            //    e.Values[10] = "<span class=\"gray\">离职</span>";
-            //}
+            if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            {
+                e.Values[11] = "<span class=\"gray\">审核</span>"; 
+            }
         }
 
         /// <summary>

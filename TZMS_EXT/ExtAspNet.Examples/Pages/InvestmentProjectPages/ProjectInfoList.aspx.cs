@@ -234,7 +234,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             if (_Info.Status != 4)
             {
-                e.Values[9] = "<span class=\"gray\">提交进展</span>";
+                e.Values[10] = "<span class=\"gray\">提交进展</span>";
                
             }
         }
