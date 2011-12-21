@@ -42,7 +42,7 @@ namespace com.TZMS.Model
         private string _officePhone = DBEmptyString;
         private string _mobilePhone = DBEmptyString;
         private string _email = DBEmptyString;
-        private int _creditScore  =DBEmptyInt;
+        private int _creditScore = DBEmptyTinyInt;
         private string _company = DBEmptyString;
         private string _position = DBEmptyString;
         private string _homeAddress = DBEmptyString;
