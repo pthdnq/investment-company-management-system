@@ -95,7 +95,7 @@
                             </ext:TemplateField>
                             <ext:WindowField  Width="70px" Text="查看/修改" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="PaymentApplyEditBA.aspx?Type=Edit&ID={0}" Title="会计核算"
-                                WindowID="wndNewBA" HeaderText="核算" />
+                                WindowID="wndNewBA" HeaderText="核算操作" />
                         </Columns>
                     </ext:Grid>
                 </Items>

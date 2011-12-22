@@ -85,7 +85,7 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectApplyEditBA.aspx?Type=Edit&ID={0}"
-                                Title="会计核算" WindowID="wndNewBA" HeaderText="核算" />
+                                Title="会计核算" WindowID="wndNewBA" HeaderText="核算操作" />
                         </Columns>
                     </ext:Grid>
                 </Items>

@@ -251,9 +251,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 e.Values[13] = "<span class=\"gray\">删除</span>";
             }
-            if (_Info.Status == 9)
+
+            if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
             {
-                e.Values[15] = "<span class=\"gray\">查看/修改</span>";
+                e.Values[15] = e.Values[15].ToString().Replace("查看", "编辑");// "<span class=\"gray\">查看/修改</span>";
             }
         }
 
