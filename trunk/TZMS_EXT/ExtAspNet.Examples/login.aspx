@@ -29,7 +29,7 @@
             background-repeat: no-repeat;
             position: absolute;
             top: 185px;
-            right: 0px;
+            right: 40px;
             width: 366px;
             height: 225px;
         }
@@ -129,7 +129,7 @@
 <body>
     <form id="form1" runat="server">
     <div id="login_bg">
-        <img class="titleimg" alt="" src="images/title.png" />
+       <%-- <img class="titleimg" alt="" src="images/title.png" />--%>
         <div id="loginBox">
             <div class="title">
                 <%-- <img alt="" src="images/computer.png" />--%>
