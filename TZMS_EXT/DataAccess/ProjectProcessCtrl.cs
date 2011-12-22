@@ -386,7 +386,11 @@ namespace com.TZMS.DataAccess
             {
                 ProjectProcessInfoInfo.AccountingRemark = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "AccountingRemark");
             }
-
+            if (ProjectProcessInfoInfoDataRow["Adulters"] != null)
+            {
+                ProjectProcessInfoInfo.Adulters = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "Adulters");
+            }
+            
             return ProjectProcessInfoInfo;
         }
         #endregion
