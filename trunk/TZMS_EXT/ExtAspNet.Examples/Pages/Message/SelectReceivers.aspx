@@ -3,7 +3,8 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
+<meta http-equiv="x-ua-compatible" content="ie=8" /> 
     <title>选择收信人</title>
 </head>
 <body>
@@ -17,8 +18,7 @@
                 <Items>
                     <ext:Button ID="btnClose" runat="server" OnClick="btnClose_Click" Icon="Cancel" Text="关闭">
                     </ext:Button>
-                    <ext:Button ID="btnSave" Text="设置并保存" OnClick="btnSave_Click" runat="server" Icon="Disk"
-                        ConfirmText="您确认设置并保存吗?" />
+                    <ext:Button ID="btnSave" Text="确定" OnClick="btnSave_Click" runat="server" Icon="Disk" ConfirmText="您确认吗?" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -27,7 +27,7 @@
                 ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="true">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" Hidden="true" />
+                    <ext:BoundField DataField="AccountNo"  Hidden="true"  HeaderText="帐号" Width="65px" />
                     <ext:BoundField DataField="Dept" HeaderText="部门" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
@@ -46,7 +46,7 @@
                 ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" Hidden="true" />
+                    <ext:BoundField DataField="AccountNo"  Hidden="true" HeaderText="帐号" Width="65px" />
                     <ext:BoundField DataField="Dept" HeaderText="部门" />
                 </Columns>
             </ext:Grid>
