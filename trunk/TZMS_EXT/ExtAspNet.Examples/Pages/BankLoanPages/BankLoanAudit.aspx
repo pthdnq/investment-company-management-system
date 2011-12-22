@@ -34,7 +34,7 @@
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
-                                Label="下一步" OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
+                                Label="下一步" AutoPostBack="true" OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
                             </ext:DropDownList>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
                                 RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
@@ -124,11 +124,11 @@
                             <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
-                                    <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                                    <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />
+                                    <ext:BoundField Width="50px" DataField="OperationerName" HeaderText="操作人" />
+                   <%--                 <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
-                                    <ext:BoundField Width="50px" DataField="OperationType" HeaderText="操作类型" />
+                                    <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />
                                     <ext:BoundField Width="100px" DataField="OperationDesc" DataTooltipField="OperationDesc"
                                         HeaderText="操作描述" />
                                     <ext:BoundField DataField="Remark" HeaderText="操作人意见" DataTooltipField="Remark" ExpandUnusedSpace="true" />

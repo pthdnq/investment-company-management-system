@@ -157,7 +157,7 @@
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                                    <ext:BoundField Width="50px" DataField="OperationerAccount" HeaderText="帐号" />
+                       <%--             <ext:BoundField Width="50px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
                                     <ext:BoundField Width="56px" DataField="OperationType" HeaderText="操作类型" />

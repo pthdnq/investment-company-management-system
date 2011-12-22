@@ -1,14 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProcessAuditTransfer.aspx.cs" Inherits="TZMS.Web.Pages.BankLoanPages.ProcessAuditTransfer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProcessAuditTransfer.aspx.cs"
+    Inherits="TZMS.Web.Pages.BankLoanPages.ProcessAuditTransfer" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server"  AutoSizePanelID="pelMain"/>
+    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" AutoHeight="true" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
@@ -19,9 +19,10 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        IconUrl="~/Images/ico_nextstep.gif" Text="转移审批"  ConfirmText="您确定转移审批该申请吗?"/>
-                    <ext:Button ID="btnDismissed" Hidden="true" runat="server" ValidateForms="mainFrame" OnClick="btnDismissed_Click"
-                        IconUrl="~/Images/ico_firststep.gif" Text="不通过"  ConfirmText="您确定不通过该申请吗?"/>
+                        IconUrl="~/Images/ico_nextstep.gif" Text="转移审批" ConfirmText="您确定转移审批该申请吗?" />
+                    <ext:Button ID="btnDismissed" Hidden="true" runat="server" ValidateForms="mainFrame"
+                        OnClick="btnDismissed_Click" IconUrl="~/Images/ico_firststep.gif" Text="不通过"
+                        ConfirmText="您确定不通过该申请吗?" />
                     <ext:Label runat="server" ID="HighMoneyTips" />
                 </Items>
             </ext:Toolbar>
@@ -33,7 +34,7 @@
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
-                                Label="下一步"   OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
+                                Label="下一步" OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
                             </ext:DropDownList>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
                                 RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
@@ -99,10 +100,10 @@
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                                    <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />
+                                    <%--     <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
-                                    <ext:BoundField Width="50px" DataField="OperationType" HeaderText="操作类型" />
+                                    <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />
                                     <ext:BoundField Width="100px" DataField="OperationDesc" DataTooltipField="OperationDesc"
                                         HeaderText="操作描述" />
                                     <ext:BoundField DataField="Remark" HeaderText="操作人意见" DataTooltipField="Remark" ExpandUnusedSpace="true" />

@@ -37,7 +37,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+
 
             if (!IsPostBack)
             {
@@ -46,14 +46,18 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                 bindUserInterface(strID);
                 BindHistory();
-            } 
+
+                // 绑定审批人.
+                ApproveUser();
+                BindNext();
+            }
             InitControl();
         }
 
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
-            hlPrinter.NavigateUrl = "ImprestPayConfirmPrinter.aspx?ID=" + ObjectID ;
+            hlPrinter.NavigateUrl = "ImprestPayConfirmPrinter.aspx?ID=" + ObjectID;
         }
 
         /// <summary>
@@ -79,11 +83,11 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.ImprestRemark;
 
-              //  if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
-             //  {
-                    this.dpExpendedTime.Text = _info.ExpendedTime;
-           //     }
-             this.taAuditOpinion.Text=   _info.AuditOpinion;
+                //  if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
+                //  {
+                this.dpExpendedTime.Text = _info.ExpendedTime;
+                //     }
+                this.taAuditOpinion.Text = _info.AuditOpinion;
             }
         }
 
@@ -131,7 +135,18 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             com.TZMS.Model.ProjectProcessInfo _Info = manage.GetProcessByObjectID(ObjectID);
             _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
             _Info.Status = status;
+            //下一步审核人
+            //_Info.NextOperaterId = Guid.Empty;
+            //_Info.NextOperaterName = "";
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            _Info.SubmitTime = DateTime.Now;
 
+            //审批人
+            if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            {
+                _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + ";";
+            }
             // 执行操作.
             int result = 3;
 
@@ -160,11 +175,11 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 #endregion
 
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
-                manage.AddHistory(_Info.ObjectId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
+                manage.AddHistory(true, _Info.ObjectId, "会计审核", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference("操作成功"));
-     
+
             }
             else
             {

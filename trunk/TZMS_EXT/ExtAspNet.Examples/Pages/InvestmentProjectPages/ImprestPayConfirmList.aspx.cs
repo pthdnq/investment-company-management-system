@@ -15,7 +15,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
     /// </summary>
     public partial class ImprestPayConfirmList : BasePage
     {
-        #region viewstate  
+        #region viewstate
         /// <summary>
         /// 用于存储 状态的ViewState.
         /// </summary>
@@ -84,7 +84,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -93,11 +93,17 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// </summary>
         private void BindGridData(string state, string searchText)
         {
-            #region 条件 
+            #region 条件
             StringBuilder strCondtion = new StringBuilder();
-            //需要增加下一步审批人
-             strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "'  ");
-       
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("5")))
+            {
+                strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
+            }
+            else
+            {
+                strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "'  ");
+            }
+
             if (!string.IsNullOrEmpty(searchText))
             {
                 strCondtion.Append("AND  (ProjectName LIKE '%" + searchText + "%'  )  ");
@@ -124,7 +130,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                         strCondtion.Append(" AND Status = 4 ");
                         break;
                     case "5":
-                        strCondtion.Append(" AND Status = 5 ");
+                        strCondtion.Append(" AND (Status = 5 OR Status = 6 OR  Status = 2) ");
                         break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
@@ -191,7 +197,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-      
+
         /// <summary>
         /// 状态变动事件
         /// </summary>
@@ -243,7 +249,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId))
             {
                 e.Values[9] = "<span class=\"gray\">确认</span>";
-          
+
             }
         }
 
