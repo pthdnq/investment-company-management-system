@@ -25,7 +25,7 @@
         </Toolbars>
         <Items>
             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
-                runat="server">
+             LabelWidth="97px"     runat="server">
                 <Rows>
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
@@ -146,7 +146,7 @@
                     </ext:FormRow>
                     <ext:FormRow>
                         <Items>
-                            <ext:TextArea  Height="56px" ID="tbRemark" Label="备注(需提供材料)" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200字符！" />
+                            <ext:TextArea    ID="tbRemark" Label="备注(需提供材料)" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200字符！" />
                         </Items>
                     </ext:FormRow>
                 </Rows>

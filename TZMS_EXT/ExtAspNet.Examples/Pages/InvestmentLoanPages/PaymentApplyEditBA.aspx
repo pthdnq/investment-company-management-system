@@ -28,7 +28,7 @@
         </Toolbars>
         <Items>
             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
-                runat="server">
+              LabelWidth="97px"        runat="server">
                 <Rows>
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
@@ -58,7 +58,7 @@
                 <Tabs>
                     <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                         <Items>
-                            <ext:Form EnableBackgroundColor="true" LabelWidth="55px" ShowHeader="false" ShowBorder="false"
+                            <ext:Form EnableBackgroundColor="true"    LabelWidth="97px" ShowHeader="false" ShowBorder="false"
                                 BodyPadding="5px" ID="mainForm" runat="server">
                                 <Rows>
                                     <ext:FormRow ColumnWidths="50% 50%">
