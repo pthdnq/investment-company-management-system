@@ -56,6 +56,7 @@ namespace com.TZMS.Model
         private DateTime _submitTime = DBEmptyDate;
         private string _auditOpinion = DBEmptyString;
         private string _accountingRemark = DBEmptyString;
+        private string _adulters = DBEmptyString;
         #endregion
 
         #region Property
@@ -266,6 +267,14 @@ namespace com.TZMS.Model
             set { _accountingRemark = value; }
         }
 
+         /// <summary>
+        /// Adulters 
+        /// </summary> 
+        public string  Adulters
+        {
+            get { return _adulters; }
+            set { _adulters = value; }
+        }
         #endregion
     }
 }
