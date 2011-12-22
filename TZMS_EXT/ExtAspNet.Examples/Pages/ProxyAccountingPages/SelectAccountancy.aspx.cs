@@ -309,5 +309,31 @@ namespace TZMS.Web
         {
             PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
         }
+
+        protected void gridUnSelectUser_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            if (e.DataItem != null)
+            {
+                UserManage _manage = new UserManage();
+                UserInfo _info = _manage.GetUserByObjectID(e.Values[0].ToString());
+                if (_info != null)
+                {
+                    e.Values[3] = _info.Dept;
+                }
+            }
+        }
+
+        protected void gridSelectdUsers_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            if (e.DataItem != null)
+            {
+                UserManage _manage = new UserManage();
+                UserInfo _info = _manage.GetUserByObjectID(e.Values[0].ToString());
+                if (_info != null)
+                {
+                    e.Values[3] = _info.Dept;
+                }
+            }
+        }
     }
 }

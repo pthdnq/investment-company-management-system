@@ -17,7 +17,8 @@
                 <Items>
                     <ext:Button ID="btnClose" runat="server" OnClick="btnClose_Click" Icon="Cancel" Text="关闭">
                     </ext:Button>
-                    <ext:Button ID="btnSave" Text="设置并保存" OnClick="btnSave_Click" runat="server" Icon="Disk" ConfirmText="您确认设置并保存吗?" />
+                    <ext:Button ID="btnSave" Text="设置并保存" OnClick="btnSave_Click" runat="server" Icon="Disk"
+                        ConfirmText="您确认设置并保存吗?" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -26,7 +27,7 @@
                 ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="true">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" Hidden="true" />
                     <ext:BoundField DataField="Dept" HeaderText="部门" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
@@ -45,7 +46,7 @@
                 ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" Hidden="true" />
                     <ext:BoundField DataField="Dept" HeaderText="部门" />
                 </Columns>
             </ext:Grid>

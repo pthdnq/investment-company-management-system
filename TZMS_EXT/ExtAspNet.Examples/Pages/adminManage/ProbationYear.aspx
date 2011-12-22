@@ -57,7 +57,7 @@
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField DataField="JobNo" HeaderText="工号" />
                             <ext:BoundField DataField="Name" HeaderText="姓名" />
-                            <ext:BoundField DataField="AccountNo" HeaderText="账号" />
+                            <ext:BoundField DataField="AccountNo" HeaderText="账号" Hidden="true" />
                             <ext:TemplateField Width="60px" HeaderText="性别">
                                 <ItemTemplate>
                                     <%# (Convert.ToBoolean(DataBinder.Eval(Container.DataItem,"Sex")) == true) ? "男" : "女" %>

@@ -51,7 +51,7 @@
                             <ext:BoundField HeaderText="日期" />
                             <ext:BoundField HeaderText="工号" />
                             <ext:BoundField HeaderText="姓名" />
-                            <ext:BoundField HeaderText="帐号" />
+                            <ext:BoundField HeaderText="帐号" Hidden="true" />
                             <ext:BoundField HeaderText="星期" />
                             <ext:BoundField HeaderText="上班时间" />
                             <ext:BoundField HeaderText="下班时间" />
