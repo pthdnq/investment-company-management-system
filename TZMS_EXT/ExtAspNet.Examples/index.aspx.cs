@@ -36,7 +36,7 @@ namespace TZMS.Web
                 if (lstMessage.Count > 0)
                 {
                     ExtAspNet.Alert.Show("您有新的消息！", "消息提示");
-                    AccordionPane8.Title = "消息管理(您有新的消息)";
+                    AccordionPane8.Title = "消息管理 <a onclick='test();return false;'> 新消息(" + lstMessage.Count.ToString() + ")</a>";
                     //AccordionPane8.IconUrl = "images/16/消息管理_动态.gif";
                 }
                 else

@@ -81,7 +81,7 @@
                         Height="450px" EnableFill="true" ShowBorder="True" ActiveIndex="0">
                         <Panes>
                             <ext:AccordionPane ID="AccordionPane8" runat="server" IconUrl="images/16/消息管理.png"
-                                Title="消息管理" BodyPadding="1px 1px" ShowBorder="false">
+                                Title="消息管理 <a onclick='test();return false;'> 新消息</a>"  BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="treeXXGL" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
@@ -904,6 +904,9 @@
         function SystemBack() {
             window.location.href = "login.aspx";
             return false;
+        }
+        function test() {
+            LoadTab("Pages/Message/MyMessageList.aspx", "我的消息", '');
         }
     </script>
 </body>
