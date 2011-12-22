@@ -77,15 +77,14 @@
                             </ext:TemplateField>
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
-                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
-                                DataIFrameUrlFormatString="ProjectApplyEdit.aspx?Type=Edit&ID={0}" Title="编辑"
-                                WindowID="wndNew" />
+                            <ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectApplyEdit.aspx?Type=Edit&ID={0}"
+                                Title="编辑" WindowID="wndEdit" />
                             <ext:TemplateField Width="66px" HeaderText="核算状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="66px" Text="查看/修改" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectApplyEditBA.aspx?Type=Edit&ID={0}"
+                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectApplyEditBA.aspx?Type=Edit&ID={0}"
                                 Title="会计核算" WindowID="wndNewBA" HeaderText="核算" />
                         </Columns>
                     </ext:Grid>
@@ -98,6 +97,12 @@
     </ext:Window>
     <ext:Window ID="wndNewBA" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="478px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+    <ext:Window ID="wndEdit" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="495px" Width="570px" OnClose="wndNew_Close">
+    </ext:Window>
+    <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="410px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

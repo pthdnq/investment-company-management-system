@@ -255,7 +255,29 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             {
                 e.Values[10] = "<span class=\"gray\">删除</span>";
 
-            } 
+            }
+
+            if (!(_Info.Status == 1 || _Info.Status == 2))
+            {
+
+                //e.Values[11] = e.Values[11].ToString().Replace("查看", "编辑").Replace("wndView", "wndEdit")
+                //.Replace("ProjectAuditResultView", "ProjectApplyEdit");
+
+                e.Values[11] = e.Values[11].ToString().Replace("编辑", "查看").Replace("wndEdit", "wndView")
+                  .Replace("ProjectApplyEdit", "ProjectAuditResultView");
+            }
+
+            if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
+            {
+                // "<a onclick="javascript:X('wndEdit').box_show('/Pages/InvestmentProjectPages/ProjectApplyEdit.aspx?Type=Edit&amp;ID=f0d9bcdf-9ad4-449e-aa2a-ca6f83815e29','编辑');" href="javascript:void(0);">编辑</a>";
+                e.Values[13] = e.Values[13].ToString().Replace("查看", "编辑");
+            }
+            //else
+            //{
+            //    e.Values[13] = e.Values[13].ToString().Replace("编辑", "查看");
+            //}
+
+
         }
 
         /// <summary>
