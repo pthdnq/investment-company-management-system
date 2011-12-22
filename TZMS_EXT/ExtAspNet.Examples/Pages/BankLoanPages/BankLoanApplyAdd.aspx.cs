@@ -92,20 +92,17 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.Remark = this.tbRemark.Text.Trim();
             _Info.Status = 1;
             //补充申请人及下一步审核人信息
-            _Info.SubmitTime = DateTime.Now;
+         
             _Info.CreateTime = DateTime.Now;
             _Info.CreaterId = this.CurrentUser.ObjectId;
             _Info.CreaterName = this.CurrentUser.Name;
             _Info.CreaterAccount = this.CurrentUser.AccountNo;
 
+            _Info.SubmitTime = DateTime.Now;
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            // 出生日期.
-            //if (dpkBirthday.SelectedDate is DateTime)
-            //{
-            //    _userInfo.Birthday = Convert.ToDateTime(dpkBirthday.SelectedDate);
-            //} 
-            //会计审核
+        
+            //会计核算
             _Info.NextBAOperaterName = this.ddlstApproveUserBA.SelectedText;
             _Info.NextBAOperaterId = new Guid(this.ddlstApproveUserBA.SelectedValue);
             _Info.SubmitBATime = DateTime.Now;

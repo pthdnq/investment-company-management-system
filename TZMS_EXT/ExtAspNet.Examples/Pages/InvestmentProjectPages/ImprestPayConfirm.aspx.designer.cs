@@ -130,6 +130,15 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         protected global::ExtAspNet.DropDownList ddlstApproveUser;
         
         /// <summary>
+        /// taAccountingRemark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea taAccountingRemark;
+        
+        /// <summary>
         /// TabStrip1 control.
         /// </summary>
         /// <remarks>
@@ -218,15 +227,6 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextArea taAuditOpinion;
-        
-        /// <summary>
-        /// taAccountingRemark control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextArea taAccountingRemark;
         
         /// <summary>
         /// tabHistory control.

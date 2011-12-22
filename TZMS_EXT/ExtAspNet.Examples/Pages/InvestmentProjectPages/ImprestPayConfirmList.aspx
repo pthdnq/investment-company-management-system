@@ -68,16 +68,16 @@
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
                             <ext:BoundField Width="110px" DataField="ExpendedTime" HeaderText="支用时间" />
                             <ext:BoundField Width="90px" DataField="ImprestAmount" HeaderText="备用金额" />
-                            <ext:BoundField Width="135px" DataField="Use" HeaderText="用途" />
-                            <ext:BoundField Width="135px" DataField="ImprestRemark" HeaderText="备注" />
-                                  <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
+                            <ext:BoundField Width="145px" DataTooltipField="Use" DataField="Use" HeaderText="用途" />
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="ImprestRemark" HeaderText="备注" />
+                            <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ImprestPayConfirm.aspx?Type=Edit&ID={0}"
-                                Title="确认" WindowID="wndNew" />
+                                Title="支付确认" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该记录?"
                                 CommandName="Delete" />
                         </Columns>
@@ -91,7 +91,7 @@
         Height="370px" Width="400px">
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="399px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="469px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>
