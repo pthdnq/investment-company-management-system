@@ -115,8 +115,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             #region 条件
             StringBuilder strCondtion = new StringBuilder();
-            //  strCondtion.Append("  CreaterID = '" + this.CurrentUser.ObjectId + "' ");
-            strCondtion.Append("   Status<>0 ");
+              strCondtion.Append("  CreaterID = '" + this.CurrentUser.ObjectId + "' ");
+         //   strCondtion.Append("   Status<>0 ");
 
             if (!string.IsNullOrEmpty(state))
             {
@@ -133,7 +133,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                         strCondtion.Append(" AND Status = 2 ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND Status = 3 ");
+                        strCondtion.Append(" AND (Status = 3 OR Status = 4 ) ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");

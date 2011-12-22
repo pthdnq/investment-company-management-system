@@ -93,7 +93,14 @@ namespace TZMS.Web.Pages.CashFlow
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            strCondtion.Append("   NextBAOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("4") || state.Equals("2")))
+            {
+                strCondtion.Append("   BAAdulters Like '%" + this.CurrentUser.ObjectId + "%' ");
+            }
+            else
+            {
+                strCondtion.Append("   NextBAOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+            }
             //  strCondtion.Append("   BAStatus<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
@@ -115,7 +122,7 @@ namespace TZMS.Web.Pages.CashFlow
                         strCondtion.Append(" AND BAStatus = 3  ");
                         break;
                     case "4":
-                        strCondtion.Append(" AND BAStatus = 4 ");
+                        strCondtion.Append(" AND (BAStatus = 4 OR BAStatus = 3) ");
                         break;
                     case "5":
                         strCondtion.Append(" AND BAStatus = 5 ");

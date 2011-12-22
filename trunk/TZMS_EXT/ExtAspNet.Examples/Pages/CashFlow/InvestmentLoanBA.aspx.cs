@@ -150,6 +150,33 @@ namespace TZMS.Web.Pages.CashFlow
             }
         }
 
+
+        /// <summary>
+        /// 下一步下拉框变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ddlstNext_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlstNext.SelectedIndex == 1)
+            {
+                ddlstApproveUser.Hidden = true;
+                ddlstApproveUser.Required = false;
+                ddlstApproveUser.ShowRedStar = false;
+                ddlstApproveUser.Enabled = false;
+                btnSave.Text = "同意并归档";
+                btnSave.ConfirmText = "您确定同意并归档吗?";
+            }
+            else
+            {
+                ddlstApproveUser.Hidden = false;
+                ddlstApproveUser.Required = true;
+                ddlstApproveUser.ShowRedStar = true;
+                ddlstApproveUser.Enabled = true;
+                btnSave.Text = "同意";
+                btnSave.ConfirmText = "您确定同意吗?";
+            }
+        }
         #endregion
 
         #region 自定义方法
@@ -165,10 +192,23 @@ namespace TZMS.Web.Pages.CashFlow
            // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
 
             //下一步操作
-            _Info.NextBAOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextBAOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            if (status == 4 || status == 2)
+            {
+                //归档
+                _Info.NextBAOperaterName = "";
+                _Info.NextBAOperaterId = Guid.Empty;
+            }
+            else
+            {
+                _Info.NextBAOperaterName = this.ddlstApproveUser.SelectedText;
+                _Info.NextBAOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            }
             _Info.SubmitBATime = DateTime.Now;
-
+            //BA审批人组
+            if (!_Info.BAAdulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            {
+                _Info.BAAdulters = _Info.BAAdulters + this.CurrentUser.ObjectId.ToString() + ";";
+            }
 
             int result = 3;
             result = manage.Update(_Info);

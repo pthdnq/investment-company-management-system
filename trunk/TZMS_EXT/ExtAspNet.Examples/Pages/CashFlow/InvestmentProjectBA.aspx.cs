@@ -138,6 +138,33 @@ namespace TZMS.Web.Pages.CashFlow
                 saveInfo(4);
             }
         }
+
+        /// <summary>
+        /// 下一步下拉框变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ddlstNext_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlstNext.SelectedIndex == 1)
+            {
+                ddlstApproveUser.Hidden = true;
+                ddlstApproveUser.Required = false;
+                ddlstApproveUser.ShowRedStar = false;
+                ddlstApproveUser.Enabled = false;
+                btnSave.Text = "同意并归档";
+                btnSave.ConfirmText = "您确定同意并归档吗?";
+            }
+            else
+            {
+                ddlstApproveUser.Hidden = false;
+                ddlstApproveUser.Required = true;
+                ddlstApproveUser.ShowRedStar = true;
+                ddlstApproveUser.Enabled = true;
+                btnSave.Text = "同意";
+                btnSave.ConfirmText = "您确定同意吗?";
+            }
+        }
         #endregion
 
         #region 自定义方法
@@ -154,14 +181,24 @@ namespace TZMS.Web.Pages.CashFlow
             _Info.BAStatus = status;
             //补充申请人及下一步审核人信息
             _Info.SubmitBATime = DateTime.Now;
-            _Info.NextBAOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextBAOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            //下一步操作
+            if (status == 4 || status == 2)
+            {
+                //归档
+                _Info.NextBAOperaterName = "";
+                _Info.NextBAOperaterId = Guid.Empty;
+            }
+            else
+            {
+                _Info.NextBAOperaterName = this.ddlstApproveUser.SelectedText;
+                _Info.NextBAOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            }
+            //BA审批人组
+            if (!_Info.BAAdulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            {
+                _Info.BAAdulters = _Info.BAAdulters + this.CurrentUser.ObjectId.ToString() + ";";
+            }
 
-            // 出生日期.
-            //if (dpkBirthday.SelectedDate is DateTime)
-            //{
-            //    _userInfo.Birthday = Convert.ToDateTime(dpkBirthday.SelectedDate);
-            //} 
 
             int result = 3;
 
@@ -170,7 +207,7 @@ namespace TZMS.Web.Pages.CashFlow
             if (result == -1)
             {
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意，归档";
-                new CashFlowManage().AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion,"InvestmentProject");
+                new CashFlowManage().AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion, "InvestmentProject");
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

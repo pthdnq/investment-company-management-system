@@ -115,13 +115,13 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                         strCondtion.Append(" AND Status = 2 ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND (Status = 3 OR Status = 4) ");
+                        strCondtion.Append(" AND (Status = 3 OR Status = 4 ) ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");
                         break;
                     case "5":
-                        strCondtion.Append(" AND Status = 5 ");
+                        strCondtion.Append(" AND (Status = 5  OR Status = 3) ");
                         break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
@@ -175,8 +175,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
             {
-                e.Values[11] = "<span class=\"gray\">审核</span>";
-          
+                e.Values[11] = "<span class=\"gray\">审核</span>"; 
             }
         }
         #endregion

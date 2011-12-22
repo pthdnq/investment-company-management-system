@@ -42,8 +42,8 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
-                            <ext:TextArea ID="tbAuditOpinion" Label="审核意见" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                            <ext:TextArea ID="tbAuditOpinion" Label="操作备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！"
+                           Required="true" ShowRedStar="true" >
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>

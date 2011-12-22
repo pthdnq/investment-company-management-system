@@ -104,7 +104,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -116,11 +116,18 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-        strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-           //      strCondtion.Append("   Status<>9 "); 
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("5")))
+            {
+                strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
+            }
+            else
+            {
+                strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+                //      strCondtion.Append("   Status<>9 "); 
+            }
 
             if (!string.IsNullOrEmpty(state))
-            { 
+            {
                 //  状态.
                 switch (state)
                 {
@@ -208,7 +215,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-        
+
 
         /// <summary>
         /// 状态变动事件

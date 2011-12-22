@@ -66,7 +66,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.lbLenders.Text = _info.PaymentAccount;
                 this.lbBorrowerNameA.Text = _info.ReceivablesAccount;
                 this.lbLoanAmount.Text = _info.AmountOfPayment.ToString();
-                this.lbLoanDate.Text = _info.DateForPay.ToString();
+                this.lbLoanDate.Text = _info.DateForPay.ToShortDateString();
                 //     this.taRemark.Text = _info.Remark;
                 //     this.taAuditOpinion.Text = _info.AuditOpinion;
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)

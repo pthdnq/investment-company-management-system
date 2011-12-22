@@ -69,8 +69,8 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (_Info.Status != 2)
             {
                 this.btnSave.Hidden = true;
-            } 
-            
+            }
+
             if (CurrentRoles.Contains(RoleType.HSKJ))
             {
                 BindNext(true);
@@ -92,7 +92,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
             this.tbLoanCompany.Text = _Info.LoanCompany;
             this.tbLoanFee.Text = _Info.LoanFee.ToString();
-           // this.tbRemark.Text = _Info.Remark;
+            // this.tbRemark.Text = _Info.Remark;
             this.taRemark.Text = _Info.Remark;
             this.taContact.Text = _Info.Contact;
 
@@ -187,13 +187,17 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             _Info.BAStatus = status;
             // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
-        _Info.Remark = this.taRemark.Text.Trim();
+            _Info.Remark = this.taRemark.Text.Trim();
 
             //下一步操作
             _Info.NextBAOperaterName = this.ddlstApproveUser.SelectedText;
             _Info.NextBAOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.SubmitBATime = DateTime.Now;
-
+            //BA审批人组
+            if (!_Info.BAAdulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            {
+                _Info.BAAdulters = _Info.BAAdulters + this.CurrentUser.ObjectId.ToString() + ";";
+            }
 
             int result = 3;
             result = manage.Update(_Info);
@@ -220,7 +224,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-              //  ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                //  ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

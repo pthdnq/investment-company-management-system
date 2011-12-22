@@ -65,23 +65,23 @@
                          <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <%--     <ext:BoundField Width="100px" DataField="JobNo" HeaderText="借款人" />
                             <ext:BoundField Width="100px" DataField="AccountNo" HeaderText="出款人" />--%>
-                            <ext:BoundField Width="120px" DataField="PaymentAccount" HeaderText="付款帐号" />
-                            <ext:BoundField Width="120px" DataField="ReceivablesAccount" HeaderText="收款帐号" />
+                            <ext:BoundField ExpandUnusedSpace="true" DataTooltipField="PaymentAccount"  DataField="PaymentAccount" HeaderText="付款帐号" />
+                            <ext:BoundField Width="150px" DataTooltipField="ReceivablesAccount"   DataField="ReceivablesAccount" HeaderText="收款帐号" />
                             <ext:BoundField Width="105px" DataField="AmountOfPayment" HeaderText="支付金额" />
-                            <ext:BoundField Width="105px" DataField="DateForPay" DataFormatString="{0:yyyy/MM/dd }"
+                            <ext:BoundField Width="85px" DataField="DateForPay" DataFormatString="{0:yyyy/MM/dd }"
                                 HeaderText="实付账款日" />
-                            <ext:BoundField Width="110px" DataField="DueDateForPay" DataFormatString="{0:yyyy/MM/dd }"
+                            <ext:BoundField Width="85px" DataField="DueDateForPay" DataFormatString="{0:yyyy/MM/dd }"
                                 HeaderText="应付账款日" />
                             <ext:BoundField Width="110px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                 HeaderText="提交时间" />
                         <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
-                               <ext:BoundField Width="80px" DataField="CreaterName" HeaderText="创建人" />
+                               <ext:BoundField Width="70px" DataField="CreaterName" HeaderText="创建人" />
                             <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>
                                 <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentRecord.aspx?Type=Edit&ID={0}"
+                            <ext:WindowField Width="39px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentRecord.aspx?Type=Edit&ID={0}"
                                 Title="查看 - 支付记录" WindowID="wndNew" />
               
                         </Columns>

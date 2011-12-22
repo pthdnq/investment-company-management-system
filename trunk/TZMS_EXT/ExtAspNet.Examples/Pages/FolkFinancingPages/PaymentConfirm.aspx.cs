@@ -168,6 +168,16 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
             _Info.Status = status;
 
+            //确认无下一操作人
+            _Info.NextOperaterName = "";
+            _Info.NextOperaterId = Guid.Empty;
+            _Info.SubmitTime = DateTime.Now;
+
+            //审批人
+            if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            {
+                _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + ";";
+            }
             // 执行操作.
             int result = 3;
 

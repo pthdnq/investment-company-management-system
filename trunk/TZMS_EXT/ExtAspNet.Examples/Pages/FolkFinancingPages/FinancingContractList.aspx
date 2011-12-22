@@ -22,9 +22,9 @@
                             <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入借款人姓名查询"
                                 ID="ttbSearch" />
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
-                                <ext:ListItem Text="待审核" Value="1"/>
+                          <%--      <ext:ListItem Text="待审核" Value="1"/>--%>
                                 <ext:ListItem Text="审核中" Value="3" />
-                                <ext:ListItem Text="已通过" Value="4"  Selected="true" />
+                                <ext:ListItem Text="已通过" Value="5"  Selected="true" />
                                 <ext:ListItem Text="未通过" Value="2" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
@@ -86,7 +86,7 @@
     </ext:Panel>
  
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="429px" Width="680px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="419px" Width="680px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

@@ -19,9 +19,10 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        IconUrl="~/Images/ico_nextstep.gif" Text="通过" ConfirmText="您确定通过该申请吗?" />
-                    <ext:Button ID="btnDismissed" runat="server" ValidateForms="mainFrame" OnClick="btnDismissed_Click"
-                        IconUrl="~/Images/ico_firststep.gif" Text="不通过" ConfirmText="您确定不通过该申请吗?" />
+                        IconUrl="~/Images/ico_nextstep.gif" Text="确认通过" ConfirmText="您确定通过该申请吗?" />
+                    <ext:Button ID="btnDismissed" Hidden="true" runat="server" ValidateForms="mainFrame"
+                        OnClick="btnDismissed_Click" IconUrl="~/Images/ico_firststep.gif" Text="不通过"
+                        ConfirmText="您确定不通过该申请吗?" />
                     <%--       <ext:Label runat="server" ID="HighMoneyTips"/>--%>
                     <ext:ToolbarSeparator ID="ToolbarSeparator1" runat="server" />
                     <ext:HyperLink runat="server" Text="打印明细单" ID="hlPrinter" Target="_blank">
@@ -45,8 +46,8 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
-                            <ext:TextArea ID="taAuditOpinion" Label="审核备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                            <ext:TextArea Required="true" ShowRedStar="true" ID="taAuditOpinion" Label="审核备注"
+                                runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>
@@ -72,8 +73,9 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%" Hidden="true">
                                         <Items>
-                                            <ext:TextBox ID="tbGuarantee" Label="担保人"  Hidden="true"  Enabled="false" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                                            <ext:TextBox ID="tbGuarantee" Label="担保人" Hidden="true" Enabled="false" runat="server"
+                                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                                RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
@@ -142,7 +144,7 @@
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                               <%--     <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
+                                    <%--     <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
                                     <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />
