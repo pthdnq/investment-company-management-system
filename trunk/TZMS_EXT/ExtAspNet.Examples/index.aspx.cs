@@ -42,7 +42,7 @@ namespace TZMS.Web
                 else
                 {
                     AccordionPane8.Title = "消息管理";
-                    AccordionPane8.IconUrl = "images/16/消息管理.gif";
+                    AccordionPane8.IconUrl = "images/16/消息管理.png";
                 }
 
                 if (!string.IsNullOrEmpty(CurrentUser.Position))

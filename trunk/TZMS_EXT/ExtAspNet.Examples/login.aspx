@@ -20,7 +20,7 @@
             background-position: top center;
             position: relative;
             width: 1000px;
-            height: 850px;
+            height: 580px;
             margin: 0 auto;
         }
         #loginBox
@@ -89,6 +89,7 @@
             margin-left: 100px;
             margin-right: 20px;
         }
+
     </style>
     <script type="text/javascript">
         function tzmslogin_() {
@@ -126,7 +127,7 @@
  
     </script>
 </head>
-<body>
+<body  style="background-image:images/login_bg.png;">
     <form id="form1" runat="server">
     <div id="login_bg">
        <%-- <img class="titleimg" alt="" src="images/title.png" />--%>
