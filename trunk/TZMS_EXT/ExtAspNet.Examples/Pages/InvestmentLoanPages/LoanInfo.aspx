@@ -65,7 +65,8 @@
                                 HeaderText="应收借款日" />
                             <ext:BoundField Width="80px" DataField="AmountofpaidUp" HeaderText="实收金额" />
                             <ext:BoundField Width="120px" DataField="ReceivablesAccount" HeaderText="收款帐号或现金" />
-                            <ext:BoundField Width="145px" DataField="Remark" HeaderText="备注" />
+                          <ext:BoundField DataField="AccountingName" Width="75px" HeaderText="当前执行人" />
+                            <ext:BoundField  ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>

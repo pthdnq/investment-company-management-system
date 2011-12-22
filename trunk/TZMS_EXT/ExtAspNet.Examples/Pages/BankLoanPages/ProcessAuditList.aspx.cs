@@ -87,7 +87,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             if (!IsPostBack)
             {
-               // this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectApplyAdd.aspx?Type=Add", "新增 - 项目申请");
+                // this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectApplyAdd.aspx?Type=Add", "新增 - 项目申请");
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
 
                 // 绑定下拉框.
@@ -104,7 +104,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -117,13 +117,13 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             StringBuilder strCondtion = new StringBuilder();
             strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-          //   strCondtion.Append("   Status<>9 "); 
+            //   strCondtion.Append("   Status<>9 "); 
             if (!string.IsNullOrEmpty(searchText))
             {
                 strCondtion.Append(" AND (ProjectName LIKE '%" + searchText + "%')  ");
             }
             if (!string.IsNullOrEmpty(state))
-            { 
+            {
                 //  状态.
                 switch (state)
                 {
@@ -152,7 +152,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                         break;
                 }
             }
-        
+
             //时间
             DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
             DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
@@ -164,7 +164,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
             strCondtion.Append(" ORDER BY CreateTime DESC");
             #endregion
-           
+
             List<com.TZMS.Model.BankLoanProjectProcessInfo> lstInfo = new BankLoanManage().GetProcessByCondtion(strCondtion.ToString());
             this.gridData.RecordCount = lstInfo.Count;
             this.gridData.PageSize = PageCounts;
@@ -208,7 +208,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-       
+
 
         /// <summary>
         /// 状态变动事件
@@ -253,8 +253,8 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             BankLoanProjectProcessInfo _Info = (BankLoanProjectProcessInfo)e.DataItem;
 
-            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
-            { 
+            if (!(_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId) && (_Info.Status == 3 || _Info.Status == 1)))
+            {
                 e.Values[10] = "<span class=\"gray\">离职</span>";
             }
         }

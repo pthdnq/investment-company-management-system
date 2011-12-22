@@ -67,7 +67,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 this.lbBorrowerNameA.Text = _info.ReceivablesAccount;
 
                 this.lbLoanAmount.Text = _info.AmountofpaidUp.ToString();
-                this.lbLoanDate.Text = _info.DateForReceivables.ToString();
+                this.lbLoanDate.Text = _info.DateForReceivables.ToShortDateString();
  
                 //     this.taRemark.Text = _info.Remark;
                 //     this.taAuditOpinion.Text = _info.AuditOpinion;

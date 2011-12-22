@@ -22,9 +22,9 @@
                             <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
                                 ID="ttbSearch" />
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
-                                <ext:ListItem Text="待审核" Value="1"/>
+                                <ext:ListItem Text="待审核" Value="1" />
                                 <ext:ListItem Text="审核中" Value="3" />
-                                <ext:ListItem Text="已通过" Value="4"  Selected="true" />
+                                <ext:ListItem Text="已通过" Value="4" Selected="true" />
                                 <ext:ListItem Text="未通过" Value="2" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
@@ -63,20 +63,20 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField  ExpandUnusedSpace="true"  DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="90px" DataField="CustomerName" HeaderText="客户" />
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="80px" DataField="CustomerName" HeaderText="客户名称" />
+                            <ext:BoundField Width="80px" DataField="Contact" HeaderText="联系人" />
+                            <ext:BoundField Width="90px" DataField="ContactPhone" HeaderText="联系人电话" />
+                            <ext:BoundField Width="85px" DataField="SignDate" HeaderText="签订日期" DataFormatString="{0:yyyy/MM/dd}" />
+                            <ext:BoundField DataField="ContractAmount" Width="125px" HeaderText="合同总金额" />
+                            <ext:BoundField Width="110px" DataField="DownPayment" HeaderText="预付定金" />
                             <ext:TemplateField Width="66px" HeaderText="项目状态">
                                 <ItemTemplate>
-                                              <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:BoundField Width="110px" DataField="Contact" HeaderText="联系人" />
-                            <ext:BoundField Width="80px" DataField="ContactPhone" HeaderText="联系人电话" />
-                            <ext:BoundField Width="115px" DataField="SignDate" HeaderText="签订日期"  DataFormatString="{0:yyyy/MM/dd}"/>
-                            <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同总金额" />
-                            <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付定金" />
-                                   <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
-                <ext:WindowField Width="80px" Text="提交进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
+                            <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
+                            <ext:WindowField Width="75px" Text="提交进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
                                 Title="提交进展" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />
@@ -87,7 +87,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="425px" Width="660px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="419px" Width="660px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

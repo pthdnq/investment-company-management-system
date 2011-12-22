@@ -94,7 +94,7 @@
     </ext:Panel>
     
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="389px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="386px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

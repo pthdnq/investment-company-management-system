@@ -11,7 +11,7 @@
     <div>
         <input id="btnPrinter" type="button" value="打印" onclick="javascript: PrintBill();" />
         <h1>
-            支付确认
+            收款确认
             <br />
             项目：
             <asp:Label runat="server" ID="tbProjectName"></asp:Label></h1>

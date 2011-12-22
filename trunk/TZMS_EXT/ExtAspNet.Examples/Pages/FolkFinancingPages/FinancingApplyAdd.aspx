@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true" AutoHeight="true" Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true" AutoHeight="true" Title="Panel" AutoScroll="true" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -25,7 +25,7 @@
         </Toolbars>
         <Items>
             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
-                runat="server">
+              AutoHeight="true"   runat="server">
                 <Rows>
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
@@ -106,7 +106,7 @@
                 </Rows>
             </ext:Form>
             <ext:Form EnableBackgroundColor="true" EnableCollapse="true" Title="会计核算" BodyPadding="5px"
-                ID="Form2" runat="server">
+             AutoHeight="true"    ID="Form2" runat="server">
                 <Rows>
                     <ext:FormRow ID="FormRow1" runat="server" ColumnWidths="60% 40%">
                         <Items>

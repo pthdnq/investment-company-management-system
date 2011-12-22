@@ -37,7 +37,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
         {
-       
+
 
             if (!IsPostBack)
             {
@@ -46,17 +46,17 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
                 bindUserInterface(strID);
                 // 绑定审批人.
-           //     ApproveUser();
+                //     ApproveUser();
                 // 绑定审批历史.
                 BindHistory();
-            }    
+            }
             InitControl();
         }
 
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
-            hlPrinter.NavigateUrl = "PaymentConfirmPrinter.aspx?ID=" + ObjectID ;
+            hlPrinter.NavigateUrl = "PaymentConfirmPrinter.aspx?ID=" + ObjectID;
         }
 
         /// <summary>
@@ -196,7 +196,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 #endregion
 
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
-                manage.AddHistory(_Info.ObjectId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
+                manage.AddHistory(true, _Info.ObjectId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference("操作成功"));
@@ -205,8 +205,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 Alert.Show("操作失败!");
             }
-        } 
-   
+        }
+
         #endregion
     }
 }

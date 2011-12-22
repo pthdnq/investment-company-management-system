@@ -46,7 +46,7 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="tbProjectOverview" Label="项目概述" ShowRedStar="true" Required="true"
+                            <ext:TextArea   Height="56px"  ID="tbProjectOverview" Label="项目概述" ShowRedStar="true" Required="true"
                                 runat="server" MaxLength="300" MaxLengthMessage="最多只能输入300个字符！" />
                         </Items>
                     </ext:FormRow>
@@ -146,7 +146,7 @@
                     </ext:FormRow>
                     <ext:FormRow>
                         <Items>
-                            <ext:TextArea ID="tbRemark" Label="备注(需提供材料)" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200字符！" />
+                            <ext:TextArea  Height="56px" ID="tbRemark" Label="备注(需提供材料)" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200字符！" />
                         </Items>
                     </ext:FormRow>
                 </Rows>

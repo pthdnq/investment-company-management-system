@@ -64,30 +64,29 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="75px" DataField="CustomerName" HeaderText="客户" />
+                            <ext:BoundField Width="65px" DataField="CustomerName" HeaderText="客户名称" />
+                            <ext:BoundField Width="65px" DataField="Contact" HeaderText="联系人" />
+                            <ext:BoundField Width="96px" DataField="ContactPhone" HeaderText="联系人电话" />
+                            <ext:BoundField Width="75px" DataField="SignDate" HeaderText="签订日期" DataFormatString="{0:yyyy/MM/dd }" />
+                            <ext:BoundField DataField="ContractAmount" Width="85px" HeaderText="合同总金额" />
+                            <ext:BoundField Width="80px" DataField="DownPayment" HeaderText="预付定金" />
                             <ext:TemplateField Width="66px" HeaderText="项目状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:BoundField Width="80px" DataField="Contact" HeaderText="联系人" />
-                            <ext:BoundField Width="96px" DataField="ContactPhone" HeaderText="联系人电话" />
-                            <ext:BoundField Width="115px" DataField="SignDate" HeaderText="签订日期" DataFormatString="{0:yyyy/MM/dd }" />
-                            <ext:BoundField DataField="ContractAmount" Width="85px" HeaderText="合同总金额" />
-                            <ext:BoundField Width="80px" DataField="DownPayment" HeaderText="预付定金" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
                             <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="ProjectApplyEdit.aspx?Type=Edit&ID={0}" Title="编辑"
                                 WindowID="wndNew" />
-                             <ext:TemplateField Width="70px" HeaderText="核算状态">
+                            <ext:TemplateField Width="66px" HeaderText="核算状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField  Width="77px" Text="查看/修改" DataIFrameUrlFields="ObjectId"
-                                DataIFrameUrlFormatString="ProjectApplyEditBA.aspx?Type=Edit&ID={0}" Title="会计核算"
-                                WindowID="wndNewBA" HeaderText="核算" />
+                            <ext:WindowField Width="66px" Text="查看/修改" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectApplyEditBA.aspx?Type=Edit&ID={0}"
+                                Title="会计核算" WindowID="wndNewBA" HeaderText="核算" />
                         </Columns>
                     </ext:Grid>
                 </Items>

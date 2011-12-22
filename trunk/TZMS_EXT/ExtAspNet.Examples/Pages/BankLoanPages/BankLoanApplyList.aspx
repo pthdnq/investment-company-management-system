@@ -65,10 +65,10 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="100px" DataField="CustomerName" HeaderText="客户名称" />
-                            <ext:BoundField Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
+                            <ext:BoundField Width="75px" DataField="CustomerName" HeaderText="客户名称" />
+                            <ext:BoundField Width="75px" DataField="LoanCompany" HeaderText="贷款公司" />
                             <ext:BoundField Width="60px" DataField="LoanAmount" HeaderText="贷款金额" />
-                            <ext:BoundField Width="80px" DataField="LoanFee" HeaderText="贷款手续费" />
+                            <ext:BoundField Width="75px" DataField="LoanFee" HeaderText="贷款手续费" />
                             <ext:BoundField Width="80px" DataField="CollateralCompany" HeaderText="抵押物公司" />
                             <ext:BoundField Width="97px" DataField="SignDate" DataFormatString="{0:yyyy/MM/dd hh:mm}"
                                 HeaderText="签订日期" />
@@ -91,7 +91,7 @@
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField  Width="77px" Text="查看/修改" DataIFrameUrlFields="ObjectId"
+                            <ext:WindowField  Width="70px" Text="查看/修改" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="BankLoanApplyEditBA.aspx?Type=Edit&ID={0}" Title="会计核算"
                                 WindowID="wndNewBA" HeaderText="核算" />
                         </Columns>
@@ -101,7 +101,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="456px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="445px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="443px" Width="550px" OnClose="wndNew_Close">

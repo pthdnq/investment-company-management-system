@@ -194,7 +194,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (result == -1)
             {
                 string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, _Info.NextOperaterName);// (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，归档";
-                manage.AddHistory(_Info.ObjectId, "审批转移", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
+                manage.AddHistory(true, _Info.ObjectId, "审批转移", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

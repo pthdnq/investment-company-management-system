@@ -76,6 +76,42 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.Button btnSave;
         
         /// <summary>
+        /// Form2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Form Form2;
+        
+        /// <summary>
+        /// tbPenalbond control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbPenalbond;
+        
+        /// <summary>
+        /// tbImprest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbImprest;
+        
+        /// <summary>
+        /// taOpationRemark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea taOpationRemark;
+        
+        /// <summary>
         /// TabStrip1 control.
         /// </summary>
         /// <remarks>
@@ -245,33 +281,6 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextArea tbRemark;
-        
-        /// <summary>
-        /// tbPenalbond control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbPenalbond;
-        
-        /// <summary>
-        /// tbImprest control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbImprest;
-        
-        /// <summary>
-        /// taOpationRemark control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextArea taOpationRemark;
         
         /// <summary>
         /// tabHistory control.

@@ -14,7 +14,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
     /// </summary>
     public partial class ProjectProcessList : BasePage
     {
-        #region viewstate 
+        #region viewstate
 
         /// <summary>
         /// 用于存储 状态的ViewState.
@@ -68,7 +68,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             if (!IsPostBack)
             {
                 //this.btnNew.OnClientClick = wndNew.GetShowReference("NewUser.aspx?Type=Add", "新增员工");
-              this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
+                this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
 
                 // 绑定下拉框.
                 BindDDL();
@@ -84,7 +84,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -96,8 +96,15 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-           strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-         //     strCondtion.Append("  Status<>9 "); 
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("6")))
+            {
+                strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
+            }
+            else
+            {
+                strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+            }
+            //     strCondtion.Append("  Status<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {
@@ -123,6 +130,9 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
                         break;
+                    case "6":
+                        strCondtion.Append(" AND (Status = 5 OR Status = 6) ");
+                        break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
                         break;
@@ -145,11 +155,11 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
             strCondtion.Append(" ORDER BY CreateTime DESC");
             #endregion
-         
-             
+
+
             //获得员工
             List<com.TZMS.Model.ProjectProcessInfo> lstUserInfo = new InvestmentProjectManage().GetProcessByCondtion(strCondtion.ToString());
-    
+
             this.gridData.RecordCount = lstUserInfo.Count;
             this.gridData.PageSize = PageCounts;
             int currentIndex = this.gridData.PageIndex;
@@ -192,7 +202,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-   
+
 
         /// <summary>
         /// 状态变动事件
@@ -227,7 +237,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 // 删除
                 user.Status = 9;
             }
-            
+
             userManage.UpdateProcess(user);
 
             BindGridData(ViewStateState, ViewStateSearchText);
@@ -259,6 +269,48 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
+        #endregion
+
+        #region 自定义方法
+        /// <summary>
+        /// 获取状态名字
+        /// </summary>
+        /// <param name="strStatus"></param>
+        /// <returns></returns>
+        protected string GetStatusName(string strStatus)
+        {
+            string StrStatusName = string.Empty;
+            switch (strStatus)
+            {
+                case "0":
+                    //  strCondtion.Append(" AND Status = 1 ");
+                    break;
+                case "1":
+                    StrStatusName = "待审核";
+                    break;
+                case "2":
+                    StrStatusName = "未通过";
+                    break;
+                case "3":
+                    StrStatusName = "审核中";
+                    break;
+                case "4":
+                    StrStatusName = "已通过";
+                    break;
+                case "5":
+                    StrStatusName = "待审核";
+                    break;
+                case "6":
+                    StrStatusName = "已通过";
+                    break;
+                case "9":
+                    StrStatusName = "已删除";
+                    break;
+                default:
+                    break;
+            }
+            return StrStatusName;
+        }
         #endregion
     }
 }

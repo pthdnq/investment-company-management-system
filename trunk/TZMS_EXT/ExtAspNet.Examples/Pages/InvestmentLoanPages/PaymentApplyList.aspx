@@ -66,18 +66,18 @@
                             <%--      <ext:WindowField DataTextField="ProjectName"   Width="120px" HeaderText="项目名称" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="LoanContract.aspx?Type=View&ID={0}" Title="查看"
                                 WindowID="wndView" />--%>
-                            <ext:BoundField  ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="89px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
-                            <ext:BoundField Width="89px" DataField="PayerBName" HeaderText="付款人（乙方）" />
+                            <ext:BoundField  ExpandUnusedSpace="true"  DataTooltipField="ProjectName" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="85px" DataField="BorrowerNameA" HeaderText="借款人(甲方)" />
+                            <ext:BoundField Width="85px" DataField="PayerBName" HeaderText="付款人(乙方)" />
                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
-                            <ext:BoundField Width="60px" DataField="LoanAmount" HeaderText="借款金额" />
+                            <ext:BoundField Width="60px" DataTooltipField="LoanAmount" DataField="LoanAmount" HeaderText="借款金额" />
                             <ext:BoundField Width="70px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="借款日期" />
                             <ext:BoundField DataField="DueDateForPay" Width="70px" HeaderText="应付借款日" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
-                            <ext:BoundField DataField="CreateTime" Width="105px" DataFormatString="{0:yyyy/MM/dd HH:mm}"
+                            <ext:BoundField DataField="CreateTime" Width="100px" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                 HeaderText="创建时间" />
-                            <ext:TemplateField Width="60px" HeaderText="状态">
+                            <ext:TemplateField Width="48px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
@@ -88,12 +88,12 @@
                             <ext:WindowField Text="查看" Width="38px" HeaderText="" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="LoanContract.aspx?Type=View&ID={0}" Title="查看" WindowID="wndView" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
-                            <ext:TemplateField Width="66px" HeaderText="核算状态">
+                            <ext:TemplateField Width="60px" HeaderText="核算状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField  Width="77px" Text="查看/修改" DataIFrameUrlFields="ObjectId"
+                            <ext:WindowField  Width="70px" Text="查看/修改" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="PaymentApplyEditBA.aspx?Type=Edit&ID={0}" Title="会计核算"
                                 WindowID="wndNewBA" HeaderText="核算" />
                         </Columns>

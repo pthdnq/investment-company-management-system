@@ -82,7 +82,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             if (cbIsAmountExpended.Checked)
             {
-                gpAmount.Hidden = false;
+                //    gpAmount.Hidden = false;
+                tbImprestAmount.Hidden = false;
                 tbAmountExpended.Hidden = false;
                 tbExpendedTime.Hidden = false;
                 tbUse.Hidden = false;
@@ -90,7 +91,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             }
             else
             {
-                gpAmount.Hidden = true;
+                //   gpAmount.Hidden = true;
+                tbImprestAmount.Hidden = true;
                 tbAmountExpended.Hidden = true;
                 tbExpendedTime.Hidden = true;
                 tbUse.Hidden = true;
@@ -151,12 +153,20 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             }
             _Info.ImplementationPhase = this.tbImplementationPhase.Text.Trim();
             _Info.Remark = taRemark.Text.Trim();
-
+            //创建人
             _Info.CreateTime = DateTime.Now;
-            _Info.SubmitTime = DateTime.Now;
-            _Info.Status = 1;
+            _Info.CreaterId = this.CurrentUser.ObjectId;
+            _Info.CreaterName = this.CurrentUser.Name;
+            _Info.CreaterAccount = this.CurrentUser.AccountNo;
+
+            _Info.Status = status;
 
             _Info.NeedImprest = this.cbIsAmountExpended.Checked;
+
+            //下一步操作
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            _Info.SubmitTime = DateTime.Now;
             // 执行操作.
             int result = 3;
 

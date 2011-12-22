@@ -33,7 +33,7 @@
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
-                                Label="下一步"  OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
+                                Label="下一步" AutoPostBack="true"  OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
                             </ext:DropDownList>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
                                 RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
@@ -42,7 +42,7 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="taAuditOpinion" Label="审批说明" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                            <ext:TextArea Required="true" ShowRedStar="true"  ID="taAuditOpinion" Label="审批说明" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                     
@@ -50,7 +50,7 @@
             </ext:Form>
 
             <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                AutoHeight="true" Height="218px">
+                AutoHeight="true" Height="238px">
                 <Tabs>
                     <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                         <Items>
@@ -60,15 +60,13 @@
                                 <Rows>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox Enabled="false" ID="tbImplementationPhase" Label="实施阶段" ShowRedStar="true"
-                                Required="true" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
+                            <ext:TextBox Enabled="false" ID="tbImplementationPhase" Label="实施阶段"   runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
                                 Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbAmountExpended" Enabled="false" Label="支用金额" ShowRedStar="true"
-                                Required="true" runat="server" Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
+                            <ext:TextBox ID="tbAmountExpended" Enabled="false" Label="支用金额"   runat="server" Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
                                 Regex="^[0-9]*$" RegexMessage="只能输入字母!">
                             </ext:TextBox>
                         </Items>
@@ -81,8 +79,7 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbImprestAmount" Enabled="false" Label="备用金额" ShowRedStar="true"
-                                Required="true" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
+                            <ext:TextBox ID="tbImprestAmount" Enabled="false" Label="备用金额"   runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
                                 Regex="^[0-9]*$" RegexMessage="只能输入字母!">
                             </ext:TextBox>
                         </Items>
@@ -104,10 +101,10 @@
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                                    <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />
+                                    <ext:BoundField Width="50px" DataField="OperationerAccount" HeaderText="帐号" />
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
-                                    <ext:BoundField Width="50px" DataField="OperationType" HeaderText="操作类型" />
+                                    <ext:BoundField Width="56px" DataField="OperationType" HeaderText="操作类型" />
                                     <ext:BoundField Width="100px" DataField="OperationDesc" DataTooltipField="OperationDesc"
                                         HeaderText="操作描述" />
                                     <ext:BoundField DataField="Remark" HeaderText="操作人意见" DataTooltipField="Remark" ExpandUnusedSpace="true" />

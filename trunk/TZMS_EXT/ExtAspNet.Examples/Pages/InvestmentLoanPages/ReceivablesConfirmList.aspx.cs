@@ -262,7 +262,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             com.TZMS.Model.ReceivablesInfo _Info = (com.TZMS.Model.ReceivablesInfo)e.DataItem;
 
-            if (_Info.Status == 2)
+            if (_Info.Status == 2 || _Info.Status == 5)
             {
                 e.Values[9] = "<span class=\"gray\">确认</span>";
 

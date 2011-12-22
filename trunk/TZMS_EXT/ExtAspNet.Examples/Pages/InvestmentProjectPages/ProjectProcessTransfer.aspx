@@ -42,7 +42,7 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="taAuditOpinion" Label="审批说明" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                            <ext:TextArea Required="true" ShowRedStar="true"  ID="taAuditOpinion" Label="操作备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                     
@@ -50,7 +50,7 @@
             </ext:Form>
 
             <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                AutoHeight="true" Height="218px">
+                AutoHeight="true" Height="248px">
                 <Tabs>
                     <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                         <Items>

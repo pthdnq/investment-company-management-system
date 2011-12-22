@@ -32,7 +32,7 @@
                     <ext:FormRow Hidden="true">
                         <Items>
                             <ext:Label ID="Label4" runat="server" />
-                            <ext:DropDownList ID="ddlstState" runat="server" Label="状态"  Hidden="true">
+                            <ext:DropDownList ID="ddlstState" runat="server" Label="状态" Hidden="true">
                                 <ext:ListItem Text="待审核" Value="1" Selected="true" />
                                 <%--            <ext:ListItem Text="审核中" Value="3" />--%>
                                 <%--      <ext:ListItem Text="已审核" Value="4" />--%>
@@ -65,17 +65,17 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="90px" DataField="CustomerName" HeaderText="客户" />
+                            <ext:BoundField Width="80px" DataField="CustomerName" HeaderText="客户名称" />
+                            <ext:BoundField Width="80px" DataField="Contact" HeaderText="联系人" />
+                            <ext:BoundField Width="95px" DataField="ContactPhone" HeaderText="联系人电话" />
+                            <ext:BoundField Width="85px" DataField="SignDate" HeaderText="签订日期" DataFormatString="{0:yyyy/MM/dd}" />
+                            <ext:BoundField DataField="ContractAmount" Width="125px" HeaderText="合同总金额" />
+                            <ext:BoundField Width="110px" DataField="DownPayment" HeaderText="预付定金" />
                             <ext:TemplateField Width="66px" HeaderText="项目状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:BoundField Width="110px" DataField="Contact" HeaderText="联系人" />
-                            <ext:BoundField Width="90px" DataField="ContactPhone" HeaderText="联系人电话" />
-                            <ext:BoundField Width="115px" DataField="SignDate" HeaderText="签订日期" DataFormatString="{0:yyyy/MM/dd}" />
-                            <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同总金额" />
-                            <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付定金" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:WindowField Width="80px" Text="审核转移" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectAuditTransfer.aspx?Type=Edit&ID={0}"
                                 Title="审核转移" WindowID="wndNew" />

@@ -63,13 +63,13 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="90px" DataField="BorrowerNameA" HeaderText="借款人" />
-                            <ext:BoundField Width="90px" DataField="Lenders" HeaderText="出借人" />
-                            <ext:BoundField Width="90px" DataField="Guarantee" HeaderText="担保人" />
-                            <ext:BoundField Width="105px" DataField="LoanAmount" HeaderText="借款金额" />
+                            <ext:BoundField Width="80px" DataField="BorrowerNameA" HeaderText="借款人" />
+                            <ext:BoundField Width="80px" DataField="Lenders" HeaderText="出借人" />
+                            <ext:BoundField Width="80px" DataField="Guarantee" HeaderText="担保人" />
+                            <ext:BoundField Width="75px" DataField="LoanAmount" HeaderText="借款金额" />
                             <ext:BoundField Width="100px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="借款日期" />
-                            <ext:BoundField Width="110px" DataField="DueDateForPay" DataFormatString="每月{0}日"
+                            <ext:BoundField Width="100px" DataField="DueDateForPay" DataFormatString="每月{0}日"
                                 HeaderText="应付款日" />
                             <ext:BoundField Width="110px" DataField="ContactPhone" HeaderText="联系电话" />
                        <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
@@ -99,7 +99,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="441px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="434px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
      <ext:Window ID="wndNewBA" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="478px" Width="550px" OnClose="wndNew_Close">
