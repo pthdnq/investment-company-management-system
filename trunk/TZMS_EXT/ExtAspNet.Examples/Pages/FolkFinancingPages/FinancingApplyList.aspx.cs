@@ -193,6 +193,11 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 e.Values[11] = "<span class=\"gray\">删除</span>"; 
             }
+
+            if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
+            {
+                e.Values[14] = e.Values[14].ToString().Replace("查看", "编辑");// "<span class=\"gray\">查看/修改</span>";
+            }
         }
         #endregion
 
