@@ -20,7 +20,7 @@
             background-position: top center;
             position: relative;
             width: 1000px;
-            height: 580px;
+            height: 480px;
             margin: 0 auto;
         }
         #loginBox
