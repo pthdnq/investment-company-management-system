@@ -64,9 +64,9 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             ObjectID = strID;
 
             InvestmentProjectInfo _Info = new InvestmentProjectManage().GetUserByObjectID(strID);
-            if (_Info.Status != 2)
+            if (_Info.Status == 2 || _Info.Status == 1)
             {
-                this.btnSave.Hidden = true;
+                this.btnSave.Hidden = false;
             }
             #region 下一步方式
             if (CurrentRoles.Contains(RoleType.HSKJ))
@@ -161,8 +161,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             if (result == -1)
             {
-                string statusName = "修改提交";// (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意，归档";
-                new CashFlowManage().AddHistory(_Info.ObjectId, "审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "InvestmentProject");
+                string statusName = "修改后重新提交";// (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意，归档";
+                new CashFlowManage().AddHistory(_Info.ObjectId, "编辑", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "InvestmentProject");
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

@@ -182,5 +182,23 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.Window wndNewBA;
+        
+        /// <summary>
+        /// wndEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Window wndEdit;
+        
+        /// <summary>
+        /// wndView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Window wndView;
     }
 }

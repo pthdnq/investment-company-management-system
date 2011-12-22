@@ -202,8 +202,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
-                manage.AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意，待会计审核";
+                manage.AddHistory(_Info.ObjectId, "审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
