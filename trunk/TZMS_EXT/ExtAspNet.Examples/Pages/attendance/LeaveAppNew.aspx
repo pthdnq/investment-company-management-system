@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<meta http-equiv="x-ua-compatible" content="ie=8" /> 
     <title></title>
     <script language="javascript" src="../../App_Flash/AC_OETags.js" type="text/javascript"></script>
 </head>
@@ -42,7 +43,7 @@
                             </ext:FormRow>
                         </Rows>
                     </ext:Form>
-                    <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" Height="391px" ShowBorder="false">
+                    <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" Height="393px" ShowBorder="false">
                         <Tabs>
                             <ext:Tab ID="tabLeaveInfo" Title="请假申请单" EnableBackgroundColor="true" runat="server"
                                 BodyPadding="5px">
