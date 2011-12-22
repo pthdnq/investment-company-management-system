@@ -86,6 +86,8 @@ namespace TZMS.Web
             ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.CAIWU, "1"));
             ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.TOUZI, "2"));
             ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.YEWU, "3"));
+            ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.ZJB, "4"));
+            ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.JSZX, "5"));
 
             // 设置默认值.
             ddlstDept.SelectedIndex = 0;
@@ -160,23 +162,66 @@ namespace TZMS.Web
                 string strWorkerSalaryID = ((GridRow)gridWorkerSalaryMsg.Rows[i]).Values[0];
                 string strSalaryMsgID = ((GridRow)gridWorkerSalaryMsg.Rows[i]).Values[2];
 
-                string strBaseSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxBaseSalary"];
-                string strExamSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxExamSalary"];
-                string strBackSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxBackSalary"];
-                string strOtherSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxOtherSalary"];
-                string strShouldSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxShouldSalary"];
-                string strSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxSalary"];
+                //string strBaseSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxBaseSalary"];
+                //string strExamSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxExamSalary"];
+                //string strBackSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxBackSalary"];
+                //string strOtherSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxOtherSalary"];
+                //string strShouldSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxShouldSalary"];
+                //string strSalary = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxSalary"];
+                //string strContext = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxContext"];
+                string strJBGZ = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxJBGZ"];
+                string strGLGZ = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxGLGZ"];
+                string strSYQGZ = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxSYQGZ"];
+                string strNZJ = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxNZJ"];
+                string strJLGZ = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxJLGZ"];
+                string strKHGZ = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxKHGZ"];
+                string strCB = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxCB"];
+                string strJTBZ = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxJTBZ"];
+                string strYFGZ = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxYFGZ"];
+                string strCD = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxCD"];
+                string strZT = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxZT"];
+                string strKG = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxKG"];
+                string strSJ = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxSJ"];
+                string strBJ = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxBJ"];
+                string strSB = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxSB"];
+                string strFK = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxFK"];
+                string strCF = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxCF"];
+                string strBJF = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxBJF"];
+                string strLYF = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxLYF"];
+                string strSFGZ = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxSFGZ"];
                 string strContext = Request.Form["gridWorkerSalaryMsg_" + i + "$tbxContext"];
 
                 WorkerSalaryMsgInfo _workerSalaryMsgInfo = _manage.GetWorkerSalaryMsgByObjectID(strWorkerSalaryID);
                 if (_workerSalaryMsgInfo != null)
                 {
-                    _workerSalaryMsgInfo.BaseSalary = Convert.ToDecimal(strBaseSalary);
-                    _workerSalaryMsgInfo.ExamSalary = Convert.ToDecimal(strExamSalary);
-                    _workerSalaryMsgInfo.BackSalary = Convert.ToDecimal(strBackSalary);
-                    _workerSalaryMsgInfo.OtherSalary = Convert.ToDecimal(strOtherSalary);
-                    _workerSalaryMsgInfo.ShouldSalary = Convert.ToDecimal(strShouldSalary);
-                    _workerSalaryMsgInfo.Salary = Convert.ToDecimal(strSalary);
+                    //_workerSalaryMsgInfo.BaseSalary = Convert.ToDecimal(strBaseSalary);
+                    //_workerSalaryMsgInfo.ExamSalary = Convert.ToDecimal(strExamSalary);
+                    //_workerSalaryMsgInfo.BackSalary = Convert.ToDecimal(strBackSalary);
+                    //_workerSalaryMsgInfo.OtherSalary = Convert.ToDecimal(strOtherSalary);
+                    //_workerSalaryMsgInfo.ShouldSalary = Convert.ToDecimal(strShouldSalary);
+                    //_workerSalaryMsgInfo.Salary = Convert.ToDecimal(strSalary);
+                    //_workerSalaryMsgInfo.Context = strContext;
+
+                    _workerSalaryMsgInfo.Jbgz = strJBGZ;
+                    _workerSalaryMsgInfo.Glgz = strGLGZ;
+                    _workerSalaryMsgInfo.Syqgz = strSYQGZ;
+                    _workerSalaryMsgInfo.Nzj = strNZJ;
+                    _workerSalaryMsgInfo.Jlgz = strJLGZ;
+                    _workerSalaryMsgInfo.Khgz = strKHGZ;
+                    _workerSalaryMsgInfo.Cb = strCB;
+                    _workerSalaryMsgInfo.Jtbz = strJTBZ;
+                    _workerSalaryMsgInfo.Yfgz = strYFGZ;
+                    _workerSalaryMsgInfo.Cd = strCD;
+                    _workerSalaryMsgInfo.Zt = strZT;
+                    _workerSalaryMsgInfo.Kg = strKG;
+                    _workerSalaryMsgInfo.Sj = strSJ;
+                    _workerSalaryMsgInfo.Bj = strBJ;
+                    _workerSalaryMsgInfo.Sb = strSB;
+                    _workerSalaryMsgInfo.Fk = strFK;
+                    _workerSalaryMsgInfo.Cf = strCF;
+                    _workerSalaryMsgInfo.Bjf = strBJF;
+                    _workerSalaryMsgInfo.Lyf = strLYF;
+                    _workerSalaryMsgInfo.Sfgz = strSFGZ;
                     _workerSalaryMsgInfo.Context = strContext;
 
                     _manage.UpdateWorkerSalaryMsg(_workerSalaryMsgInfo);
@@ -319,6 +364,26 @@ namespace TZMS.Web
                     //_workerSalaryMsgInfo.OtherSalary = Convert.ToDecimal(strOtherSalary);
                     //_workerSalaryMsgInfo.ShouldSalary = Convert.ToDecimal(strShouldSalary);
                     //_workerSalaryMsgInfo.Salary = Convert.ToDecimal(strSalary);
+                    _workerSalaryMsgInfo.Jbgz = strJBGZ;
+                    _workerSalaryMsgInfo.Glgz = strGLGZ;
+                    _workerSalaryMsgInfo.Syqgz = strSYQGZ;
+                    _workerSalaryMsgInfo.Nzj = strNZJ;
+                    _workerSalaryMsgInfo.Jlgz = strJLGZ;
+                    _workerSalaryMsgInfo.Khgz = strKHGZ;
+                    _workerSalaryMsgInfo.Cb = strCB;
+                    _workerSalaryMsgInfo.Jtbz = strJTBZ;
+                    _workerSalaryMsgInfo.Yfgz = strYFGZ;
+                    _workerSalaryMsgInfo.Cd = strCD;
+                    _workerSalaryMsgInfo.Zt = strZT;
+                    _workerSalaryMsgInfo.Kg = strKG;
+                    _workerSalaryMsgInfo.Sj = strSJ;
+                    _workerSalaryMsgInfo.Bj = strBJ;
+                    _workerSalaryMsgInfo.Sb = strSB;
+                    _workerSalaryMsgInfo.Fk = strFK;
+                    _workerSalaryMsgInfo.Cf = strCF;
+                    _workerSalaryMsgInfo.Bjf = strBJF;
+                    _workerSalaryMsgInfo.Lyf = strLYF;
+                    _workerSalaryMsgInfo.Sfgz = strSFGZ;
                     _workerSalaryMsgInfo.Context = strContext;
 
                     _manage.UpdateWorkerSalaryMsg(_workerSalaryMsgInfo);
