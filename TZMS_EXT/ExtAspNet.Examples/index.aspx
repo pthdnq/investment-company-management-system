@@ -47,7 +47,7 @@
                         ID="ContentPanel2" runat="server">
                         <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
-                        <td style="width:50px;"></td>
+                        <%--<td style="width:50px;"></td>--%>
                             <td>
                                
                                 <%--<a href="#" style="color:#fff;"><asp:Label ID="labCurrentVersion" runat="server"></asp:Label></a>--%>
@@ -55,11 +55,17 @@
                                
                             </td>
                             <td align="right">
+
+
+
                              <br />
                            
                                 <asp:Label s ID="labuserName" ForeColor="White" runat="server" Text="您好！ 李海（业务员）"></asp:Label>
-                                <br />
-                                 <img  src="images/help_circle.png"/><asp:LinkButton ID="likButuon"  ToolTip="点击打开系统帮助" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="帮助"></asp:LinkButton><img  src="images/cross.png"/><asp:LinkButton ID="labuserNasme"  ToolTip="点击退出系统" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="退出系统"></asp:LinkButton>
+                               <table><tr><td> <img  src="images/help_circle.png"/></td><td> <asp:LinkButton ID="likButuon"  ToolTip="点击打开系统帮助" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="帮助"></asp:LinkButton></td>                                                              <td> <img  src="images/cross.png"/></td><td><asp:LinkButton ID="labuserNasme"  ToolTip="点击退出系统" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="退出系统"></asp:LinkButton></td></tr></table>
+                               
+                               
+                               
+                                
                             </td>
                             <td style="width:20px;"></td>
                         </tr>
@@ -74,19 +80,19 @@
                     <ext:Accordion ID="Accordion1" Title="办公平台" runat="server" Width="280px" EnableLargeHeader="false"
                         Height="450px" EnableFill="true" ShowBorder="True" ActiveIndex="0">
                         <Panes>
-                            <ext:AccordionPane ID="AccordionPane8" runat="server" IconUrl="images/16/消息管理.gif"
+                            <ext:AccordionPane ID="AccordionPane8" runat="server" IconUrl="images/16/消息管理.png"
                                 Title="消息管理" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="treeXXGL" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/我的消息.gif" NodeID="wdxx" OnClientClick=" tabs('wdxx','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/我的消息.png" NodeID="wdxx" OnClientClick=" tabs('wdxx','UserKey');"
                                                 Text="我的消息">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/已发消息.gif" NodeID="yfxx" OnClientClick=" tabs('yfxx','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/已发消息.png" NodeID="yfxx" OnClientClick=" tabs('yfxx','UserKey');"
                                                 Text="已发消息">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.gif" NodeID="fsxx" OnClientClick=" tabs('fsxx','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/发送消息.png" NodeID="fsxx" OnClientClick=" tabs('fsxx','UserKey');"
                                                 Text="发送消息">
                                             </ext:TreeNode>
                                         </Nodes>
@@ -105,32 +111,32 @@
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="zzns" AutoPostBack="false" OnClientClick=" tabs('zzns','UserKey');"
                                                 Text="转正年数">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/系统配置.png" NodeID="xtpz" AutoPostBack="false" OnClientClick=" tabs('xtpz','UserKey');"
-                                                Text="系统配置">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/系统配置.png" NodeID="xtpz" AutoPostBack="false"
+                                                OnClientClick=" tabs('xtpz','UserKey');" Text="系统配置">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/调岗申请.png" NodeID="jsdgsq" AutoPostBack="false" OnClientClick=" tabs('jsdgsq','UserKey');"
-                                                Text="晋升调岗申请">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/调岗申请.png" NodeID="jsdgsq" AutoPostBack="false"
+                                                OnClientClick=" tabs('jsdgsq','UserKey');" Text="晋升调岗申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/调岗审批.png" NodeID="jsdgsp" AutoPostBack="false" OnClientClick=" tabs('jsdgsp','UserKey');"
-                                                Text="晋升调岗审批">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/调岗审批.png" NodeID="jsdgsp" AutoPostBack="false"
+                                                OnClientClick=" tabs('jsdgsp','UserKey');" Text="晋升调岗审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/调岗归档.png" NodeID="jsdggd" AutoPostBack="false" OnClientClick=" tabs('jsdggd','UserKey');"
-                                                Text="晋升调岗归档">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/调岗归档.png" NodeID="jsdggd" AutoPostBack="false"
+                                                OnClientClick=" tabs('jsdggd','UserKey');" Text="晋升调岗归档">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/下发奖惩单.png" NodeID="xfjcd" AutoPostBack="false" OnClientClick=" tabs('xfjcd','UserKey');"
-                                                Text="下发奖惩单">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/下发奖惩单.png" NodeID="xfjcd" AutoPostBack="false"
+                                                OnClientClick=" tabs('xfjcd','UserKey');" Text="下发奖惩单">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true"  IconUrl="images/16/奖罚单确认.png" NodeID="jcdqr" AutoPostBack="false" OnClientClick=" tabs('jcdqr','UserKey');"
-                                                Text="奖惩单确认">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/奖罚单确认.png" NodeID="jcdqr" AutoPostBack="false"
+                                                OnClientClick=" tabs('jcdqr','UserKey');" Text="奖惩单确认">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true"  IconUrl="images/16/招聘申请.png"  NodeID="zpsqd" AutoPostBack="false" OnClientClick=" tabs('zpsqd','UserKey');"
-                                                Text="招聘申请">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/招聘申请.png" NodeID="zpsqd" AutoPostBack="false"
+                                                OnClientClick=" tabs('zpsqd','UserKey');" Text="招聘申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true"  IconUrl="images/16/招聘审批.png"  NodeID="zpsqsp" AutoPostBack="false" OnClientClick=" tabs('zpsqsp','UserKey');"
-                                                Text="招聘审批">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/招聘审批.png" NodeID="zpsqsp" AutoPostBack="false"
+                                                OnClientClick=" tabs('zpsqsp','UserKey');" Text="招聘审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true"  IconUrl="images/16/招聘归档.png"  NodeID="zpsqgd" AutoPostBack="false" OnClientClick=" tabs('zpsqgd','UserKey');"
-                                                Text="招聘归档">
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/招聘归档.png" NodeID="zpsqgd" AutoPostBack="false"
+                                                OnClientClick=" tabs('zpsqgd','UserKey');" Text="招聘归档">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="cmdj" AutoPostBack="false" OnClientClick=" tabs('cmdj','UserKey');"
                                                 Text="出门登记">
@@ -138,7 +144,7 @@
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="rmdj" AutoPostBack="false" OnClientClick=" tabs('rmdj','UserKey');"
                                                 Text="入门登记">
                                             </ext:TreeNode>
-<%--                                            <ext:TreeNode Leaf="true"  Icon="UserKey" NodeID="cs" AutoPostBack="false" OnClientClick=" tabs('cs','UserKey');"
+                                            <%--                                            <ext:TreeNode Leaf="true"  Icon="UserKey" NodeID="cs" AutoPostBack="false" OnClientClick=" tabs('cs','UserKey');"
                                                 Text="测试">
                                             </ext:TreeNode>--%>
                                         </Nodes>
@@ -588,7 +594,7 @@
                     break;
 
 
-                //假勤管理                                                                             
+                //假勤管理                                                                               
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤", icon);
                     break;
@@ -617,7 +623,7 @@
                     LoadTab("Pages/attendance/NoAttendToFile.aspx", "未打卡归档", icon);
                     break;
 
-                // 薪资管理.               
+                // 薪资管理.                 
                 case "wdxz":
                     LoadTab("Pages/Salary/MySalary.aspx", "我的薪资", icon);
                     break;
@@ -637,7 +643,7 @@
                     LoadTab("Pages/Salary/AddSalaryApproveList.aspx", "加薪审批", icon);
                     break;
 
-                // 消息管理.                                  
+                // 消息管理.                                    
                 case "wdxx":
                     LoadTab("Pages/Message/MyMessageList.aspx", "我的消息", icon);
                     break;
@@ -647,7 +653,7 @@
                 case "fsxx":
                     LoadTab("Pages/Message/NewMessage.aspx?Type=Add", "发送消息", icon);
                     break;
-                // 业务管理                                  
+                // 业务管理                                    
                 case "ptyw":
                     LoadTab("Pages/Yewu/CommonYewu.aspx", "普通业务创建", icon);
                     break;
@@ -692,7 +698,7 @@
                     LoadTab("Pages/ProbationPages/UserLeaveTransferToFile.aspx", "离职交接归档", icon);
                     break;
 
-                // 物资管理                               
+                // 物资管理                                 
                 case "wzsq":
                     LoadTab("Pages/MaterialsPages/MaterialsApplyList.aspx", "物资申请", icon);
                     break;
@@ -703,7 +709,7 @@
                     LoadTab("Pages/MaterialsPages/MaterialsManagePage.aspx", "物资管理", icon);
                     break;
 
-                // 代帐管理                                
+                // 代帐管理                                  
                 case "paal":
                     LoadTab("Pages/ProxyAccountingPages/ProxyAccountingUnitList.aspx", "代帐单位", icon);
                     break;
@@ -717,7 +723,7 @@
                     LoadTab("Pages/ProxyAccountingPages/ProxyAccountingPrint.aspx", "代帐单导出", icon);
                     break;
 
-                //投资部借款 InvestmentLoan                                                      
+                //投资部借款 InvestmentLoan                                                        
                 case "fksq":
                     LoadTab("Pages/InvestmentLoanPages/PaymentApplyList.aspx", "借款申请", icon);
                     break;
@@ -740,7 +746,7 @@
                     LoadTab("Pages/InvestmentLoanPages/LoanContractList.aspx", "借款合同", icon);
                     break;
 
-                //投资部项目实施 InvestmentProject                                                        
+                //投资部项目实施 InvestmentProject                                                          
                 case "xmsq":
                     LoadTab("Pages/InvestmentProjectPages/ProjectApplyList.aspx", "项目申请列表", icon);
                     break;
@@ -766,7 +772,7 @@
                     LoadTab("Pages/InvestmentProjectPages/AllProjectList.aspx", "所有项目列表", icon);
                     break;
 
-                //银行贷款 BankLoan                                                          
+                //银行贷款 BankLoan                                                            
                 case "dksq":
                     LoadTab("Pages/BankLoanPages/BankLoanApplyList.aspx", "贷款申请列表", icon);
                     break;
@@ -792,7 +798,7 @@
                     LoadTab("Pages/BankLoanPages/AllFeePayList.aspx", "所有费用支出列表", icon);
                     break;
 
-                //民间融资 FolkFinancing                                                             
+                //民间融资 FolkFinancing                                                               
                 case "rzsq":
                     LoadTab("Pages/FolkFinancingPages/FinancingApplyList.aspx", "融资申请列表", icon);
                     break;
@@ -815,7 +821,7 @@
                     LoadTab("Pages/FolkFinancingPages/PaymentRecordList.aspx", "支付记录列表", icon);
                     break;
 
-                //资金流量         
+                //资金流量           
                 case "zjll":
                     LoadTab("Pages/CashFlow/CashFlowStatementList.aspx", "资金流量表", icon);
                     break;
@@ -832,7 +838,7 @@
                     LoadTab("Pages/CashFlow/FolkFinancingBAList.aspx", "民间融资会计核算", icon);
                     break;
 
-                //审批转移      
+                //审批转移        
                 case "dzysqspbl":
                     LoadTab("Pages/BankLoanPages/BankLoanAuditTransferList.aspx", "待转移申请审批", icon);
                     break;
@@ -862,7 +868,7 @@
                     LoadTab("Pages/InvestmentLoanPages/CustomerList.aspx", "客户一览表", icon);
                     break;
 
-                //网络报销      Baoxiao                                                          
+                //网络报销      Baoxiao                                                            
                 case "bxsq":
                     LoadTab("Pages/Baoxiao/BaoxiaoApplyList.aspx", "报销申请", icon);
                     break;
