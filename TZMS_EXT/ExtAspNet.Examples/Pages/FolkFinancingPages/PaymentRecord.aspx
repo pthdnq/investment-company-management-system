@@ -89,11 +89,11 @@
                             <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
-                                    <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                                    <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />
+                                    <ext:BoundField Width="50px" DataField="OperationerName" HeaderText="操作人" />
+                            <%--        <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
-                                    <ext:BoundField Width="50px" DataField="OperationType" HeaderText="操作类型" />
+                                    <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />
                                     <ext:BoundField Width="100px" DataField="OperationDesc" DataTooltipField="OperationDesc"
                                         HeaderText="操作描述" />
                                     <ext:BoundField DataField="Remark" HeaderText="操作人意见" DataTooltipField="Remark" ExpandUnusedSpace="true" />
