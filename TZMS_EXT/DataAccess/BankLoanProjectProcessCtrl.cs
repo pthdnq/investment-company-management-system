@@ -77,6 +77,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@AuditOpinion",DbType.String),
 				new SqlParameter("@AccountingRemark",DbType.String),
+                 new SqlParameter("@Use",DbType.String),
+                 new SqlParameter("@ImprestRemark",DbType.String),
+                      new SqlParameter("@Adulters",DbType.String),
 				};
 
                 int i = 0;
@@ -103,6 +106,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.SubmitTime;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.AuditOpinion;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.AccountingRemark;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.Use;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.ImprestRemark;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.Adulters;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -180,6 +186,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@AuditOpinion",DbType.String),
 				new SqlParameter("@AccountingRemark",DbType.String),
+                    new SqlParameter("@Use",DbType.String),
+                 new SqlParameter("@ImprestRemark",DbType.String),
+                       new SqlParameter("@Adulters",DbType.String),
                 };
 
                 int i = 0;
@@ -206,6 +215,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.SubmitTime;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.AuditOpinion;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.AccountingRemark;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.Use;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.ImprestRemark;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.Adulters;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -328,7 +340,7 @@ namespace com.TZMS.DataAccess
             }
             if (BankLoanProjectProcessInfoInfoDataRow["ExpendedTime"] != null)
             {
-                BankLoanProjectProcessInfoInfo.ExpendedTime = DateTime.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ExpendedTime"));
+                BankLoanProjectProcessInfoInfo.ExpendedTime = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ExpendedTime");
             }
             if (BankLoanProjectProcessInfoInfoDataRow["ImprestAmountBalance"] != null)
             {
@@ -382,7 +394,19 @@ namespace com.TZMS.DataAccess
             {
                 BankLoanProjectProcessInfoInfo.AccountingRemark = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "AccountingRemark");
             }
-
+            if (BankLoanProjectProcessInfoInfoDataRow["Use"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.Use = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "Use");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["ImprestRemark"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.ImprestRemark = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImprestRemark");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["Adulters"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.Adulters = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "Adulters");
+            }
+            
             return BankLoanProjectProcessInfoInfo;
         }
         #endregion
