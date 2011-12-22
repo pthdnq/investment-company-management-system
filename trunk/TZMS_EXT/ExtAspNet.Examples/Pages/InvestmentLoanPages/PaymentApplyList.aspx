@@ -75,14 +75,14 @@
                                 HeaderText="借款日期" />
                             <ext:BoundField DataField="DueDateForPay" Width="70px" HeaderText="应付借款日" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
-                            <ext:BoundField DataField="CreateTime" Width="100px" DataFormatString="{0:yyyy/MM/dd HH:mm}"
+                            <ext:BoundField Hidden="true"  DataField="CreateTime" Width="100px" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                 HeaderText="创建时间" />
                             <ext:TemplateField Width="48px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
+                            <ext:WindowField  Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="PaymentApplyEdit.aspx?Type=Edit&ID={0}" Title="编辑"
                                 WindowID="wndNew" />
                             <ext:WindowField Text="查看" Width="38px" HeaderText="" DataIFrameUrlFields="ObjectId"
@@ -93,7 +93,7 @@
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField  Width="70px" Text="查看/修改" DataIFrameUrlFields="ObjectId"
+                            <ext:WindowField  Width="60px" Text="查看" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="PaymentApplyEditBA.aspx?Type=Edit&ID={0}" Title="会计核算"
                                 WindowID="wndNewBA" HeaderText="核算操作" />
                         </Columns>
@@ -103,13 +103,13 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="592px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="522px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="622px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="462px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
         <ext:Window ID="wndNewBA" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="622px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="532px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

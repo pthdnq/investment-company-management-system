@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web.Pages.InvestmentLoanPages
 {
@@ -32,23 +33,61 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
         }
 
-        /// <summary>
-        /// 用户ID
-        /// </summary>
-        public string UserID
+
+        private string ViewStateZJ
         {
             get
             {
-                if (ViewState["UserID"] == null)
+                if (ViewState["ViewStateZJ"] == null)
                 {
                     return null;
                 }
 
-                return ViewState["UserID"].ToString();
+                return ViewState["ViewStateZJ"].ToString();
             }
             set
             {
-                ViewState["UserID"] = value;
+                ViewState["ViewStateZJ"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 申请单ID
+        /// </summary>
+        public string ApplyID
+        {
+            get
+            {
+                if (ViewState["ApplyID"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["ApplyID"].ToString();
+            }
+            set
+            {
+                ViewState["ApplyID"] = value;
+            }
+        }
+
+        /// <summary>
+        /// ObjectID
+        /// </summary>
+        public string ObjectID
+        {
+            get
+            {
+                if (ViewState["ObjectID"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["ObjectID"].ToString();
+            }
+            set
+            {
+                ViewState["ObjectID"] = value;
             }
         }
         #endregion
@@ -60,30 +99,14 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             if (!IsPostBack)
             {
-                BindDept();
-
-                string strOperatorType = Request.QueryString["Type"];
-                string strUserID = Request.QueryString["ID"];
-                switch (strOperatorType)
-                {
-                    case "Add":
-                        {
-                            OperatorType = strOperatorType;
-                            // 设置新工号.
-                            tbxJobNo.Text = new UserManage().GetNextJobNo();
-                        }
-                        break;
-                    case "Edit":
-                        {
-                            OperatorType = strOperatorType;
-                            UserID = strUserID;
-
-                            bindUserInterface(strUserID);
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                string strID = Request.QueryString["ID"];
+                ObjectID = strID;
+                OperatorType = "Add";
+                bindInterface(strID);
+                // 绑定审批人.
+                ApproveUser();
+                // 绑定审批历史.
+                BindHistory();
             }
         }
 
@@ -93,205 +116,275 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         }
 
         /// <summary>
-        /// 绑定部门.
+        /// 绑定指定ID的数据到界面.
         /// </summary>
-        private void BindDept()
+        /// <param name="strID">ID</param>
+        private void bindInterface(string strID)
         {
-            // 设置部门下拉框的值.
-            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.XINGZHENG, "行政部"));
-            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.CAIWU, "财务部"));
-            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.TOUZI, "投资部"));
-            //ddlstDept.Items.Add(new ExtAspNet.ListItem(TZMS.Common.DEPT.YEWU, "业务部"));
-            //// 设置默认值.
-            //ddlstDept.SelectedIndex = 0;
-        }
-
-        /// <summary>
-        /// 绑定指定用户ID的数据到界面.
-        /// </summary>
-        /// <param name="strUserID">用户ID</param>
-        private void bindUserInterface(string strUserID)
-        {
-            if (string.IsNullOrEmpty(strUserID))
+            if (string.IsNullOrEmpty(strID))
             {
                 return;
             }
+            InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
 
-            // 通过用户ID获取用户信息实例.
-            UserInfo _userInfo = new UserManage().GetUserByObjectID(strUserID);
-
-            // 绑定数据.
-            if (_userInfo != null)
+            #region 下一步方式
+            if (CurrentRoles.Contains(RoleType.DSZ))
             {
-                // 账号.
-                tbxAccountNo.Text = _userInfo.AccountNo;
-                // 工号. 
-                tbxJobNo.Text = _userInfo.JobNo;
-                // 姓名.        
-                tbxName.Text = _userInfo.Name;
-                // 性别.          
-                //  rblSex.SelectedIndex = _userInfo.Sex ? 0 : 1;
-                // 部门.
-                //  ddlstDept.SelectedValue = _userInfo.Dept;
-                // 职位.
-                tbxPosition.Text = _userInfo.Position;
-                // 入职时间.
-                if (DateTime.Compare(_userInfo.EntryDate, DateTime.Parse("1900-1-1 12:00")) != 0)
-                {
-                    dpkEntryDate.SelectedDate = _userInfo.EntryDate;
-                }
-                // 出生日期.
-                if (DateTime.Compare(_userInfo.Birthday, DateTime.Parse("1900-1-1 12:00")) != 0)
-                {
-                    dpkBirthday.SelectedDate = _userInfo.Birthday;
-                }
-                // 学历.
-                //   ddlstEducational.SelectedValue = _userInfo.Educational;
-                // 工作年限.
-                tbxWorkYear.Text = _userInfo.WorkYear == -1 ? "" : _userInfo.WorkYear.ToString();
-                // 员工状态.
-                //    rblState.SelectedIndex = _userInfo.State == 1 ? 0 : 1;
-                // 联系电话.
-                tbxPhoneNumber.Text = _userInfo.PhoneNumber;
-                // 备用联系电话.
-                tbxBackupPhoneNumber.Text = _userInfo.BackIpPhoneNumber;
-                // 电子邮箱.
-                //   tbxEmail.Text = _userInfo.Email;
-                // 住址.
-                //  tbxAddress.Text = _userInfo.Address;
+                BindNext(true);
             }
+            else if (CurrentRoles.Contains(RoleType.ZJL))
+            {      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
+                if (_Info.LoanAmount >= 300000)
+                { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
+                else
+                { BindNext(true); }
+            }
+            else
+            {
+                BindNext(false);
+            }
+            #endregion
+
+            this.tbProjectName.Text = _Info.ProjectName;
+            this.tbProjectOverview.Text = _Info.ProjectOverview;
+            this.tbBorrowerNameA.Text = _Info.BorrowerNameA;
+            this.tbBorrowerPhone.Text = _Info.BorrowerPhone;
+            this.tbPayerBName.Text = _Info.PayerBName;
+            this.tbGuarantor.Text = _Info.Guarantor;
+            this.tbGuarantorPhone.Text = _Info.GuarantorPhone;
+            this.tbCollateral.Text = _Info.Collateral;
+            this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
+            this.dpLoanDate.SelectedDate = _Info.LoanDate;
+            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+            this.tbRemark.Text = _Info.Remark;
+
+            this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
+
+            this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
+            this.ddlLoanType.SelectedValue = _Info.LoanType;
+
+
+        }
+
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            if (ObjectID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ForId = '" + ObjectID + "'");
+            strCondition.Append(" ORDER BY OperationTime DESC");
+            List<InvestmentLoanHistoryInfo> lstInfo = new InvestmentLoanManage().GetHistoryByCondtion(strCondition.ToString());
+            //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            gridHistory.RecordCount = lstInfo.Count;
+            this.gridHistory.DataSource = lstInfo;
+            this.gridHistory.DataBind();
         }
         #endregion
 
         #region 页面及控件事件
         /// <summary>
-        /// 保存员工
+        /// 保存
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void btnDismissed_Click(object sender, EventArgs e)
         {
-            saveUserInfo();
+            //不同意，打回
+            saveInfo(2);
         }
 
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            saveInfo(1);
+            //if (this.ddlstNext.SelectedValue.Equals("0"))
+            //{
+            //    //同意，继续审核
+            //    saveInfo(3);
+            //}
+            //else
+            //{
+            //    //待会计审核/支付确认
+            //    saveInfo(4);
+            //}
+        }
+
+        /// <summary>
+        /// 点击 TriggerBox 弹出窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void tbBorrowerNameA_TriggerClick(object sender, EventArgs e)
+        {
+            if (OperatorType == "Add")
+            {
+                wndChooseZJ.IFrameUrl = "ChooseJKR.aspx";
+            }
+            else
+            {
+                wndChooseZJ.IFrameUrl = "ChooseJKR.aspx?ID=" + ApplyID;
+            }
+            wndChooseZJ.Hidden = false;
+        }
+
+
+        /// <summary>
+        /// 选择借款人关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndChooseZJ_Close(object sender, WindowCloseEventArgs e)
+        {
+            if (e.CloseArgument != "undefined")
+            {
+                tbBorrowerNameA.Text = e.CloseArgument.Split(',')[1];
+                this.tbBorrowerPhone.Text = e.CloseArgument.Split(',')[2];
+                ViewStateZJ = e.CloseArgument;
+            }
+        }
+
+        /// <summary>
+        /// 下一步下拉框变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ddlstNext_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlstNext.SelectedIndex == 1)
+            {
+                ddlstApproveUser.Hidden = true;
+                ddlstApproveUser.Required = false;
+                ddlstApproveUser.ShowRedStar = false;
+                ddlstApproveUser.Enabled = false;
+                btnSave.Text = "同意并归档";
+                btnSave.ConfirmText = "您确定同意并归档吗?";
+            }
+            else
+            {
+                ddlstApproveUser.Hidden = false;
+                ddlstApproveUser.Required = true;
+                ddlstApproveUser.ShowRedStar = true;
+                ddlstApproveUser.Enabled = true;
+                btnSave.Text = "同意";
+                btnSave.ConfirmText = "您确定同意吗?";
+            }
+        }
         #endregion
 
         #region 自定义方法
         /// <summary>
-        /// 保存用户信息.
+        /// 保存信息.
         /// </summary>
-        private void saveUserInfo()
+        private void saveInfo(int status)
         {
-            if (string.IsNullOrEmpty(OperatorType))
+            InvestmentLoanManage manage = new InvestmentLoanManage();
+            InvestmentLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
+
+            CustomerInfo _customer = null; 
+            if (!string.IsNullOrEmpty(ViewStateZJ))
             {
-                return;
-            }
-
-            UserInfo _userInfo = null;
-            UserManage _userManage = new UserManage();
-
-            // 判断操作类型.
-            if (OperatorType == "Add")
-            {
-                _userInfo = new UserInfo();
-
-                // 用户ID.
-                _userInfo.ObjectId = Guid.NewGuid();
+                _customer = manage.GetCustomerByObjectID(ViewStateZJ.Split(',')[0]);
             }
             else
             {
-                _userInfo = _userManage.GetUserByObjectID(UserID);
-                if (_userInfo == null)
+                _customer = manage.GetCustomerByMobilePhone(this.tbBorrowerPhone.Text.Trim());
+
+                if (_customer == null)
                 {
+                    _customer = new CustomerInfo()
+                    {
+                        ObjectId = Guid.NewGuid(),
+                        MobilePhone = this.tbBorrowerPhone.Text.Trim(),
+                        Name = this.tbBorrowerNameA.Text.Trim()
+                    };
+                    manage.AddCustomer(_customer);
+                }
+                if (!_customer.Name.Equals(this.tbBorrowerNameA.Text.Trim()))
+                {
+                    // LbTooltip.Text = "您输入手机号码的借款人姓名与已存储客户姓名不一致，请检查，谢谢！";
+                    Alert.Show("您输入手机号码的借款人姓名与已存储客户姓名不一致，请检查，谢谢！!");
                     return;
                 }
             }
 
-            // 账号.
-            _userInfo.AccountNo = tbxAccountNo.Text.Trim();
-            // 工号. 
-            _userInfo.JobNo = tbxJobNo.Text.Trim();
-            // 姓名.        
-            _userInfo.Name = tbxName.Text.Trim();
-            // 性别.          
-            // _userInfo.Sex = rblSex.SelectedIndex == 0 ? true : false;
-            // 部门.
-            // _userInfo.Dept = ddlstDept.SelectedValue;
-            // 职位.
-            _userInfo.Position = tbxPosition.Text.Trim();
-            // 入职时间.
-            if (dpkEntryDate.SelectedDate is DateTime)
-            {
-                _userInfo.EntryDate = Convert.ToDateTime(dpkEntryDate.SelectedDate);
-            }
-            // 出生日期.
-            if (dpkBirthday.SelectedDate is DateTime)
-            {
-                _userInfo.Birthday = Convert.ToDateTime(dpkBirthday.SelectedDate);
-            }
-            // 学历.
-            // _userInfo.Educational = ddlstEducational.SelectedValue;
-            // 工作年限.
-            if (!string.IsNullOrEmpty(tbxWorkYear.Text.Trim()))
-            {
-                _userInfo.WorkYear = short.Parse(tbxWorkYear.Text.Trim());
-            }
-            // 员工状态.
-            /// _userInfo.State = rblState.SelectedIndex == 0 ? (short)1 : (short)0;
-            // 联系电话.
-            _userInfo.PhoneNumber = tbxPhoneNumber.Text.Trim();
-            // 备用联系电话.
-            _userInfo.BackIpPhoneNumber = tbxBackupPhoneNumber.Text.Trim();
-            // 电子邮箱.
-            //   _userInfo.Email = tbxEmail.Text.Trim();
-            // 住址.
-            ///   _userInfo.Address = tbxAddress.Text.Trim();
 
-            // 在数据库中查看具有相同工号或账号的用户，如果存在，则添加失败.
-            List<UserInfo> lstSameUsers = _userManage.GetUsersByCondtion("ObjectID <> '" + _userInfo.ObjectId.ToString() +
-                "' and (JobNo = '" + _userInfo.JobNo + "' or AccountNo = '" + _userInfo.AccountNo + "')");
-            if (lstSameUsers.Count > 0)
-            {
-                Alert.Show("该账号或工号已存在!");
-                return;
-            }
+            _Info.ProjectName = this.tbProjectName.Text.Trim();
+            _Info.ProjectOverview = this.tbProjectOverview.Text.Trim();
 
-            // 执行操作.
+            _Info.BorrowerNameA = _customer.Name;
+            _Info.BorrowerAId = _customer.ObjectId;
+
+            _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text);
+            _Info.BorrowerPhone = this.tbBorrowerPhone.Text.Trim();
+            _Info.PayerBName = this.tbPayerBName.Text.Trim();
+            _Info.Guarantor = this.tbGuarantor.Text.Trim();
+            _Info.GuarantorPhone = this.tbGuarantorPhone.Text.Trim();
+            _Info.Collateral = this.tbCollateral.Text.Trim();
+            _Info.DueDateForPay = int.Parse(this.dpDueDateForPay.Text.Trim());
+            _Info.LoanDate = DateTime.Parse(this.dpLoanDate.Text);
+            _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
+            _Info.RateOfReturn = this.tbRateOfReturn.Text[0];
+
+            _Info.Status = status;
+        //    _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+
+            //下一步操作
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            _Info.SubmitTime = DateTime.Now;
+
+            //审批人
+            //if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            //{
+            //    _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + ";";
+            //}
+
             int result = 3;
-            if (OperatorType == "Add")
+            result = manage.Update(_Info);
+            if (result == -1)
             {
-                result = _userManage.AddUser(_userInfo);
-                if (result == -1)
-                {
-                    new RolesManage().AddRoles(new UserRoles()
-                    {
-                        UserObjectId = _userInfo.ObjectId,
-                        AccountNo = _userInfo.AccountNo,
-                        JobNo = _userInfo.JobNo,
-                        Name = _userInfo.Name,
-                        Roles = "12"
-                    });
-                    Alert.Show("添加员工成功!");
-                }
-                else
-                {
-                    Alert.Show("添加员工失败!");
-                }
+                string statusName = "修改后重新提交";//  (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
+                manage.AddHistory(_Info.ObjectId, "编辑", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+
+                Alert.Show("更新成功!");
+                PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
             {
-                result = _userManage.UpdateUser(_userInfo);
-                if (result == -1)
-                {
-                    Alert.Show("编辑员工成功!");
-                }
-                else
-                {
-                    Alert.Show("编辑员工失败!");
-                }
+                Alert.Show("更新失败!");
             }
         }
 
+
+        /// <summary>
+        /// 绑定下一步
+        /// </summary>
+        private void BindNext(bool needAccountant)
+        {
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
+            if (needAccountant)
+            {
+              //  ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+            }
+            ddlstNext.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// 绑定审批人
+        /// </summary>
+        private void ApproveUser()
+        {
+            foreach (UserInfo user in CurrentChecker)
+            {
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+            }
+
+            ddlstApproveUser.SelectedIndex = 0;
+        }
         #endregion
     }
 }

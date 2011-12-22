@@ -219,7 +219,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.Status = 1;
             _Info.SubmitTime = DateTime.Now;
             _Info.Remark = this.tbRateOfReturn.Text.Trim();
-
+            _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
             _Info.RateOfReturn = this.tbRateOfReturn.Text[0];
 
             // 创建人
@@ -246,8 +246,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             if (result == -1)
             {
-                manage.AddHistory(_Info.ObjectId, "申请", "借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
-                new CashFlowManage().AddHistory(_Info.ObjectId, "申请", "投资部借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "InvestmentLoan");
+                manage.AddHistory(_Info.ObjectId, "新增", "借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
+                new CashFlowManage().AddHistory(_Info.ObjectId, "新增", "投资部借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "InvestmentLoan");
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
