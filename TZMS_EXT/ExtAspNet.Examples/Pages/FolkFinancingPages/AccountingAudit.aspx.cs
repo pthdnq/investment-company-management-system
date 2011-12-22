@@ -183,8 +183,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 }
                 #endregion
 
-                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待领导审批";
-                manage.AddHistory(_Info.ObjectId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "出纳会计确认同意" : "同意，待领导审批";
+                manage.AddHistory(_Info.ObjectId, "会计审核", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

@@ -96,7 +96,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            if ((!string.IsNullOrEmpty(state)) && (state.Equals("3") || state.Equals("4") || state.Equals("2")))
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("4") || state.Equals("2")))
             {
                 strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
             }
@@ -104,7 +104,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
             }
-          //   strCondtion.Append("   Status<>9 "); 
+            //   strCondtion.Append("   Status<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {
@@ -243,7 +243,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
             {
                 e.Values[11] = "<span class=\"gray\">审核</span>";
-            
+
             }
         }
 

@@ -32,7 +32,7 @@
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
-                                Label="下一步">
+                                Label="下一步"   AutoPostBack="true"   OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
                             </ext:DropDownList>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
                                 RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
@@ -42,7 +42,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextArea ID="taAuditOpinion" Label="审核意见" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                                Height="50px" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -65,7 +65,7 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextArea ID="tbProjectOverview" Enabled="false" Label="项目概述" runat="server"
-                                                MaxLength="200" MaxLengthMessage="最多只能输入200个字母或数字！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                                Height="50px" MaxLength="200" MaxLengthMessage="最多只能输入200个字母或数字！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                                 RegexMessage="不能输入特殊字符!" />
                                         </Items>
                                     </ext:FormRow>
@@ -134,7 +134,8 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextArea ID="tbRemark" Enabled="false" Label="备注" runat="server" MaxLength="200"
-                                                MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!" />
+                                                Height="50px" MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                                RegexMessage="不能输入特殊字符!" />
                                         </Items>
                                     </ext:FormRow>
                                 </Rows>

@@ -74,8 +74,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             // 绑定数据.
             if (_Info != null)
             {
-              
-                #region 下一步方式 
+
+                #region 下一步方式
                 if (CurrentRoles.Contains(RoleType.DSZ))
                 {
                     BindNext(true);
@@ -135,7 +135,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
-        { 
+        {
             if (this.ddlstNext.SelectedValue.Equals("0"))
             {
                 //同意，继续审核
@@ -144,7 +144,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             else
             {
                 //审核结束，待执行
-                saveInfo(4);
+                saveInfo(5);
             }
         }
 
@@ -188,8 +188,16 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             _Info.Status = status;
 
-            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            if (status == 5)
+            {
+                _Info.NextOperaterName = "";
+                _Info.NextOperaterId = Guid.Empty;
+            }
+            else
+            {
+                _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+                _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            }
             _Info.SubmitTime = DateTime.Now;
 
             //审批人
@@ -198,12 +206,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + ";";
             }
             // 执行操作.
-            int result = 3; 
+            int result = 3;
             result = manage.Update(_Info);
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 5) ? "同意，继续审核" : "同意";
-                manage.AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                string statusName = (status == 2) ? "不同意" : (status == 5) ? "同意，继续审批" : "同意，归档";
+                manage.AddHistory(_Info.ObjectId, "审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

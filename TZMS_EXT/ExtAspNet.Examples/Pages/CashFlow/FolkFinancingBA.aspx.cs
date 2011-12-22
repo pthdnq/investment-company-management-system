@@ -186,10 +186,24 @@ namespace TZMS.Web.Pages.CashFlow
            // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             _Info.BAStatus = status;
 
-            _Info.NextBAOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextBAOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            //下一步操作
+            if (status == 4 || status == 2)
+            {
+                //归档
+                _Info.NextBAOperaterName = "";
+                _Info.NextBAOperaterId = Guid.Empty;
+            }
+            else
+            {
+                _Info.NextBAOperaterName = this.ddlstApproveUser.SelectedText;
+                _Info.NextBAOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            }
             _Info.SubmitBATime = DateTime.Now;
-
+            //BA审批人组
+            if (!_Info.BAAdulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            {
+                _Info.BAAdulters = _Info.BAAdulters + this.CurrentUser.ObjectId.ToString() + ";";
+            }
             // 执行操作.
             int result = 3;
             result = manage.Update(_Info);

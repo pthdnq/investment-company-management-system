@@ -167,14 +167,20 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.SubmitTime = DateTime.Now;
+
+            //审批人
+            if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            {
+                _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + ";";
+            }
             // 执行操作.
             int result = 3;
 
             result = manage.UpdateProcess(_Info);
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
-                manage.AddHistory(true, _Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意，待出纳会计审核";
+                manage.AddHistory(true, _Info.ObjectId, "审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

@@ -80,7 +80,7 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="InvestmentLoanBA.aspx?ID={0}"
-                                Title="审核" WindowID="wndNew" />
+                                Title="会计核算" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />
                         </Columns>
@@ -90,7 +90,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="615px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="565px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

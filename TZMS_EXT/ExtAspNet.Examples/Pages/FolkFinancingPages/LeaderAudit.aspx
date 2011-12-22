@@ -32,7 +32,7 @@
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
-                                Label="下一步"  OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
+                                Label="下一步" AutoPostBack="true"  OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
                             </ext:DropDownList>
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
                                 RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
@@ -41,7 +41,7 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
-                            <ext:TextArea ID="taAuditOpinion" Label="审核备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！"
+                            <ext:TextArea ID="taAuditOpinion" Required="true" ShowRedStar="true"  Label="审核备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！"
                                 Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                             </ext:TextArea>
                         </Items>

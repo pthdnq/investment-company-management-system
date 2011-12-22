@@ -79,7 +79,7 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanBA.aspx?ID={0}"
-                                Title="审核" WindowID="wndNew" />
+                                Title="会计核算" WindowID="wndNew" />
                             <ext:LinkButtonField Width="38px" Hidden="true" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>

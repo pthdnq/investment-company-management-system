@@ -42,7 +42,7 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="taAuditOpinion" Label="审批说明" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                            <ext:TextArea ID="taAuditOpinion" Label="审批备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
