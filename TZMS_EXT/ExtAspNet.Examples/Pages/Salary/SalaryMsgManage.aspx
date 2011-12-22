@@ -52,7 +52,8 @@
                             </ext:Button>
                             <ext:Button ID="btnSave" runat="server" Text="保存所有员工薪资信息" Icon="Disk" OnClick="btnSave_Click">
                             </ext:Button>
-                            <ext:Button ID="btnNewWorkerSalary" runat="server" Text="新增员工薪资信息" Hidden="false" Icon="Add" OnClick="btnNewWorkerSalary_Click">
+                            <ext:Button ID="btnNewWorkerSalary" runat="server" Text="新增员工薪资信息" Hidden="false"
+                                Icon="Add" OnClick="btnNewWorkerSalary_Click">
                             </ext:Button>
                         </Items>
                     </ext:Toolbar>
@@ -68,46 +69,166 @@
                             <ext:BoundField DataField="SalaryMsgID" Hidden="true" />
                             <ext:BoundField DataField="Name" HeaderText="员工姓名" />
                             <ext:BoundField DataField="Dept" HeaderText="部门" />
-                            <ext:TemplateField HeaderText="基本工资">
+                            <ext:TemplateField HeaderText="基本工资" Hidden="true">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxBaseSalary" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"BaseSalary") %>'
                                         MaxLength="21" Width="80px" Style="ime-mode: disabled" onkeypress="if ((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46) event.returnValue=false;"></asp:TextBox>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:TemplateField HeaderText="考核工资">
+                            <ext:TemplateField HeaderText="考核工资" Hidden="true">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxExamSalary" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ExamSalary") %>'
                                         MaxLength="21" Width="80px" Style="ime-mode: disabled" onkeypress="if ((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46) event.returnValue=false;"></asp:TextBox>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:TemplateField HeaderText="补贴">
+                            <ext:TemplateField HeaderText="补贴" Hidden="true">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxBackSalary" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "BackSalary") %>'
                                         MaxLength="21" Width="80px" Style="ime-mode: disabled" onkeypress="if ((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46) event.returnValue=false;"></asp:TextBox>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:TemplateField HeaderText="其它">
+                            <ext:TemplateField HeaderText="其它" Hidden="true">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxOtherSalary" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "OtherSalary") %>'
                                         MaxLength="21" Width="80px" Style="ime-mode: disabled" onkeypress="if ((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46) event.returnValue=false;"></asp:TextBox>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:TemplateField HeaderText="应发工资总额">
+                            <ext:TemplateField HeaderText="应发工资总额" Hidden="true">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxShouldSalary" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ShouldSalary") %>'
                                         MaxLength="21" Width="80px" Style="ime-mode: disabled" onkeypress="if ((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46) event.returnValue=false;"></asp:TextBox>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:TemplateField HeaderText="实发工资总额">
+                            <ext:TemplateField HeaderText="实发工资总额" Hidden="true">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxSalary" runat="server" MaxLength="21" Width="80px" Text='<%# DataBinder.Eval(Container.DataItem, "Salary") %>'
                                         Style="ime-mode: disabled" onkeypress="if ((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46) event.returnValue=false;"></asp:TextBox>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:TemplateField HeaderText="备注" ExpandUnusedSpace="true">
+                            <ext:TemplateField HeaderText="基本工资" Width="150px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxJBGZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"JBGZ") %>'
+                                        MaxLength="50" Width="135px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="工龄工资">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxGLGZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"GLGZ") %>'
+                                        MaxLength="50" Width="85px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="试用期补发工资" Width="150px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxSYQGZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"SYQGZ") %>'
+                                        MaxLength="50" Width="135px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="年终奖">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxNZJ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"NZJ") %>'
+                                        MaxLength="50" Width="85px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="奖励工资">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxJLGZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"JLGZ") %>'
+                                        MaxLength="50" Width="85px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="考核工资">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxKHGZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"KHGZ") %>'
+                                        MaxLength="50" Width="85px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="餐补">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxCB" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"CB") %>'
+                                        MaxLength="50" Width="85px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="交通补助">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxJTBZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"JTBZ") %>'
+                                        MaxLength="50" Width="85px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="应发工资">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxYFGZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"YFGZ") %>'
+                                        MaxLength="50" Width="85px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="迟到" Width="60px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxCD" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"CD") %>'
+                                        MaxLength="50" Width="45px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="早退" Width="60px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxZT" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"ZT") %>'
+                                        MaxLength="50" Width="45px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="旷工" Width="60px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxKG" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"KG") %>'
+                                        MaxLength="50" Width="45px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="事假" Width="60px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxSJ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"SJ") %>'
+                                        MaxLength="50" Width="45px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="病假" Width="60px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxBJ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"BJ") %>'
+                                        MaxLength="50" Width="45px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="社保" Width="60px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxSB" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"SB") %>'
+                                        MaxLength="50" Width="45px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="罚款" Width="60px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxFK" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"FK") %>'
+                                        MaxLength="50" Width="45px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="餐费" Width="60px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxCF" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"CF") %>'
+                                        MaxLength="50" Width="45px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="保洁费" Width="60px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxBJF" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"BJF") %>'
+                                        MaxLength="50" Width="45px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="旅游费" Width="60px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxLYF" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"LYF") %>'
+                                        MaxLength="50" Width="45px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="实发工资" Width="60px">
+                                <ItemTemplate>
+                                    <asp:TextBox ID="tbxSFGZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"SFGZ") %>'
+                                        MaxLength="50" Width="45px"></asp:TextBox>
+                                </ItemTemplate>
+                            </ext:TemplateField>
+                            <ext:TemplateField HeaderText="备注" Width="200px">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxContext" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Context") %>'
-                                        MaxLength="100" Width="200px"></asp:TextBox>
+                                        MaxLength="100" Width="185px"></asp:TextBox>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:LinkButtonField Width="38px" Text="保存" CommandName="Save" />
@@ -122,9 +243,9 @@
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
         Height="500px" Width="700px" OnClose="wndNewSalaryMsg_Close">
     </ext:Window>
-        <ext:Window ID="wndNewWorkerSalaryMsg" Title="添加员工薪资信息" Popup="false" EnableIFrame="true"
+    <ext:Window ID="wndNewWorkerSalaryMsg" Title="添加员工薪资信息" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
-        Height="500px" Width="700px" onclose="wndNewWorkerSalaryMsg_Close">
+        Height="500px" Width="700px" OnClose="wndNewWorkerSalaryMsg_Close">
     </ext:Window>
     </form>
 </body>
