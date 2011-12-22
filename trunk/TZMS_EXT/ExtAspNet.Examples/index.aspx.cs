@@ -47,11 +47,12 @@ namespace TZMS.Web
 
                 if (!string.IsNullOrEmpty(CurrentUser.Position))
                 {
-                    labuserName.Text = "您好！ " + CurrentUser.Name + "（" + CurrentUser.Position + "）  ";
+                    labuserName.Text = "当前登录用户：" + CurrentUser.Name +"   职位："+  CurrentUser.Position ;
                 }
                 else
                 {
-                    labuserName.Text = "您好！ " + CurrentUser.Name + "   ";
+                    labuserName.Text = "当前登录用户：" + CurrentUser.Name + "   职位：" + CurrentUser.Position;
+
                 }
                 // 审批人设置注册23:14
                 setChecker.OnClientClick = newSetCheckerWindow.GetShowReference(@"Pages\system\SetMyChecker.aspx") + " return false;";

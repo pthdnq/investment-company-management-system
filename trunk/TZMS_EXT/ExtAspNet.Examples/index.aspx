@@ -60,8 +60,8 @@
 
                              <br />
                            
-                                <asp:Label s ID="labuserName" ForeColor="White" runat="server" Text="您好！ 李海（业务员）"></asp:Label>
-                               <table><tr><td> <img  src="images/help_circle.png"/></td><td> <asp:LinkButton ID="likButuon"  ToolTip="点击打开系统帮助" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="帮助"></asp:LinkButton></td>                                                              <td> <img  src="images/cross.png"/></td><td><asp:LinkButton ID="labuserNasme"  ToolTip="点击退出系统" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="退出系统"></asp:LinkButton></td></tr></table>
+                                <asp:Label  ID="labuserName" ForeColor="White" runat="server" Text="您好！ 李海（业务员）"></asp:Label>
+                               <br />                               <table><tr><td> <img  src="images/help_circle.png"/></td><td> <asp:LinkButton ID="likButuon"  ToolTip="点击打开系统帮助" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="帮助"></asp:LinkButton></td>                                                              <td> <img  src="images/cross.png"/></td><td><asp:LinkButton ID="labuserNasme"  ToolTip="点击退出系统" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="退出系统"></asp:LinkButton></td></tr></table>
                                
                                
                                
