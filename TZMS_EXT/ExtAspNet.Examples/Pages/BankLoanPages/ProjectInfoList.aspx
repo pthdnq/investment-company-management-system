@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProjectInfoList.aspx.cs" Inherits="TZMS.Web.Pages.BankLoanPages.ProjectInfoList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProjectInfoList.aspx.cs"
+    Inherits="TZMS.Web.Pages.BankLoanPages.ProjectInfoList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>项目情况列表</title>
@@ -22,9 +22,9 @@
                             <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
                                 ID="ttbSearch" />
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
-                                <ext:ListItem Text="待审核" Value="1"/>
+                                <ext:ListItem Text="待审核" Value="1" />
                                 <ext:ListItem Text="审核中" Value="3" />
-                                <ext:ListItem Text="已通过" Value="4" Selected="true"  />
+                                <ext:ListItem Text="已通过" Value="4" Selected="true" />
                                 <ext:ListItem Text="未通过" Value="2" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
@@ -63,38 +63,38 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                               <ext:BoundField  ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="120px" DataField="CustomerName" HeaderText="客户名称" />
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="56px" DataField="CustomerName" HeaderText="客户名称" />
                             <ext:BoundField Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="贷款金额" />
                             <ext:BoundField Width="80px" DataField="LoanFee" HeaderText="贷款手续费" />
-                            <ext:BoundField Width="105px" DataField="CollateralCompany"  HeaderText="抵押物公司" />
-                            <ext:BoundField Width="110px" DataField="SignDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="签订日期" />
+                            <ext:BoundField Hidden="true" Width="100px" DataField="CollateralCompany" HeaderText="抵押物公司" />
+                            <ext:BoundField Width="66px" DataField="SignDate" DataFormatString="{0:yyyy/MM/dd}"
+                                HeaderText="签订日期" />
                             <ext:BoundField Width="80px" DataField="DownPayment" HeaderText="预付订金" />
-                            <ext:BoundField  ExpandUnusedSpace="true" DataField="Contact" HeaderText="联系方式" />
-                                 <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
-                            <ext:TemplateField Width="76px" HeaderText="状态">
+                            <ext:BoundField Width="80px" DataField="Contact" HeaderText="联系方式" />
+                            <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
+                            <ext:TemplateField Width="56px" HeaderText="状态">
                                 <ItemTemplate>
-                                        <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                                <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}"
+                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}"
                                 Title="查看" WindowID="wndView" />
-                            <ext:WindowField Width="114px" Text="提交项目进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
+                            <ext:WindowField Width="110px" Text="提交项目进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectInfo.aspx?ID={0}"
                                 Title="提交项目进展" WindowID="wndNew" />
-                <%--            <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />--%>
+                            <%--            <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />--%>
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-    
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="442px" Width="620px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="442px" Width="660px" OnClose="wndNew_Close">
     </ext:Window>
-     <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="443px" Width="550px" OnClose="wndNew_Close">
+    <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="454px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

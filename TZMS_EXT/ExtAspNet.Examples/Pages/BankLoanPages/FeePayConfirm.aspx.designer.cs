@@ -76,6 +76,15 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.Button btnSave;
         
         /// <summary>
+        /// ToolbarSeparator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.ToolbarSeparator ToolbarSeparator1;
+        
+        /// <summary>
         /// hlPrinter control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,24 @@ namespace TZMS.Web.Pages.BankLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.HyperLink hlPrinter;
+        
+        /// <summary>
+        /// ToolbarSeparator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.ToolbarSeparator ToolbarSeparator3;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Label1;
         
         /// <summary>
         /// Form2 control.
@@ -119,6 +146,15 @@ namespace TZMS.Web.Pages.BankLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.DropDownList ddlstApproveUser;
+        
+        /// <summary>
+        /// taFeeConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea taFeeConfirm;
         
         /// <summary>
         /// TabStrip1 control.
@@ -172,7 +208,7 @@ namespace TZMS.Web.Pages.BankLoanPages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpExpendedTime;
+        protected global::ExtAspNet.TextBox dpExpendedTime;
         
         /// <summary>
         /// tbImprestAmount control.
@@ -200,15 +236,6 @@ namespace TZMS.Web.Pages.BankLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextArea taAuditOpinion;
-        
-        /// <summary>
-        /// taFeeConfirm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextArea taFeeConfirm;
         
         /// <summary>
         /// tabHistory control.

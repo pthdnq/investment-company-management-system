@@ -20,8 +20,12 @@
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
                         Icon="Disk" Text="支付确认" ConfirmText="您确认该支付信息吗?" />
-                    <ext:HyperLink runat="server" Text="打印明细单" ID="hlPrinter"  Target="_blank" >
+                    <ext:ToolbarSeparator ID="ToolbarSeparator1" runat="server" />
+                    <ext:HyperLink runat="server" ShowLabel="false" Text="打印明细单" ID="hlPrinter" Target="_blank">
                     </ext:HyperLink>
+                    <ext:ToolbarSeparator ID="ToolbarSeparator3" runat="server" />
+                    <ext:Label ID="Label1" runat="server" Text="提示：备用金支付确认后提交下一步审核人进行进展审核。">
+                    </ext:Label>
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -37,6 +41,13 @@
                             <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
                                 RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
                             </ext:DropDownList>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="50% 50%">
+                        <Items>
+                            <ext:TextArea ID="taFeeConfirm" Label="支付备注" ShowRedStar="true" Required="true" runat="server"
+                                MaxLength="200" MaxLengthMessage="最多只能输入200个字母或数字！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                RegexMessage="不能输入特殊字符!" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -85,8 +96,8 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:DatePicker ID="dpExpendedTime" Enabled="false" Label="支用时间" runat="server">
-                                            </ext:DatePicker>
+                                            <ext:TextBox ID="dpExpendedTime" Enabled="false" Label="支用时间" runat="server">
+                                            </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
@@ -108,13 +119,6 @@
                                                 MaxLengthMessage="最多只能输入200个字符！" />
                                         </Items>
                                     </ext:FormRow>
-                                    <ext:FormRow ColumnWidths="50% 50%">
-                                        <Items>
-                                            <ext:TextArea ID="taFeeConfirm" Label="支付备注" ShowRedStar="true" Required="true" runat="server"
-                                                MaxLength="200" MaxLengthMessage="最多只能输入200个字母或数字！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                                RegexMessage="不能输入特殊字符!" />
-                                        </Items>
-                                    </ext:FormRow>
                                 </Rows>
                             </ext:Form>
                         </Items>
@@ -126,7 +130,7 @@
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                            <%--        <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
+                                    <%--        <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
                                     <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />

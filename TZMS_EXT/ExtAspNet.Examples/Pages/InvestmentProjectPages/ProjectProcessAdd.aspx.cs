@@ -173,7 +173,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             result = manage.AddProcess(_Info);
             if (result == -1)
             {
-                manage.AddHistory(true, _Info.ObjectId, "新增", "新增项目进展", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
+                string strDesc = string.Format("项目进展新增-{0}备用金", (_Info.NeedImprest) ? "申请" : "无");
+                manage.AddHistory(true, _Info.ObjectId, "新增", strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
 
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

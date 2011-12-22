@@ -100,7 +100,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
 
             this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectProcessAdd.aspx?ID=" + ForID, "新增 - 进展");
-            this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference(); 
+            this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <summary>
         /// 绑定列表
         /// </summary>
-        private void BindGridData(string forID,string state, string searchText)
+        private void BindGridData(string forID, string state, string searchText)
         {
             searchText = string.Empty;
             forID = ForID;
@@ -138,7 +138,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
             //未删除
             strCondtion.Append(" Status<>9 ");
-          //  strCondtion.Append(" AND CreaterID = '" + this.CurrentUser.ObjectId + "' "); 
+            //  strCondtion.Append(" AND CreaterID = '" + this.CurrentUser.ObjectId + "' "); 
             #endregion
 
             List<com.TZMS.Model.BankLoanProjectProcessInfo> lstUserInfo = new BankLoanManage().GetProcessByCondtion(strCondtion.ToString());
@@ -226,12 +226,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             com.TZMS.Model.BankLoanProjectProcessInfo info = manage.GetProcessByObjectID(objectID);
 
-            if (e.CommandName == "Leave")
-            {
-                // 离职
-                info.Status = 0;
-            }
-            else if (e.CommandName == "Delete")
+            if (e.CommandName == "Delete")
             {
                 // 删除
                 info.Status = 9;
@@ -249,13 +244,13 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            //com.TZMS.Model.ProjectProcessInfo _Info = (com.TZMS.Model.ProjectProcessInfo)e.DataItem;
+            com.TZMS.Model.BankLoanProjectProcessInfo _Info = (com.TZMS.Model.BankLoanProjectProcessInfo)e.DataItem;
 
-            //if (_Info.Status == 0)
-            //{
-            //    e.Values[9] = "<span class=\"gray\">权限</span>";
-            //    e.Values[10] = "<span class=\"gray\">离职</span>";
-            //}
+            if (_Info.Status != 1)
+            {
+
+                e.Values[8] = "<span class=\"gray\">删除</span>";
+            }
         }
 
         /// <summary>
@@ -268,6 +263,48 @@ namespace TZMS.Web.Pages.BankLoanPages
             BindGridData(ForID, ViewStateState, ViewStateSearchText);
         }
 
+        #endregion
+
+        #region 自定义方法
+        /// <summary>
+        /// 获取状态名字
+        /// </summary>
+        /// <param name="strStatus"></param>
+        /// <returns></returns>
+        protected string GetStatusName(string strStatus)
+        {
+            string StrStatusName = string.Empty;
+            switch (strStatus)
+            {
+                case "0":
+                    //  strCondtion.Append(" AND Status = 1 ");
+                    break;
+                case "1":
+                    StrStatusName = "待审核";
+                    break;
+                case "2":
+                    StrStatusName = "未通过";
+                    break;
+                case "3":
+                    StrStatusName = "审核中";
+                    break;
+                case "4":
+                    StrStatusName = "已通过";
+                    break;
+                case "5":
+                    StrStatusName = "待审核";
+                    break;
+                case "6":
+                    StrStatusName = "已通过";
+                    break;
+                case "9":
+                    StrStatusName = "已删除";
+                    break;
+                default:
+                    break;
+            }
+            return StrStatusName;
+        }
         #endregion
     }
 }
