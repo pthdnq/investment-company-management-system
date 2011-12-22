@@ -37,12 +37,12 @@ namespace TZMS.Web
                 {
                     ExtAspNet.Alert.Show("您有新的消息！", "消息提示");
                     AccordionPane8.Title = "消息管理(您有新的消息)";
-                    AccordionPane8.IconUrl = "images/16/消息管理_动态.gif";
+                    //AccordionPane8.IconUrl = "images/16/消息管理_动态.gif";
                 }
                 else
                 {
                     AccordionPane8.Title = "消息管理";
-                    AccordionPane8.IconUrl = "images/16/消息管理.png";
+                    //AccordionPane8.IconUrl = "images/16/消息管理.png";
                 }
 
                 if (!string.IsNullOrEmpty(CurrentUser.Position))
