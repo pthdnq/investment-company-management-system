@@ -221,6 +221,7 @@
     <Content Include="images\CommonTitleBg.jpg" />
     <Content Include="images\computer.png" />
     <Content Include="images\corpandroot.bmp" />
+    <Content Include="images\cross.png" />
     <Content Include="images\dept.bmp" />
     <Content Include="images\DeptIcon.JPG" />
     <Content Include="images\diamond-black.gif" />
@@ -243,6 +244,7 @@
     <Content Include="images\grsz.jpg" />
     <Content Include="images\Head_bg.jpg" />
     <Content Include="images\helplogin.gif" />
+    <Content Include="images\help_circle.png" />
     <Content Include="images\hide.gif" />
     <Content Include="images\hy.jpg" />
     <Content Include="images\ico_16_129.gif" />
