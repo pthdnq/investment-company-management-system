@@ -77,6 +77,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@AuditOpinion",DbType.String),
 				new SqlParameter("@AccountingRemark",DbType.String),
+                			new SqlParameter("@Adulters",DbType.String),
 				};
 
                 int i = 0;
@@ -103,6 +104,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProjectProcessInfo.SubmitTime;
                 sqlparam[i++].Value = ProjectProcessInfo.AuditOpinion;
                 sqlparam[i++].Value = ProjectProcessInfo.AccountingRemark;
+                sqlparam[i++].Value = ProjectProcessInfo.Adulters;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -180,6 +182,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@AuditOpinion",DbType.String),
 				new SqlParameter("@AccountingRemark",DbType.String),
+                new SqlParameter("@Adulters",DbType.String),
                 };
 
                 int i = 0;
@@ -206,6 +209,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProjectProcessInfo.SubmitTime;
                 sqlparam[i++].Value = ProjectProcessInfo.AuditOpinion;
                 sqlparam[i++].Value = ProjectProcessInfo.AccountingRemark;
+                sqlparam[i++].Value = ProjectProcessInfo.Adulters;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
