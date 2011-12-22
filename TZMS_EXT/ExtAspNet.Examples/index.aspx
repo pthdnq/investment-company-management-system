@@ -56,10 +56,10 @@
                             </td>
                             <td align="right">
                              <br />
-                              <br />
+                           
                                 <asp:Label s ID="labuserName" ForeColor="White" runat="server" Text="您好！ 李海（业务员）"></asp:Label>
                                 <br />
-                                <asp:LinkButton ID="labuserNasme" ToolTip="点击退出系统" ForeColor="Yellow" OnClientClick="return SystemBack();" runat="server" Text="退出"></asp:LinkButton>
+                                 <img  src="images/help_circle.png"/><asp:LinkButton ID="likButuon"  ToolTip="点击打开系统帮助" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="帮助"></asp:LinkButton><img  src="images/cross.png"/><asp:LinkButton ID="labuserNasme"  ToolTip="点击退出系统" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="退出系统"></asp:LinkButton>
                             </td>
                             <td style="width:20px;"></td>
                         </tr>
