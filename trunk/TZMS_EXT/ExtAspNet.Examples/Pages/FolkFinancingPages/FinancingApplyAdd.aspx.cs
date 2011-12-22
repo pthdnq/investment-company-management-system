@@ -76,7 +76,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.LoanType = this.ddlLoanType.SelectedValue;
 
             _Info.Remark = this.tbRemark.Text.Trim();
-            _Info.Status = 1;
+            //待会计审核
+            _Info.Status = 4;
 
             _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
             //补充申请人及下一步审核人信息
