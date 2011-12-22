@@ -1,7 +1,7 @@
 ﻿//----------------------------------------------------------------------------------------------------
 //程序名:	WorkerSalaryMsg 控制类
 //功能:  	定义了与 dbo.WorkerSalaryMsg 表 对应的数据访问控制类
-//作者:  	shunlian
+//作者:  	xiguazerg
 //时间:	2011-10-26 
 //----------------------------------------------------------------------------------------------------
 //更改历史:
@@ -22,7 +22,7 @@ namespace com.TZMS.DataAccess
 {
     /// <summary>
     /// WorkerSalaryMsgCtrl
-    /// programmer:shunlian
+    /// programmer:xiguazerg
     /// </summary>
     public class WorkerSalaryMsgCtrl
     {
@@ -66,6 +66,26 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Salary",DbType.Guid),
 				new SqlParameter("@Context",DbType.String),
 				new SqlParameter("@SalaryMsgId",DbType.Guid),
+				new SqlParameter("@Jbgz",DbType.String),
+				new SqlParameter("@Glgz",DbType.String),
+				new SqlParameter("@Syqgz",DbType.String),
+				new SqlParameter("@Nzj",DbType.String),
+				new SqlParameter("@Jlgz",DbType.String),
+				new SqlParameter("@Khgz",DbType.String),
+				new SqlParameter("@Cb",DbType.String),
+				new SqlParameter("@Jtbz",DbType.String),
+				new SqlParameter("@Yfgz",DbType.String),
+				new SqlParameter("@Cd",DbType.String),
+				new SqlParameter("@Zt",DbType.String),
+				new SqlParameter("@Kg",DbType.String),
+				new SqlParameter("@Sj",DbType.String),
+				new SqlParameter("@Bj",DbType.String),
+				new SqlParameter("@Sb",DbType.String),
+				new SqlParameter("@Fk",DbType.String),
+				new SqlParameter("@Cf",DbType.String),
+				new SqlParameter("@Bjf",DbType.String),
+				new SqlParameter("@Lyf",DbType.String),
+				new SqlParameter("@Sfgz",DbType.String),
 				};
 
                 int i = 0;
@@ -81,6 +101,26 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.Salary;
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.Context;
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.SalaryMsgId;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Jbgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Glgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Syqgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Nzj;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Jlgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Khgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Cb;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Jtbz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Yfgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Cd;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Zt;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Kg;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Sj;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Bj;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Sb;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Fk;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Cf;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Bjf;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Lyf;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Sfgz;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -106,7 +146,7 @@ namespace com.TZMS.DataAccess
 
                 SqlParameter[] sqlparam =
 				{
-					new SqlParameter ( "@Condition", SqlDbType.NVarChar )
+					new SqlParameter ( "@ObjectID", SqlDbType.NVarChar )
 				};
                 int i = 0;
                 sqlparam[i++].Value = objectID;
@@ -147,6 +187,26 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Salary",DbType.Guid),
 				new SqlParameter("@Context",DbType.String),
 				new SqlParameter("@SalaryMsgId",DbType.Guid),
+				new SqlParameter("@Jbgz",DbType.String),
+				new SqlParameter("@Glgz",DbType.String),
+				new SqlParameter("@Syqgz",DbType.String),
+				new SqlParameter("@Nzj",DbType.String),
+				new SqlParameter("@Jlgz",DbType.String),
+				new SqlParameter("@Khgz",DbType.String),
+				new SqlParameter("@Cb",DbType.String),
+				new SqlParameter("@Jtbz",DbType.String),
+				new SqlParameter("@Yfgz",DbType.String),
+				new SqlParameter("@Cd",DbType.String),
+				new SqlParameter("@Zt",DbType.String),
+				new SqlParameter("@Kg",DbType.String),
+				new SqlParameter("@Sj",DbType.String),
+				new SqlParameter("@Bj",DbType.String),
+				new SqlParameter("@Sb",DbType.String),
+				new SqlParameter("@Fk",DbType.String),
+				new SqlParameter("@Cf",DbType.String),
+				new SqlParameter("@Bjf",DbType.String),
+				new SqlParameter("@Lyf",DbType.String),
+				new SqlParameter("@Sfgz",DbType.String),
                 };
 
                 int i = 0;
@@ -162,6 +222,26 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.Salary;
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.Context;
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.SalaryMsgId;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Jbgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Glgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Syqgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Nzj;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Jlgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Khgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Cb;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Jtbz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Yfgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Cd;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Zt;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Kg;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Sj;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Bj;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Sb;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Fk;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Cf;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Bjf;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Lyf;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.Sfgz;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -243,59 +323,139 @@ namespace com.TZMS.DataAccess
         /// </summary>
         /// <param name="WorkerSalaryMsgDataRow">WorkerSalaryMsgDataRow</param>
         /// <returns>WorkerSalaryMsgInfo</returns>
-        internal WorkerSalaryMsgInfo WorkerSalaryMsgInfoRowToInfo(DataRow WorkerSalaryMsgInfoInfoDataRow)
+        internal WorkerSalaryMsgInfo WorkerSalaryMsgInfoRowToInfo(DataRow InfoDataRow)
         {
-            WorkerSalaryMsgInfo WorkerSalaryMsgInfoInfo = new WorkerSalaryMsgInfo();
-            if (WorkerSalaryMsgInfoInfoDataRow["ObjectId"] != null)
+            WorkerSalaryMsgInfo Info = new WorkerSalaryMsgInfo();
+            if (InfoDataRow["ObjectId"] != null)
             {
-                WorkerSalaryMsgInfoInfo.ObjectId = new Guid(DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "ObjectId"));
+                Info.ObjectId = new Guid(DataUtil.GetStringValueOfRow(InfoDataRow, "ObjectId"));
             }
-            if (WorkerSalaryMsgInfoInfoDataRow["UserId"] != null)
+            if (InfoDataRow["UserId"] != null)
             {
-                WorkerSalaryMsgInfoInfo.UserId = new Guid(DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "UserId"));
+                Info.UserId = new Guid(DataUtil.GetStringValueOfRow(InfoDataRow, "UserId"));
             }
-            if (WorkerSalaryMsgInfoInfoDataRow["Name"] != null)
+            if (InfoDataRow["Name"] != null)
             {
-                WorkerSalaryMsgInfoInfo.Name = DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "Name");
+                Info.Name = DataUtil.GetStringValueOfRow(InfoDataRow, "Name");
             }
-            if (WorkerSalaryMsgInfoInfoDataRow["Dept"] != null)
+            if (InfoDataRow["Dept"] != null)
             {
-                WorkerSalaryMsgInfoInfo.Dept = DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "Dept");
+                Info.Dept = DataUtil.GetStringValueOfRow(InfoDataRow, "Dept");
             }
-            if (WorkerSalaryMsgInfoInfoDataRow["BaseSalary"] != null)
+            if (InfoDataRow["BaseSalary"] != null)
             {
-                WorkerSalaryMsgInfoInfo.BaseSalary = decimal.Parse(DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "BaseSalary"));
+                Info.BaseSalary = Convert.ToDecimal(DataUtil.GetStringValueOfRow(InfoDataRow, "BaseSalary"));
             }
-            if (WorkerSalaryMsgInfoInfoDataRow["ExamSalary"] != null)
+            if (InfoDataRow["ExamSalary"] != null)
             {
-                WorkerSalaryMsgInfoInfo.ExamSalary = decimal.Parse(DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "ExamSalary"));
+                Info.ExamSalary = Convert.ToDecimal(DataUtil.GetStringValueOfRow(InfoDataRow, "ExamSalary"));
             }
-            if (WorkerSalaryMsgInfoInfoDataRow["BackSalary"] != null)
+            if (InfoDataRow["BackSalary"] != null)
             {
-                WorkerSalaryMsgInfoInfo.BackSalary = decimal.Parse(DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "BackSalary"));
+                Info.BackSalary = Convert.ToDecimal(DataUtil.GetStringValueOfRow(InfoDataRow, "BackSalary"));
             }
-            if (WorkerSalaryMsgInfoInfoDataRow["OtherSalary"] != null)
+            if (InfoDataRow["OtherSalary"] != null)
             {
-                WorkerSalaryMsgInfoInfo.OtherSalary = decimal.Parse(DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "OtherSalary"));
+                Info.OtherSalary = Convert.ToDecimal(DataUtil.GetStringValueOfRow(InfoDataRow, "OtherSalary"));
             }
-            if (WorkerSalaryMsgInfoInfoDataRow["ShouldSalary"] != null)
+            if (InfoDataRow["ShouldSalary"] != null)
             {
-                WorkerSalaryMsgInfoInfo.ShouldSalary = decimal.Parse(DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "ShouldSalary"));
+                Info.ShouldSalary = Convert.ToDecimal(DataUtil.GetStringValueOfRow(InfoDataRow, "ShouldSalary"));
             }
-            if (WorkerSalaryMsgInfoInfoDataRow["Salary"] != null)
+            if (InfoDataRow["Salary"] != null)
             {
-                WorkerSalaryMsgInfoInfo.Salary = decimal.Parse(DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "Salary"));
+                Info.Salary = Convert.ToDecimal(DataUtil.GetStringValueOfRow(InfoDataRow, "Salary"));
             }
-            if (WorkerSalaryMsgInfoInfoDataRow["Context"] != null)
+            if (InfoDataRow["Context"] != null)
             {
-                WorkerSalaryMsgInfoInfo.Context = DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "Context");
+                Info.Context = DataUtil.GetStringValueOfRow(InfoDataRow, "Context");
             }
-            if (WorkerSalaryMsgInfoInfoDataRow["SalaryMsgId"] != null)
+            if (InfoDataRow["SalaryMsgId"] != null)
             {
-                WorkerSalaryMsgInfoInfo.SalaryMsgId = new Guid(DataUtil.GetStringValueOfRow(WorkerSalaryMsgInfoInfoDataRow, "SalaryMsgId"));
+                Info.SalaryMsgId = new Guid(DataUtil.GetStringValueOfRow(InfoDataRow, "SalaryMsgId"));
+            }
+            if (InfoDataRow["Jbgz"] != null)
+            {
+                Info.Jbgz = DataUtil.GetStringValueOfRow(InfoDataRow, "Jbgz");
+            }
+            if (InfoDataRow["Glgz"] != null)
+            {
+                Info.Glgz = DataUtil.GetStringValueOfRow(InfoDataRow, "Glgz");
+            }
+            if (InfoDataRow["Syqgz"] != null)
+            {
+                Info.Syqgz = DataUtil.GetStringValueOfRow(InfoDataRow, "Syqgz");
+            }
+            if (InfoDataRow["Nzj"] != null)
+            {
+                Info.Nzj = DataUtil.GetStringValueOfRow(InfoDataRow, "Nzj");
+            }
+            if (InfoDataRow["Jlgz"] != null)
+            {
+                Info.Jlgz = DataUtil.GetStringValueOfRow(InfoDataRow, "Jlgz");
+            }
+            if (InfoDataRow["Khgz"] != null)
+            {
+                Info.Khgz = DataUtil.GetStringValueOfRow(InfoDataRow, "Khgz");
+            }
+            if (InfoDataRow["Cb"] != null)
+            {
+                Info.Cb = DataUtil.GetStringValueOfRow(InfoDataRow, "Cb");
+            }
+            if (InfoDataRow["Jtbz"] != null)
+            {
+                Info.Jtbz = DataUtil.GetStringValueOfRow(InfoDataRow, "Jtbz");
+            }
+            if (InfoDataRow["Yfgz"] != null)
+            {
+                Info.Yfgz = DataUtil.GetStringValueOfRow(InfoDataRow, "Yfgz");
+            }
+            if (InfoDataRow["Cd"] != null)
+            {
+                Info.Cd = DataUtil.GetStringValueOfRow(InfoDataRow, "Cd");
+            }
+            if (InfoDataRow["Zt"] != null)
+            {
+                Info.Zt = DataUtil.GetStringValueOfRow(InfoDataRow, "Zt");
+            }
+            if (InfoDataRow["Kg"] != null)
+            {
+                Info.Kg = DataUtil.GetStringValueOfRow(InfoDataRow, "Kg");
+            }
+            if (InfoDataRow["Sj"] != null)
+            {
+                Info.Sj = DataUtil.GetStringValueOfRow(InfoDataRow, "Sj");
+            }
+            if (InfoDataRow["Bj"] != null)
+            {
+                Info.Bj = DataUtil.GetStringValueOfRow(InfoDataRow, "Bj");
+            }
+            if (InfoDataRow["Sb"] != null)
+            {
+                Info.Sb = DataUtil.GetStringValueOfRow(InfoDataRow, "Sb");
+            }
+            if (InfoDataRow["Fk"] != null)
+            {
+                Info.Fk = DataUtil.GetStringValueOfRow(InfoDataRow, "Fk");
+            }
+            if (InfoDataRow["Cf"] != null)
+            {
+                Info.Cf = DataUtil.GetStringValueOfRow(InfoDataRow, "Cf");
+            }
+            if (InfoDataRow["Bjf"] != null)
+            {
+                Info.Bjf = DataUtil.GetStringValueOfRow(InfoDataRow, "Bjf");
+            }
+            if (InfoDataRow["Lyf"] != null)
+            {
+                Info.Lyf = DataUtil.GetStringValueOfRow(InfoDataRow, "Lyf");
+            }
+            if (InfoDataRow["Sfgz"] != null)
+            {
+                Info.Sfgz = DataUtil.GetStringValueOfRow(InfoDataRow, "Sfgz");
             }
 
-            return WorkerSalaryMsgInfoInfo;
+            return Info;
         }
         #endregion
     }

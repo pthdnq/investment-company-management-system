@@ -90,7 +90,8 @@ namespace TZMS.Web
                     _workerSalaryInfo.UserId = user.ObjectId;
                     _workerSalaryInfo.Name = user.Name;
                     _workerSalaryInfo.Dept = user.Dept;
-                    _workerSalaryInfo.BaseSalary = user.BaseSalary;
+                    //_workerSalaryInfo.BaseSalary = user.BaseSalary;
+                    _workerSalaryInfo.Jbgz = user.BaseSalary.ToString();
                     _workerSalaryInfo.SalaryMsgId = _salaryMsgInfo.ObjectId;
 
                     _manage.AddNewWorkerSalaryMsg(_workerSalaryInfo);
