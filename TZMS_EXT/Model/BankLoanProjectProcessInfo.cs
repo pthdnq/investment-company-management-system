@@ -18,7 +18,7 @@ namespace com.TZMS.Model
     /// BankLoanProjectProcess实体类
     /// </summary>
     [Serializable]
-    public class BankLoanProjectProcessInfo:ACommonInfo
+    public class BankLoanProjectProcessInfo : ACommonInfo
     {
 
         #region Constructor
@@ -35,14 +35,14 @@ namespace com.TZMS.Model
         #region Field
         private Guid _objetctId;
         private Guid _forId;
-        private string _projectName =   DBEmptyString;
+        private string _projectName = DBEmptyString;
         private int _needImprest = DBEmptyInt;
         private string _loanBank = DBEmptyString;
         private string _guaranteeCompany = DBEmptyString;
         private string _implementationPhase = DBEmptyString;
         private Decimal _imprestAmount = DBEmptyDecimal;
         private Decimal _amountExpended = DBEmptyDecimal;
-        private DateTime _expendedTime = DBEmptyDate;
+        private string _expendedTime = DBEmptyString;
         private Decimal _imprestAmountBalance = DBEmptyDecimal;
         private string _remark = DBEmptyString;
         private int _status = DBEmptyInt;
@@ -56,6 +56,9 @@ namespace com.TZMS.Model
         private DateTime _submitTime = DBEmptyDate;
         private string _auditOpinion = DBEmptyString;
         private string _accountingRemark = DBEmptyString;
+        private string _use = DBEmptyString;
+        private string _imprestRemark = DBEmptyString;
+        private string _adulters = DBEmptyString;
         #endregion
 
         #region Property
@@ -143,7 +146,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// ExpendedTime 
         /// </summary> 
-        public DateTime ExpendedTime
+        public string ExpendedTime
         {
             get { return _expendedTime; }
             set { _expendedTime = value; }
@@ -266,6 +269,23 @@ namespace com.TZMS.Model
             set { _accountingRemark = value; }
         }
 
+        public string Use
+        {
+            get { return _use; }
+            set { _use = value; }
+        }
+
+        public string ImprestRemark
+        {
+            get { return _imprestRemark; }
+            set { _imprestRemark = value; }
+        }
+
+        public string Adulters
+        {
+            get { return _adulters; }
+            set { _adulters = value; }
+        }
         #endregion
     }
 }
