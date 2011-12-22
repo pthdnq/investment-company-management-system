@@ -63,20 +63,23 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                               <ext:BoundField  ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
-                            <ext:BoundField Width="100px" DataField="CustomerName" HeaderText="客户名称" />
-                            <ext:BoundField Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
-                            <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="贷款金额" />
-                            <ext:BoundField Width="105px" DataField="LoanFee" HeaderText="贷款手续费" />
-                            <ext:BoundField Width="105px" DataField="CollateralCompany" HeaderText="抵押物公司" />
-                            <ext:BoundField Width="110px" DataField="SignDate" HeaderText="签订日期" DataFormatString="{0:yyyy/MM/dd}"/>
-                            <ext:BoundField Width="110px" DataField="DownPayment" HeaderText="预付定金" />
-                                  <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
-                            <ext:TemplateField Width="76px" HeaderText="状态">
+                            <ext:WindowField ExpandUnusedSpace="true" DataTextField="ProjectName" DataIFrameUrlFields="ObjectId"
+                                DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}" DataWindowTitleField="ProjectName"
+                                DataWindowTitleFormatString="{0}-查看" WindowID="wndNew" />
+                            <ext:TemplateField Width="66px" HeaderText="状态">
                                 <ItemTemplate>
-                                          <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
+                            <ext:BoundField Width="150px" DataField="Contact" HeaderText="联系方式" />
+                            <ext:BoundField Width="70px" DataField="SignDate" HeaderText="签订日期" DataFormatString="{0:yyyy/MM/dd}" />
+                            <ext:BoundField Width="70px" DataField="CustomerName" HeaderText="客户名称" />
+                            <ext:BoundField Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
+                            <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="贷款金额" />
+                            <%--       <ext:BoundField Width="100px" DataField="LoanFee" HeaderText="贷款手续费" />--%>
+                            <%--                            <ext:BoundField Width="100px" DataField="CollateralCompany" HeaderText="抵押物公司" />--%>
+                            <%--            <ext:BoundField Width="105px" DataField="DownPayment" HeaderText="预付定金" />--%>
+                            <ext:BoundField DataField="NextOperaterName" Width="70px" HeaderText="当前执行人" />
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}"
                                 Title="查看" WindowID="wndNew" />
                         </Columns>

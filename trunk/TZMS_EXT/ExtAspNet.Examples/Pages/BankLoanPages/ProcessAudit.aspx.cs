@@ -97,10 +97,10 @@ namespace TZMS.Web.Pages.BankLoanPages
                 this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.Remark;
 
-                if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
-                {
-                    this.dpExpendedTime.SelectedDate = _info.ExpendedTime;
-                }
+               // if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
+             //   {
+                    this.dpExpendedTime.Text = _info.ExpendedTime;
+             //   }
 
             }
         }
@@ -185,9 +185,23 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             _Info.Status = status;
 
-            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            //下一步操作
+            if (status != 6)
+            {
+                _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+                _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            }
+            else
+            {
+                _Info.NextOperaterName = "";
+                _Info.NextOperaterId = Guid.Empty;
+            }
             _Info.SubmitTime = DateTime.Now;
+            //审批人
+            if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            {
+                _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + ";";
+            }
             // 执行操作.
             int result = 3;
 

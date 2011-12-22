@@ -116,7 +116,14 @@ namespace TZMS.Web.Pages.BankLoanPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("6")))
+            {
+                strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
+            }
+            else
+            {
+                strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+            }
             //   strCondtion.Append("   Status<>9 "); 
             if (!string.IsNullOrEmpty(searchText))
             {
@@ -144,6 +151,9 @@ namespace TZMS.Web.Pages.BankLoanPages
                         break;
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
+                        break;
+                    case "6":
+                        strCondtion.Append(" AND (Status = 5 OR Status = 6) ");
                         break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
@@ -253,9 +263,9 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             BankLoanProjectProcessInfo _Info = (BankLoanProjectProcessInfo)e.DataItem;
 
-            if (!(_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId) && (_Info.Status == 3 || _Info.Status == 1)))
+            if (!(_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId)))
             {
-                e.Values[10] = "<span class=\"gray\">离职</span>";
+                e.Values[10] = "<span class=\"gray\">审核</span>";
             }
         }
 
@@ -269,6 +279,48 @@ namespace TZMS.Web.Pages.BankLoanPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
+        #endregion
+
+        #region 自定义方法
+        /// <summary>
+        /// 获取状态名字
+        /// </summary>
+        /// <param name="strStatus"></param>
+        /// <returns></returns>
+        protected string GetStatusName(string strStatus)
+        {
+            string StrStatusName = string.Empty;
+            switch (strStatus)
+            {
+                case "0":
+                    //  strCondtion.Append(" AND Status = 1 ");
+                    break;
+                case "1":
+                    StrStatusName = "待审核";
+                    break;
+                case "2":
+                    StrStatusName = "未通过";
+                    break;
+                case "3":
+                    StrStatusName = "审核中";
+                    break;
+                case "4":
+                    StrStatusName = "已通过";
+                    break;
+                case "5":
+                    StrStatusName = "待审核";
+                    break;
+                case "6":
+                    StrStatusName = "已通过";
+                    break;
+                case "9":
+                    StrStatusName = "已删除";
+                    break;
+                default:
+                    break;
+            }
+            return StrStatusName;
+        }
         #endregion
     }
 }

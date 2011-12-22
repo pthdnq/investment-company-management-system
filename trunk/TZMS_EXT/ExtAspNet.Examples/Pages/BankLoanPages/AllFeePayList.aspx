@@ -27,7 +27,7 @@
                                 <ext:ListItem Text="已通过" Value="4" />
                                 <ext:ListItem Text="未通过" Value="2" />
                                 <ext:ListItem Text="已删除" Value="9" />
-                            </ext:DropDownList> 
+                            </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
                             </ext:Button>
                             <ext:Label ID="Labeltmp1" runat="server" />
@@ -67,8 +67,8 @@
                             <%--     <ext:BoundField Width="110px" DataField="GuaranteeCompany" HeaderText="贷款公司" />--%>
                             <ext:BoundField Width="140px" DataField="ImplementationPhase" HeaderText="项目实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
-                            <ext:BoundField Width="80px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd}"
-                                HeaderText="支用时间" />
+                            <ext:BoundField Width="80px" DataField="ExpendedTime" HeaderText="支用时间" />
+                            <ext:BoundField Width="110px" DataField="Use" HeaderText="用途" />
                             <ext:BoundField Width="130px" DataField="ImprestAmount" HeaderText="备用金余额" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>

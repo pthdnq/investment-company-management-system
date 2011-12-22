@@ -36,7 +36,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
-        {  
+        {
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
@@ -44,6 +44,10 @@ namespace TZMS.Web.Pages.BankLoanPages
 
                 bindInterface(strID);
                 BindHistory();
+
+                // 绑定审批人.
+                ApproveUser();
+                BindNext();
             }
             InitControl();
         }
@@ -79,10 +83,10 @@ namespace TZMS.Web.Pages.BankLoanPages
                 this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.Remark;
                 this.taAuditOpinion.Text = _info.AuditOpinion;
-                if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
-                {
-                    this.dpExpendedTime.SelectedDate = _info.ExpendedTime;
-                }
+                //   if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
+                // {
+                this.dpExpendedTime.Text = _info.ExpendedTime;
+                //    }
 
             }
         }
@@ -133,15 +137,23 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             _Info.Status = status;
 
+            //下一步审核人 
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            _Info.SubmitTime = DateTime.Now;
+
+            //已审批人
+            if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            {
+                _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + ";";
+            }
             // 执行操作.
-            int result = 3;
-
-
+            int result = 3;  
             result = manage.UpdateProcess(_Info);
 
             if (result == -1)
             {
-
+                #region cashflow
                 int itmp = new CashFlowManage().Add(new CashFlowStatementInfo()
                 {
                     ObjectId = Guid.NewGuid(),
@@ -160,9 +172,10 @@ namespace TZMS.Web.Pages.BankLoanPages
                     Alert.Show("操作失败!");
                     return;
                 }
+                #endregion
 
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
-                manage.AddHistory(true, _Info.ObjectId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
+                manage.AddHistory(true, _Info.ObjectId, "会计审核", string.Format("出纳确认-{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

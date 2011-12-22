@@ -43,7 +43,7 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="taAuditOpinion" Label="审核意见" ShowRedStar="true" Required="true"
+                            <ext:TextArea ID="taAuditOpinion" Label="操作备注" ShowRedStar="true" Required="true"
                                 runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
@@ -72,8 +72,8 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:DatePicker ID="dpExpendedTime" Enabled="false" Label="支用时间" runat="server">
-                                            </ext:DatePicker>
+                                            <ext:TextBox ID="dpExpendedTime" Enabled="false" Label="支用时间" runat="server">
+                                            </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">

@@ -8,9 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server"  AutoSizePanelID="pelMain"/>
+    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true" Height="317px" Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true" Height="387px" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -19,7 +19,7 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        Icon="Disk" Text="提交"  ConfirmText="您确定提交该表单吗?"/>
+                        Icon="Disk" Text="提交" ConfirmText="您确定提交该表单吗?" />
                     <ext:Label runat="server" ID="HighMoneyTips" />
                 </Items>
             </ext:Toolbar>
@@ -67,33 +67,66 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbAmountExpended" Label="支用金额" ShowRedStar="true" Required="true"
-                                runat="server" Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
-                                RegexMessage="只能输入字母!">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:DatePicker ID="dpExpendedTime" Label="支用时间" runat="server">
-                            </ext:DatePicker>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:TextBox ID="tbImprestAmount" Label="备用金余额" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
-                                RegexMessage="只能输入字母!">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
                             <ext:TextArea ID="taRemark" Label="备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="60% 40%">
+                        <Items>
+                            <ext:CheckBox ID="cbIsAmountExpended" runat="server" Text="申请备用金" Checked="false"
+                                AutoPostBack="true" OnCheckedChanged="cbIsAmountExpended_OnCheckedChanged" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
+            <ext:GroupPanel AutoHeight="true" runat="server" ID="gpAmount" Title="备用金申请" EnableBackgroundColor="true">
+                <Items>
+                    <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame2"
+                        runat="server">
+                        <Rows>
+                            <ext:FormRow ColumnWidths="60% 40%">
+                                <Items>
+                                    <ext:TextBox Hidden="true" ID="tbImprestAmount" Label="备用金余额" ShowRedStar="true"
+                                        Required="true" runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！"
+                                        Regex="^[0-9]*$" RegexMessage="只能输入数字!">
+                                    </ext:TextBox>
+                                    <ext:Label ID="Labeltmpx3" runat="server" />
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ColumnWidths="60% 40%">
+                                <Items>
+                                    <ext:TextBox Hidden="true" ID="tbAmountExpended" Label="预支金额" ShowRedStar="true"
+                                        Required="true" runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！"
+                                        Regex="^[0-9]*$" RegexMessage="只能输入数字!">
+                                    </ext:TextBox>
+                                    <ext:Label ID="Label1" runat="server" />
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ColumnWidths="60% 40%">
+                                <Items>
+                                    <ext:TextBox Hidden="true" ID="tbExpendedTime" Label="支用时间" ShowRedStar="true" Required="true"
+                                        runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！">
+                                    </ext:TextBox>
+                                    <ext:Label ID="Label2" runat="server" />
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow>
+                                <Items>
+                                    <ext:TextArea Hidden="true" ID="tbUse" Label="用途" ShowRedStar="true" Required="true"
+                                        runat="server" Height="50px" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
+                                    </ext:TextArea>
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow>
+                                <Items>
+                                    <ext:TextArea Hidden="true" ID="tbImprestRemark" Label="备注" ShowRedStar="true" Required="true"
+                                        runat="server" Height="50px" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
+                                    </ext:TextArea>
+                                </Items>
+                            </ext:FormRow>
+                        </Rows>
+                    </ext:Form>
+                </Items>
+            </ext:GroupPanel>
         </Items>
     </ext:Panel>
     </form>

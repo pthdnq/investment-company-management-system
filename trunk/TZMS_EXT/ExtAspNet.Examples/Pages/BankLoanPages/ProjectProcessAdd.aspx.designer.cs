@@ -130,22 +130,40 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.TextArea taImplementationPhase;
         
         /// <summary>
-        /// tbAmountExpended control.
+        /// taRemark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbAmountExpended;
+        protected global::ExtAspNet.TextArea taRemark;
         
         /// <summary>
-        /// dpExpendedTime control.
+        /// cbIsAmountExpended control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpExpendedTime;
+        protected global::ExtAspNet.CheckBox cbIsAmountExpended;
+        
+        /// <summary>
+        /// gpAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.GroupPanel gpAmount;
+        
+        /// <summary>
+        /// mainFrame2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Form mainFrame2;
         
         /// <summary>
         /// tbImprestAmount control.
@@ -157,12 +175,66 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.TextBox tbImprestAmount;
         
         /// <summary>
-        /// taRemark control.
+        /// Labeltmpx3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextArea taRemark;
+        protected global::ExtAspNet.Label Labeltmpx3;
+        
+        /// <summary>
+        /// tbAmountExpended control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbAmountExpended;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Label1;
+        
+        /// <summary>
+        /// tbExpendedTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbExpendedTime;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label Label2;
+        
+        /// <summary>
+        /// tbUse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea tbUse;
+        
+        /// <summary>
+        /// tbImprestRemark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea tbImprestRemark;
     }
 }

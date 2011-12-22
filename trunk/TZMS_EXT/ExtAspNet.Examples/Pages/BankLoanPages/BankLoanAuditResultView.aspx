@@ -50,13 +50,11 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="贷款金额" ShowRedStar="true" Required="true"
-                                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
-                                                RegexMessage="只能输入字母!">
+                                            <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="贷款金额" runat="server" MaxLength="20"
+                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
                                             </ext:TextBox>
-                                            <ext:TextBox ID="tbLoanFee" Enabled="false" Label="贷款手续费" ShowRedStar="true" Required="true"
-                                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字母或数字！" Regex="^[a-zA-Z0-9]*$"
-                                                RegexMessage="只能输入字母或数字!">
+                                            <ext:TextBox ID="tbLoanFee" Enabled="false" Label="贷款手续费" runat="server" MaxLength="20"
+                                                MaxLengthMessage="最多只能输入20个字母或数字！" Regex="^[a-zA-Z0-9]*$" RegexMessage="只能输入字母或数字!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
@@ -93,8 +91,8 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextArea ID="taAuditOpinion" Enabled="false" Label="审核意见" ShowRedStar="true"
-                                                Required="true" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入20个字母或数字！" />
+                                            <ext:TextArea ID="taAuditOpinion" Enabled="false" Label="审核意见" runat="server" MaxLength="200"
+                                                MaxLengthMessage="最多只能输入20个字母或数字！" />
                                         </Items>
                                     </ext:FormRow>
                                 </Rows>
@@ -108,7 +106,7 @@
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                            <%--        <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
+                                    <%--        <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
                                     <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />

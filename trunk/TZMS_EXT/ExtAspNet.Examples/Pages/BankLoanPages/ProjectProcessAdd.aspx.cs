@@ -86,6 +86,27 @@ namespace TZMS.Web.Pages.BankLoanPages
             saveInfo();
         }
 
+        protected void cbIsAmountExpended_OnCheckedChanged(object sender, EventArgs e)
+        {
+            if (cbIsAmountExpended.Checked)
+            {
+                //    gpAmount.Hidden = false;
+                tbImprestAmount.Hidden = false;
+                tbAmountExpended.Hidden = false;
+                tbExpendedTime.Hidden = false;
+                tbUse.Hidden = false;
+                tbImprestRemark.Hidden = false;
+            }
+            else
+            {
+                //   gpAmount.Hidden = true;
+                tbImprestAmount.Hidden = true;
+                tbAmountExpended.Hidden = true;
+                tbExpendedTime.Hidden = true;
+                tbUse.Hidden = true;
+                tbImprestRemark.Hidden = true;
+            }
+        }
         #endregion
 
         #region 自定义方法
@@ -96,51 +117,66 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             com.TZMS.Model.BankLoanProjectProcessInfo _Info = new com.TZMS.Model.BankLoanProjectProcessInfo();
             BankLoanManage manage = new BankLoanManage();
-
             //  ID.
             _Info.ObjectId = Guid.NewGuid();
             _Info.ForId = new Guid(ForID);
 
             var bankloan = manage.GetUserByObjectID(ForID);
-            _Info.ProjectName = bankloan.ProjectName; 
+            _Info.ProjectName = bankloan.ProjectName;
             _Info.GuaranteeCompany = bankloan.CollateralCompany;
-            //  info.LoanBank= bankloan.
-            _Info.ImplementationPhase = this.taImplementationPhase.Text.Trim();
 
-            if (dpExpendedTime.SelectedDate is DateTime)
+            _Info.ImplementationPhase = this.taImplementationPhase.Text.Trim();
+            _Info.Remark = taRemark.Text.Trim();
+
+            //备用金部分
+            if (!string.IsNullOrEmpty(tbImprestAmount.Text))
             {
-                _Info.ExpendedTime = this.dpExpendedTime.SelectedDate.Value;
+                _Info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Trim());
             }
 
             if (!string.IsNullOrEmpty(tbAmountExpended.Text))
             {
                 _Info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Trim());
             }
-            if (!string.IsNullOrEmpty(tbImprestAmount.Text))
-            {
-                _Info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Trim());
-            }
 
-            _Info.Remark = taRemark.Text.Trim();
+            //if (dpExpendedTime.SelectedDate is DateTime)
+            //{
+            _Info.ExpendedTime = this.tbExpendedTime.Text;
+            //  }
+            _Info.Use = this.tbUse.Text.Trim();
+            _Info.ImprestRemark = this.tbImprestRemark.Text.Trim();
 
+            //创建人
             _Info.CreateTime = DateTime.Now;
-            _Info.SubmitTime = DateTime.Now;
             _Info.CreaterAccount = this.CurrentUser.AccountNo;
             _Info.CreaterId = this.CurrentUser.ObjectId;
             _Info.CreaterName = this.CurrentUser.Name;
+
+            _Info.SubmitTime = DateTime.Now;
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NeedImprest = (_Info.AmountExpended == 0) ? 0 : 1;
-  
-            _Info.Status = 1;
+            //是否需备用金审核
+            //  _Info.NeedImprest = (cbIsAmountExpended.Checked) ? 0 : 1;
+
+            if (cbIsAmountExpended.Checked)
+            {
+                _Info.Status = 1;
+                _Info.NeedImprest = 1;
+            }
+            else
+            {
+                _Info.Status = 5;
+                _Info.NeedImprest = 0;
+            }
 
             // 执行操作.
             int result = 3;
             result = manage.AddProcess(_Info);
             if (result == -1)
             {
-                manage.AddHistory(true, _Info.ObjectId, "新增", "新增进展", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
-           
+                string strDesc = string.Format("进展新增-{0}备用金", (_Info.NeedImprest == 1) ? "申请" : "无");
+                manage.AddHistory(true, _Info.ObjectId, "新增", strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
+
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

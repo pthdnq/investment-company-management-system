@@ -112,8 +112,14 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             #region 条件
             StringBuilder strCondtion = new StringBuilder();
-            //需要增加下一步审批人
-          strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "'  ");
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("3") || state.Equals("2")))
+            {
+                strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
+            }
+            else
+            {
+                strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "'  ");
+            }
            //        strCondtion.Append("   Status <> 9 ");
 
             if (!string.IsNullOrEmpty(searchText))
@@ -136,7 +142,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                         strCondtion.Append(" AND Status = 2 ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND Status = 3  ");
+                        strCondtion.Append(" AND (Status = 3 OR Status = 4)  ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");
@@ -270,6 +276,45 @@ namespace TZMS.Web.Pages.BankLoanPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
+        #endregion
+
+        #region 自定义方法
+        /// <summary>
+        /// 获取状态名字
+        /// </summary>
+        /// <param name="strStatus"></param>
+        /// <returns></returns>
+        protected string GetStatusName(string strStatus)
+        {
+            string StrStatusName = string.Empty;
+            switch (strStatus)
+            {
+                case "0":
+                    //  strCondtion.Append(" AND Status = 1 ");
+                    break;
+                case "1":
+                    StrStatusName = "待审核";
+                    break;
+                case "2":
+                    StrStatusName = "未通过";
+                    break;
+                case "3":
+                    StrStatusName = "待审核";
+                    break;
+                case "4":
+                    StrStatusName = "已通过";
+                    break;
+                case "5":
+                    StrStatusName = "已确认";
+                    break;
+                case "9":
+                    StrStatusName = "已删除";
+                    break;
+                default:
+                    break;
+            }
+            return StrStatusName;
+        }
         #endregion
     }
 }

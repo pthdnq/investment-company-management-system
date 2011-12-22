@@ -43,7 +43,7 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="taAuditOpinion" Label="审核意见" ShowRedStar="true" Required="true"
+                            <ext:TextArea ID="taAuditOpinion" Label="操作备注" ShowRedStar="true" Required="true"
                                 runat="server" MaxLength="200" MaxLengthMessage="最多只能输入20个字母或数字！" />
                         </Items>
                     </ext:FormRow>

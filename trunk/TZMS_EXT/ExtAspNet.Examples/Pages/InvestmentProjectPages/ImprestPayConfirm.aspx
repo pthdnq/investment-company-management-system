@@ -21,8 +21,9 @@
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
                         IconUrl="~/Images/ico_nextstep.gif" Text="支付确认" ConfirmText="您确认该支付信息吗?" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator1" runat="server" />
-                    <ext:HyperLink runat="server" Text="打印明细单" ID="hlPrinter" Target="_blank">
+                    <ext:HyperLink runat="server" ShowLabel="false" Text="打印明细单" ID="hlPrinter" Target="_blank">
                     </ext:HyperLink>
+                    <ext:ToolbarSeparator ID="ToolbarSeparator3" runat="server" />
                     <ext:Label runat="server" Text="提示：备用金支付确认后提交下一步审核人进行进展审核。">
                     </ext:Label>
                 </Items>
@@ -112,7 +113,7 @@
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="50px" DataField="OperationerName" HeaderText="操作人" />
-                            <%--        <ext:BoundField Width="50px" DataField="OperationerAccount" HeaderText="帐号" />--%>
+                                    <%--        <ext:BoundField Width="50px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
                                     <ext:BoundField Width="56px" DataField="OperationType" HeaderText="操作类型" />

@@ -94,6 +94,15 @@ namespace TZMS.Web.Pages.InvestmentProjectPages {
         protected global::ExtAspNet.HyperLink hlPrinter;
         
         /// <summary>
+        /// ToolbarSeparator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.ToolbarSeparator ToolbarSeparator3;
+        
+        /// <summary>
         /// Form2 control.
         /// </summary>
         /// <remarks>
