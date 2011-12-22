@@ -17,17 +17,20 @@
                 <Items>
                     <ext:Button ID="btnClose" OnClick="btnClose_Click" runat="server" Icon="Cancel" Text="关闭">
                     </ext:Button>
-                    <ext:Button ID="btnSave" Text="设置并保存" OnClick="btnSave_Click" runat="server" Icon="Disk" ConfirmText="您确认设置并保存吗?" />
+                    <ext:Button ID="btnSave" Text="设置并保存" OnClick="btnSave_Click" runat="server" Icon="Disk"
+                        ConfirmText="您确认设置并保存吗?" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
         <Items>
             <ext:Grid ID="gridUnSelectUser" Title="员工列表" ShowBorder="true" ShowHeader="true"
-                ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="false">
+                ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="false"
+                OnRowDataBound="gridUnSelectUser_RowDataBound">
                 <Columns>
+                    <ext:BoundField DataField="UserObjectId" Hidden="true" />
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="100px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="140px" />
-                    <ext:BoundField HeaderText="部门" ExpandUnusedSpace="true" Hidden="true"/>
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="140px" Hidden="true" />
+                    <ext:BoundField HeaderText="部门" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
             <ext:Panel ID="Panel1" ColumnWidth="8%" Layout="Row" EnableBackgroundColor="true"
@@ -43,11 +46,12 @@
             </ext:Panel>
             <ext:Grid ID="gridSelectdUsers" Title="代账会计" ShowBorder="true" ShowHeader="true"
                 EnableMultiSelect="false" ColumnWidth="46%" runat="server" AutoHeight="true"
-                Height="385px">
+                Height="385px" OnRowDataBound="gridSelectdUsers_RowDataBound">
                 <Columns>
+                    <ext:BoundField DataField="UserObjectId" Hidden="true" />
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="100px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="140px" />
-                    <ext:BoundField HeaderText="部门" Hidden="true" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="140px" Hidden="true" />
+                    <ext:BoundField ExpandUnusedSpace="true" HeaderText="部门" />
                 </Columns>
             </ext:Grid>
         </Items>

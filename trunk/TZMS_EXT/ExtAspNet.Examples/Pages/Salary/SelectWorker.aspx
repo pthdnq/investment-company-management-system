@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SelectWorker.aspx.cs" Inherits="TZMS.Web.SelectWorker" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -17,7 +16,8 @@
                 <Items>
                     <ext:Button ID="btnClose" OnClick="btnClose_Click" runat="server" Icon="Cancel" Text="关闭">
                     </ext:Button>
-                    <ext:Button ID="btnSave" Text="设置并保存" OnClick="btnSave_Click" runat="server" Icon="Disk" ConfirmText="您确认设置并保存吗?" />
+                    <ext:Button ID="btnSave" Text="设置并保存" OnClick="btnSave_Click" runat="server" Icon="Disk"
+                        ConfirmText="您确认设置并保存吗?" />
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -26,8 +26,8 @@
                 ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="false">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="100px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="120px" />
-                    <ext:BoundField HeaderText="部门" ExpandUnusedSpace="true" Hidden="true"/>
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="120px" Hidden="true" />
+                    <ext:BoundField DataField="Dept" HeaderText="部门" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
             <ext:Panel ID="Panel1" ColumnWidth="8%" Layout="Row" EnableBackgroundColor="true"
@@ -46,8 +46,8 @@
                 Height="385px">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="100px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="120px" />
-                    <ext:BoundField HeaderText="部门" Hidden="true" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="120px" Hidden="true" />
+                    <ext:BoundField DataField="Dept" HeaderText="部门" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
         </Items>

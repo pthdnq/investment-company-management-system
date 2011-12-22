@@ -1,13 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SetPersonOfXZ.aspx.cs" Inherits="TZMS.Web.SetPersonOfXZ" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SetPersonOfXZ.aspx.cs"
+    Inherits="TZMS.Web.SetPersonOfXZ" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>设置行政归档人</title>
 </head>
 <body>
- <form id="form1" runat="server">
+    <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" runat="server" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
@@ -24,7 +24,7 @@
                 ColumnWidth="44%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="false">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" Hidden="true" />
                     <ext:BoundField DataField="Dept" HeaderText="部门" />
                 </Columns>
             </ext:Grid>
@@ -44,7 +44,7 @@
                 Height="385px">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" Hidden="true" />
                     <ext:BoundField DataField="Dept" HeaderText="部门" />
                 </Columns>
             </ext:Grid>

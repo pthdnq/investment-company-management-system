@@ -28,7 +28,7 @@
                 <Columns>
                     <ext:BoundField DataField="UserObjectId" Hidden="true" />
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" Hidden="true" />
                     <ext:BoundField HeaderText="部门" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
@@ -49,7 +49,7 @@
                 <Columns>
                     <ext:BoundField DataField="UserObjectId" Hidden="true" />
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" Hidden="true" />
                     <ext:BoundField HeaderText="部门" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
