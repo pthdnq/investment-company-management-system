@@ -52,6 +52,7 @@ namespace com.TZMS.Model
         private string _auditOpinion = DBEmptyString;
         private string _accountingRemark = DBEmptyString;
         private int _status = DBEmptyChar;
+        private string _adulters = DBEmptyString;
         #endregion
 
         #region Property
@@ -226,6 +227,11 @@ namespace com.TZMS.Model
             set { _status = value; }
         }
 
+        public string Adulters
+        {
+            get { return _adulters; }
+            set { _adulters = value; }
+        }
         #endregion
     }
 }
