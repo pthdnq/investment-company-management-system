@@ -58,7 +58,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
-            hlPrinter.NavigateUrl = "PaymentConfirmPrinter.aspx?ID='" + ObjectID + "'";
+            hlPrinter.NavigateUrl = "PaymentConfirmPrinter.aspx?ID=" + ObjectID ;
         }
 
         /// <summary>
@@ -167,8 +167,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
 
             //下一步操作
-            //_Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            //_Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+             _Info.NextOperaterName = "";
+            _Info.NextOperaterId = Guid.Empty;
             _Info.SubmitTime = DateTime.Now;
 
             //审批人

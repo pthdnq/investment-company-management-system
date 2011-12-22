@@ -62,12 +62,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             // 绑定数据.
             if (_info != null)
             {
-                this.tbProjectName.Text = _info.ProjectName ;
+                this.tbProjectName.Text = _info.ProjectName;
                 this.lbBorrowerNameA.Text = _info.BorrowerNameA;
 
                 this.lbLoanAmount.Text = _info.LoanAmount.ToString();
-                this.lbLoanDate.Text = _info.LoanDate.ToString();
-                this.lbLoanType.Text = _info.LoanType.ToString();
+                this.lbLoanDate.Text = _info.LoanDate.ToShortDateString();
+                this.lbLoanType.Text = _info.LoanType.Equals("TransferAccount") ? "转账" : "现金";
                 //     this.taRemark.Text = _info.Remark;
                 //     this.taAuditOpinion.Text = _info.AuditOpinion;
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)

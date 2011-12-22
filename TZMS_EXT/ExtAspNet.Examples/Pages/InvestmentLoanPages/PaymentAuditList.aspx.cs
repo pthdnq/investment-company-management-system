@@ -280,10 +280,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     StrStatusName = "未通过";
                     break;
                 case "3":
-                    StrStatusName = "审核中";
+                    StrStatusName = "待审核";
                     break;
                 case "4":
-                    StrStatusName = "待确认";
+                    StrStatusName = "已审核";
                     break;
                 case "5":
                     StrStatusName = "已确认";

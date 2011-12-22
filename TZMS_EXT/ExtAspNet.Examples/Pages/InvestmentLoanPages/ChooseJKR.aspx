@@ -23,13 +23,13 @@
         </Toolbars>
         <Items>
             <ext:Grid ID="gridUnSelectUser" Title="客户列表" ShowBorder="true" ShowHeader="true"
-                ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="false"
+                ColumnWidth="46%" runat="server" AutoHeight="true" Height="395px" EnableMultiSelect="false"
                 OnRowDataBound="gridUnSelectUser_RowDataBound">
                 <Columns>
                     <ext:BoundField DataField="ObjectId" Hidden="true" />
-                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="53px" />
-                    <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="95px" />
-                    <ext:BoundField DataField="CreditScore" HeaderText="积分" Width="35px" />
+                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="73px" />
+                    <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="105px" />
+                    <ext:BoundField DataField="CreditScore" HeaderText="积分" Width="65px" />
                     <ext:BoundField Hidden="true" ExpandUnusedSpace="true" HeaderText="公司" />
                 </Columns>
             </ext:Grid>
@@ -46,12 +46,12 @@
             </ext:Panel>
             <ext:Grid ID="gridSelectdUsers" Title="已选择借款人" ShowBorder="true" ShowHeader="true"
                 EnableMultiSelect="false" ColumnWidth="46%" runat="server" AutoHeight="true"
-                Height="385px" OnRowDataBound="gridSelectdUsers_RowDataBound">
+                Height="395px" OnRowDataBound="gridSelectdUsers_RowDataBound">
                 <Columns>
                     <ext:BoundField DataField="ObjectId" Hidden="true" />
-                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="53px" />
-                    <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="95px" />
-                    <ext:BoundField DataField="CreditScore" HeaderText="积分" Width="35px" />
+                    <ext:BoundField DataField="Name" HeaderText="姓名" Width="73px" />
+                    <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="105px" />
+                    <ext:BoundField DataField="CreditScore" HeaderText="积分" Width="75px" />
                     <ext:BoundField  Hidden="true"  ExpandUnusedSpace="true" HeaderText="公司" />
                 </Columns>
             </ext:Grid>

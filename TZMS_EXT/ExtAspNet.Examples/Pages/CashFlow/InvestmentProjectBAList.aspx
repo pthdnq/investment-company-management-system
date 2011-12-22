@@ -71,11 +71,11 @@
                                        <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:BoundField Width="110px" DataField="Contact" HeaderText="联系人" />
+                            <ext:BoundField Width="80px" DataField="Contact" HeaderText="联系人" />
                             <ext:BoundField Width="90px" DataField="ContactPhone" HeaderText="联系电话" />
                             <ext:BoundField Width="115px" DataField="SignDate" HeaderText="签订日期"  DataFormatString="{0:yyyy/MM/dd}"/>
-                            <ext:BoundField DataField="ContractAmount" Width="145px" HeaderText="合同金额" />
-                            <ext:BoundField Width="130px" DataField="DownPayment" HeaderText="预付订金" />
+                            <ext:BoundField DataField="ContractAmount" Width="85px" HeaderText="合同金额" />
+                            <ext:BoundField Width="80px" DataField="DownPayment" HeaderText="预付订金" />
                            <ext:BoundField DataField="NextBAOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="InvestmentProjectBA.aspx?Type=Edit&ID={0}"
                                 Title="审核" WindowID="wndNew" />
@@ -88,7 +88,7 @@
     </ext:Panel>
    
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="499px" Width="570px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="495px" Width="570px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

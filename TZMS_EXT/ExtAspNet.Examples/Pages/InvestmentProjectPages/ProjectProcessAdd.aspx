@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true" AutoHeight="true" Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true"  Height="454px" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -56,15 +56,15 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:GroupPanel runat="server" ID="gpAmount" Title="备用金申请"   EnableBackgroundColor="true" >
+            <ext:GroupPanel AutoHeight="true" runat="server" ID="gpAmount" Title="备用金申请"   EnableBackgroundColor="true" >
                 <Items>
                     <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame2"
                         runat="server">
                         <Rows>
                             <ext:FormRow ColumnWidths="60% 40%">
                                 <Items>
-                                    <ext:TextBox ID="tbImprestAmount" Label="备用金额" ShowRedStar="true" Required="true"
-                                        runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
+                                    <ext:TextBox  Hidden="true" ID="tbImprestAmount" Label="备用金额" ShowRedStar="true" Required="true"
+                                        runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！" Regex="^[0-9]*$"
                                         RegexMessage="只能输入数字!">
                                     </ext:TextBox>
                                     <ext:Label ID="Label2" runat="server" />
@@ -73,7 +73,7 @@
                             <ext:FormRow ColumnWidths="60% 40%">
                                 <Items>
                                     <ext:TextBox Hidden="true" ID="tbAmountExpended" Label="预支金额" ShowRedStar="true"
-                                        Required="true" runat="server" Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
+                                        Required="true" runat="server"   MaxLength="10" MaxLengthMessage="最多只能输入10个数字！"
                                         Regex="^[0-9]*$" RegexMessage="只能输入数字!">
                                     </ext:TextBox>
                                     <ext:Label runat="server" />
@@ -83,7 +83,7 @@
                                 <Items>
                                
                                     <ext:TextBox  Hidden="true"  ID="tbExpendedTime" Label="支用时间" ShowRedStar="true" Required="true" runat="server"
-                                          MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
+                                          MaxLength="50" MaxLengthMessage="最多只能输入50个字符！">
                                     </ext:TextBox>
                                     <ext:Label ID="Label1" runat="server" />
                                 </Items>

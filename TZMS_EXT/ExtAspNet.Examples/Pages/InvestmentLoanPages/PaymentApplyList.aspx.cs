@@ -93,10 +93,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void BindGridData(string state, string searchText)
         {
-            #region 条件 
+            #region 条件
             StringBuilder strCondtion = new StringBuilder();
             strCondtion.Append("  CreaterID = '" + this.CurrentUser.ObjectId + "' ");
-           // strCondtion.Append(" AND Status<>9 "); 
+            // strCondtion.Append(" AND Status<>9 "); 
 
             if (!string.IsNullOrEmpty(state))
             {
@@ -105,7 +105,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 switch (state)
                 {
                     case "0":
-                      //  strCondtion.Append(" AND Status = 1 ");
+                        //  strCondtion.Append(" AND Status = 1 ");
                         break;
                     case "1":
                         strCondtion.Append(" AND Status = 1 ");
@@ -114,7 +114,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                         strCondtion.Append(" AND Status = 2 ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND (Status = 3 OR Status = 4) ");
+                        strCondtion.Append(" AND Status = 3 ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");
@@ -123,7 +123,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                         strCondtion.Append(" AND Status = 5 ");
                         break;
                     case "9":
-                        strCondtion.Append(" AND Status = 9 "); 
+                        strCondtion.Append(" AND Status = 9 ");
                         break;
                     default:
                         break;
@@ -132,10 +132,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             if (!string.IsNullOrEmpty(searchText))
             {
                 strCondtion.Append(" AND (ProjectName LIKE '%" + searchText + "%' )  ");
-            } 
+            }
             //时间
             DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
-            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate); 
+            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
             if (DateTime.Compare(startTime, endTime) == 1)
             {
                 Alert.Show("结束日期不可小于开始日期!");
@@ -144,7 +144,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             strCondtion.Append(" AND CreateTime BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
             strCondtion.Append(" ORDER BY CreateTime DESC");
             #endregion
-  
+
             List<InvestmentLoanInfo> lstInfo = new InvestmentLoanManage().GetUsersByCondtion(strCondtion.ToString());
             this.gridData.RecordCount = lstInfo.Count;
             this.gridData.PageSize = PageCounts;
@@ -160,7 +160,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             this.gridData.DataSource = lstInfo;
             this.gridData.DataBind();
-        } 
+        }
         #endregion
 
         #region 页面事件
@@ -171,7 +171,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
         {
-            ViewStateSearchText = this.ttbSearch.Text.Trim(); 
+            ViewStateSearchText = this.ttbSearch.Text.Trim();
             ViewStateState = this.ddlstState.SelectedValue;
             BindGridData(ViewStateState, ViewStateSearchText);
         }
@@ -185,7 +185,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             this.gridData.PageIndex = e.NewPageIndex;
             BindGridData(ViewStateState, ViewStateSearchText);
-        } 
+        }
 
         /// <summary>
         /// 状态变动事件
@@ -250,7 +250,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             if (_Info.Status != 1)
             {
                 e.Values[13] = "<span class=\"gray\">删除</span>";
-              
+            }
+            if (_Info.Status == 9)
+            {
+                e.Values[15] = "<span class=\"gray\">查看/修改</span>";
             }
         }
 
@@ -281,7 +284,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     StrStatusName = "审核中";
                     break;
                 case "4":
-                    StrStatusName = "待确认";
+                    StrStatusName = "已通过";
                     break;
                 case "5":
                     StrStatusName = "已确认";

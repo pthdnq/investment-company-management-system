@@ -7,9 +7,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server"   AutoSizePanelID="pelMain"/>
+    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true"  AutoHeight="true" Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true"  Height="416px"  Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -60,17 +60,18 @@
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="100px" DataField="ImplementationPhase" HeaderText="项目实施阶段" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
-                            <ext:BoundField Width="110px" DataField="ExpendedTime"  HeaderText="支用时间" />
+                            <ext:BoundField Width="85px" DataField="ExpendedTime" HeaderText="支用时间" />
                             <ext:BoundField Width="90px" DataField="ImprestAmount" HeaderText="备用金额" />
-                            <ext:BoundField Width="115px" DataField="Remark" HeaderText="备注" />
-                            <ext:TemplateField Width="60px" HeaderText="状态">
+                            <ext:BoundField DataField="NextOperaterName" Width="73px" HeaderText="当前执行人" />
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
+                            <ext:TemplateField Width="58px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "未确认" : "已确认" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <%--     <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ImprestPayConfirm.aspx?Type=Edit&ID={0}"
                                 Title="确认" WindowID="wndNew"  Hidden="true"/>--%>
-                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定需要确认该记录?" CommandName="Delete" /> 
+                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定需要确认该记录?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -78,7 +79,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="454px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="458px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

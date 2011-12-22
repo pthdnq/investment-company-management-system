@@ -86,6 +86,15 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             {
 
                 string strID = Request.QueryString["ID"];
+                string type = Request.QueryString["Type"];
+                if (!string.IsNullOrEmpty(type))
+                {
+                    if (type.Equals("View"))
+                    {
+                        this.btnNew.Hidden = true;
+                    }
+                }
+
                 ForID = strID;
 
                 InitControl();
@@ -128,7 +137,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// <summary>
         /// 绑定列表
         /// </summary>
-        private void BindGridData(string forID,string state, string searchText)
+        private void BindGridData(string forID, string state, string searchText)
         {
             searchText = string.Empty;
             forID = ForID;
@@ -266,7 +275,6 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             if (_Info.Status != 1)
             {
                 e.Values[7] = "<span class=\"gray\">删除</span>";
-                
             }
         }
 

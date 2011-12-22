@@ -182,19 +182,34 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             _Info.Status = status;
             //下一步操作
-            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            if (status != 6)
+            {
+                _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+                _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            }
+            else
+            {
+                _Info.NextOperaterName ="";
+                _Info.NextOperaterId = Guid.Empty;
+            }
             _Info.SubmitTime = DateTime.Now;
+
+            //审批人
+            if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            {
+                _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + ";";
+            }
             // 执行操作.
             int result = 3;
 
             result = manage.UpdateProcess(_Info);
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
-                manage.AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                string statusName = (status == 2) ? "不同意" : (status == 5) ? "同意，继续审批" : "同意，归档";
+                manage.AddHistory(true, _Info.ObjectId, "进展审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("操作成功!");
+                PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
             {
