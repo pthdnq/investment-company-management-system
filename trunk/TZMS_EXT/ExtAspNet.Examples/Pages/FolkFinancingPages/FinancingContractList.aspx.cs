@@ -115,7 +115,14 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             #region 条件
             StringBuilder strCondtion = new StringBuilder();
-              strCondtion.Append("  CreaterID = '" + this.CurrentUser.ObjectId + "' ");
+            if (this.CurrentRoles.Contains(RoleType.CJGL))
+            {
+                strCondtion.Append("   Status<>0 ");
+            }
+            else
+            {
+                strCondtion.Append("  CreaterID = '" + this.CurrentUser.ObjectId + "' ");
+            }
          //   strCondtion.Append("   Status<>0 ");
 
             if (!string.IsNullOrEmpty(state))
@@ -189,11 +196,15 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            FolkFinancingInfo _userInfo = (FolkFinancingInfo)e.DataItem;
+            FolkFinancingInfo _Info = (FolkFinancingInfo)e.DataItem;
 
-            if (_userInfo.Status != 5)
+            if (_Info.Status != 5)
             { 
                 e.Values[10] = "<span class=\"gray\">申请支付费用</span>";
+            }
+            if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9)
+            {
+                e.Values[11] = "<span class=\"gray\"></span>";
             }
         }
         #endregion
