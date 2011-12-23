@@ -81,9 +81,9 @@
                             <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
                            
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
-                        <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
+                        <ext:WindowField  Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="FinancingApplyEdit.aspx?Type=Edit&ID={0}" Title="编辑"
-                                WindowID="wndNew" />
+                                WindowID="wndEdit" />
                                    <ext:TemplateField Width="70px" HeaderText="核算状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
@@ -103,6 +103,9 @@
     </ext:Window>
      <ext:Window ID="wndNewBA" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="478px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+     <ext:Window ID="wndEdit" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="480px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>
