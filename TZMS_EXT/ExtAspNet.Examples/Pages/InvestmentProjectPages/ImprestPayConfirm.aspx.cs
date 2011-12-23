@@ -88,6 +88,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 this.dpExpendedTime.Text = _info.ExpendedTime;
                 //     }
                 this.taAuditOpinion.Text = _info.AuditOpinion;
+
             }
         }
 
@@ -135,6 +136,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             com.TZMS.Model.ProjectProcessInfo _Info = manage.GetProcessByObjectID(ObjectID);
             _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
             _Info.Status = status;
+
+            _Info.IsPassImprest = true;
             //下一步审核人
             //_Info.NextOperaterId = Guid.Empty;
             //_Info.NextOperaterName = "";

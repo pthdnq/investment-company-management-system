@@ -109,7 +109,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
 
-            this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectProcessAdd.aspx?ID=" + ForID, "新增 - 进展");
+            this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectProcessAdd.aspx?Type=Add&ID=" + ForID, "新增 - 进展");
             this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
 
         }
@@ -272,10 +272,17 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             com.TZMS.Model.ProjectProcessInfo _Info = (com.TZMS.Model.ProjectProcessInfo)e.DataItem;
 
+            if (!(_Info.Status == 1 || _Info.Status == 2))
+            {
+                e.Values[8] = e.Values[8].ToString().Replace("编辑","查看").Replace("Edit","View");
+            }
+
             if (_Info.Status != 1)
             {
-                e.Values[8] = "<span class=\"gray\">删除</span>";
+                e.Values[9] = "<span class=\"gray\">删除</span>";
             }
+
+
         }
 
         /// <summary>
