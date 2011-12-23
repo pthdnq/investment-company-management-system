@@ -236,7 +236,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         
             if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9 || _Info.Status == 8)
             {
-                e.Values[10] = "<span class=\"gray\">业务移交</span>";
+                e.Values[11] = "<span class=\"gray\">业务移交</span>";
             }
         }
 
