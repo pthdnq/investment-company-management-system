@@ -80,6 +80,7 @@ namespace com.TZMS.DataAccess
                  new SqlParameter("@Use",DbType.String),
                  new SqlParameter("@ImprestRemark",DbType.String),
                       new SqlParameter("@Adulters",DbType.String),
+                       new SqlParameter("@IsPassImprest",DbType.Boolean),
 				};
 
                 int i = 0;
@@ -109,6 +110,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.Use;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.ImprestRemark;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.Adulters;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.IsPassImprest;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -189,6 +191,7 @@ namespace com.TZMS.DataAccess
                     new SqlParameter("@Use",DbType.String),
                  new SqlParameter("@ImprestRemark",DbType.String),
                        new SqlParameter("@Adulters",DbType.String),
+                               new SqlParameter("@IsPassImprest",DbType.Boolean),
                 };
 
                 int i = 0;
@@ -218,6 +221,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.Use;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.ImprestRemark;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.Adulters;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.IsPassImprest;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -406,7 +410,10 @@ namespace com.TZMS.DataAccess
             {
                 BankLoanProjectProcessInfoInfo.Adulters = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "Adulters");
             }
-            
+            if (BankLoanProjectProcessInfoInfoDataRow["IsPassImprest"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.IsPassImprest = bool.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "IsPassImprest"));
+            }
             return BankLoanProjectProcessInfoInfo;
         }
         #endregion
