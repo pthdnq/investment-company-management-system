@@ -63,16 +63,16 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="80px" DataField="BorrowerNameA" HeaderText="借款人" />
-                            <ext:BoundField Width="80px" DataField="Lenders" HeaderText="出借人" />
-                            <ext:BoundField Width="80px" DataField="Guarantee" HeaderText="担保人" />
+                            <ext:BoundField Width="70px" DataField="BorrowerNameA" HeaderText="借款人" />
+                            <ext:BoundField Width="70px" DataField="Lenders" HeaderText="出借人" />
+                            <ext:BoundField Width="70px" DataField="Guarantee" HeaderText="担保人" />
                             <ext:BoundField Width="75px" DataField="LoanAmount" HeaderText="借款金额" />
-                            <ext:BoundField Width="100px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
+                            <ext:BoundField Width="80px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="借款日期" />
-                            <ext:BoundField Width="100px" DataField="DueDateForPay" DataFormatString="每月{0}日"
+                            <ext:BoundField Width="70px" DataField="DueDateForPay" DataFormatString="每月{0}日"
                                 HeaderText="应付款日" />
-                            <ext:BoundField Width="110px" DataField="ContactPhone" HeaderText="联系电话" />
-                       <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
+                            <ext:BoundField Width="100px" DataField="ContactPhone" HeaderText="联系电话" />
+                       <ext:BoundField DataField="NextOperaterName" Width="73px" HeaderText="当前执行人" />
                                <ext:TemplateField Width="65px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
@@ -84,12 +84,12 @@
                         <ext:WindowField  Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="FinancingApplyEdit.aspx?Type=Edit&ID={0}" Title="编辑"
                                 WindowID="wndEdit" />
-                                   <ext:TemplateField Width="70px" HeaderText="核算状态">
+                                   <ext:TemplateField Width="66px" HeaderText="核算状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField  Width="38px" Text="查看" DataIFrameUrlFields="ObjectId"
+                            <ext:WindowField  Width="60px" Text="查看" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="FinancingApplyEditBA.aspx?Type=Edit&ID={0}" Title="会计核算"
                                 WindowID="wndNewBA" HeaderText="核算操作" />
                         </Columns>

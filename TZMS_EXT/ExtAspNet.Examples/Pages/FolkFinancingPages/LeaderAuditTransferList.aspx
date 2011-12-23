@@ -84,7 +84,7 @@
                             <ext:WindowField Width="80px" Text="审核转移" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LeaderAuditTransfer.aspx?Type=Edit&ID={0}"
                                 Title="审核转移" WindowID="wndNew" />
                                      <ext:WindowField Width="76px" Text="业务移交" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LeaderAuditTransfer.aspx?Type=Owner&ID={0}"
-                                Title="业务移交" WindowID="Window1" />
+                                Title="业务移交" WindowID="Window1" Hidden="true" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>

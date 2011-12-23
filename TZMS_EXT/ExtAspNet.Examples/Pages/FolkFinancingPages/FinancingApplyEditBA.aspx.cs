@@ -103,6 +103,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.dpLoanDate.SelectedDate = _Info.LoanDate;
                 this.ddlLoanType.SelectedValue = _Info.LoanType;
                 this.tbRemark.Text = _Info.Remark;
+                this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
             }
         }
 

@@ -117,7 +117,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             StringBuilder strCondtion = new StringBuilder();
 
-            if ((!string.IsNullOrEmpty(state)) && (state.Equals("4")))
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("4") || state.Equals("2")))
             {
                 strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
             }

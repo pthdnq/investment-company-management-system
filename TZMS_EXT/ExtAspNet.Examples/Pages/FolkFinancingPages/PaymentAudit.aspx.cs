@@ -70,7 +70,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             // 通过 ID获取 信息实例.
             com.TZMS.Model.FinancingFeePaymentInfo _info = new FolkFinancingManage().GetProcessByObjectID(strID);
-            
+
             // 绑定数据.
             if (_info != null)
             {
@@ -95,7 +95,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.tbPaymentAccount.Text = _info.PaymentAccount;
                 this.tbReceivablesAccount.Text = _info.ReceivablesAccount;
                 this.tbAmountOfPayment.Text = _info.AmountOfPayment.ToString();
-         
+
                 this.taRemark.Text = _info.Remark;
 
                 if (DateTime.Compare(_info.DueDateForPay, DateTime.Parse("1900-1-1 12:00")) != 0)
@@ -106,7 +106,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 if (DateTime.Compare(_info.DateForPay, DateTime.Parse("1900-1-1 12:00")) != 0)
                 {
                     this.dpDateForPay.SelectedDate = _info.DateForPay;
-                } 
+                }
             }
         }
 
@@ -163,9 +163,16 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             com.TZMS.Model.FinancingFeePaymentInfo _Info = manage.GetProcessByObjectID(ObjectID);
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             _Info.Status = status;
-
-            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            if (status == 2)
+            {
+                _Info.NextOperaterName = "";
+                _Info.NextOperaterId = Guid.Empty;
+            }
+            else
+            {
+                _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+                _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            }
             _Info.SubmitTime = DateTime.Now;
 
             //审批人
