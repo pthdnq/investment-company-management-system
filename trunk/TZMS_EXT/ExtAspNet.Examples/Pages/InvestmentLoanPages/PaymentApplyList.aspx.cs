@@ -210,7 +210,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             InvestmentLoanInfo info = manage.GetUserByObjectID(userID);
 
-           if (e.CommandName == "Delete")
+            if (e.CommandName == "Delete")
             {
                 // 删除
                 info.Status = 9;
@@ -243,17 +243,21 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
 
-            if (_Info.Status != 1)
+            if (_Info.Status != 1 && _Info.Status != 2)
             {
                 e.Values[13] = "<span class=\"gray\">删除</span>";
+                e.Values[11] = "<span class=\"gray\">编辑</span>";
             }
-               if (!(_Info.Status == 1 || _Info.Status == 2))
-               {
-                   e.Values[11] = "<span class=\"gray\">编辑</span>";
-               }
             if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
             {
-                e.Values[15] = e.Values[15].ToString().Replace("查看", "编辑");// "<span class=\"gray\">查看/修改</span>";
+                if (_Info.Status != 9)
+                {
+                    e.Values[15] = e.Values[15].ToString().Replace("查看", "编辑");// "<span class=\"gray\">查看/修改</span>";
+                }
+                else
+                {
+                    e.Values[15] = "<span class=\"gray\">编辑</span>";
+                }
             }
         }
 

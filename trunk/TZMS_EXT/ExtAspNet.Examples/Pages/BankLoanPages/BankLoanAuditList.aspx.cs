@@ -268,32 +268,33 @@ namespace TZMS.Web.Pages.BankLoanPages
         protected string GetStatusName(string strStatus)
         {
             string StrStatusName = string.Empty;
-            switch (strStatus)
-            {
-                case "0":
-                    //  strCondtion.Append(" AND Status = 1 ");
-                    break;
-                case "1":
-                    StrStatusName = "待审核";
-                    break;
-                case "2":
-                    StrStatusName = "未通过";
-                    break;
-                case "3":
-                    StrStatusName = "待审核";
-                    break;
-                case "4":
-                    StrStatusName = "已通过";
-                    break;
-                case "5":
-                    StrStatusName = "已确认";
-                    break;
-                case "9":
-                    StrStatusName = "已删除";
-                    break;
-                default:
-                    break;
-            }
+            StrStatusName = this.ddlstState.SelectedText;
+            //switch (strStatus)
+            //{
+            //    case "0":
+            //        //  strCondtion.Append(" AND Status = 1 ");
+            //        break;
+            //    case "1":
+            //        StrStatusName = "待审核";
+            //        break;
+            //    case "2":
+            //        StrStatusName = "未通过";
+            //        break;
+            //    case "3":
+            //        StrStatusName = "待审核";
+            //        break;
+            //    case "4":
+            //        StrStatusName = "已通过";
+            //        break;
+            //    case "5":
+            //        StrStatusName = "已确认";
+            //        break;
+            //    case "9":
+            //        StrStatusName = "已删除";
+            //        break;
+            //    default:
+            //        break;
+            //}
             return StrStatusName;
         }
         #endregion
