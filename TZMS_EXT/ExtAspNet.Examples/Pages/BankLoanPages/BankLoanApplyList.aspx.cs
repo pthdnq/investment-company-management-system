@@ -15,7 +15,7 @@ namespace TZMS.Web.Pages.BankLoanPages
     /// </summary>
     public partial class BankLoanApplyList : BasePage
     {
-        #region viewstate 
+        #region viewstate
         /// <summary>
         /// 用于存储 状态的ViewState.
         /// </summary>
@@ -84,7 +84,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -189,7 +189,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-    
+
         /// <summary>
         /// 状态变动事件
         /// </summary>
@@ -234,14 +234,21 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             BankLoanInfo _Info = (BankLoanInfo)e.DataItem;
 
-            if (_Info.Status != 1)
+            if (_Info.Status != 1 && _Info.Status != 1)
             {
                 e.Values[13] = "<span class=\"gray\">删除</span>";
-       
+
             }
             if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
             {
-                e.Values[15] = e.Values[15].ToString().Replace("查看", "编辑");// "<span class=\"gray\">查看/修改</span>";
+                if (_Info.Status != 9)
+                {
+                    e.Values[15] = e.Values[15].ToString().Replace("查看", "编辑");// "<span class=\"gray\">查看/修改</span>";
+                }
+                else
+                {
+                    e.Values[15] = "<span class=\"gray\">编辑</span>";
+                }
             }
         }
 

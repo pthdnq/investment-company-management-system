@@ -22,11 +22,11 @@
                             <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
                                 ID="ttbSearch" />
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
-                         <%--       <ext:ListItem Text="待审核" Value="1" />
+                                <%--       <ext:ListItem Text="待审核" Value="1" />
                                 <ext:ListItem Text="审核中" Value="3" />
                                 <ext:ListItem Text="已通过" Value="4"/>--%>
                                 <ext:ListItem Text="待终止" Value="0" />
-                                <ext:ListItem Text="已终止" Value="8"  Selected="true" />
+                                <ext:ListItem Text="已终止" Value="8" Selected="true" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
@@ -63,24 +63,23 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                   <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                               <ext:BoundField  ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="110px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
                             <ext:BoundField Width="110px" DataField="PayerBName" HeaderText="付款人（乙方）" />
-                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
-                         
+                            <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
                             <ext:BoundField Width="115px" DataField="LoanDate" HeaderText="借款日期" DataFormatString="{0:yyyy/MM/dd hh:mm}" />
-                            <ext:BoundField  Width="115px" DataField="SubmitTime" HeaderText="处理时间"  DataFormatString="{0:yyyy/MM/dd hh:mm}" />
-                   
+                            <ext:BoundField Width="115px" DataField="SubmitTime" HeaderText="处理时间" DataFormatString="{0:yyyy/MM/dd hh:mm}" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
-                                                              <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="76px" Text="终止合同" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?Type=Stop&ID={0}"
                                 Title="终止合同" WindowID="wndNew" />
-                     <%--     <ext:WindowField Width="76px" Text="还款进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?Type=Edit&ID={0}"
+
+                            <%--     <ext:WindowField Width="76px" Text="还款进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?Type=Edit&ID={0}"
                                 Title="还款进展" WindowID="wndNew" />--%>
                         </Columns>
                     </ext:Grid>
