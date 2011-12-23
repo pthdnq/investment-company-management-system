@@ -550,6 +550,7 @@
     <Content Include="Pages\adminManage\JingShengApprove.aspx" />
     <Content Include="Pages\adminManage\JingShengApproveList.aspx" />
     <Content Include="Pages\adminManage\JingShengToFile.aspx" />
+    <Content Include="Pages\adminManage\Menu.aspx" />
     <Content Include="Pages\adminManage\NewUser.aspx" />
     <Content Include="Pages\adminManage\ProbationYear.aspx" />
     <Content Include="Pages\adminManage\RecruitmentApply.aspx" />
@@ -915,6 +916,13 @@
     </Compile>
     <Compile Include="Pages\adminManage\JingShengToFile.aspx.designer.cs">
       <DependentUpon>JingShengToFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\NewUser.aspx.cs">
       <DependentUpon>NewUser.aspx</DependentUpon>
