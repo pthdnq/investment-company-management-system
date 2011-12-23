@@ -30,9 +30,9 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         }
 
         /// <summary>
-        ///  ForID
+        ///  ForOrObjectID
         /// </summary>
-        public string ForID
+        public string ForOrObjectID
         {
             get
             {
@@ -48,6 +48,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 ViewState["ForID"] = value;
             }
         }
+
+
         #endregion
 
         #region 页面加载及数据初始化
@@ -58,13 +60,13 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
-                ForID = strID;
+                ForOrObjectID = strID;
 
                 OperateType = Request.QueryString["Type"];
 
                 if (!string.IsNullOrEmpty(OperateType) && !OperateType.Equals("Add"))
                 {
-                    bindInterface(ForID);
+                    bindInterface(strID);
                 }
 
                 // 绑定下一步.
@@ -125,6 +127,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 // BindNext();
                 //    }
                 #endregion
+                this.cbIsAmountExpended.Checked = _info.NeedImprest;
 
                 this.tbImplementationPhase.Text = _info.ImplementationPhase;
                 this.tbAmountExpended.Text = _info.AmountExpended.ToString();
@@ -146,10 +149,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             this.tbImplementationPhase.Enabled = false;
             this.taRemark.Enabled = false;
+            this.cbIsAmountExpended.Enabled = false;
 
             if (IsPassImprest)
             {
-                this.cbIsAmountExpended.Hidden = true;
                 //如果通过了备用金审核，不能编辑
                 this.tbAmountExpended.Enabled = false;
                 this.tbImprestAmount.Enabled = false;
@@ -218,20 +221,29 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// </summary>
         private void saveInfo(int status)
         {
-            com.TZMS.Model.ProjectProcessInfo _Info = new com.TZMS.Model.ProjectProcessInfo();
+            com.TZMS.Model.ProjectProcessInfo _Info = null;
             InvestmentProjectManage manage = new InvestmentProjectManage();
 
             //  ID.
-            _Info.ObjectId = Guid.NewGuid();
-            _Info.ForId = new Guid(ForID);
+            if (OperateType.Equals("Edit"))
+            {
+                _Info = manage.GetProcessByObjectID(ForOrObjectID);
+            }
+            else
+            {
+                _Info = new com.TZMS.Model.ProjectProcessInfo();
+                _Info.ObjectId = Guid.NewGuid();
+                _Info.ForId = new Guid(ForOrObjectID);
 
-            _Info.ProjectName = manage.GetUserByObjectID(ForID).ProjectName;
+            }
+            _Info.NeedImprest = this.cbIsAmountExpended.Checked;
+
+            _Info.ProjectName = manage.GetUserByObjectID(ForOrObjectID).ProjectName;
+            _Info.ImplementationPhase = this.tbImplementationPhase.Text.Trim();
+            _Info.Remark = taRemark.Text.Trim();
 
             _Info.ExpendedTime = this.tbExpendedTime.Text.Trim();
-
             _Info.Use = this.tbUse.Text.Trim();
-            _Info.ImprestRemark = this.tbImprestRemark.Text.Trim();
-
             if (!string.IsNullOrEmpty(tbAmountExpended.Text))
             {
                 _Info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Trim());
@@ -241,8 +253,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             {
                 _Info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Trim());
             }
-            _Info.ImplementationPhase = this.tbImplementationPhase.Text.Trim();
-            _Info.Remark = taRemark.Text.Trim();
+            _Info.ImprestRemark = this.tbImprestRemark.Text.Trim();
+
             //创建人
             _Info.CreateTime = DateTime.Now;
             _Info.CreaterId = this.CurrentUser.ObjectId;
@@ -250,8 +262,6 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             _Info.CreaterAccount = this.CurrentUser.AccountNo;
 
             _Info.Status = status;
-
-            _Info.NeedImprest = this.cbIsAmountExpended.Checked;
 
             //下一步操作
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
