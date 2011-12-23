@@ -117,7 +117,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                         strCondtion.Append(" AND Status = 3 ");
                         break;
                     case "4":
-                        strCondtion.Append(" AND Status = 4 ");
+                        strCondtion.Append(" AND (Status = 4 OR Status = 5) ");
                         break;
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
