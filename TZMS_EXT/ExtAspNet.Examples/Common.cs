@@ -18,7 +18,7 @@ namespace TZMS
         public static class DEPT
         {
             /// <summary>
-            /// 行政部
+            /// 行政部 
             /// </summary>
             static public string XINGZHENG = "行政部";
 
