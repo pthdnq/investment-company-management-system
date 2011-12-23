@@ -88,7 +88,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
 
                 // 绑定下拉框.
-              BindDDL();
+                BindDDL();
                 // 绑定列表.
                 BindGridData(ViewStateState, ViewStateSearchText);
             }
@@ -101,7 +101,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -191,7 +191,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             if (_Info.Status != 1)
             {
-                e.Values[11] = "<span class=\"gray\">删除</span>"; 
+                e.Values[11] = "<span class=\"gray\">删除</span>";
             }
 
             if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
@@ -226,8 +226,6 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-      
-
         /// <summary>
         /// 状态变动事件
         /// </summary>
@@ -247,16 +245,11 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         protected void gridData_RowCommand(object sender, GridCommandEventArgs e)
         {
             FolkFinancingManage manage = new FolkFinancingManage();
-            string userID = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
+            string iID = ((GridRow)gridData.Rows[e.RowIndex]).Values[0];
 
-            FolkFinancingInfo info = manage.GetUserByObjectID(userID);
+            FolkFinancingInfo info = manage.GetUserByObjectID(iID);
 
-            if (e.CommandName == "Leave")
-            {
-                // 离职
-                info.Status = 0;
-            }
-            else if (e.CommandName == "Delete")
+            if (e.CommandName == "Delete")
             {
                 // 删除
                 info.Status = 9;

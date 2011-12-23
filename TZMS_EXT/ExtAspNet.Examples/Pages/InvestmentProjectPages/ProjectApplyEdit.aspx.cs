@@ -97,6 +97,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             this.dpSignDate.SelectedDate = _Info.SignDate;
             this.tbRemark.Text = _Info.Remark;
 
+            this.tbAuditOpinion.Text = _Info.AuditOpinion;
         }
 
         /// <summary>

@@ -163,6 +163,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
 
+            this.taAuditOpinion.Text = _Info.AuditOpinion;
+
 
         }
 
@@ -284,7 +286,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             InvestmentLoanManage manage = new InvestmentLoanManage();
             InvestmentLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
 
-            CustomerInfo _customer = null; 
+            CustomerInfo _customer = null;
             if (!string.IsNullOrEmpty(ViewStateZJ))
             {
                 _customer = manage.GetCustomerByObjectID(ViewStateZJ.Split(',')[0]);
@@ -327,10 +329,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.DueDateForPay = int.Parse(this.dpDueDateForPay.Text.Trim());
             _Info.LoanDate = DateTime.Parse(this.dpLoanDate.Text);
             _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
-            _Info.RateOfReturn = this.tbRateOfReturn.Text[0];
+            _Info.RateOfReturn = this.tbRateOfReturn.Text;
 
             _Info.Status = status;
-        //    _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+            //    _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
 
             //下一步操作
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
@@ -368,7 +370,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-              //  ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+                //  ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

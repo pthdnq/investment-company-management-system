@@ -203,8 +203,8 @@ namespace TZMS.Web.Pages.BankLoanPages
             result = manage.Update(_Info);
             if (result == -1)
             {
-                string statusName = "修改提交";//(status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意,归档";
-                new CashFlowManage().AddHistory(_Info.ObjectId, "审核", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "BankLoan");
+                string statusName = "重新修改后提交";//(status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意,归档";
+                new CashFlowManage().AddHistory(_Info.ObjectId, "编辑", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "BankLoan");
 
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

@@ -220,7 +220,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.SubmitTime = DateTime.Now;
             _Info.Remark = this.tbRateOfReturn.Text.Trim();
             _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
-            _Info.RateOfReturn = this.tbRateOfReturn.Text[0];
+            _Info.RateOfReturn = this.tbRateOfReturn.Text;
 
             // 创建人
             _Info.CreateTime = DateTime.Now;
