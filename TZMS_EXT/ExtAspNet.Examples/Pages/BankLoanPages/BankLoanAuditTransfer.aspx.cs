@@ -214,7 +214,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                  if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("Owner"))
                  {
                      strOperationType = "业务转移";
-                     strLastNextOperaterName = string.Format("{0}({1})", _Info.CreaterName, _Info.CreaterAccount);
+                     strLastNextOperaterName = _Info.CreaterName;
                      //下一步操作
                      _Info.CreaterName = this.ddlstApproveUser.SelectedText;
                      _Info.CreaterId = new Guid(this.ddlstApproveUser.SelectedValue);
@@ -235,12 +235,12 @@ namespace TZMS.Web.Pages.BankLoanPages
                 string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, this.ddlstApproveUser.SelectedText);//  (status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
                 manage.AddHistory(_Info.ObjectId, strOperationType, string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
 
-                Alert.Show("更新成功!");
+                Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
             {
-                Alert.Show("更新失败!");
+                Alert.Show("操作失败!");
             }
         }
 
@@ -250,10 +250,10 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// </summary>
         private void BindNext(bool needAccountant)
         {
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("转移审批", "0"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("移交至", "0"));
             if (needAccountant)
             {
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+              //  ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

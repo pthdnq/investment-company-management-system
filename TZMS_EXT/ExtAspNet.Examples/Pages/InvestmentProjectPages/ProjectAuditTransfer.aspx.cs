@@ -170,7 +170,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                  if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("Owner"))
                  {
                      strOperationType = "业务转移";
-                     strLastNextOperaterName = string.Format("{0}({1})", _Info.CreaterName, _Info.CreaterAccount);
+                     strLastNextOperaterName = _Info.CreaterName;
                      //下一步操作
                      _Info.CreaterName = this.ddlstApproveUser.SelectedText;
                      _Info.CreaterId = new Guid(this.ddlstApproveUser.SelectedValue);

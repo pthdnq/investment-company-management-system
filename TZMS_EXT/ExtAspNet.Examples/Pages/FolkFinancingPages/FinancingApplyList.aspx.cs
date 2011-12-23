@@ -125,13 +125,13 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                         //  strCondtion.Append(" AND Status = 1 ");
                         break;
                     case "1":
-                        strCondtion.Append(" AND Status = 1 ");
+                        strCondtion.Append(" AND (Status = 1 OR Status = 4)  ");
                         break;
                     case "2":
                         strCondtion.Append(" AND Status = 2 ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND (Status = 3 OR Status = 4) ");
+                        strCondtion.Append(" AND Status = 3  ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");
@@ -284,6 +284,47 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
         #endregion
 
-
+        #region 自定义方法
+        /// <summary>
+        /// 获取状态名字
+        /// </summary>
+        /// <param name="strStatus"></param>
+        /// <returns></returns>
+        protected string GetStatusName(string strStatus)
+        {
+            string StrStatusName = string.Empty;
+            StrStatusName = this.ddlstState.SelectedText;
+            //switch (strStatus)
+            //{
+            //    case "0":
+            //        //  strCondtion.Append(" AND Status = 1 ");
+            //        break;
+            //    case "1":
+            //        StrStatusName = "待审核";
+            //        break;
+            //    case "2":
+            //        StrStatusName = "未通过";
+            //        break;
+            //    case "3":
+            //        StrStatusName = "审核中";
+            //        break;
+            //    case "4":
+            //        StrStatusName = "已通过";
+            //        break;
+            //    case "5":
+            //        StrStatusName = "待审核";
+            //        break;
+            //    case "6":
+            //        StrStatusName = "已通过";
+            //        break;
+            //    case "9":
+            //        StrStatusName = "已删除";
+            //        break;
+            //    default:
+            //        break;
+            //}
+            return StrStatusName;
+        }
+        #endregion
     }
 }

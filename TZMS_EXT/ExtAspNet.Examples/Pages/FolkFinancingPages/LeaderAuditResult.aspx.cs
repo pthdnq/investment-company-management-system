@@ -15,7 +15,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
     /// </summary>
     public partial class LeaderAuditResult : BasePage
     {
-        #region viewstate 
+        #region viewstate
         /// <summary>
         /// 用于存储 状态的ViewState.
         /// </summary>
@@ -169,13 +169,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            //UserInfo _userInfo = (UserInfo)e.DataItem;
+            FolkFinancingInfo _Info = (FolkFinancingInfo)e.DataItem;
 
-            //if (_userInfo.State == 0)
-            //{
-            //    e.Values[9] = "<span class=\"gray\">权限</span>";
-            //    e.Values[10] = "<span class=\"gray\">离职</span>";
-            //}
+            if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9)
+            {
+                e.Values[12] = "<span class=\"gray\">业务移交</span>";
+            }
         }
         #endregion
 
@@ -204,7 +203,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-     
+
 
         /// <summary>
         /// 状态变动事件
