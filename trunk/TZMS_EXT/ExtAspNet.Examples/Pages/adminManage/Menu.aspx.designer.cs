@@ -7,10 +7,19 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace TZMS.Web.Pages.adminManage {
+namespace TZMS.Web {
     
     
     public partial class Menu {
+        
+        /// <summary>
+        /// Head1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
         /// form1 控件。
@@ -20,5 +29,32 @@ namespace TZMS.Web.Pages.adminManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
+        /// PageManager1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.PageManager PageManager1;
+        
+        /// <summary>
+        /// RegionPanel1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.RegionPanel RegionPanel1;
+        
+        /// <summary>
+        /// Region2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::ExtAspNet.Region Region2;
     }
 }
