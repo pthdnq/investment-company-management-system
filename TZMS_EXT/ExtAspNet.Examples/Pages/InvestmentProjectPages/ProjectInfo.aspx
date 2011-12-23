@@ -70,7 +70,7 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectProcessAdd.aspx?Type=Edit&ID={0}"
-                                Title="编辑" WindowID="wndNew" Hidden="true" />
+                                Title="编辑" WindowID="wndNew"   />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定需要确认该记录?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
