@@ -44,7 +44,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
 
-                bindUserInterface(strID);
+                bindInterface(strID);
                 // 绑定审批人.
                 ApproveUser();
                 BindHistory();
@@ -57,10 +57,10 @@ namespace TZMS.Web.Pages.BankLoanPages
         }
 
         /// <summary>
-        /// 绑定指定用户ID的数据到界面.
+        /// 绑定指定 ID的数据到界面.
         /// </summary>
-        /// <param name="strID">用户ID</param>
-        private void bindUserInterface(string strID)
+        /// <param name="strID"> ID</param>
+        private void bindInterface(string strID)
         {
             if (string.IsNullOrEmpty(strID))
             {

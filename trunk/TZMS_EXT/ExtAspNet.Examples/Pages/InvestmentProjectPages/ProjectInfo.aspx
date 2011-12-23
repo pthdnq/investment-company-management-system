@@ -66,7 +66,7 @@
                             <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="58px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "未确认" : "已确认" %>
+                                        <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectProcessAdd.aspx?Type=Edit&ID={0}"
@@ -79,7 +79,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="458px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="492px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

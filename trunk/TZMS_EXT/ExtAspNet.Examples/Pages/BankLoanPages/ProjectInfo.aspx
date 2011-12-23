@@ -66,11 +66,11 @@
                             <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" DataTooltipField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="66px" HeaderText="状态">
                                 <ItemTemplate>
-                                    <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "未确认" : "已确认" %>
+                                       <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <%--     <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ImprestPayConfirm.aspx?Type=Edit&ID={0}"
-                                Title="确认" WindowID="wndNew"  Hidden="true"/>--%>
+                         <ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectProcessAdd.aspx?Type=Edit&ID={0}"
+                                Title="编辑" WindowID="wndNew"  /> 
                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定需要确认该记录?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
@@ -79,7 +79,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="489px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="539px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>
