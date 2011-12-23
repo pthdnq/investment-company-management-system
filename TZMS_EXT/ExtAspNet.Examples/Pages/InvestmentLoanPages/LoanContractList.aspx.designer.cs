@@ -175,13 +175,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.Grid gridData;
         
         /// <summary>
-        /// wndRolesForUser control.
+        /// Window1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Window wndRolesForUser;
+        protected global::ExtAspNet.Window Window1;
         
         /// <summary>
         /// wndNew control.

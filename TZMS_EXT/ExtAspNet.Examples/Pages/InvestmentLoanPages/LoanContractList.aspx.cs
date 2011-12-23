@@ -197,6 +197,11 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             if (_Info.Status == 9 || _Info.Status == 8)
             {
                 e.Values[9] = "<span class=\"gray\">终止合同</span>";
+                e.Values[10] = "<span class=\"gray\">业务移交</span>";
+            }
+            if (!this.CurrentRoles.Contains(RoleType.CJGL))
+            {
+                e.Values[10] = "<span class=\"gray\">业务移交</span>";
             }
         }
         #endregion

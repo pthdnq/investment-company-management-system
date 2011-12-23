@@ -82,6 +82,8 @@
                             <ext:BoundField DataField="NextOperaterName" Width="70px" HeaderText="当前执行人" />
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}"
                                 Title="查看" WindowID="wndNew" />
+                            <ext:WindowField Width="76px" Text="业务移交" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditTransfer.aspx?Type=Owner&ID={0}"
+                                Title="业务移交" WindowID="Window1" />
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -90,6 +92,9 @@
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="453px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+    <ext:Window ID="Window1" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="490px" Width="590px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>
