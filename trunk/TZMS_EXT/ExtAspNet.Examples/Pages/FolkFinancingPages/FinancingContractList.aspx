@@ -67,20 +67,20 @@
                             <ext:BoundField Width="80px" DataField="Lenders" HeaderText="出款人" />
                             <ext:BoundField Width="80px" DataField="Guarantee" HeaderText="担保人" />
                             <ext:BoundField Width="105px" DataField="LoanAmount" HeaderText="借款金额" />
-                            <ext:BoundField Width="100px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
+                            <ext:BoundField Width="80px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="借款日期" />
-                            <ext:BoundField Width="110px" DataField="DueDateForPay" DataFormatString="每月{0}日"
+                            <ext:BoundField Width="80px" DataField="DueDateForPay" DataFormatString="每月{0}日"
                                 HeaderText="应付款日" />
-                            <ext:BoundField Width="110px" DataField="ContactPhone" HeaderText="联系电话" />
+                            <ext:BoundField Width="100px" DataField="ContactPhone" HeaderText="联系电话" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="114px" Text="申请支付费用" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="FinancingContract.aspx?Type=Edit&ID={0}"
+                            <ext:WindowField Width="104px" Text="申请支付费用" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="FinancingContract.aspx?Type=Edit&ID={0}"
                                 Title="申请支付费用" WindowID="wndNew" />
-                            <ext:WindowField Width="76px" Text="业务移交" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LeaderAuditTransfer.aspx?Type=Owner&ID={0}"
+                            <ext:WindowField Width="66px" Text="业务移交" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LeaderAuditTransfer.aspx?Type=Owner&ID={0}"
                                 Title="业务移交" WindowID="Window1" />
                         </Columns>
                     </ext:Grid>
