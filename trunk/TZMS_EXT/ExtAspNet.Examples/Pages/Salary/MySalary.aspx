@@ -52,12 +52,32 @@
                         <Columns>
                             <ext:BoundField DataField="Year" HeaderText="年份" />
                             <ext:BoundField DataField="Month" HeaderText="月份" />
-                            <ext:BoundField DataField="BaseSalary" HeaderText="基本工资" />
-                            <ext:BoundField DataField="ExamSalary" HeaderText="考核工资" />
-                            <ext:BoundField DataField="BackSalary" HeaderText="补贴" />
-                            <ext:BoundField DataField="OtherSalary" HeaderText="其它" />
-                            <ext:BoundField DataField="ShouldSalary" HeaderText="应发工资总额" />
-                            <ext:BoundField DataField="Salary" HeaderText="实发工资总额" />
+                            <ext:BoundField DataField="BaseSalary" HeaderText="基本工资" Hidden="true" />
+                            <ext:BoundField DataField="ExamSalary" HeaderText="考核工资" Hidden="true"/>
+                            <ext:BoundField DataField="BackSalary" HeaderText="补贴" Hidden="true"/>
+                            <ext:BoundField DataField="OtherSalary" HeaderText="其它" Hidden="true"/>
+                            <ext:BoundField DataField="ShouldSalary" HeaderText="应发工资总额" Hidden="true"/>
+                            <ext:BoundField DataField="Salary" HeaderText="实发工资总额" Hidden="true"/>
+                            <ext:BoundField DataField="JBGZ" HeaderText="基本工资" Width="150px" />
+                            <ext:BoundField DataField="GLGZ" HeaderText="工龄工资" />
+                            <ext:BoundField DataField="SYQGZ" HeaderText="试用期补发工资" Width="150px" />
+                            <ext:BoundField DataField="NZJ" HeaderText="年终奖" />
+                            <ext:BoundField DataField="JLGZ" HeaderText="奖励工资" />
+                            <ext:BoundField DataField="KHGZ" HeaderText="考核工资" />
+                            <ext:BoundField DataField="CB" HeaderText="餐补" />
+                            <ext:BoundField DataField="JTBZ" HeaderText="交通补助" />
+                            <ext:BoundField DataField="YFGZ" HeaderText="应发工资" />
+                            <ext:BoundField DataField="CD" HeaderText="迟到" Width="60px" />
+                            <ext:BoundField DataField="ZT" HeaderText="早退" Width="60px"/>
+                            <ext:BoundField DataField="KG" HeaderText="旷工" Width="60px"/>
+                            <ext:BoundField DataField="SJ" HeaderText="事假" Width="60px"/>
+                            <ext:BoundField DataField="BJ" HeaderText="病假" Width="60px"/>
+                            <ext:BoundField DataField="SB" HeaderText="社保" Width="60px"/>
+                            <ext:BoundField DataField="FK" HeaderText="罚款" Width="60px"/>
+                            <ext:BoundField DataField="CF" HeaderText="餐费" Width="60px"/>
+                            <ext:BoundField DataField="BJF" HeaderText="保洁费" Width="60px"/>
+                            <ext:BoundField DataField="LYF" HeaderText="旅游费" Width="60px"/>
+                            <ext:BoundField DataField="SFGZ" HeaderText="实发工资" />
                             <ext:BoundField DataField="Context" HeaderText="备注" ExpandUnusedSpace="true" DataTooltipField="Context" />
                         </Columns>
                     </ext:Grid>
