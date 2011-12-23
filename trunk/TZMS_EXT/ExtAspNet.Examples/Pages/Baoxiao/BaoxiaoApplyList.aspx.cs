@@ -62,7 +62,7 @@ namespace TZMS.Web
                 dpkEndTime.SelectedDate = DateTime.Now;
 
                 //报销申请按钮.
-                wndBaoxiao.Title = "新建报销申请单";
+                wndBaoxiao.Title = "报销申请";
                 btnNewBaoxiao.OnClientClick = wndBaoxiao.GetShowReference("NewBaoxiaoApply.aspx?Type=Add") + "return false;";
                 wndBaoxiao.OnClientCloseButtonClick = wndBaoxiao.GetHidePostBackReference();
 
