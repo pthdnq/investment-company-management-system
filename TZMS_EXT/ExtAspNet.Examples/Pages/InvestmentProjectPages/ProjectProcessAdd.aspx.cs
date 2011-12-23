@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web.Pages.InvestmentProjectPages
 {
@@ -64,16 +65,18 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                 OperateType = Request.QueryString["Type"];
 
+                tabHistory.Hidden = true;
                 if (!string.IsNullOrEmpty(OperateType) && !OperateType.Equals("Add"))
                 {
                     bindInterface(strID);
+                    tabHistory.Hidden = false;
                 }
 
                 // 绑定下一步.
                 BindNext();
                 // 绑定审批人.
                 ApproveUser();
-
+                BindHistory();
             }
         }
 
@@ -103,7 +106,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             }
             else if (OperateType.Equals("Edit"))
             {
-                SetContrl(_info.IsPassImprest);
+                SetContrl(_info.IsPassImprest || !_info.NeedImprest, false);
             }
 
             // 绑定数据.
@@ -140,15 +143,18 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                 this.tbUse.Text = _info.Use;
                 this.tbImprestRemark.Text = _info.ImprestRemark;
-                // }
-
+                // } 
             }
         }
 
-        private void SetContrl(bool IsPassImprest)
+        private void SetContrl(bool IsPassImprest, bool isContentDisabled = true)
         {
-            this.tbImplementationPhase.Enabled = false;
-            this.taRemark.Enabled = false;
+            if (isContentDisabled)
+            {
+                this.tbImplementationPhase.Enabled = false;
+                this.taRemark.Enabled = false;
+            }
+
             this.cbIsAmountExpended.Enabled = false;
 
             if (IsPassImprest)
@@ -168,6 +174,24 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             tbImprestRemark.Hidden = false;
         }
 
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            if (ForOrObjectID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ForId = '" + ForOrObjectID + "'");
+            strCondition.Append(" ORDER BY OperationTime DESC");
+            List<ProjectProcessHistoryInfo> lstInfo = new InvestmentProjectManage().GetProcessHistoryByCondtion(strCondition.ToString());
+            //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            gridHistory.RecordCount = lstInfo.Count;
+            this.gridHistory.DataSource = lstInfo;
+            this.gridHistory.DataBind();
+        }
         #endregion
 
         #region 页面及控件事件
@@ -228,6 +252,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             if (OperateType.Equals("Edit"))
             {
                 _Info = manage.GetProcessByObjectID(ForOrObjectID);
+
+                _Info.Status = _Info.NeedImprest ? 1 : 5;
             }
             else
             {
@@ -235,10 +261,20 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 _Info.ObjectId = Guid.NewGuid();
                 _Info.ForId = new Guid(ForOrObjectID);
 
-            }
-            _Info.NeedImprest = this.cbIsAmountExpended.Checked;
+                //创建人
+                _Info.CreateTime = DateTime.Now;
+                _Info.CreaterId = this.CurrentUser.ObjectId;
+                _Info.CreaterName = this.CurrentUser.Name;
+                _Info.CreaterAccount = this.CurrentUser.AccountNo;
 
-            _Info.ProjectName = manage.GetUserByObjectID(ForOrObjectID).ProjectName;
+                _Info.ProjectName = manage.GetUserByObjectID(ForOrObjectID).ProjectName;
+
+                _Info.Status = status;
+                _Info.NeedImprest = this.cbIsAmountExpended.Checked;
+            }
+            
+
+
             _Info.ImplementationPhase = this.tbImplementationPhase.Text.Trim();
             _Info.Remark = taRemark.Text.Trim();
 
@@ -255,13 +291,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             }
             _Info.ImprestRemark = this.tbImprestRemark.Text.Trim();
 
-            //创建人
-            _Info.CreateTime = DateTime.Now;
-            _Info.CreaterId = this.CurrentUser.ObjectId;
-            _Info.CreaterName = this.CurrentUser.Name;
-            _Info.CreaterAccount = this.CurrentUser.AccountNo;
 
-            _Info.Status = status;
 
             //下一步操作
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
@@ -269,12 +299,21 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             _Info.SubmitTime = DateTime.Now;
             // 执行操作.
             int result = 3;
+            if (OperateType.Equals("Edit"))
+            {
+                result = manage.UpdateProcess(_Info);
+            }
+            else
+            {
+                result = manage.AddProcess(_Info);
+            }
 
-            result = manage.AddProcess(_Info);
             if (result == -1)
             {
-                string strDesc = string.Format("项目进展新增-{0}备用金", (_Info.NeedImprest) ? "申请" : "无");
-                manage.AddHistory(true, _Info.ObjectId, "新增", strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
+                string strOpertationType = OperateType.Equals("Edit") ? "编辑" : "新增";
+                string strDesc = string.Format("进展{0}-{1}备用金", strOpertationType, (_Info.NeedImprest) ? "申请" : "无");
+
+                manage.AddHistory(true, _Info.ObjectId, strOpertationType, strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
 
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

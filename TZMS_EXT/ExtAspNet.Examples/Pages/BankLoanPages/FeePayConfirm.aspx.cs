@@ -137,11 +137,12 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             _Info.Status = status;
 
+            _Info.IsPassImprest = true;
             //下一步审核人 
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.SubmitTime = DateTime.Now;
-
+         
             //已审批人
             if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))
             {
