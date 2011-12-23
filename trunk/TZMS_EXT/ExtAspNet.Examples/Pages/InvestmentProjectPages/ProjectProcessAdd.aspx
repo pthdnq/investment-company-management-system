@@ -82,7 +82,7 @@
                             <ext:FormRow ColumnWidths="60% 40%">
                                 <Items>
                                
-                                    <ext:TextBox  Hidden="true"  ID="tbExpendedTime" Label="支用时间" ShowRedStar="true" Required="true" runat="server"
+                                    <ext:TextBox  Hidden="true"    ID="tbExpendedTime" Label="支用时间" ShowRedStar="true" Required="true" runat="server"
                                           MaxLength="50" MaxLengthMessage="最多只能输入50个字符！">
                                     </ext:TextBox>
                                     <ext:Label ID="Label1" runat="server" />

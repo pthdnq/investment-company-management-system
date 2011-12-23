@@ -9,7 +9,7 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true"  Height="416px"  Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true" Height="416px" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -69,8 +69,8 @@
                                     <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "未确认" : "已确认" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <%--     <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ImprestPayConfirm.aspx?Type=Edit&ID={0}"
-                                Title="确认" WindowID="wndNew"  Hidden="true"/>--%>
+                            <ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectProcessAdd.aspx?Type=Edit&ID={0}"
+                                Title="编辑" WindowID="wndNew" Hidden="true" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定需要确认该记录?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
