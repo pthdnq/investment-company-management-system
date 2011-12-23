@@ -20,7 +20,7 @@
                     <ext:Button ID="btnSave" runat="server" ValidateForms="pelMain" OnClick="btnSave_Click"
                         IconUrl="~/Images/ico_nextstep.gif" Text="转移审批" ConfirmText="您确定要转移审批该申请吗?" />
                     <ext:Button ID="btnDismissed" runat="server" ValidateForms="pelMain" OnClick="btnDismissed_Click"
-                        IconUrl="~/Images/ico_firststep.gif" Hidden="true"  Text="不通过" ConfirmText="您确定要不通过该申请吗?" />
+                        IconUrl="~/Images/ico_nextstep.gif" Hidden="true"  Text="业务移交" ConfirmText="您确定将该业务移交吗?" />
                     <ext:Label runat="server" ID="HighMoneyTips" />
                 </Items>
             </ext:Toolbar>
@@ -52,7 +52,7 @@
                 <Tabs>
                     <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                         <Items>
-                            <ext:Form EnableBackgroundColor="true" LabelWidth="55px" ShowHeader="false" ShowBorder="false"
+                            <ext:Form EnableBackgroundColor="true" LabelWidth="75px" ShowHeader="false" ShowBorder="false"
                                 BodyPadding="5px" ID="mainForm" runat="server">
                                 <Rows>
                                     <ext:FormRow ColumnWidths="50% 50%">
@@ -90,8 +90,7 @@
                                             <ext:TextBox ID="tbPayerBName" Enabled="false" Label="付款人(乙方)" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
-                                            <ext:DropDownList runat="server" Enabled="false" Label="付款方式" ID="ddlLoanType" ShowRedStar="true"
-                                                Required="true">
+                                            <ext:DropDownList runat="server" Enabled="false" Label="付款方式" ID="ddlLoanType"  >
                                                 <ext:ListItem Text="现金" Value="Cash" />
                                                 <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
                                             </ext:DropDownList>
@@ -159,7 +158,7 @@
                            <%--         <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
-                                    <ext:BoundField Width="50px" DataField="OperationType" HeaderText="操作类型" />
+                                    <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />
                                     <ext:BoundField Width="100px" DataField="OperationDesc" DataTooltipField="OperationDesc"
                                         HeaderText="操作描述" />
                                     <ext:BoundField DataField="Remark" HeaderText="操作人意见" DataTooltipField="Remark" ExpandUnusedSpace="true" />

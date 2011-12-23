@@ -79,17 +79,16 @@
                             <ext:WindowField Width="76px" Text="终止合同" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?Type=Stop&ID={0}"
                                 Title="终止合同" WindowID="wndNew" />
 
-                            <%--     <ext:WindowField Width="76px" Text="还款进展" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?Type=Edit&ID={0}"
-                                Title="还款进展" WindowID="wndNew" />--%>
+                                 <ext:WindowField Width="76px" Text="业务移交" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentAuditTransfer.aspx?Type=Owner&ID={0}"
+                                Title="业务移交" WindowID="Window1" /> 
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
-        IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
-        Height="370px" Width="400px">
+      <ext:Window ID="Window1" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="551px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="550px" Width="550px" OnClose="wndNew_Close">

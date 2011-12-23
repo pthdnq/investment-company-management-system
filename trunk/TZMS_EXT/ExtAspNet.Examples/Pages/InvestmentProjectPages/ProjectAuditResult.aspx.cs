@@ -231,13 +231,13 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            //InvestmentProjectInfo _Info = (InvestmentProjectInfo)e.DataItem;
+            InvestmentProjectInfo _Info = (InvestmentProjectInfo)e.DataItem;
 
-            //if (_Info.Status == 0)
-            //{
-            //    e.Values[9] = "<span class=\"gray\">权限</span>";
-            //    e.Values[10] = "<span class=\"gray\">离职</span>";
-            //}
+        
+            if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9 || _Info.Status == 8)
+            {
+                e.Values[10] = "<span class=\"gray\">业务移交</span>";
+            }
         }
 
         /// <summary>
