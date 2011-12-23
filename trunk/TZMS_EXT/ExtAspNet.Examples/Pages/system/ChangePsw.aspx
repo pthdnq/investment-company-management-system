@@ -26,7 +26,7 @@
                 <Rows>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbxOldPsw" Label="密码" TextMode="Password" runat="server" Required="true"
+                            <ext:TextBox ID="tbxOldPsw" Label="原始密码" TextMode="Password" runat="server" Required="true"
                                 MaxLength="15" MaxLengthMessage="最多只能输入15个字母或数字！" Regex="^[a-zA-Z0-9]*$" RegexMessage="只能输入字母或数字!">
                             </ext:TextBox>
                         </Items>

@@ -68,7 +68,8 @@
                             </ext:TemplateField>
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
                             <ext:LinkButtonField Width="38px" Text="权限" CommandName="Role" />
-                            <ext:LinkButtonField Width="38px" Text="离职" ConfirmText="确定该员工离职?" CommandName="Leave" />
+                            <ext:LinkButtonField Width="38px" Text="离职" ConfirmText="确定该员工离职?" CommandName="Leave"
+                                Hidden="true" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>

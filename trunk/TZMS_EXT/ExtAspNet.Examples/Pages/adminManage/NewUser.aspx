@@ -52,8 +52,8 @@
                             <ext:DropDownList ID="ddlstDept" Label="所在部门" ShowRedStar="true" Required="true"
                                 runat="server">
                             </ext:DropDownList>
-                            <ext:TextBox ID="tbxPosition" Label="职位" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                            <ext:TextBox ID="tbxPosition" Label="职位" runat="server" Required="true" MaxLength="20"
+                                MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
@@ -98,7 +98,7 @@
                             </ext:DatePicker>
                             <ext:RadioButtonList ID="rblProbationState" Label="转正状态" runat="server">
                                 <ext:RadioItem Text="已转正" Value="1" />
-                                <ext:RadioItem Text="未转正" Selected="true"  Value="0" />
+                                <ext:RadioItem Text="未转正" Selected="true" Value="0" />
                             </ext:RadioButtonList>
                         </Items>
                     </ext:FormRow>

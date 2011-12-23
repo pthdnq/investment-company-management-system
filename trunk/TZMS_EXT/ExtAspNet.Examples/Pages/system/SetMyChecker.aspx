@@ -1,12 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SetMyChecker.aspx.cs" Inherits="TZMS.Web.SetMyChecker" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="x-ua-compatible" content="ie=8" /> 
+    <meta http-equiv="x-ua-compatible" content="ie=8" />
     <title>设置我的审批人</title>
-    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -26,8 +24,8 @@
                 ColumnWidth="44%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="false">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
-                    <ext:BoundField DataField="Dept" HeaderText="部门" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" Hidden="true" />
+                    <ext:BoundField DataField="Position" HeaderText="职位" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
             <ext:Panel ID="Panel1" ColumnWidth="13%" Layout="Row" EnableBackgroundColor="true"
@@ -46,8 +44,8 @@
                 Height="385px">
                 <Columns>
                     <ext:BoundField DataField="Name" HeaderText="姓名" Width="65px" />
-                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" />
-                    <ext:BoundField DataField="Dept" HeaderText="部门" />
+                    <ext:BoundField DataField="AccountNo" HeaderText="帐号" Width="65px" Hidden="true" />
+                    <ext:BoundField DataField="Position" HeaderText="职位" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
         </Items>
