@@ -48,7 +48,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
                 BindHistory();
                 // 绑定审批人.
-             //   ApproveUser();
+                //   ApproveUser();
             }
         }
 
@@ -80,6 +80,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             //    BindNext(false);
             //}
 
+            tbProjectName.Text = _Info.ProjectName;
             this.tbCollateralCompany.Text = _Info.CollateralCompany;
             this.tbCustomerName.Text = _Info.CustomerName;
             this.tbDownPayment.Text = _Info.DownPayment.ToString();
@@ -122,7 +123,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         protected void btnDismissed_Click(object sender, EventArgs e)
         {
             //不同意，打回
-           // saveInfo(2);
+            // saveInfo(2);
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -171,8 +172,8 @@ namespace TZMS.Web.Pages.BankLoanPages
         //        Alert.Show("更新失败!");
         //    }
         //}
-         
-     
+
+
         #endregion
     }
 }

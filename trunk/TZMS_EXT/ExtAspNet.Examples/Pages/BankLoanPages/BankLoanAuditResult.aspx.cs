@@ -257,7 +257,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9)
             {
-                e.Values[11] = "<span class=\"gray\">业务移交</span>";
+                e.Values[10] = "<span class=\"gray\">业务移交</span>";
             }
         }
 
