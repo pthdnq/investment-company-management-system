@@ -296,7 +296,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                     StrStatusName = "已通过";
                     break;
                 case "5":
-                    StrStatusName = "待审核";
+                    StrStatusName = "审核中";
                     break;
                 case "6":
                     StrStatusName = "已通过";

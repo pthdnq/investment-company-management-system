@@ -237,12 +237,9 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (_Info.Status != 1 && _Info.Status != 2)
             {
                 e.Values[13] = "<span class=\"gray\">删除</span>";
-
-            }
-            else
-            {
                 e.Values[12] = "<span class=\"gray\">编辑</span>";
             }
+
             if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
             {
                 if (_Info.Status != 9)
