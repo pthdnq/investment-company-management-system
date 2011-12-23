@@ -66,7 +66,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Collateral",DbType.String),
 				new SqlParameter("@Guarantor",DbType.String),
 				new SqlParameter("@GuarantorPhone",DbType.String),
-				new SqlParameter("@RateOfReturn",DbType.Byte),
+				new SqlParameter("@RateOfReturn",DbType.String),
 				new SqlParameter("@DueDateForPay",DbType.Int32),
 				new SqlParameter("@Remark",DbType.String),
 				new SqlParameter("@Status",SqlDbType.TinyInt),
@@ -203,7 +203,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Collateral",DbType.String),
 				new SqlParameter("@Guarantor",DbType.String),
 				new SqlParameter("@GuarantorPhone",DbType.String),
-				new SqlParameter("@RateOfReturn",DbType.Byte),
+				new SqlParameter("@RateOfReturn",DbType.String),
 				new SqlParameter("@DueDateForPay",DbType.Int32),
 				new SqlParameter("@Remark",DbType.String),
 				new SqlParameter("@Status",SqlDbType.TinyInt),
@@ -408,7 +408,7 @@ namespace com.TZMS.DataAccess
             }
             if (InvestmentLoanInfoInfoDataRow["RateOfReturn"] != null)
             {
-                InvestmentLoanInfoInfo.RateOfReturn = char.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "RateOfReturn"));
+                InvestmentLoanInfoInfo.RateOfReturn =  DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "RateOfReturn");
             }
             if (InvestmentLoanInfoInfoDataRow["DueDateForPay"] != null)
             {
