@@ -100,7 +100,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
 
             this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectProcessAdd.aspx?Type=Add&ID=" + ForID, "新增 - 进展");
-            this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
+            this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
         }
 
         /// <summary>

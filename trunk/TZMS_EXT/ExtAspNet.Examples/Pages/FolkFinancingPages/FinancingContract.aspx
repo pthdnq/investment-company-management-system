@@ -79,7 +79,7 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                              <ext:WindowField   Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
-                                DataIFrameUrlFormatString="FinancingContractPayAdd.aspx?Type=Edit&ID={0}" Title="编辑" WindowID="wndNew" />
+                                DataIFrameUrlFormatString="FinancingContractPayAdd.aspx?Type=Edit&ID={0}" Title="编辑" WindowID="Window1" />
                            
                             <ext:LinkButtonField Width="36px" Text="删除" ConfirmText="确定已确认该记录?" CommandName="Delete" />
                         </Columns>
@@ -89,6 +89,9 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="302px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+    <ext:Window ID="Window1" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="302px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>

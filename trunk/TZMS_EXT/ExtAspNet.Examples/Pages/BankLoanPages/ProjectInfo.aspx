@@ -70,7 +70,7 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                          <ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectProcessAdd.aspx?Type=Edit&ID={0}"
-                                Title="编辑" WindowID="wndNew"  /> 
+                                Title="编辑" WindowID="windx"  /> 
                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定需要确认该记录?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
@@ -79,6 +79,9 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="539px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+        <ext:Window ID="windx" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="539px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>

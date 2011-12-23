@@ -10,6 +10,23 @@ namespace TZMS.Web.Pages.BankLoanPages
     public partial class BankLoanAuditTransfer : BasePage
     {
         #region 属性
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
+
         /// <summary>
         /// ObjectID
         /// </summary>
@@ -40,6 +57,13 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
+                OperateType = Request.QueryString["Type"];
+
+                if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("Owner"))
+                {
+                    btnSave.Hidden = true;
+                    btnDismissed.Hidden = false; 
+                }
 
                 bindUserInterface(strID);
 
@@ -186,10 +210,21 @@ namespace TZMS.Web.Pages.BankLoanPages
            // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
 
             string strLastNextOperaterName = _Info.NextOperaterName;
-
-            //下一步操作
-            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+                 string strOperationType = "审批转移";
+                 if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("Owner"))
+                 {
+                     strOperationType = "业务转移";
+                     strLastNextOperaterName = string.Format("{0}({1})", _Info.CreaterName, _Info.CreaterAccount);
+                     //下一步操作
+                     _Info.CreaterName = this.ddlstApproveUser.SelectedText;
+                     _Info.CreaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+                 }
+                 else
+                 {
+                     //下一步操作
+                     _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+                     _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+                 }
             _Info.SubmitTime = DateTime.Now;
 
 
@@ -197,8 +232,8 @@ namespace TZMS.Web.Pages.BankLoanPages
             result = manage.Update(_Info);
             if (result == -1)
             {
-                string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, _Info.NextOperaterName);// (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意";
-                manage.AddHistory(_Info.ObjectId, "审批转移", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
+                string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, this.ddlstApproveUser.SelectedText);//  (status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
+                manage.AddHistory(_Info.ObjectId, strOperationType, string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
 
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
