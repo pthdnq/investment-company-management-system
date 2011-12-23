@@ -45,7 +45,7 @@ namespace com.TZMS.Model
         private string _collateral = DBEmptyString;
         private string _guarantor = DBEmptyString;
         private string _guarantorPhone = DBEmptyString;
-        private char _rateOfReturn = DBEmptyChar;
+        private string _rateOfReturn = DBEmptyString;
         private int _dueDateForPay = DBEmptyTinyInt;
         private string _remark = DBEmptyString;
         private int _status = DBEmptyInt;
@@ -187,7 +187,7 @@ namespace com.TZMS.Model
         /// <summary>
         /// RateOfReturn 
         /// </summary> 
-        public char RateOfReturn
+        public string RateOfReturn
         {
             get { return _rateOfReturn; }
             set { _rateOfReturn = value; }
