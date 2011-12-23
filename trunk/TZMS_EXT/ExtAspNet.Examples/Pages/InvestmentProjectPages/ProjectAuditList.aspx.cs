@@ -281,7 +281,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     StrStatusName = "未通过";
                     break;
                 case "3":
-                    StrStatusName = "已审核";
+                    StrStatusName = "待审核";
                     break;
                 case "4":
                     StrStatusName = "已通过";

@@ -217,6 +217,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 // 删除
                 info.Status = 9;
+                info.BAStatus = 9;
             }
 
             userManage.Update(info);

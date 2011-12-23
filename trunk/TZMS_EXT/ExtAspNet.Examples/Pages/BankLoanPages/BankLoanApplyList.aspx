@@ -83,7 +83,7 @@
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}"
                                 Title="查看" WindowID="wndView" />
                             <ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanApplyEdit.aspx?Type=Edit&ID={0}"
-                                Title="编辑" WindowID="wndNewBA" />
+                                Title="编辑" WindowID="wndEdit" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
                             <ext:TemplateField Width="65px" HeaderText="核算状态">
                                 <ItemTemplate>
@@ -106,6 +106,9 @@
     </ext:Window>
     <ext:Window ID="wndNewBA" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="478px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+    <ext:Window ID="wndEdit" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="438px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

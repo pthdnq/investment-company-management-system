@@ -157,8 +157,16 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             _Info.Status = status;
 
-            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            if (status == 2)
+            {
+                _Info.NextOperaterName = "";
+                _Info.NextOperaterId =Guid.Empty;
+            }
+            else
+            {
+                _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+                _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            }
             _Info.SubmitTime = DateTime.Now;
             //审批人
             if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))

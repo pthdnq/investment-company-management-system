@@ -103,6 +103,8 @@ namespace TZMS.Web.Pages.BankLoanPages
                 {
                     SetContrl(true);
                     this.btnSave.Hidden = true;
+                    this.ddlstApproveUser.Enabled = false;
+                    this.ddlstNext.Enabled = false;
                 }
                 else if (OperateType.Equals("Edit"))
                 {
