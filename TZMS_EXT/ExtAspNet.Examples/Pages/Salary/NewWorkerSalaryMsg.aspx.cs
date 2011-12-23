@@ -102,12 +102,32 @@ namespace TZMS.Web
                 _info.UserId = _userInfo.ObjectId;
                 _info.Name = _userInfo.Name;
                 _info.Dept = _userInfo.Dept;
-                _info.BaseSalary = Convert.ToDecimal(tbxBaseSalary.Text.Trim());
-                _info.ExamSalary = Convert.ToDecimal(tbxExamSalary.Text.Trim());
-                _info.BackSalary = Convert.ToDecimal(tbxBackSalary.Text.Trim());
-                _info.OtherSalary = Convert.ToDecimal(tbxOtherSalary.Text.Trim());
-                _info.ShouldSalary = Convert.ToDecimal(tbxShouldSalary.Text.Trim());
-                _info.Salary = Convert.ToDecimal(tbxSalary.Text.Trim());
+                //_info.BaseSalary = Convert.ToDecimal(tbxBaseSalary.Text.Trim());
+                //_info.ExamSalary = Convert.ToDecimal(tbxExamSalary.Text.Trim());
+                //_info.BackSalary = Convert.ToDecimal(tbxBackSalary.Text.Trim());
+                //_info.OtherSalary = Convert.ToDecimal(tbxOtherSalary.Text.Trim());
+                //_info.ShouldSalary = Convert.ToDecimal(tbxShouldSalary.Text.Trim());
+                //_info.Salary = Convert.ToDecimal(tbxSalary.Text.Trim());
+                _info.Jbgz = tbxJBGZ.Text.Trim();
+                _info.Glgz = tbxGLGZ.Text.Trim();
+                _info.Syqgz = tbxSYQGZ.Text.Trim();
+                _info.Nzj = tbxNZJ.Text.Trim();
+                _info.Jlgz = tbxJLGZ.Text.Trim();
+                _info.Khgz = tbxJLGZ.Text.Trim();
+                _info.Cb = tbxCB.Text.Trim();
+                _info.Jtbz = tbxJTBZ.Text.Trim();
+                _info.Yfgz = tbxYFGZ.Text.Trim();
+                _info.Cd = tbxCD.Text.Trim();
+                _info.Zt = tbxZT.Text.Trim();
+                _info.Kg = tbxKG.Text.Trim();
+                _info.Sj = tbxSJ.Text.Trim();
+                _info.Bj = tbxBJ.Text.Trim();
+                _info.Sb = tbxSB.Text.Trim();
+                _info.Fk = tbxFK.Text.Trim();
+                _info.Cf = tbxCF.Text.Trim();
+                _info.Bjf = tbxBJF.Text.Trim();
+                _info.Lyf = tbxLYF.Text.Trim();
+                _info.Sfgz = tbxSFGZ.Text.Trim();
                 _info.Context = taaContext.Text.Trim();
                 _info.SalaryMsgId = new Guid(ApplyID);
 
@@ -138,7 +158,8 @@ namespace TZMS.Web
                 UserInfo _userInfo = _userManage.GetUserByObjectID(Session["ChooseWorkerSalaryMsg" + CurrentUser.ObjectId.ToString()].ToString().Split(',')[0]);
                 if (_userInfo != null)
                 {
-                    tbxBaseSalary.Text = _userInfo.BaseSalary.ToString();
+                    tbxJBGZ.Text = _userInfo.BaseSalary.ToString();
+                    //tbxBaseSalary.Text = _userInfo.BaseSalary.ToString();
                 }
             }
         }
