@@ -57,6 +57,7 @@ namespace com.TZMS.Model
         private string _auditOpinion = DBEmptyString;
         private string _accountingRemark = DBEmptyString;
         private string _adulters = DBEmptyString;
+        private bool _isPassImprest;
         #endregion
 
         #region Property
@@ -274,6 +275,12 @@ namespace com.TZMS.Model
         {
             get { return _adulters; }
             set { _adulters = value; }
+        }
+
+        public bool IsPassImprest 
+        {
+            get { return _isPassImprest; }
+            set { _isPassImprest = value; }
         }
         #endregion
     }
