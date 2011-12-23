@@ -52,7 +52,7 @@
                             <ext:DropDownList ID="ddlstDept" Label="所在部门" Enabled="false" runat="server">
                             </ext:DropDownList>
                             <ext:TextBox ID="tbxPosition" Label="职位" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!" Enabled="false">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
