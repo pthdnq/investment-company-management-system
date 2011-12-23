@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true"  Height="429px" Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true" Height="429px" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -37,43 +37,75 @@
                             </ext:DropDownList>
                         </Items>
                     </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:TextBox ID="tbPaymentAccount" Label="付款帐号" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="100" MaxLengthMessage="最多只能输入100个字符！">
-                            </ext:TextBox>
-                            <ext:TextBox ID="tbReceivablesAccount" Label="收款帐号" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="100" MaxLengthMessage="最多只能输入100个字符！">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:TextBox ID="tbAmountOfPayment" Label="支付金额" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
-                                RegexMessage="只能输入数字!">
-                            </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:DatePicker ID="dpDateForPay" Label="实付账款日" runat="server" ShowRedStar="true"
-                                Required="true">
-                            </ext:DatePicker>
-                            <ext:DatePicker ID="dpDueDateForPay" Label="应付账款日" runat="server" ShowRedStar="true"
-                                Required="true">
-                            </ext:DatePicker>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="100%">
-                        <Items>
-                            <ext:TextArea ID="tbRemark" Label="备注" EmptyText="利息几号到几号" runat="server" MaxLength="50"
-                                MaxLengthMessage="最多只能输入50个字符！">
-                            </ext:TextArea>
-                        </Items>
-                    </ext:FormRow>
                 </Rows>
             </ext:Form>
+            <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
+                AutoHeight="true" Height="429px">
+                <Tabs>
+                    <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                        <Items>
+                            <ext:Form EnableBackgroundColor="true" LabelWidth="75px" ShowHeader="false" ShowBorder="false"
+                                BodyPadding="5px" ID="mainForm" runat="server">
+                                <Rows>
+                                    <ext:FormRow ColumnWidths="50% 50%">
+                                        <Items>
+                                            <ext:TextBox ID="tbPaymentAccount" Label="付款帐号" ShowRedStar="true" Required="true"
+                                                runat="server" MaxLength="100" MaxLengthMessage="最多只能输入100个字符！">
+                                            </ext:TextBox>
+                                            <ext:TextBox ID="tbReceivablesAccount" Label="收款帐号" ShowRedStar="true" Required="true"
+                                                runat="server" MaxLength="100" MaxLengthMessage="最多只能输入100个字符！">
+                                            </ext:TextBox>
+                                        </Items>
+                                    </ext:FormRow>
+                                    <ext:FormRow ColumnWidths="50% 50%">
+                                        <Items>
+                                            <ext:TextBox ID="tbAmountOfPayment" Label="支付金额" ShowRedStar="true" Required="true"
+                                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
+                                                RegexMessage="只能输入数字!">
+                                            </ext:TextBox>
+                                        </Items>
+                                    </ext:FormRow>
+                                    <ext:FormRow ColumnWidths="50% 50%">
+                                        <Items>
+                                            <ext:DatePicker ID="dpDateForPay" Label="实付账款日" runat="server" ShowRedStar="true"
+                                                Required="true">
+                                            </ext:DatePicker>
+                                            <ext:DatePicker ID="dpDueDateForPay" Label="应付账款日" runat="server" ShowRedStar="true"
+                                                Required="true">
+                                            </ext:DatePicker>
+                                        </Items>
+                                    </ext:FormRow>
+                                    <ext:FormRow ColumnWidths="100%">
+                                        <Items>
+                                            <ext:TextArea ID="tbRemark" Label="备注" EmptyText="利息几号到几号" runat="server" MaxLength="50"
+                                                MaxLengthMessage="最多只能输入50个字符！">
+                                            </ext:TextArea>
+                                        </Items>
+                                    </ext:FormRow>
+                                </Rows>
+                            </ext:Form>
+                        </Items>
+                    </ext:Tab>
+                    <ext:Tab ID="tabHistory" Title="操作历史" EnableBackgroundColor="true" runat="server"
+                        BodyPadding="5px">
+                        <Items>
+                            <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
+                                IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
+                                <Columns>
+                                    <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
+                                    <%--    <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
+                                    <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
+                                        HeaderText="操作时间" />
+                                    <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />
+                                    <ext:BoundField Width="100px" DataField="OperationDesc" DataTooltipField="OperationDesc"
+                                        HeaderText="操作描述" />
+                                    <ext:BoundField DataField="Remark" HeaderText="操作人意见" DataTooltipField="Remark" ExpandUnusedSpace="true" />
+                                </Columns>
+                            </ext:Grid>
+                        </Items>
+                    </ext:Tab>
+                </Tabs>
+            </ext:TabStrip>
         </Items>
     </ext:Panel>
     </form>

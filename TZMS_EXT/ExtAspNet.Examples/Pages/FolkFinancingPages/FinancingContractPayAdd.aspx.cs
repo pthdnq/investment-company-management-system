@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
+using System.Text;
 
 namespace TZMS.Web.Pages.FolkFinancingPages
 {
@@ -12,23 +13,40 @@ namespace TZMS.Web.Pages.FolkFinancingPages
     public partial class FinancingContractPayAdd : BasePage
     {
         #region 属性
-        /// <summary>
-        /// ForID
-        /// </summary>
-        public string ForID
+        public string OperateType
         {
             get
             {
-                if (ViewState["ForID"] == null)
+                if (ViewState["OperateType"] == null)
                 {
                     return null;
                 }
 
-                return ViewState["ForID"].ToString();
+                return ViewState["OperateType"].ToString();
             }
             set
             {
-                ViewState["ForID"] = value;
+                ViewState["OperateType"] = value;
+            }
+        }
+
+        /// <summary>
+        /// ForOrObjectID
+        /// </summary>
+        public string ForOrObjectID
+        {
+            get
+            {
+                if (ViewState["ForOrObjectID"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["ForOrObjectID"].ToString();
+            }
+            set
+            {
+                ViewState["ForOrObjectID"] = value;
             }
         }
         #endregion
@@ -40,12 +58,21 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
-                ForID = strID;
+                ForOrObjectID = strID;
 
+                OperateType = Request.QueryString["Type"];
+                tabHistory.Hidden = true;
+                if (!string.IsNullOrEmpty(OperateType) && !OperateType.Equals("Add"))
+                {
+                    bindInterface(strID);
+                    tabHistory.Hidden = false;
+                }
                 // 绑定下一步.
                 BindNext();
                 // 绑定审批人.
                 ApproveUser();
+                // 绑定审批历史.
+                BindHistory();
             }
         }
 
@@ -54,6 +81,102 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHideReference();
         }
 
+        /// <summary>
+        /// 绑定指定 ID的数据到界面.
+        /// </summary>
+        /// <param name="strID"> ID</param>
+        private void bindInterface(string strID)
+        {
+            if (string.IsNullOrEmpty(strID))
+            {
+                return;
+            }
+
+            // 通过 ID获取 信息实例.
+            com.TZMS.Model.FinancingFeePaymentInfo _info = new FolkFinancingManage().GetProcessByObjectID(strID);
+
+            // 绑定数据.
+            if (_info != null)
+            {
+                if (OperateType.Equals("View"))
+                {
+                    SetContrl(true);
+                    this.btnSave.Hidden = true;
+                    this.ddlstApproveUser.Enabled = false;
+                    this.ddlstNext.Enabled = false;
+                }
+                else if (OperateType.Equals("Edit"))
+                {
+                    SetContrl(false);
+                }
+                #region 下一步方式
+                //if (CurrentRoles.Contains(RoleType.DSZ))
+                //{
+                //    BindNext(true);
+                //}
+                //else if (CurrentRoles.Contains(RoleType.ZJL))
+                //{      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
+                //    if (_info.AmountOfPayment >= 300000)
+                //    { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
+                //    else
+                //    { BindNext(true); }
+                //}
+                //else
+                //{
+                //    BindNext(false);
+                //}
+                #endregion
+
+                this.tbPaymentAccount.Text = _info.PaymentAccount;
+                this.tbReceivablesAccount.Text = _info.ReceivablesAccount;
+                this.tbAmountOfPayment.Text = _info.AmountOfPayment.ToString();
+
+                this.tbRemark.Text = _info.Remark;
+
+                if (DateTime.Compare(_info.DueDateForPay, DateTime.Parse("1900-1-1 12:00")) != 0)
+                {
+                    this.dpDueDateForPay.SelectedDate = _info.DueDateForPay;
+                }
+
+                if (DateTime.Compare(_info.DateForPay, DateTime.Parse("1900-1-1 12:00")) != 0)
+                {
+                    this.dpDateForPay.SelectedDate = _info.DateForPay;
+                }
+            }
+        }
+
+        private void SetContrl(bool IsDisable)
+        {
+            if (IsDisable)
+            {
+                this.tbPaymentAccount.Enabled = false;
+                this.tbReceivablesAccount.Enabled = false;
+                this.tbAmountOfPayment.Enabled = false;
+
+                this.dpDueDateForPay.Enabled = false;
+                this.dpDateForPay.Enabled = false;
+                this.tbRemark.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// 绑定历史
+        /// </summary>
+        private void BindHistory()
+        {
+            if (ForOrObjectID == null)
+                return;
+            // 获取数据.
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append("ForId = '" + ForOrObjectID + "'");
+            strCondition.Append(" ORDER BY OperationTime DESC");
+            List<FinancingFeePaymentHistoryInfo> lstInfo = new FolkFinancingManage().GetProcessHistoryByCondtion(strCondition.ToString());
+            //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
+
+            gridHistory.RecordCount = lstInfo.Count;
+            this.gridHistory.DataSource = lstInfo;
+            this.gridHistory.DataBind();
+        }
         #endregion
 
         #region 页面及控件事件
@@ -76,9 +199,23 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         private void saveInfo()
         {
             FolkFinancingManage manage = new FolkFinancingManage();
-            FinancingFeePaymentInfo _Info = new FinancingFeePaymentInfo();
-            _Info.ForId = new Guid(ForID);
-            _Info.ObjectId = Guid.NewGuid();
+            FinancingFeePaymentInfo _Info = null;
+            if (OperateType.Equals("Edit"))
+            {
+                _Info = manage.GetProcessByObjectID(ForOrObjectID);
+            }
+            else
+            {
+                _Info = new FinancingFeePaymentInfo();
+                _Info.ForId = new Guid(ForOrObjectID);
+                _Info.ObjectId = Guid.NewGuid();
+                //申请人及
+                _Info.CreateTime = DateTime.Now;
+                _Info.CreaterId = this.CurrentUser.ObjectId;
+                _Info.CreaterName = this.CurrentUser.Name;
+                _Info.CreaterAccount = this.CurrentUser.AccountNo;
+            }
+
             _Info.PaymentAccount = this.tbPaymentAccount.Text.Trim();
             _Info.ReceivablesAccount = this.tbReceivablesAccount.Text.Trim();
             if (!string.IsNullOrEmpty(this.tbAmountOfPayment.Text))
@@ -91,30 +228,34 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             _Info.Remark = this.tbRemark.Text.Trim();
             _Info.Status = 1;
-            //补充申请人及下一步审核人信息
+            //补充下一步审核人信息
             _Info.SubmitTime = DateTime.Now;
-            _Info.CreateTime = DateTime.Now;
-            _Info.CreaterId = this.CurrentUser.ObjectId;
-            _Info.CreaterName = this.CurrentUser.Name;
-            _Info.CreaterAccount = this.CurrentUser.AccountNo;
-
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
 
-
             int result = 3;
-            result = manage.AddProcess(_Info);
+            if (OperateType.Equals("Edit"))
+            {
+                result = manage.UpdateProcess(_Info);
+            }
+            else
+            {
+                result = manage.AddProcess(_Info);
+            }
 
             if (result == -1)
             {
-                manage.AddHistory(true, _Info.ObjectId, "新增", "新增费用支付", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
-           
-                Alert.Show("添加成功!");
+                string strOpertationType = OperateType.Equals("Edit") ? "编辑" : "新增";
+                string strDesc = string.Format(" {0} 费用支付", strOpertationType);
+                string strRemark = OperateType.Equals("Edit") ? "" : _Info.Remark;
+                manage.AddHistory(true, _Info.ObjectId, strOpertationType, strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, strRemark);
+
+                Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
             {
-                Alert.Show("添加失败!");
+                Alert.Show("操作失败!");
             }
         }
 

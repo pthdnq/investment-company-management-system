@@ -103,6 +103,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             {
                 SetContrl(true);
                 this.btnSave.Hidden = true;
+                this.ddlstApproveUser.Enabled = false;
+                this.ddlstNext.Enabled = false;
             }
             else if (OperateType.Equals("Edit"))
             {
@@ -272,7 +274,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 _Info.Status = status;
                 _Info.NeedImprest = this.cbIsAmountExpended.Checked;
             }
-            
+
 
 
             _Info.ImplementationPhase = this.tbImplementationPhase.Text.Trim();

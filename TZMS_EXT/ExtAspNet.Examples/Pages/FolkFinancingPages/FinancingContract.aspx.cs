@@ -128,7 +128,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <summary>
         /// 绑定列表
         /// </summary>
-        private void BindGridData(string dept,string state, string searchText)
+        private void BindGridData(string dept, string state, string searchText)
         {
             searchText = string.Empty;
             dept = ForID;
@@ -238,11 +238,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             FinancingFeePaymentInfo user = userManage.GetProcessByObjectID(userID);
 
-            if (e.CommandName == "Leave")
-            { 
-                user.Status = 0;
-            }
-            else if (e.CommandName == "Delete")
+             if (e.CommandName == "Delete")
             {
                 // 删除
                 user.Status = 9;
@@ -262,10 +258,16 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             FinancingFeePaymentInfo _userInfo = (FinancingFeePaymentInfo)e.DataItem;
 
+            //if (_userInfo.Status != 2)
+            //{
+            //    e.Values[8] = e.Values[8].ToString().Replace("编辑", "查看").Replace("Edit", "View");
+
+            //}
+
             if (_userInfo.Status != 1)
             {
-                e.Values[8] = "<span class=\"gray\">删除</span>";
-            
+                e.Values[9] = "<span class=\"gray\">删除</span>";
+
             }
         }
 
@@ -280,5 +282,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         }
 
         #endregion
+
+
     }
 }

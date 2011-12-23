@@ -210,15 +210,11 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             InvestmentLoanInfo info = manage.GetUserByObjectID(userID);
 
-            if (e.CommandName == "Leave")
-            {
-                // 离职
-                info.Status = 0;
-            }
-            else if (e.CommandName == "Delete")
+           if (e.CommandName == "Delete")
             {
                 // 删除
                 info.Status = 9;
+                info.BAStatus = 9;
             }
 
             manage.Update(info);
