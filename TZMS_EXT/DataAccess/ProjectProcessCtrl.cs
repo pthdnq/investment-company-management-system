@@ -78,6 +78,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@AuditOpinion",DbType.String),
 				new SqlParameter("@AccountingRemark",DbType.String),
                 			new SqlParameter("@Adulters",DbType.String),
+                            	new SqlParameter("@IsPassImprest",DbType.Boolean),
 				};
 
                 int i = 0;
@@ -105,6 +106,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProjectProcessInfo.AuditOpinion;
                 sqlparam[i++].Value = ProjectProcessInfo.AccountingRemark;
                 sqlparam[i++].Value = ProjectProcessInfo.Adulters;
+                sqlparam[i++].Value = ProjectProcessInfo.IsPassImprest;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -183,6 +185,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@AuditOpinion",DbType.String),
 				new SqlParameter("@AccountingRemark",DbType.String),
                 new SqlParameter("@Adulters",DbType.String),
+                     	new SqlParameter("@IsPassImprest",DbType.Boolean),
                 };
 
                 int i = 0;
@@ -210,6 +213,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProjectProcessInfo.AuditOpinion;
                 sqlparam[i++].Value = ProjectProcessInfo.AccountingRemark;
                 sqlparam[i++].Value = ProjectProcessInfo.Adulters;
+                sqlparam[i++].Value = ProjectProcessInfo.IsPassImprest;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -320,7 +324,7 @@ namespace com.TZMS.DataAccess
             }
             if (ProjectProcessInfoInfoDataRow["ExpendedTime"] != null)
             {
-                ProjectProcessInfoInfo.ExpendedTime =   DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ExpendedTime");
+                ProjectProcessInfoInfo.ExpendedTime = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ExpendedTime");
             }
             if (ProjectProcessInfoInfoDataRow["ImprestAmount"] != null)
             {
@@ -390,7 +394,10 @@ namespace com.TZMS.DataAccess
             {
                 ProjectProcessInfoInfo.Adulters = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "Adulters");
             }
-            
+            if (ProjectProcessInfoInfoDataRow["IsPassImprest"] != null)
+            {
+                ProjectProcessInfoInfo.IsPassImprest = bool.Parse(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "IsPassImprest"));
+            }
             return ProjectProcessInfoInfo;
         }
         #endregion
