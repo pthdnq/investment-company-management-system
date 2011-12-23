@@ -21,7 +21,7 @@
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
                         IconUrl="~/Images/ico_nextstep.gif" Text="转移审批" ConfirmText="您确定转移审批该申请吗?" />
                     <ext:Button Hidden="true" ID="btnDismissed" runat="server" ValidateForms="mainFrame" OnClick="btnDismissed_Click"
-                        IconUrl="~/Images/ico_firststep.gif" Text="不通过" ConfirmText="您确定不通过该申请吗?" />
+                        IconUrl="~/Images/ico_nextstep.gif" Text="业务移交" ConfirmText="您确定将该业务移交吗?" />
                     <ext:Label runat="server" ID="HighMoneyTips">
                     </ext:Label>
                 </Items>

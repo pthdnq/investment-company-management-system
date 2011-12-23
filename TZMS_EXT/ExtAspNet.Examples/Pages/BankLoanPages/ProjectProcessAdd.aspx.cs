@@ -308,7 +308,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 string strDesc = string.Format("进展{0}-{1}备用金", strOpertationType, (_Info.NeedImprest == 1) ? "申请" : "无");
                 manage.AddHistory(true, _Info.ObjectId, strOpertationType, strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
 
-                Alert.Show("添加成功!");
+                //Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
