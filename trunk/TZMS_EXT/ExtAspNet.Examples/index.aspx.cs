@@ -47,7 +47,7 @@ namespace TZMS.Web
 
                 if (!string.IsNullOrEmpty(CurrentUser.Position))
                 {
-                    labuserName.Text = "当前登录用户：" + CurrentUser.Name +"   职位："+  CurrentUser.Position ;
+                    labuserName.Text = "当前登录用户：" + CurrentUser.Name + "   职位：" + CurrentUser.Position;
                 }
                 else
                 {
@@ -98,6 +98,50 @@ namespace TZMS.Web
         protected void Window1_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// 判断节点在菜单中是否存在
+        /// </summary>
+        /// <param name="nodeID"></param>
+        /// <returns></returns>
+        private bool CheckIDIsExist(string nodeID)
+        {
+            if (string.IsNullOrEmpty(nodeID))
+                return false;
+
+            string menus = CurrentUser.Menu;
+            if (!string.IsNullOrEmpty(menus))
+            {
+                string[] arrayParentNodes = menus.Split(';');
+                foreach (string parentItem in arrayParentNodes)
+                {
+                    if (!string.IsNullOrEmpty(parentItem))
+                    {
+                        string[] arrayNodes = (parentItem.Split('$')[1]).Split(',');
+                        foreach (string item in arrayNodes)
+                        {
+                            if (!string.IsNullOrEmpty(item))
+                            {
+                                if (item.Split(':')[0] == nodeID)
+                                {
+                                    if (item.Split(':')[1] == "0")
+                                    {
+                                        return false;
+                                    }
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -276,24 +320,27 @@ namespace TZMS.Web
             for (int i = treeXXGL.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (treeXXGL.Nodes[i].Text)
-                {
-                    case "我的消息":
+                //switch (treeXXGL.Nodes[i].Text)
+                //{
+                //    case "我的消息":
 
-                        break;
-                    case "已发消息":
+                //        break;
+                //    case "已发消息":
 
-                        break;
-                    case "发送消息":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ) && !CurrentRoles.Contains(RoleType.ZJL)
-                            && !CurrentRoles.Contains(RoleType.FZJL) && !CurrentRoles.Contains(RoleType.CWZJ) && !CurrentRoles.Contains(RoleType.CWZG)
-                           && !CurrentRoles.Contains(RoleType.XZZG) && !CurrentRoles.Contains(RoleType.XZZJ)
-                            && !CurrentRoles.Contains(RoleType.YWZJ) && !CurrentRoles.Contains(RoleType.YWZG)
-                           && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.TZZG)
-                            && !CurrentRoles.Contains(RoleType.XXGL))
-                            flag = true;
-                        break;
-                }
+                //        break;
+                //    case "发送消息":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ) && !CurrentRoles.Contains(RoleType.ZJL)
+                //            && !CurrentRoles.Contains(RoleType.FZJL) && !CurrentRoles.Contains(RoleType.CWZJ) && !CurrentRoles.Contains(RoleType.CWZG)
+                //           && !CurrentRoles.Contains(RoleType.XZZG) && !CurrentRoles.Contains(RoleType.XZZJ)
+                //            && !CurrentRoles.Contains(RoleType.YWZJ) && !CurrentRoles.Contains(RoleType.YWZG)
+                //           && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.TZZG)
+                //            && !CurrentRoles.Contains(RoleType.XXGL))
+                //            flag = true;
+                //        break;
+                //}
+
+                flag = !CheckIDIsExist(treeXXGL.Nodes[i].NodeID);
+
                 if (flag)
                 {
                     treeXXGL.Nodes.RemoveAt(i);
