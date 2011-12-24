@@ -7,7 +7,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" HideScrollbar="true"
+    <ext:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" HideScrollbar="false"
         runat="server"></ext:PageManager>
     <ext:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
         <Regions>
@@ -15,7 +15,17 @@
                 Margins="0 0 0 0" ShowHeader="false" Title="Examples" Icon="Outline" EnableCollapse="true"
                 Layout="Fit" runat="server">
                 <Items>
-                    <ext:Tree Title="菜单" OnNodeCheck="Menu_NodeCheck" runat="server">
+                    <ext:Tree ID="rootNode" Title="菜单" OnNodeCheck="Menu_NodeCheck" runat="server" ShowHeader="false">
+                        <Toolbars>
+                            <ext:Toolbar runat="server">
+                                <Items>
+                                    <ext:Button ID="btnClose" runat="server" Text="关闭" Icon="Cancel" OnClick="CloseEvent">
+                                    </ext:Button>
+                                    <ext:Button ID="btnSave" runat="server" Text="保存" Icon="Disk" OnClick="SaveEvent">
+                                    </ext:Button>
+                                </Items>
+                            </ext:Toolbar>
+                        </Toolbars>
                         <Nodes>
                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Text="消息管理" NodeID="xxgl">
                                 <Nodes>
@@ -124,17 +134,6 @@
                                     </ext:TreeNode>
                                     <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="jfdqr" OnClientClick="return false;"
                                         Text="奖惩单确认">
-                                        <Nodes>
-                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
-                                                Text="查看">
-                                            </ext:TreeNode>
-                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
-                                                Text="编辑">
-                                            </ext:TreeNode>
-                                        </Nodes>
-                                    </ext:TreeNode>
-                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="xfjfd" OnClientClick="return false;"
-                                        Text="下发奖惩单">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
