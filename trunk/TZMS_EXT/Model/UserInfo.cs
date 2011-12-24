@@ -60,6 +60,7 @@ namespace com.TZMS.Model
         private DateTime _probationTime;
         private DateTime _leaveTime;
         private decimal _baseSalary;
+        private string _menu = string.Empty;
         #endregion
 
         #region Property
@@ -246,6 +247,12 @@ namespace com.TZMS.Model
         {
             get { return _baseSalary; }
             set { _baseSalary = value; }
+        }
+
+        public string Menu
+        {
+            get { return _menu; }
+            set { _menu = value; }
         }
         #endregion
     }

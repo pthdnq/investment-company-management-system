@@ -75,7 +75,8 @@ namespace com.TZMS.DataAccess
                 new SqlParameter("@IsProbation",DbType.Boolean),
                 new SqlParameter("@ProbationTime",DbType.DateTime),
                 new SqlParameter("@LeaveTime",DbType.DateTime),
-                new SqlParameter("@BaseSalary",DbType.Decimal)
+                new SqlParameter("@BaseSalary",DbType.Decimal),
+                new SqlParameter("@Menu",DbType.String)
 				};
 
                 int i = 0;
@@ -101,6 +102,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.ProbationTime;
                 sqlparam[i++].Value = UserInfo.LeaveTime;
                 sqlparam[i++].Value = UserInfo.BaseSalary;
+                sqlparam[i++].Value = UserInfo.Menu;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -177,7 +179,8 @@ namespace com.TZMS.DataAccess
                 new SqlParameter("@IsProbation",DbType.Boolean),
                 new SqlParameter("@ProbationTime",DbType.DateTime),
                 new SqlParameter("@LeaveTime",DbType.DateTime),
-                new SqlParameter("@BaseSalary",DbType.Decimal)
+                new SqlParameter("@BaseSalary",DbType.Decimal),
+                new SqlParameter("@Menu",DbType.String)
                 };
 
                 int i = 0;
@@ -203,6 +206,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.ProbationTime;
                 sqlparam[i++].Value = UserInfo.LeaveTime;
                 sqlparam[i++].Value = UserInfo.BaseSalary;
+                sqlparam[i++].Value = UserInfo.Menu;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -379,6 +383,11 @@ namespace com.TZMS.DataAccess
             {
                 if (!string.IsNullOrEmpty(UserInfoInfoDataRow["BaseSalary"].ToString()))
                     UserInfoInfo.BaseSalary = decimal.Parse(UserInfoInfoDataRow["BaseSalary"].ToString());
+            }
+            if (UserInfoInfoDataRow["Menu"] != null)
+            {
+                if (!string.IsNullOrEmpty(UserInfoInfoDataRow["Menu"].ToString()))
+                    UserInfoInfo.Menu = UserInfoInfoDataRow["Menu"].ToString();
             }
             return UserInfoInfo;
         }
