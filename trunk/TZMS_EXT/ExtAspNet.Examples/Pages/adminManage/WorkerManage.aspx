@@ -71,6 +71,7 @@
                             <ext:LinkButtonField Width="38px" Text="离职" ConfirmText="确定该员工离职?" CommandName="Leave"
                                 Hidden="true" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
+                            <ext:LinkButtonField Width="38px" Text="菜单" CommandName="Menu" />
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -83,6 +84,10 @@
     </ext:Window>
     <ext:Window ID="wndNewUser" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="400px" Width="550px" OnClose="wndNewUser_Close">
+    </ext:Window>
+    <ext:Window ID="wndMenu" Title="菜单" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="600px" Width="400px" 
+        onclose="wndMenu_Close">
     </ext:Window>
     </form>
 </body>

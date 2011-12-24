@@ -155,6 +155,12 @@ namespace TZMS.Web
                 wndNewUser.Hidden = false;
                 return;
             }
+            else if (e.CommandName == "Menu")
+            {
+                wndMenu.IFrameUrl = "Menu.aspx?ID=" + userID;
+                wndMenu.Hidden = false;
+                return;
+            }
             userManage.UpdateUser(user);
 
             DataGrid();
@@ -189,6 +195,16 @@ namespace TZMS.Web
         protected void wndNewUser_Close(object sender, WindowCloseEventArgs e)
         {
             DataGrid();
+        }
+
+        /// <summary>
+        /// 菜单关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndMenu_Close(object sender, WindowCloseEventArgs e)
+        {
+
         }
 
         #endregion
