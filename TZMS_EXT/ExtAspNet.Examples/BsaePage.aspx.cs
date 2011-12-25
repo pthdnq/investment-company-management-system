@@ -126,6 +126,11 @@ namespace TZMS.Web
         }
 
         /// <summary>
+        /// 当前访问级别
+        /// </summary>
+        public VisitLevel CurrentLevel = VisitLevel.Both;
+
+        /// <summary>
         /// 系统用户
         /// </summary>
         public UserInfo SystemUser
@@ -162,6 +167,7 @@ namespace TZMS.Web
                 return xe.GetAttribute("id");
             }
         }
+
         /// <summary>
         /// 行政归档人姓名
         /// </summary>
@@ -425,6 +431,32 @@ namespace TZMS.Web
         }
 
         /// <summary>
+        /// 页面访问基本
+        /// </summary>
+        public enum VisitLevel
+        {
+            /// <summary>
+            /// 无权限查看或编辑
+            /// </summary>
+            None = 0,
+
+            /// <summary>
+            /// 只查看
+            /// </summary>
+            View = 1,
+
+            /// <summary>
+            /// 可编辑
+            /// </summary>
+            Edit = 2,
+
+            /// <summary>
+            /// 全部
+            /// </summary>
+            Both = 3
+        }
+
+        /// <summary>
         /// 初始化
         /// </summary>
         /// <param name="e">参数</param>
@@ -469,6 +501,7 @@ namespace TZMS.Web
         }
 
         #region 自定义状态方法
+
         /// <summary>
         /// 获取状态名字
         /// </summary>
@@ -505,6 +538,55 @@ namespace TZMS.Web
             }
             return StrStatusName;
         }
+
+        /// <summary>
+        /// 通过节点ID
+        /// </summary>
+        /// <param name="nodeID"></param>
+        /// <returns></returns>
+        protected VisitLevel GetCurrentLevel(string nodeID)
+        {
+            if (string.IsNullOrEmpty(nodeID))
+                return VisitLevel.Both;
+
+            string menus = CurrentUser.Menu;
+            if (!string.IsNullOrEmpty(menus))
+            {
+                string[] arrayParentNodes = menus.Split(';');
+                foreach (string parentItem in arrayParentNodes)
+                {
+                    if (!string.IsNullOrEmpty(parentItem))
+                    {
+                        string[] arrayNodes = (parentItem.Split('$')[1]).Split(',');
+                        foreach (string item in arrayNodes)
+                        {
+                            if (!string.IsNullOrEmpty(item))
+                            {
+                                if (item.Split(':')[0] == nodeID)
+                                {
+                                    switch (item.Split(':')[1])
+                                    {
+                                        case "0":
+                                            return VisitLevel.None;
+                                        case "1":
+                                            return VisitLevel.View;
+                                        case "2":
+                                            return VisitLevel.Edit;
+                                        case "3":
+                                            return VisitLevel.Both;
+                                        default:
+                                            break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return VisitLevel.Both;
+        }
+
         #endregion
     }
 }
