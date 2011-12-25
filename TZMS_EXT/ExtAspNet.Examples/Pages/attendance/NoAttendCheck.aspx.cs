@@ -14,10 +14,25 @@ namespace TZMS.Web
 {
     public partial class NoAttendCheck : BasePage
     {
+        /// <summary>
+        /// 页面权限模式（可查看，可编辑）
+        /// </summary>
+        private VisitLevel PageModel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    ViewState["VisitLevel"] = GetCurrentLevel("wdksp");
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+
                 // 设置时间控件的默认值.
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
@@ -210,6 +225,11 @@ namespace TZMS.Web
                 else
                 {
                     e.Values[11] = checkTime.ToString("yyyy-MM-dd HH:mm");
+                }
+                //判断页面是否可编辑（可查看不用考虑）
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                {
+                    e.Values[12] = "<span class=\"gray\">审批</span>";
                 }
 
             }
