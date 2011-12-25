@@ -546,6 +546,12 @@ namespace TZMS.Web
         /// <returns></returns>
         protected VisitLevel GetCurrentLevel(string nodeID)
         {
+            //超级管理员
+            if (CurrentUser.State==3)
+            {
+                return VisitLevel.Both;
+            }
+
             if (string.IsNullOrEmpty(nodeID))
                 return VisitLevel.Both;
 
