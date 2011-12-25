@@ -9,13 +9,11 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" HideScrollbar="false"
         runat="server"></ext:PageManager>
-    <ext:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
+    <ext:RegionPanel ID="RegionPanel1" AutoScroll="true" Height="520px" ShowBorder="false" runat="server">
         <Regions>
-            <ext:Region ID="Region2" Split="true" EnableSplitTip="true" CollapseMode="Mini" Width="200px"
-                Margins="0 0 0 0" ShowHeader="false" Title="Examples" Icon="Outline" EnableCollapse="true"
-                Layout="Fit" runat="server">
+            <ext:Region ID="Region2" ShowHeader="false"    Layout="Fit" Margins="0 0 0 0" runat="server">
                 <Items>
-                    <ext:Tree ID="rootNode" Title="菜单" OnNodeCheck="Menu_NodeCheck" runat="server" ShowHeader="false">
+                    <ext:Tree ID="rootNode" Title="菜单" Width="200px"  AutoScroll="true" Height="520px" EnableBackgroundColor="true" OnNodeCheck="Menu_NodeCheck" runat="server" ShowHeader="false">
                         <Toolbars>
                             <ext:Toolbar runat="server">
                                 <Items>
