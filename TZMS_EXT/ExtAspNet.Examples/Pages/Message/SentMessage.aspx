@@ -33,7 +33,7 @@
             <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
                 Layout="Fit" runat="server">
                 <Toolbars>
-                    <ext:Toolbar ID="toolApp" runat="server">
+                    <ext:Toolbar ID="toolApp" Hidden="true" runat="server">
                         <Items>
                             <ext:Button ID="btnNewMessage" Text="发送消息" ToolTip="发送消息" Icon="Add" runat="server"
                                 Hidden="true" Enabled="false">
