@@ -110,7 +110,7 @@ namespace TZMS.Web.Pages
         {
             if (!IsPostBack)
             {
-                if (PageModel != VisitLevel.Edit || PageModel != VisitLevel.Both)
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
                 {
                     this.btnSend.Enabled = false;
                 }

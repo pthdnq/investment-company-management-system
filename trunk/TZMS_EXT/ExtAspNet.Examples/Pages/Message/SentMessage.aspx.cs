@@ -177,7 +177,7 @@ namespace TZMS.Web.Pages
                 }
 
                 e.Values[4] = DateTime.Parse(e.Values[4].ToString()).ToString("yyyy-MM-dd HH:mm");
-                if (PageModel != VisitLevel.Edit || PageModel != VisitLevel.Both)
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
                 {
                     e.Values[6] = "<span class=\"gray\">删除</span>";
                 }

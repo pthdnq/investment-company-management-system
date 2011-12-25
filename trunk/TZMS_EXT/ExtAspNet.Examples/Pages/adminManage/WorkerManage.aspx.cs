@@ -38,7 +38,7 @@ namespace TZMS.Web
             if (!IsPostBack)
             {
                 //判断页面是否可编辑（可查看不用考虑）
-                if (PageModel != VisitLevel.Edit || PageModel != VisitLevel.Both)
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
                 {
                     btnNewUser.Enabled = false;
                 }
@@ -206,7 +206,7 @@ namespace TZMS.Web
                 e.Values[13] = e.Values[13].ToString().Replace("msg:'确定删除该员工?'", "msg:'确定删除" + e.Values[2].ToString() + "?'");
             }
             //判断页面是否可编辑（可查看不用考虑）
-            if (PageModel != VisitLevel.Edit || PageModel != VisitLevel.Both)
+            if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
             {
                 e.Values[10] = "<span class=\"gray\">编辑</span>";
                 e.Values[11] = "<span class=\"gray\">权限</span>";
