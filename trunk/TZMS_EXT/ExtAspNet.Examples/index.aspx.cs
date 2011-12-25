@@ -156,72 +156,77 @@ namespace TZMS.Web
             for (int i = treeXZGL.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (treeXZGL.Nodes[i].Text)
-                {
-                    case "员工管理":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.ZJL)
-                            && !CurrentRoles.Contains(RoleType.YGGL) && !CurrentRoles.Contains(RoleType.XZZJ))
-                            flag = true;
-                        break;
-                    case "转正年数":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.ZJL)
-                           && !CurrentRoles.Contains(RoleType.YGGL) && !CurrentRoles.Contains(RoleType.XZZJ))
-                            flag = true;
-                        break;
-                    case "系统配置":
-                        if (!CurrentRoles.Contains(RoleType.CJGL))
-                            flag = true;
-                        break;
-                    case "晋升调岗申请":
-                        if (CurrentRoles.Contains(RoleType.CJGL) || CurrentRoles.Contains(RoleType.DSZ)
-                            || CurrentRoles.Contains(RoleType.ZJL))
-                            flag = true;
-                        break;
-                    case "晋升调岗审批":
 
-                        break;
-                    case "晋升调岗归档":
+                flag = !CheckIDIsExist(treeXZGL.Nodes[i].NodeID);
+                //switch (treeXZGL.Nodes[i].Text)
+                //{
+                //    case "员工管理":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.ZJL)
+                //            && !CurrentRoles.Contains(RoleType.YGGL) && !CurrentRoles.Contains(RoleType.XZZJ))
+                //            flag = true;
+                //        break;
+                //    case "转正年数":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.ZJL)
+                //           && !CurrentRoles.Contains(RoleType.YGGL) && !CurrentRoles.Contains(RoleType.XZZJ))
+                //            flag = true;
+                //        break;
+                //    case "系统配置":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL))
+                //            flag = true;
+                //        break;
+                //    case "晋升调岗申请":
+                //        if (CurrentRoles.Contains(RoleType.CJGL) || CurrentRoles.Contains(RoleType.DSZ)
+                //            || CurrentRoles.Contains(RoleType.ZJL))
+                //            flag = true;
+                //        break;
+                //    case "晋升调岗审批":
 
-                        break;
-                    case "下发奖惩单":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.JCGL))
-                            flag = true;
-                        break;
-                    case "奖惩单确认":
+                //        break;
+                //    case "晋升调岗归档":
 
-                        break;
-                    case "招聘申请":
-                        //只有部门总监有权申请
-                        if (!CurrentRoles.Contains(RoleType.CWZJ) && !CurrentRoles.Contains(RoleType.XZZG)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.YWZJ))
-                            flag = true;
-                        break;
-                    case "招聘审批":
+                //        break;
+                //    case "下发奖惩单":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.JCGL))
+                //            flag = true;
+                //        break;
+                //    case "奖惩单确认":
 
-                        break;
-                    case "招聘归档":
+                //        break;
+                //    case "招聘申请":
+                //        //只有部门总监有权申请
+                //        if (!CurrentRoles.Contains(RoleType.CWZJ) && !CurrentRoles.Contains(RoleType.XZZG)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.YWZJ))
+                //            flag = true;
+                //        break;
+                //    case "招聘审批":
 
-                        break;
-                    case "测试":
-                        if (!CurrentRoles.Contains(RoleType.CJGL))
-                            flag = true;
-                        break;
-                    case "出门登记":
-                        //if (!CurrentRoles.Contains(RoleType.CJGL))
-                        //    flag = true;
-                        break;
-                    case "入门登记":
-                        if (!CurrentRoles.Contains(RoleType.CWZJ) && !CurrentRoles.Contains(RoleType.XZZG)
-                          && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.YWZJ)
-                          && !CurrentRoles.Contains(RoleType.YWZG) && !CurrentRoles.Contains(RoleType.XZZJ) && !CurrentRoles.Contains(RoleType.QT))
-                            flag = true;
-                        break;
-                }
+                //        break;
+                //    case "招聘归档":
+
+                //        break;
+                //    case "测试":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL))
+                //            flag = true;
+                //        break;
+                //    case "出门登记":
+                //        //if (!CurrentRoles.Contains(RoleType.CJGL))
+                //        //    flag = true;
+                //        break;
+                //    case "入门登记":
+                //        if (!CurrentRoles.Contains(RoleType.CWZJ) && !CurrentRoles.Contains(RoleType.XZZG)
+                //          && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.YWZJ)
+                //          && !CurrentRoles.Contains(RoleType.YWZG) && !CurrentRoles.Contains(RoleType.XZZJ) && !CurrentRoles.Contains(RoleType.QT))
+                //            flag = true;
+                //        break;
+                //}
                 if (flag)
                 {
                     treeXZGL.Nodes.RemoveAt(i);
                 }
             }
+
+            if (treeXZGL.Nodes.Count == 0)
+                AccordionPane2.Hidden = true;
             #endregion
 
             #region 假勤管理
@@ -229,47 +234,51 @@ namespace TZMS.Web
             for (int i = treeJQGL.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (treeJQGL.Nodes[i].Text)
-                {
-                    case "员工考勤":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.ZJL)
-                            && !CurrentRoles.Contains(RoleType.YGGL) && !CurrentRoles.Contains(RoleType.XZZJ))
-                            flag = true;
-                        break;
-                    case "我的考勤":
+                flag = !CheckIDIsExist(treeJQGL.Nodes[i].NodeID);
+                //switch (treeJQGL.Nodes[i].Text)
+                //{
+                //    case "员工考勤":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.ZJL)
+                //            && !CurrentRoles.Contains(RoleType.YGGL) && !CurrentRoles.Contains(RoleType.XZZJ))
+                //            flag = true;
+                //        break;
+                //    case "我的考勤":
 
-                        break;
-                    case "请假申请":
+                //        break;
+                //    case "请假申请":
 
-                        break;
-                    case "调休申请":
+                //        break;
+                //    case "调休申请":
 
-                        break;
-                    case "我的审批":
+                //        break;
+                //    case "我的审批":
 
-                        break;
-                    case "请假归档":
-                        //非行政归档员或行政总监
-                        if (!CurrentUser.ObjectId.ToString().Equals(strArchiver) && !CurrentRoles.Contains(RoleType.XZZJ))
-                            flag = true;
-                        break;
-                    case "未打卡申请":
+                //        break;
+                //    case "请假归档":
+                //        //非行政归档员或行政总监
+                //        if (!CurrentUser.ObjectId.ToString().Equals(strArchiver) && !CurrentRoles.Contains(RoleType.XZZJ))
+                //            flag = true;
+                //        break;
+                //    case "未打卡申请":
 
-                        break;
-                    case "未打卡审批":
+                //        break;
+                //    case "未打卡审批":
 
-                        break;
-                    case "未打卡归档":
-                        //非行政归档员或行政总监
-                        if (!CurrentUser.ObjectId.ToString().Equals(strArchiver) && !CurrentRoles.Contains(RoleType.XZZJ))
-                            flag = true;
-                        break;
-                }
+                //        break;
+                //    case "未打卡归档":
+                //        //非行政归档员或行政总监
+                //        if (!CurrentUser.ObjectId.ToString().Equals(strArchiver) && !CurrentRoles.Contains(RoleType.XZZJ))
+                //            flag = true;
+                //        break;
+                //}
                 if (flag)
                 {
                     treeJQGL.Nodes.RemoveAt(i);
                 }
             }
+
+            if (treeJQGL.Nodes.Count == 0)
+                AccordionPane3.Hidden = true;
             #endregion
 
             #region 薪资管理
@@ -277,42 +286,46 @@ namespace TZMS.Web
             for (int i = treeXZGL1.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (treeXZGL1.Nodes[i].Text)
-                {
-                    case "我的薪资":
+                flag = !CheckIDIsExist(treeXZGL1.Nodes[i].NodeID);
+                //switch (treeXZGL1.Nodes[i].Text)
+                //{
+                //    case "我的薪资":
 
-                        break;
-                    case "薪资信息管理":
-                        //行政总监
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.XZZJ))
-                            flag = true;
-                        break;
+                //        break;
+                //    case "薪资信息管理":
+                //        //行政总监
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.XZZJ))
+                //            flag = true;
+                //        break;
 
-                    case "薪资信息申请":
-                        //行政总监
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.XZZJ))
-                            flag = true;
-                        break;
-                    case "薪资信息审批":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.ZJL)
-                          && !CurrentRoles.Contains(RoleType.CWZJ)
-                           && !CurrentRoles.Contains(RoleType.DSZ)
-                            && !CurrentRoles.Contains(RoleType.XZGLGD)
-                             && !CurrentRoles.Contains(RoleType.XZZJ))
-                            flag = true;
-                        break;
-                    case "加薪申请":
+                //    case "薪资信息申请":
+                //        //行政总监
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.XZZJ))
+                //            flag = true;
+                //        break;
+                //    case "薪资信息审批":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.ZJL)
+                //          && !CurrentRoles.Contains(RoleType.CWZJ)
+                //           && !CurrentRoles.Contains(RoleType.DSZ)
+                //            && !CurrentRoles.Contains(RoleType.XZGLGD)
+                //             && !CurrentRoles.Contains(RoleType.XZZJ))
+                //            flag = true;
+                //        break;
+                //    case "加薪申请":
 
-                        break;
-                    case "加薪审批":
+                //        break;
+                //    case "加薪审批":
 
-                        break;
-                }
+                //        break;
+                //}
                 if (flag)
                 {
                     treeXZGL1.Nodes.RemoveAt(i);
                 }
             }
+
+            if (treeXZGL1.Nodes.Count == 0)
+                AccordionPane13.Hidden = true;
             #endregion
 
             #region 消息管理
@@ -346,6 +359,9 @@ namespace TZMS.Web
                     treeXXGL.Nodes.RemoveAt(i);
                 }
             }
+
+            if (treeXXGL.Nodes.Count == 0)
+                AccordionPane8.Hidden = true;
             #endregion
 
             #region 转正离职
@@ -353,38 +369,42 @@ namespace TZMS.Web
             for (int i = treeZZLZ.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (treeZZLZ.Nodes[i].Text)
-                {
-                    case "转正申请":
+                flag = !CheckIDIsExist(treeZZLZ.Nodes[i].NodeID);
+                //switch (treeZZLZ.Nodes[i].Text)
+                //{
+                //    case "转正申请":
 
-                        break;
-                    case "转正审批":
+                //        break;
+                //    case "转正审批":
 
 
-                    case "转正归档":
+                //    case "转正归档":
 
-                        break;
-                    case "离职申请":
+                //        break;
+                //    case "离职申请":
 
-                        break;
-                    case "离职审批":
+                //        break;
+                //    case "离职审批":
 
-                        break;
-                    case "离职审批归档":
+                //        break;
+                //    case "离职审批归档":
 
-                        break;
-                    case "离职交接":
+                //        break;
+                //    case "离职交接":
 
-                        break;
-                    case "离职交接归档":
+                //        break;
+                //    case "离职交接归档":
 
-                        break;
-                }
+                //        break;
+                //}
                 if (flag)
                 {
                     treeZZLZ.Nodes.RemoveAt(i);
                 }
             }
+
+            if (treeZZLZ.Nodes.Count == 0)
+                AccordionPane11.Hidden = true;
             #endregion
 
             #region 物资管理
@@ -392,26 +412,30 @@ namespace TZMS.Web
             for (int i = treeWZGL.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (treeWZGL.Nodes[i].Text)
-                {
-                    case "物资申请":
+                flag = !CheckIDIsExist(treeWZGL.Nodes[i].NodeID);
+                //switch (treeWZGL.Nodes[i].Text)
+                //{
+                //    case "物资申请":
 
-                        break;
-                    case "物资审批":
+                //        break;
+                //    case "物资审批":
 
-                        break;
-                    case "物资管理":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.WZGL))
-                        {
-                            flag = true;
-                        }
-                        break;
-                }
+                //        break;
+                //    case "物资管理":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.WZGL))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //}
                 if (flag)
                 {
                     treeWZGL.Nodes.RemoveAt(i);
                 }
             }
+
+            if (treeWZGL.Nodes.Count == 0)
+                AccordionPane10.Hidden = true;
             #endregion
 
             #region 代账管理
@@ -419,53 +443,52 @@ namespace TZMS.Web
             for (int i = treeDZFGL.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (treeDZFGL.Nodes[i].Text)
-                {
-                    case "代账单位":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                            && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                            && !CurrentRoles.Contains(RoleType.CWZG) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "代账费申请":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                           && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                           && !CurrentRoles.Contains(RoleType.CWZG) && !CurrentRoles.Contains(RoleType.CWZJ)
-                          && !CurrentRoles.Contains(RoleType.DZKJ) && !CurrentRoles.Contains(RoleType.DZFGD))
-                        {
-                            flag = true;
-                        }
-                        break;
+                flag = !CheckIDIsExist(treeDZFGL.Nodes[i].NodeID);
+                //switch (treeDZFGL.Nodes[i].Text)
+                //{
+                //    case "代账单位":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //            && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //            && !CurrentRoles.Contains(RoleType.CWZG) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "代账费申请":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //           && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //           && !CurrentRoles.Contains(RoleType.CWZG) && !CurrentRoles.Contains(RoleType.CWZJ)
+                //          && !CurrentRoles.Contains(RoleType.DZKJ) && !CurrentRoles.Contains(RoleType.DZFGD))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
 
-                    case "代账费审批":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                             && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                             && !CurrentRoles.Contains(RoleType.CWZG) && !CurrentRoles.Contains(RoleType.CWZJ)
-                            && !CurrentRoles.Contains(RoleType.DZKJ) && !CurrentRoles.Contains(RoleType.DZFGD))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "代账单导出":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                             && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                            && !CurrentRoles.Contains(RoleType.DZKJ) && !CurrentRoles.Contains(RoleType.DZFGD))
-                        {
-                            flag = true;
-                        }
-                        break;
-                }
+                //    case "代账费审批":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //             && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //             && !CurrentRoles.Contains(RoleType.CWZG) && !CurrentRoles.Contains(RoleType.CWZJ)
+                //            && !CurrentRoles.Contains(RoleType.DZKJ) && !CurrentRoles.Contains(RoleType.DZFGD))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "代账单导出":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //             && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //            && !CurrentRoles.Contains(RoleType.DZKJ) && !CurrentRoles.Contains(RoleType.DZFGD))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //}
                 if (flag)
                 {
                     treeDZFGL.Nodes.RemoveAt(i);
                 }
             }
             if (treeDZFGL.Nodes.Count == 0)
-            {
                 AccordionPane9.Hidden = true;
-            }
             #endregion
 
             #region 财务报销
@@ -473,31 +496,35 @@ namespace TZMS.Web
             for (int i = treeCWBX.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (treeCWBX.Nodes[i].Text)
-                {
-                    case "报销申请":
+                flag = !CheckIDIsExist(treeCWBX.Nodes[i].NodeID);
+                //switch (treeCWBX.Nodes[i].Text)
+                //{
+                //    case "报销申请":
 
-                        break;
-                    case "报销审批":
+                //        break;
+                //    case "报销审批":
 
 
-                    case "报销凭证":
-                        //管理员和报销凭证创建 有权看见页面
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.BXPZCJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "报销凭证审批":
+                //    case "报销凭证":
+                //        //管理员和报销凭证创建 有权看见页面
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.BXPZCJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "报销凭证审批":
 
-                        break;
+                //        break;
 
-                }
+                //}
                 if (flag)
                 {
                     treeCWBX.Nodes.RemoveAt(i);
                 }
             }
+
+            if (treeCWBX.Nodes.Count == 0)
+                AccordionPane7.Hidden = true;
             #endregion
 
             #region 业务管理
@@ -505,61 +532,60 @@ namespace TZMS.Web
             for (int i = treeYWGL.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (treeYWGL.Nodes[i].Text)
-                {
-                    case "普通业务创建":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
-                        && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "普通业务操作":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
-                       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "定制业务创建":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
-                       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "定制业务操作":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
-                       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "备用金申请":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
-                       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "备用金审批":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
-                       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
-                        {
-                            flag = true;
-                        }
-                        break;
+                flag = !CheckIDIsExist(treeYWGL.Nodes[i].NodeID);
+                //switch (treeYWGL.Nodes[i].Text)
+                //{
+                //    case "普通业务创建":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
+                //        && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "普通业务操作":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
+                //       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "定制业务创建":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
+                //       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "定制业务操作":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
+                //       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "备用金申请":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
+                //       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "备用金审批":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.YWZJ)
+                //       && !CurrentRoles.Contains(RoleType.YWY) && !CurrentRoles.Contains(RoleType.YWZG))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
 
-                }
+                //}
                 if (flag)
                 {
                     treeYWGL.Nodes.RemoveAt(i);
                 }
             }
             if (treeYWGL.Nodes.Count == 0)
-            {
                 AccordionPane12.Hidden = true;
-            }
             #endregion
 
             #region 投资部借款
@@ -567,91 +593,90 @@ namespace TZMS.Web
             for (int i = TreeInvestmentLoan.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (TreeInvestmentLoan.Nodes[i].Text)
-                {
-                    case "借款申请列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "借款审核列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "借款确认列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "借款信息列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "收款确认列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "收款信息列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "终止合同列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "待转移申请审批列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "客户一览表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
+                flag = !CheckIDIsExist(TreeInvestmentLoan.Nodes[i].NodeID);
+                //switch (TreeInvestmentLoan.Nodes[i].Text)
+                //{
+                //    case "借款申请列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "借款审核列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "借款确认列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "借款信息列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "收款确认列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "收款信息列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "终止合同列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "待转移申请审批列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "客户一览表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
 
-                }
+                //}
                 if (flag)
                 {
                     TreeInvestmentLoan.Nodes.RemoveAt(i);
                 }
             }
             if (TreeInvestmentLoan.Nodes.Count == 0)
-            {
                 AccordionPane1.Hidden = true;
-            }
             #endregion
 
             #region 投资部项目实施
@@ -659,99 +684,98 @@ namespace TZMS.Web
             for (int i = TreeInvestmentProject.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (TreeInvestmentProject.Nodes[i].Text)
-                {
-                    case "项目申请列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "项目审核列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "审核结果列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "项目信息列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "备用金审核列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "备用金支付确认":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "进展审核列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "所有项目列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "待转移申请审批列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "待转移过程审批列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
+                flag = !CheckIDIsExist(TreeInvestmentProject.Nodes[i].NodeID);
+                //switch (TreeInvestmentProject.Nodes[i].Text)
+                //{
+                //    case "项目申请列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "项目审核列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "审核结果列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "项目信息列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "备用金审核列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "备用金支付确认":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "进展审核列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "所有项目列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "待转移申请审批列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "待转移过程审批列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
 
-                }
+                //}
                 if (flag)
                 {
                     TreeInvestmentProject.Nodes.RemoveAt(i);
                 }
             }
             if (TreeInvestmentProject.Nodes.Count == 0)
-            {
                 AccordionPane4.Hidden = true;
-            }
             #endregion
 
             #region 银行贷款
@@ -759,99 +783,98 @@ namespace TZMS.Web
             for (int i = TreeBankLoan.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (TreeBankLoan.Nodes[i].Text)
-                {
-                    case "贷款申请列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "申请审核列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "审核结果列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "项目情况列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "备用金审核列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "费用支付确认":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "进展审核列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "所有费用支出":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "待转移申请审批列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "待转移过程审批列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
+                flag = !CheckIDIsExist(TreeBankLoan.Nodes[i].NodeID);
+                //switch (TreeBankLoan.Nodes[i].Text)
+                //{
+                //    case "贷款申请列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "申请审核列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "审核结果列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "项目情况列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "备用金审核列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "费用支付确认":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "进展审核列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "所有费用支出":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "待转移申请审批列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "待转移过程审批列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
 
-                }
+                //}
                 if (flag)
                 {
                     TreeBankLoan.Nodes.RemoveAt(i);
                 }
             }
             if (TreeBankLoan.Nodes.Count == 0)
-            {
                 AccordionPane5.Hidden = true;
-            }
             #endregion
 
             #region 民间融资
@@ -859,92 +882,91 @@ namespace TZMS.Web
             for (int i = TreeFolkFinancing.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (TreeFolkFinancing.Nodes[i].Text)
-                {
-                    case "融资申请列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "会计审核列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "领导审核列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "融资合同列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "支付审核列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "支付确认列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "支付记录列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "待转移申请审批列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "待转移过程审批列表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
+                flag = !CheckIDIsExist(TreeFolkFinancing.Nodes[i].NodeID);
+                //switch (TreeFolkFinancing.Nodes[i].Text)
+                //{
+                //    case "融资申请列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "会计审核列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "领导审核列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "融资合同列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "支付审核列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "支付确认列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "支付记录列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "待转移申请审批列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "待转移过程审批列表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //         && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
 
 
-                }
+                //}
                 if (flag)
                 {
                     TreeFolkFinancing.Nodes.RemoveAt(i);
                 }
             }
             if (TreeFolkFinancing.Nodes.Count == 0)
-            {
                 AccordionPane6.Hidden = true;
-            }
             #endregion
 
             #region 资金审核
@@ -952,58 +974,57 @@ namespace TZMS.Web
             for (int i = Tree10.Nodes.Count - 1; i > -1; i--)
             {
                 flag = false;
-                switch (Tree10.Nodes[i].Text)
-                {
-                    case "资金流量表":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "投资借款会计核算":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "项目实施会计核算":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "银行贷款会计核算":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                    case "民间融资会计核算":
-                        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
-                       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
-                        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ)
-                            && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
-                        {
-                            flag = true;
-                        }
-                        break;
-                }
+                flag = !CheckIDIsExist(Tree10.Nodes[i].NodeID);
+                //switch (Tree10.Nodes[i].Text)
+                //{
+                //    case "资金流量表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "投资借款会计核算":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "项目实施会计核算":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "银行贷款会计核算":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "民间融资会计核算":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ)
+                //            && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //}
                 if (flag)
                 {
                     Tree10.Nodes.RemoveAt(i);
                 }
             }
             if (Tree10.Nodes.Count == 0)
-            {
                 AccordionPane14.Hidden = true;
-            }
             #endregion
         }
     }
