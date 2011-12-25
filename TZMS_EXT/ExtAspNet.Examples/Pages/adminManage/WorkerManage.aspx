@@ -86,7 +86,7 @@
         Target="Parent" runat="server" IsModal="true" Height="400px" Width="550px" OnClose="wndNewUser_Close">
     </ext:Window>
     <ext:Window ID="wndMenu" Title="菜单" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="600px" Width="400px" 
+        Target="Parent" runat="server" IsModal="true" Height="550px" Width="400px" 
         onclose="wndMenu_Close">
     </ext:Window>
     </form>
