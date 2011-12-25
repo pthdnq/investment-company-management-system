@@ -13,11 +13,24 @@ namespace TZMS.Web.Pages
 {
     public partial class MyMessageList : BasePage
     {
+        /// <summary>
+        /// 页面权限模式（可查看，可编辑）
+        /// </summary>
+        private VisitLevel PageModel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    ViewState["VisitLevel"] = GetCurrentLevel("wdxx");
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                CurrentLevel = GetCurrentLevel("wdxx");
 
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
@@ -163,6 +176,13 @@ namespace TZMS.Web.Pages
                 {
                     e.Values[6] = "已查看";
                 }
+
+                //判断页面是否可编辑（可查看不用考虑）
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                {
+                    e.Values[9] = "<span class=\"gray\">删除</span>";
+                }
+
             }
         }
 
