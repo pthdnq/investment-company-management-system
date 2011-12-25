@@ -57,6 +57,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("lzsq");
+
                 UserLeaveApplyInfo _applyInfo = new UserLeaveManage().GetApplyByUserID(CurrentUser.ObjectId.ToString());
                 if (_applyInfo == null)
                 {
@@ -99,6 +101,9 @@ namespace TZMS.Web
                             break;
                     }
                 }
+
+                if (CurrentLevel == VisitLevel.View)
+                    DisableAllControls();
             }
         }
 

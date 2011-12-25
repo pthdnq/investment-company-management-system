@@ -17,6 +17,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("zzgd");
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -188,6 +190,11 @@ namespace TZMS.Web
                     {
                         e.Values[10] = "<span class=\"gray\">归档</span>";
                     }
+                }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[10] = "<span class=\"gray\">归档</span>";
                 }
             }
         }

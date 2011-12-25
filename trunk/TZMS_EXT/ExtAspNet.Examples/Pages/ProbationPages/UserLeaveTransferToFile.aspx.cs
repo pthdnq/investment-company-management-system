@@ -17,6 +17,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("lzjjgd");
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -81,7 +83,7 @@ namespace TZMS.Web
             this.gridArchiver.DataBind();
 
         }
-        
+
         #endregion
 
         #region 页面事件
@@ -179,6 +181,11 @@ namespace TZMS.Web
                             e.Values[8] = "";
                             break;
                     }
+                }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[9] = "<span class=\"gray\">归档</span>";
                 }
             }
         }

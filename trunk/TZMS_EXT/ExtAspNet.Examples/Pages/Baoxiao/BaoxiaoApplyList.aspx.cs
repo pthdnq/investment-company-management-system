@@ -57,6 +57,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("bxsq");
+
                 // 设定默认时间
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
@@ -72,6 +74,11 @@ namespace TZMS.Web
 
                 // 绑定数据到列表.
                 BindGrid(Convert.ToInt32(ddlState.SelectedValue), 0);
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    btnNewBaoxiao.Enabled = false;
+                }
             }
         }
 
@@ -263,6 +270,12 @@ namespace TZMS.Web
                         break;
                     default:
                         break;
+                }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[11] = "<span class=\"gray\">编辑</span>";
+                    e.Values[12] = "<span class=\"gray\">删除</span>";
                 }
             }
         }
