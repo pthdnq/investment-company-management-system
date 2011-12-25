@@ -13,6 +13,22 @@ namespace TZMS.Web
 {
     public partial class ChuRuApproveList : BasePage
     {
+        /// <summary>
+        /// 页面权限模式（可查看，可编辑）
+        /// </summary>
+        private VisitLevel PageModel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    ViewState["VisitLevel"] = GetCurrentLevel("rmdj");
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -177,6 +193,13 @@ namespace TZMS.Web
                     default:
                         break;
                 }
+
+                //判断页面是否可编辑（可查看不用考虑）
+                if (PageModel != VisitLevel.Edit || PageModel != VisitLevel.Both)
+                {
+                    e.Values[8] = "<span class=\"gray\">入门登记</span>";
+                }
+
             }
         }
 
