@@ -247,14 +247,14 @@ namespace TZMS.Web
             /// 业务部门主管
             /// </summary>
             YWZG = 11,
-            /// <summary>
-            /// 普通员工
-            /// </summary>
-            PTYG = 12,
-            /// <summary>
-            /// 考勤员
-            /// </summary>
-            KQY = 13,
+            ///// <summary>
+            ///// 普通员工
+            ///// </summary>
+            //PTYG = 12,
+            ///// <summary>
+            ///// 考勤员
+            ///// </summary>
+            //KQY = 13,
             /// <summary>
             /// 代账会计
             /// </summary>
@@ -277,10 +277,10 @@ namespace TZMS.Web
             /// </summary>
             KQGD = 18,
 
-            /// <summary>
-            /// 物质申请（普通）
-            /// </summary>
-            WUSQ_PT = 19,
+            ///// <summary>
+            ///// 物质申请（普通）
+            ///// </summary>
+            //WUSQ_PT = 19,
 
             /// <summary>
             /// 物质申请（固定资产）
@@ -297,20 +297,20 @@ namespace TZMS.Web
             /// </summary>
             WZSPGD = 22,
 
-            /// <summary>
-            /// 借款申请归档（具有归档权）
-            /// </summary>
-            JKSQ = 23,
+            ///// <summary>
+            ///// 借款申请归档（具有归档权）
+            ///// </summary>
+            //JKSQ = 23,
 
-            /// <summary>
-            /// 民间融资申请归档（具有归档权）
-            /// </summary>
-            MJRZ = 24,
+            ///// <summary>
+            ///// 民间融资申请归档（具有归档权）
+            ///// </summary>
+            //MJRZ = 24,
 
-            /// <summary>
-            /// 银行贷款申请归档（具有归档权）
-            /// </summary>
-            YHDK = 25,
+            ///// <summary>
+            ///// 银行贷款申请归档（具有归档权）
+            ///// </summary>
+            //YHDK = 25,
 
             /// <summary>
             /// 薪资管理归档
@@ -327,45 +327,45 @@ namespace TZMS.Web
             /// </summary>
             PZGD = 28,
 
-            /// <summary>
-            /// 员工管理 以下角色未管理其他页面
-            /// </summary>
-            YGGL = 29,
+            ///// <summary>
+            ///// 员工管理 以下角色未管理其他页面
+            ///// </summary>
+            //YGGL = 29,
 
-            /// <summary>
-            /// 奖惩管理员 以下角色未管理其他页面
-            /// </summary>
-            JCGL = 30,
+            ///// <summary>
+            ///// 奖惩管理员 以下角色未管理其他页面
+            ///// </summary>
+            //JCGL = 30,
 
-            /// <summary>
-            /// 消息管理员 以下角色未管理其他页面
-            /// </summary>
-            XXGL = 31,
+            ///// <summary>
+            ///// 消息管理员 以下角色未管理其他页面
+            ///// </summary>
+            //XXGL = 31,
 
-            /// <summary>
-            /// 物资管理员 以下角色未管理其他页面
-            /// </summary>
-            WZGL = 32,
+            ///// <summary>
+            ///// 物资管理员 以下角色未管理其他页面
+            ///// </summary>
+            //WZGL = 32,
 
-            /// <summary>
-            /// 报销凭证创建 以下角色未管理其他页面
-            /// </summary>
-            BXPZCJ = 33,
+            ///// <summary>
+            ///// 报销凭证创建 以下角色未管理其他页面
+            ///// </summary>
+            //BXPZCJ = 33,
 
-            /// <summary>
-            /// 业务员 以下角色未管理其他页面
-            /// </summary>
-            YWY = 34,
+            ///// <summary>
+            ///// 业务员 以下角色未管理其他页面
+            ///// </summary>
+            //YWY = 34,
 
             /// <summary>
             /// 业务部备用金归档
             /// </summary>
             YWBBYJGD = 35,
 
-            /// <summary>
-            /// 前台（入门登记）
-            /// </summary>
-            QT = 36,
+            ///// <summary>
+            ///// 前台（入门登记）
+            ///// </summary>
+            //QT = 36,
         }
 
         /// <summary>
