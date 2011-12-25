@@ -15,6 +15,20 @@ namespace TZMS.Web
     public partial class WorkerAttend : BasePage
     {
         /// <summary>
+        /// 页面权限模式（可查看，可编辑）
+        /// </summary>
+        private VisitLevel PageModel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    ViewState["VisitLevel"] = GetCurrentLevel("ygkq");
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+        }
+        /// <summary>
         /// 用于存储考勤信息的ViewState
         /// </summary>
         public List<AttendInfo> ViewStateAttendInfo
@@ -44,6 +58,12 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                //判断页面是否可编辑（可查看不用考虑）
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                {
+                    btnImport.Enabled = false;
+                }
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 

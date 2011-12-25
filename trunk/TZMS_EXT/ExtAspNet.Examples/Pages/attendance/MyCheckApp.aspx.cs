@@ -15,6 +15,20 @@ namespace TZMS.Web
     public partial class MyCheckApp : BasePage
     {
         /// <summary>
+        /// 页面权限模式（可查看，可编辑）
+        /// </summary>
+        private VisitLevel PageModel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    ViewState["VisitLevel"] = GetCurrentLevel("wdsp");
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+        }
+        /// <summary>
         /// 查询文本
         /// </summary>
         public string SearchText
@@ -321,6 +335,13 @@ namespace TZMS.Web
                 {
                     e.Values[15] = "";
                 }
+
+                //判断页面是否可编辑（可查看不用考虑）
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                {
+                    e.Values[16] = "<span class=\"gray\">审批</span>";
+                }
+
             }
         }
 

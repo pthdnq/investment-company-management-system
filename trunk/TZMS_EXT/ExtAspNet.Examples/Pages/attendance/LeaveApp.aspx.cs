@@ -14,6 +14,20 @@ namespace TZMS.Web
     public partial class LeaveApp : BasePage
     {
         /// <summary>
+        /// 页面权限模式（可查看，可编辑）
+        /// </summary>
+        private VisitLevel PageModel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    ViewState["VisitLevel"] = GetCurrentLevel("qjsq");
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+        }
+        /// <summary>
         /// 页面加载
         /// </summary>
         /// <param name="sender"></param>
@@ -22,6 +36,12 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                //判断页面是否可编辑（可查看不用考虑）
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                {
+                    btnNewApp.Enabled = false;
+                }
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -211,6 +231,12 @@ namespace TZMS.Web
                         break;
                     default:
                         break;
+                }
+                //判断页面是否可编辑（可查看不用考虑）
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                {
+                    e.Values[10] = "<span class=\"gray\">编辑</span>";
+                    e.Values[11] = "<span class=\"gray\">删除</span>";
                 }
 
                 // 获取审批人的值.

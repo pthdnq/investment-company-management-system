@@ -13,6 +13,20 @@ namespace TZMS.Web
 {
     public partial class NoAttendToFile : BasePage
     {
+        /// <summary>
+        /// 页面权限模式（可查看，可编辑）
+        /// </summary>
+        private VisitLevel PageModel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    ViewState["VisitLevel"] = GetCurrentLevel("wdkgd");
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -175,6 +189,12 @@ namespace TZMS.Web
                         e.Values[11] = "";
                     }
                 }
+                //判断页面是否可编辑（可查看不用考虑）
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                {
+                    e.Values[12] = "<span class=\"gray\">归档</span>";
+                }
+
             }
         }
 

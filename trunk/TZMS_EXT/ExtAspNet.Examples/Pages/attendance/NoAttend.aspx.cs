@@ -14,10 +14,31 @@ namespace TZMS.Web
 {
     public partial class NoAttend : BasePage
     {
+        /// <summary>
+        /// 页面权限模式（可查看，可编辑）
+        /// </summary>
+        private VisitLevel PageModel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    ViewState["VisitLevel"] = GetCurrentLevel("wdksm");
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                //判断页面是否可编辑（可查看不用考虑）
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                {
+                    btnNewApp.Enabled = false;
+                }
+
+
                 // 设定默认开始时间和结束时间.
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
