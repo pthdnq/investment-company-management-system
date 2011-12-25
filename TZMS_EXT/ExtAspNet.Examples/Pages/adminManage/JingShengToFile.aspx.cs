@@ -205,7 +205,7 @@ namespace TZMS.Web
                     }
                 }
                 //判断页面是否可编辑（可查看不用考虑）
-                if (PageModel != VisitLevel.Edit || PageModel != VisitLevel.Both)
+                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
                 {
                     e.Values[11] = "<span class=\"gray\">归档</span>";
                 }
