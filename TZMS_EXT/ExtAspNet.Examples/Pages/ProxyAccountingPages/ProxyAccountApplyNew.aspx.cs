@@ -620,7 +620,14 @@ namespace TZMS.Web
             if (double.TryParse(tbxMoney.Text.Trim(), out money))
             {
                 lblCNMoney.Text = Format(money);
-                tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日代账") + tbxMoney.Text.Trim() + "元";
+                if (!this.ckYear.Checked)
+                {
+                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日代账") + tbxMoney.Text.Trim() + "元";
+                }
+                else
+                {
+                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日年检") + tbxMoney.Text.Trim() + "元";
+                }
             }
         }
 

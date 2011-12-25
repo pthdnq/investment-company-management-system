@@ -42,13 +42,18 @@
                         </Rows>
                     </ext:Form>
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                        AutoHeight="true" Height="389px">
+                        AutoHeight="true" Height="387px">
                         <Tabs>
                             <ext:Tab ID="Tab1" Title="代账费申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Form EnableBackgroundColor="true" LabelWidth="65px" ShowHeader="false" ShowBorder="true"
                                         BodyPadding="5px" ID="mainForm" runat="server">
                                         <Rows>
+                                        <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="50%">
+                                                <Items>
+                                                   <ext:CheckBox ID="ckYear" Text="年检费" runat="server"></ext:CheckBox>
+                                                </Items>
+                                            </ext:FormRow>
                                             <ext:FormRow ID="FormRow1" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstUnit" runat="server"
