@@ -96,6 +96,7 @@ namespace TZMS.Web.Pages
         {
             if (!IsPostBack)
             {
+
                 wndRecevicers.OnClientCloseButtonClick = wndRecevicers.GetHidePostBackReference();
 
                 string strOperatorType = Page.Request.QueryString["Type"];

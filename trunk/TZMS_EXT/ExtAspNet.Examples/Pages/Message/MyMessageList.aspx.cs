@@ -17,6 +17,8 @@ namespace TZMS.Web.Pages
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("wdxx");
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
