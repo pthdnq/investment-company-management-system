@@ -16,11 +16,18 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("paal");
+
                 wndUnit.Title = "新增单位";
                 btnNewUnit.OnClientClick = wndUnit.GetShowReference("ProxyAccountingUnitNew.aspx?Type=Add") + "return false;";
                 wndUnit.OnClientCloseButtonClick = wndUnit.GetHidePostBackReference();
 
                 BindGrid();
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    btnNewUnit.Enabled = false;
+                }
             }
         }
 
@@ -128,6 +135,10 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridUnit_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
+            if (e.DataItem != null)
+            { 
+                
+            }
         }
 
         /// <summary>

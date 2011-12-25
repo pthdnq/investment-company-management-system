@@ -197,7 +197,7 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息管理.png" NodeID="wdxz" OnClientClick=" tabs('wdxz','UserKey');"
                                                 Text="我的薪资">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息管理.png" NodeID="xzgl" OnClientClick=" tabs('xzgl','UserKey');"
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息管理.png" NodeID="xzxxgl" OnClientClick=" tabs('xzxxgl','UserKey');"
                                                 Text="薪资信息管理">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息申请.png" NodeID="xzsq" OnClientClick=" tabs('xzsq','UserKey');"
@@ -627,7 +627,7 @@
                 case "wdxz":
                     LoadTab("Pages/Salary/MySalary.aspx", "我的薪资", icon);
                     break;
-                case "xzgl":
+                case "xzxxgl":
                     LoadTab("Pages/Salary/SalaryMsgManage.aspx", "薪资信息管理", icon);
                     break;
                 case "xzsq":
