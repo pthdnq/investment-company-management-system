@@ -18,6 +18,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("jxsp");
+
                 wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
 
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
@@ -177,6 +179,10 @@ namespace TZMS.Web
                         break;
                 }
 
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[11] = "<span class=\"gray\">审批</span>";
+                }
             }
         }
 

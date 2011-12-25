@@ -47,10 +47,17 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("dzfdy");
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
                 BindProxyAccounting();
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    btnPrint.Enabled = false;
+                }
             }
         }
 

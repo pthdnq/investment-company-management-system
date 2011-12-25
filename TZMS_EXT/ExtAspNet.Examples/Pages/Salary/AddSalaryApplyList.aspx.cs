@@ -17,6 +17,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("jxsq");
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -24,6 +26,11 @@ namespace TZMS.Web
                 btnNewAddSalary.OnClientClick = wndNewApply.GetShowReference("AddSalaryApply.aspx?Type=Add") + "return false;";
 
                 BindGrid();
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    btnNewAddSalary.Enabled = false;
+                }
             }
         }
 
@@ -157,6 +164,11 @@ namespace TZMS.Web
                         break;
                     default:
                         break;
+                }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[10] = "<span class=\"gray\">编辑</span>";
                 }
             }
         }

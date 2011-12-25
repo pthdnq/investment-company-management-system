@@ -287,6 +287,9 @@ namespace TZMS.Web
             {
                 flag = false;
                 flag = !CheckIDIsExist(treeXZGL1.Nodes[i].NodeID);
+
+                System.Diagnostics.Debug.WriteLine(flag + " " + treeXZGL1.Nodes[i].NodeID);
+
                 //switch (treeXZGL1.Nodes[i].Text)
                 //{
                 //    case "我的薪资":

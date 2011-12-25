@@ -18,6 +18,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("xzsp");
+
                 wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
 
                 BindYear();
@@ -171,6 +173,10 @@ namespace TZMS.Web
                         break;
                 }
 
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[9] = "<span class=\"gray\">审批</span>";
+                }
             }
         }
 

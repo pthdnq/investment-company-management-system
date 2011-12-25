@@ -17,6 +17,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("dzfsq");
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -25,6 +27,11 @@ namespace TZMS.Web
                 wndNewProxy.OnClientCloseButtonClick = wndNewProxy.GetHidePostBackReference();
 
                 BindGrid();
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    btnNewProxy.Enabled = false;
+                }
             }
         }
 
@@ -177,6 +184,12 @@ namespace TZMS.Web
                         break;
                     default:
                         break;
+                }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[13] = "<span class=\"gray\">编辑</span>";
+                    e.Values[14] = "<span class=\"gray\">删除</span>";
                 }
             }
         }

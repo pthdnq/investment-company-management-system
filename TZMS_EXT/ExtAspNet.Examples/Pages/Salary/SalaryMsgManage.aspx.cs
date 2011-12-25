@@ -59,6 +59,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("xzxxgl");
+
                 wndNewSalaryMsg.OnClientCloseButtonClick = wndNewSalaryMsg.GetHidePostBackReference();
                 wndNewWorkerSalaryMsg.OnClientCloseButtonClick = wndNewWorkerSalaryMsg.GetHidePostBackReference();
 
@@ -70,6 +72,13 @@ namespace TZMS.Web
                 ddlstMonth.SelectedValue = DateTime.Now.Month.ToString();
 
                 BindGrid();
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    btnNewSalaryMsg.Enabled = false;
+                    btnSave.Enabled = false;
+                    btnNewWorkerSalary.Enabled = false;
+                }
             }
         }
 
@@ -423,9 +432,15 @@ namespace TZMS.Web
                     }
                     else
                     {
-                        e.Values[12] = "<span class=\"gray\">保存</span>";
-                        e.Values[13] = "<span class=\"gray\">删除</span>";
+                        e.Values[32] = "<span class=\"gray\">保存</span>";
+                        e.Values[33] = "<span class=\"gray\">删除</span>";
                     }
+                }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[32] = "<span class=\"gray\">保存</span>";
+                    e.Values[33] = "<span class=\"gray\">删除</span>";
                 }
             }
         }
