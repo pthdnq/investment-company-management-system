@@ -53,7 +53,7 @@
                             <ext:BoundField DataField="Context" HeaderText="内容" DataTooltipField="Context" ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="SendDate" HeaderText="发送日期" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
-                            <ext:LinkButtonField Width="38px" Text="删除" CommandName="Delete" ConfirmText="确认删除该消息?" />
+                            <ext:LinkButtonField Width="38px" Text="删除" CommandName="Delete" ConfirmText="您确认要删除该消息?" />
                         </Columns>
                     </ext:Grid>
                 </Items>

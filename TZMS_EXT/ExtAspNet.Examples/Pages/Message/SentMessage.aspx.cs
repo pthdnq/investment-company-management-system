@@ -13,6 +13,21 @@ namespace TZMS.Web.Pages
 {
     public partial class SentMessage : BasePage
     {
+        /// <summary>
+        /// 页面权限模式（可查看，可编辑）
+        /// </summary>
+        private VisitLevel PageModel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    ViewState["VisitLevel"] = GetCurrentLevel("yfxx");
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -155,13 +170,17 @@ namespace TZMS.Web.Pages
                         }
                         else
                         {
-                            strRecevicers +=  arrayRecevicers[i].Split(',')[1];
+                            strRecevicers += arrayRecevicers[i].Split(',')[1];
                         }
                     }
                     e.Values[1] = "<span  ext:qtip=\"" + strRecevicers + "\">" + strRecevicers + "</span>";
                 }
 
                 e.Values[4] = DateTime.Parse(e.Values[4].ToString()).ToString("yyyy-MM-dd HH:mm");
+                if (PageModel != VisitLevel.Edit || PageModel != VisitLevel.Both)
+                {
+                    e.Values[6] = "<span class=\"gray\">删除</span>";
+                }
             }
         }
 

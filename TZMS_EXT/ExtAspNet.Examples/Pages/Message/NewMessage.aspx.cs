@@ -13,6 +13,20 @@ namespace TZMS.Web.Pages
     public partial class NewMessage : BasePage
     {
         /// <summary>
+        /// 页面权限模式（可查看，可编辑）
+        /// </summary>
+        private VisitLevel PageModel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    ViewState["VisitLevel"] = GetCurrentLevel("fsxx");
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+        }
+        /// <summary>
         /// 操作类型
         /// </summary>
         public string OperatorType
@@ -96,7 +110,10 @@ namespace TZMS.Web.Pages
         {
             if (!IsPostBack)
             {
-
+                if (PageModel != VisitLevel.Edit || PageModel != VisitLevel.Both)
+                {
+                    this.btnSend.Enabled = false;
+                }
                 wndRecevicers.OnClientCloseButtonClick = wndRecevicers.GetHidePostBackReference();
 
                 string strOperatorType = Page.Request.QueryString["Type"];
