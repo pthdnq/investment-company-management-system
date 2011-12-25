@@ -15,6 +15,20 @@ namespace TZMS.Web
     public partial class WorkerManage : BasePage
     {
         /// <summary>
+        /// 页面权限模式（可查看，可编辑）
+        /// </summary>
+        private VisitLevel PageModel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    ViewState["VisitLevel"] = GetCurrentLevel("yggl");
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+        }
+        /// <summary>
         /// 页面加载
         /// </summary>
         /// <param name="sender"></param>
@@ -23,6 +37,12 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                //判断页面是否可编辑（可查看不用考虑）
+                if (PageModel != VisitLevel.Edit || PageModel != VisitLevel.Both)
+                {
+                    btnNewUser.Enabled = false;
+                }
+
                 btnNewUser.OnClientClick = wndNewUser.GetShowReference("NewUser.aspx?Type=Add", "新增员工");
                 wndNewUser.OnClientCloseButtonClick = wndNewUser.GetHidePostBackReference();
 
@@ -184,6 +204,15 @@ namespace TZMS.Web
             {
                 e.Values[12] = e.Values[12].ToString().Replace("msg:'确定该员工离职?'", "msg:'确定" + e.Values[2].ToString() + "离职?'");
                 e.Values[13] = e.Values[13].ToString().Replace("msg:'确定删除该员工?'", "msg:'确定删除" + e.Values[2].ToString() + "?'");
+            }
+            //判断页面是否可编辑（可查看不用考虑）
+            if (PageModel != VisitLevel.Edit || PageModel != VisitLevel.Both)
+            {
+                e.Values[10] = "<span class=\"gray\">编辑</span>";
+                e.Values[11] = "<span class=\"gray\">权限</span>";
+                e.Values[12] = "<span class=\"gray\">离职</span>";
+                e.Values[13] = "<span class=\"gray\">删除</span>";
+                e.Values[14] = "<span class=\"gray\">菜单</span>";
             }
         }
 
