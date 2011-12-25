@@ -145,6 +145,11 @@ namespace TZMS.Web
         /// </summary>
         private void SetMenu()
         {
+            //超级管理员
+            if (CurrentUser.State == 3)
+            {
+                return ;
+            }
             bool flag = false;
 
             #region 行政管理
