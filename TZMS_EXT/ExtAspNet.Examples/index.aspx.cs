@@ -136,10 +136,6 @@ namespace TZMS.Web
                     }
                 }
             }
-            else
-            {
-                return true;
-            }
 
             return false;
         }

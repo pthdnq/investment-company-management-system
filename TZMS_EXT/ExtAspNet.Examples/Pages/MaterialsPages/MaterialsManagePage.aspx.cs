@@ -17,11 +17,18 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("wzgl");
+
                 wndNewMaterials.OnClientCloseButtonClick = wndNewMaterials.GetHidePostBackReference();
                 wndMaterialComsume.OnClientCloseButtonClick = wndMaterialComsume.GetHidePostBackReference();
 
                 BindType();
                 BindGrid();
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    btnNewMaterials.Enabled = false;
+                }
             }
         }
 
@@ -167,6 +174,17 @@ namespace TZMS.Web
                 {
                     e.Values[5] = e.Values[5].ToString().Replace("领用", "领用历史");
                     //e.Values[5] = "<span class=\"gray\">领用</span>";
+                }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    if (Convert.ToInt32(e.Values[4].ToString()) != 0)
+                    { 
+                        e.Values[5] = "<span class=\"gray\">领用</span>";
+                    }
+
+                    e.Values[7] = "<span class=\"gray\">编辑</span>";
+                    e.Values[8] = "<span class=\"gray\">删除</span>";
                 }
             }
         }

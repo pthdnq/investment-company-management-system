@@ -102,6 +102,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("bxsp");
+
                 // 设置默认时间.
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
@@ -309,6 +311,11 @@ namespace TZMS.Web
                 else if (e.Values[12].ToString() == "1")
                 {
                     e.Values[12] = "打回修改";
+                }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[14] = "<span class=\"gray\">审批</span>";
                 }
             }
         }

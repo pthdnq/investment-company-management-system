@@ -57,6 +57,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("zzsq");
+
                 ProbationApplyInfo _applyInfo = new ProbationManage().GetApplyByUserID(CurrentUser.ObjectId.ToString());
                 if (_applyInfo == null)
                 {
@@ -93,6 +95,9 @@ namespace TZMS.Web
                             break;
                     }
                 }
+
+                if (CurrentLevel == VisitLevel.View)
+                    DisableAllControls();
             }
         }
 

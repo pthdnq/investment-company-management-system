@@ -36,6 +36,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("ptywcz");
+
                 //btnNewYewu.OnClientClick = wndNewYewu.GetShowReference("NewCommonYeWu.aspx") + "return false;";
                 wndNewYewu.OnClientCloseButtonClick = wndNewYewu.GetHidePostBackReference();
                 DataBindData();
@@ -121,6 +123,11 @@ namespace TZMS.Web
                         break;
                     default:
                         break;
+                }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[6] = "<span class=\"gray\">操作</span>";
                 }
             }
         }

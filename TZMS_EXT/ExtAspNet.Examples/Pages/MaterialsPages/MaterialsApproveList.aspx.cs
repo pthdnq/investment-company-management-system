@@ -18,6 +18,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("wzsp");
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -179,6 +181,11 @@ namespace TZMS.Web
                     e.Values[9] = "已审批";
                     e.Values[10] = e.Values[10].ToString() == "0" ? "同意" : "不同意";
                     e.Values[11] = DateTime.Parse(e.Values[11].ToString()).ToString("yyyy-MM-dd HH:mm");
+                    e.Values[12] = "<span class=\"gray\">审批</span>";
+                }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
                     e.Values[12] = "<span class=\"gray\">审批</span>";
                 }
             }

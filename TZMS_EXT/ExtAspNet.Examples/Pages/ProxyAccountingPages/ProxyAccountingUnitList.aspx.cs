@@ -136,8 +136,9 @@ namespace TZMS.Web
         protected void gridUnit_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
             if (e.DataItem != null)
-            { 
-                
+            {
+                e.Values[7] = "<span class=\"gray\">编辑</span>";
+                e.Values[8] = "<span class=\"gray\">删除</span>";
             }
         }
 

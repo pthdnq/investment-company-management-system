@@ -17,6 +17,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                CurrentLevel = GetCurrentLevel("bxpzsq");
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -195,6 +197,13 @@ namespace TZMS.Web
                         break;
                     default:
                         break;
+                }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[7] = "<span class=\"gray\">创建凭证</span>";
+                    e.Values[9] = "<span class=\"gray\">编辑</span>";
+                    e.Values[10] = "<span class=\"gray\">删除</span>";
                 }
             }
         }
