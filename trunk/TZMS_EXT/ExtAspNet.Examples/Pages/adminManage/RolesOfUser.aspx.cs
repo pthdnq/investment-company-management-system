@@ -272,12 +272,12 @@ namespace TZMS.Web
                 case RoleType.KQGD:
                     strRole = "考勤归档";
                     break;
-                case RoleType.KQY:
-                    strRole = "考勤员";
-                    break;
-                case RoleType.PTYG:
-                    strRole = "普通员工";
-                    break;
+                //case RoleType.KQY:
+                //    strRole = "考勤员";
+                //    break;
+                //case RoleType.PTYG:
+                //    strRole = "普通员工";
+                //    break;
                 case RoleType.TZZG:
                     strRole = "投资部门主管";
                     break;
@@ -302,9 +302,9 @@ namespace TZMS.Web
                 case RoleType.ZJL:
                     strRole = "总经理";
                     break;
-                case RoleType.WUSQ_PT:
-                    strRole = "一般物资申请";
-                    break;
+                //case RoleType.WUSQ_PT:
+                //    strRole = "一般物资申请";
+                //    break;
                 case RoleType.WZSQ_GD:
                     strRole = "固定资产申请";
                     break;
@@ -314,15 +314,15 @@ namespace TZMS.Web
                 case RoleType.WZSPGD:
                     strRole = "物资审批归档";
                     break;
-                case RoleType.JKSQ:
-                    strRole = "借款申请归档";
-                    break;
-                case RoleType.MJRZ:
-                    strRole = "民间融资申请归档";
-                    break;
-                case RoleType.YHDK:
-                    strRole = "银行贷款申请归档";
-                    break;
+                //case RoleType.JKSQ:
+                //    strRole = "借款申请归档";
+                //    break;
+                //case RoleType.MJRZ:
+                //    strRole = "民间融资申请归档";
+                //    break;
+                //case RoleType.YHDK:
+                //    strRole = "银行贷款申请归档";
+                //    break;
                 case RoleType.XZGLGD:
                     strRole = "薪资管理归档";
                     break;
@@ -332,30 +332,30 @@ namespace TZMS.Web
                 case RoleType.PZGD:
                     strRole = "报销凭证归档";
                     break;
-                case RoleType.YGGL:
-                    strRole = "员工管理员";
-                    break;
-                case RoleType.JCGL:
-                    strRole = "奖惩管理员";
-                    break;
-                case RoleType.XXGL:
-                    strRole = "消息管理员";
-                    break;
-                case RoleType.WZGL:
-                    strRole = "物资管理员";
-                    break;
-                case RoleType.BXPZCJ:
-                    strRole = "报销凭证创建";
-                    break;
-                case RoleType.YWY:
-                    strRole = "业务员";
-                    break;
+                //case RoleType.YGGL:
+                //    strRole = "员工管理员";
+                //    break;
+                //case RoleType.JCGL:
+                //    strRole = "奖惩管理员";
+                //    break;
+                //case RoleType.XXGL:
+                //    strRole = "消息管理员";
+                //    break;
+                //case RoleType.WZGL:
+                //    strRole = "物资管理员";
+                //    break;
+                //case RoleType.BXPZCJ:
+                //    strRole = "报销凭证创建";
+                //    break;
+                //case RoleType.YWY:
+                //    strRole = "业务员";
+                //    break;
                 case RoleType.YWBBYJGD:
                     strRole = "业务部备用金归档";
                     break;
-                case RoleType.QT:
-                    strRole = "前台";
-                    break;
+                //case RoleType.QT:
+                //    strRole = "前台";
+                //    break;
             }
 
             return strRole;
