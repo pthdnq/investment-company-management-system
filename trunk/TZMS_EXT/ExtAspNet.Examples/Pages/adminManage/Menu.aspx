@@ -66,7 +66,7 @@
                             </ext:TreeNode>
                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Text="行政管理" NodeID="xzgl">
                                 <Nodes>
-                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="tggl" OnClientClick="return false;"
+                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="yggl" OnClientClick="return false;"
                                         Text="员工管理">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
@@ -99,7 +99,18 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="jstgsp" OnClientClick="return false;"
+                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="jsdgsq" OnClientClick="return false;"
+                                        Text="晋升调岗申请">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="jsdgsp" OnClientClick="return false;"
                                         Text="晋升调岗审批">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
@@ -110,7 +121,7 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="jstggd" OnClientClick="return false;"
+                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="jsdggd" OnClientClick="return false;"
                                         Text="晋升调岗归档">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
@@ -121,7 +132,7 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="xfjfd" OnClientClick="return false;"
+                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="xfjcd" OnClientClick="return false;"
                                         Text="下发奖惩单">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
@@ -132,7 +143,7 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="jfdqr" OnClientClick="return false;"
+                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="jcdqr" OnClientClick="return false;"
                                         Text="奖惩单确认">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
@@ -143,7 +154,7 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="zpsq" OnClientClick="return false;"
+                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="zpsqd" OnClientClick="return false;"
                                         Text="招聘申请">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
@@ -154,7 +165,7 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="zpsp" OnClientClick="return false;"
+                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="zpsqsp" OnClientClick="return false;"
                                         Text="招聘审批">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
@@ -165,7 +176,7 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="zpgd" OnClientClick="return false;"
+                                    <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" NodeID="zpsqgd" OnClientClick="return false;"
                                         Text="招聘归档">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="true" Leaf="true" OnClientClick="return false;"
