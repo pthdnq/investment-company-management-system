@@ -139,8 +139,11 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             _Info.IsPassImprest = true;
             //下一步审核人 
-            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            //_Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            //_Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            _Info.NextOperaterName = _Info.FirstOperaterName;
+            _Info.NextOperaterId = _Info.FirstOperaterID;
+
             _Info.SubmitTime = DateTime.Now;
          
             //已审批人
@@ -177,7 +180,11 @@ namespace TZMS.Web.Pages.BankLoanPages
 
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
                 manage.AddHistory(true, _Info.ObjectId, "会计审核", string.Format("出纳确认-{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
+           
+                #region 调用发送消息
 
+                #endregion
+          
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

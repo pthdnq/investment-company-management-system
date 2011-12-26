@@ -273,6 +273,9 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                 _Info.Status = status;
                 _Info.NeedImprest = this.cbIsAmountExpended.Checked;
+                //保存第一个审批人
+                _Info.FirstOperaterID = new Guid(this.ddlstApproveUser.SelectedValue);
+                _Info.FirstOperaterName = this.ddlstApproveUser.SelectedText;
             }
 
 

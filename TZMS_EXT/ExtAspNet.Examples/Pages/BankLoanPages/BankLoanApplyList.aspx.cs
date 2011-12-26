@@ -67,21 +67,28 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             if (!IsPostBack)
             {
-                this.btnNew.OnClientClick = wndNew.GetShowReference("BankLoanApplyAdd.aspx?Type=Add", "新增 - 贷款申请");
-                this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
-
-                // 绑定下拉框.
-                BindDDL();
+                // 绑定控件
+                InitControl();
                 // 绑定列表.
                 BindGridData(ViewStateState, ViewStateSearchText);
             }
         }
 
         /// <summary>
-        /// 绑定下拉框.
+        /// 绑定 
         /// </summary>
-        private void BindDDL()
+        private void InitControl()
         {
+            this.btnNew.OnClientClick = wndNew.GetShowReference("BankLoanApplyAdd.aspx?Type=Add", "新增 - 贷款申请");
+            this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
+
+           // CurrentLevel = GetCurrentLevel("jxsq");
+            if (this.CurrentLevel.Equals(VisitLevel.View))
+            {
+                btnNew.Hidden = false;
+            }
+
+
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
             ViewStateState = ddlstState.SelectedValue;
