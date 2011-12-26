@@ -41,6 +41,7 @@ namespace com.TZMS.Model
         private string _name = DBEmptyString;
         private short _state =DBEmptyShort;
         private Guid _currentCheckerId;
+        private decimal _sumMoney;
         #endregion
 
         #region Property
@@ -114,6 +115,15 @@ namespace com.TZMS.Model
         {
             get { return _currentCheckerId; }
             set { _currentCheckerId = value; }
+        }
+
+        /// <summary>
+        /// SumMoney 
+        /// </summary> 
+        public decimal SumMoney
+        {
+            get { return _sumMoney; }
+            set { _sumMoney = value; }
         }
 
         #endregion

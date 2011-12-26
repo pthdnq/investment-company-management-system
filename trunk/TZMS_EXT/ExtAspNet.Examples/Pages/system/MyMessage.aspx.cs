@@ -81,6 +81,8 @@ namespace TZMS.Web
                 {
                     dpkBirthday.SelectedDate = _userInfo.Birthday;
                 }
+                // 基本工资.
+                tbxBaseSalary.Text = _userInfo.BaseSalary.ToString();
                 // 学历.
                 ddlstEducational.SelectedValue = _userInfo.Educational;
                 // 工作年限.

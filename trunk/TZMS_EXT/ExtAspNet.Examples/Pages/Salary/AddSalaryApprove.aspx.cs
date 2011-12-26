@@ -210,7 +210,7 @@ namespace TZMS.Web
 
                     // 更新员工信息表中的基本工资.
                     UserInfo _applyUser = _userManage.GetUserByObjectID(_applyInfo.UserId.ToString());
-                    _applyUser.BaseSalary = _applyInfo.OtherSalary;
+                    _applyUser.BaseSalary += _applyInfo.OtherSalary;
                     _userManage.UpdateUser(_applyUser);
 
                     // 更新现有审批记录.

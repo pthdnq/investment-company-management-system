@@ -62,6 +62,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Name",DbType.String),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@CurrentCheckerId",DbType.Guid),
+                new SqlParameter("@SumMoney",DbType.Decimal)
 				};
 
                 int i = 0;
@@ -73,6 +74,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = SalaryMsgInfo.Name;
                 sqlparam[i++].Value = SalaryMsgInfo.State;
                 sqlparam[i++].Value = SalaryMsgInfo.CurrentCheckerId;
+                sqlparam[i++].Value = SalaryMsgInfo.SumMoney;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -135,6 +137,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Name",DbType.String),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@CurrentCheckerId",DbType.Guid),
+                new SqlParameter("@SumMoney",DbType.Decimal)
                 };
 
                 int i = 0;
@@ -146,6 +149,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = SalaryMsgInfo.Name;
                 sqlparam[i++].Value = SalaryMsgInfo.State;
                 sqlparam[i++].Value = SalaryMsgInfo.CurrentCheckerId;
+                sqlparam[i++].Value = SalaryMsgInfo.SumMoney;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -261,6 +265,11 @@ namespace com.TZMS.DataAccess
             if (SalaryMsgInfoInfoDataRow["CurrentCheckerId"] != null)
             {
                 SalaryMsgInfoInfo.CurrentCheckerId = new Guid(DataUtil.GetStringValueOfRow(SalaryMsgInfoInfoDataRow, "CurrentCheckerId"));
+            }
+
+            if (SalaryMsgInfoInfoDataRow["SumMoney"] != null)
+            {
+                SalaryMsgInfoInfo.SumMoney = Convert.ToDecimal(DataUtil.GetStringValueOfRow(SalaryMsgInfoInfoDataRow, "SumMoney"));
             }
 
             return SalaryMsgInfoInfo;

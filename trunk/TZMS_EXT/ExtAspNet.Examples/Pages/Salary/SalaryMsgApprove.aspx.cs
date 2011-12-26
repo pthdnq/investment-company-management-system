@@ -79,7 +79,7 @@ namespace TZMS.Web
             {
                 if (roleType == RoleType.XZGLGD)
                 {
-                    ddlstNext.Items.Add(new ExtAspNet.ListItem("同意并归档", "1"));
+                    ddlstNext.Items.Add(new ExtAspNet.ListItem("同意并发放", "1"));
                     break;
                 }
             }
@@ -196,25 +196,27 @@ namespace TZMS.Web
 
                 #region 归档
 
-                if (ddlstNext.SelectedText == "同意并归档")
+                if (ddlstNext.SelectedText == "同意并发放")
                 {
                     // 修改申请单信息.
                     _applyInfo.State = 2;
                     _applyInfo.CurrentCheckerId = SystemUser.ObjectId;
-                    result = _manage.UpdateSalaryMsg(_applyInfo);
 
                     // 更新员工信息表中的基本工资.
                     List<WorkerSalaryMsgInfo> lstWorkerSalaryIMsgInfo = _manage.GetWorkerSalaryMsgByCondition(" SalaryMsgID = '" + _applyInfo.ObjectId.ToString() + "'");
-                    UserInfo _tempUserInfo = null;
+                    //UserInfo _tempUserInfo = null;
                     foreach (WorkerSalaryMsgInfo item in lstWorkerSalaryIMsgInfo)
                     {
-                        _tempUserInfo = _userManage.GetUserByObjectID(item.UserId.ToString());
-                        if (_tempUserInfo != null)
-                        {
-                            _tempUserInfo.BaseSalary = item.BaseSalary;
-                            _userManage.UpdateUser(_tempUserInfo);
-                        }
+                        //_tempUserInfo = _userManage.GetUserByObjectID(item.UserId.ToString());
+                        //if (_tempUserInfo != null)
+                        //{
+                        //    _tempUserInfo.BaseSalary = item.BaseSalary;
+                        //    _userManage.UpdateUser(_tempUserInfo);
+                        //}
+                        _applyInfo.SumMoney += Convert.ToDecimal(item.Sfgz);
                     }
+
+                    result = _manage.UpdateSalaryMsg(_applyInfo);
 
                     // 更新现有审批记录.
                     _currentApproveInfo.Checkstate = 1;
@@ -306,8 +308,8 @@ namespace TZMS.Web
                 ddlstApproveUser.Required = false;
                 ddlstApproveUser.ShowRedStar = false;
                 ddlstApproveUser.Enabled = false;
-                btnPass.Text = "同意并归档";
-                btnPass.ConfirmText = "您确认同意并归档吗?";
+                btnPass.Text = "同意并发放";
+                btnPass.ConfirmText = "您确认同意并发放吗?";
             }
             else
             {

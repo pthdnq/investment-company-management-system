@@ -67,6 +67,13 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
+                            <ext:TextBox ID="tbxBaseSalary" runat="server" Label="基本工资" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                RegexMessage="金额格式不正确!" Enabled="false">
+                            </ext:TextBox>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="50% 50%">
+                        <Items>
                             <ext:TextBox ID="tbxGraduatedSchool" Label="毕业院校" runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！"
                                 Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>

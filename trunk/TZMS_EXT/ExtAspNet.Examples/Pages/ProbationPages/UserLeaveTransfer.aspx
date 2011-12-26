@@ -16,7 +16,7 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnPass" Text="交接" Icon="Accept" runat="server" ValidateForms="mainForm2"
+                    <ext:Button ID="btnPass" Text="确定交接" Icon="Accept" runat="server" ValidateForms="mainForm2"
                         OnClick="btnPass_Click" ConfirmText="您确定交接吗?">
                     </ext:Button>
                 </Items>
