@@ -119,7 +119,8 @@
                             <ext:FormRow ColumnWidths="50% 50%">
                                 <Items>
                                     <ext:TextBox ID="tbxYFGZ" Label="应发工资" runat="server" Required="true" ShowRedStar="true"
-                                        MaxLength="50" MaxLengthMessage="最多只能输入50个字!" Text="0.00">
+                                        MaxLength="50" MaxLengthMessage="最多只能输入50个字!" Text="0.00" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                        RegexMessage="金额格式不正确!">
                                     </ext:TextBox>
                                 </Items>
                             </ext:FormRow>
@@ -176,7 +177,8 @@
                             <ext:FormRow ColumnWidths="50% 50%">
                                 <Items>
                                     <ext:TextBox ID="tbxSFGZ" Label="实发工资" runat="server" Required="true" ShowRedStar="true"
-                                        MaxLength="50" MaxLengthMessage="最多只能输入50个字!" Text="0.00">
+                                        MaxLength="50" MaxLengthMessage="最多只能输入50个字!" Text="0.00" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                        RegexMessage="金额格式不正确!">
                                     </ext:TextBox>
                                 </Items>
                             </ext:FormRow>

@@ -139,6 +139,15 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DatePicker dpkBirthday;
         
         /// <summary>
+        /// tbxBaseSalary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbxBaseSalary;
+        
+        /// <summary>
         /// tbxGraduatedSchool control.
         /// </summary>
         /// <remarks>

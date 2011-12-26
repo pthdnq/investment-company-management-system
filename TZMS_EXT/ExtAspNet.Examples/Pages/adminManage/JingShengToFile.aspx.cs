@@ -152,8 +152,11 @@ namespace TZMS.Web
                     UserInfo _applyUser = _userManage.GetUserByObjectID(_applyInfo.UserID.ToString());
                     if (_applyUser != null)
                     {
+                        string currentPosition = _applyUser.Position;
                         _applyUser.Position = _applyInfo.ApplyPosition;
                         _userManage.UpdateUser(_applyUser);
+
+                        Alert.Show("此员工从" + currentPosition + "岗位调岗到" + _applyUser.Position + "岗位，请在员工管理里面对该员工进行权限配置");
                     }
                 }
                 else
@@ -178,7 +181,7 @@ namespace TZMS.Web
             {
                 JingShengManage _manage = new JingShengManage();
                 JingShengApproveInfo _approveInfo = (JingShengApproveInfo)e.DataItem;
-                JingShengApplyInfo _applyInfo =  _manage.GetApplyByObjectID(_approveInfo.ApplyID.ToString());
+                JingShengApplyInfo _applyInfo = _manage.GetApplyByObjectID(_approveInfo.ApplyID.ToString());
                 if (_applyInfo != null)
                 {
                     List<JingShengApproveInfo> lstApprove = _manage.GetApproveByCondition(" ApplyID='" + _applyInfo.ObjectID.ToString()

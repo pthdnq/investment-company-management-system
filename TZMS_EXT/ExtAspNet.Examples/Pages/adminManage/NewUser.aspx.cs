@@ -147,6 +147,8 @@ namespace TZMS.Web
                 {
                     dpkBirthday.SelectedDate = _userInfo.Birthday;
                 }
+                // 基本工资.
+                tbxBaseSalary.Text = _userInfo.BaseSalary.ToString();
                 // 学历.
                 ddlstEducational.SelectedValue = _userInfo.Educational;
                 // 工作年限.
@@ -233,6 +235,8 @@ namespace TZMS.Web
             {
                 _userInfo.EntryDate = Convert.ToDateTime(dpkEntryDate.SelectedDate);
             }
+            // 基本工资.
+            _userInfo.BaseSalary = Convert.ToDecimal(tbxBaseSalary.Text.Trim());
             // 出生日期.
             if (dpkBirthday.SelectedDate is DateTime)
             {
@@ -323,7 +327,7 @@ namespace TZMS.Web
         }
         #endregion
 
-        #region
+        #region 页面事件
 
         /// <summary>
         /// 保存员工
