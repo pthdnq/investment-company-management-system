@@ -82,10 +82,10 @@ namespace TZMS.Web.Pages.BankLoanPages
             this.btnNew.OnClientClick = wndNew.GetShowReference("BankLoanApplyAdd.aspx?Type=Add", "新增 - 贷款申请");
             this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
 
-           // CurrentLevel = GetCurrentLevel("jxsq");
+            CurrentLevel = GetCurrentLevel("dksq");
             if (this.CurrentLevel.Equals(VisitLevel.View))
             {
-                btnNew.Hidden = false;
+                btnNew.Hidden = true;
             }
 
 
