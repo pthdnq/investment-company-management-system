@@ -2733,6 +2733,9 @@
     <None Include="images\ico_logo.psd" />
     <None Include="images\old9-logo.psd" />
     <None Include="images\step.psd" />
+    <None Include="Template\工资表.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Template\收款收据.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
