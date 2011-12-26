@@ -67,9 +67,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             if (!IsPostBack)
             {
-                this.btnNew.OnClientClick = wndNew.GetShowReference("PaymentApplyAdd.aspx?Type=Add", "新增 - 借款申请");
-                this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
-
+         
                 // 绑定下拉框.
                 BindDDL();
                 // 绑定列表.
@@ -82,6 +80,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void BindDDL()
         {
+            this.btnNew.OnClientClick = wndNew.GetShowReference("PaymentApplyAdd.aspx?Type=Add", "新增 - 借款申请");
+            this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
+
+            this.CurrentLevel = GetCurrentLevel("fksq");
+            if (this.CurrentLevel.Equals(VisitLevel.View))   
+            {
+                this.btnNew.Hidden = true;
+            }
+
             ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);

@@ -86,11 +86,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectApplyAdd.aspx?Type=Add", "新增 - 项目申请");
-                this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
-
-                // 绑定下拉框.
+            { 
+                // 绑定 
                 BindDDL();
                 // 绑定列表.
                 BindGridData(ViewStateState, ViewStateSearchText);
@@ -98,10 +95,19 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         }
 
         /// <summary>
-        /// 绑定下拉框.
+        /// 绑定 
         /// </summary>
         private void BindDDL()
         {
+            this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectApplyAdd.aspx?Type=Add", "新增 - 项目申请");
+            this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
+             
+            this.CurrentLevel = GetCurrentLevel("fksq");
+            if (this.CurrentLevel.Equals(VisitLevel.View))
+            {
+                this.btnNew.Hidden = true;
+            }
+
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
             ViewStateState = ddlstState.SelectedValue;

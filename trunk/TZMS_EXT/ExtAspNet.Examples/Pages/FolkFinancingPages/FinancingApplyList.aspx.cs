@@ -83,10 +83,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                this.btnNew.OnClientClick = wndNew.GetShowReference("FinancingApplyAdd.aspx?Type=Add", "新增 - 民间融资");
-                this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
-
+            { 
                 // 绑定下拉框.
                 BindDDL();
                 // 绑定列表.
@@ -99,8 +96,13 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// </summary>
         private void BindDDL()
         {
-          //  this.CurrentLevel = GetCurrentLevel("rzsq");
-            if (this.CurrentLevel.Equals(VisitLevel.View))
+            this.btnNew.OnClientClick = wndNew.GetShowReference("FinancingApplyAdd.aspx?Type=Add", "新增 - 民间融资");
+            this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
+
+            //this.CurrentLevel = GetCurrentLevel("rzsq");
+
+            //if (this.CurrentLevel.Equals(VisitLevel.View))
+            if (!this.CurrentRoles.Contains(RoleType.TZZJ))
             {
                 this.btnNew.Hidden = true;
             }
