@@ -68,6 +68,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 this.lbLoanAmount.Text = _info.LoanAmount.ToString();
                 this.lbLoanDate.Text = _info.LoanDate.ToShortDateString();
                 this.lbLoanType.Text = _info.LoanType.Equals("TransferAccount") ? "转账" : "现金";
+                lbPaymenter.Text = _info.NextOperaterName;
                 //     this.taRemark.Text = _info.Remark;
                 //     this.taAuditOpinion.Text = _info.AuditOpinion;
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)

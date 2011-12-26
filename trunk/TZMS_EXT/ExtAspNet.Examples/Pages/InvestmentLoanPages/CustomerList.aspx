@@ -66,7 +66,7 @@
                             <%--        <ext:BoundField DataField="Name" HeaderText="姓名" Width="73px" />--%>
                             <ext:WindowField Width="76px" DataTextField="Name" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="CustomerInvestmentLoanInfo.aspx?ID={0}" Title="借款信息查看"
-                                WindowID="wndNew" />
+                                WindowID="wndNew" HeaderText="客户名称" />
                             <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="101px" />
                             <ext:BoundField DataField="CreditScore" HeaderText="星级" Width="95px" />
                             <ext:BoundField DataField="CreditScore" HeaderText="积分" Width="95px" />

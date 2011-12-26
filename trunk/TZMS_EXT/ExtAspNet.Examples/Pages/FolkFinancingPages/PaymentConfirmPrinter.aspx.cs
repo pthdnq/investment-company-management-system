@@ -8,7 +8,7 @@ using com.TZMS.Business;
 
 namespace TZMS.Web.Pages.FolkFinancingPages
 {
-    public partial class PaymentConfirmPrinter : System.Web.UI.Page
+    public partial class PaymentConfirmPrinter : BasePage
     {
         #region 属性
         /// <summary>
@@ -62,11 +62,13 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             // 绑定数据.
             if (_info != null)
             {
-                this.tbProjectName.Text = "支付确认";
+                this.tbProjectName.Text = "融资支付确认";
                 this.lbLenders.Text = _info.PaymentAccount;
                 this.lbBorrowerNameA.Text = _info.ReceivablesAccount;
                 this.lbLoanAmount.Text = _info.AmountOfPayment.ToString();
                 this.lbLoanDate.Text = _info.DateForPay.ToShortDateString();
+                lbApplier.Text = _info.CreaterName;
+                lbPaymenter.Text = this.CurrentUser.Name;
                 //     this.taRemark.Text = _info.Remark;
                 //     this.taAuditOpinion.Text = _info.AuditOpinion;
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)

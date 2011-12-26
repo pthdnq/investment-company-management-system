@@ -73,7 +73,7 @@
                             <ext:BoundField Width="60px" DataTooltipField="LoanAmount" DataField="LoanAmount" HeaderText="借款金额" />
                             <ext:BoundField Width="70px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="借款日期" />
-                            <ext:BoundField DataField="DueDateForPay" Width="70px" HeaderText="应付借款日" />
+                            <ext:BoundField DataField="DueDateForPay" DataFormatString="每月{0}日" Width="70px" HeaderText="应付借款日" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:BoundField Hidden="true"  DataField="CreateTime" Width="100px" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                 HeaderText="创建时间" />

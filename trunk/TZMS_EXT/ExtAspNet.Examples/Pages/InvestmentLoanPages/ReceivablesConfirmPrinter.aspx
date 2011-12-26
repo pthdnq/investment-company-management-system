@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReceivablesConfirmPrinter.aspx.cs" Inherits="TZMS.Web.Pages.InvestmentLoanPages.ReceivablesConfirmPrinter" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReceivablesConfirmPrinter.aspx.cs"
+    Inherits="TZMS.Web.Pages.InvestmentLoanPages.ReceivablesConfirmPrinter" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -13,18 +13,23 @@
         <h1>
             收款确认
             <br />
-            项目：
-            <asp:Label runat="server" ID="tbProjectName"></asp:Label></h1>
+        </h1>
         <h2>
-            收款帐号：
-            <asp:Label runat="server" ID="lbBorrowerNameA"></asp:Label></h2>
+            项目名称：
+            <asp:Label runat="server" ID="tbProjectName"></asp:Label>
+        </h2>
         <h3>
-           收款金额：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
+            收款帐号或现金：
+            <asp:Label runat="server" ID="lbBorrowerNameA"></asp:Label>
+            <br />
+            实收金额：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
             <br />
             收款时间：
             <asp:Label runat="server" ID="lbLoanDate"></asp:Label>
             <br />
- <%--           支付方式：
+            操作人：
+            <asp:Label runat="server" ID="lbPaymenter"></asp:Label>
+            <%--           支付方式：
             <asp:Label runat="server" ID="lbLoanType"></asp:Label>--%>
         </h3>
         <h4>

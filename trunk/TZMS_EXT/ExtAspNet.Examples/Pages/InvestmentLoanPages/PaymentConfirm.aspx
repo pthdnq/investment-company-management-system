@@ -18,7 +18,7 @@
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        IconUrl="~/Images/ico_nextstep.gif" Text="借款确认" ConfirmText="您确定要确认该借款信息吗?" />
+                        IconUrl="~/Images/ico_nextstep.gif" Text="确认付款" ConfirmText="您确定要确认已付该借款吗?" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator1" runat="server" />
                     <ext:HyperLink runat="server" Text="打印明细单" ID="hlPrinter" Target="_blank">
                     </ext:HyperLink>

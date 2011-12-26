@@ -11,16 +11,25 @@
     <div>
         <input id="btnPrinter" type="button" value="打印" onclick="javascript: PrintBill();" />
         <h1>
-            项目：
-            <asp:Label runat="server" ID="tbProjectName"></asp:Label></h1>
+          备用金支付确认</h1>
         <h2>
-            进展：
+          项目名称：
+            <asp:Label runat="server" ID="tbProjectName"></asp:Label>
+            <br />
+            进展阶段：
             <asp:Label runat="server" ID="taImplementationPhase"></asp:Label></h2>
         <h3>
             支用金额：<asp:Label runat="server" ID="tbAmountExpended"></asp:Label>
             <br />
-            备用金余额：
-            <asp:Label runat="server" ID="tbImprestAmount"></asp:Label>
+            <%--备用金余额：--%>
+            <asp:Label runat="server" ID="tbImprestAmount"   Visible="false"></asp:Label>
+                  <%--<br />--%>
+            申请人：
+            <asp:Label runat="server" ID="lbApplier"></asp:Label>
+                  <br />
+            操作人：
+            <asp:Label runat="server" ID="lbPaymenter">
+            </asp:Label>
         </h3>
         <h3>
             <asp:Label runat="server" ID="tbDate"></asp:Label></h3>
