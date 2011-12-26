@@ -17,25 +17,25 @@ namespace com.TZMS.Model
     /// <summary>
     /// BankLoan实体类
     /// </summary>
-	[Serializable]
+    [Serializable]
     public class BankLoanInfo : ACommonInfo
-	{	 
-		
-		#region Constructor
-		
+    {
+
+        #region Constructor
+
         /// <summary>
         /// Constructor
         /// </summary>
         public BankLoanInfo()
         {
-			//todo
+            //todo
         }
-        #endregion 
-		
-		#region Field
-		private Guid _objetctId;
-		private string _customerName = DBEmptyString;
-		private Guid _customerId;
+        #endregion
+
+        #region Field
+        private Guid _objetctId;
+        private string _customerName = DBEmptyString;
+        private Guid _customerId;
         private string _loanCompany = DBEmptyString;
         private Decimal _loanAmount = DBEmptyDecimal;
         private Decimal _loanFee = DBEmptyDecimal;
@@ -44,16 +44,16 @@ namespace com.TZMS.Model
         private Decimal _downPayment = DBEmptyDecimal;
         private string _contact = DBEmptyString;
         private string _remark = DBEmptyString;
-		private Guid _nextOperaterId;
+        private Guid _nextOperaterId;
         private string _nextOperaterAccount = DBEmptyString;
         private string _nextOperaterName = DBEmptyString;
         private DateTime _createTime = DBEmptyDate;
-		private Guid _createrId;
+        private Guid _createrId;
         private string _createrName = DBEmptyString;
         private string _createrAccount = DBEmptyString;
-		private DateTime _submitTime = DBEmptyDate;
+        private DateTime _submitTime = DBEmptyDate;
         private string _auditOpinion = DBEmptyString;
-		private  int _status =DBEmptyChar;
+        private int _status = DBEmptyChar;
         private Guid _nextBAOperaterId;
         private string _nextBAOperaterAccount = DBEmptyString;
         private string _nextBAOperaterName = DBEmptyString;
@@ -62,197 +62,198 @@ namespace com.TZMS.Model
         private string _baadulters = DBEmptyString;
         private int _bastatus = DBEmptyInt;
         private string _projectName = DBEmptyString;
-		#endregion 
+ 
+        #endregion
 
-		#region Property
-		/// <summary>
+        #region Property
+        /// <summary>
         /// ObjectID 
         /// </summary> 
-		public Guid ObjectId
-		{
-			get { return _objetctId; }
-			set { _objetctId = value; }
-		}
+        public Guid ObjectId
+        {
+            get { return _objetctId; }
+            set { _objetctId = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// CustomerName 
         /// </summary> 
-		public string CustomerName
-		{
-			get { return _customerName; }
-			set { _customerName = value; }
-		}
+        public string CustomerName
+        {
+            get { return _customerName; }
+            set { _customerName = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// CustomerID 
         /// </summary> 
-		public Guid CustomerId
-		{
-			get { return _customerId; }
-			set { _customerId = value; }
-		}
+        public Guid CustomerId
+        {
+            get { return _customerId; }
+            set { _customerId = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// LoanCompany 
         /// </summary> 
-		public string LoanCompany
-		{
-			get { return _loanCompany; }
-			set { _loanCompany = value; }
-		}
+        public string LoanCompany
+        {
+            get { return _loanCompany; }
+            set { _loanCompany = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// LoanAmount 
         /// </summary> 
-		public Decimal LoanAmount
-		{
-			get { return _loanAmount; }
-			set { _loanAmount = value; }
-		}
+        public Decimal LoanAmount
+        {
+            get { return _loanAmount; }
+            set { _loanAmount = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// LoanFee 
         /// </summary> 
-		public Decimal LoanFee
-		{
-			get { return _loanFee; }
-			set { _loanFee = value; }
-		}
+        public Decimal LoanFee
+        {
+            get { return _loanFee; }
+            set { _loanFee = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// CollateralCompany 
         /// </summary> 
-		public string CollateralCompany
-		{
-			get { return _collateralCompany; }
-			set { _collateralCompany = value; }
-		}
+        public string CollateralCompany
+        {
+            get { return _collateralCompany; }
+            set { _collateralCompany = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// SignDate 
         /// </summary> 
-		public DateTime SignDate
-		{
-			get { return _signDate; }
-			set { _signDate = value; }
-		}
+        public DateTime SignDate
+        {
+            get { return _signDate; }
+            set { _signDate = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// DownPayment 
         /// </summary> 
-		public Decimal DownPayment
-		{
-			get { return _downPayment; }
-			set { _downPayment = value; }
-		}
+        public Decimal DownPayment
+        {
+            get { return _downPayment; }
+            set { _downPayment = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// Contact 
         /// </summary> 
-		public string Contact
-		{
-			get { return _contact; }
-			set { _contact = value; }
-		}
+        public string Contact
+        {
+            get { return _contact; }
+            set { _contact = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// Remark 
         /// </summary> 
-		public string Remark
-		{
-			get { return _remark; }
-			set { _remark = value; }
-		}
+        public string Remark
+        {
+            get { return _remark; }
+            set { _remark = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// NextOperaterID 
         /// </summary> 
-		public Guid NextOperaterId
-		{
-			get { return _nextOperaterId; }
-			set { _nextOperaterId = value; }
-		}
+        public Guid NextOperaterId
+        {
+            get { return _nextOperaterId; }
+            set { _nextOperaterId = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// NextOperaterAccount 
         /// </summary> 
-		public string NextOperaterAccount
-		{
-			get { return _nextOperaterAccount; }
-			set { _nextOperaterAccount = value; }
-		}
+        public string NextOperaterAccount
+        {
+            get { return _nextOperaterAccount; }
+            set { _nextOperaterAccount = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// NextOperaterName 
         /// </summary> 
-		public string NextOperaterName
-		{
-			get { return _nextOperaterName; }
-			set { _nextOperaterName = value; }
-		}
+        public string NextOperaterName
+        {
+            get { return _nextOperaterName; }
+            set { _nextOperaterName = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// CreateTime 
         /// </summary> 
-		public DateTime CreateTime
-		{
-			get { return _createTime; }
-			set { _createTime = value; }
-		}
+        public DateTime CreateTime
+        {
+            get { return _createTime; }
+            set { _createTime = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// CreaterID 
         /// </summary> 
-		public Guid CreaterId
-		{
-			get { return _createrId; }
-			set { _createrId = value; }
-		}
+        public Guid CreaterId
+        {
+            get { return _createrId; }
+            set { _createrId = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// CreaterName 
         /// </summary> 
-		public string CreaterName
-		{
-			get { return _createrName; }
-			set { _createrName = value; }
-		}
+        public string CreaterName
+        {
+            get { return _createrName; }
+            set { _createrName = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// CreaterAccount 
         /// </summary> 
-		public string CreaterAccount
-		{
-			get { return _createrAccount; }
-			set { _createrAccount = value; }
-		}
+        public string CreaterAccount
+        {
+            get { return _createrAccount; }
+            set { _createrAccount = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// SubmitTime 
         /// </summary> 
-		public DateTime SubmitTime
-		{
-			get { return _submitTime; }
-			set { _submitTime = value; }
-		}
+        public DateTime SubmitTime
+        {
+            get { return _submitTime; }
+            set { _submitTime = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// AuditOpinion 
         /// </summary> 
-		public string AuditOpinion
-		{
-			get { return _auditOpinion; }
-			set { _auditOpinion = value; }
-		}
+        public string AuditOpinion
+        {
+            get { return _auditOpinion; }
+            set { _auditOpinion = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// Status 
         /// </summary> 
-		public  int Status
-		{
-			get { return _status; }
-			set { _status = value; }
-		}
+        public int Status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
 
         /// <summary>
         /// NextBAOperaterID 
@@ -322,8 +323,9 @@ namespace com.TZMS.Model
             get { return _projectName; }
             set { _projectName = value; }
         }
-		#endregion
-	}
+         
+        #endregion 
+    }
 }
 
 

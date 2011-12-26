@@ -60,6 +60,8 @@ namespace com.TZMS.Model
         private string _imprestRemark = DBEmptyString;
         private string _adulters = DBEmptyString;
         private bool _isPassImprest;
+        private Guid _firstOperaterID;
+        private string _firstOperaterName = DBEmptyString;
         #endregion
 
         #region Property
@@ -293,6 +295,25 @@ namespace com.TZMS.Model
             get { return _isPassImprest; }
             set { _isPassImprest = value; }
         }
+
+        /// <summary>
+        /// FirstOperaterID 
+        /// </summary> 
+        public Guid FirstOperaterID
+        {
+            get { return _firstOperaterID; }
+            set { _firstOperaterID = value; }
+        }
+
+        /// <summary>
+        /// FirstOperaterName 
+        /// </summary> 
+        public string FirstOperaterName
+        {
+            get { return _firstOperaterName; }
+            set { _firstOperaterName = value; }
+        }
+
         #endregion
     }
 }
