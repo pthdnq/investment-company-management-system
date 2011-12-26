@@ -83,6 +83,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Adulters",DbType.String),
 				new SqlParameter("@BAAdulters",DbType.String),
                 new SqlParameter("@ProjectName",DbType.String),
+          
 				};
 				
 				int i=0;
@@ -114,7 +115,8 @@ namespace com.TZMS.DataAccess
 				sqlparam[i++].Value = BankLoanInfo.SubmitBATime; 
 				sqlparam[i++].Value = BankLoanInfo.Adulters; 
 				sqlparam[i++].Value = BankLoanInfo.BAAdulters;
-                sqlparam[i++].Value = BankLoanInfo.ProjectName; 
+                sqlparam[i++].Value = BankLoanInfo.ProjectName;
+          
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -198,6 +200,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Adulters",DbType.String),
 				new SqlParameter("@BAAdulters",DbType.String),
                    new SqlParameter("@ProjectName",DbType.String),
+      
                 };
 
                 int i = 0;
@@ -229,7 +232,8 @@ namespace com.TZMS.DataAccess
 				sqlparam[i++].Value = BankLoanInfo.SubmitBATime; 
 				sqlparam[i++].Value = BankLoanInfo.Adulters; 
 				sqlparam[i++].Value = BankLoanInfo.BAAdulters;
-                sqlparam[i++].Value = BankLoanInfo.ProjectName; 
+                sqlparam[i++].Value = BankLoanInfo.ProjectName;
+           
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -430,7 +434,7 @@ namespace com.TZMS.DataAccess
             {
                 BankLoanInfoInfo.ProjectName = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "ProjectName");
             }
-
+      
             return BankLoanInfoInfo;
         }
 		#endregion

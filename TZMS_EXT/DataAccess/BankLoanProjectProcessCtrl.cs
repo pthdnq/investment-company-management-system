@@ -81,6 +81,8 @@ namespace com.TZMS.DataAccess
                  new SqlParameter("@ImprestRemark",DbType.String),
                       new SqlParameter("@Adulters",DbType.String),
                        new SqlParameter("@IsPassImprest",DbType.Boolean),
+                       	new SqlParameter("@FirstOperaterID",DbType.Guid),
+                    			new SqlParameter("@FirstOperaterName",DbType.String),
 				};
 
                 int i = 0;
@@ -111,6 +113,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.ImprestRemark;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.Adulters;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.IsPassImprest;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.FirstOperaterID;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.FirstOperaterName;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -192,6 +196,8 @@ namespace com.TZMS.DataAccess
                  new SqlParameter("@ImprestRemark",DbType.String),
                        new SqlParameter("@Adulters",DbType.String),
                                new SqlParameter("@IsPassImprest",DbType.Boolean),
+                               	new SqlParameter("@FirstOperaterID",DbType.Guid),
+                    			new SqlParameter("@FirstOperaterName",DbType.String),
                 };
 
                 int i = 0;
@@ -222,6 +228,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.ImprestRemark;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.Adulters;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.IsPassImprest;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.FirstOperaterID;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.FirstOperaterName;
+
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -413,6 +422,14 @@ namespace com.TZMS.DataAccess
             if (BankLoanProjectProcessInfoInfoDataRow["IsPassImprest"] != null)
             {
                 BankLoanProjectProcessInfoInfo.IsPassImprest = bool.Parse(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "IsPassImprest"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["FirstOperaterID"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.FirstOperaterID = new Guid(DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "FirstOperaterID"));
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["FirstOperaterName"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.FirstOperaterName = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "FirstOperaterName");
             }
             return BankLoanProjectProcessInfoInfo;
         }
