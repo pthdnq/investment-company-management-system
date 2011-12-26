@@ -179,7 +179,11 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 #endregion
 
                 #region 调用发送消息
-
+                List<Guid> receives = new List<Guid>();
+                receives.Add(_Info.CreaterId);
+                string strTitle = "投资部项目实施备用金支付提醒";
+                string strContent = string.Format("{0}-{1}备用金{2}.00元已通过领导审核确认支付，谢谢",_Info.ProjectName,_Info.ImplementationPhase,_Info.PrepaidAmount);
+                new MessageManage().SendMessage(Guid.NewGuid(), this.CurrentUser.ObjectId, receives, strTitle, strContent);
                 #endregion
 
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";

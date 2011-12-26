@@ -99,7 +99,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// </summary>
         private void BindDDL()
         {
-            this.CurrentLevel = GetCurrentLevel("rzsq");
+          //  this.CurrentLevel = GetCurrentLevel("rzsq");
             if (this.CurrentLevel.Equals(VisitLevel.View))
             {
                 this.btnNew.Hidden = true;
