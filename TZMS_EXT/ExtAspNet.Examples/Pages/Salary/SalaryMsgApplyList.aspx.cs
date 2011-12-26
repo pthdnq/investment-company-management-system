@@ -8,6 +8,8 @@ using System.Text;
 using ExtAspNet;
 using com.TZMS.Model;
 using com.TZMS.Business;
+using System.Data;
+using Aspose.Cells;
 
 namespace TZMS.Web
 {
@@ -166,6 +168,38 @@ namespace TZMS.Web
                 wndApply.IFrameUrl = "SalaryMsgApply.aspx?Type=View&ID=" + strApplyID;
                 wndApply.Hidden = false;
             }
+
+            if (e.CommandName == "Export")
+            {
+                CommSelect _commSelect = new CommSelect();
+                ComHelp _comHelp = new ComHelp();
+                _comHelp.TableName = "WorkerSalaryView";
+                _comHelp.SelectList = "*";
+                _comHelp.SearchCondition = " SalaryMsgID = '" + strApplyID + "'";
+                _comHelp.PageSize = Int32.MaxValue;
+                _comHelp.PageIndex = 0;
+                _comHelp.OrderExpression = "Dept desc";
+
+                DataTable dtbWorkerSalary = _commSelect.ComSelect(ref _comHelp);
+                WorkbookDesigner designer = new WorkbookDesigner();
+                dtbWorkerSalary.TableName = "Salary";
+                string path = System.Web.HttpContext.Current.Server.MapPath(Page.Request.ApplicationPath).TrimEnd('\\');
+                path += @"\Template\工资表.xls";
+                if (!System.IO.File.Exists(path))
+                {
+                    Alert.Show("下载失败，服务器中模板丢失!");
+                    return;
+                }
+                designer.Open(path);
+                designer.SetDataSource(dtbWorkerSalary);
+                designer.SetDataSource("Title", "吉信投资集团" + dtbWorkerSalary.Rows[0]["Year"] + "年"
+                    + dtbWorkerSalary.Rows[0]["Month"] + "月份工资表（共计：" + dtbWorkerSalary.Rows[0]["SumMoney"] + "元）");
+                designer.Process();
+                designer.Save(string.Format("test.xls"), SaveType.OpenInExcel, FileFormatType.Excel2003, Response);
+                //Response.Flush();
+                //Response.Close();
+                Response.End();
+            }
         }
 
         /// <summary>
@@ -193,6 +227,7 @@ namespace TZMS.Web
                         e.Values[4] = "未申请";
                         e.Values[5] = "";
                         e.Values[7] = "<span class=\"gray\">查看</span>";
+                        e.Values[8] = "<span class=\"gray\">导出</span>";
                         break;
                     case "0":
                         e.Values[4] = "审批中";
@@ -204,6 +239,7 @@ namespace TZMS.Web
                             }
                         }
                         e.Values[6] = "<span class=\"gray\">申请</span>";
+                        e.Values[8] = "<span class=\"gray\">导出</span>";
                         break;
                     case "2":
                         e.Values[4] = "归档";
@@ -219,6 +255,7 @@ namespace TZMS.Web
                                 e.Values[5] = _approveUser.Name;
                             }
                         }
+                        e.Values[8] = "<span class=\"gray\">导出</span>";
                         break;
                     default:
                         break;

@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" AutoSizePanelID="pelMain" HideScrollbar="true"
-        runat="server" />
+        runat="server" EnableAjax="false" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
         Layout="Anchor">
@@ -84,6 +84,7 @@
                             <ext:BoundField DataField="CurrentCheckerId" HeaderText="当前执行人" ExpandUnusedSpace="true" />
                             <ext:LinkButtonField Width="38px" Text="申请" CommandName="Apply" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
+                            <ext:LinkButtonField Width="38px" Text="导出" CommandName="Export" />
                         </Columns>
                     </ext:Grid>
                 </Items>
