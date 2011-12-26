@@ -115,7 +115,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             #region 条件
             StringBuilder strCondtion = new StringBuilder();
-            if (this.CurrentRoles.Contains(RoleType.CJGL))
+            if (this.CurrentRoles.Contains(RoleType.TZZJ))
             {
                 strCondtion.Append("   Status<>0 ");
             }

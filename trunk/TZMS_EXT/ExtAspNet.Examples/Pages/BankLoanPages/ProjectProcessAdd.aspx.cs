@@ -268,6 +268,9 @@ namespace TZMS.Web.Pages.BankLoanPages
                 _Info.CreaterAccount = this.CurrentUser.AccountNo;
                 _Info.CreaterId = this.CurrentUser.ObjectId;
                 _Info.CreaterName = this.CurrentUser.Name;
+                //保存第一个审批人
+                _Info.FirstOperaterID = new Guid(this.ddlstApproveUser.SelectedValue);
+                _Info.FirstOperaterName = this.ddlstApproveUser.SelectedText;
             }
 
             _Info.ImplementationPhase = this.taImplementationPhase.Text.Trim();

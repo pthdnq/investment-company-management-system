@@ -99,6 +99,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// </summary>
         private void BindDDL()
         {
+            this.CurrentLevel = GetCurrentLevel("rzsq");
+            if (this.CurrentLevel.Equals(VisitLevel.View))
+            {
+                this.btnNew.Hidden = true;
+            }
+
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
             ViewStateState = ddlstState.SelectedValue;

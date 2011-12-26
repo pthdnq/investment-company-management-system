@@ -139,10 +139,11 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             _Info.IsPassImprest = true;
             //下一步审核人
-            //_Info.NextOperaterId = Guid.Empty;
-            //_Info.NextOperaterName = "";
-            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            //_Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            //_Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            _Info.NextOperaterName = _Info.FirstOperaterName;
+            _Info.NextOperaterId = _Info.FirstOperaterID;
+
             _Info.SubmitTime = DateTime.Now;
 
             //审批人
@@ -175,6 +176,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     Alert.Show("操作失败!");
                     return;
                 }
+                #endregion
+
+                #region 调用发送消息
+
                 #endregion
 
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";

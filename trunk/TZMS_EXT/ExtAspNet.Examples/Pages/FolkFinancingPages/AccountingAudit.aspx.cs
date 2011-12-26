@@ -36,9 +36,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
-        {
-        
-
+        { 
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
@@ -183,7 +181,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 }
                 #endregion
 
-                string statusName = (status == 2) ? "不同意" : (status == 3) ? "出纳会计确认同意" : "同意，待领导审批";
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "出纳确认收款，待领导审批" : "同意，待领导审批";
                 manage.AddHistory(_Info.ObjectId, "会计审核", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("操作成功!");
@@ -204,7 +202,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+             //   ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

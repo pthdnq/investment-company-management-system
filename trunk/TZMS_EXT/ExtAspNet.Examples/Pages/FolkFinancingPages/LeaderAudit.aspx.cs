@@ -83,7 +83,10 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 else if (CurrentRoles.Contains(RoleType.ZJL))
                 {      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
                     if (_Info.LoanAmount >= 300000)
-                    { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
+                    {
+                        BindNext(false);
+                        HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。";
+                    }
                     else
                     { BindNext(true); }
                 }
