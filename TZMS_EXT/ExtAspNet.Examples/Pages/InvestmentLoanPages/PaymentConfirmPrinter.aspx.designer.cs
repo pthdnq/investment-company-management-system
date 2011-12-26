@@ -67,6 +67,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::System.Web.UI.WebControls.Label lbLoanType;
         
         /// <summary>
+        /// lbPaymenter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbPaymenter;
+        
+        /// <summary>
         /// tbDate control.
         /// </summary>
         /// <remarks>

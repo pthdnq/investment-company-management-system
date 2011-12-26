@@ -50,10 +50,10 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox ID="tbPaymentAccount" Label="付款帐号" ShowRedStar="true" Required="true"
-                                                runat="server" MaxLength="100" MaxLengthMessage="最多只能输入100个字符！">
+                                                EmptyText="开户行、帐号、开户姓名" runat="server" MaxLength="100" MaxLengthMessage="最多只能输入100个字符！">
                                             </ext:TextBox>
                                             <ext:TextBox ID="tbReceivablesAccount" Label="收款帐号" ShowRedStar="true" Required="true"
-                                                runat="server" MaxLength="100" MaxLengthMessage="最多只能输入100个字符！">
+                                                EmptyText="开户行、帐号、开户姓名" runat="server" MaxLength="100" MaxLengthMessage="最多只能输入100个字符！">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>

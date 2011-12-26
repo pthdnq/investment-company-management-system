@@ -68,6 +68,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 this.lbLoanAmount.Text = _info.AmountExpended.ToString();
                 this.lbLoanDate.Text = _info.ExpendedTime.ToString();
 
+                lbApplier.Text = _info.CreaterName;
+                lbPaymenter.Text = _info.NextOperaterName;
                 //     this.taRemark.Text = _info.Remark;
                 //     this.taAuditOpinion.Text = _info.AuditOpinion;
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)

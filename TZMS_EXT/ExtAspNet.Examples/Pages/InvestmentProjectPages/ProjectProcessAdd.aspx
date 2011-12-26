@@ -101,7 +101,7 @@
                                             </ext:FormRow>
                                             <ext:FormRow>
                                                 <Items>
-                                                    <ext:TextArea Hidden="true" ID="tbImprestRemark" Label="备注" ShowRedStar="true" Required="true"
+                                                    <ext:TextArea Hidden="true" ID="tbImprestRemark" Label="备注"  
                                                         runat="server" Height="50px" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
                                                     </ext:TextArea>
                                                 </Items>

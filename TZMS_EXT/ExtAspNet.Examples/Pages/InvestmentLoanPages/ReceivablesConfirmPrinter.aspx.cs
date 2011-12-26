@@ -68,7 +68,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
                 this.lbLoanAmount.Text = _info.AmountofpaidUp.ToString();
                 this.lbLoanDate.Text = _info.DateForReceivables.ToShortDateString();
- 
+                lbPaymenter.Text = _info.AccountingName;
                 //     this.taRemark.Text = _info.Remark;
                 //     this.taAuditOpinion.Text = _info.AuditOpinion;
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)

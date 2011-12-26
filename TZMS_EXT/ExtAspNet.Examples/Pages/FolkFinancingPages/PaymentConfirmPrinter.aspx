@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PaymentConfirmPrinter.aspx.cs" Inherits="TZMS.Web.Pages.FolkFinancingPages.PaymentConfirmPrinter" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PaymentConfirmPrinter.aspx.cs"
+    Inherits="TZMS.Web.Pages.FolkFinancingPages.PaymentConfirmPrinter" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -11,7 +11,6 @@
     <div>
         <input id="btnPrinter" type="button" value="打印" onclick="javascript: PrintBill();" />
         <h1>
-            
             <asp:Label runat="server" ID="tbProjectName"></asp:Label></h1>
         <h2>
             付款帐号：<asp:Label runat="server" ID="lbLenders"></asp:Label>
@@ -23,6 +22,12 @@
             <br />
             实付账款日：
             <asp:Label runat="server" ID="lbLoanDate"></asp:Label>
+            <br />
+            申请人：
+            <asp:Label runat="server" ID="lbApplier"></asp:Label>
+            <br />
+            操作人：
+            <asp:Label runat="server" ID="lbPaymenter"></asp:Label>
         </h3>
         <h4>
             <asp:Label runat="server" ID="tbDate"></asp:Label></h4>

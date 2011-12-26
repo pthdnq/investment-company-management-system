@@ -66,7 +66,7 @@
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
                             <ext:TextBox ID="tbReceivablesAccount" Label="收款帐号或现金" runat="server" MaxLength="100"
-                                MaxLengthMessage="最多只能输入100个字符！">
+                            EmptyText="开户行、帐号、开户名称"     MaxLengthMessage="最多只能输入100个字符！">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>

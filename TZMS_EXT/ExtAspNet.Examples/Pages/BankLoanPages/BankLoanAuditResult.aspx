@@ -65,7 +65,7 @@
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:WindowField ExpandUnusedSpace="true" DataTextField="ProjectName" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}" DataWindowTitleField="ProjectName"
-                                DataWindowTitleFormatString="{0}-查看" WindowID="wndNew" />
+                                DataWindowTitleFormatString="{0}-查看" WindowID="wndNew" HeaderText="项目名称" />
                             <ext:TemplateField Width="66px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
