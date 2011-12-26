@@ -117,5 +117,69 @@ namespace com.TZMS.Business
             SentMessageCtrl _ctrl = new SentMessageCtrl();
             return _ctrl.SelectAsList(boName, condition);
         }
+
+        /// <summary>
+        /// 发送消息
+        /// </summary>
+        /// <param name="messageID">消息ID,附件的RecordID与消息ID一致</param>
+        /// <param name="sender">发信人ID</param>
+        /// <param name="lstRecevicers">收信人</param>
+        /// <param name="strTitle">标题</param>
+        /// <param name="strContent">内容</param>
+        /// <returns>返回值</returns>
+        public int SendMessage(Guid messageID, Guid sender, List<Guid> lstRecevicers, string strTitle, string strContent)
+        {
+            int result = 3;
+            UserManage _userManage = new UserManage();
+            MessageManage _manage = new MessageManage();
+            SentMessageInfo _sentInfo = new SentMessageInfo();
+
+            UserInfo _sender = _userManage.GetUserByObjectID(sender.ToString());
+            if (_sender != null)
+            {
+                _sentInfo.ObjectId = messageID;
+                _sentInfo.SenderId = _sender.ObjectId;
+                _sentInfo.SenderName = _sender.Name;
+                _sentInfo.DeptName = _sender.Dept;
+                _sentInfo.Tile = strTitle;
+                _sentInfo.Context = strContent;
+                _sentInfo.SendDate = DateTime.Now;
+                _sentInfo.IsDelete = false;
+
+                UserInfo _recevicer = null;
+                MessageInfo _info = null;
+                foreach (Guid recevicer in lstRecevicers)
+                {
+                    _recevicer = _userManage.GetUserByObjectID(recevicer.ToString());
+                    if (_recevicer != null)
+                    {
+                        _sentInfo.Recevicer += ((string.IsNullOrEmpty(_sentInfo.Recevicer) ? string.Empty : "|") + _recevicer.ObjectId + "," + _recevicer.Name);
+                        _info = new MessageInfo();
+                        _info.ObjectId = Guid.NewGuid();
+                        _info.SenderId = _sentInfo.ObjectId;
+                        _info.SenderName = _sentInfo.SenderName;
+                        _info.DeptName = _sentInfo.DeptName;
+                        _info.Tile = _sentInfo.Tile;
+                        _info.Context = _sentInfo.Context;
+                        _info.ReceviceId = _recevicer.ObjectId;
+                        _info.Recevicer = _recevicer.Name;
+                        _info.SendDate = _sentInfo.SendDate;
+                        _info.ViewDate = ACommonInfo.DBEmptyDate;
+                        _info.IsView = false;
+                        _info.IsDelete = false;
+                        _info.SentMessageId = _sentInfo.ObjectId;
+
+                        _manage.AddNewMessage(_info);
+                    }
+
+                    _recevicer = null;
+                    _info = null;
+                }
+
+                result = _manage.AddNewSentMessage(_sentInfo);
+            }
+
+            return result;
+        }
     }
 }
