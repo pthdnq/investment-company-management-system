@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BankLoanBAList.aspx.cs" Inherits="TZMS.Web.Pages.CashFlow.BankLoanBAList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BankLoanBAList.aspx.cs"
+    Inherits="TZMS.Web.Pages.CashFlow.BankLoanBAList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>BankLoanBAList</title>
@@ -63,31 +63,32 @@
                         OnPageIndexChange="gridData_PageIndexChange" OnRowCommand="gridData_RowCommand"
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
-                          <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="100px" DataField="CustomerName" HeaderText="客户名称" />
-                            <ext:BoundField Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
-                            <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="贷款金额" />
-                            <ext:BoundField Width="105px" DataField="LoanFee" HeaderText="贷款手续费" />
-                            <ext:BoundField Width="105px" DataField="CollateralCompany"  HeaderText="抵押物公司" />
-                            <ext:BoundField Width="100px" DataField="SignDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="签订日期" />
-                            <ext:BoundField Width="110px" DataField="DownPayment" HeaderText="预付订金" />
-                            <ext:BoundField  ExpandUnusedSpace="true" DataField="Contact" HeaderText="联系方式" />
-                               <ext:BoundField DataField="NextBAOperaterName" Width="75px" HeaderText="当前执行人" />
-                        <ext:TemplateField Width="76px" HeaderText="状态">
+                            <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
+                            <ext:BoundField Hidden="true" Width="150px" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Hidden="true" Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
+                            <ext:BoundField Hidden="true" Width="80px" DataField="LoanAmount" HeaderText="贷款金额" />
+                            <ext:BoundField Hidden="true" Width="105px" DataField="LoanFee" HeaderText="贷款手续费" />
+                            <ext:BoundField Hidden="true" Width="105px" DataField="CollateralCompany" HeaderText="抵押物公司" />
+                            <ext:BoundField Hidden="true" Width="100px" DataField="SignDate" DataFormatString="{0:yyyy/MM/dd}"
+                                HeaderText="签订日期" />
+                            <ext:BoundField Hidden="true" Width="110px" DataField="DownPayment" HeaderText="预付订金" />
+                            <ext:BoundField Hidden="true" ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
+                            <ext:BoundField DataField="NextBAOperaterName" Width="75px" HeaderText="当前执行人" />
+                            <ext:TemplateField Width="76px" HeaderText="状态">
                                 <ItemTemplate>
-                                         <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanBA.aspx?ID={0}"
                                 Title="会计核算" WindowID="wndNew" />
-                            <ext:LinkButtonField Width="38px" Hidden="true" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
+                            <ext:LinkButtonField Width="38px" Hidden="true" Text="删除" ConfirmText="确定删除该员工?"
+                                CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-    
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="475px" Width="586px" OnClose="wndNew_Close">
     </ext:Window>
