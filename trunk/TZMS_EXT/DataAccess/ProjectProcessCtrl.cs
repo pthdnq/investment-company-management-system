@@ -79,6 +79,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@AccountingRemark",DbType.String),
                 			new SqlParameter("@Adulters",DbType.String),
                             	new SqlParameter("@IsPassImprest",DbType.Boolean),
+                                	new SqlParameter("@FirstOperaterID",DbType.Guid),
+                    			new SqlParameter("@FirstOperaterName",DbType.String),
 				};
 
                 int i = 0;
@@ -107,6 +109,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProjectProcessInfo.AccountingRemark;
                 sqlparam[i++].Value = ProjectProcessInfo.Adulters;
                 sqlparam[i++].Value = ProjectProcessInfo.IsPassImprest;
+                sqlparam[i++].Value = ProjectProcessInfo.FirstOperaterID;
+                sqlparam[i++].Value = ProjectProcessInfo.FirstOperaterName;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -186,6 +190,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@AccountingRemark",DbType.String),
                 new SqlParameter("@Adulters",DbType.String),
                      	new SqlParameter("@IsPassImprest",DbType.Boolean),
+                        	new SqlParameter("@FirstOperaterID",DbType.Guid),
+                    			new SqlParameter("@FirstOperaterName",DbType.String),
                 };
 
                 int i = 0;
@@ -214,6 +220,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProjectProcessInfo.AccountingRemark;
                 sqlparam[i++].Value = ProjectProcessInfo.Adulters;
                 sqlparam[i++].Value = ProjectProcessInfo.IsPassImprest;
+                sqlparam[i++].Value = ProjectProcessInfo.FirstOperaterID;
+                sqlparam[i++].Value = ProjectProcessInfo.FirstOperaterName;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -397,6 +405,14 @@ namespace com.TZMS.DataAccess
             if (ProjectProcessInfoInfoDataRow["IsPassImprest"] != null)
             {
                 ProjectProcessInfoInfo.IsPassImprest = bool.Parse(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "IsPassImprest"));
+            }
+            if (ProjectProcessInfoInfoDataRow["FirstOperaterID"] != null)
+            {
+                ProjectProcessInfoInfo.FirstOperaterID = new Guid(DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "FirstOperaterID"));
+            }
+            if (ProjectProcessInfoInfoDataRow["FirstOperaterName"] != null)
+            {
+                ProjectProcessInfoInfo.FirstOperaterName = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "FirstOperaterName");
             }
             return ProjectProcessInfoInfo;
         }
