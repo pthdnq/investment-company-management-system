@@ -90,6 +90,11 @@ namespace TZMS
             /// </summary>
             public static string FolkFinancing = "民间融资";
 
+            /// <summary>
+            /// 工资发放
+            /// </summary>
+            public static string SalaryPayroll = "工资发放";
+
         }
 
         #region 附件
