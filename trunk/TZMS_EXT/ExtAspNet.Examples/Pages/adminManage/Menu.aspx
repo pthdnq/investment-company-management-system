@@ -9,11 +9,13 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" AutoSizePanelID="RegionPanel1" HideScrollbar="false"
         runat="server"></ext:PageManager>
-    <ext:RegionPanel ID="RegionPanel1" AutoScroll="true" Height="520px" ShowBorder="false" runat="server">
+    <ext:RegionPanel ID="RegionPanel1" AutoScroll="true" Height="520px" ShowBorder="false"
+        runat="server">
         <Regions>
-            <ext:Region ID="Region2" ShowHeader="false"    Layout="Fit" Margins="0 0 0 0" runat="server">
+            <ext:Region ID="Region2" ShowHeader="false" Layout="Fit" Margins="0 0 0 0" runat="server">
                 <Items>
-                    <ext:Tree ID="rootNode" Title="菜单" Width="200px"  AutoScroll="true" Height="520px" EnableBackgroundColor="true" OnNodeCheck="Menu_NodeCheck" runat="server" ShowHeader="false">
+                    <ext:Tree ID="rootNode" Title="菜单" Width="200px" AutoScroll="true" Height="520px"
+                        EnableBackgroundColor="true" OnNodeCheck="Menu_NodeCheck" runat="server" ShowHeader="false">
                         <Toolbars>
                             <ext:Toolbar runat="server">
                                 <Items>
@@ -27,8 +29,7 @@
                         <Nodes>
                             <ext:TreeNode EnableCheckBox="true" Text="消息管理" NodeID="xxgl">
                                 <Nodes>
-                                    <ext:TreeNode EnableCheckBox="true" NodeID="wdxx" OnClientClick="return false;"
-                                        Text="我的消息">
+                                    <ext:TreeNode EnableCheckBox="true" NodeID="wdxx" OnClientClick="return false;" Text="我的消息">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -38,8 +39,7 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode EnableCheckBox="true" NodeID="yfxx" OnClientClick="return false;"
-                                        Text="已发消息">
+                                    <ext:TreeNode EnableCheckBox="true" NodeID="yfxx" OnClientClick="return false;" Text="已发消息">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -49,8 +49,7 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode EnableCheckBox="true" NodeID="fsxx" OnClientClick="return false;"
-                                        Text="发送消息">
+                                    <ext:TreeNode EnableCheckBox="true" NodeID="fsxx" OnClientClick="return false;" Text="发送消息">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -349,6 +348,17 @@
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzsp" OnClientClick="return false;"
                                         Text="薪资信息审批">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzff" OnClientClick="return false;"
+                                        Text="工资发放">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -677,7 +687,8 @@
                                     </ext:TreeNode>
                                 </Nodes>
                             </ext:TreeNode>
-                            <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="InvestmentLoan" Text="投资部借款">
+                            <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="InvestmentLoan"
+                                Text="投资部借款">
                                 <Nodes>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="fksq" OnClientClick="return false;"
                                         Text="借款申请列表">
@@ -1183,14 +1194,14 @@
         function onReady() {
             var tree = Ext.getCmp('<%= rootNode.ClientID %>');
             tree.on('checkchange', function (node, checked) {
-//                node.expand();
+                //                node.expand();
                 node.attributes.checked = checked;
                 node.eachChild(function (child) {
                     child.ui.toggleCheck(checked);
                     child.attributes.checked = checked;
                     child.fireEvent('checkchange', child, checked);
                 });
-            }, tree); 
+            }, tree);
 
         }
 

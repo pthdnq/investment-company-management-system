@@ -742,6 +742,8 @@
     <Content Include="Pages\Salary\SalaryMsgApprove.aspx" />
     <Content Include="Pages\Salary\SalaryMsgApproveList.aspx" />
     <Content Include="Pages\Salary\SalaryMsgManage.aspx" />
+    <Content Include="Pages\Salary\SalaryPayroll.aspx" />
+    <Content Include="Pages\Salary\SalaryPayrollConfirm.aspx" />
     <Content Include="Pages\Salary\SelectWorker.aspx" />
     <Content Include="Pages\system\ChangePsw.aspx" />
     <Content Include="Pages\system\MyMessage.aspx" />
@@ -2218,6 +2220,20 @@
     </Compile>
     <Compile Include="Pages\Salary\SalaryMsgManage.aspx.designer.cs">
       <DependentUpon>SalaryMsgManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salary\SalaryPayroll.aspx.cs">
+      <DependentUpon>SalaryPayroll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salary\SalaryPayroll.aspx.designer.cs">
+      <DependentUpon>SalaryPayroll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salary\SalaryPayrollConfirm.aspx.cs">
+      <DependentUpon>SalaryPayrollConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salary\SalaryPayrollConfirm.aspx.designer.cs">
+      <DependentUpon>SalaryPayrollConfirm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Salary\SelectWorker.aspx.cs">
       <DependentUpon>SelectWorker.aspx</DependentUpon>

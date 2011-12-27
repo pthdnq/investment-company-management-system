@@ -84,7 +84,7 @@
                             <ext:BoundField DataField="CurrentCheckerId" HeaderText="当前执行人" ExpandUnusedSpace="true" />
                             <ext:LinkButtonField Width="38px" Text="申请" CommandName="Apply" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
-                            <ext:LinkButtonField Width="38px" Text="导出" CommandName="Export" />
+                            <ext:LinkButtonField Width="38px" Text="导出" CommandName="Export" Hidden="true" />
                         </Columns>
                     </ext:Grid>
                 </Items>
