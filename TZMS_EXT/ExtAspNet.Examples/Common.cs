@@ -49,6 +49,49 @@ namespace TZMS
 
         }
 
+        /// <summary>
+        /// 资金流方向
+        /// </summary>
+        public static class FlowDirection
+        {
+            /// <summary>
+            /// 支出 
+            /// </summary>
+            static public string Payment = "Payment";
+
+            /// <summary>
+            /// 收入
+            /// </summary>
+            static public string Receive = "Receive";
+        }
+
+        /// <summary>
+        /// 业务类型
+        /// </summary>
+        public static class Biz
+        {
+            /// <summary>
+            /// 投资部借款 
+            /// </summary>
+            public static string InvestmentLoan = "投资部借款";
+
+            /// <summary>
+            /// 项目实施 
+            /// </summary>
+            public static string InvestmentProject = "项目实施";
+
+            /// <summary>
+            /// 银行贷款 
+            /// </summary>
+            public static string BankLoan = "银行贷款";
+
+            /// <summary>
+            /// 民间融资 
+            /// </summary>
+            public static string FolkFinancing = "民间融资";
+
+        }
+
         #region 附件
         /// <summary>
         /// 保存附件
