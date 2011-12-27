@@ -227,7 +227,7 @@ namespace TZMS.Web
                         e.Values[4] = "未申请";
                         e.Values[5] = "";
                         e.Values[7] = "<span class=\"gray\">查看</span>";
-                        e.Values[8] = "<span class=\"gray\">导出</span>";
+                        //e.Values[8] = "<span class=\"gray\">导出</span>";
                         break;
                     case "0":
                         e.Values[4] = "审批中";
@@ -239,7 +239,7 @@ namespace TZMS.Web
                             }
                         }
                         e.Values[6] = "<span class=\"gray\">申请</span>";
-                        e.Values[8] = "<span class=\"gray\">导出</span>";
+                        //e.Values[8] = "<span class=\"gray\">导出</span>";
                         break;
                     case "2":
                         e.Values[4] = "归档";
@@ -255,7 +255,7 @@ namespace TZMS.Web
                                 e.Values[5] = _approveUser.Name;
                             }
                         }
-                        e.Values[8] = "<span class=\"gray\">导出</span>";
+                        //e.Values[8] = "<span class=\"gray\">导出</span>";
                         break;
                     default:
                         break;

@@ -269,7 +269,8 @@ namespace com.TZMS.DataAccess
 
             if (SalaryMsgInfoInfoDataRow["SumMoney"] != null)
             {
-                SalaryMsgInfoInfo.SumMoney = Convert.ToDecimal(DataUtil.GetStringValueOfRow(SalaryMsgInfoInfoDataRow, "SumMoney"));
+                if (!string.IsNullOrEmpty(DataUtil.GetStringValueOfRow(SalaryMsgInfoInfoDataRow, "SumMoney")))
+                    SalaryMsgInfoInfo.SumMoney = Convert.ToDecimal(DataUtil.GetStringValueOfRow(SalaryMsgInfoInfoDataRow, "SumMoney"));
             }
 
             return SalaryMsgInfoInfo;
