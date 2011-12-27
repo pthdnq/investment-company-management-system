@@ -22,6 +22,34 @@ namespace com.TZMS.Business
         #endregion
 
         #region 基本操作
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="amount">金额</param>
+        /// <param name="dateFor">日期</param>
+        /// <param name="flowDirection">Payment出款；Receive收款</param>
+        /// <param name="biz">业务</param>
+        /// <param name="projectName">项目</param> 
+        ///  <param name="remark">备注</param> 
+        /// <returns>int</returns>
+        public int Add(decimal amount, DateTime dateFor, string flowDirection, string biz, string projectName, string remark)
+        {
+            CashFlowStatementInfo vsfi = new CashFlowStatementInfo()
+                       {
+                           ObjectId = Guid.NewGuid(),
+                           Amount = amount,
+                           DateFor = dateFor,
+                           FlowDirection = flowDirection,
+                           FlowType = "",
+                           Biz = biz,
+                           ProjectName = projectName,
+                           IsAccountingAudit = 1,
+                           Remark = remark
+                       };
+            return Add(vsfi);
+        }
+
         /// <summary>
         ///  添加到数据库
         /// </summary>
@@ -71,7 +99,7 @@ namespace com.TZMS.Business
             return users[0];
         }
 
-         
+
         /// <summary>
         /// 获得所有 
         /// </summary>
@@ -103,7 +131,7 @@ namespace com.TZMS.Business
         //    return AddHistory(false, forID, operationType, operationDesc, operationerAccount, operationerName, operationTime, remark);
         //}
 
-        public int AddHistory(Guid forID, string operationType, string operationDesc, string operationerAccount, string operationerName, DateTime operationTime, string remark,string bizType)
+        public int AddHistory(Guid forID, string operationType, string operationDesc, string operationerAccount, string operationerName, DateTime operationTime, string remark, string bizType)
         {
             AccountantAuditHistoryInfo info = new AccountantAuditHistoryInfo()
             {
