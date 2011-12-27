@@ -163,9 +163,9 @@ namespace TZMS.Web.Pages.BankLoanPages
                     ObjectId = Guid.NewGuid(),
                     Amount = _Info.AmountExpended,
                     DateFor = DateTime.Now,
-                    FlowDirection = "Payment",
+                    FlowDirection = Common.FlowDirection.Payment,
                     FlowType = "",
-                    Biz = "BankLoan",
+                    Biz = Common.Biz.BankLoan,
                     ProjectName = _Info.ProjectName,
                     IsAccountingAudit = 1
                 });

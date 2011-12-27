@@ -67,23 +67,21 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox Enabled="false" ID="tbCustomerName" Label="客户名称" ShowRedStar="true"
-                                                Required="true" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                                                Hidden="true" Required="true" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextArea Enabled="false" ID="tbProjectOverview" runat="server" Label="项目概述"
-                                                MaxLength="200" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                                RegexMessage="不能输入特殊字符!">
+                                                Hidden="true" MaxLength="200" MaxLengthMessage="最多只能输入20个字符！">
                                             </ext:TextArea>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:DatePicker Enabled="false" ID="dpSignDate" Label="签订日期" ShowRedStar="true" Required="true"
-                                                runat="server">
+                                            <ext:DatePicker Enabled="false" Hidden="true" ID="dpSignDate" Label="签订日期" ShowRedStar="true"
+                                                Required="true" runat="server">
                                             </ext:DatePicker>
                                             <ext:Label runat="server" ID="lblsmp">
                                             </ext:Label>
@@ -94,11 +92,11 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox Enabled="false" ID="tbContact" Label="联系人" runat="server" MaxLength="50"
-                                                MaxLengthMessage="最多只能输入50个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!"
-                                                ShowRedStar="true" Required="true">
+                                                Hidden="true" MaxLengthMessage="最多只能输入50个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                                RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                             <ext:TextBox Enabled="false" ID="tbContactPhone" Label="联系电话" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个字符！" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
+                                                Hidden="true" MaxLengthMessage="最多只能输入20个字符！" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
                                                 RegexMessage="电话号码格式不正确!">
                                             </ext:TextBox>
                                         </Items>
@@ -106,12 +104,10 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox Enabled="false" ID="tbContractAmount" Label="合同金额" runat="server" MaxLength="8"
-                                                MaxLengthMessage="最多只能输入8位数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!" ShowRedStar="true"
-                                                Required="true">
+                                                Hidden="true" MaxLengthMessage="最多只能输入8位数字！">
                                             </ext:TextBox>
                                             <ext:TextBox Enabled="false" ID="tbDownPayment" Label="预付订金" runat="server" MaxLength="8"
-                                                MaxLengthMessage="最多只能输入8位数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!" ShowRedStar="true"
-                                                Required="true">
+                                                Hidden="true" MaxLengthMessage="最多只能输入8位数字！">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
@@ -133,10 +129,10 @@
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                                    <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />
+<%--                                    <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
-                                    <ext:BoundField Width="50px" DataField="OperationType" HeaderText="操作类型" />
+                                    <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />
                                     <ext:BoundField Width="100px" DataField="OperationDesc" DataTooltipField="OperationDesc"
                                         HeaderText="操作描述" />
                                     <ext:BoundField DataField="Remark" HeaderText="操作人意见" DataTooltipField="Remark" ExpandUnusedSpace="true" />

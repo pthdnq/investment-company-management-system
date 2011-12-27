@@ -166,9 +166,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                     ObjectId = Guid.NewGuid(),
                     Amount = _Info.LoanAmount,
                     DateFor = DateTime.Now,
-                    FlowDirection = "Receive",
+                    FlowDirection = Common.FlowDirection.Receive,
                     FlowType = "",
-                    Biz = "FolkFinancing",
+                    Biz = Common.Biz.FolkFinancing,
                     ProjectName =  _Info.Lenders+"出借"+_Info.BorrowerNameA,
                     IsAccountingAudit = 1
                 });
