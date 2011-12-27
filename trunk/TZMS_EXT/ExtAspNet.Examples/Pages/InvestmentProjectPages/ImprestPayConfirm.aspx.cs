@@ -165,7 +165,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     DateFor = DateTime.Now,
                     FlowDirection = Common.FlowDirection.Payment,
                     FlowType = "",
-                    Biz =Common.Biz.InvestmentProject,
+                    Biz = Common.Biz.InvestmentProject,
                     ProjectName = _Info.ProjectName,
                     IsAccountingAudit = 1
                 });
@@ -182,7 +182,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 List<Guid> receives = new List<Guid>();
                 receives.Add(_Info.CreaterId);
                 string strTitle = "投资部项目实施备用金支付提醒";
-                string strContent = string.Format("{0}-{1}备用金{2}.00元已通过领导审核确认支付，谢谢",_Info.ProjectName,_Info.ImplementationPhase,_Info.PrepaidAmount);
+                string strContent = string.Format("{0}-{1}备用金{2}.00元已通过领导审核确认支付，谢谢", _Info.ProjectName, _Info.ImplementationPhase, _Info.PrepaidAmount);
                 new MessageManage().SendMessage(Guid.NewGuid(), this.CurrentUser.ObjectId, receives, strTitle, strContent);
                 #endregion
 
