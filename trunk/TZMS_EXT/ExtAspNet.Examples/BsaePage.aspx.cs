@@ -500,6 +500,9 @@ namespace TZMS.Web
             return false;
         }
 
+      
+
+
         #region 自定义状态方法
 
         /// <summary>
@@ -547,7 +550,7 @@ namespace TZMS.Web
         protected VisitLevel GetCurrentLevel(string nodeID)
         {
             //超级管理员
-            if (CurrentUser.State==3)
+            if (CurrentUser.State == 3)
             {
                 return VisitLevel.Both;
             }
