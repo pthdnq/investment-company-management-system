@@ -84,7 +84,7 @@ namespace TZMS.Web.Pages.CashFlow
             {
                 BindNext(false);
             }
-
+            tbProjectName.Text = _Info.ProjectName;
             this.tbCollateralCompany.Text = _Info.CollateralCompany;
             this.tbCustomerName.Text = _Info.CustomerName;
             this.tbDownPayment.Text = _Info.DownPayment.ToString();

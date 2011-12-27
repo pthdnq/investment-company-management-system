@@ -163,9 +163,9 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     ObjectId = Guid.NewGuid(),
                     Amount = _Info.AmountExpended,
                     DateFor = DateTime.Now,
-                    FlowDirection = "Payment",
+                    FlowDirection = Common.FlowDirection.Payment,
                     FlowType = "",
-                    Biz = "InvestmentProject",
+                    Biz =Common.Biz.InvestmentProject,
                     ProjectName = _Info.ProjectName,
                     IsAccountingAudit = 1
                 });

@@ -190,9 +190,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                     ObjectId = Guid.NewGuid(),
                     Amount = _Info.AmountOfPayment,
                     DateFor = DateTime.Now,
-                    FlowDirection = "Payment",
+                    FlowDirection = Common.FlowDirection.Payment,
                     FlowType = "",
-                    Biz = "FolkFinancing",
+                    Biz = Common.Biz.FolkFinancing,
                     ProjectName = _Info.ReceivablesAccount,
                     IsAccountingAudit = 1
                 });

@@ -170,9 +170,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     ObjectId = Guid.NewGuid(),
                     Amount = _Info.AmountofpaidUp,
                     DateFor = DateTime.Now,
-                    FlowDirection = "Receive",
+                    FlowDirection =Common.FlowDirection.Receive,
                     FlowType = "",
-                    Biz = "InvestmentLoan",
+                    Biz =Common.Biz.InvestmentLoan,
                     ProjectName = _Info.ProjectName,
                     IsAccountingAudit = 1,
                     Status = 1

@@ -37,7 +37,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
         {
-      
+
 
             if (!IsPostBack)
             {
@@ -49,16 +49,16 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 BindHistory();
 
                 // 绑定审批人.
-              //  ApproveUser();
+                //  ApproveUser();
             }
-      InitControl();
+            InitControl();
 
         }
 
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
-            hlPrinter.NavigateUrl = "PaymentConfirmPrinter.aspx?ID=" + ObjectID ;
+            hlPrinter.NavigateUrl = "PaymentConfirmPrinter.aspx?ID=" + ObjectID;
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 return;
             }
             InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
-            
+
             //if (_Info.LoanAmount >= 300000 && !CurrentRoles.Contains(RoleType.DSZ))
             //{
             //    //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
@@ -161,13 +161,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         private void saveInfo(int status)
         {
             InvestmentLoanManage manage = new InvestmentLoanManage();
-           InvestmentLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
+            InvestmentLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
 
             _Info.Status = status;
             _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
 
             //下一步操作
-             _Info.NextOperaterName = "";
+            _Info.NextOperaterName = "";
             _Info.NextOperaterId = Guid.Empty;
             _Info.SubmitTime = DateTime.Now;
 
@@ -187,9 +187,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     ObjectId = Guid.NewGuid(),
                     Amount = _Info.LoanAmount,
                     DateFor = DateTime.Now,
-                    FlowDirection = "Payment",
+                    FlowDirection = Common.FlowDirection.Payment,
                     FlowType = "",
-                    Biz = "InvestmentLoan",
+                    Biz = Common.Biz.InvestmentLoan,
                     ProjectName = _Info.ProjectName,
                     IsAccountingAudit = 1
                 });

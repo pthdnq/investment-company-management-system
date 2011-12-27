@@ -113,8 +113,8 @@ namespace TZMS.Web.Pages.CashFlow
             #region 条件
             StringBuilder strCondtion = new StringBuilder();
             //需要增加下一步审批人
-           // strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "'  ");
-                 strCondtion.Append("   Status <> 9 ");
+            // strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "'  ");
+            strCondtion.Append("   Status <> 9 ");
 
             if (!string.IsNullOrEmpty(searchText))
             {
@@ -165,7 +165,7 @@ namespace TZMS.Web.Pages.CashFlow
             strCondtion.Append(" AND DateFor BETWEEN '" + startTime.ToString("yyyy-MM-dd 00:00") + "' AND '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
             strCondtion.Append(" ORDER BY DateFor DESC");
             #endregion
- 
+
             List<com.TZMS.Model.CashFlowStatementInfo> lstInfo = new CashFlowManage().GetUsersByCondtion(strCondtion.ToString());
             this.gridData.RecordCount = lstInfo.Count;
             this.gridData.PageSize = PageCounts;
@@ -253,27 +253,28 @@ namespace TZMS.Web.Pages.CashFlow
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
             CashFlowStatementInfo _Info = (CashFlowStatementInfo)e.DataItem;
-          
-            if (_Info.FlowDirection.Equals("Payment"))
+
+            if (_Info.FlowDirection.Equals(Common.FlowDirection.Payment))
             {
-              //  e.Values[3] =string.Format( "<span class=\"gray\">{0}</span>",_Info.Amount);
+                //  e.Values[3] =string.Format( "<span class=\"gray\">{0}</span>",_Info.Amount);
                 e.Values[4] = "<span class=\"gray\">0</span>";
             }
             else
             {
                 e.Values[3] = "<span class=\"gray\">0</span>";
-              
+
             }
-            string strTmp = string.Empty;
-            switch (_Info.Biz)
-            {
-                case "InvestmentLoan": strTmp = "投资部借款"; break;
-                case "InvestmentProject": strTmp = "项目实施"; break;
-                case "BankLoan": strTmp = "银行贷款"; break;
-                case "FolkFinancing": strTmp = "民间融资"; break;
-                default: break;
-            }
-            e.Values[6] =string.Format( "<span >{0}</span>",strTmp);
+            //string strTmp = string.Empty; 
+            //switch (_Info.Biz)
+            //{
+            //    case "InvestmentLoan": strTmp = "投资部借款"; break;
+            //    case "InvestmentProject": strTmp = "项目实施"; break;
+            //    case "BankLoan": strTmp = "银行贷款"; break;
+            //    case "FolkFinancing": strTmp = "民间融资"; break;
+            //    default: break;
+
+            //}
+            //e.Values[6] = string.Format("<span >{0}</span>", strTmp);
         }
 
         /// <summary>
