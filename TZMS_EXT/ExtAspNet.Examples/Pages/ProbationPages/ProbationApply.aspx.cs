@@ -76,7 +76,7 @@ namespace TZMS.Web
                     switch (_applyInfo.State)
                     {
                         case 0:
-                        case 1:
+                        case 2:
                             OperatorType = "View";
                             BindNext();
                             BindApproveUser();
@@ -84,7 +84,7 @@ namespace TZMS.Web
                             BindApproveHistory();
                             DisableAllControls();
                             break;
-                        case 2:
+                        case 1:
                             OperatorType = "Edit";
                             BindNext();
                             BindApproveUser();

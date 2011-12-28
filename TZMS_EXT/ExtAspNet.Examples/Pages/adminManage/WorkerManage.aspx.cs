@@ -88,6 +88,7 @@ namespace TZMS.Web
             }
 
             strCondtion.Append(" state=" + ddlstState.SelectedValue + " and ");
+            strCondtion.Append(" IsProbation =" + ddlstProbation.SelectedValue + " and ");
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
                 strCondtion.Append(" (name like '%" + tbxSearch.Text.Trim() + "%' or AccountNo like '%" + tbxSearch.Text.Trim() + "%') and ");
@@ -197,22 +198,32 @@ namespace TZMS.Web
 
             if (_userInfo.State == 0)
             {
-                e.Values[11] = "<span class=\"gray\">权限</span>";
-                e.Values[12] = "<span class=\"gray\">离职</span>";
+                e.Values[12] = "<span class=\"gray\">权限</span>";
+                e.Values[13] = "<span class=\"gray\">离职</span>";
             }
             else
             {
-                e.Values[12] = e.Values[12].ToString().Replace("msg:'确定该员工离职?'", "msg:'确定" + e.Values[2].ToString() + "离职?'");
-                e.Values[13] = e.Values[13].ToString().Replace("msg:'确定删除该员工?'", "msg:'确定删除" + e.Values[2].ToString() + "?'");
+                e.Values[13] = e.Values[13].ToString().Replace("msg:'确定该员工离职?'", "msg:'确定" + e.Values[2].ToString() + "离职?'");
+                e.Values[14] = e.Values[14].ToString().Replace("msg:'确定删除该员工?'", "msg:'确定删除" + e.Values[2].ToString() + "?'");
             }
+
+            if (_userInfo.IsProbation)
+            {
+                e.Values[10] = "已转正";
+            }
+            else
+            {
+                e.Values[10] = "未转正";
+            }
+
             //判断页面是否可编辑（可查看不用考虑）
             if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
             {
-                e.Values[10] = "<span class=\"gray\">编辑</span>";
-                e.Values[11] = "<span class=\"gray\">权限</span>";
-                e.Values[12] = "<span class=\"gray\">离职</span>";
-                e.Values[13] = "<span class=\"gray\">删除</span>";
-                e.Values[14] = "<span class=\"gray\">菜单</span>";
+                e.Values[11] = "<span class=\"gray\">编辑</span>";
+                e.Values[12] = "<span class=\"gray\">权限</span>";
+                e.Values[13] = "<span class=\"gray\">离职</span>";
+                e.Values[14] = "<span class=\"gray\">删除</span>";
+                e.Values[15] = "<span class=\"gray\">菜单</span>";
             }
         }
 

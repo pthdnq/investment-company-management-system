@@ -258,8 +258,8 @@ namespace TZMS.Web.Pages
                             MUDAttachment.ShowAddBtn = "false";
                             MUDAttachment.ShowDelBtn = "false";
 
+                            
                             btnSend.Enabled = false;
-                            btnSend.Hidden = true;
                             btnRecevicer.Enabled = false;
                             btnRecevicer.Hidden = true;
                             lblRecevices.ShowRedStar = false;

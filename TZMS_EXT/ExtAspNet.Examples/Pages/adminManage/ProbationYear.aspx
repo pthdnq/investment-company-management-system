@@ -46,11 +46,11 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -60"
                 Layout="Fit" runat="server">
                 <Items>
                     <ext:Grid ID="gridUser" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
-                        PageSize="1" runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
                         OnPageIndexChange="gridUser_PageIndexChange" OnRowCommand="gridUser_RowCommand"
                         OnRowDataBound="gridUser_RowDataBound" Width="100%">
                         <Columns>

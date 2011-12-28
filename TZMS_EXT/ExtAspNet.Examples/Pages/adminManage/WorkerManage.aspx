@@ -22,17 +22,31 @@
                             </ext:TextBox>
                             <ext:DropDownList ID="ddlstDept" runat="server" Label="部门名称">
                             </ext:DropDownList>
+                            <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
+                            </ext:Button>
+                            <ext:Label ID="Label1" runat="server">
+                            </ext:Label>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow>
+                        <Items>
                             <ext:DropDownList ID="ddlstState" runat="server" Label="员工状态">
                                 <ext:ListItem Text="在职" Value="1" Selected="true" />
                                 <ext:ListItem Text="离职" Value="0" />
                             </ext:DropDownList>
-                            <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
-                            </ext:Button>
+                            <ext:DropDownList ID="ddlstProbation" runat="server" Label="转正状态">
+                                <ext:ListItem Text="已转正" Value="1" Selected="true" />
+                                <ext:ListItem Text="未转正" Value="0" />
+                            </ext:DropDownList>
+                            <ext:Label ID="Label2" runat="server">
+                            </ext:Label>
+                            <ext:Label ID="Label3" runat="server">
+                            </ext:Label>
                         </Items>
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -60"
                 Layout="Fit" runat="server">
                 <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server">
@@ -66,6 +80,7 @@
                                     <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
+                            <ext:BoundField DataField="IsProbation" HeaderText="转正状态" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
                             <ext:LinkButtonField Width="38px" Text="权限" CommandName="Role" />
                             <ext:LinkButtonField Width="38px" Text="离职" ConfirmText="确定该员工离职?" CommandName="Leave"
@@ -86,8 +101,7 @@
         Target="Parent" runat="server" IsModal="true" Height="400px" Width="550px" OnClose="wndNewUser_Close">
     </ext:Window>
     <ext:Window ID="wndMenu" Title="菜单" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="550px" Width="400px" 
-        onclose="wndMenu_Close">
+        Target="Parent" runat="server" IsModal="true" Height="550px" Width="400px" OnClose="wndMenu_Close">
     </ext:Window>
     </form>
 </body>
