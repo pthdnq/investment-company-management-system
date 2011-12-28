@@ -13,6 +13,14 @@
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
         Layout="Anchor">
+        <Toolbars>
+            <ext:Toolbar ID="Toolbar1" runat="server">
+                <Items>
+                    <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
+                    <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
+                </Items>
+            </ext:Toolbar>
+        </Toolbars>
         <Items>
             <ext:Form ID="Form2" ShowBorder="False" LabelWidth="55px" BodyPadding="5px" AnchorValue="100%"
                 EnableBackgroundColor="true" ShowHeader="False" runat="server">
@@ -45,7 +53,7 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -54"
                 Layout="Fit" runat="server">
                 <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server" Hidden="true">
@@ -92,7 +100,7 @@
         Height="370px" Width="400px">
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="641px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="469px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

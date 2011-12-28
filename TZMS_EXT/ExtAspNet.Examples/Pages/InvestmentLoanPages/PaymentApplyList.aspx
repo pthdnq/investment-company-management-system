@@ -45,7 +45,7 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -54"
                 Layout="Fit" runat="server">
                 <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server">
@@ -94,7 +94,7 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField  Width="60px" Text="查看" DataIFrameUrlFields="ObjectId"
-                                DataIFrameUrlFormatString="PaymentApplyEditBA.aspx?Type=Edit&ID={0}" Title="会计核算"
+                                DataIFrameUrlFormatString="PaymentApplyEditBA.aspx?Type=Edit&ID={0}" Title="查看-备注(会计核算)"
                                 WindowID="wndNewBA" HeaderText="核算操作" />
                         </Columns>
                     </ext:Grid>
@@ -109,7 +109,7 @@
         Target="Parent" runat="server" IsModal="true" Height="462px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
         <ext:Window ID="wndNewBA" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="532px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="442px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
      <ext:Window ID="wndEdit" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="462px" Width="550px" OnClose="wndNew_Close">

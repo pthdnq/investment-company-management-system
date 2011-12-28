@@ -25,12 +25,13 @@
         </Toolbars>
         <Items>
             <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                AutoHeight="true" Height="454px">
+                AutoHeight="true" Height="414px">
                 <Tabs>
-                    <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                    <ext:Tab Layout="Row" ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server"
+                        BodyPadding="5px">
                         <Items>
                             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
-                                runat="server">
+                                Height="160px" runat="server">
                                 <Rows>
                                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                                         <Items>
@@ -61,7 +62,7 @@
                                     </ext:FormRow>
                                 </Rows>
                             </ext:Form>
-                            <ext:GroupPanel AutoHeight="true" runat="server" ID="gpAmount" Title="备用金申请" EnableBackgroundColor="true">
+                            <ext:GroupPanel BodyPadding="3px" AutoHeight="true" runat="server" ID="gpAmount" Title="备用金申请" EnableBackgroundColor="true">
                                 <Items>
                                     <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame2"
                                         runat="server">
@@ -101,8 +102,8 @@
                                             </ext:FormRow>
                                             <ext:FormRow>
                                                 <Items>
-                                                    <ext:TextArea Hidden="true" ID="tbImprestRemark" Label="备注"  
-                                                        runat="server" Height="50px" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
+                                                    <ext:TextArea Hidden="true" ID="tbImprestRemark" Label="备注" runat="server" Height="50px"
+                                                        MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>

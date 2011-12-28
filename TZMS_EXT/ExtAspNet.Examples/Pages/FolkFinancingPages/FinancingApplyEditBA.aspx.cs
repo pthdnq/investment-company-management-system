@@ -67,6 +67,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             // 通过 ID获取 信息实例.
             com.TZMS.Model.FolkFinancingInfo _Info = new FolkFinancingManage().GetUserByObjectID(strID);
+
+            MUDAttachment.RecordID = _Info.ObjectId.ToString();
             if (_Info.Status == 2 || _Info.Status == 1)
             {
                 this.btnSave.Hidden = false;

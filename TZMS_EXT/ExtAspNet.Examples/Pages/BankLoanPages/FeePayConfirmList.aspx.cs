@@ -193,6 +193,21 @@ namespace TZMS.Web.Pages.BankLoanPages
         #endregion
 
         #region 页面事件
+        /// <summary>
+        /// 行绑定事件.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            BankLoanProjectProcessInfo _Info = (BankLoanProjectProcessInfo)e.DataItem;
+
+            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            {
+
+                e.Values[10] = "<span class=\"gray\">支付确认</span>";
+            }
+        }
 
         /// <summary>
         /// 翻页
@@ -252,23 +267,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             BindGridData(ViewStateState, ViewStateSearchText);
         }
-
-        /// <summary>
-        /// 行绑定事件.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
-        {
-            BankLoanProjectProcessInfo _Info = (BankLoanProjectProcessInfo)e.DataItem;
-
-            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
-            {
-
-                e.Values[10] = "<span class=\"gray\">支付确认</span>";
-            }
-        }
-
+         
         /// <summary>
         /// 关闭新增员工页面. 
         /// </summary>

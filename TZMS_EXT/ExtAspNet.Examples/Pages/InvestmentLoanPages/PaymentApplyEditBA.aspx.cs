@@ -65,6 +65,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 return;
             }
             InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
+            MUDAttachment.RecordID = _Info.ObjectId.ToString();
             if (_Info.Status == 2 || _Info.Status == 1)
             {
                 this.btnSave.Hidden = false;

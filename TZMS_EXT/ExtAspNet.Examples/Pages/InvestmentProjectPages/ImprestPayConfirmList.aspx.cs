@@ -173,6 +173,22 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         #endregion
 
         #region 页面事件
+        /// <summary>
+        /// 行绑定事件.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            ProjectProcessInfo _userInfo = (ProjectProcessInfo)e.DataItem;
+
+            if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            {
+                e.Values[9] = "<span class=\"gray\">确认</span>";
+
+            }
+        }
+
 
         /// <summary>
         /// 翻页
@@ -237,21 +253,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-        /// <summary>
-        /// 行绑定事件.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
-        {
-            ProjectProcessInfo _userInfo = (ProjectProcessInfo)e.DataItem;
 
-            if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId))
-            {
-                e.Values[9] = "<span class=\"gray\">确认</span>";
-
-            }
-        }
 
         /// <summary>
         /// 关闭新增员工页面. 

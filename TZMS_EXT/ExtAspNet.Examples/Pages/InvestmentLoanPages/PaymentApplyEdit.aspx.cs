@@ -165,7 +165,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             this.taAuditOpinion.Text = _Info.AuditOpinion;
 
-
+            this.tbBorrowerNameA.Enabled = false;
+            this.tbBorrowerPhone.Enabled = false;
         }
 
         /// <summary>

@@ -241,13 +241,15 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             BankLoanInfo _Info = (BankLoanInfo)e.DataItem;
 
-            if (_Info.Status != 1 && _Info.Status != 2)
+            //  if (_Info.Status != 1 && _Info.Status != 2)
+            if (_Info.Status != 2)
             {
                 e.Values[13] = "<span class=\"gray\">删除</span>";
                 e.Values[12] = "<span class=\"gray\">编辑</span>";
             }
 
-            if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
+            //if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
+            if (_Info.BAStatus == 2)
             {
                 if (_Info.Status != 9)
                 {

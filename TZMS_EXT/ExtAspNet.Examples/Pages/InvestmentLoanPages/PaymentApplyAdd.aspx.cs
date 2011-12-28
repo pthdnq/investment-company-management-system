@@ -157,6 +157,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 tbBorrowerNameA.Text = e.CloseArgument.Split(',')[1];
                 this.tbBorrowerPhone.Text = e.CloseArgument.Split(',')[2];
                 ViewStateZJ = e.CloseArgument;
+
+                this.tbBorrowerNameA.EnableEdit = false;
+                this.tbBorrowerPhone.Enabled = false;
             }
         }
         #endregion
@@ -180,7 +183,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             else
             {
                 _customer = manage.GetCustomerByMobilePhone(this.tbBorrowerPhone.Text.Trim());
-       
+
                 if (_customer == null)
                 {
                     _customer = new CustomerInfo()
@@ -193,7 +196,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 }
                 if (!_customer.Name.Equals(this.tbBorrowerNameA.Text.Trim()))
                 {
-                   // LbTooltip.Text = "您输入手机号码的借款人姓名与已存储客户姓名不一致，请检查，谢谢！";
+                    // LbTooltip.Text = "您输入手机号码的借款人姓名与已存储客户姓名不一致，请检查，谢谢！";
                     Alert.Show("您输入手机号码的借款人姓名与已存储客户姓名不一致，请检查，谢谢！!");
                     return;
                 }
@@ -246,6 +249,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             if (result == -1)
             {
+                //更新用户借款状态
+                _customer.Status = 1;
+                manage.UpdateCustomer(_customer);
+
                 manage.AddHistory(_Info.ObjectId, "新增", "借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
                 new CashFlowManage().AddHistory(_Info.ObjectId, "新增", "投资部借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "InvestmentLoan");
                 Alert.Show("添加成功!");

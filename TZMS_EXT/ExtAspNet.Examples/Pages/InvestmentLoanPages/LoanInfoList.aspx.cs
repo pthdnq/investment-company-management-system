@@ -171,19 +171,19 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
             InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
-            //提醒
-            if (_Info.DueDateForPay == DateTime.Now.Day)
+            //收款提醒
+            if (_Info.DueDateForPay <= DateTime.Now.Day)
             {
                 e.Values[8] = "<span class=\"gray\">请收款！</span>";
             }
-            else if (_Info.DueDateForPay < DateTime.Now.Day)
-            {
-                e.Values[8] = string.Format("<span class=\"gray\">还有{0}天</span>", DateTime.Now.Day - _Info.DueDateForPay);
-            }
             else if (_Info.DueDateForPay > DateTime.Now.Day)
             {
-                e.Values[8] = string.Format("<span class=\"gray\">请收款！</span>", DateTime.Now.Day - _Info.DueDateForPay);
+                e.Values[8] = string.Format("<span class=\"gray\">还有{0}天</span>", _Info.DueDateForPay - DateTime.Now.Day);
             }
+            //else if (_Info.DueDateForPay < DateTime.Now.Day)
+            //{
+            //    e.Values[8] = string.Format("<span class=\"gray\">请收款！</span>", DateTime.Now.Day - _Info.DueDateForPay);
+            //}
         }
         #endregion
 
@@ -236,12 +236,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             InvestmentLoanInfo info = manage.GetUserByObjectID(userID);
 
-            if (e.CommandName == "Leave")
-            {
-                // 离职
-                info.Status = 0;
-            }
-            else if (e.CommandName == "Delete")
+            if (e.CommandName == "Delete")
             {
                 // 删除
                 info.Status = 9;

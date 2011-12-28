@@ -256,6 +256,33 @@ namespace TZMS.Web.Pages.CashFlow {
         protected global::ExtAspNet.TextArea tbRemark;
         
         /// <summary>
+        /// FormRow6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow6;
+        
+        /// <summary>
+        /// ContentPanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.ContentPanel ContentPanel1;
+        
+        /// <summary>
+        /// MUDAttachment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TZMS.Web.CommonControls.MudFlexCtrl MUDAttachment;
+        
+        /// <summary>
         /// tabHistory control.
         /// </summary>
         /// <remarks>

@@ -86,6 +86,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 //this.btnNew.OnClientClick = wndNew.GetShowReference("PaymentApplyAdd.aspx?Type=Add", "新增 - 借款申请");
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
+                this.btnClose.OnClientClick = ActiveWindow.GetHideReference();
+
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
                 // 绑定下拉框.
