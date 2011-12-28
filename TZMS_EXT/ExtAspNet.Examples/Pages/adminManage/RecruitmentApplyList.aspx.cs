@@ -126,6 +126,11 @@ namespace TZMS.Web
                 wndNewApply.IFrameUrl = "RecruitmentApply.aspx?Type=View&ID=" + strApplyID;
                 wndNewApply.Hidden = false;
             }
+            if (e.CommandName == "Edit")
+            {
+                wndNewApply.IFrameUrl = "RecruitmentApply.aspx?Type=Edit&ID=" + strApplyID;
+                wndNewApply.Hidden = false;
+            }
         }
 
         /// <summary>
@@ -151,12 +156,14 @@ namespace TZMS.Web
                 {
                     case "0":
                         e.Values[5] = "审批中";
+                        e.Values[7] = "<span class=\"gray\">编辑</span>";
                         break;
                     case "1":
                         e.Values[5] = "归档-未通过";
                         break;
                     case "2":
                         e.Values[5] = "归档-已通过";
+                        e.Values[7] = "<span class=\"gray\">编辑</span>";
                         break;
                     default:
                         break;
