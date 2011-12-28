@@ -9,13 +9,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
+    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain"/>
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" ShowBorder="true" ShowHeader="false" Layout="Fit">
         <Toolbars>
             <ext:Toolbar ID="Toolbar1" runat="server">
                 <Items>
-                    <ext:Button ID="btnClose" Hidden="true" OnClick="btnClose_Click" runat="server" Icon="Cancel" Text="关闭">
+                    <ext:Button ID="btnClose" Hidden="true" OnClick="btnClose_Click" runat="server" Icon="Cancel"
+                        Text="关闭">
                     </ext:Button>
                     <ext:Button ID="btnSend" OnClick="btnSend_Click" runat="server" Icon="Disk" Text="发送"
                         ValidateForms="mainForm">

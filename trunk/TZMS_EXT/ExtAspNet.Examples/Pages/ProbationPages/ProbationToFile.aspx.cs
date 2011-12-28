@@ -117,7 +117,7 @@ namespace TZMS.Web
         protected void gridArchiver_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
             string strApproveID = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[0];
-            string strApproveResult = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[7];
+            string strApproveResult = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[8];
             if (!string.IsNullOrEmpty(strApproveID))
             {
                 ProbationManage _manage = new ProbationManage();

@@ -157,6 +157,7 @@ namespace TZMS.Web
                 rblState.SelectedIndex = _userInfo.State == 1 ? 0 : 1;
                 // 转正状态.
                 rblProbationState.SelectedIndex = _userInfo.IsProbation == true ? 0 : 1;
+                rblProbationState_SelectedIndexChanged(null, null);
                 // 转正日期.
                 if (DateTime.Compare(_userInfo.ProbationTime, ACommonInfo.DBMAXDate) != 0)
                 {
@@ -305,7 +306,8 @@ namespace TZMS.Web
                         Name = _userInfo.Name,
                         Roles = "12"
                     });
-                    Alert.Show("添加员工成功!");
+                    //Alert.Show("添加员工成功!");
+                    PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
                 }
                 else
                 {
@@ -317,7 +319,8 @@ namespace TZMS.Web
                 result = _userManage.UpdateUser(_userInfo);
                 if (result == -1)
                 {
-                    Alert.Show("编辑员工成功!");
+                    //Alert.Show("编辑员工成功!");
+                    PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
                 }
                 else
                 {
@@ -353,6 +356,27 @@ namespace TZMS.Web
             else
             {
                 dpkLeaveTime.Hidden = false;
+            }
+        }
+
+        /// <summary>
+        /// 转正状态变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void rblProbationState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblProbationState.SelectedIndex == 0)
+            {
+                dpbProbationTime.Required = true;
+                dpbProbationTime.ShowRedStar = true;
+                dpbProbationTime.Hidden = false;
+            }
+            else
+            {
+                dpbProbationTime.Required = false;
+                dpbProbationTime.Required = false;
+                dpbProbationTime.Hidden = true;
             }
         }
 

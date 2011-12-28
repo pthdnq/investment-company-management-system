@@ -91,6 +91,10 @@ namespace TZMS.Web
                 rblState.SelectedIndex = _userInfo.State == 1 ? 0 : 1;
                 // 转正状态.
                 rblProbationState.SelectedIndex = _userInfo.IsProbation == true ? 0 : 1;
+                if (rblProbationState.SelectedIndex != 0)
+                {
+                    dpbProbationTime.Hidden = true;
+                }
                 // 转正日期.
                 if (DateTime.Compare(_userInfo.ProbationTime, ACommonInfo.DBMAXDate) != 0)
                 {

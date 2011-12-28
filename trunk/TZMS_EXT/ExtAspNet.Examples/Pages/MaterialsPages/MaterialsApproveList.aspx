@@ -48,7 +48,7 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -60"
                 Layout="Fit" runat="server">
                 <Items>
                     <ext:Grid ID="gridApprove" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
