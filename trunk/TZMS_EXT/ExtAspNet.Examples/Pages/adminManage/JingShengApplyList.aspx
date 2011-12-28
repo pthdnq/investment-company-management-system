@@ -60,7 +60,7 @@
                             <ext:BoundField DataField="ApproveID" HeaderText="当前执行人" />
                             <ext:BoundField DataField="State" HeaderText="申请状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
-                            <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" Hidden="true" />
+                            <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
                         </Columns>
                     </ext:Grid>
                 </Items>

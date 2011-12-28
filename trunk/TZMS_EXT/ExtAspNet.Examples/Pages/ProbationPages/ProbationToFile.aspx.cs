@@ -132,7 +132,7 @@ namespace TZMS.Web
                 // 设置申请单信息.
                 if (strApproveResult == "同意")
                 {
-                    _applyInfo.State = 1;
+                    _applyInfo.State = 2;
 
                     // 设置转正属性.
                     UserManage _userManage = new UserManage();
@@ -146,7 +146,7 @@ namespace TZMS.Web
                 }
                 else
                 {
-                    _applyInfo.State = 2;
+                    _applyInfo.State = 1;
                 }
 
                 _manage.UpdateApply(_applyInfo);
