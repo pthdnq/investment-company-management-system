@@ -26,7 +26,6 @@
                             </ext:DatePicker>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
                             </ext:Button>
-                      
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow Hidden="true">
@@ -70,9 +69,14 @@
                             <ext:BoundField DataField="MobilePhone" HeaderText="手机" Width="101px" />
                             <ext:BoundField DataField="CreditScore" HeaderText="星级" Width="95px" />
                             <ext:BoundField DataField="CreditScore" HeaderText="积分" Width="95px" />
+                            <ext:TemplateField Width="60px" HeaderText="借款状态">
+                                <ItemTemplate>
+                                    <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "借款中" : "已结清" %>
+                                </ItemTemplate>
+                            </ext:TemplateField>
                             <ext:BoundField DataField="Remark" ExpandUnusedSpace="true" HeaderText="备注" />
-                            <%--         <ext:WindowField Width="76px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="FeePayAudit.aspx?ID={0}"
-                                Title="审核" WindowID="wndNew" />--%>
+                            <ext:WindowField Width="76px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="CustomerEdit.aspx?ID={0}"
+                                Title="编辑" WindowID="wndEdit" />
                             <%--           <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />--%>
                         </Columns>
                     </ext:Grid>
@@ -80,7 +84,10 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndEdit" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="164px" Width="530px" OnClose="wndNew_Close">
+    </ext:Window>
+       <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="554px" Width="830px" OnClose="wndNew_Close">
     </ext:Window>
     </form>

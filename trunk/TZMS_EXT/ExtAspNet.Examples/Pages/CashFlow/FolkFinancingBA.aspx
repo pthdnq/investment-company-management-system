@@ -1,10 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FolkFinancingBA.aspx.cs"
     Inherits="TZMS.Web.Pages.CashFlow.FolkFinancingBA" %>
 
+<%@ Register Src="~/CommonControls/MudFlexCtrl.ascx" TagName="MudFlexCtrl" TagPrefix="ucl" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>FolkFinancingBA</title>
+    <script language="javascript" src="../../App_Flash/AC_OETags.js" type="text/javascript"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -125,6 +127,15 @@
                                             </ext:TextArea>
                                         </Items>
                                     </ext:FormRow>
+                                    <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="10% 90%">
+                                        <Items>
+                                        <ext:Label runat="server"  ShowLabel="false" Text="附件"></ext:Label>
+                                            <ext:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableBackgroundColor="true"
+                                                 ShowBorder="false" ShowHeader="false" Height="172px"> <ucl:MudFlexCtrl  ID="MUDAttachment" runat="server" AttributeName="附件属性" SystemName="会计核算"></ucl:MudFlexCtrl>
+
+                                            </ext:ContentPanel>
+                                        </Items>
+                                    </ext:FormRow>
                                 </Rows>
                             </ext:Form>
                         </Items>
@@ -136,7 +147,7 @@
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                                 <%--   <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
+                                    <%--   <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
                                     <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />

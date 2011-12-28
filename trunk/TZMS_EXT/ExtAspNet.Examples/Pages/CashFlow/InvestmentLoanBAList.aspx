@@ -46,7 +46,7 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -54"
                 Layout="Fit" runat="server">
                 <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server" Hidden="true">
@@ -64,7 +64,7 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField  Width="160px"  DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField  Width="170px"  DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Hidden="true"  Width="95px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
                             <ext:BoundField Hidden="true"  Width="95px" DataField="PayerBName" HeaderText="付款人（乙方）" />
                             <ext:BoundField Hidden="true"  Width="80px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
@@ -72,8 +72,8 @@
                             <ext:BoundField Hidden="true"  Width="115px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="借款日期" />
                             <ext:BoundField  Hidden="true" DataField="DueDateForPay" Width="85px" HeaderText="应付借款日" />
-                            <ext:BoundField Hidden="true"   ExpandUnusedSpace="true"  DataField="Remark"  HeaderText="备注" />
-                             <ext:BoundField DataField="NextBAOperaterName" Width="75px" HeaderText="当前执行人" />
+                            <ext:BoundField    ExpandUnusedSpace="true"  DataField="Remark"  HeaderText="备注" />
+                             <ext:BoundField DataField="NextBAOperaterName" Width="78px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
@@ -90,7 +90,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="265px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="410px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

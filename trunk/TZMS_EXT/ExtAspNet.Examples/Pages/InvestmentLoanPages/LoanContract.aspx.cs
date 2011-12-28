@@ -43,7 +43,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
-                string strType = Request.QueryString["Type"]; 
+                string strType = Request.QueryString["Type"];
                 if (strType.Equals("View"))
                 {
                     this.btnSave.Hidden = true;
@@ -150,7 +150,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             InvestmentLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
 
             _Info.Status = status;
-        //    _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
+            //    _Info.AccountingRemark = this.taAccountingRemark.Text.Trim();
             _Info.OpationRemark = this.taOpationRemark.Text.Trim();
             _Info.Penalbond = this.tbPenalbond.Text.Trim();
             _Info.Imprest = this.tbImprest.Text.Trim();
@@ -165,6 +165,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 string statusName = "已终止";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
                 manage.AddHistory(_Info.ObjectId, "终止合同", string.Format("终止合同:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taOpationRemark.Text.Trim());
+                //结清客户的借款状态
+                manage.CleanCustomerStatus(_Info.BorrowerAId.ToString());
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

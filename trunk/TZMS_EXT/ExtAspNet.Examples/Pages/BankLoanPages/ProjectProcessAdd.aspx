@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true" Height="387px" Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true" Height="389px" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -26,7 +26,7 @@
         </Toolbars>
         <Items>
            <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                AutoHeight="true" Height="484px">
+                AutoHeight="true" Height="474px">
                 <Tabs>
                     <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                         <Items>
@@ -135,7 +135,7 @@
                     </Items>
                     </ext:Tab>
                     <ext:Tab ID="tabHistory" Title="操作记录" EnableBackgroundColor="true" runat="server"
-                        BodyPadding="5px">
+                     Layout="Fit"    BodyPadding="5px">
                         <Items>
                             <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">

@@ -45,7 +45,7 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -54"
                 Layout="Fit" runat="server">
                 <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server" Hidden="true">
@@ -90,7 +90,7 @@
     </ext:Panel>
  
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="585px" Width="580px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="575px" Width="580px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

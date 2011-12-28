@@ -46,7 +46,7 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -54"
                 Layout="Fit" runat="server">
                 <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server" Hidden="true">
@@ -64,20 +64,20 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="160px" DataField="ProjectName" HeaderText="项目名称" />
+                            <ext:BoundField Width="170px" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Hidden="true" Width="90px" DataField="CustomerName" HeaderText="客户" />
                             <ext:TemplateField Width="66px" HeaderText="项目状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:BoundField Hidden="true" ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
+                            <ext:BoundField   ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
                             <ext:BoundField Hidden="true" Width="90px" DataField="ContactPhone" HeaderText="联系电话" />
                             <ext:BoundField Hidden="true" Width="115px" DataField="SignDate" HeaderText="签订日期"
                                 DataFormatString="{0:yyyy/MM/dd}" />
                             <ext:BoundField Hidden="true" DataField="ContractAmount" Width="85px" HeaderText="合同金额" />
                             <ext:BoundField Hidden="true" Width="80px" DataField="DownPayment" HeaderText="预付订金" />
-                            <ext:BoundField DataField="NextBAOperaterName" Width="75px" HeaderText="当前执行人" />
+                            <ext:BoundField DataField="NextBAOperaterName" Width="78px" HeaderText="当前执行人" />
                             <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="InvestmentProjectBA.aspx?Type=Edit&ID={0}"
                                 Title="会计核算" WindowID="wndNew" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
@@ -89,7 +89,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="295px" Width="570px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="455px" Width="570px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

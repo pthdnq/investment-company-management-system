@@ -13,6 +13,7 @@ namespace TZMS.Web.Pages.CashFlow
     public partial class BankLoanBA : BasePage
     {
         #region 属性
+
         /// <summary>
         /// ObjectID
         /// </summary>
@@ -44,7 +45,7 @@ namespace TZMS.Web.Pages.CashFlow
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
 
-                bindUserInterface(strID);
+                bindInterface(strID);
 
 
                 // 绑定审批人.
@@ -62,27 +63,25 @@ namespace TZMS.Web.Pages.CashFlow
         /// 绑定指定用户ID的数据到界面.
         /// </summary>
         /// <param name="strUserID">用户ID</param>
-        private void bindUserInterface(string strUserID)
+        private void bindInterface(string strUserID)
         {
             if (string.IsNullOrEmpty(strUserID))
             {
                 return;
             }
             BankLoanInfo _Info = new BankLoanManage().GetUserByObjectID(ObjectID);
-            //UserInfo user = new UserManage().GetUserByObjectID(_Info.NextOperaterId.ToString());
+            MUDAttachment.RecordID = _Info.ObjectId.ToString();
+
             if (CurrentRoles.Contains(RoleType.HSKJ))
             {
                 BindNext(true);
             }
-            //if (_Info.LoanAmount >= 300000 && !CurrentRoles.Contains(RoleType.DSZ))
-            //{
-            //    //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
-            //    BindNext(false);
-            //    //   HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。";
-            //}
             else
             {
                 BindNext(false);
+
+                MUDAttachment.ShowAddBtn = "false";
+                MUDAttachment.ShowDelBtn = "false";
             }
             tbProjectName.Text = _Info.ProjectName;
             this.tbCollateralCompany.Text = _Info.CollateralCompany;
@@ -116,6 +115,7 @@ namespace TZMS.Web.Pages.CashFlow
             this.gridHistory.DataSource = lstInfo;
             this.gridHistory.DataBind();
         }
+
 
         #endregion
 
@@ -183,14 +183,14 @@ namespace TZMS.Web.Pages.CashFlow
             BankLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
 
             _Info.BAStatus = status;
-           // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+            // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
 
             //下一步操作
             if (status == 4 || status == 2)
             {
                 //归档
-                _Info.NextBAOperaterName ="";
-                _Info.NextBAOperaterId =Guid.Empty;
+                _Info.NextBAOperaterName = "";
+                _Info.NextBAOperaterId = Guid.Empty;
             }
             else
             {
@@ -211,8 +211,17 @@ namespace TZMS.Web.Pages.CashFlow
             if (result == -1)
             {
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意,归档";
-                new CashFlowManage().AddHistory(_Info.ObjectId, "审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion, "BankLoan");
-
+                new CashFlowManage().AddHistory(_Info.ObjectId, "审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text, "BankLoan");
+                #region 调用发送消息
+                if (status == 4)
+                {
+                    List<Guid> receives = new List<Guid>();
+                    receives.Add(_Info.CreaterId);
+                    string strTitle = "银行贷款会计核算通过提醒";
+                    string strContent = string.Format("{0} 项目已予{1}通过会计审核，请查看。", _Info.ProjectName, _Info.SubmitBATime.ToShortDateString());
+                    new MessageManage().SendMessage(_Info.ObjectId, this.CurrentUser.ObjectId, receives, strTitle, strContent);
+                }
+                #endregion
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

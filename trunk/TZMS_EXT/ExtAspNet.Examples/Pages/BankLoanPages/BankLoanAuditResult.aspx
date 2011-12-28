@@ -45,7 +45,7 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -54"
                 Layout="Fit" runat="server">
                 <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server" Hidden="true">
@@ -81,7 +81,7 @@
                             <%--            <ext:BoundField Width="105px" DataField="DownPayment" HeaderText="预付定金" />--%>
                             <ext:BoundField DataField="NextOperaterName" Width="70px" HeaderText="当前执行人" />
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditResultView.aspx?ID={0}"
-                                Title="查看" WindowID="wndNew" />
+                                Title="查看" WindowID="wndView" />
                             <ext:WindowField Width="76px" Text="业务移交" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAuditTransfer.aspx?Type=Owner&ID={0}"
                                 Title="业务移交" WindowID="Window1" />
                         </Columns>
@@ -90,8 +90,8 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="453px" Width="550px" OnClose="wndNew_Close">
+    <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="443px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="Window1" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="490px" Width="590px" OnClose="wndNew_Close">

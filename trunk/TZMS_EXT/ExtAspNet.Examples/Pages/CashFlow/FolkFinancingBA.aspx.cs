@@ -70,7 +70,7 @@ namespace TZMS.Web.Pages.CashFlow
 
             // 通过 ID获取 信息实例.
             com.TZMS.Model.FolkFinancingInfo _Info = new FolkFinancingManage().GetUserByObjectID(strID);
-
+            MUDAttachment.RecordID = _Info.ObjectId.ToString();
             // 绑定数据.
             if (_Info != null)
             {
@@ -79,17 +79,13 @@ namespace TZMS.Web.Pages.CashFlow
                 if (CurrentRoles.Contains(RoleType.HSKJ))
                 {
                     BindNext(true);
-                }
-                //else if (CurrentRoles.Contains(RoleType.ZJL))
-                //{      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
-                //    if (_Info.LoanAmount >= 300000)
-                //    { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
-                //    else
-                //    { BindNext(true); }
-                //}
+                } 
                 else
                 {
                     BindNext(false);
+
+                    MUDAttachment.ShowAddBtn = "false";
+                    MUDAttachment.ShowDelBtn = "false";
                 }
                 #endregion
                 this.tbBorrowerNameA.Text = _Info.BorrowerNameA;
@@ -209,8 +205,19 @@ namespace TZMS.Web.Pages.CashFlow
             result = manage.Update(_Info);
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 5) ? "同意，继续审核" : "同意，归档";
-                new CashFlowManage().AddHistory(_Info.ObjectId, "审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion,"FolkFinancing");
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意，归档";
+                new CashFlowManage().AddHistory(_Info.ObjectId, "审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text, "FolkFinancing");
+
+                #region 调用发送消息
+                if (status == 4)
+                {
+                    List<Guid> receives = new List<Guid>();
+                    receives.Add(_Info.CreaterId);
+                    string strTitle = "民间融资核算通过提醒";
+                    string strContent = string.Format("{0}借款融资已予{1}通过会计审核，请查看。", _Info.Lenders, _Info.SubmitBATime.ToShortDateString());
+                    new MessageManage().SendMessage(_Info.ObjectId, this.CurrentUser.ObjectId, receives, strTitle, strContent);
+                }
+                #endregion
 
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

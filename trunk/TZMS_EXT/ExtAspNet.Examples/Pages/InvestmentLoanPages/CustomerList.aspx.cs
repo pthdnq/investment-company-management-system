@@ -82,12 +82,14 @@ namespace TZMS.Web.Pages.CashFlow
             if (!IsPostBack)
             {
                 //   this.btnNew.OnClientClick = wndNew.GetShowReference("CashFlowSetterInit.aspx?Type=Add", "初始化 - 资金");
-                this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
+                this.wndEdit.OnClientCloseButtonClick = wndEdit.GetHideReference();
 
                 // 绑定下拉框.
                 BindDDL();
                 // 绑定列表.
                 BindGridData(ViewStateState, ViewStateSearchText);
+
+                this.CurrentLevel = GetCurrentLevel("khylb");
             }
         }
 
@@ -184,6 +186,31 @@ namespace TZMS.Web.Pages.CashFlow
         #region 页面事件
 
         /// <summary>
+        /// 行绑定事件.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            CustomerInfo _Info = (CustomerInfo)e.DataItem;
+            int icount = Math.Abs(_Info.CreditScore) / 20;
+            string strIcons = "";
+            string strIconsType = (_Info.CreditScore > 0) ? "★" : "ㄣ";
+
+            for (int i = 0; i < icount; i++)
+            {
+                strIcons += strIconsType;
+            }
+
+            e.Values[3] = string.Format("<span class=\"gray\">{0}</span>", strIcons);
+
+            if (this.CurrentLevel.Equals(VisitLevel.View))
+            {
+                e.Values[7] = "<span class=\"gray\">编辑</span>";
+            }
+        }
+
+        /// <summary>
         /// 翻页
         /// </summary>
         /// <param name="sender"></param>
@@ -241,29 +268,7 @@ namespace TZMS.Web.Pages.CashFlow
 
             BindGridData(ViewStateState, ViewStateSearchText);
         }
-
-        /// <summary>
-        /// 行绑定事件.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
-        {
-            CustomerInfo _Info = (CustomerInfo)e.DataItem;
-            int icount = Math.Abs(_Info.CreditScore) / 20;
-            string strIcons = "";
-            string strIconsType = (_Info.CreditScore > 0) ? "★" : "ㄣ";
-
-            for (int i = 0; i < icount; i++)
-            {
-                strIcons += strIconsType;
-            }
-
-            e.Values[3] = string.Format("<span class=\"gray\">{0}</span>", strIcons);
-
-
-        }
-
+         
         /// <summary>
         /// 关闭新增员工页面. 
         /// </summary>

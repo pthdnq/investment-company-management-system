@@ -166,13 +166,13 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::ExtAspNet.Grid gridData;
         
         /// <summary>
-        /// wndNew control.
+        /// wndView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Window wndNew;
+        protected global::ExtAspNet.Window wndView;
         
         /// <summary>
         /// Window1 control.

@@ -197,7 +197,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             FolkFinancingInfo _Info = (FolkFinancingInfo)e.DataItem;
 
-            if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
+            //if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
+            if (_Info.BAStatus == 2)
             {
                 if (_Info.Status != 9)
                 {
@@ -210,9 +211,11 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             }
 
-            if (_Info.Status != 1 && _Info.Status != 2)
+          //  if (_Info.Status != 1 && _Info.Status != 2)
+            if ( _Info.Status != 2)
             {
                 e.Values[11] = "<span class=\"gray\">删除</span>";
+                e.Values[12] = "<span class=\"gray\">编辑</span>";
             }
 
         }

@@ -157,6 +157,15 @@ namespace TZMS.Web.Pages.CashFlow {
         protected global::ExtAspNet.Grid gridData;
         
         /// <summary>
+        /// wndEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Window wndEdit;
+        
+        /// <summary>
         /// wndNew control.
         /// </summary>
         /// <remarks>

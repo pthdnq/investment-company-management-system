@@ -45,7 +45,7 @@
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
-            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -36"
+            <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -54"
                 Layout="Fit" runat="server">
                 <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server">
@@ -91,7 +91,7 @@
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="65px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanApplyEditBA.aspx?Type=Edit&ID={0}"
-                                Title="会计核算" WindowID="wndNewBA" HeaderText="核算操作" />
+                                Title="查看-备注(会计核算)" WindowID="wndNewBA" HeaderText="核算操作" />
                         </Columns>
                     </ext:Grid>
                 </Items>

@@ -67,22 +67,18 @@ namespace TZMS.Web.Pages.CashFlow
             ObjectID = strID;
 
             InvestmentProjectInfo _Info = new InvestmentProjectManage().GetUserByObjectID(strID);
-
+            MUDAttachment.RecordID = _Info.ObjectId.ToString();
             #region 下一步方式
             if (CurrentRoles.Contains(RoleType.HSKJ))
             {
                 BindNext(true);
             }
-            //else if (CurrentRoles.Contains(RoleType.ZJL))
-            //{      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
-            //    if (_Info.ContractAmount >= 300000)
-            //    { BindNext(false); HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。"; }
-            //    else
-            //    { BindNext(true); }
-            //}
             else
             {
                 BindNext(false);
+
+                MUDAttachment.ShowAddBtn = "false";
+                MUDAttachment.ShowDelBtn = "false";
             }
             #endregion
 
@@ -207,8 +203,17 @@ namespace TZMS.Web.Pages.CashFlow
             if (result == -1)
             {
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意，归档";
-                new CashFlowManage().AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion, "InvestmentProject");
-
+                new CashFlowManage().AddHistory(_Info.ObjectId, "审批", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.tbAuditOpinion.Text, "InvestmentProject");
+              #region 调用发送消息
+                if (status == 4)
+                {
+                    List<Guid> receives = new List<Guid>();
+                    receives.Add(_Info.CreaterId);
+                    string strTitle = "投资部项目实施会计核算通过提醒";
+                    string strContent = string.Format("{0} 项目已予{1}通过会计审核，请查看。", _Info.ProjectName,  _Info.SubmitBATime.ToShortDateString());
+                    new MessageManage().SendMessage(_Info.ObjectId,  this.CurrentUser.ObjectId, receives, strTitle, strContent);
+                }
+                #endregion
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

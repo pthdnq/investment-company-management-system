@@ -173,6 +173,28 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
         #region 页面事件
         /// <summary>
+        /// 行绑定事件.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
+        {
+            FinancingFeePaymentInfo _userInfo = (FinancingFeePaymentInfo)e.DataItem;
+
+            if (_userInfo.Status != 2)
+            {
+                e.Values[8] = e.Values[8].ToString().Replace("编辑", "查看").Replace("Edit", "View");
+
+            }
+
+            if (_userInfo.Status != 1)
+            {
+                e.Values[9] = "<span class=\"gray\">删除</span>";
+
+            }
+        }
+
+        /// <summary>
         /// 保存员工
         /// </summary>
         /// <param name="sender"></param>
@@ -249,27 +271,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             BindGridData(ForID, ViewStateState, ViewStateSearchText);
         }
 
-        /// <summary>
-        /// 行绑定事件.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
-        {
-            FinancingFeePaymentInfo _userInfo = (FinancingFeePaymentInfo)e.DataItem;
-
-            //if (_userInfo.Status != 2)
-            //{
-            //    e.Values[8] = e.Values[8].ToString().Replace("编辑", "查看").Replace("Edit", "View");
-
-            //}
-
-            if (_userInfo.Status != 1)
-            {
-                e.Values[9] = "<span class=\"gray\">删除</span>";
-
-            }
-        }
+     
 
         /// <summary>
         /// 关闭新增员工页面. 
