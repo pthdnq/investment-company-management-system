@@ -1191,18 +1191,66 @@
     </form>
     <script type="text/javascript">
 
-        function onReady() {
-            var tree = Ext.getCmp('<%= rootNode.ClientID %>');
-            tree.on('checkchange', function (node, checked) {
-                //                node.expand();
-                node.attributes.checked = checked;
+        function selectAllChild(node, checked) {
+            if (node != null) {
                 node.eachChild(function (child) {
-                    child.ui.toggleCheck(checked);
                     child.attributes.checked = checked;
-                    child.fireEvent('checkchange', child, checked);
+                    child.ui.toggleCheck(checked);
+                    selectAllChild(child, checked);
                 });
-            }, tree);
+            }
+        }
 
+        function selectAllParent(node, checked) {
+            if (node != null) {
+                if (node.parentNode != null && node.parentNode.id != Ext.getCmp('<%= rootNode.ClientID %>').id) {
+                    if (checked) {
+                        node.parentNode.attributes.checked = checked;
+                        node.parentNode.ui.toggleCheck(checked);
+                        selectAllParent(node.parentNode, checked);
+                    }
+                    else {
+
+                        var isChildChecked = false;
+                        node.parentNode.eachChild(function (child) {
+                            if (child.attributes.checked)
+                                isChildChecked = true;
+                        });
+                        if (!isChildChecked) {
+                            node.parentNode.attributes.checked = checked;
+                            node.parentNode.ui.toggleCheck(checked);
+                            selectAllParent(node.parentNode, checked);
+                        }
+                    }
+                }
+            }
+        }
+
+        function nodeCheckChange(node, checked, isParent) {
+
+            node.attributes.checked = checked;
+            removeListenerForAllObject();
+            selectAllChild(node, checked);
+            selectAllParent(node, checked);
+            addListenerForAllObject();
+        }
+
+        function addListenerForAllObject() {
+            var tree = Ext.getCmp('<%= rootNode.ClientID %>');
+            tree.cascade(function (childElement) {
+                childElement.on('checkchange', nodeCheckChange);
+            });
+        }
+
+        function removeListenerForAllObject() {
+            var tree = Ext.getCmp('<%= rootNode.ClientID %>');
+            tree.cascade(function (childElement) {
+                childElement.purgeListeners();
+            });
+        }
+
+        function onReady() {
+            addListenerForAllObject();
         }
 
     </script>
