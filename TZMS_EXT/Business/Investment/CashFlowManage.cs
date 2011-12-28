@@ -24,7 +24,7 @@ namespace com.TZMS.Business
         #region 基本操作
 
         /// <summary>
-        /// 
+        /// 添加资金流
         /// </summary>
         /// <param name="amount">金额</param>
         /// <param name="dateFor">日期</param>
