@@ -271,6 +271,27 @@ namespace com.TZMS.Business
         }
 
         /// <summary>
+        /// 更新借款状态
+        /// </summary>
+        /// <param name="boName">连接字符串Key</param>
+        /// <param name="info">实体</param>
+        /// <returns>执行结果</returns>
+        public int CleanCustomerStatus(string objectID, string boName = BoName)
+        {
+            CustomerInfo info = GetCustomerByObjectID(objectID);
+
+            int iResult = -1;
+            string strCondition = string.Format(" BorrowerAId ={0} AND Status <> 9 AND Status <> 8 ");
+            int iillistCount = GetUsersByCondtion(strCondition).Count;
+            if (iillistCount == 0)
+            {
+                info.Status = 0;
+                iResult = cCtrl.UpDate(boName, info);
+            }
+            return iResult;
+        }
+
+        /// <summary>
         /// 通过ObjectID获得 
         /// </summary>
         /// <param name="boName">连接字符串Key</param>
