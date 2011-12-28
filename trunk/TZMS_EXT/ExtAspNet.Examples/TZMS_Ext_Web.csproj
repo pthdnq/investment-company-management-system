@@ -653,6 +653,7 @@
     <Content Include="Pages\FolkFinancingPages\PaymentRecord.aspx" />
     <Content Include="Pages\FolkFinancingPages\PaymentRecordList.aspx" />
     <Content Include="Pages\InvestmentLoanPages\ChooseJKR.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\CustomerEdit.aspx" />
     <Content Include="Pages\InvestmentLoanPages\CustomerInvestmentLoanInfo.aspx" />
     <Content Include="Pages\InvestmentLoanPages\CustomerList.aspx" />
     <Content Include="Pages\InvestmentLoanPages\LoanContract.aspx" />
@@ -1597,6 +1598,13 @@
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\ChooseJKR.aspx.designer.cs">
       <DependentUpon>ChooseJKR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\CustomerEdit.aspx.cs">
+      <DependentUpon>CustomerEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\CustomerEdit.aspx.designer.cs">
+      <DependentUpon>CustomerEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentLoanPages\CustomerInvestmentLoanInfo.aspx.cs">
       <DependentUpon>CustomerInvestmentLoanInfo.aspx</DependentUpon>
