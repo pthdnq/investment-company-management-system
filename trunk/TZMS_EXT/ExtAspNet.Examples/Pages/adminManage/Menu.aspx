@@ -13,19 +13,19 @@
         runat="server">
         <Regions>
             <ext:Region ID="Region2" ShowHeader="false" Layout="Fit" Margins="0 0 0 0" runat="server">
+                <Toolbars>
+                    <ext:Toolbar ID="Toolbar1" runat="server">
+                        <Items>
+                            <ext:Button ID="btnClose" runat="server" Text="关闭" Icon="Cancel" OnClick="CloseEvent">
+                            </ext:Button>
+                            <ext:Button ID="btnSave" runat="server" Text="保存" Icon="Disk" OnClick="SaveEvent">
+                            </ext:Button>
+                        </Items>
+                    </ext:Toolbar>
+                </Toolbars>
                 <Items>
                     <ext:Tree ID="rootNode" Title="菜单" Width="200px" AutoScroll="true" Height="520px"
                         EnableBackgroundColor="true" OnNodeCheck="Menu_NodeCheck" runat="server" ShowHeader="false">
-                        <Toolbars>
-                            <ext:Toolbar runat="server">
-                                <Items>
-                                    <ext:Button ID="btnClose" runat="server" Text="关闭" Icon="Cancel" OnClick="CloseEvent">
-                                    </ext:Button>
-                                    <ext:Button ID="btnSave" runat="server" Text="保存" Icon="Disk" OnClick="SaveEvent">
-                                    </ext:Button>
-                                </Items>
-                            </ext:Toolbar>
-                        </Toolbars>
                         <Nodes>
                             <ext:TreeNode EnableCheckBox="true" Text="消息管理" NodeID="xxgl">
                                 <Nodes>
@@ -1203,22 +1203,23 @@
 
         function selectAllParent(node, checked) {
             if (node != null) {
-                if (node.parentNode != null && node.parentNode.id != Ext.getCmp('<%= rootNode.ClientID %>').id) {
+                var tree = Ext.getCmp('<%= rootNode.ClientID %>');
+                if (node.id != (tree.id + "_root")) {
                     if (checked) {
-                        node.parentNode.attributes.checked = checked;
-                        node.parentNode.ui.toggleCheck(checked);
+                        node.attributes.checked = checked;
+                        node.ui.toggleCheck(checked);
                         selectAllParent(node.parentNode, checked);
                     }
                     else {
 
                         var isChildChecked = false;
-                        node.parentNode.eachChild(function (child) {
+                        node.eachChild(function (child) {
                             if (child.attributes.checked)
                                 isChildChecked = true;
                         });
                         if (!isChildChecked) {
-                            node.parentNode.attributes.checked = checked;
-                            node.parentNode.ui.toggleCheck(checked);
+                            node.attributes.checked = checked;
+                            node.ui.toggleCheck(checked);
                             selectAllParent(node.parentNode, checked);
                         }
                     }
@@ -1231,21 +1232,27 @@
             node.attributes.checked = checked;
             removeListenerForAllObject();
             selectAllChild(node, checked);
-            selectAllParent(node, checked);
+            selectAllParent(node.parentNode, checked);
             addListenerForAllObject();
         }
 
         function addListenerForAllObject() {
             var tree = Ext.getCmp('<%= rootNode.ClientID %>');
             tree.cascade(function (childElement) {
-                childElement.on('checkchange', nodeCheckChange);
+                childElement.addListener('checkchange', nodeCheckChange);
+                //childElement.resumeEvents();
             });
         }
 
         function removeListenerForAllObject() {
             var tree = Ext.getCmp('<%= rootNode.ClientID %>');
             tree.cascade(function (childElement) {
-                childElement.purgeListeners();
+                //childElement.purgeListeners();
+                childElement.removeListener('checkchange', nodeCheckChange);
+                //childElement.suspendEvents();
+                //                var saveButton = Ext.getCmp('<%= btnSave.ClientID %>');
+                //                if (saveButton.hasListener('click'))
+                //                    alert('有click');
             });
         }
 
