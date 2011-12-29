@@ -73,6 +73,7 @@ namespace TZMS.Web
                             // 设置新工号.
                             tbxJobNo.Text = new UserManage().GetNextJobNo();
                             dpkLeaveTime.Hidden = true;
+                            this.rblProbationState_SelectedIndexChanged(null, null);
                         }
                         break;
                     case "Edit":
@@ -371,12 +372,15 @@ namespace TZMS.Web
                 dpbProbationTime.Required = true;
                 dpbProbationTime.ShowRedStar = true;
                 dpbProbationTime.Hidden = false;
+                dpbProbationTime.Enabled = true;
+
             }
             else
             {
                 dpbProbationTime.Required = false;
                 dpbProbationTime.Required = false;
                 dpbProbationTime.Hidden = true;
+                dpbProbationTime.Enabled = false;
             }
         }
 
