@@ -70,8 +70,8 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbxBaseSalary" runat="server" Label="基本工资" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                RegexMessage="金额格式不正确!">
+                            <ext:TextBox ID="tbxBaseSalary" runat="server" Label="基本工资" Required="true" ShowRedStar="true"
+                                Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
@@ -103,7 +103,8 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:DatePicker ID="dpbProbationTime" Label="转正日期" runat="server">
+                            <ext:DatePicker ID="dpbProbationTime" Label="转正日期" runat="server" Required="true"
+                                ShowRedStar="true">
                             </ext:DatePicker>
                             <ext:RadioButtonList ID="rblProbationState" Label="转正状态" runat="server" AutoPostBack="True"
                                 OnSelectedIndexChanged="rblProbationState_SelectedIndexChanged">
