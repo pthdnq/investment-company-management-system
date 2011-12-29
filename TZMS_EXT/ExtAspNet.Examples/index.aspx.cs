@@ -80,7 +80,8 @@ namespace TZMS.Web
             List<MessageInfo> lstMessage = _manage.GetMessageByCondition(strCondition.ToString());
             if (lstMessage.Count > 0)
             {
-                AccordionPane8.Title = "消息管理(您有新的消息)";
+                //AccordionPane8.Title = "消息管理(您有新的消息)";
+                AccordionPane8.Title = "消息管理 <a onclick='test();return false;'> 新消息(" + lstMessage.Count.ToString() + ")</a>";
                 AccordionPane8.IconUrl = "images/16/消息管理_动态.gif";
             }
             else
@@ -1030,6 +1031,27 @@ namespace TZMS.Web
             if (Tree10.Nodes.Count == 0)
                 AccordionPane14.Hidden = true;
             #endregion
+        }
+
+        protected void btnMessage_Click(object sender, EventArgs e)
+        {
+            StringBuilder strCondition = new StringBuilder();
+            strCondition.Append(" IsView =0 and IsDelete <> 1 and ReceviceID = '" + CurrentUser.ObjectId.ToString() + "'");
+            strCondition.Append(" order by SendDate desc");
+
+            MessageManage _manage = new MessageManage();
+            List<MessageInfo> lstMessage = _manage.GetMessageByCondition(strCondition.ToString());
+            if (lstMessage.Count > 0)
+            {
+                //AccordionPane8.Title = "消息管理(您有新的消息)";
+                AccordionPane8.Title = "消息管理 <a onclick='test();return false;'> 新消息(" + lstMessage.Count.ToString() + ")</a>";
+                AccordionPane8.IconUrl = "images/16/消息管理_动态.gif";
+            }
+            else
+            {
+                AccordionPane8.Title = "消息管理";
+                AccordionPane8.IconUrl = "images/16/消息管理.gif";
+            }
         }
     }
 }

@@ -89,6 +89,8 @@ namespace TZMS.Web.Pages
             }
             this.gridMessage.DataSource = lstMessage;
             this.gridMessage.DataBind();
+
+            ExtAspNet.PageContext.RegisterStartupScript("parent.SetMessageInfo();");
         }
 
         #endregion
