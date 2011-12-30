@@ -64,6 +64,7 @@ namespace TZMS.Web
                 BindApproveUser();
                 BindApplyInfo();
                 BindApproveHistory();
+                SetPanelState();
             }
         }
 
@@ -138,6 +139,48 @@ namespace TZMS.Web
             gridApproveHistory.RecordCount = lstBaoxiaoCheckInfo.Count;
             this.gridApproveHistory.DataSource = lstBaoxiaoCheckInfo;
             this.gridApproveHistory.DataBind();
+        }
+
+        /// <summary>
+        /// 设置面板状态
+        /// </summary>
+        private void SetPanelState()
+        {
+            if (string.IsNullOrEmpty(ApproveID))
+                return;
+            ProxyAccountingManage _manage = new ProxyAccountingManage();
+            ProxyAccountingApproveInfo _approveInfo = _manage.GetApproveByObjectID(ApproveID);
+            if (_approveInfo != null && _approveInfo.ApproveState == 1)
+            {
+                // 查找最早的审批记录.
+                List<ProxyAccountingApproveInfo> lstApprove = _manage.GetApproveByCondition(" ApplyID = '" + ApplyID + "' and ApproveOp <> 0 and ApproveDate > '"
+                    + _approveInfo.ApproveDate.ToString() + "'");
+                if (lstApprove.Count > 0)
+                {
+                    lstApprove.Sort(delegate(ProxyAccountingApproveInfo x, ProxyAccountingApproveInfo y) { return DateTime.Compare(y.ApproveDate, x.ApproveDate); });
+                    ddlstApproveUser.SelectedValue = lstApprove[0].ApproverID.ToString();
+                    if (lstApprove[0].ApproveOp <= 1)
+                    {
+                        ddlstNext.SelectedValue = "0";
+                    }
+                    else if (lstApprove[0].ApproveOp == 3)
+                    {
+                        ddlstNext.SelectedValue = "1";
+                        ddlstNext_SelectedIndexChanged(null, null);
+                    }
+                }
+
+                taaApproveSugest.Text = _approveInfo.Sugest;
+                btnPass.Enabled = false;
+                btnRefuse.Enabled = false;
+                ddlstNext.Required = false;
+                ddlstNext.ShowRedStar = false;
+                ddlstNext.Enabled = false;
+                ddlstApproveUser.Enabled = false;
+                ddlstApproveUser.ShowRedStar = false;
+                ddlstApproveUser.Enabled = false;
+                taaApproveSugest.Enabled = false;
+            }
         }
 
         #endregion
@@ -249,7 +292,7 @@ namespace TZMS.Web
                     _nextApproveInfo.ApproverName = ddlstApproveUser.SelectedText;
                     _nextApproveInfo.ApproverID = new Guid(ddlstApproveUser.SelectedValue);
                     _nextApproveInfo.ApproverDept = _nextCheckUserInfo.Dept;
-                    _nextApproveInfo.ApproveDate = ACommonInfo.DBEmptyDate;
+                    _nextApproveInfo.ApproveDate = ACommonInfo.DBMAXDate;
                     _nextApproveInfo.ApproveState = 0;
                     _nextApproveInfo.ApplyID = _currentApproveInfo.ApplyID;
                     _manage.AddNewApprove(_nextApproveInfo);
@@ -297,7 +340,7 @@ namespace TZMS.Web
             }
             else
             {
-                Alert.Show( "审批失败("+ddlstNext.SelectedText +")!");
+                Alert.Show("审批失败(" + ddlstNext.SelectedText + ")!");
             }
         }
 
@@ -337,12 +380,12 @@ namespace TZMS.Web
 
                 if (result == -1)
                 {
-                   // Alert.Show("打回成功!");
+                    // Alert.Show("打回成功!");
 
-                   // 重新设置按钮状态并刷新审批历史.
-                   //btnPass.Enabled = false;
-                   // btnRefuse.Enabled = false;
-                   // BindApproveHistory();
+                    // 重新设置按钮状态并刷新审批历史.
+                    //btnPass.Enabled = false;
+                    // btnRefuse.Enabled = false;
+                    // BindApproveHistory();
 
                     this.btnClose_Click(null, null);
                 }

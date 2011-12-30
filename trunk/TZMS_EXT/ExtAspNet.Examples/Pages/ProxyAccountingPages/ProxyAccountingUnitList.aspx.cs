@@ -39,7 +39,7 @@ namespace TZMS.Web
 
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append(" IsDelete<>1 ");
-            if(!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
+            if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
                 strCondition.Append(" and UnitName LIKE '%" + tbxSearch.Text.Trim() + "%'");
             }
@@ -137,8 +137,11 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[7] = "<span class=\"gray\">编辑</span>";
-                e.Values[8] = "<span class=\"gray\">删除</span>";
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[7] = "<span class=\"gray\">编辑</span>";
+                    e.Values[8] = "<span class=\"gray\">删除</span>";
+                }
             }
         }
 
