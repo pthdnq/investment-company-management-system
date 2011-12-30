@@ -281,7 +281,7 @@ namespace com.TZMS.Business
             CustomerInfo info = GetCustomerByObjectID(objectID);
 
             int iResult = -1;
-            string strCondition = string.Format(" BorrowerAId ={0} AND Status <> 9 AND Status <> 8 ");
+            string strCondition = string.Format(" BorrowerAId ='{0}' AND Status <> 9 AND Status <> 8 ", objectID);
             int iillistCount = GetUsersByCondtion(strCondition).Count;
             if (iillistCount == 0)
             {
