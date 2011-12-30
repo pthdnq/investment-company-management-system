@@ -246,21 +246,21 @@ namespace TZMS.Web
             switch (role)
             {
                 case RoleType.CJGL:
-                    strRole = "投资部业务转移";
+                    strRole = "投融资业务移交";
                     break;
                 case RoleType.CNKJ:
-                    strRole = "报销归档";
+                    strRole = "财务报销归档-报销";
                     break;
                 case RoleType.CWZG:
-                    strRole = "财务部门用户离职审批";
+                    strRole = "财务部员工离职审批";
                     break;
                 case RoleType.CWZJ:
                     //strRole = "财务部门总监";
-                    strRole = "民间融资收款制单";
+                    strRole = "民间融资费用支付申请";
                     break;
                 case RoleType.DSZ:
                     //strRole = "董事长";
-                    strRole = "投资部业务归档";
+                    strRole = "投融资业务款(备用金)>30w归档";
                     break;
                 //case RoleType.DZKJ:
                 //    strRole = "代帐会计";
@@ -270,10 +270,10 @@ namespace TZMS.Web
                 //    break;
                 case RoleType.HSKJ:
                     //strRole = "核算会计";
-                    strRole = "会计核算归档";
+                    strRole = "核算会计材料归档";
                     break;
                 case RoleType.KQGD:
-                    strRole = "考勤归档";
+                    strRole = "提交行政归档员归档-考勤";
                     break;
                 //case RoleType.KQY:
                 //    strRole = "考勤员";
@@ -282,20 +282,20 @@ namespace TZMS.Web
                 //    strRole = "普通员工";
                 //    break;
                 case RoleType.TZZG:
-                    strRole = "投资部门用户离职审批";
+                    strRole = "投融资部员工离职审批";
                     break;
                 case RoleType.TZZJ:
                     //strRole = "投资部门总监";
-                    strRole = "投资项目进展归档，民间融资借款制单";
+                    strRole = "投融资项目进展归档、民间融资申请";
                     break;
                 case RoleType.XZZG:
-                    strRole = "行政部门用户离职审批";
+                    strRole = "行政部员工离职审批";
                     break;
                 //case RoleType.XZZJ:
                 //    strRole = "行政部门总监";
                 //    break;
                 case RoleType.YWZG:
-                    strRole = "业务部门用户离职审批";
+                    strRole = "业务部员工离职审批";
                     break;
                 //case RoleType.YWZJ:
                 //    strRole = "业务部门总监";
@@ -305,7 +305,7 @@ namespace TZMS.Web
                 //    break;
                 case RoleType.ZJL:
                     //strRole = "总经理";
-                    strRole = "投资部业务<30w归档";
+                    strRole = "投融资业务款(备用金)<30w归档";
                     break;
                 //case RoleType.WUSQ_PT:
                 //    strRole = "一般物资申请";
@@ -317,7 +317,7 @@ namespace TZMS.Web
                     strRole = "代账费归档";
                     break;
                 case RoleType.WZSPGD:
-                    strRole = "物资审批归档";
+                    strRole = "物资审批归档-领取";
                     break;
                 //case RoleType.JKSQ:
                 //    strRole = "借款申请归档";
@@ -329,13 +329,13 @@ namespace TZMS.Web
                 //    strRole = "银行贷款申请归档";
                 //    break;
                 case RoleType.XZGLGD:
-                    strRole = "薪资管理归档";
+                    strRole = "薪资管理归档-发放";
                     break;
                 case RoleType.GXGD:
-                    strRole = "加薪归档";
+                    strRole = "薪资管理归档-加薪";
                     break;
                 case RoleType.PZGD:
-                    strRole = "报销凭证归档";
+                    strRole = "财务报销归档-凭证";
                     break;
                 //case RoleType.YGGL:
                 //    strRole = "员工管理员";

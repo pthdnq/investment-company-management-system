@@ -189,12 +189,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
-            InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
+            //InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
 
-            if (_Info.Status == 9)
-            {
-                e.Values[9] = "<span class=\"gray\"></span>";
-            }
+            //if (_Info.Status == 9)
+            //{
+            //    e.Values[9] = "<span class=\"gray\"></span>";
+            //}
         }
         #endregion
 

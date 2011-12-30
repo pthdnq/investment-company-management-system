@@ -225,8 +225,17 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
 
             //下一步操作
-            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            if (status == 2)
+            {
+                _Info.NextOperaterName = "";
+                _Info.NextOperaterId = Guid.Empty;
+            }
+            else
+            {
+                _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+                _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            }
+
             _Info.SubmitTime = DateTime.Now;
 
             //审批人

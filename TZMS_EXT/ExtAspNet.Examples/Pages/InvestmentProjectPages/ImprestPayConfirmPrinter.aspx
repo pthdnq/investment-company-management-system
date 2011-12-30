@@ -33,7 +33,7 @@
             <asp:Label runat="server" ID="lbApplier"></asp:Label>
             <br />
             操作人：
-            <asp:Label runat="server" ID="lbPaymenter">
+            <asp:Label runat="server" ID="lbPaymenter"></asp:Label>
             <br />
             <%--           支付方式：
             <asp:Label runat="server" ID="lbLoanType"></asp:Label>--%>
