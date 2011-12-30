@@ -16,7 +16,7 @@
             <ext:Toolbar>
                 <Items>
                     <ext:Button ID="btnSave" Text="保存" runat="server" OnClick="btnSave_Click" Icon="Disk" />
-                    <ext:Label ID="labTitle" runat="server" Text="[提示: 这里的角色只跟审批权有关！]">
+                    <ext:Label ID="labTitle" runat="server" Text="[提示: 这里的权限只跟审批权有关！]">
                     </ext:Label>
                 </Items>
             </ext:Toolbar>
@@ -25,7 +25,7 @@
             <ext:Grid ID="gridUnSelectRoles" Title="Grid1" ShowBorder="true" ShowHeader="false"
                 ColumnWidth="44%" runat="server" AutoHeight="true" Height="405px" EnableMultiSelect="false">
                 <Columns>
-                    <ext:BoundField DataField="RoleName" DataTooltipField="RoleName" HeaderText="角色名称" ExpandUnusedSpace="true" />
+                    <ext:BoundField DataField="RoleName" DataTooltipField="RoleName" HeaderText="权限名称" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
             <ext:Panel ColumnWidth="13%" Layout="Row" EnableBackgroundColor="true" BodyPadding="3px"
@@ -43,7 +43,7 @@
                 EnableMultiSelect="false" ColumnWidth="43%" runat="server" AutoHeight="true"
                 Height="405px">
                 <Columns>
-                    <ext:BoundField DataField="RoleName" DataTooltipField="RoleName" HeaderText="我拥有的角色" ExpandUnusedSpace="true" />
+                    <ext:BoundField DataField="RoleName" DataTooltipField="RoleName" HeaderText="我拥有的权限" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
         </Items>

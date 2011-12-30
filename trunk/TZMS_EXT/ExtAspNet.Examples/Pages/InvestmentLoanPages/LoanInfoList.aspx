@@ -94,7 +94,7 @@
         Height="370px" Width="400px">
     </ext:Window>
     <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="625px" Width="570px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="469px" Width="570px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="429px" Width="650px" OnClose="wndNew_Close">

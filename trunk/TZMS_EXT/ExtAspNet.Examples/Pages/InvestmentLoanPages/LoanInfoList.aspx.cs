@@ -172,7 +172,11 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
             //收款提醒
-            if (_Info.DueDateForPay <= DateTime.Now.Day)
+            if (_Info.LoanDate.Month == DateTime.Now.Month)
+            {
+                e.Values[8] = "<span class=\"gray\">暂无！</span>";
+            }
+            else if (_Info.DueDateForPay <= DateTime.Now.Day)
             {
                 e.Values[8] = "<span class=\"gray\">请收款！</span>";
             }
