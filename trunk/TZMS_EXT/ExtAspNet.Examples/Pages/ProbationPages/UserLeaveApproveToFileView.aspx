@@ -1,14 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProbationApprove.aspx.cs"
-    Inherits="TZMS.Web.ProbationApprove" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserLeaveApproveToFileView.aspx.cs" Inherits="TZMS.Web.UserLeaveApproveToFileView" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
+ <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" AutoScroll="false" ShowBorder="true" ShowHeader="false">
         <Toolbars>
@@ -16,11 +16,8 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnPass" Text="同意" Icon="Accept" runat="server" ValidateForms="frmApprove"
-                        OnClick="btnPass_Click" ConfirmText="您确定同意吗?">
-                    </ext:Button>
-                    <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click"
-                        ConfirmText="您确定不同意吗?">
+                    <ext:Button ID="btnPass" Text="确认归档" Icon="Accept" runat="server" 
+                        OnClick="btnPass_Click" ConfirmText="您确定归档吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -29,34 +26,12 @@
             <ext:Panel ID="pelOperator" runat="server" ShowBorder="false" EnableBackgroundColor="true"
                 BodyPadding="3px" ShowHeader="false" AnchorValue="100% -36">
                 <Items>
-                    <ext:Form ID="frmApprove" EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px"
-                        runat="server">
-                        <Rows>
-                            <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
-                                <Items>
-                                    <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
-                                        AutoPostBack="true" Label="下一步" OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
-                                    </ext:DropDownList>
-                                    <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
-                                        RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
-                                    </ext:DropDownList>
-                                </Items>
-                            </ext:FormRow>
-                            <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="50% 50%">
-                                <Items>
-                                    <ext:TextArea ID="taaApproveSugest" Height="50px" runat="server" Label="审批意见" MaxLength="100"
-                                        MaxLengthMessage="最多只能输入100个字！">
-                                    </ext:TextArea>
-                                </Items>
-                            </ext:FormRow>
-                        </Rows>
-                    </ext:Form>
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
                         AutoHeight="true" Height="335px">
                         <Tabs>
-                            <ext:Tab ID="Tab1" Title="转正申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab1" Title="离职申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
-                                    <ext:Form EnableBackgroundColor="true" LabelWidth="55px" ShowHeader="false" ShowBorder="false"
+                                    <ext:Form EnableBackgroundColor="true" LabelWidth="75px" ShowHeader="false" ShowBorder="false"
                                         BodyPadding="5px" ID="mainForm" runat="server">
                                         <Rows>
                                             <ext:FormRow ID="FormRow1" runat="server" ColumnWidths="50% 50%">
@@ -69,21 +44,29 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
-                                                    <ext:Label ID="lblEntryDate" runat="server" Label="入职时间">
+                                                    <ext:Label ID="lblPosition" runat="server" Label="职务">
                                                     </ext:Label>
-                                                    <ext:Label ID="Label2" runat="server">
+                                                    <ext:Label ID="lblLeaveDate" runat="server" Label="拟离职时间">
                                                     </ext:Label>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">
+                                            <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaSument" Height="150px" runat="server" Label="事项" Enabled="false">
-                                                    </ext:TextArea>
+                                                    <ext:Label ID="lblContractStartDate" runat="server" Label="合同开始日期">
+                                                    </ext:Label>
+                                                    <ext:Label ID="lblContractEndDate" runat="server" Label="合同结束日期">
+                                                    </ext:Label>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaOther" Height="100px" runat="server" Label="备注" Enabled="false">
+                                                    <ext:Label ID="lblLeaveType" runat="server" Label="离职类型">
+                                                    </ext:Label>
+                                                </Items>
+                                            </ext:FormRow>
+                                            <ext:FormRow ID="FormRow11" runat="server" ColumnWidths="60%">
+                                                <Items>
+                                                    <ext:TextArea ID="taaLeaveReason" Label="离职原因" runat="server" Height="200px" Enabled="false">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
@@ -98,8 +81,8 @@
                                         <Columns>
                                             <ext:BoundField DataField="ApproverName" HeaderText="执行人" />
                                             <ext:BoundField DataField="ApproveTime" HeaderText="执行时间" />
-                                            <ext:BoundField DataField="ApproveOp" HeaderText="执行结果" />
-                                            <ext:BoundField DataField="ApproveSugest" HeaderText="执行人意见" DataTooltipField="ApproveSugest"
+                                            <ext:BoundField DataField="ApproveResult" HeaderText="执行结果" />
+                                            <ext:BoundField DataField="ApproverSugest" HeaderText="执行人意见" DataTooltipField="ApproverSugest"
                                                 ExpandUnusedSpace="true" />
                                         </Columns>
                                     </ext:Grid>

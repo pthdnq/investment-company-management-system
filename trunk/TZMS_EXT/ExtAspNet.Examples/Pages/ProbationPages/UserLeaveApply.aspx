@@ -84,7 +84,8 @@
                                             <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextArea ID="taaLeaveReason" runat="server" Required="true" ShowLabel="true"
-                                                        MaxLength="1000" MaxLengthMessage="最多只能输入1000个字!" Height="200px" EmptyText="请输入离职原因">
+                                                        MaxLength="1000" MaxLengthMessage="最多只能输入1000个字!" ShowRedStar="true" Label="离职原因"
+                                                        Height="200px" EmptyText="请输入离职原因">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>

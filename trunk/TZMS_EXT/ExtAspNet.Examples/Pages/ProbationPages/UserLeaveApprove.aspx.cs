@@ -64,6 +64,7 @@ namespace TZMS.Web
                 BindApproveUser();
                 BindApplyInfo();
                 BindApproveHistory();
+                SetPanelState();
             }
         }
 
@@ -195,6 +196,8 @@ namespace TZMS.Web
                     arrayRoles = role.Roles.Split(',');
                     foreach (string strRole in arrayRoles)
                     {
+                        if (string.IsNullOrEmpty(strRole))
+                            continue;
                         if ((int)roleType == Convert.ToInt32(strRole))
                         {
                             isContain = true;
@@ -310,6 +313,23 @@ namespace TZMS.Web
             }
 
             #endregion
+        }
+
+        /// <summary>
+        /// 设置面板状态
+        /// </summary>
+        private void SetPanelState()
+        {
+            if (string.IsNullOrEmpty(ApproveID))
+                return;
+            UserLeaveManage _manage = new UserLeaveManage();
+            UserLeaveApproveInfo _approveInfo = _manage.GetApproveByObjectID(ApproveID);
+            if (_approveInfo != null && _approveInfo.IsApprove)
+            {
+                btnPass.Hidden = true;
+                btnRefuse.Hidden = true;
+                frmApprove.Hidden = true;
+            }
         }
 
         #endregion

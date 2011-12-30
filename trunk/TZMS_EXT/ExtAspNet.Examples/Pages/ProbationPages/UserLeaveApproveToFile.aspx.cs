@@ -19,6 +19,7 @@ namespace TZMS.Web
             {
                 CurrentLevel = GetCurrentLevel("lzspgd");
 
+                wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -117,40 +118,46 @@ namespace TZMS.Web
         protected void gridArchiver_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
             string strApproveID = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[0];
-            string strApproveResult = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[9];
-            if (!string.IsNullOrEmpty(strApproveID))
+            string strApplyID = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[1];
+            if (e.CommandName == "Archive")
             {
-                UserLeaveManage _manage = new UserLeaveManage();
-                UserLeaveApproveInfo _approveInfo = _manage.GetApproveByObjectID(strApproveID);
-                UserLeaveApplyInfo _applyInfo = _manage.GetApplyByObjectID(_approveInfo.ApplyID.ToString());
-
-                // 设置归档信息.
-                _approveInfo.IsApprove = true;
-                _approveInfo.ApproveResult = 4;
-                _approveInfo.ApproveTime = DateTime.Now;
-                _manage.UpdateApprove(_approveInfo);
-
-                // 设置申请单信息.
-                if (strApproveResult == "同意")
-                {
-                    _applyInfo.State = 1;
-
-                    List<UserLeaveTransferInfo> lstTransfer = _manage.GetTransferByCondition(" ApplyID = '" + _applyInfo.ObjectID.ToString() + "'");
-                    foreach (var item in lstTransfer)
-                    {
-                        item.TransferState = 0;
-                        _manage.UpdateTransfer(item);
-                    }
-                }
-                else
-                {
-                    _applyInfo.State = 2;
-                }
-
-                _manage.UpdateApply(_applyInfo);
-
-                BindGrid();
+                wndApprove.IFrameUrl = "UserLeaveApproveToFileView.aspx?ApproveID=" + strApproveID + "&ApplyID=" + strApplyID;
+                wndApprove.Hidden = false;
             }
+            //string strApproveResult = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[9];
+            //if (!string.IsNullOrEmpty(strApproveID))
+            //{
+            //    UserLeaveManage _manage = new UserLeaveManage();
+            //    UserLeaveApproveInfo _approveInfo = _manage.GetApproveByObjectID(strApproveID);
+            //    UserLeaveApplyInfo _applyInfo = _manage.GetApplyByObjectID(_approveInfo.ApplyID.ToString());
+
+            //    // 设置归档信息.
+            //    _approveInfo.IsApprove = true;
+            //    _approveInfo.ApproveResult = 4;
+            //    _approveInfo.ApproveTime = DateTime.Now;
+            //    _manage.UpdateApprove(_approveInfo);
+
+            //    // 设置申请单信息.
+            //    if (strApproveResult == "同意")
+            //    {
+            //        _applyInfo.State = 1;
+
+            //        List<UserLeaveTransferInfo> lstTransfer = _manage.GetTransferByCondition(" ApplyID = '" + _applyInfo.ObjectID.ToString() + "'");
+            //        foreach (var item in lstTransfer)
+            //        {
+            //            item.TransferState = 0;
+            //            _manage.UpdateTransfer(item);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        _applyInfo.State = 2;
+            //    }
+
+            //    _manage.UpdateApply(_applyInfo);
+
+            //    BindGrid();
+            //}
         }
 
         /// <summary>
@@ -187,15 +194,28 @@ namespace TZMS.Web
                     e.Values[10] = _approveInfo.ApproveResult == 3 ? "待归档" : "已归档";
                     if (_approveInfo.ApproveResult == 4)
                     {
-                        e.Values[11] = "<span class=\"gray\">归档</span>";
+                        //e.Values[11] = "<span class=\"gray\">归档</span>";
+                        e.Values[11] = e.Values[11].ToString().Replace("归档", "查看");
+                    }
+                    else
+                    {
+                        if (CurrentLevel == VisitLevel.View)
+                        {
+                            e.Values[11] = "<span class=\"gray\">归档</span>";
+                        }
                     }
                 }
-
-                if (CurrentLevel == VisitLevel.View)
-                {
-                    e.Values[11] = "<span class=\"gray\">归档</span>";
-                }
             }
+        }
+
+        /// <summary>
+        /// 归档窗口关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndApprove_Close(object sender, WindowCloseEventArgs e)
+        {
+            BindGrid();
         }
 
         #endregion

@@ -165,36 +165,40 @@ namespace TZMS.Web
             ProbationApproveInfo _approveInfo = _manage.GetApproveByObjectID(ApproveID);
             if (_approveInfo != null && _approveInfo.ApproveState == 1)
             {
-                // 查找最早的审批记录.
-                List<ProbationApproveInfo> lstApprove = _manage.GetApproveByCondition(" ApplyID = '" + ApplyID + "' and ApproveOp <> 0 and ApproveTime > '"
-                    + _approveInfo.ApproveTime.ToString() + "'");
-                if (lstApprove.Count > 0)
-                {
-                    lstApprove.Sort(delegate(ProbationApproveInfo x, ProbationApproveInfo y) { return DateTime.Compare(y.ApproveTime, x.ApproveTime); });
-                    if (lstApprove[0].ApproveOp < 3)
-                    {
-                        ddlstNext.SelectedValue = "0";
-                        ddlstNext_SelectedIndexChanged(null, null);
-                        ddlstApproveUser.SelectedValue = lstApprove[0].ApproverID.ToString();
-                    }
-                    else if (lstApprove[0].ApproveOp >= 3)
-                    {
-                        ddlstNext.SelectedValue = "1";
-                        ddlstNext_SelectedIndexChanged(null, null); 
-                        ddlstApproveUser.SelectedValue = lstApprove[0].ApproverID.ToString();
-                    }
-                }
+                btnPass.Hidden = true;
+                btnRefuse.Hidden = true;
+                frmApprove.Hidden = true;
 
-                taaApproveSugest.Text = _approveInfo.ApproveSugest;
-                btnPass.Enabled = false;
-                btnRefuse.Enabled = false;
-                ddlstNext.Required = false;
-                ddlstNext.ShowRedStar = false;
-                ddlstNext.Enabled = false;
-                ddlstApproveUser.Enabled = false;
-                ddlstApproveUser.ShowRedStar = false;
-                ddlstApproveUser.Enabled = false;
-                taaApproveSugest.Enabled = false;
+                //// 查找最早的审批记录.
+                //List<ProbationApproveInfo> lstApprove = _manage.GetApproveByCondition(" ApplyID = '" + ApplyID + "' and ApproveOp <> 0 and ApproveTime > '"
+                //    + _approveInfo.ApproveTime.ToString() + "'");
+                //if (lstApprove.Count > 0)
+                //{
+                //    lstApprove.Sort(delegate(ProbationApproveInfo x, ProbationApproveInfo y) { return DateTime.Compare(y.ApproveTime, x.ApproveTime); });
+                //    if (lstApprove[0].ApproveOp < 3)
+                //    {
+                //        ddlstNext.SelectedValue = "0";
+                //        ddlstNext_SelectedIndexChanged(null, null);
+                //        ddlstApproveUser.SelectedValue = lstApprove[0].ApproverID.ToString();
+                //    }
+                //    else if (lstApprove[0].ApproveOp >= 3)
+                //    {
+                //        ddlstNext.SelectedValue = "1";
+                //        ddlstNext_SelectedIndexChanged(null, null); 
+                //        ddlstApproveUser.SelectedValue = lstApprove[0].ApproverID.ToString();
+                //    }
+                //}
+
+                //taaApproveSugest.Text = _approveInfo.ApproveSugest;
+                //btnPass.Enabled = false;
+                //btnRefuse.Enabled = false;
+                //ddlstNext.Required = false;
+                //ddlstNext.ShowRedStar = false;
+                //ddlstNext.Enabled = false;
+                //ddlstApproveUser.Enabled = false;
+                //ddlstApproveUser.ShowRedStar = false;
+                //ddlstApproveUser.Enabled = false;
+                //taaApproveSugest.Enabled = false;
             }
         }
 

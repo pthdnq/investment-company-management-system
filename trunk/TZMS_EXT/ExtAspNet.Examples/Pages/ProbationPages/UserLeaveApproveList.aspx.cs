@@ -178,21 +178,23 @@ namespace TZMS.Web
                         e.Values[10] = "待审批";
                         e.Values[11] = "";
                         e.Values[12] = "";
+                        if (CurrentLevel == VisitLevel.View)
+                        {
+                            e.Values[13] = "<span class=\"gray\">审批</span>";
+                        }
                         break;
                     case "True":
                         e.Values[10] = "已审批";
                         e.Values[11] = e.Values[11].ToString() == "1" ? "同意" : "不同意";
                         e.Values[12] = DateTime.Parse(e.Values[12].ToString()).ToString("yyyy-MM-dd HH:mm");
-                        e.Values[13] = "<span class=\"gray\">审批</span>";
+                        //e.Values[13] = "<span class=\"gray\">审批</span>";
+                        e.Values[13] = e.Values[13].ToString().Replace("审批", "查看");
                         break;
                     default:
                         break;
                 }
 
-                if (CurrentLevel == VisitLevel.View)
-                {
-                    e.Values[13] = "<span class=\"gray\">审批</span>";
-                }
+
             }
         }
 
