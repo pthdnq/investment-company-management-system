@@ -51,7 +51,7 @@
                             <ext:BoundField HeaderText="执行人" />
                             <ext:BoundField HeaderText="执行结果" />
                             <ext:BoundField HeaderText="归档状态" />
-                            <ext:LinkButtonField Width="38px" Text="归档" CommandName="Archive" ConfirmText="确定归档该申请单?"
+                            <ext:LinkButtonField Width="38px" Text="归档" CommandName="Archive" 
                                 ConfirmTarget="Parent" />
                         </Columns>
                     </ext:Grid>
@@ -59,6 +59,10 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
+        <ext:Window ID="wndApprove" Title="转正归档" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
+        Width="700px" OnClose="wndApprove_Close">
+    </ext:Window>
     </form>
 </body>
 </html>
