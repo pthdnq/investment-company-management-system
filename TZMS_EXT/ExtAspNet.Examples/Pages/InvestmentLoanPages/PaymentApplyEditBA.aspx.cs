@@ -66,16 +66,16 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
             MUDAttachment.RecordID = _Info.ObjectId.ToString();
-            if (_Info.Status == 2 || _Info.Status == 1)
+            if (_Info.BAStatus == 2)
             {
                 this.btnSave.Hidden = false;
             }
-               
+
             #region 下一步方式
-            if (CurrentRoles.Contains(RoleType.HSKJ))
-            {
-                BindNext(true);
-            }
+            //if (CurrentRoles.Contains(RoleType.HSKJ))
+            //{
+            //    BindNext(true);
+            //}
             //else if (CurrentRoles.Contains(RoleType.ZJL))
             //{      //大于30w且当前审批人不是董事长，不显示下一步会计审核选项
             //    if (_Info.LoanAmount >= 300000)
@@ -83,10 +83,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             //    else
             //    { BindNext(true); }
             //}
-            else
-            {
-                BindNext(false);
-            }
+            //else
+            //{
+            BindNext(false);
+            //  }
             #endregion
 
             this.tbProjectName.Text = _Info.ProjectName;
@@ -198,7 +198,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-              //  ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                //  ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

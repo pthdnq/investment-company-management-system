@@ -83,7 +83,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            { 
+            {
                 // 绑定下拉框.
                 BindDDL();
                 // 绑定列表.
@@ -100,8 +100,11 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
 
             //this.CurrentLevel = GetCurrentLevel("rzsq");
-
             //if (this.CurrentLevel.Equals(VisitLevel.View))
+            //{
+            //    this.btnNew.Hidden = true;
+            //} 
+
             if (!this.CurrentRoles.Contains(RoleType.TZZJ))
             {
                 this.btnNew.Hidden = true;
@@ -198,7 +201,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             FolkFinancingInfo _Info = (FolkFinancingInfo)e.DataItem;
 
             //if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
-            if (_Info.BAStatus == 2)
+            if (_Info.BAStatus == 2 && this.CurrentRoles.Contains(RoleType.TZZJ))
             {
                 if (_Info.Status != 9)
                 {
@@ -208,16 +211,14 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 {
                     e.Values[14] = "<span class=\"gray\">编辑</span>";
                 }
-
             }
 
-          //  if (_Info.Status != 1 && _Info.Status != 2)
-            if ( _Info.Status != 2)
+            //  if (_Info.Status != 1 && _Info.Status != 2)
+            if (_Info.Status != 2 || !this.CurrentRoles.Contains(RoleType.TZZJ))
             {
                 e.Values[11] = "<span class=\"gray\">删除</span>";
                 e.Values[12] = "<span class=\"gray\">编辑</span>";
             }
-
         }
         #endregion
 

@@ -214,11 +214,11 @@ namespace TZMS.Web
             /// <summary>
             /// 副总经理
             /// </summary>
-            FZJL = 3,
+            //FZJL = 3,
             /// <summary>
             /// 行政部门总监
             /// </summary>
-            XZZJ = 4,
+          //  XZZJ = 4,
             /// <summary>
             /// 财务部门总监
             /// </summary>
@@ -230,7 +230,7 @@ namespace TZMS.Web
             /// <summary>
             /// 业务部门总监
             /// </summary>
-            YWZJ = 7,
+            //YWZJ = 7,
             /// <summary>
             /// 行政部门主管
             /// </summary>
@@ -258,7 +258,7 @@ namespace TZMS.Web
             /// <summary>
             /// 代账会计
             /// </summary>
-            DZKJ = 14,
+            //DZKJ = 14,
             /// <summary>
             /// 核算会计
             /// </summary>
@@ -266,7 +266,7 @@ namespace TZMS.Web
             /// <summary>
             /// 主办会计
             /// </summary>
-            ZBKJ = 16,
+            //ZBKJ = 16,
             /// <summary>
             /// 出纳会计
             /// </summary>
