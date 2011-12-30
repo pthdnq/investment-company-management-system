@@ -13,6 +13,23 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
     public partial class ProjectInfo : BasePage
     {
         #region viewstate
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
+
         /// <summary>
         /// 用于存储部门名称的ViewState.
         /// </summary>
@@ -87,12 +104,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                 string strID = Request.QueryString["ID"];
                 string type = Request.QueryString["Type"];
-                if (!string.IsNullOrEmpty(type))
+                OperateType = type;
+                if (!string.IsNullOrEmpty(type) && type.Equals("View"))
                 {
-                    if (type.Equals("View"))
-                    {
-                        this.btnNew.Hidden = true;
-                    }
+                    this.btnNew.Hidden = true;
                 }
 
                 ForID = strID;
@@ -272,15 +287,22 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             com.TZMS.Model.ProjectProcessInfo _Info = (com.TZMS.Model.ProjectProcessInfo)e.DataItem;
 
-            if (_Info.Status != 2)
-            {
-                e.Values[8] = e.Values[8].ToString().Replace("编辑", "查看").Replace("Edit", "View");
-            }
-
             if (_Info.Status != 1)
             {
                 e.Values[9] = "<span class=\"gray\">删除</span>";
             }
+
+            if (_Info.Status != 2)
+            {
+                e.Values[8] = e.Values[8].ToString().Replace("编辑", "查看").Replace("Edit", "View");
+            }
+            else if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+            {
+                e.Values[8] = e.Values[8].ToString().Replace("编辑", "查看").Replace("Edit", "View");
+                e.Values[9] = "<span class=\"gray\">删除</span>";
+            }
+
+
 
 
         }

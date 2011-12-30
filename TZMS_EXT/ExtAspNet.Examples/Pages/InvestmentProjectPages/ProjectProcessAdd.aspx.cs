@@ -97,22 +97,24 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             }
 
             // 通过 ID获取 信息实例.
-            com.TZMS.Model.ProjectProcessInfo _info = new InvestmentProjectManage().GetProcessByObjectID(strID);
+            com.TZMS.Model.ProjectProcessInfo _Info = new InvestmentProjectManage().GetProcessByObjectID(strID);
 
             if (OperateType.Equals("View"))
             {
                 SetContrl(true);
                 this.btnSave.Hidden = true;
+
+                this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
                 this.ddlstApproveUser.Enabled = false;
                 this.ddlstNext.Enabled = false;
             }
             else if (OperateType.Equals("Edit"))
-            {
-                SetContrl(_info.IsPassImprest || !_info.NeedImprest, false);
+            { 
+                SetContrl(_Info.IsPassImprest || !_Info.NeedImprest, false);
             }
 
             // 绑定数据.
-            if (_info != null)
+            if (_Info != null)
             {
                 #region 下一步方式
                 //投资部总监可以归档
@@ -132,19 +134,19 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 // BindNext();
                 //    }
                 #endregion
-                this.cbIsAmountExpended.Checked = _info.NeedImprest;
+                this.cbIsAmountExpended.Checked = _Info.NeedImprest;
 
-                this.tbImplementationPhase.Text = _info.ImplementationPhase;
-                this.tbAmountExpended.Text = _info.AmountExpended.ToString();
-                this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
-                this.taRemark.Text = _info.Remark;
+                this.tbImplementationPhase.Text = _Info.ImplementationPhase;
+                this.tbAmountExpended.Text = _Info.AmountExpended.ToString();
+                this.tbImprestAmount.Text = _Info.ImprestAmount.ToString();
+                this.taRemark.Text = _Info.Remark;
 
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
                 //{
-                this.tbExpendedTime.Text = _info.ExpendedTime;
+                this.tbExpendedTime.Text = _Info.ExpendedTime;
 
-                this.tbUse.Text = _info.Use;
-                this.tbImprestRemark.Text = _info.ImprestRemark;
+                this.tbUse.Text = _Info.Use;
+                this.tbImprestRemark.Text = _Info.ImprestRemark;
                 // } 
             }
         }

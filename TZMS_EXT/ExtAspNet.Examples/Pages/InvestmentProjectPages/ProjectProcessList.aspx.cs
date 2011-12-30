@@ -96,7 +96,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            if ((!string.IsNullOrEmpty(state)) && (state.Equals("6")))
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("6") || state.Equals("2")))
             {
                 strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
             }

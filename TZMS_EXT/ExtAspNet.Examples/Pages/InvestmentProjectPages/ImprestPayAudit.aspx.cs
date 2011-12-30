@@ -91,7 +91,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 }
                 #endregion
 
-                this.tbImplementationPhase.Text = _info.ImplementationPhase;
+                this.tbImplementationPhase.Text = _info.Use;
                 this.tbAmountExpended.Text = _info.AmountExpended.ToString();
                 this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.Remark;

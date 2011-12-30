@@ -96,8 +96,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
                 //{
-                    this.dpExpendedTime.Text = _info.ExpendedTime;
-               // }
+                this.dpExpendedTime.Text = _info.ExpendedTime;
+                // }
 
             }
         }
@@ -182,14 +182,14 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             _Info.Status = status;
             //下一步操作
-            if (status != 6)
+            if (status == 5)
             {
                 _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
                 _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             }
             else
             {
-                _Info.NextOperaterName ="";
+                _Info.NextOperaterName = "";
                 _Info.NextOperaterId = Guid.Empty;
             }
             _Info.SubmitTime = DateTime.Now;
