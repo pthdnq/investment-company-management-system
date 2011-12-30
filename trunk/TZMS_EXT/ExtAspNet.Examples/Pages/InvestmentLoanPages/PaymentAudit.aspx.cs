@@ -10,6 +10,23 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
     public partial class PaymentAudit : BasePage
     {
         #region 属性
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
+
         /// <summary>
         /// ObjectID
         /// </summary>
@@ -41,6 +58,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
 
+                OperateType = Request.QueryString["Type"];
+
                 bindInterface(strID);
                 // 绑定审批人.
                 ApproveUser();
@@ -65,6 +84,19 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 return;
             }
             InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
+
+            #region View
+            if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+            {
+                this.btnDismissed.Hidden = true;
+                this.btnSave.Hidden = true;
+                this.taAuditOpinion.Enabled = false;
+
+                this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextBAOperaterName, Value = "1", Selected = true });
+                this.ddlstNext.Enabled = false;
+                this.ddlstApproveUser.Enabled = false;
+            }
+            #endregion
 
             #region 下一步方式
             if (CurrentRoles.Contains(RoleType.DSZ))
@@ -102,7 +134,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
 
-           
+
         }
 
         /// <summary>

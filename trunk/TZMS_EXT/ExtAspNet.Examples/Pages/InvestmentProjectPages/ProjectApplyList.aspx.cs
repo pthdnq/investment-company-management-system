@@ -102,7 +102,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectApplyAdd.aspx?Type=Add", "新增 - 项目申请");
             this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
 
-            this.CurrentLevel = GetCurrentLevel("fksq");
+            this.CurrentLevel = GetCurrentLevel("xmsq");
             if (this.CurrentLevel.Equals(VisitLevel.View))
             {
                 this.btnNew.Hidden = true;

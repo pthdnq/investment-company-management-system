@@ -158,7 +158,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 this.tbBorrowerPhone.Text = e.CloseArgument.Split(',')[2];
                 ViewStateZJ = e.CloseArgument;
 
-                this.tbBorrowerNameA.EnableEdit = false;
+                this.tbBorrowerNameA.Enabled = false;
                 this.tbBorrowerPhone.Enabled = false;
             }
         }
@@ -221,7 +221,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.LoanDate = DateTime.Parse(this.dpLoanDate.Text);
             _Info.Status = 1;
             _Info.SubmitTime = DateTime.Now;
-            _Info.Remark = this.tbRateOfReturn.Text.Trim();
+            _Info.Remark = this.tbRemark.Text.Trim();
             _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
             _Info.RateOfReturn = this.tbRateOfReturn.Text;
 

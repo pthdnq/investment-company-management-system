@@ -167,6 +167,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             this.tbBorrowerNameA.Enabled = false;
             this.tbBorrowerPhone.Enabled = false;
+            tbBorrowerNameA.ShowTrigger = false;
         }
 
         /// <summary>
