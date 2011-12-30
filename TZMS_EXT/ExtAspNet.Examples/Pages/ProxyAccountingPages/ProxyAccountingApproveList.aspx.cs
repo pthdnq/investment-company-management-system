@@ -8,6 +8,7 @@ using ExtAspNet;
 using System.Text;
 using com.TZMS.Business;
 using System.Data;
+using com.TZMS.Model;
 
 namespace TZMS.Web
 {
@@ -64,7 +65,8 @@ namespace TZMS.Web
                 strCondition.Append(" and ApproveState = 1");
             }
 
-            strCondition.Append(" and (ApproveDate between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "' or ApproveDate='1900-01-01 12:00:00.000')");
+            strCondition.Append(" and (ApproveDate between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "' or ApproveDate='"
+                + ACommonInfo.DBMAXDate.ToString() + "')");
 
             #endregion
 
@@ -144,20 +146,20 @@ namespace TZMS.Web
                         e.Values[10] = "待审批";
                         e.Values[11] = "";
                         e.Values[12] = "";
+                        if (CurrentLevel == VisitLevel.View)
+                        {
+                            e.Values[13] = "<span class=\"gray\">审批</span>";
+                        }
                         break;
                     case "1":
                         e.Values[10] = "已审批";
                         e.Values[11] = e.Values[11].ToString() == "0" ? "同意" : "不同意";
                         e.Values[12] = DateTime.Parse(e.Values[12].ToString()).ToString("yyyy-MM-dd HH:mm");
-                        e.Values[13] = "<span class=\"gray\">审批</span>";
+                        //e.Values[13] = "<span class=\"gray\">审批</span>";
+                        e.Values[13] = e.Values[13].ToString().Replace("审批", "查看");
                         break;
                     default:
                         break;
-                }
-
-                if (CurrentLevel == VisitLevel.View)
-                {
-                    e.Values[13] = "<span class=\"gray\">审批</span>";
                 }
             }
         }

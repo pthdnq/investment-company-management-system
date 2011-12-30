@@ -219,7 +219,7 @@ namespace TZMS.Web
                 _approveInfo.ApproverID = _approveUser.ObjectId;
                 _approveInfo.ApproverName = _approveUser.Name;
                 _approveInfo.ApproverDept = _approveUser.Dept;
-                _approveInfo.ApproveDate = ACommonInfo.DBEmptyDate;
+                _approveInfo.ApproveDate = ACommonInfo.DBMAXDate;
                 _approveInfo.ApproveState = 0;
                 _approveInfo.ApplyID = _applyInfo.ObjectID;
 
@@ -257,7 +257,7 @@ namespace TZMS.Web
                     _approveInfo.ApproverID = _approveUser.ObjectId;
                     _approveInfo.ApproverName = _approveUser.Name;
                     _approveInfo.ApproverDept = _approveUser.Dept;
-                    _approveInfo.ApproveDate = ACommonInfo.DBEmptyDate;
+                    _approveInfo.ApproveDate = ACommonInfo.DBMAXDate;
                     _approveInfo.ApproveState = 0;
                     _approveInfo.ApplyID = _applyInfo.ObjectID;
 
