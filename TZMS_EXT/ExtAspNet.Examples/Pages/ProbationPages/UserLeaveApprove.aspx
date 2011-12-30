@@ -16,7 +16,7 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnPass" Text="同意" Icon="Accept" runat="server" ValidateForms="mainForm2"
+                    <ext:Button ID="btnPass" Text="同意" Icon="Accept" runat="server" ValidateForms="frmApprove"
                         OnClick="btnPass_Click" ConfirmText="您确定同意吗?">
                     </ext:Button>
                     <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click"
@@ -29,7 +29,7 @@
             <ext:Panel ID="pelOperator" runat="server" ShowBorder="false" EnableBackgroundColor="true"
                 BodyPadding="3px" ShowHeader="false" AnchorValue="100% -36">
                 <Items>
-                    <ext:Form ID="mainForm2" EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px"
+                    <ext:Form ID="frmApprove" EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px"
                         runat="server" LabelWidth="100px">
                         <Rows>
                             <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">

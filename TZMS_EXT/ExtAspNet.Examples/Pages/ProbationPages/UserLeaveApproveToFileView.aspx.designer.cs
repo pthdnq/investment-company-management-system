@@ -10,7 +10,7 @@
 namespace TZMS.Web {
     
     
-    public partial class ProbationApprove {
+    public partial class UserLeaveApproveToFileView {
         
         /// <summary>
         /// form1 control.
@@ -67,15 +67,6 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Button btnPass;
         
         /// <summary>
-        /// btnRefuse control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Button btnRefuse;
-        
-        /// <summary>
         /// pelOperator control.
         /// </summary>
         /// <remarks>
@@ -83,60 +74,6 @@ namespace TZMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.Panel pelOperator;
-        
-        /// <summary>
-        /// frmApprove control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Form frmApprove;
-        
-        /// <summary>
-        /// FormRow2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow2;
-        
-        /// <summary>
-        /// ddlstNext control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstNext;
-        
-        /// <summary>
-        /// ddlstApproveUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstApproveUser;
-        
-        /// <summary>
-        /// FormRow6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow6;
-        
-        /// <summary>
-        /// taaApproveSugest control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextArea taaApproveSugest;
         
         /// <summary>
         /// TabStrip1 control.
@@ -202,22 +139,22 @@ namespace TZMS.Web {
         protected global::ExtAspNet.FormRow FormRow3;
         
         /// <summary>
-        /// lblEntryDate control.
+        /// lblPosition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label lblEntryDate;
+        protected global::ExtAspNet.Label lblPosition;
         
         /// <summary>
-        /// Label2 control.
+        /// lblLeaveDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label Label2;
+        protected global::ExtAspNet.Label lblLeaveDate;
         
         /// <summary>
         /// FormRow4 control.
@@ -229,13 +166,22 @@ namespace TZMS.Web {
         protected global::ExtAspNet.FormRow FormRow4;
         
         /// <summary>
-        /// taaSument control.
+        /// lblContractStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextArea taaSument;
+        protected global::ExtAspNet.Label lblContractStartDate;
+        
+        /// <summary>
+        /// lblContractEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label lblContractEndDate;
         
         /// <summary>
         /// FormRow5 control.
@@ -247,13 +193,31 @@ namespace TZMS.Web {
         protected global::ExtAspNet.FormRow FormRow5;
         
         /// <summary>
-        /// taaOther control.
+        /// lblLeaveType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextArea taaOther;
+        protected global::ExtAspNet.Label lblLeaveType;
+        
+        /// <summary>
+        /// FormRow11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow FormRow11;
+        
+        /// <summary>
+        /// taaLeaveReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextArea taaLeaveReason;
         
         /// <summary>
         /// Tab2 control.
