@@ -60,9 +60,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
                 OperateType = Request.QueryString["Type"];
 
+
                 bindInterface(strID);
-                // 绑定审批人.
-                ApproveUser();
+
                 // 绑定审批历史.
                 BindHistory();
             }
@@ -92,9 +92,14 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 this.btnSave.Hidden = true;
                 this.taAuditOpinion.Enabled = false;
 
-                this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextBAOperaterName, Value = "1", Selected = true });
+                this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
                 this.ddlstNext.Enabled = false;
                 this.ddlstApproveUser.Enabled = false;
+            }
+            else
+            {
+                // 绑定审批人.
+                ApproveUser();
             }
             #endregion
 

@@ -102,6 +102,10 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 {
                     SetContrl(true);
                     this.btnSave.Hidden = true;
+
+
+                    this.ddlstApproveUser.Items.Add(new ListItem() { Text = _info.NextOperaterName, Value = "0", Selected = true });
+
                     this.ddlstApproveUser.Enabled = false;
                     this.ddlstNext.Enabled = false;
                 }
