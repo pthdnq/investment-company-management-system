@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="x-ua-compatible" content="ie=8" /> 
+    <meta http-equiv="x-ua-compatible" content="ie=8" />
     <title></title>
 </head>
 <body>
@@ -16,7 +16,8 @@
             <ext:Toolbar>
                 <Items>
                     <ext:Button ID="btnSave" Text="保存" runat="server" OnClick="btnSave_Click" Icon="Disk" />
-               <ext:Label ID="labTitle" runat="server" Text="[提示: 这里的角色只跟审批权有关！]" ></ext:Label>
+                    <ext:Label ID="labTitle" runat="server" Text="[提示: 这里的角色只跟审批权有关！]">
+                    </ext:Label>
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -24,7 +25,7 @@
             <ext:Grid ID="gridUnSelectRoles" Title="Grid1" ShowBorder="true" ShowHeader="false"
                 ColumnWidth="44%" runat="server" AutoHeight="true" Height="405px" EnableMultiSelect="false">
                 <Columns>
-                    <ext:BoundField DataField="RoleName" HeaderText="角色名称" Width="140px" />
+                    <ext:BoundField DataField="RoleName" DataTooltipField="RoleName" HeaderText="角色名称" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
             <ext:Panel ColumnWidth="13%" Layout="Row" EnableBackgroundColor="true" BodyPadding="3px"
@@ -42,7 +43,7 @@
                 EnableMultiSelect="false" ColumnWidth="43%" runat="server" AutoHeight="true"
                 Height="405px">
                 <Columns>
-                    <ext:BoundField DataField="RoleName" HeaderText="我拥有的角色" Width="135px" />
+                    <ext:BoundField DataField="RoleName" DataTooltipField="RoleName" HeaderText="我拥有的角色" ExpandUnusedSpace="true" />
                 </Columns>
             </ext:Grid>
         </Items>
