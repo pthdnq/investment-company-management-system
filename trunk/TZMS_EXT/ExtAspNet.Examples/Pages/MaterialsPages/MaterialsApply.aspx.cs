@@ -308,6 +308,7 @@ namespace TZMS.Web
                 {
                     ddlstType.SelectedValue = _manageInfo.MaterialsType.ToString();
                     ddlstMaterials.SelectedValue = _manageInfo.ObjectID.ToString();
+                    BindTotalCount(ddlstMaterials.SelectedValue);
                 }
                 lblName.Text = _info.UserName;
                 lblApplyTime.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");

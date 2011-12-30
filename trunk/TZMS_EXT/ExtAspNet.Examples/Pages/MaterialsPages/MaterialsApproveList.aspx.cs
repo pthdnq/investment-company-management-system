@@ -94,8 +94,8 @@ namespace TZMS.Web
                 strCondition.Append(" and UserDept = '" + ddlstDept.SelectedText + "'");
             }
 
-            strCondition.Append(" and (ApproveTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" 
-                + endTime.ToString("yyyy-MM-dd 23:59") + "' or ApproveTime='" 
+            strCondition.Append(" and (ApproveTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '"
+                + endTime.ToString("yyyy-MM-dd 23:59") + "' or ApproveTime='"
                 + ACommonInfo.DBMAXDate.ToString() + "')");
 
             #endregion
@@ -175,18 +175,18 @@ namespace TZMS.Web
                     e.Values[9] = "待审批";
                     e.Values[10] = "";
                     e.Values[11] = "";
+                    if (CurrentLevel == VisitLevel.View)
+                    {
+                        e.Values[12] = "<span class=\"gray\">审批</span>";
+                    }
                 }
                 else if (e.Values[9].ToString() == "1")
                 {
                     e.Values[9] = "已审批";
                     e.Values[10] = e.Values[10].ToString() == "0" ? "同意" : "不同意";
                     e.Values[11] = DateTime.Parse(e.Values[11].ToString()).ToString("yyyy-MM-dd HH:mm");
-                    e.Values[12] = "<span class=\"gray\">审批</span>";
-                }
-
-                if (CurrentLevel == VisitLevel.View)
-                {
-                    e.Values[12] = "<span class=\"gray\">审批</span>";
+                    //e.Values[12] = "<span class=\"gray\">审批</span>";
+                    e.Values[12] = e.Values[12].ToString().Replace("审批", "查看");
                 }
             }
         }
