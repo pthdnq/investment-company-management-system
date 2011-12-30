@@ -64,6 +64,7 @@ namespace TZMS.Web
                 BindApproveUser();
                 BindBaoxiaoInfo();
                 BindApproveHistory();
+                SetPanelState();
             }
         }
 
@@ -137,6 +138,26 @@ namespace TZMS.Web
             gridApproveHistory.RecordCount = lstBaoxiaoCheckInfo.Count;
             this.gridApproveHistory.DataSource = lstBaoxiaoCheckInfo;
             this.gridApproveHistory.DataBind();
+        }
+
+        /// <summary>
+        /// 设置面板状态
+        /// </summary>
+        private void SetPanelState()
+        {
+            if (string.IsNullOrEmpty(BaoxiaoCheckID))
+                return;
+            BaoxiaoManage _manage = new BaoxiaoManage();
+            BaoxiaoCheckInfo _checkInfo = _manage.GetBaoxiaoCheckByObjectID(BaoxiaoCheckID);
+            if (_checkInfo != null)
+            {
+                if (_checkInfo.Checkstate == 1)
+                {
+                    mainForm2.Hidden = true;
+                    btnPass.Hidden = true;
+                    btnRefuse.Hidden = true;
+                }
+            }
         }
 
         /// <summary>

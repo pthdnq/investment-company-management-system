@@ -296,11 +296,16 @@ namespace TZMS.Web
                 if (e.Values[11].ToString() == "0")
                 {
                     e.Values[11] = "待审批";
+                    if (CurrentLevel == VisitLevel.View)
+                    {
+                        e.Values[14] = "<span class=\"gray\">审批</span>";
+                    }
                 }
                 else if (e.Values[11].ToString() == "1")
                 {
                     e.Values[11] = "已审批";
-                    e.Values[14] = "<span class=\"gray\">审批</span>";
+                    //e.Values[14] = "<span class=\"gray\">审批</span>";
+                    e.Values[14] = e.Values[14].ToString().Replace("审批", "查看");
                 }
 
                 // 设置审批结果.
@@ -311,11 +316,6 @@ namespace TZMS.Web
                 else if (e.Values[12].ToString() == "1")
                 {
                     e.Values[12] = "打回修改";
-                }
-
-                if (CurrentLevel == VisitLevel.View)
-                {
-                    e.Values[14] = "<span class=\"gray\">审批</span>";
                 }
             }
         }
