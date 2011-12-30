@@ -716,6 +716,7 @@
     <Content Include="Pages\ProbationPages\ProbationApprove.aspx" />
     <Content Include="Pages\ProbationPages\ProbationApproveList.aspx" />
     <Content Include="Pages\ProbationPages\ProbationToFile.aspx" />
+    <Content Include="Pages\ProbationPages\ProbationToFileView.aspx" />
     <Content Include="Pages\ProbationPages\UserLeaveApply.aspx" />
     <Content Include="Pages\ProbationPages\UserLeaveApprove.aspx" />
     <Content Include="Pages\ProbationPages\UserLeaveApproveList.aspx" />
@@ -2039,6 +2040,13 @@
     </Compile>
     <Compile Include="Pages\ProbationPages\ProbationToFile.aspx.designer.cs">
       <DependentUpon>ProbationToFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\ProbationToFileView.aspx.cs">
+      <DependentUpon>ProbationToFileView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\ProbationToFileView.aspx.designer.cs">
+      <DependentUpon>ProbationToFileView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProbationPages\UserLeaveApply.aspx.cs">
       <DependentUpon>UserLeaveApply.aspx</DependentUpon>

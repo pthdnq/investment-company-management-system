@@ -19,6 +19,7 @@ namespace TZMS.Web
             {
                 CurrentLevel = GetCurrentLevel("zzgd");
 
+                wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -117,42 +118,50 @@ namespace TZMS.Web
         protected void gridArchiver_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
             string strApproveID = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[0];
-            string strApproveResult = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[8];
-            if (!string.IsNullOrEmpty(strApproveID))
+            string strApplyID = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[1];
+
+            if (e.CommandName == "Archive")
             {
-                ProbationManage _manage = new ProbationManage();
-                ProbationApproveInfo _approveInfo = _manage.GetApproveByObjectID(strApproveID);
-                ProbationApplyInfo _applyInfo = _manage.GetApplyByObjectID(_approveInfo.ApplyID.ToString());
-
-                // 设置归档信息.
-                _approveInfo.ApproveOp = 4;
-                _approveInfo.ApproveTime = DateTime.Now;
-                _manage.UpdateApprove(_approveInfo);
-
-                // 设置申请单信息.
-                if (strApproveResult == "同意")
-                {
-                    _applyInfo.State = 2;
-
-                    // 设置转正属性.
-                    UserManage _userManage = new UserManage();
-                    UserInfo _applyUser = _userManage.GetUserByObjectID(_applyInfo.UserID.ToString());
-                    if (_applyUser != null)
-                    {
-                        _applyUser.IsProbation = true;
-                        _applyUser.ProbationTime = DateTime.Now;
-                        _userManage.UpdateUser(_applyUser);
-                    }
-                }
-                else
-                {
-                    _applyInfo.State = 1;
-                }
-
-                _manage.UpdateApply(_applyInfo);
-
-                BindGrid();
+                wndApprove.IFrameUrl = "ProbationToFileView.aspx?ApproveID=" + strApproveID + "&ApplyID=" + strApplyID;
+                wndApprove.Hidden = false;
             }
+
+            //string strApproveResult = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[8];
+            //if (!string.IsNullOrEmpty(strApproveID))
+            //{
+            //    ProbationManage _manage = new ProbationManage();
+            //    ProbationApproveInfo _approveInfo = _manage.GetApproveByObjectID(strApproveID);
+            //    ProbationApplyInfo _applyInfo = _manage.GetApplyByObjectID(_approveInfo.ApplyID.ToString());
+
+            //    // 设置归档信息.
+            //    _approveInfo.ApproveOp = 4;
+            //    _approveInfo.ApproveTime = DateTime.Now;
+            //    _manage.UpdateApprove(_approveInfo);
+
+            //    // 设置申请单信息.
+            //    if (strApproveResult == "同意")
+            //    {
+            //        _applyInfo.State = 2;
+
+            //        // 设置转正属性.
+            //        UserManage _userManage = new UserManage();
+            //        UserInfo _applyUser = _userManage.GetUserByObjectID(_applyInfo.UserID.ToString());
+            //        if (_applyUser != null)
+            //        {
+            //            _applyUser.IsProbation = true;
+            //            _applyUser.ProbationTime = DateTime.Now;
+            //            _userManage.UpdateUser(_applyUser);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        _applyInfo.State = 1;
+            //    }
+
+            //    _manage.UpdateApply(_applyInfo);
+
+            //    BindGrid();
+            //}
         }
 
         /// <summary>
@@ -188,15 +197,28 @@ namespace TZMS.Web
                     e.Values[9] = _approveInfo.ApproveOp == 3 ? "待归档" : "已归档";
                     if (_approveInfo.ApproveOp == 4)
                     {
-                        e.Values[10] = "<span class=\"gray\">归档</span>";
+                        //e.Values[10] = "<span class=\"gray\">归档</span>";
+                        e.Values[10] = e.Values[10].ToString().Replace("归档", "查看");
+                    }
+                    else
+                    {
+                        if (CurrentLevel == VisitLevel.View)
+                        {
+                            e.Values[10] = "<span class=\"gray\">归档</span>";
+                        }
                     }
                 }
-
-                if (CurrentLevel == VisitLevel.View)
-                {
-                    e.Values[10] = "<span class=\"gray\">归档</span>";
-                }
             }
+        }
+
+        /// <summary>
+        /// 归档窗口关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndApprove_Close(object sender, WindowCloseEventArgs e)
+        {
+            BindGrid();
         }
 
         #endregion
