@@ -13,6 +13,23 @@ namespace TZMS.Web.Pages.BankLoanPages
     public partial class FeePayConfirm : BasePage
     {
         #region 属性
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
+
         /// <summary>
         ///  ObjectID
         /// </summary>
@@ -41,13 +58,14 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
+                OperateType = Request.QueryString["Type"];
 
                 bindInterface(strID);
                 BindHistory();
 
                 // 绑定审批人.
-                ApproveUser();
-                BindNext();
+              //  ApproveUser();
+              //  BindNext();
             }
             InitControl();
         }
@@ -76,7 +94,19 @@ namespace TZMS.Web.Pages.BankLoanPages
             // 绑定数据.
             if (_info != null)
             {
+                #region View
+                if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+                {
+                  //  this.btnDismissed.Hidden = true;
+                    this.btnSave.Hidden = true;
+                    this.taFeeConfirm.Text = _info.AccountingRemark;
+                    this.taFeeConfirm.Enabled = false;
 
+                    //this.ddlstApproveUser.Items.Add(new ListItem() { Text = _info.NextOperaterName, Value = "0", Selected = true });
+                    //this.ddlstNext.Enabled = false;
+                    //this.ddlstApproveUser.Enabled = false;
+                }
+                #endregion
 
                 this.taImplementationPhase.Text = _info.ImplementationPhase;
                 this.tbAmountExpended.Text = _info.AmountExpended.ToString();
@@ -138,7 +168,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.Status = status;
 
             _Info.IsPassImprest = true;
-            //下一步审核人 
+            //下一步审核人 -回到第一个审批人
             //_Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
             //_Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.NextOperaterName = _Info.FirstOperaterName;

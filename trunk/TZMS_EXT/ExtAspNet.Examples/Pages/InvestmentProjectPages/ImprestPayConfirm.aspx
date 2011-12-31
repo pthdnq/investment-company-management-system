@@ -35,10 +35,10 @@
                 <Rows>
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
-                            <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
+                            <ext:DropDownList   ID="ddlstNext" runat="server"
                                 Hidden="true" Label="下一步">
                             </ext:DropDownList>
-                            <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
+                            <ext:DropDownList   ID="ddlstApproveUser" runat="server"
                                 Hidden="true" RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
                             </ext:DropDownList>
                         </Items>

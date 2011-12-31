@@ -13,8 +13,25 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
     public partial class ImprestPayConfirm : BasePage
     {
         #region 属性
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
+
         /// <summary>
-        ///  ID
+        ///  ObjectID
         /// </summary>
         public string ObjectID
         {
@@ -43,13 +60,14 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
+                OperateType = Request.QueryString["Type"];
 
                 bindUserInterface(strID);
                 BindHistory();
 
                 // 绑定审批人.
-                ApproveUser();
-                BindNext();
+              //  ApproveUser();
+               // BindNext();
             }
             InitControl();
         }
@@ -77,6 +95,18 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             // 绑定数据.
             if (_info != null)
             {
+                if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+                {
+                   // this.btnDismissed.Hidden = true;
+                    this.btnSave.Hidden = true;
+                    this.taAccountingRemark.Text = _info.AccountingRemark;
+                    this.taAccountingRemark.Enabled = false;
+
+                  //  this.ddlstApproveUser.Items.Add(new ListItem() { Text = _info.NextOperaterName, Value = "0", Selected = true });
+                //   this.ddlstNext.Enabled = false;
+                 //   this.ddlstApproveUser.Enabled = false;
+                }
+
                 this.tbProjectName.Text = _info.ProjectName;
                 this.tbImplementationPhase.Text = _info.Use;
                 this.tbAmountExpended.Text = _info.AmountExpended.ToString();

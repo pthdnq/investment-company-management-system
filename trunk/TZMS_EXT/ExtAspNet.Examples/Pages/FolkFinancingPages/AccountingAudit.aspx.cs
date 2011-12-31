@@ -13,6 +13,23 @@ namespace TZMS.Web.Pages.FolkFinancingPages
     public partial class AccountingAudit : BasePage
     {
         #region 属性
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
+
         /// <summary>
         ///  ObjectID
         /// </summary>
@@ -41,10 +58,11 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
+                OperateType = Request.QueryString["Type"];
 
                 bindUserInterface(strID);
                 // 绑定审批人.
-                ApproveUser();
+           //     ApproveUser();
                 // 绑定审批历史.
                 BindHistory();
             }  
@@ -74,6 +92,25 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             // 绑定数据.
             if (_Info != null)
             {
+                #region View
+                if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+                {
+                    this.btnDismissed.Hidden = true;
+                    this.btnSave.Hidden = true;
+                    this.taAuditOpinion.Text = _Info.AuditOpinion;
+                    this.taAuditOpinion.Enabled = false;
+
+                    this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
+                    this.ddlstNext.Enabled = false;
+                    this.ddlstApproveUser.Enabled = false;
+                }
+                else
+                {
+                    // 绑定审批人.
+                    ApproveUser();
+                }
+                #endregion
+
                 BindNext(false);
                 #region 下一步方式
 

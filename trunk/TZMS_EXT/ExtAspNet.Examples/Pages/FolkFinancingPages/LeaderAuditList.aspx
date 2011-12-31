@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LeaderAuditList.aspx.cs" Inherits="TZMS.Web.Pages.FolkFinancingPages.LeaderAuditList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LeaderAuditList.aspx.cs"
+    Inherits="TZMS.Web.Pages.FolkFinancingPages.LeaderAuditList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>领导审核列表</title>
@@ -68,27 +68,30 @@
                             <ext:BoundField Width="90px" DataField="Lenders" HeaderText="出借人" />
                             <ext:BoundField Width="90px" DataField="Guarantee" HeaderText="担保人" />
                             <ext:BoundField Width="105px" DataField="LoanAmount" HeaderText="借款金额" />
-                            <ext:BoundField Width="100px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="借款日期" />
-                            <ext:BoundField Width="110px" DataField="DueDateForPay" DataFormatString="每月{0}日" HeaderText="应付款日" />
+                            <ext:BoundField Width="100px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
+                                HeaderText="借款日期" />
+                            <ext:BoundField Width="110px" DataField="DueDateForPay" DataFormatString="每月{0}日"
+                                HeaderText="应付款日" />
                             <ext:BoundField Width="110px" DataField="ContactPhone" HeaderText="联系电话" />
-                                   <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
+                            <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
-                                  <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                              <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
-                 
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
                             <ext:WindowField Width="38px" Text="审核" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LeaderAudit.aspx?Type=Edit&ID={0}"
                                 Title="审核" WindowID="wndNew" />
-                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />
+                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
+                                CommandName="Delete" />
+                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LeaderAudit.aspx?Type=View&ID={0}"
+                                Title="查看" WindowID="wndNew" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-  
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="480px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>

@@ -13,8 +13,25 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
     public partial class ProjectAudit : BasePage
     {
         #region 属性
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
+
         /// <summary>
-        /// ID
+        /// ObjectID
         /// </summary>
         public string ObjectID
         {
@@ -41,9 +58,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
+                OperateType = Request.QueryString["Type"];
                 bindInterface(strID);
                 // 绑定审批人.
-                ApproveUser();
+              //  ApproveUser();
                 BindHistory();
             }
         }
@@ -67,7 +85,24 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             ObjectID = strID;
 
             InvestmentProjectInfo _Info = new InvestmentProjectManage().GetUserByObjectID(strID);
+            #region View
+            if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+            {
+                this.btnDismissed.Hidden = true;
+                this.btnSave.Hidden = true;
+                this.tbAuditOpinion.Text = _Info.AuditOpinion;
+                this.tbAuditOpinion.Enabled = false;
 
+                this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
+                this.ddlstNext.Enabled = false;
+                this.ddlstApproveUser.Enabled = false;
+            }
+            else
+            {
+                // 绑定审批人.
+                ApproveUser();
+            }
+            #endregion
             #region 下一步方式
             if (CurrentRoles.Contains(RoleType.DSZ))
             {

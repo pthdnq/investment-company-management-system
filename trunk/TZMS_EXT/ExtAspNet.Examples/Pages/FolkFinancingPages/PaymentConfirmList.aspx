@@ -83,6 +83,8 @@
                             </ext:TemplateField>
                             <ext:WindowField Width="76px" Text="支付确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentConfirm.aspx?ID={0}"
                                 Title="支付确认" WindowID="wndNew" />
+                            <ext:WindowField Width="76px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentConfirm.aspx?Type=View&ID={0}"
+                                Title="查看" WindowID="wndNew" />
                         </Columns>
                     </ext:Grid>
                 </Items>

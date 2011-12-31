@@ -35,11 +35,10 @@
                 <Rows>
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
-                            <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
-                             Hidden="true"    Label="下一步">
+                            <ext:DropDownList ID="ddlstNext" runat="server" Hidden="true" Label="下一步">
                             </ext:DropDownList>
-                            <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
-                                Hidden="true"   RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
+                            <ext:DropDownList ID="ddlstApproveUser" runat="server" Hidden="true" RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！"
+                                Label="执行人">
                             </ext:DropDownList>
                         </Items>
                     </ext:FormRow>
@@ -124,7 +123,7 @@
                         </Items>
                     </ext:Tab>
                     <ext:Tab ID="tabHistory" Title="操作历史" EnableBackgroundColor="true" runat="server"
-                     Layout="Fit"    BodyPadding="5px">
+                        Layout="Fit" BodyPadding="5px">
                         <Items>
                             <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">

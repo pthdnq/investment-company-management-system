@@ -63,21 +63,23 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                           <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" /> 
+                            <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="130px" DataField="ImplementationPhase" HeaderText="项目实施阶段" />
                             <ext:BoundField Width="120px" DataField="GuaranteeCompany" HeaderText="贷款公司" />
                             <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
                             <ext:BoundField Width="80px" DataField="ExpendedTime" HeaderText="支用时间" />
                             <ext:BoundField Width="130px" DataField="ImprestAmount" HeaderText="备用金余额" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
-                               <ext:TemplateField Width="70px" HeaderText="状态">
+                            <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                   <ext:BoundField  ExpandUnusedSpace="true"  DataField="Remark" HeaderText="备注" />
+                            <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
                             <ext:WindowField Width="76px" Text="支付确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="FeePayConfirm.aspx?ID={0}"
                                 Title="支付确认" WindowID="wndNew" />
+                            <ext:WindowField Width="56px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="FeePayConfirm.aspx?Type=View&ID={0}"
+                                Title="查看" WindowID="wndNew" />
                             <%--           <ext:LinkButtonField Hidden="true" Width="38px"  Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />--%>
                         </Columns>
                     </ext:Grid>
