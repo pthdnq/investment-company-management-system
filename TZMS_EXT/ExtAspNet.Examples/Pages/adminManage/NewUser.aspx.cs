@@ -305,7 +305,7 @@ namespace TZMS.Web
                         AccountNo = _userInfo.AccountNo,
                         JobNo = _userInfo.JobNo,
                         Name = _userInfo.Name,
-                        Roles = ""
+                        Roles = "12"
                     });
                     //Alert.Show("添加员工成功!");
                     PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
