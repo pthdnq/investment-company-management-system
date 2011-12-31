@@ -27,10 +27,13 @@ namespace TZMS.Web
                 return (VisitLevel)ViewState["VisitLevel"];
             }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -124,33 +127,42 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridLeave_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
+            string strLeaveID = ((GridRow)gridLeave.Rows[e.RowIndex]).Values[12];
             string strApproveID = ((GridRow)gridLeave.Rows[e.RowIndex]).Values[0];
-            string strApproveResult = ((GridRow)gridLeave.Rows[e.RowIndex]).Values[9];
-            if (!string.IsNullOrEmpty(strApproveID))
+            if (e.CommandName == "Archive")
             {
-                LeaveAppManage leaveAppManage = new LeaveAppManage();
-                LeaveApproveInfo _approveInfo = leaveAppManage.GetLeaveApproveInfoByObjectID(strApproveID);
-                LeaveInfo _leaveInfo = leaveAppManage.GetLeaveInfoByObjectID(_approveInfo.LeaveId.ToString());
+                wndApprove.IFrameUrl = "AttendToFileView.aspx?LeaveID=" + strLeaveID
+                     + "&LeaveApproveID=" + strApproveID;
+                wndApprove.Hidden = false;
 
-                // 设置归档信息.
-                _approveInfo.ApproveResult = 4;
-                _approveInfo.ApproveTime = DateTime.Now;
-                leaveAppManage.UpdateLeaveApprove(_approveInfo);
-
-                // 设置申请单信息.
-                if (strApproveResult == "同意")
-                {
-                    _leaveInfo.State = 2;
-                }
-                else
-                {
-                    _leaveInfo.State = 3;
-                }
-
-                leaveAppManage.UpdateLeaveInfo(_leaveInfo);
-
-                BindGrid();
             }
+            //string strApproveID = ((GridRow)gridLeave.Rows[e.RowIndex]).Values[0];
+            //string strApproveResult = ((GridRow)gridLeave.Rows[e.RowIndex]).Values[9];
+            //if (!string.IsNullOrEmpty(strApproveID))
+            //{
+            //    LeaveAppManage leaveAppManage = new LeaveAppManage();
+            //    LeaveApproveInfo _approveInfo = leaveAppManage.GetLeaveApproveInfoByObjectID(strApproveID);
+            //    LeaveInfo _leaveInfo = leaveAppManage.GetLeaveInfoByObjectID(_approveInfo.LeaveId.ToString());
+
+            //    // 设置归档信息.
+            //    _approveInfo.ApproveResult = 4;
+            //    _approveInfo.ApproveTime = DateTime.Now;
+            //    leaveAppManage.UpdateLeaveApprove(_approveInfo);
+
+            //    // 设置申请单信息.
+            //    if (strApproveResult == "同意")
+            //    {
+            //        _leaveInfo.State = 2;
+            //    }
+            //    else
+            //    {
+            //        _leaveInfo.State = 3;
+            //    }
+
+            //    leaveAppManage.UpdateLeaveInfo(_leaveInfo);
+
+            //    BindGrid();
+            //}
         }
 
         /// <summary>
@@ -183,17 +195,30 @@ namespace TZMS.Web
                     e.Values[10] = _approveInfo.ApproveResult == 3 ? "待归档" : "已归档";
                     if (_approveInfo.ApproveResult == 4)
                     {
-                        e.Values[11] = "<span class=\"gray\">归档</span>";
+                        //e.Values[11] = "<span class=\"gray\">归档</span>";
+                        e.Values[11] = e.Values[11].ToString().Replace("归档", "查看");
+                    }
+                    else
+                    {
+                        //判断页面是否可编辑（可查看不用考虑）
+                        if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                        {
+                            e.Values[11] = "<span class=\"gray\">归档</span>";
+                        }
                     }
 
                 }
-                //判断页面是否可编辑（可查看不用考虑）
-                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
-                {
-                    e.Values[11] = "<span class=\"gray\">归档</span>";
-                }
-
             }
+        }
+
+        /// <summary>
+        /// 请假归档关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndApprove_Close(object sender, WindowCloseEventArgs e)
+        {
+            BindGrid();
         }
         #endregion
     }

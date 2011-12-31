@@ -306,21 +306,29 @@ namespace TZMS.Web
                     case "0":
                         e.Values[13] = "待审批";
                         e.Values[14] = "";
+                        //判断页面是否可编辑（可查看不用考虑）
+                        if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                        {
+                            e.Values[16] = "<span class=\"gray\">审批</span>";
+                        }
                         break;
                     case "1":
                         e.Values[13] = "已审批";
                         e.Values[14] = "同意";
-                        e.Values[16] = "<span class=\"gray\">审批</span>";
+                        //e.Values[16] = "<span class=\"gray\">审批</span>";
+                        e.Values[16] = e.Values[16].ToString().Replace("审批", "查看");
                         break;
                     case "2":
                         e.Values[13] = "已审批";
                         e.Values[14] = "不同意";
-                        e.Values[16] = "<span class=\"gray\">审批</span>";
+                        //e.Values[16] = "<span class=\"gray\">审批</span>";
+                        e.Values[16] = e.Values[16].ToString().Replace("审批", "查看");
                         break;
                     case "3":
                         e.Values[13] = "已审批";
                         e.Values[14] = "归档";
-                        e.Values[16] = "<span class=\"gray\">审批</span>";
+                        //e.Values[16] = "<span class=\"gray\">审批</span>";
+                        e.Values[16] = e.Values[16].ToString().Replace("审批", "查看");
                         break;
                     default:
                         break;
@@ -335,13 +343,6 @@ namespace TZMS.Web
                 {
                     e.Values[15] = "";
                 }
-
-                //判断页面是否可编辑（可查看不用考虑）
-                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
-                {
-                    e.Values[16] = "<span class=\"gray\">审批</span>";
-                }
-
             }
         }
 

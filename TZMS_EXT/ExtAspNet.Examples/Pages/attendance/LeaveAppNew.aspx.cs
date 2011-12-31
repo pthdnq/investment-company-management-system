@@ -89,7 +89,7 @@ namespace TZMS.Web
                         {
                             OperatorType = strOperatorType;
                             LeaveAppID = strLeaveAppID;
-
+                            MUDAttachment.RecordID = LeaveAppID;
                             MUDAttachment.ShowAddBtn = "false";
                             MUDAttachment.ShowDelBtn = "false";
 

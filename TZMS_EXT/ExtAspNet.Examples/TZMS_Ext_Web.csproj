@@ -567,6 +567,7 @@
     <Content Include="Pages\adminManage\XZPerson.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Pages\attendance\AttendToFileView.aspx" />
     <Content Include="Pages\attendance\ImportWorkerAttend.aspx" />
     <Content Include="Pages\attendance\NoAttend.aspx" />
     <Content Include="Pages\adminManage\RolesOfUser.aspx" />
@@ -998,6 +999,13 @@
     </Compile>
     <Compile Include="Pages\adminManage\SystemConfig.aspx.designer.cs">
       <DependentUpon>SystemConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\attendance\AttendToFileView.aspx.cs">
+      <DependentUpon>AttendToFileView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\attendance\AttendToFileView.aspx.designer.cs">
+      <DependentUpon>AttendToFileView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\attendance\ImportWorkerAttend.aspx.cs">
       <DependentUpon>ImportWorkerAttend.aspx</DependentUpon>

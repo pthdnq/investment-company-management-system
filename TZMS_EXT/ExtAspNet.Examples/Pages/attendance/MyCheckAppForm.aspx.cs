@@ -88,6 +88,7 @@ namespace TZMS.Web
                 BindApproveUser();
                 BindLeaveInfo();
                 BindApproveHistory();
+                SetPanelState();
             }
         }
 
@@ -181,6 +182,27 @@ namespace TZMS.Web
             gridApproveHistory.RecordCount = lstLeaveApprove.Count;
             this.gridApproveHistory.DataSource = lstLeaveApprove;
             this.gridApproveHistory.DataBind();
+        }
+
+        /// <summary>
+        /// 设置面板状态
+        /// </summary>
+        private void SetPanelState()
+        {
+            if (string.IsNullOrEmpty(ApproveID))
+                return;
+
+            LeaveAppManage _leaveAppManage = new LeaveAppManage();
+            LeaveApproveInfo _leaveApproveInfo = _leaveAppManage.GetLeaveApproveInfoByObjectID(ApproveID);
+            if (_leaveApproveInfo != null)
+            {
+                if (_leaveApproveInfo.ApproveResult != 0)
+                {
+                    btnPass.Hidden = true;
+                    btnRefuse.Hidden = true;
+                    mainForm2.Hidden = true;
+                }
+            }
         }
 
         /// <summary>

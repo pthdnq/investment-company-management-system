@@ -58,9 +58,9 @@
                             <ext:BoundField HeaderText="当前审批人" />
                             <ext:BoundField DataField="State" HeaderText="申请状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
-                            <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" Hidden="true" />
+                            <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit"  />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmTarget="Parent" ConfirmText="确定删除该请假申请单?"
-                                CommandName="Delete" Hidden="true" />
+                                CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>
