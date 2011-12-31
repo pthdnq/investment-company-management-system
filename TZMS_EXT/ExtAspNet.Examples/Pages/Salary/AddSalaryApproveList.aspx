@@ -74,7 +74,7 @@
     </ext:Panel>
     <ext:Window ID="wndApprove" Title="加薪申请审批" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
-        Width="900px" OnClose="wndApprove_Close">
+        Width="700px" OnClose="wndApprove_Close">
     </ext:Window>
     </form>
 </body>
