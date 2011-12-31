@@ -28,11 +28,9 @@
                                 <%--  <ext:ListItem Text="已确认" Value="5" />--%>
                                 <ext:ListItem Text="未通过" Value="2" />
                                 <%--        <ext:ListItem Text="已删除" Value="9" />--%>
-                            </ext:DropDownList>  
-                         
+                            </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
                             </ext:Button>
-                    
                             <ext:Label ID="Label4" runat="server" />
                         </Items>
                     </ext:FormRow>
@@ -76,7 +74,7 @@
                                 HeaderText="签订日期" />
                             <ext:BoundField Width="110px" DataField="DownPayment" HeaderText="预付定金" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
-     <ext:TemplateField Width="55px" HeaderText="状态">
+                            <ext:TemplateField Width="55px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
@@ -85,6 +83,8 @@
                                 Title="审核" WindowID="wndNew" />
                             <ext:LinkButtonField Width="38px" Hidden="true" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />
+                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanAudit.aspx?Type=View&ID={0}"
+                                Title="查看" WindowID="wndNew" />
                         </Columns>
                     </ext:Grid>
                 </Items>

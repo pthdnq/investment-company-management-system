@@ -13,8 +13,25 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
     public partial class ImprestPayAudit : BasePage
     {
         #region 属性
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
+
         /// <summary>
-        ///  ID
+        ///  ObjectID
         /// </summary>
         public string ObjectID
         {
@@ -43,10 +60,11 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
+                OperateType = Request.QueryString["Type"];
 
                 bindUserInterface(strID);
                 // 绑定审批人.
-                ApproveUser();
+              //  ApproveUser();
                 BindHistory();
             }
         }
@@ -69,6 +87,24 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             // 通过 ID获取 信息实例.
             com.TZMS.Model.ProjectProcessInfo _info = new InvestmentProjectManage().GetProcessByObjectID(strID);
+            #region View
+            if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+            {
+                this.btnDismissed.Hidden = true;
+                this.btnSave.Hidden = true;
+                this.taAuditOpinion.Text = _info.AuditOpinion;
+                this.taAuditOpinion.Enabled = false;
+
+                this.ddlstApproveUser.Items.Add(new ListItem() { Text = _info.NextOperaterName, Value = "0", Selected = true });
+                this.ddlstNext.Enabled = false;
+                this.ddlstApproveUser.Enabled = false;
+            }
+            else
+            {
+                // 绑定审批人.
+                ApproveUser();
+            }
+            #endregion
 
             // 绑定数据.
             if (_info != null)

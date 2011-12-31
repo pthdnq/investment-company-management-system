@@ -13,6 +13,23 @@ namespace TZMS.Web.Pages.FolkFinancingPages
     public partial class PaymentConfirm : BasePage
     {
         #region 属性
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
+
         /// <summary>
         ///  ObjectID
         /// </summary>
@@ -43,6 +60,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
+                OperateType = Request.QueryString["Type"];
 
                 bindUserInterface(strID);
                 // 绑定审批人.
@@ -76,7 +94,19 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             // 绑定数据.
             if (_info != null)
             {
-                //#region 下一步方式
+                if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+                {
+                    // this.btnDismissed.Hidden = true;
+                    this.btnSave.Hidden = true;
+                    taAccountingRemark.Text = _info.AccountingRemark;
+                    this.taAccountingRemark.Enabled = false;
+
+                    //    this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
+                    //   this.ddlstNext.Enabled = false;
+                    //   this.ddlstApproveUser.Enabled = false;
+                }
+
+                #region 下一步方式
                 //if (CurrentRoles.Contains(RoleType.DSZ))
                 //{
                 //    BindNext(true);
@@ -92,7 +122,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 //{
                 //    BindNext(false);
                 //}
-                //#endregion
+                #endregion
 
                 this.tbPaymentAccount.Text = _info.PaymentAccount;
                 this.tbReceivablesAccount.Text = _info.ReceivablesAccount;

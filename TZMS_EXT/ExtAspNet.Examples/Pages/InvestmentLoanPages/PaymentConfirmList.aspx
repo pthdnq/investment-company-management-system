@@ -22,11 +22,11 @@
                             <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入项目名称查询"
                                 ID="ttbSearch" />
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态">
-                          <%--      <ext:ListItem Text="待审核" Value="1"/>
+                                <%--      <ext:ListItem Text="待审核" Value="1"/>
                                 <ext:ListItem Text="审核中" Value="3" />--%>
-                                <ext:ListItem Text="待确认" Value="4"  Selected="true" />
+                                <ext:ListItem Text="待确认" Value="4" Selected="true" />
                                 <ext:ListItem Text="已确认" Value="5" />
-                           <%--     <ext:ListItem Text="已删除" Value="9" />--%>
+                                <%--     <ext:ListItem Text="已删除" Value="9" />--%>
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
                             </ext:Button>
@@ -63,32 +63,32 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                      
                             <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="90px" DataField="BorrowerNameA" HeaderText="借款人(甲方)" />
                             <ext:BoundField Width="90px" DataField="PayerBName" HeaderText="付款人(乙方)" />
-                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
-                         
+                            <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
                             <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
-                            <ext:BoundField Width="90px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}" HeaderText="借款日期" />
+                            <ext:BoundField Width="90px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
+                                HeaderText="借款日期" />
                             <ext:BoundField DataField="DueDateForPay" Width="85px" HeaderText="应付借款日" />
-                                   <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
-                            <ext:BoundField Width="100px"  DataField="SubmitTime"  HeaderText="提交时间"  DataFormatString="{0:yyyy/MM/dd HH:mm}"/>
+                            <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
+                            <ext:BoundField Width="100px" DataField="SubmitTime" HeaderText="提交时间" DataFormatString="{0:yyyy/MM/dd HH:mm}" />
                             <ext:TemplateField Width="56px" HeaderText="状态">
                                 <ItemTemplate>
-                                      <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
+                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="确认" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentConfirm.aspx?ID={0}"
                                 Title="确认" WindowID="wndNew" />
-                      <%--      <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />--%>
+                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentConfirm.aspx?Type=View&ID={0}"
+                                Title="查看" WindowID="wndNew" />
+                            <%--      <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该员工?" CommandName="Delete" />--%>
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
- 
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="575px" Width="580px" OnClose="wndNew_Close">
     </ext:Window>

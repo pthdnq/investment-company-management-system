@@ -13,6 +13,23 @@ namespace TZMS.Web.Pages.BankLoanPages
     public partial class BankLoanAudit : BasePage
     {
         #region 属性
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
+
         /// <summary>
         /// ObjectID
         /// </summary>
@@ -43,12 +60,13 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
+                OperateType = Request.QueryString["Type"];
 
                 bindUserInterface(strID);
 
 
                 // 绑定审批人.
-                ApproveUser();
+             //   ApproveUser();
                 BindHistory();
             }
         }
@@ -69,7 +87,27 @@ namespace TZMS.Web.Pages.BankLoanPages
                 return;
             }
             BankLoanInfo _Info = new BankLoanManage().GetUserByObjectID(ObjectID);
-            //UserInfo user = new UserManage().GetUserByObjectID(_Info.NextOperaterId.ToString());
+
+            #region View
+            if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+            {
+                this.btnDismissed.Hidden = true;
+                this.btnSave.Hidden = true;
+                this.taAuditOpinion.Text = _Info.AuditOpinion;
+                this.taAuditOpinion.Enabled = false;
+
+                this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
+                this.ddlstNext.Enabled = false;
+                this.ddlstApproveUser.Enabled = false;
+            }
+            else
+            {
+                // 绑定审批人.
+                ApproveUser();
+            }
+            #endregion
+
+            #region 下一步操作绑定
             if (CurrentRoles.Contains(RoleType.DSZ))
             {
                 BindNext(true);
@@ -84,6 +122,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。";
                 BindNext(false);
             }
+            #endregion
 
             this.tbCollateralCompany.Text = _Info.CollateralCompany;
             this.tbCustomerName.Text = _Info.CustomerName;

@@ -90,6 +90,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 this.btnDismissed.Hidden = true;
                 this.btnSave.Hidden = true;
+                this.taAuditOpinion.Text = _Info.AuditOpinion;
                 this.taAuditOpinion.Enabled = false;
 
                 this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });

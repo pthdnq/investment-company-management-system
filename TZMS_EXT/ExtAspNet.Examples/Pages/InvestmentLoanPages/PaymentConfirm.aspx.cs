@@ -13,6 +13,23 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
     public partial class PaymentConfirm : BasePage
     {
         #region 属性
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
+
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
+
         /// <summary>
         /// ObjectID
         /// </summary>
@@ -43,6 +60,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
+                OperateType = Request.QueryString["Type"];
 
                 bindUserInterface(strID);
                 // 绑定审批历史.
@@ -73,6 +91,17 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
 
+            if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+            {
+                //   this.btnDismissed.Hidden = true;
+                this.btnSave.Hidden = true;
+                taAccountingRemark.Text = _Info.AccountingRemark;
+                this.taAccountingRemark.Enabled = false;
+
+                //    this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
+                //   this.ddlstNext.Enabled = false;
+                //   this.ddlstApproveUser.Enabled = false;
+            }
             //if (_Info.LoanAmount >= 300000 && !CurrentRoles.Contains(RoleType.DSZ))
             //{
             //    //大于30w且当前审批人不是董事长，不显示下一步会计审核选项

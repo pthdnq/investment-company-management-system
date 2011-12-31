@@ -13,7 +13,22 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
     public partial class ReceivablesConfirm : BasePage
     {
         #region 属性
+        public string OperateType
+        {
+            get
+            {
+                if (ViewState["OperateType"] == null)
+                {
+                    return null;
+                }
 
+                return ViewState["OperateType"].ToString();
+            }
+            set
+            {
+                ViewState["OperateType"] = value;
+            }
+        }
 
         /// <summary>
         ///   ObjectID
@@ -39,18 +54,18 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
         {
-        
+
 
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
-
                 ObjectID = strID;
+                OperateType = Request.QueryString["Type"];
 
                 bindUserInterface(strID);
                 // 绑定审批历史.
                 BindHistory();
-            }  
+            }
             InitControl();
         }
 
@@ -73,6 +88,18 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             //} 
             // 通过 ID获取 信息实例.
             com.TZMS.Model.ReceivablesInfo info = new InvestmentLoanManage().GetReceivableByObjectID(strUserID);
+
+            if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+            {
+                //   this.btnDismissed.Hidden = true;
+                this.btnSave.Hidden = true;
+                this.taAuditOpinionRemark.Text = info.AuditOpinion;
+                this.taAuditOpinionRemark.Enabled = false; 
+
+                //    this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
+                //   this.ddlstNext.Enabled = false;
+                //   this.ddlstApproveUser.Enabled = false;
+            }
 
             tbProjectName.Text = info.ProjectName;
             dpDueDateForReceivables.SelectedDate = info.DueDateForReceivables;
@@ -134,7 +161,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.Status = status;
             _Info.IsAccountingAudit = true;
 
-      
+
 
             #region 积分
             var loan = manage.GetUserByObjectID(_Info.ForId.ToString());
@@ -170,9 +197,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     ObjectId = Guid.NewGuid(),
                     Amount = _Info.AmountofpaidUp,
                     DateFor = DateTime.Now,
-                    FlowDirection =Common.FlowDirection.Receive,
+                    FlowDirection = Common.FlowDirection.Receive,
                     FlowType = "",
-                    Biz =Common.Biz.InvestmentLoan,
+                    Biz = Common.Biz.InvestmentLoan,
                     ProjectName = _Info.ProjectName,
                     IsAccountingAudit = 1,
                     Status = 1
