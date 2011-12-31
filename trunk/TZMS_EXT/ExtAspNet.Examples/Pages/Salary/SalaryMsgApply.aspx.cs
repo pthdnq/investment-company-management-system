@@ -63,10 +63,10 @@ namespace TZMS.Web
                 case "Add":
                     OperatorType = strOperatorType;
                     ApplyID = strApplyID;
-                    tabApproveHistory.Hidden = true;
                     BindNext();
                     ApproveUser();
                     BindWorkerSalaryMsgGrid();
+                    BindApproveHistory();
                     break;
                 case "View":
                     OperatorType = strOperatorType;
@@ -160,6 +160,11 @@ namespace TZMS.Web
             strCondition.Append(" and  (Checkstate <> 0 or (Checkstate = 0 and CheckOp = '0'))");
             List<SalaryCheckInfo> lstBaoxiaoCheckInfo = new SalaryManage().GetSalaryCheckByCondition(strCondition.ToString());
 
+            if (lstBaoxiaoCheckInfo.Count == 0)
+            {
+                tabApproveHistory.Hidden = true;
+            }
+
             lstBaoxiaoCheckInfo.Sort(delegate(SalaryCheckInfo x, SalaryCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
 
             // 绑定列表.
@@ -206,18 +211,22 @@ namespace TZMS.Web
 
                     result = _manage.UpdateSalaryMsg(_applyInfo);
 
-                    // 插入起草记录.
-                    SalaryCheckInfo _draftCheckInfo = new SalaryCheckInfo();
-                    _draftCheckInfo.ObjectId = Guid.NewGuid();
-                    _draftCheckInfo.CheckerId = CurrentUser.ObjectId;
-                    _draftCheckInfo.CheckerName = CurrentUser.Name;
-                    _draftCheckInfo.CheckrDept = CurrentUser.Dept;
-                    _draftCheckInfo.CheckDateTime = DateTime.Now;
-                    _draftCheckInfo.Checkstate = 0;
-                    _draftCheckInfo.CheckOp = "0";
-                    _draftCheckInfo.ApplyId = _applyInfo.ObjectId;
+                    if (((List<SalaryCheckInfo>)gridApproveHistory.DataSource).Count == 0)
+                    {
 
-                    _manage.AddNewSalaryCheck(_draftCheckInfo);
+                        // 插入起草记录.
+                        SalaryCheckInfo _draftCheckInfo = new SalaryCheckInfo();
+                        _draftCheckInfo.ObjectId = Guid.NewGuid();
+                        _draftCheckInfo.CheckerId = CurrentUser.ObjectId;
+                        _draftCheckInfo.CheckerName = CurrentUser.Name;
+                        _draftCheckInfo.CheckrDept = CurrentUser.Dept;
+                        _draftCheckInfo.CheckDateTime = DateTime.Now;
+                        _draftCheckInfo.Checkstate = 0;
+                        _draftCheckInfo.CheckOp = "0";
+                        _draftCheckInfo.ApplyId = _applyInfo.ObjectId;
+
+                        _manage.AddNewSalaryCheck(_draftCheckInfo);
+                    }
 
                     // 插入待审批记录.
                     SalaryCheckInfo _nextCheckInfo = new SalaryCheckInfo();

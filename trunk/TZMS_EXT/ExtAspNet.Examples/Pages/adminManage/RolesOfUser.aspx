@@ -15,7 +15,7 @@
         <Toolbars>
             <ext:Toolbar>
                 <Items>
-                    <ext:Button ID="btnSave" Text="保存" runat="server" OnClick="btnSave_Click" Icon="Disk" />
+                    <ext:Button ID="btnSave" Text="保存" runat="server" OnClick="btnSave_Click" Icon="Disk" ConfirmText="您确定保存吗?" />
                     <ext:Label ID="labTitle" runat="server" Text="[提示: 这里的权限只跟审批权有关！]">
                     </ext:Label>
                 </Items>

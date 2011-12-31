@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" AutoSizePanelID="pelMain" HideScrollbar="true"
-        runat="server" EnableAjax="false" />
+        runat="server" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
         Layout="Anchor">

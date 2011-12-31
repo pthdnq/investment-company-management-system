@@ -64,6 +64,7 @@ namespace TZMS.Web
                 BindApproveUser();
                 BindWorkerSalaryMsgGrid();
                 BindApproveHistory();
+                SetPanelState();
             }
         }
 
@@ -132,6 +133,26 @@ namespace TZMS.Web
             gridWorkerSalaryMsg.RecordCount = lstWorkerSalaryMsgInfo.Count;
             this.gridWorkerSalaryMsg.DataSource = lstWorkerSalaryMsgInfo;
             this.gridWorkerSalaryMsg.DataBind();
+        }
+
+        /// <summary>
+        /// 设置面板状态
+        /// </summary>
+        private void SetPanelState()
+        {
+            if (string.IsNullOrEmpty(ApproveID))
+                return;
+            SalaryManage _manage = new SalaryManage();
+            SalaryCheckInfo _approveInfo = _manage.GetSalaryCheckByObjectID(ApproveID);
+            if (_approveInfo != null)
+            {
+                if (_approveInfo.Checkstate == 1)
+                {
+                    mainForm2.Hidden = true;
+                    btnPass.Hidden = true;
+                    btnRefuse.Hidden = true;
+                }
+            }
         }
 
         #endregion

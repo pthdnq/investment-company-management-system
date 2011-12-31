@@ -490,7 +490,14 @@ namespace TZMS.Web
                     result = _rolesManage.UpdateRoles(_userRoles);
                 }
 
-                Alert.Show((isNew ? "添加权限" : "更新权限") + (result == -1 ? "成功" : "失败"));
+                if (result == -1)
+                {
+                    PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
+                }
+                else
+                {
+                    Alert.Show((isNew ? "添加权限" : "更新权限") + (result == -1 ? "成功" : "失败"));
+                }
             }
         }
 

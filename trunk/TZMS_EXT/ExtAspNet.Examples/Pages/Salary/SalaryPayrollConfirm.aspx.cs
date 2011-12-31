@@ -348,7 +348,7 @@ namespace TZMS.Web
                 if (result == -1)
                 {
                     CashFlowManage _cashFlowManage = new CashFlowManage();
-                    _cashFlowManage.Add(_info.SumMoney, DateTime.Now, "Payment", _info.Year +"年" + _info.Month + "月发放工资", TZMS.Common.Biz.SalaryPayroll, string.Empty);
+                    _cashFlowManage.Add(_info.SumMoney, DateTime.Now, "Payment", _info.Year + "年" + _info.Month + "月发放工资", TZMS.Common.Biz.SalaryPayroll, string.Empty);
                 }
             }
 
@@ -480,7 +480,10 @@ namespace TZMS.Web
                 + dtbWorkerSalary.Rows[0]["Month"] + "月份工资表（共计：" + dtbWorkerSalary.Rows[0]["SumMoney"] + "元）");
 
             designer.Process();
-            designer.Save(string.Format("test.xls"), SaveType.OpenInExcel, FileFormatType.Excel2003, Response);
+            string name = HttpUtility.UrlEncode("吉信投资集团" + lblYear.Text + "年"
+                + lblMonth.Text + "月份工资单.xls", System.Text.Encoding.UTF8);
+
+            designer.Save(string.Format(name), SaveType.OpenInExcel, FileFormatType.Excel2003, Response);
             Response.End();
         }
 

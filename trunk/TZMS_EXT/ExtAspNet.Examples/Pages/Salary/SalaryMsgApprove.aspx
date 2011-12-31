@@ -58,7 +58,7 @@
                                 <Items>
                                     <ext:Grid ID="gridWorkerSalaryMsg" Title="Grid1" ShowBorder="true" ShowHeader="false"
                                         runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true"
-                                        AutoHeight="true" OnRowDataBound="gridWorkerSalaryMsg_RowDataBound" Height="355px">
+                                        AutoHeight="true" OnRowDataBound="gridWorkerSalaryMsg_RowDataBound" Height="300px">
                                         <Columns>
                                             <ext:BoundField DataField="Name" HeaderText="员工姓名" />
                                             <ext:BoundField Width="75px" DataField="BaseSalary" HeaderText="基本工资" Hidden="true" />
