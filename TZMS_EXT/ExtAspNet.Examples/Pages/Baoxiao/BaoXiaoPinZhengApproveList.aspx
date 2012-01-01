@@ -72,7 +72,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndApprove" Title="报销凭证审批" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
+        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="408px"
         Width="700px" OnClose="wndApprove_Close">
     </ext:Window>
     </form>
