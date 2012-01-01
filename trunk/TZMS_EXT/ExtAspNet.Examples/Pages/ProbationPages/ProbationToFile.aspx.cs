@@ -19,7 +19,7 @@ namespace TZMS.Web
             {
                 CurrentLevel = GetCurrentLevel("zzgd");
 
-                wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
+                wndApprove1.OnClientCloseButtonClick = wndApprove1.GetHidePostBackReference();
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -122,8 +122,8 @@ namespace TZMS.Web
 
             if (e.CommandName == "Archive")
             {
-                wndApprove.IFrameUrl = "ProbationToFileView.aspx?ApproveID=" + strApproveID + "&ApplyID=" + strApplyID;
-                wndApprove.Hidden = false;
+                wndApprove1.IFrameUrl = "ProbationToFileView.aspx?ApproveID=" + strApproveID + "&ApplyID=" + strApplyID;
+                wndApprove1.Hidden = false;
             }
 
             //string strApproveResult = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[8];
