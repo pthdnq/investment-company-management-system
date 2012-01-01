@@ -160,6 +160,10 @@ namespace TZMS.Web
                         break;
                     case "1":
                         e.Values[5] = "归档-未通过";
+                        if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                        {
+                            e.Values[7] = "<span class=\"gray\">编辑</span>";
+                        }
                         break;
                     case "2":
                         e.Values[5] = "归档-已通过";

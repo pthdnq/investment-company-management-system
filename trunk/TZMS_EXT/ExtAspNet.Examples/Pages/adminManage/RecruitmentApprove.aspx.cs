@@ -64,6 +64,7 @@ namespace TZMS.Web
                 BindApproveUser();
                 BindApplyInfo();
                 BindApproveHistory();
+                SetPanelState();
             }
         }
 
@@ -150,6 +151,27 @@ namespace TZMS.Web
             gridApproveHistory.RecordCount = lstApprove.Count;
             this.gridApproveHistory.DataSource = lstApprove;
             this.gridApproveHistory.DataBind();
+        }
+
+        /// <summary>
+        /// 设置面板状态
+        /// </summary>
+        private void SetPanelState()
+        {
+            if (string.IsNullOrEmpty(ApproveID))
+                return;
+            RecruitmentManage _manage = new RecruitmentManage();
+            RecruitmentApproveInfo _approveInfo = _manage.GetApproveByObjectID(ApproveID);
+            if (_approveInfo != null)
+            {
+                if (_approveInfo.ApproveState == 1)
+                {
+                    btnPass.Hidden = true;
+                    btnRefuse.Hidden = true;
+                    mainForm2.Hidden = true;
+                }
+            }
+
         }
 
         #endregion

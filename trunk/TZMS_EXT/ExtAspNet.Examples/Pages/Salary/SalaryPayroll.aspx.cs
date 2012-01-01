@@ -140,18 +140,18 @@ namespace TZMS.Web
                 {
                     case "2":
                         e.Values[4] = "待发放";
+                        if (CurrentLevel == VisitLevel.View)
+                        {
+                            e.Values[5] = "<span class=\"gray\">发放</span>";
+                        }
                         break;
                     case "3":
                         e.Values[4] = "已发放";
-                        e.Values[5] = "<span class=\"gray\">发放</span>";
+                        //e.Values[5] = "<span class=\"gray\">发放</span>";
+                        e.Values[5] = e.Values[5].ToString().Replace("发放", "查看");
                         break;
                     default:
                         break;
-                }
-
-                if (CurrentLevel == VisitLevel.View)
-                {
-                    e.Values[5] = "<span class=\"gray\">发放</span>";
                 }
             }
         }

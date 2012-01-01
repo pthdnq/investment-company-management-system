@@ -31,6 +31,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -129,45 +131,53 @@ namespace TZMS.Web
         protected void gridArchiver_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
             string strApproveID = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[0];
-            string strApproveResult = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[9];
-            if (!string.IsNullOrEmpty(strApproveID))
+            string strApplyID = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[1];
+
+            if (e.CommandName == "Archive")
             {
-                JingShengManage _manage = new JingShengManage();
-                JingShengApproveInfo _approveInfo = _manage.GetApproveByObjectID(strApproveID);
-                JingShengApplyInfo _applyInfo = _manage.GetApplyByObjectID(_approveInfo.ApplyID.ToString());
-
-                // 设置归档信息.
-                _approveInfo.ApproveState = 1;
-                _approveInfo.ApproveOp = 4;
-                _approveInfo.ApproveTime = DateTime.Now;
-                _manage.UpdateApprove(_approveInfo);
-
-                // 设置申请单信息.
-                if (strApproveResult == "同意")
-                {
-                    _applyInfo.State = 2;
-
-                    // 设置转正属性.
-                    UserManage _userManage = new UserManage();
-                    UserInfo _applyUser = _userManage.GetUserByObjectID(_applyInfo.UserID.ToString());
-                    if (_applyUser != null)
-                    {
-                        string currentPosition = _applyUser.Position;
-                        _applyUser.Position = _applyInfo.ApplyPosition;
-                        _userManage.UpdateUser(_applyUser);
-
-                        Alert.Show("此员工从" + currentPosition + "岗位调岗到" + _applyUser.Position + "岗位，请在员工管理里面对该员工进行权限配置");
-                    }
-                }
-                else
-                {
-                    _applyInfo.State = 1;
-                }
-
-                _manage.UpdateApply(_applyInfo);
-
-                BindGrid();
+                wndApprove.IFrameUrl = "JingShengToFileView.aspx?ApproveID=" + strApproveID + "&ApplyID=" + strApplyID;
+                wndApprove.Hidden = false;
             }
+
+            //string strApproveResult = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[9];
+            //if (!string.IsNullOrEmpty(strApproveID))
+            //{
+            //    JingShengManage _manage = new JingShengManage();
+            //    JingShengApproveInfo _approveInfo = _manage.GetApproveByObjectID(strApproveID);
+            //    JingShengApplyInfo _applyInfo = _manage.GetApplyByObjectID(_approveInfo.ApplyID.ToString());
+
+            //    // 设置归档信息.
+            //    _approveInfo.ApproveState = 1;
+            //    _approveInfo.ApproveOp = 4;
+            //    _approveInfo.ApproveTime = DateTime.Now;
+            //    _manage.UpdateApprove(_approveInfo);
+
+            //    // 设置申请单信息.
+            //    if (strApproveResult == "同意")
+            //    {
+            //        _applyInfo.State = 2;
+
+            //        // 设置转正属性.
+            //        UserManage _userManage = new UserManage();
+            //        UserInfo _applyUser = _userManage.GetUserByObjectID(_applyInfo.UserID.ToString());
+            //        if (_applyUser != null)
+            //        {
+            //            string currentPosition = _applyUser.Position;
+            //            _applyUser.Position = _applyInfo.ApplyPosition;
+            //            _userManage.UpdateUser(_applyUser);
+
+            //            Alert.Show("此员工从" + currentPosition + "岗位调岗到" + _applyUser.Position + "岗位，请在员工管理里面对该员工进行权限配置");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        _applyInfo.State = 1;
+            //    }
+
+            //    _manage.UpdateApply(_applyInfo);
+
+            //    BindGrid();
+            //}
         }
 
         /// <summary>
@@ -204,16 +214,32 @@ namespace TZMS.Web
                     e.Values[10] = _approveInfo.ApproveOp == 3 ? "待归档" : "已归档";
                     if (_approveInfo.ApproveOp == 4)
                     {
-                        e.Values[11] = "<span class=\"gray\">归档</span>";
+                        //e.Values[11] = "<span class=\"gray\">归档</span>";
+                        e.Values[11] = e.Values[11].ToString().Replace("归档", "查看");
+                    }
+                    else
+                    {
+                        //判断页面是否可编辑（可查看不用考虑）
+                        if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                        {
+                            e.Values[11] = "<span class=\"gray\">归档</span>";
+                        }
+
                     }
                 }
-                //判断页面是否可编辑（可查看不用考虑）
-                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
-                {
-                    e.Values[11] = "<span class=\"gray\">归档</span>";
-                }
+
 
             }
+        }
+
+        /// <summary>
+        /// 审批窗口关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndApprove_Close(object sender, WindowCloseEventArgs e)
+        {
+            BindGrid();
         }
 
         #endregion

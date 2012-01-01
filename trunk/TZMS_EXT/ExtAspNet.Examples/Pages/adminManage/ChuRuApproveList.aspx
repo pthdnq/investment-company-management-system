@@ -59,7 +59,7 @@
                             <ext:BoundField DataField="UserDept" HeaderText="部门" />
                             <ext:BoundField DataField="OutTime" HeaderText="出门登记时间" />
                             <ext:BoundField DataField="InUserName" HeaderText="入门登记人" />
-                            <ext:BoundField DataField="InTime" HeaderText="出门登记时间" />
+                            <ext:BoundField DataField="InTime" HeaderText="入门登记时间" />
                             <ext:BoundField DataField="OutReason" HeaderText="出门事由" DataTooltipField="OutReason"
                                 ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="State" Hidden="true" />

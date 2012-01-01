@@ -10,7 +10,7 @@
 namespace TZMS.Web {
     
     
-    public partial class RecruitmentToFile {
+    public partial class RecruitmentToFileView {
         
         /// <summary>
         /// form1 control.
@@ -40,6 +40,60 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Panel pelMain;
         
         /// <summary>
+        /// Toolbar1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Toolbar Toolbar1;
+        
+        /// <summary>
+        /// btnClose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Button btnClose;
+        
+        /// <summary>
+        /// btnPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Button btnPass;
+        
+        /// <summary>
+        /// pelOperator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Panel pelOperator;
+        
+        /// <summary>
+        /// TabStrip1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TabStrip TabStrip1;
+        
+        /// <summary>
+        /// Tab1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tab Tab1;
+        
+        /// <summary>
         /// Form2 control.
         /// </summary>
         /// <remarks>
@@ -49,66 +103,84 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Form Form2;
         
         /// <summary>
-        /// ddlstArchiveState control.
+        /// FormRow1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstArchiveState;
+        protected global::ExtAspNet.FormRow FormRow1;
         
         /// <summary>
-        /// dpkStartTime control.
+        /// lblName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkStartTime;
+        protected global::ExtAspNet.Label lblName;
         
         /// <summary>
-        /// dpkEndTime control.
+        /// lblApplyTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkEndTime;
+        protected global::ExtAspNet.Label lblApplyTime;
         
         /// <summary>
-        /// btnSearch control.
+        /// FormRow3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button btnSearch;
+        protected global::ExtAspNet.FormRow FormRow3;
         
         /// <summary>
-        /// pelGrid control.
+        /// tbxTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Panel pelGrid;
+        protected global::ExtAspNet.Label tbxTitle;
         
         /// <summary>
-        /// gridArchiver control.
+        /// FormRow4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Grid gridArchiver;
+        protected global::ExtAspNet.FormRow FormRow4;
         
         /// <summary>
-        /// wndApprove control.
+        /// taaContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Window wndApprove;
+        protected global::ExtAspNet.TextArea taaContent;
+        
+        /// <summary>
+        /// tabApproveHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tab tabApproveHistory;
+        
+        /// <summary>
+        /// gridApproveHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Grid gridApproveHistory;
     }
 }

@@ -95,6 +95,15 @@ namespace TZMS
             /// </summary>
             public static string SalaryPayroll = "工资发放";
 
+            /// <summary>
+            /// 财务报销
+            /// </summary>
+            public static string BaoXiao = "财务报销";
+
+            /// <summary>
+            /// 代帐费
+            /// </summary>
+            public static string ProxyAccounting = "代帐费";
         }
 
         #region 附件

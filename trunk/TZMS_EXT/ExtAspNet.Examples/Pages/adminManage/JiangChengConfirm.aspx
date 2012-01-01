@@ -41,7 +41,7 @@
                                 <Items>
                                     <ext:Label ID="lblJC" runat="server" Label="奖惩人">
                                     </ext:Label>
-                                    <ext:Label ID="lblZJ" runat="server" Label="部门总监">
+                                    <ext:Label ID="lblZJ" runat="server" Label="部门领导">
                                     </ext:Label>
                                 </Items>
                             </ext:FormRow>

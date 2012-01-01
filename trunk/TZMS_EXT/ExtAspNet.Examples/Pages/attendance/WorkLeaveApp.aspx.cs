@@ -185,8 +185,8 @@ namespace TZMS.Web
                 // 设置编辑按钮.
                 //if (Convert.ToInt32(e.Values[8].ToString()) != 3)
                 //{
-                e.Values[10] = "<span class=\"gray\">编辑</span>";
-                e.Values[11] = "<span class=\"gray\">删除</span>";
+                //e.Values[10] = "<span class=\"gray\">编辑</span>";
+                //e.Values[11] = "<span class=\"gray\">删除</span>";
                 //}
 
                 // 设置请假申请单状态.
@@ -194,12 +194,26 @@ namespace TZMS.Web
                 {
                     case 1:
                         e.Values[8] = "审批中";
+                        e.Values[10] = "<span class=\"gray\">编辑</span>";
+                        e.Values[11] = "<span class=\"gray\">删除</span>";
                         break;
                     case 2:
                         e.Values[8] = "归档-已通过";
+                        e.Values[10] = "<span class=\"gray\">编辑</span>";
+                        if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                        {
+                            e.Values[10] = "<span class=\"gray\">编辑</span>";
+                            e.Values[11] = "<span class=\"gray\">删除</span>";
+                        }
                         break;
                     case 3:
                         e.Values[8] = "归档-未通过";
+                        //判断页面是否可编辑（可查看不用考虑）
+                        if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                        {
+                            e.Values[10] = "<span class=\"gray\">编辑</span>";
+                            e.Values[11] = "<span class=\"gray\">删除</span>";
+                        }
                         break;
                     default:
                         break;

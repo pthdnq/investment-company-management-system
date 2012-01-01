@@ -31,6 +31,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                wndNoAttendCheck.OnClientCloseButtonClick = wndNoAttendCheck.GetHidePostBackReference();
+
                 // 设定时间控件的默认时间.
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
@@ -129,24 +131,27 @@ namespace TZMS.Web
         {
             string strNoAttendID = ((GridRow)gridNoAttendToFile.Rows[e.RowIndex]).Values[1];
             string strNoAttendCheckID = ((GridRow)gridNoAttendToFile.Rows[e.RowIndex]).Values[0];
-            string strLastApproveResult = ((GridRow)gridNoAttendToFile.Rows[e.RowIndex]).Values[9];
+            //string strLastApproveResult = ((GridRow)gridNoAttendToFile.Rows[e.RowIndex]).Values[9];
             if (e.CommandName == "Archive")
             {
-                NoAttendManage _manage = new NoAttendManage();
-                NoAttendInfo _info = _manage.GetNoAttendInfoByObjectID(strNoAttendID);
-                NoAttendCheckInfo _checkInfo = _manage.GetNoAttendCheckInfoByObjectID(strNoAttendCheckID);
-                if (_info != null && _checkInfo != null)
-                {
-                    _info.State = strLastApproveResult == "同意" ? short.Parse("2") : short.Parse("1");
-                    _manage.UpdateNoAttendInfo(_info);
+                wndNoAttendCheck.IFrameUrl = "NoAttendToFileView.aspx?NoAttendID=" + strNoAttendID + "&NoAttendCheckID=" + strNoAttendCheckID;
+                wndNoAttendCheck.Hidden = false;
 
-                    _checkInfo.CheckOp = "4";
-                    _checkInfo.Checkstate = 1;
-                    _checkInfo.CheckDateTime = DateTime.Now;
-                    _manage.UpdateNoAttendCheckInfo(_checkInfo);
+                //NoAttendManage _manage = new NoAttendManage();
+                //NoAttendInfo _info = _manage.GetNoAttendInfoByObjectID(strNoAttendID);
+                //NoAttendCheckInfo _checkInfo = _manage.GetNoAttendCheckInfoByObjectID(strNoAttendCheckID);
+                //if (_info != null && _checkInfo != null)
+                //{
+                //    _info.State = strLastApproveResult == "同意" ? short.Parse("2") : short.Parse("1");
+                //    _manage.UpdateNoAttendInfo(_info);
 
-                    BindGrid();
-                }
+                //    _checkInfo.CheckOp = "4";
+                //    _checkInfo.Checkstate = 1;
+                //    _checkInfo.CheckDateTime = DateTime.Now;
+                //    _manage.UpdateNoAttendCheckInfo(_checkInfo);
+
+                //    BindGrid();
+                //}
             }
         }
 
@@ -182,22 +187,36 @@ namespace TZMS.Web
                     if (_checkInfo.CheckOp == "4")
                     {
                         e.Values[11] = _checkInfo.CheckDateTime.ToString("yyyy-MM-dd HH:mm");
-                        e.Values[12] = "<span class=\"gray\">归档</span>";
+                        //e.Values[12] = "<span class=\"gray\">归档</span>";
+                        e.Values[12] = e.Values[12].ToString().Replace("归档", "查看");
                     }
                     else
                     {
                         e.Values[11] = "";
+                        //判断页面是否可编辑（可查看不用考虑）
+                        if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                        {
+                            e.Values[12] = "<span class=\"gray\">归档</span>";
+                        }
                     }
                 }
-                //判断页面是否可编辑（可查看不用考虑）
-                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
-                {
-                    e.Values[12] = "<span class=\"gray\">归档</span>";
-                }
+
 
             }
         }
 
+
+        /// <summary>
+        /// 归档窗口关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndNoAttendCheck_Close(object sender, WindowCloseEventArgs e)
+        {
+            BindGrid();
+        }
+
         #endregion
+
     }
 }

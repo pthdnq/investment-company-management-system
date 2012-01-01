@@ -57,7 +57,7 @@
                             <ext:BoundField DataField="Reason" HeaderText="奖惩原因" DataTooltipField="Reason"
                                 ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="CreateTime" HeaderText="下发时间" />
-                            <ext:BoundField DataField="ZJName" HeaderText="部门总监" />
+                            <ext:BoundField DataField="ZJName" HeaderText="部门领导" />
                             <ext:BoundField DataField="State" HeaderText="当前状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />

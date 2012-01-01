@@ -63,6 +63,7 @@ namespace TZMS.Web
                 BindApproveUser();
                 BindApplyInfo();
                 BindApproveHistory();
+                SetPanelState();
             }
         }
 
@@ -150,6 +151,23 @@ namespace TZMS.Web
             gridApproveHistory.RecordCount = lstApprove.Count;
             this.gridApproveHistory.DataSource = lstApprove;
             this.gridApproveHistory.DataBind();
+        }
+
+        private void SetPanelState()
+        {
+            if (string.IsNullOrEmpty(ApproveID))
+                return;
+            JingShengManage _manage = new JingShengManage();
+            JingShengApproveInfo _approveInfo = _manage.GetApproveByObjectID(ApproveID);
+            if (_approveInfo != null)
+            {
+                if (_approveInfo.ApproveState == 1)
+                {
+                    btnPass.Hidden = true;
+                    btnRefuse.Hidden = true;
+                    mainForm2.Hidden = true;
+                }
+            }
         }
 
         #endregion
