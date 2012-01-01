@@ -50,14 +50,17 @@
                             <ext:BoundField HeaderText="拟离职日期" />
                             <ext:BoundField HeaderText="离职原因" ExpandUnusedSpace="true" />
                             <ext:BoundField HeaderText="归档状态" />
-                            <ext:LinkButtonField Width="38px" Text="归档" CommandName="Archive" ConfirmText="确定归档该申请单?"
-                                ConfirmTarget="Parent" />
+                            <ext:LinkButtonField Width="38px" Text="归档" CommandName="Archive" ConfirmTarget="Parent" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
+    <ext:Window ID="wndTransfer" Title="离职交接归档" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
+        Width="700px" OnClose="wndTransfer_Close">
+    </ext:Window>
     </form>
 </body>
 </html>

@@ -10,7 +10,7 @@
 namespace TZMS.Web {
     
     
-    public partial class UserLeaveTransferToFile {
+    public partial class UserLeaveTransferToFileView {
         
         /// <summary>
         /// form1 control.
@@ -40,75 +40,48 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Panel pelMain;
         
         /// <summary>
-        /// Form2 control.
+        /// Toolbar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Form Form2;
+        protected global::ExtAspNet.Toolbar Toolbar1;
         
         /// <summary>
-        /// ddlstArchiveState control.
+        /// btnClose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstArchiveState;
+        protected global::ExtAspNet.Button btnClose;
         
         /// <summary>
-        /// dpkStartTime control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkStartTime;
+        protected global::ExtAspNet.Button btnSubmit;
         
         /// <summary>
-        /// dpkEndTime control.
+        /// pelOperator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkEndTime;
+        protected global::ExtAspNet.Panel pelOperator;
         
         /// <summary>
-        /// btnSearch control.
+        /// gridTransfer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button btnSearch;
-        
-        /// <summary>
-        /// pelGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Panel pelGrid;
-        
-        /// <summary>
-        /// gridArchiver control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Grid gridArchiver;
-        
-        /// <summary>
-        /// wndTransfer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Window wndTransfer;
+        protected global::ExtAspNet.Grid gridTransfer;
     }
 }

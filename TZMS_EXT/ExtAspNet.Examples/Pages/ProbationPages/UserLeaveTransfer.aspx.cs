@@ -84,15 +84,31 @@ namespace TZMS.Web
         {
             if (ApplyID == null)
                 return;
-            UserLeaveApplyInfo _applyInfo = new UserLeaveManage().GetApplyByObjectID(ApplyID);
+            UserLeaveManage _manage = new UserLeaveManage();
+            UserLeaveApplyInfo _applyInfo = _manage.GetApplyByObjectID(ApplyID);
             if (_applyInfo != null)
             {
                 lblName.Text = _applyInfo.UserName;
                 lblPostion.Text = _applyInfo.UserPosition;
                 lblLeaveDate.Text = _applyInfo.LeaveDate.ToString("yyyy-MM-dd HH:mm");
+
+                UserLeaveTransferInfo _transferInfo = _manage.GetTransferByObjectID(TransferID);
+                if (_transferInfo != null)
+                {
+                    if (_transferInfo.IsTransfer)
+                    {
+                        btnPass.Enabled = false;
+                        ddlstArchiver.Required = false;
+                        ddlstArchiver.ShowRedStar = false;
+                        ddlstArchiver.Enabled = false;
+                        taaOther.Enabled = false;
+                        taaOther.Text = _transferInfo.Other;
+                    }
+                }
             }
         }
 
+        
         #endregion
 
         #region 页面事件
