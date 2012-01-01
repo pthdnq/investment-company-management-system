@@ -103,12 +103,12 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Grid gridArchiver;
         
         /// <summary>
-        /// wndApprove control.
+        /// wndApprove1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Window wndApprove;
+        protected global::ExtAspNet.Window wndApprove1;
     }
 }
