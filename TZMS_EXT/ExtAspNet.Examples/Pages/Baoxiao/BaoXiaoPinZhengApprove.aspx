@@ -7,7 +7,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=8" /> 
     <title></title>
 </head>
-<body>
+<body style="background-color:#dfe8f6">
     <form id="form1" runat="server" style="background-color:#dfe8f6">
     <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
