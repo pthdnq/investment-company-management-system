@@ -550,6 +550,7 @@
     <Content Include="Pages\adminManage\JingShengApprove.aspx" />
     <Content Include="Pages\adminManage\JingShengApproveList.aspx" />
     <Content Include="Pages\adminManage\JingShengToFile.aspx" />
+    <Content Include="Pages\adminManage\JingShengToFileView.aspx" />
     <Content Include="Pages\adminManage\Menu.aspx" />
     <Content Include="Pages\adminManage\NewUser.aspx" />
     <Content Include="Pages\adminManage\ProbationYear.aspx" />
@@ -558,6 +559,7 @@
     <Content Include="Pages\adminManage\RecruitmentApprove.aspx" />
     <Content Include="Pages\adminManage\RecruitmentApproveList.aspx" />
     <Content Include="Pages\adminManage\RecruitmentToFile.aspx" />
+    <Content Include="Pages\adminManage\RecruitmentToFileView.aspx" />
     <Content Include="Pages\adminManage\SentJiangCheng.aspx" />
     <Content Include="Pages\adminManage\SetPersonOfXZ.aspx" />
     <Content Include="Pages\adminManage\SuperUser.xml">
@@ -582,6 +584,7 @@
     <Content Include="Pages\attendance\NoAttendCheckForm.aspx" />
     <Content Include="Pages\attendance\NoAttendNew.aspx" />
     <Content Include="Pages\attendance\NoAttendToFile.aspx" />
+    <Content Include="Pages\attendance\NoAttendToFileView.aspx" />
     <Content Include="Pages\attendance\WorkerAttend.aspx" />
     <Content Include="Pages\attendance\WorkLeaveApp.aspx" />
     <Content Include="Pages\attendance\WorkLeaveAppNew.aspx" />
@@ -923,6 +926,13 @@
     <Compile Include="Pages\adminManage\JingShengToFile.aspx.designer.cs">
       <DependentUpon>JingShengToFile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\adminManage\JingShengToFileView.aspx.cs">
+      <DependentUpon>JingShengToFileView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\JingShengToFileView.aspx.designer.cs">
+      <DependentUpon>JingShengToFileView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\adminManage\Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -978,6 +988,13 @@
     </Compile>
     <Compile Include="Pages\adminManage\RecruitmentToFile.aspx.designer.cs">
       <DependentUpon>RecruitmentToFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentToFileView.aspx.cs">
+      <DependentUpon>RecruitmentToFileView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminManage\RecruitmentToFileView.aspx.designer.cs">
+      <DependentUpon>RecruitmentToFileView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\SentJiangCheng.aspx.cs">
       <DependentUpon>SentJiangCheng.aspx</DependentUpon>
@@ -1104,6 +1121,13 @@
     </Compile>
     <Compile Include="Pages\attendance\NoAttendToFile.aspx.designer.cs">
       <DependentUpon>NoAttendToFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\attendance\NoAttendToFileView.aspx.cs">
+      <DependentUpon>NoAttendToFileView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\attendance\NoAttendToFileView.aspx.designer.cs">
+      <DependentUpon>NoAttendToFileView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\attendance\WorkerAttend.aspx.cs">
       <DependentUpon>WorkerAttend.aspx</DependentUpon>

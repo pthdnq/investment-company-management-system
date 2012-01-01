@@ -48,10 +48,10 @@
                             </ext:FormRow>
                             <ext:FormRow ColumnWidths="50% 50%">
                                 <Items>
-                                    <ext:TextBox ID="tbxZJ" runat="server" Label="部门总监" Required="true" ShowRedStar="true"
+                                    <ext:TextBox ID="tbxZJ" runat="server" Label="部门领导" Required="true" ShowRedStar="true"
                                         Enabled="false">
                                     </ext:TextBox>
-                                    <ext:Button ID="btnSetZJ" runat="server" Text="选取部门总监..." OnClick="btnSetZJ_Click">
+                                    <ext:Button ID="btnSetZJ" runat="server" Text="选取部门领导..." OnClick="btnSetZJ_Click">
                                     </ext:Button>
                                 </Items>
                             </ext:FormRow>
@@ -80,7 +80,7 @@
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="450px"
         Width="560px" onclose="wndChooseJC_Close" >
     </ext:Window>
-    <ext:Window ID="wndChooseZJ" Title="选取部门总监" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndChooseZJ" Title="选取部门领导" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="450px"
         Width="560px" onclose="wndChooseZJ_Close">
     </ext:Window>

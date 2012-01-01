@@ -38,6 +38,7 @@ namespace TZMS.Web
             {
                 JiangChengID = Request.QueryString["ID"];
                 BindJiangChengInfo();
+                SetState();
             }
         }
 
@@ -61,6 +62,32 @@ namespace TZMS.Web
                 lblZJ.Text = _info.ZJName;
                 lblType.Text = _info.Type == 0 ? "奖励" : "惩罚";
                 taaReason.Text = _info.Reason;
+            }
+        }
+
+        /// <summary>
+        /// 设置状态
+        /// </summary>
+        private void SetState()
+        {
+            JiangChengManage _manage = new JiangChengManage();
+            JiangChengInfo _info = _manage.GetJiangChengByObjectID(JiangChengID);
+            if (_info != null)
+            {
+                if (_info.UserID.ToString() == CurrentUser.ObjectId.ToString())
+                {
+                    if (_info.State > 0)
+                        btnSubmit.Enabled = false;
+                }
+                else if (_info.ZjID.ToString() == CurrentUser.ObjectId.ToString())
+                {
+                    if (_info.State > 1)
+                        btnSubmit.Enabled = false;
+                }
+                else
+                {
+                    btnSubmit.Enabled = false;
+                }
             }
         }
 

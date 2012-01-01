@@ -464,11 +464,11 @@ namespace TZMS.Web
                 _leaveInfo.WriteTime = DateTime.Now;
                 if (dpkStartTime.SelectedDate is DateTime)
                 {
-                    _leaveInfo.StartTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+                    _leaveInfo.StartTime = (Convert.ToDateTime(dpkStartTime.SelectedDate)).AddHours(Convert.ToInt32(ddlstStartHour.SelectedValue));
                 }
                 if (dpkEndTime.SelectedDate is DateTime)
                 {
-                    _leaveInfo.StopTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+                    _leaveInfo.StopTime = Convert.ToDateTime(dpkEndTime.SelectedDate).AddHours(Convert.ToInt32(ddlstEndHour.SelectedValue));
                 }
                 _leaveInfo.ApproverId = new Guid(ddlstApproveUser.SelectedValue);
                 _leaveInfo.Type = ddlstLeaveType.SelectedText;

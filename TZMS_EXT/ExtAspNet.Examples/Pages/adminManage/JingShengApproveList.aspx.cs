@@ -32,6 +32,8 @@ namespace TZMS.Web
         {
             if (!IsPostBack)
             {
+                wndApprove.OnClientCloseButtonClick = wndApprove.GetHidePostBackReference();
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -178,22 +180,22 @@ namespace TZMS.Web
                         e.Values[8] = "待审批";
                         e.Values[9] = "";
                         e.Values[10] = "";
+                        //判断页面是否可编辑（可查看不用考虑）
+                        if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                        {
+                            e.Values[11] = "<span class=\"gray\">审批</span>";
+                        }
                         break;
                     case "1":
                         e.Values[8] = "已审批";
                         e.Values[9] = e.Values[9].ToString() == "0" ? "同意" : "不同意";
                         e.Values[10] = DateTime.Parse(e.Values[10].ToString()).ToString("yyyy-MM-dd HH:mm");
-                        e.Values[11] = "<span class=\"gray\">审批</span>";
+                       // e.Values[11] = "<span class=\"gray\">审批</span>";
+                        e.Values[11] = e.Values[11].ToString().Replace("审批", "查看");
                         break;
                     default:
                         break;
                 }
-                //判断页面是否可编辑（可查看不用考虑）
-                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
-                {
-                   e.Values[11] = "<span class=\"gray\">审批</span>";
-                }
-                
             }
         }
 

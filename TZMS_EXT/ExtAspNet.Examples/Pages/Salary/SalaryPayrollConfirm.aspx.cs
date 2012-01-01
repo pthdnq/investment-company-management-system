@@ -348,7 +348,7 @@ namespace TZMS.Web
                 if (result == -1)
                 {
                     CashFlowManage _cashFlowManage = new CashFlowManage();
-                    _cashFlowManage.Add(_info.SumMoney, DateTime.Now, "Payment", _info.Year + "年" + _info.Month + "月发放工资", TZMS.Common.Biz.SalaryPayroll, string.Empty);
+                    _cashFlowManage.Add(_info.SumMoney, DateTime.Now, "Payment", TZMS.Common.Biz.SalaryPayroll, _info.Year + "年" + _info.Month + "月发放工资", string.Empty);
                 }
             }
 

@@ -195,11 +195,17 @@ namespace TZMS.Web
                 {
                     case "0":
                         e.Values[9] = "待审批";
+                        //判断页面是否可编辑（可查看不用考虑）
+                        if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                        {
+                            e.Values[12] = "<span class=\"gray\">审批</span>";
+                        }
 
                         break;
                     case "1":
                         e.Values[9] = "已审批";
-                        e.Values[12] = "<span class=\"gray\">审批</span>";
+                        //e.Values[12] = "<span class=\"gray\">审批</span>";
+                        e.Values[12] = e.Values[12].ToString().Replace("审批", "查看");
                         break;
                     default:
                         break;
@@ -226,11 +232,7 @@ namespace TZMS.Web
                 {
                     e.Values[11] = checkTime.ToString("yyyy-MM-dd HH:mm");
                 }
-                //判断页面是否可编辑（可查看不用考虑）
-                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
-                {
-                    e.Values[12] = "<span class=\"gray\">审批</span>";
-                }
+
 
             }
         }

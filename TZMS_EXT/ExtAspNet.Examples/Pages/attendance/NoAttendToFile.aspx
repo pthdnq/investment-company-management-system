@@ -53,14 +53,17 @@
                             <ext:BoundField HeaderText="审批结果" />
                             <ext:BoundField HeaderText="归档状态" />
                             <ext:BoundField HeaderText="归档时间" />
-                            <ext:LinkButtonField Width="38px" Text="归档" CommandName="Archive" ConfirmText="确定归档该未打卡申请单?"
-                                ConfirmTarget="Parent" />
+                            <ext:LinkButtonField Width="38px" Text="归档" CommandName="Archive" ConfirmTarget="Parent" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
+    <ext:Window ID="wndNoAttendCheck" Title="未打卡归档" Popup="false" EnableIFrame="true"
+        IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" Height="500px"
+        Width="700px" OnClose="wndNoAttendCheck_Close">
+    </ext:Window>
     </form>
 </body>
 </html>

@@ -22,7 +22,7 @@
             </ext:Toolbar>
         </Toolbars>
         <Items>
-            <ext:Grid ID="gridUnSelectUser" Title="部门总监列表" ShowBorder="true" ShowHeader="true"
+            <ext:Grid ID="gridUnSelectUser" Title="部门领导列表" ShowBorder="true" ShowHeader="true"
                 ColumnWidth="46%" runat="server" AutoHeight="true" Height="385px" EnableMultiSelect="false"
                 OnRowDataBound="gridUnSelectUser_RowDataBound">
                 <Columns>
@@ -43,7 +43,7 @@
                     </ext:Button>
                 </Items>
             </ext:Panel>
-            <ext:Grid ID="gridSelectdUsers" Title="已选择部门总监" ShowBorder="true" ShowHeader="true"
+            <ext:Grid ID="gridSelectdUsers" Title="已选择部门领导" ShowBorder="true" ShowHeader="true"
                 EnableMultiSelect="false" ColumnWidth="46%" runat="server" AutoHeight="true"
                 Height="385px" OnRowDataBound="gridSelectdUsers_RowDataBound">
                 <Columns>

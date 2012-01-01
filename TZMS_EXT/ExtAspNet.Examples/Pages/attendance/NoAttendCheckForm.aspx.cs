@@ -63,6 +63,7 @@ namespace TZMS.Web
                 BindApproveUser();
                 BindNoAttendInfo();
                 BindApproveHistory();
+                SetPanelState();
             }
         }
 
@@ -146,6 +147,26 @@ namespace TZMS.Web
             gridApproveHistory.RecordCount = lstNoAttendCheck.Count;
             this.gridApproveHistory.DataSource = lstNoAttendCheck;
             this.gridApproveHistory.DataBind();
+        }
+
+        /// <summary>
+        /// 设置面板状态
+        /// </summary>
+        private void SetPanelState()
+        {
+            if (string.IsNullOrEmpty(NoAttendCheckID))
+                return;
+            NoAttendManage _manage = new NoAttendManage();
+            NoAttendCheckInfo _checkInfo = _manage.GetNoAttendCheckInfoByObjectID(NoAttendCheckID);
+            if (_checkInfo != null)
+            {
+                if (_checkInfo.Checkstate == 1)
+                {
+                    btnPass.Hidden = true;
+                    btnRefuse.Hidden = true;
+                    Form2.Hidden = true;
+                }
+            }
         }
 
         #endregion

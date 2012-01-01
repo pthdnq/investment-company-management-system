@@ -253,6 +253,10 @@ namespace TZMS.Web
                     _PingZhengApplyInfo.BaoXiaoID = _baoxiaoInfo.ObjectId;
 
                     _manage.AddNewPinZhengApply(_PingZhengApplyInfo);
+
+                    // 插入出纳记录.
+                    CashFlowManage _cashFlowManage = new CashFlowManage();
+                    _cashFlowManage.Add(_baoxiaoInfo.Money, DateTime.Now, "Payment", TZMS.Common.Biz.BaoXiao, _baoxiaoInfo.UserName + "的财务报销", string.Empty);
                 }
 
                 #endregion

@@ -144,14 +144,21 @@ namespace TZMS.Web
                     {
                         case "0":
                             e.Values[9] = "待确认";
+                            //判断页面是否可编辑（可查看不用考虑）
+                            if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                            {
+                                e.Values[10] = "<span class=\"gray\">确认</span>";
+                            }
                             break;
                         case "1":
                             e.Values[9] = "已确认";
-                            e.Values[10] = "<span class=\"gray\">确认</span>";
+                            //e.Values[10] = "<span class=\"gray\">确认</span>";
+                            e.Values[10] = e.Values[10].ToString().Replace("确认", "查看");
                             break;
                         case "2":
                             e.Values[9] = "部门总监已确认";
-                            e.Values[10] = "<span class=\"gray\">确认</span>";
+                            //e.Values[10] = "<span class=\"gray\">确认</span>";
+                            e.Values[10] = e.Values[10].ToString().Replace("确认", "查看");
                             break;
                         default:
                             break;
@@ -167,22 +174,21 @@ namespace TZMS.Web
                             break;
                         case "1":
                             e.Values[9] = "待确认";
+                            //判断页面是否可编辑（可查看不用考虑）
+                            if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                            {
+                                e.Values[10] = "<span class=\"gray\">确认</span>";
+                            }
                             break;
                         case "2":
                             e.Values[9] = "已确认";
-                            e.Values[10] = "<span class=\"gray\">确认</span>";
+                            //e.Values[10] = "<span class=\"gray\">确认</span>";
+                            e.Values[10] = e.Values[10].ToString().Replace("确认", "查看");
                             break;
                         default:
                             break;
                     }
                 }
-                //判断页面是否可编辑（可查看不用考虑）
-                if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
-                {
-                    e.Values[10] = "<span class=\"gray\">确认</span>";
-                }
-
-
             }
         }
 

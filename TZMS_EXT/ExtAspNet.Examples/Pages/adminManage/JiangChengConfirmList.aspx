@@ -50,7 +50,7 @@
                             <ext:BoundField DataField="Type" HeaderText="奖惩类型" />
                             <ext:BoundField DataField="Reason" HeaderText="奖惩原因" DataTooltipField="Reason" ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="CreateTime" HeaderText="下发时间" />
-                            <ext:BoundField DataField="ZJName" HeaderText="部门总监" />
+                            <ext:BoundField DataField="ZJName" HeaderText="部门领导" />
                             <ext:BoundField DataField="State" HeaderText="确认状态" />
                             <ext:LinkButtonField Width="38px" Text="确认" CommandName="Confirm" />
                         </Columns>
