@@ -60,7 +60,7 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndApprove" Title="离职归档" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndApprove0" Title="离职归档" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="550px"
         Width="700px" OnClose="wndApprove_Close">
     </ext:Window>
