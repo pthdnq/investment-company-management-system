@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" EnableAjax="false" />
+    <ext:PageManager ID="PageManager1" runat="server" EnableAjax="false" HideScrollbar="true"/>
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" AutoScroll="false" ShowBorder="true" ShowHeader="false">
         <Toolbars>
