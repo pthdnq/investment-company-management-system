@@ -729,6 +729,7 @@
     <Content Include="Pages\ProbationPages\UserLeaveTransfer.aspx" />
     <Content Include="Pages\ProbationPages\UserLeaveTransferList.aspx" />
     <Content Include="Pages\ProbationPages\UserLeaveTransferToFile.aspx" />
+    <Content Include="Pages\ProbationPages\UserLeaveTransferToFileView.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApplyList.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingApprove.aspx" />
@@ -2136,6 +2137,13 @@
     </Compile>
     <Compile Include="Pages\ProbationPages\UserLeaveTransferToFile.aspx.designer.cs">
       <DependentUpon>UserLeaveTransferToFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveTransferToFileView.aspx.cs">
+      <DependentUpon>UserLeaveTransferToFileView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProbationPages\UserLeaveTransferToFileView.aspx.designer.cs">
+      <DependentUpon>UserLeaveTransferToFileView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProxyAccountingPages\ProxyAccountApplyNew.aspx.cs">
       <DependentUpon>ProxyAccountApplyNew.aspx</DependentUpon>

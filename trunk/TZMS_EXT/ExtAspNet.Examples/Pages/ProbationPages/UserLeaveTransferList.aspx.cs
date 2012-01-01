@@ -193,19 +193,20 @@ namespace TZMS.Web
                     case "False":
                         e.Values[11] = "待交接";
                         e.Values[12] = "";
+
+                        if (CurrentLevel == VisitLevel.View)
+                        {
+                            e.Values[13] = "<span class=\"gray\">交接</span>";
+                        }
                         break;
                     case "True":
                         e.Values[11] = "已交接";
                         e.Values[12] = DateTime.Parse(e.Values[12].ToString()).ToString("yyyy-MM-dd HH:mm");
-                        e.Values[13] = "<span class=\"gray\">交接</span>";
+                        //e.Values[13] = "<span class=\"gray\">交接</span>";
+                        e.Values[13] = e.Values[13].ToString().Replace("交接", "查看");
                         break;
                     default:
                         break;
-                }
-
-                if (CurrentLevel == VisitLevel.View)
-                {
-                    e.Values[13] = "<span class=\"gray\">交接</span>";
                 }
             }
         }

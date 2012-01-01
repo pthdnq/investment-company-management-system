@@ -19,6 +19,8 @@ namespace TZMS.Web
             {
                 CurrentLevel = GetCurrentLevel("lzjjgd");
 
+                wndTransfer.OnClientCloseButtonClick = wndTransfer.GetHidePostBackReference();
+
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
@@ -116,35 +118,43 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridArchiver_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
-            string strTransferID = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[0];
+            string strApproveID = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[0];
             string strApplyID = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[1];
+
             if (e.CommandName == "Archive")
             {
-                UserLeaveManage _manage = new UserLeaveManage();
-                UserManage _userManage = new UserManage();
-                UserLeaveTransferInfo _transferInfo = _manage.GetTransferByObjectID(strTransferID);
-                UserLeaveApplyInfo _applyInfo = _manage.GetApplyByObjectID(strApplyID);
-                if (_transferInfo != null && _applyInfo != null)
-                {
-                    _transferInfo.TransferTime = DateTime.Now;
-                    _transferInfo.IsTransfer = true;
-                    _manage.UpdateTransfer(_transferInfo);
-
-                    _applyInfo.TransferState = 1;
-                    _manage.UpdateApply(_applyInfo);
-
-                    UserInfo _leaveUser = _userManage.GetUserByObjectID(_applyInfo.UserID.ToString());
-                    if (_leaveUser != null)
-                    {
-                        _leaveUser.State = 0;
-                        _leaveUser.LeaveTime = _applyInfo.LeaveDate;
-
-                        _userManage.UpdateUser(_leaveUser);
-                    }
-                }
-
-                BindGrid();
+                wndTransfer.IFrameUrl = "UserLeaveTransferToFileView.aspx?TransferID=" + strApproveID + "&ApplyID=" + strApplyID;
+                wndTransfer.Hidden = false;
             }
+
+            //string strApplyID = ((GridRow)gridArchiver.Rows[e.RowIndex]).Values[1];
+            //if (e.CommandName == "Archive")
+            //{
+            //    UserLeaveManage _manage = new UserLeaveManage();
+            //    UserManage _userManage = new UserManage();
+            //    UserLeaveTransferInfo _transferInfo = _manage.GetTransferByObjectID(strTransferID);
+            //    UserLeaveApplyInfo _applyInfo = _manage.GetApplyByObjectID(strApplyID);
+            //    if (_transferInfo != null && _applyInfo != null)
+            //    {
+            //        _transferInfo.TransferTime = DateTime.Now;
+            //        _transferInfo.IsTransfer = true;
+            //        _manage.UpdateTransfer(_transferInfo);
+
+            //        _applyInfo.TransferState = 1;
+            //        _manage.UpdateApply(_applyInfo);
+
+            //        UserInfo _leaveUser = _userManage.GetUserByObjectID(_applyInfo.UserID.ToString());
+            //        if (_leaveUser != null)
+            //        {
+            //            _leaveUser.State = 0;
+            //            _leaveUser.LeaveTime = _applyInfo.LeaveDate;
+
+            //            _userManage.UpdateUser(_leaveUser);
+            //        }
+            //    }
+
+            //    BindGrid();
+            //}
         }
 
         /// <summary>
@@ -172,10 +182,15 @@ namespace TZMS.Web
                     {
                         case 0:
                             e.Values[8] = "待归档";
+                            if (CurrentLevel == VisitLevel.View)
+                            {
+                                e.Values[9] = "<span class=\"gray\">归档</span>";
+                            }
                             break;
                         case 1:
                             e.Values[8] = "已归档";
-                            e.Values[9] = "<span class=\"gray\">归档</span>";
+                            // e.Values[9] = "<span class=\"gray\">归档</span>";
+                            e.Values[9] = e.Values[9].ToString().Replace("归档", "查看");
                             break;
                         default:
                             e.Values[8] = "";
@@ -183,11 +198,18 @@ namespace TZMS.Web
                     }
                 }
 
-                if (CurrentLevel == VisitLevel.View)
-                {
-                    e.Values[9] = "<span class=\"gray\">归档</span>";
-                }
+
             }
+        }
+
+        /// <summary>
+        /// 归档窗口关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndTransfer_Close(object sender, WindowCloseEventArgs e)
+        {
+            BindGrid();
         }
 
         #endregion
