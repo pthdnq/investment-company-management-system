@@ -29,7 +29,7 @@ namespace TZMS.Web
                 Alert.Show("您输入的密码有误！");
                 return;
             }
-            if (this.tbxOldPsw1.Text.Trim() != this.tbxOldPsw1.Text.Trim())
+            if (this.tbxOldPsw2.Text.Trim() != this.tbxOldPsw1.Text.Trim())
             {
                 Alert.Show("您两次输入的密码不一致！");
                 return;
@@ -40,7 +40,8 @@ namespace TZMS.Web
             if (um.UpdateUser(user) != 0)
             {
                 CurrentUser = user;
-                Alert.Show("修改密码成功！");
+                //Alert.Show("修改密码成功！");
+                PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
             }
             else
             {

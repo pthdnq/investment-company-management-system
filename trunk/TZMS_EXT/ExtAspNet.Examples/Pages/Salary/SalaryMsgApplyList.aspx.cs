@@ -58,14 +58,14 @@ namespace TZMS.Web
         {
             #region 查询条件
 
-            DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
-            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+            //DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+            //DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
 
-            if (DateTime.Compare(startTime, endTime) == 1)
-            {
-                Alert.Show("结束日期不可小于开始日期!");
-                return;
-            }
+            //if (DateTime.Compare(startTime, endTime) == 1)
+            //{
+            //    Alert.Show("结束日期不可小于开始日期!");
+            //    return;
+            //}
 
             StringBuilder strCondition = new StringBuilder();
             //strCondition.Append(" CreaterID ='" + CurrentUser.ObjectId.ToString() + "'");
@@ -89,8 +89,8 @@ namespace TZMS.Web
             strCondition.Append(" state = " + ddlState.SelectedValue);
             strCondition.Append(" and Year = " + ddlstYear.SelectedValue);
             strCondition.Append(" and Month = " + ddlstMonth.SelectedValue);
-            strCondition.Append(" and (CreateTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59")
-                + "' or CreateTime='" + ACommonInfo.DBMAXDate.ToString() + "')");
+            //strCondition.Append(" and (CreateTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59")
+            //    + "' or CreateTime='" + ACommonInfo.DBMAXDate.ToString() + "')");
 
             #endregion
 

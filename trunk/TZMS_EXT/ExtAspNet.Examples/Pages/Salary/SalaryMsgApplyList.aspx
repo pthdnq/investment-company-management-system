@@ -45,15 +45,15 @@
                             </ext:Button>
                         </Items>
                     </ext:FormRow>
-                    <ext:FormRow ID="FormRow2" runat="server">
+                    <ext:FormRow ID="FormRow2" runat="server" Hidden="true">
                         <Items>
-                            <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期">
+                            <ext:DatePicker ID="dpkStartTime" runat="server" Label="开始日期" Hidden="true">
                             </ext:DatePicker>
-                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
+                            <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期" Hidden="true">
                             </ext:DatePicker>
-                            <ext:Label ID="Label3" runat="server">
+                            <ext:Label ID="Label3" runat="server" Hidden="true">
                             </ext:Label>
-                            <ext:Label ID="Label1" runat="server">
+                            <ext:Label ID="Label1" runat="server" Hidden="true">
                             </ext:Label>
                         </Items>
                     </ext:FormRow>

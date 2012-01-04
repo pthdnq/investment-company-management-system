@@ -54,7 +54,7 @@
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
                         AutoHeight="true" Height="335px">
                         <Tabs>
-                            <ext:Tab ID="Tab1" Title="代账费申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab1" Title="薪资申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Grid ID="gridWorkerSalaryMsg" Title="Grid1" ShowBorder="true" ShowHeader="false"
                                         runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true"

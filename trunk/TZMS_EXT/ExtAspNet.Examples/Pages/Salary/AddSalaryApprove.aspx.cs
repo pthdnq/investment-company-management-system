@@ -283,14 +283,14 @@ namespace TZMS.Web
                 return;
 
             SalaryManage _manage = new SalaryManage();
-            SalaryMsgInfo _applyInfo = _manage.GetSalaryMsgByObjectID(ApplyID);
+            AddSalaryInfo _applyInfo = _manage.GetAddSalaryByObjectID(ApplyID);
             if (_applyInfo != null)
             {
                 SalaryCheckInfo _currentApproveInfo = _manage.GetSalaryCheckByObjectID(ApproveID);
 
                 //更新报销申请单信息.
                 _applyInfo.State = 1;
-                int result = _manage.UpdateSalaryMsg(_applyInfo);
+                int result = _manage.UpdateAddSalary(_applyInfo);
 
                 // 更新报销流程表信息.
                 _currentApproveInfo.CheckDateTime = DateTime.Now;

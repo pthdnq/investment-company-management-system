@@ -2819,7 +2819,9 @@
     <None Include="Template\收款收据.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Template\考勤记录.xls" />
+    <None Include="Template\考勤记录.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
