@@ -59,7 +59,7 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <%--     <ext:BoundField Width="70px" DataField="ProjectName" HeaderText="项目名称" /> --%>
-                            <ext:BoundField Width="85px" DataField="DueDateForReceivables" DataFormatString="{0:yyyy/MM/dd}"
+                            <ext:BoundField Width="85px" DataField="DateForReceivables" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="实收借款日" />
                             <ext:BoundField Width="85px" DataField="DueDateForReceivables" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="应收借款日" />
