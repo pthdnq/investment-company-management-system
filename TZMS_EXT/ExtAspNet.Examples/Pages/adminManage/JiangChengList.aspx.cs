@@ -155,11 +155,11 @@ namespace TZMS.Web
                         e.Values[7] = "待个人确认";
                         break;
                     case "1":
-                        e.Values[7] = "待部门总监确认";
+                        e.Values[7] = "待部门领导确认";
                         e.Values[9] = "<span class=\"gray\">编辑</span>";
                         break;
                     case "2":
-                        e.Values[7] = "部门总监已确认";
+                        e.Values[7] = "部门领导已确认";
                         e.Values[9] = "<span class=\"gray\">编辑</span>";
                         break;
                     default:

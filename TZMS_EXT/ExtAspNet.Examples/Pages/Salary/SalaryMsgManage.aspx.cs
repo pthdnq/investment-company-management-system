@@ -264,6 +264,13 @@ namespace TZMS.Web
                 btnSave.Enabled = false;
                 btnNewWorkerSalary.Enabled = false;
             }
+
+            if (CurrentLevel == VisitLevel.View)
+            {
+                btnNewSalaryMsg.Enabled = false;
+                btnSave.Enabled = false;
+                btnNewWorkerSalary.Enabled = false;
+            }
         }
 
         #endregion

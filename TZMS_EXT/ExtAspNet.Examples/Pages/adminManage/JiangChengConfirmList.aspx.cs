@@ -156,7 +156,7 @@ namespace TZMS.Web
                             e.Values[10] = e.Values[10].ToString().Replace("确认", "查看");
                             break;
                         case "2":
-                            e.Values[9] = "部门总监已确认";
+                            e.Values[9] = "部门领导已确认";
                             //e.Values[10] = "<span class=\"gray\">确认</span>";
                             e.Values[10] = e.Values[10].ToString().Replace("确认", "查看");
                             break;

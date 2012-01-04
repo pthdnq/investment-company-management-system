@@ -164,7 +164,7 @@ namespace TZMS.Web
 
             if (lstSelected.Count == 0)
             {
-                Alert.Show("请选择部门总监!");
+                Alert.Show("请选择部门领导!");
                 return;
             }
 
@@ -181,7 +181,7 @@ namespace TZMS.Web
             // 获取选中一行.
             if (gridUnSelectUser.SelectedRowIndexArray.Length == 0)
             {
-                Alert.Show("请在左边选择部门总监！");
+                Alert.Show("请在左边选择部门领导！");
                 return;
             }
 
@@ -223,7 +223,7 @@ namespace TZMS.Web
             // 获取选中一行.
             if (gridSelectdUsers.SelectedRowIndexArray.Length == 0)
             {
-                Alert.Show("请选择要移除的部门总监！");
+                Alert.Show("请选择要移除的部门领导！");
                 return;
             }
             int index = gridSelectdUsers.SelectedRowIndexArray[0];

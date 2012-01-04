@@ -139,13 +139,13 @@ namespace TZMS.Web
 
             if (string.IsNullOrEmpty(ViewStateZJ))
             {
-                Alert.Show("部门总监尚未设置!");
+                Alert.Show("部门领导尚未设置!");
                 return;
             }
 
             if (ViewStateZJ == ViewStateJC)
             {
-                Alert.Show("奖惩人与部门总监不可为同一人!");
+                Alert.Show("奖惩人与部门领导不可为同一人!");
                 return;
             }
 

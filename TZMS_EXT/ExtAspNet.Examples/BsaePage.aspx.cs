@@ -128,7 +128,21 @@ namespace TZMS.Web
         /// <summary>
         /// 当前访问级别
         /// </summary>
-        public VisitLevel CurrentLevel = VisitLevel.Both;
+        public VisitLevel CurrentLevel
+        {
+            get
+            {
+                if (ViewState["VisitLevel"] == null)
+                {
+                    return VisitLevel.Both;
+                }
+                return (VisitLevel)ViewState["VisitLevel"];
+            }
+            set
+            {
+                ViewState["VisitLevel"] = value;
+            }
+        }
 
         /// <summary>
         /// 系统用户

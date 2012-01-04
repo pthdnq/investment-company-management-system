@@ -57,14 +57,14 @@ namespace TZMS.Web
         {
             #region 查询条件
 
-            DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
-            DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
+            //DateTime startTime = Convert.ToDateTime(dpkStartTime.SelectedDate);
+            //DateTime endTime = Convert.ToDateTime(dpkEndTime.SelectedDate);
 
-            if (DateTime.Compare(startTime, endTime) == 1)
-            {
-                Alert.Show("结束日期不可小于开始日期!");
-                return;
-            }
+            //if (DateTime.Compare(startTime, endTime) == 1)
+            //{
+            //    Alert.Show("结束日期不可小于开始日期!");
+            //    return;
+            //}
 
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append(" CheckerID = '" + CurrentUser.ObjectId.ToString() + "' and CheckOp <> '0'");
@@ -81,8 +81,8 @@ namespace TZMS.Web
                 strCondition.Append(" and Checkstate = 1");
             }
 
-            strCondition.Append(" and (CheckDateTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59")
-                + "' or CheckDateTime='" + ACommonInfo.DBMAXDate + "')");
+            //strCondition.Append(" and (CheckDateTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59")
+            //    + "' or CheckDateTime='" + ACommonInfo.DBMAXDate + "')");
 
             #endregion
 

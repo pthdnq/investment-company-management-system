@@ -58,7 +58,7 @@
                             <ext:BoundField DataField="ApplyID" Hidden="true" />
                             <ext:BoundField DataField="UserName" HeaderText="申请人" />
                             <ext:BoundField DataField="UserDept" HeaderText="部门" />
-                            <ext:BoundField DataField="UserPositon" HeaderText="职务" />
+                            <ext:BoundField DataField="UserPosition" HeaderText="职务" />
                             <ext:BoundField DataField="ContractStartDate" HeaderText="合同开始日期" />
                             <ext:BoundField DataField="ContractEndDate" HeaderText="合同结束日期" />
                             <ext:BoundField DataField="LeaveDate" HeaderText="拟离职日期" />
