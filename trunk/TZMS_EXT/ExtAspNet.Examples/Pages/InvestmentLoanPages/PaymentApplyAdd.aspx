@@ -19,13 +19,14 @@
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
                     <ext:Button ID="btnSave" runat="server" ValidateForms="pelMain" OnClick="btnSave_Click"
                         Icon="Disk" Text="提交" ConfirmText="您确定提交该表单吗?" />
-                        <ext:Label Text="" ID="LbTooltip" runat="server" CssStyle="Color:Red;"></ext:Label>
+                    <ext:Label Text="" ID="LbTooltip" runat="server" CssStyle="Color:Red;">
+                    </ext:Label>
                 </Items>
             </ext:Toolbar>
         </Toolbars>
         <Items>
             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
-             LabelWidth="97px"     runat="server">
+                LabelWidth="97px" runat="server">
                 <Rows>
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
@@ -46,8 +47,8 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea   Height="56px"  ID="tbProjectOverview" Label="项目概述" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="300" MaxLengthMessage="最多只能输入300个字符！" />
+                            <ext:TextArea Height="56px" ID="tbProjectOverview" Label="项目概述" ShowRedStar="true"
+                                Required="true" runat="server" MaxLength="300" MaxLengthMessage="最多只能输入300个字符！" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
@@ -56,13 +57,12 @@
                                 runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>--%>
-                            <ext:TriggerBox   ID="tbBorrowerNameA" Label="借款人(甲方)" TriggerIconUrl="~/Images/ico_16_grxx.gif"
+                            <ext:TriggerBox ID="tbBorrowerNameA" Label="借款人(甲方)" TriggerIconUrl="~/Images/ico_16_grxx.gif"
                                 OnTriggerClick="tbBorrowerNameA_TriggerClick" EmptyText="" runat="server" ShowRedStar="true"
                                 Required="true">
                             </ext:TriggerBox>
                             <ext:TextBox ID="tbBorrowerPhone" Label="借款联系电话" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                Regex="^1[0-9]{10}$" RegexMessage="手机号码格式不正确!" ShowRedStar="true"
-                                Required="true">
+                                Regex="^1[0-9]{10}$" RegexMessage="手机号码格式不正确!" ShowRedStar="true" Required="true">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
@@ -77,22 +77,36 @@
                                 runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
-                            <ext:DropDownList runat="server" Label="付款方式" ID="ddlLoanType" ShowRedStar="true"
+                            <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" runat="server" ShowRedStar="true"
                                 Required="true">
-                                <ext:ListItem Text="现金" Value="Cash" />
-                                <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
-                            </ext:DropDownList>
+                                <ext:DropDownList Hidden="true" HideMode="Display" runat="server" Label="付款方式" ID="ddlLoanType">
+                                    <ext:ListItem Text="现金" Value="Cash" />
+                                    <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
+                                </ext:DropDownList>
+                            </ext:TextBox>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox ID="tbLoanAmount" Label="借款金额(元)" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
-                                RegexMessage="只能输入数字!">
+                                AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" runat="server" MaxLength="20"
+                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!" CompareControl="tbCash"
+                                CompareType="Int" CompareOperator="GreaterThanEqual" CompareMessage="现金不能大于借款总金额">
                             </ext:TextBox>
-                            <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" runat="server" ShowRedStar="true"
-                                Required="true">
+                            <ext:TextBox ID="tbCash" Label="现金(元)" ShowRedStar="true" Required="true" runat="server"
+                                AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
+                                Regex="^[0-9]*$" RegexMessage="只能输入数字!" CompareControl="tbLoanAmount" CompareType="Int"
+                                CompareOperator="LessThanEqual" CompareMessage="现金不能大于借款总金额">
                             </ext:TextBox>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="50% 50%">
+                        <Items>
+                            <ext:Label runat="server" ID="lbTransferAccount" Text="转账：0 元">
+                            </ext:Label>
+                            <ext:TextBox ID="tbRateOfReturn" Label="投资回报率(%)" runat="server" ShowRedStar="true"
+                                Required="true" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$"
+                                RegexMessage="只能输入数字!" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
@@ -101,7 +115,7 @@
                             </ext:DatePicker>
                             <ext:TextBox ID="dpDueDateForPay" Label="应付借款日" ShowRedStar="true" Required="true"
                                 runat="server" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$"
-                                RegexMessage="只能输入数字!" >
+                                RegexMessage="只能输入数字!">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
@@ -124,13 +138,6 @@
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
-                            <ext:TextBox ID="tbRateOfReturn" Label="投资回报率(%)" runat="server" ShowRedStar="true"
-                                Required="true" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$"
-                                RegexMessage="只能输入数字!" />
-                        </Items>
-                    </ext:FormRow>
                 </Rows>
             </ext:Form>
             <ext:Form Title="会计核算" runat="server" EnableCollapse="true" EnableBackgroundColor="true"
@@ -146,7 +153,7 @@
                     </ext:FormRow>
                     <ext:FormRow>
                         <Items>
-                            <ext:TextArea    ID="tbRemark" Label="备注(需提供材料)" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200字符！" />
+                            <ext:TextArea ID="tbRemark" Label="备注(需提供材料)" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200字符！" />
                         </Items>
                     </ext:FormRow>
                 </Rows>

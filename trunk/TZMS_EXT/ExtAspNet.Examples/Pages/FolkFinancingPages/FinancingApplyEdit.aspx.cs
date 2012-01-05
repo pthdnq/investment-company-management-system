@@ -104,7 +104,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.tbRemark.Text = _Info.Remark;
                 this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
                 this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
-
+                this.ddlInterestType.SelectedValue = _Info.InterestType;
                 this.taAuditOpinion.Text = _Info.AuditOpinion;
 
             }
@@ -255,7 +255,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-            //    ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                //    ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

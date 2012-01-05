@@ -98,10 +98,14 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
+                             <ext:DropDownList ID="ddlInterestType" Label="利息" runat="server">
+                                <ext:ListItem Text="先付" Value="先付" Selected="true" />
+                                <ext:ListItem Text="后付" Value="后付" />
+                            </ext:DropDownList>
                             <ext:TextBox ID="tbContactPhone" Label="联系电话" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
                                 Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}" RegexMessage="电话号码格式不正确!">
                             </ext:TextBox>
-                            <ext:Label runat="server" ID="lbtmp221"></ext:Label>
+                        <%--    <ext:Label runat="server" ID="lbtmp221"></ext:Label>--%>
                         </Items>
                     </ext:FormRow>
                 </Rows>

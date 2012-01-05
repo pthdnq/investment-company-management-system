@@ -74,6 +74,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             }
             _Info.LoanDate = this.dpLoanDate.SelectedDate.Value;
             _Info.LoanType = this.ddlLoanType.SelectedValue;
+            _Info.InterestType = this.ddlInterestType.SelectedValue;
 
             _Info.Remark = this.tbRemark.Text.Trim();
             //待会计审核

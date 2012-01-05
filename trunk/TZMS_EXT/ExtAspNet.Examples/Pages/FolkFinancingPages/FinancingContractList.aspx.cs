@@ -16,28 +16,30 @@ namespace TZMS.Web.Pages.FolkFinancingPages
     public partial class FinancingContractList : BasePage
     {
         #region viewstate
+
+
         /// <summary>
-        /// 用于存储部门名称的ViewState.
+        ///  SearchDueDay ViewState.
         /// </summary>
-        public string ViewStateDept
+        public string SearchDueDay
         {
             get
             {
-                if (ViewState["Dept"] == null)
+                if (ViewState["SearchDueDay"] == null)
                 {
-                    return null;
+                    return "0";
                 }
 
-                return ViewState["Dept"].ToString();
+                return ViewState["SearchDueDay"].ToString();
             }
             set
             {
-                ViewState["Dept"] = value;
+                ViewState["SearchDueDay"] = value;
             }
         }
 
         /// <summary>
-        /// 用于存储员工状态的ViewState.
+        /// 用于存储 状态的ViewState.
         /// </summary>
         public string ViewStateState
         {
@@ -91,7 +93,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
 
                 // 绑定下拉框.
-                 BindDDL();
+                BindDDL();
                 // 绑定列表.
                 BindGridData(ViewStateState, ViewStateSearchText);
             }
@@ -104,7 +106,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -123,7 +125,11 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 strCondtion.Append("  CreaterID = '" + this.CurrentUser.ObjectId + "' ");
             }
-         //   strCondtion.Append("   Status<>0 ");
+            //   strCondtion.Append("   Status<>0 ");
+            if (!SearchDueDay.Equals("0"))
+            {
+                strCondtion.Append(" AND  DueDateForPay = '" + SearchDueDay + "' ");
+            }
 
             if (!string.IsNullOrEmpty(state))
             {
@@ -199,7 +205,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             FolkFinancingInfo _Info = (FolkFinancingInfo)e.DataItem;
 
             if (_Info.Status != 5)
-            { 
+            {
                 e.Values[10] = "<span class=\"gray\">申请支付费用</span>";
             }
             if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9)
@@ -229,11 +235,20 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <param name="e"></param>
         protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(tbSeachDueDay.Text))
+            {
+                SearchDueDay = tbSeachDueDay.Text.Trim();
+            }
+            else
+            {
+                SearchDueDay = "0";
+            }
+
             ViewStateState = this.ddlstState.SelectedValue;
             ViewStateSearchText = this.ttbSearch.Text.Trim();
             BindGridData(ViewStateState, ViewStateSearchText);
         }
- 
+
         /// <summary>
         /// 状态变动事件
         /// </summary>

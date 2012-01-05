@@ -112,6 +112,10 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
+                                            <ext:DropDownList Enabled="false"  ID="ddlInterestType" Label="利息" runat="server">
+                                                <ext:ListItem Text="先付" Value="先付" Selected="true" />
+                                                <ext:ListItem Text="后付" Value="后付" />
+                                            </ext:DropDownList>
                                             <ext:TextBox Enabled="false" ID="tbContactPhone" Label="联系电话" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个字符！" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
                                                 RegexMessage="电话号码格式不正确!">
@@ -130,7 +134,7 @@
                         </Items>
                     </ext:Tab>
                     <ext:Tab ID="tabHistory" Title="操作历史" EnableBackgroundColor="true" runat="server"
-                       Layout="Fit"  BodyPadding="5px">
+                        Layout="Fit" BodyPadding="5px">
                         <Items>
                             <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">

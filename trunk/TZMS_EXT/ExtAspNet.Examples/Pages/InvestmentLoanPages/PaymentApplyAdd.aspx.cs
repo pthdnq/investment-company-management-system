@@ -115,6 +115,28 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         #endregion
 
         #region 页面及控件事件
+        protected void tbCash_OnTextChanged(object sender, EventArgs e)
+        {
+            decimal loanAmount = 0;
+            decimal cash = 0;
+            decimal transfer = 0;
+            if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text))
+            {
+                loanAmount = decimal.Parse(this.tbLoanAmount.Text.Trim());
+                transfer = loanAmount;
+            }
+            if (!string.IsNullOrWhiteSpace(this.tbCash.Text))
+            {
+                cash = decimal.Parse(this.tbCash.Text.Trim());
+                if (loanAmount != 0)
+                {
+                    transfer = loanAmount - cash;
+                }
+            }
+
+            this.lbTransferAccount.Text = string.Format("转账：{0} 元", transfer);
+        }
+
         /// <summary>
         /// 保存
         /// </summary>
@@ -225,6 +247,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
             _Info.RateOfReturn = this.tbRateOfReturn.Text;
 
+            _Info.Cash = decimal.Parse(this.tbCash.Text.Trim());
+            _Info.TransferAccount = _Info.LoanAmount - _Info.Cash;
             // 创建人
             _Info.CreateTime = DateTime.Now;
             _Info.CreaterId = this.CurrentUser.ObjectId;
