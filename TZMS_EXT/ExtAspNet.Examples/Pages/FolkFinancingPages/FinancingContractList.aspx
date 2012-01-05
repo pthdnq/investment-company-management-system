@@ -28,9 +28,10 @@
                                 <ext:ListItem Text="未通过" Value="2" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
-                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
-                            </ext:Button>
-                            <ext:Label ID="Labeltmp1" runat="server" />
+                            <ext:TextBox Label="应付款日" ShowLabel="true" runat="server" EmptyText="输入1,2... ;0表示查询所有"
+                                ID="tbSeachDueDay" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$"
+                                RegexMessage="只能输入数字!" />
+                            <%--         <ext:Label ID="Labeltmp1" runat="server" />--%>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow>
@@ -39,8 +40,10 @@
                             </ext:DatePicker>
                             <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
                             </ext:DatePicker>
-                            <ext:Label ID="Labeltmp2" runat="server" />
-                            <ext:Label ID="Labeltmp3" runat="server" />
+                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
+                            </ext:Button>
+                            <%--  <ext:Label ID="Labeltmp2" runat="server" />--%>
+                            <%--      <ext:Label ID="Labeltmp3" runat="server" />--%>
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -91,7 +94,7 @@
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="419px" Width="690px" OnClose="wndNew_Close">
     </ext:Window>
-          <ext:Window ID="Window1" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="Window1" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="480px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>

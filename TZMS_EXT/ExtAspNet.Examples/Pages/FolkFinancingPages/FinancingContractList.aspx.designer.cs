@@ -67,22 +67,13 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.DropDownList ddlstState;
         
         /// <summary>
-        /// btnSearch control.
+        /// tbSeachDueDay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button btnSearch;
-        
-        /// <summary>
-        /// Labeltmp1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Label Labeltmp1;
+        protected global::ExtAspNet.TextBox tbSeachDueDay;
         
         /// <summary>
         /// dpkStartTime control.
@@ -103,22 +94,13 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.DatePicker dpkEndTime;
         
         /// <summary>
-        /// Labeltmp2 control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label Labeltmp2;
-        
-        /// <summary>
-        /// Labeltmp3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Label Labeltmp3;
+        protected global::ExtAspNet.Button btnSearch;
         
         /// <summary>
         /// pelGrid control.

@@ -61,9 +61,8 @@
                                             <ext:TextBox ID="tbLoanAmount" Label="借款金额" Enabled="false" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
-                                            <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限"   Enabled="false" 
-                                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                                RegexMessage="不能输入特殊字符!">
+                                            <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" Enabled="false" runat="server" MaxLength="20"
+                                                MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
@@ -96,6 +95,10 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
+                                            <ext:DropDownList ID="ddlInterestType" Label="利息" runat="server">
+                                                <ext:ListItem Text="先付" Value="先付" Selected="true" />
+                                                <ext:ListItem Text="后付" Value="后付" />
+                                            </ext:DropDownList>
                                             <ext:TextBox ID="tbContactPhone" Enabled="false" Label="联系电话" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个字符！" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
                                                 RegexMessage="电话号码格式不正确!">
@@ -120,7 +123,7 @@
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                             <%--       <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
+                                    <%--       <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
                                     <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />
