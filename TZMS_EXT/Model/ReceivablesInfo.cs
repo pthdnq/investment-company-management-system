@@ -49,6 +49,21 @@ namespace com.TZMS.Model
         private string _createrName = DBEmptyString;
         private DateTime _createTime = DBEmptyDate;
         private int _status = DBEmptyChar;
+
+        private Decimal _Cash = DBEmptyDecimal;
+
+        public Decimal Cash
+        {
+            get { return _Cash; }
+            set { _Cash = value; }
+        }
+        private Decimal _TransferAccount = DBEmptyDecimal;
+
+        public Decimal TransferAccount
+        {
+            get { return _TransferAccount; }
+            set { _TransferAccount = value; }
+        }
         #endregion
 
         #region Property
