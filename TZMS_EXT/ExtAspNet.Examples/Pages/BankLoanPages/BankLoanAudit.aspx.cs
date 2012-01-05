@@ -66,7 +66,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
 
                 // 绑定审批人.
-             //   ApproveUser();
+                //   ApproveUser();
                 BindHistory();
             }
         }
@@ -119,8 +119,12 @@ namespace TZMS.Web.Pages.BankLoanPages
             }
             else
             {
-                HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。";
                 BindNext(false);
+            }
+
+            if (_Info.LoanAmount > 300000)
+            {
+                HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。";
             }
             #endregion
 
@@ -223,7 +227,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             _Info.Status = status;
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
-            
+
             //下一步操作人
             if (status == 4)
             {
@@ -286,6 +290,6 @@ namespace TZMS.Web.Pages.BankLoanPages
         }
         #endregion
 
-        
+
     }
 }
