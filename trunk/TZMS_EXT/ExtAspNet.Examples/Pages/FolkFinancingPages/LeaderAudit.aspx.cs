@@ -250,7 +250,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             result = manage.Update(_Info);
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 5) ? "同意，继续审批" : "同意，归档";
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审批" : "同意，归档";
                 manage.AddHistory(_Info.ObjectId, "审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
                 Alert.Show("操作成功!");

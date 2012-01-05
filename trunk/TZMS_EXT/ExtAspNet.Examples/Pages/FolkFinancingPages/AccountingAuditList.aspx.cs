@@ -16,7 +16,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
     public partial class AccountingAuditList : BasePage
     {
         #region viewstate
-        
+
         /// <summary>
         /// 用于存储 状态的ViewState.
         /// </summary>
@@ -68,11 +68,11 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             if (!IsPostBack)
             {
-              //  this.btnNew.OnClientClick = wndNew.GetShowReference("FinancingApplyAdd.aspx?Type=Add", "新增 - 民间融资");
+                //  this.btnNew.OnClientClick = wndNew.GetShowReference("FinancingApplyAdd.aspx?Type=Add", "新增 - 民间融资");
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
 
                 // 绑定下拉框.
-                 BindDDL();
+                BindDDL();
                 // 绑定列表.
                 BindGridData(ViewStateState, ViewStateSearchText);
             }
@@ -85,7 +85,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -97,8 +97,15 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-           strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-         //    strCondtion.Append("   Status <>9 ");
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("4") || state.Equals("2")))
+            {
+                strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
+            }
+            else
+            {
+                strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+            }
+            //    strCondtion.Append("   Status <>9 ");
             if (!string.IsNullOrEmpty(state))
             {
                 //strCondtion.Append(" Status " + (state == "待审核" ? " = 1 " : " <> 1 ") + " AND ");
@@ -118,7 +125,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                         strCondtion.Append(" AND (Status = 3 OR Status = 4 ) ");
                         break;
                     case "4":
-                        strCondtion.Append(" AND Status = 4 ");
+                        strCondtion.Append("  AND (Status > 2 AND Status < 9 ) ");
                         break;
                     case "5":
                         strCondtion.Append(" AND (Status = 5  OR Status = 3) ");
@@ -175,7 +182,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
             {
-                e.Values[11] = "<span class=\"gray\">审核</span>"; 
+                e.Values[11] = "<span class=\"gray\">审核</span>";
             }
         }
         #endregion
@@ -205,7 +212,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-       
+
 
         /// <summary>
         /// 状态变动事件

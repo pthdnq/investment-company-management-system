@@ -223,7 +223,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.Status = status;
 
             //下一步操作
-            if (status != 6)
+            if (status == 5)
             {
                 _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
                 _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);

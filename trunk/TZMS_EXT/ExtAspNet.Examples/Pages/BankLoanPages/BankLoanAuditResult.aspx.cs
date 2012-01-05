@@ -104,7 +104,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
             dpkEndTime.SelectedDate = DateTime.Now;
-             ViewStateState = ddlstState.SelectedValue;
+            ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
         }
 
@@ -116,8 +116,8 @@ namespace TZMS.Web.Pages.BankLoanPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-          //  strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-           strCondtion.Append("   Status<>0 "); 
+            //  strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+            strCondtion.Append("   Status<>0 ");
 
             if (!string.IsNullOrEmpty(state))
             {
@@ -210,7 +210,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-   
+
 
         /// <summary>
         /// 状态变动事件
@@ -282,32 +282,33 @@ namespace TZMS.Web.Pages.BankLoanPages
         protected string GetStatusName(string strStatus)
         {
             string StrStatusName = string.Empty;
-            switch (strStatus)
-            {
-                case "0":
-                    //  strCondtion.Append(" AND Status = 1 ");
-                    break;
-                case "1":
-                    StrStatusName = "待审核";
-                    break;
-                case "2":
-                    StrStatusName = "未通过";
-                    break;
-                case "3":
-                    StrStatusName = "待审核";
-                    break;
-                case "4":
-                    StrStatusName = "已通过";
-                    break;
-                case "5":
-                    StrStatusName = "已确认";
-                    break;
-                case "9":
-                    StrStatusName = "已删除";
-                    break;
-                default:
-                    break;
-            }
+            StrStatusName = this.ddlstState.SelectedText;
+            //switch (strStatus)
+            //{
+            //    case "0":
+            //        //  strCondtion.Append(" AND Status = 1 ");
+            //        break;
+            //    case "1":
+            //        StrStatusName = "待审核";
+            //        break;
+            //    case "2":
+            //        StrStatusName = "未通过";
+            //        break;
+            //    case "3":
+            //        StrStatusName = "待审核";
+            //        break;
+            //    case "4":
+            //        StrStatusName = "已通过";
+            //        break;
+            //    case "5":
+            //        StrStatusName = "已确认";
+            //        break;
+            //    case "9":
+            //        StrStatusName = "已删除";
+            //        break;
+            //    default:
+            //        break;
+            //}
             return StrStatusName;
         }
         #endregion
