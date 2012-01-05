@@ -70,6 +70,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@CreaterName",DbType.String),
 				new SqlParameter("@CreateTime",DbType.DateTime),
 				new SqlParameter("@Status",DbType.Byte),
+                        	new SqlParameter("@Cash",DbType.Decimal),
+                                	new SqlParameter("@TransferAccount",DbType.Decimal),
 				};
 
                 int i = 0;
@@ -89,6 +91,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ReceivablesInfo.CreaterName;
                 sqlparam[i++].Value = ReceivablesInfo.CreateTime;
                 sqlparam[i++].Value = ReceivablesInfo.Status;
+                sqlparam[i++].Value = ReceivablesInfo.Cash;
+                sqlparam[i++].Value = ReceivablesInfo.TransferAccount;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -159,6 +163,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@CreaterName",DbType.String),
 				new SqlParameter("@CreateTime",DbType.DateTime),
 				new SqlParameter("@Status",DbType.Byte),
+                        	new SqlParameter("@Cash",DbType.Decimal),
+                                	new SqlParameter("@TransferAccount",DbType.Decimal),
                 };
 
                 int i = 0;
@@ -178,6 +184,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ReceivablesInfo.CreaterName;
                 sqlparam[i++].Value = ReceivablesInfo.CreateTime;
                 sqlparam[i++].Value = ReceivablesInfo.Status;
+                sqlparam[i++].Value = ReceivablesInfo.Cash;
+                sqlparam[i++].Value = ReceivablesInfo.TransferAccount;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -326,7 +334,14 @@ namespace com.TZMS.DataAccess
             {
                 ReceivablesInfoInfo.Status = int.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "Status"));
             }
-
+            if (ReceivablesInfoInfoDataRow["Cash"] != null)
+            {
+                ReceivablesInfoInfo.Cash = Decimal.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "Cash"));
+            }
+            if (ReceivablesInfoInfoDataRow["TransferAccount"] != null)
+            {
+                ReceivablesInfoInfo.TransferAccount = Decimal.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "TransferAccount"));
+            }
             return ReceivablesInfoInfo;
         }
         #endregion

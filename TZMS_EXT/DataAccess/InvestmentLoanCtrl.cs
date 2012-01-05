@@ -94,6 +94,8 @@ namespace com.TZMS.DataAccess
                        new SqlParameter("@Imprest",DbType.String),
                           new SqlParameter("@Penalbond",DbType.String),
                              new SqlParameter("@OpationRemark",DbType.String),
+                             	new SqlParameter("@Cash",DbType.Decimal),
+                                	new SqlParameter("@TransferAccount",DbType.Decimal),
 				};
 
                 int i = 0;
@@ -137,6 +139,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = InvestmentLoanInfo.Imprest;
                 sqlparam[i++].Value = InvestmentLoanInfo.Penalbond;
                 sqlparam[i++].Value = InvestmentLoanInfo.OpationRemark;
+                sqlparam[i++].Value = InvestmentLoanInfo.Cash;
+                sqlparam[i++].Value = InvestmentLoanInfo.TransferAccount;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -231,6 +235,8 @@ namespace com.TZMS.DataAccess
                       new SqlParameter("@Imprest",DbType.String),
                           new SqlParameter("@Penalbond",DbType.String),
                              new SqlParameter("@OpationRemark",DbType.String),
+                                     	new SqlParameter("@Cash",DbType.Decimal),
+                                	new SqlParameter("@TransferAccount",DbType.Decimal),
                 };
 
                 int i = 0;
@@ -274,6 +280,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = InvestmentLoanInfo.Imprest;
                 sqlparam[i++].Value = InvestmentLoanInfo.Penalbond;
                 sqlparam[i++].Value = InvestmentLoanInfo.OpationRemark;
+                sqlparam[i++].Value = InvestmentLoanInfo.Cash;
+                sqlparam[i++].Value = InvestmentLoanInfo.TransferAccount;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -517,6 +525,14 @@ namespace com.TZMS.DataAccess
             if (InvestmentLoanInfoInfoDataRow["OpationRemark"] != null)
             {
                 InvestmentLoanInfoInfo.OpationRemark = DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "OpationRemark");
+            }
+            if (InvestmentLoanInfoInfoDataRow["Cash"] != null)
+            {
+                InvestmentLoanInfoInfo.Cash = Decimal.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "Cash"));
+            }
+            if (InvestmentLoanInfoInfoDataRow["TransferAccount"] != null)
+            {
+                InvestmentLoanInfoInfo.TransferAccount = Decimal.Parse(DataUtil.GetStringValueOfRow(InvestmentLoanInfoInfoDataRow, "TransferAccount"));
             }
             return InvestmentLoanInfoInfo;
         }

@@ -85,6 +85,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Adulters",DbType.String),
 				new SqlParameter("@BAAdulters",DbType.String),
                    	new SqlParameter("@LoanTimeLimit",DbType.String),
+                            	new SqlParameter("@InterestType",DbType.String),
 				};
 				
 				int i=0;
@@ -119,6 +120,7 @@ namespace com.TZMS.DataAccess
 				sqlparam[i++].Value = FolkFinancingInfo.Adulters; 
 				sqlparam[i++].Value = FolkFinancingInfo.BAAdulters;
                 sqlparam[i++].Value = FolkFinancingInfo.LoanTimeLimit;
+                sqlparam[i++].Value = FolkFinancingInfo.InterestType;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -204,6 +206,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Adulters",DbType.String),
 				new SqlParameter("@BAAdulters",DbType.String),
                    	new SqlParameter("@LoanTimeLimit",DbType.String),
+                         	new SqlParameter("@InterestType",DbType.String),
                 };
 
                 int i = 0;
@@ -238,6 +241,7 @@ namespace com.TZMS.DataAccess
 				sqlparam[i++].Value = FolkFinancingInfo.Adulters; 
 				sqlparam[i++].Value = FolkFinancingInfo.BAAdulters;
                 sqlparam[i++].Value = FolkFinancingInfo.LoanTimeLimit;
+                sqlparam[i++].Value = FolkFinancingInfo.InterestType;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -445,6 +449,10 @@ namespace com.TZMS.DataAccess
             if (FolkFinancingInfoInfoDataRow["LoanTimeLimit"] != null)
             {
                 FolkFinancingInfoInfo.LoanTimeLimit = DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "LoanTimeLimit");
+            }
+            if (FolkFinancingInfoInfoDataRow["InterestType"] != null)
+            {
+                FolkFinancingInfoInfo.InterestType = DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "InterestType");
             }
             return FolkFinancingInfoInfo;
         }
