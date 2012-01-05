@@ -191,6 +191,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             _Info.Status = status;
 
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             // 执行操作.
             int result = 3;
 
