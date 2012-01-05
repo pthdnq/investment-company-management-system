@@ -64,6 +64,13 @@ namespace com.TZMS.Model
         private string _baadulters = DBEmptyString;
         private int _bastatus = DBEmptyInt;
         private string _loanTimeLimit = DBEmptyString;
+        private string _InterestType = DBEmptyString;
+
+        public string InterestType
+        {
+            get { return _InterestType; }
+            set { _InterestType = value; }
+        }
         #endregion
 
         #region Property
