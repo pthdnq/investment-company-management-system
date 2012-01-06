@@ -24,12 +24,12 @@
                                 <%--    <ext:ListItem Text="待审核" Value="1"/>
                                 <ext:ListItem Text="审核中" Value="3" />--%>
                                 <ext:ListItem Text="已确认" Value="5" Selected="true" />
-                                <%--         <ext:ListItem Text="未通过" Value="2" />--%>
+                                <ext:ListItem Text="已终止" Value="8" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
                             </ext:Button>
-                            <ext:Label ID="Labeltmp1" runat="server" />
+                            <%--            <ext:Label ID="Labeltmp1" runat="server" />--%>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow>
@@ -39,7 +39,7 @@
                             <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
                             </ext:DatePicker>
                             <ext:Label ID="Labeltmp2" runat="server" />
-                            <ext:Label ID="Labeltmp3" runat="server" />
+                            <%--         <ext:Label ID="Labeltmp3" runat="server" />--%>
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -89,10 +89,6 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
-        IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
-        Height="370px" Width="400px">
-    </ext:Window>
     <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="469px" Width="570px" OnClose="wndNew_Close">
     </ext:Window>

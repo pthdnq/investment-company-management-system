@@ -137,7 +137,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                         strCondtion.Append(" AND Status = 1 ");
                         break;
                     case "2":
-                        strCondtion.Append(" AND Status = 2 ");
+                        strCondtion.Append(" AND (Status = 2 OR Status = 11 ) ");
                         break;
                     case "3":
                         strCondtion.Append(" AND Status = 3  ");
@@ -147,6 +147,12 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                         break;
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
+                        break;
+                    case "7":
+                        strCondtion.Append(" AND Status = 7 ");
+                        break;
+                    case "8":
+                        strCondtion.Append(" AND Status = 8 ");
                         break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
@@ -206,7 +212,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             if (_Info.Status != 2)
             {
                 e.Values[10] = "<span class=\"gray\">删除</span>";
-                 
+
                 e.Values[11] = e.Values[11].ToString().Replace("编辑", "查看").Replace("wndEdit", "wndView")
                   .Replace("ProjectApplyEdit", "ProjectAuditResultView");
             }
@@ -312,7 +318,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         protected string GetStatusName(string strStatus)
         {
             string StrStatusName = string.Empty;
-         //   StrStatusName = this.ddlstState.SelectedText;
+            //   StrStatusName = this.ddlstState.SelectedText;
             switch (strStatus)
             {
                 case "0":
@@ -333,8 +339,17 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 case "5":
                     StrStatusName = "已确认";
                     break;
+                case "7":
+                    StrStatusName = "终止审核中";
+                    break;
+                case "8":
+                    StrStatusName = "已终止";
+                    break;
                 case "9":
                     StrStatusName = "已删除";
+                    break;
+                case "11":
+                    StrStatusName = "终止未通过";
                     break;
                 default:
                     break;

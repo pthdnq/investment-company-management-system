@@ -123,6 +123,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
                         break;
+                    case "8":
+                        strCondtion.Append(" AND Status = 8 ");
+                        break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
                         break;
@@ -188,6 +191,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             //{
             //    e.Values[8] = string.Format("<span class=\"gray\">请收款！</span>", DateTime.Now.Day - _Info.DueDateForPay);
             //}
+            if (_Info.Status != 5)
+            {
+                e.Values[11] = "<span class=\"gray\">还款进展！</span>";
+            }
         }
         #endregion
 
@@ -211,6 +218,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void ttbSearch_Trigger1Click(object sender, EventArgs e)
         {
+            ViewStateState = this.ddlstState.SelectedValue;
             ViewStateSearchText = this.ttbSearch.Text.Trim();
             BindGridData(ViewStateState, ViewStateSearchText);
         }
@@ -224,7 +232,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void ddlstState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ViewStateState = this.ddlstState.SelectedText;
+            ViewStateState = this.ddlstState.SelectedValue;
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 

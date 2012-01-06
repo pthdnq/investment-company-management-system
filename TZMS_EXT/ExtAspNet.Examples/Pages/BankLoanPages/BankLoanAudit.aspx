@@ -44,7 +44,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextArea ID="taAuditOpinion" Label="审核意见" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="200" MaxLengthMessage="最多只能输入20个字母或数字！" />
+                                runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -119,7 +119,7 @@
                         </Items>
                     </ext:Tab>
                     <ext:Tab ID="tabHistory" Title="操作历史" EnableBackgroundColor="true" runat="server"
-                        BodyPadding="5px">
+                      Layout="Fit"   BodyPadding="5px">
                         <Items>
                             <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">

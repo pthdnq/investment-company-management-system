@@ -143,6 +143,9 @@ namespace TZMS.Web.Pages.BankLoanPages
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
                         break;
+                    case "8":
+                        strCondtion.Append(" AND Status = 8 ");
+                        break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
                         break;
@@ -255,7 +258,7 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             BankLoanInfo _Info = (BankLoanInfo)e.DataItem;
 
-            if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9)
+            if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9 || _Info.Status == 8)
             {
                 e.Values[10] = "<span class=\"gray\">业务移交</span>";
             }

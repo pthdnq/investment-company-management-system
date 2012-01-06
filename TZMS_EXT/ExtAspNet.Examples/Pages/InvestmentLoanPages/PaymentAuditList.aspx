@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>付款审核列表</title>
+    <title>借款审核列表</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -31,7 +31,7 @@
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
                             </ext:Button>
-                            <ext:Label ID="Label4" runat="server" />
+             <%--               <ext:Label ID="Label4" runat="server" />--%>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow>
@@ -41,7 +41,7 @@
                             <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
                             </ext:DatePicker>
                             <ext:Label ID="Label1" runat="server" />
-                            <ext:Label ID="Label2" runat="server" />
+                       <%--     <ext:Label ID="Label2" runat="server" />--%>
                         </Items>
                     </ext:FormRow>
                 </Rows>
