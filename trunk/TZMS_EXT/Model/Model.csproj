@@ -48,6 +48,8 @@
     <Compile Include="BaoxiaoInfo.cs" />
     <Compile Include="BaoXiaoPinZhengApplyInfo.cs" />
     <Compile Include="BaoXiaoPinZhengApproveInfo.cs" />
+    <Compile Include="BusinessInfo.cs" />
+    <Compile Include="BusinessRecordInfo.cs" />
     <Compile Include="CashFlowSetterInfo.cs" />
     <Compile Include="CashFlowStatementInfo.cs" />
     <Compile Include="ChuRuInfo.cs" />

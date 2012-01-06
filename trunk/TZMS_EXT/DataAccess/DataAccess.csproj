@@ -43,9 +43,6 @@
     <Reference Include="iFlytek.DbAccess">
       <HintPath>..\Model\_DLL\iFlytek.DbAccess.dll</HintPath>
     </Reference>
-    <Reference Include="Model">
-      <HintPath>..\Model\bin\Debug\Model.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -62,6 +59,7 @@
     <Compile Include="BaoxiaoCtrl.cs" />
     <Compile Include="BaoXiaoPinZhengApplyCtrl.cs" />
     <Compile Include="BaoXiaoPinZhengApproveCtrl.cs" />
+    <Compile Include="BusinessCtrl.cs" />
     <Compile Include="CashFlowSetterCtrl.cs" />
     <Compile Include="CashFlowStatementCtrl.cs" />
     <Compile Include="ChuRuCtrl.cs" />
@@ -114,6 +112,12 @@
     <Compile Include="WuZhiRecordCtrl.cs" />
     <Compile Include="YeWuCtrl.cs" />
     <Compile Include="YeWuGudingDoingCtrl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{F3BDD97F-4828-48BA-9220-B95E93ED1B94}</Project>
+      <Name>Model %28Model\Model%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
