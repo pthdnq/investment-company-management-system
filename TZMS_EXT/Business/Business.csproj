@@ -58,6 +58,7 @@
     <Compile Include="attendance\NoAttendManage.cs" />
     <Compile Include="attendance\WorkerAttendManage.cs" />
     <Compile Include="Baoxiao\BaoxiaoManage.cs" />
+    <Compile Include="BusinessManage\BusinessManage.cs" />
     <Compile Include="CommSelect.cs" />
     <Compile Include="Investment\BankLoanManage.cs" />
     <Compile Include="Investment\CashFlowManage.cs" />

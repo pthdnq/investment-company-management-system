@@ -29,6 +29,7 @@ namespace com.TZMS.Model
         public BaoxiaoInfo()
         {
             //todo
+            
         }
         #endregion
 
