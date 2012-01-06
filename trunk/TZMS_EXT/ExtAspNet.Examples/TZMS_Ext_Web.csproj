@@ -599,6 +599,9 @@
     <Content Include="Pages\BankLoanPages\BankLoanAuditResultView.aspx" />
     <Content Include="Pages\BankLoanPages\BankLoanAuditTransfer.aspx" />
     <Content Include="Pages\BankLoanPages\BankLoanAuditTransferList.aspx" />
+    <Content Include="Pages\BankLoanPages\EndingContractApply.aspx" />
+    <Content Include="Pages\BankLoanPages\EndingContractAudit.aspx" />
+    <Content Include="Pages\BankLoanPages\EndingContractAuditList.aspx" />
     <Content Include="Pages\BankLoanPages\FeePayAudit.aspx" />
     <Content Include="Pages\BankLoanPages\FeePayAuditList.aspx" />
     <Content Include="Pages\BankLoanPages\FeePayConfirm.aspx" />
@@ -634,6 +637,9 @@
     <Content Include="Pages\FolkFinancingPages\AccountingAudit.aspx" />
     <Content Include="Pages\FolkFinancingPages\AccountingAuditList.aspx" />
     <Content Include="Pages\FolkFinancingPages\AccountingAuditPrinter.aspx" />
+    <Content Include="Pages\FolkFinancingPages\EndingContractApply.aspx" />
+    <Content Include="Pages\FolkFinancingPages\EndingContractAudit.aspx" />
+    <Content Include="Pages\FolkFinancingPages\EndingContractAuditList.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingApplyAdd.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingApplyEdit.aspx" />
     <Content Include="Pages\FolkFinancingPages\FinancingApplyEditBA.aspx" />
@@ -660,6 +666,9 @@
     <Content Include="Pages\InvestmentLoanPages\CustomerEdit.aspx" />
     <Content Include="Pages\InvestmentLoanPages\CustomerInvestmentLoanInfo.aspx" />
     <Content Include="Pages\InvestmentLoanPages\CustomerList.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\EndingContractApply.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\EndingContractAudit.aspx" />
+    <Content Include="Pages\InvestmentLoanPages\EndingContractAuditList.aspx" />
     <Content Include="Pages\InvestmentLoanPages\LoanContract.aspx" />
     <Content Include="Pages\InvestmentLoanPages\LoanContractList.aspx" />
     <Content Include="Pages\InvestmentLoanPages\LoanInfo.aspx" />
@@ -682,6 +691,9 @@
     <Content Include="Pages\InvestmentLoanPages\ReceivablesInfo.aspx" />
     <Content Include="Pages\InvestmentLoanPages\ReceivablesInfoList.aspx" />
     <Content Include="Pages\InvestmentProjectPages\AllProjectList.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\EndingContractApply.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\EndingContractAudit.aspx" />
+    <Content Include="Pages\InvestmentProjectPages\EndingContractAuditList.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ImprestPayAudit.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ImprestPayAuditList.aspx" />
     <Content Include="Pages\InvestmentProjectPages\ImprestPayConfirm.aspx" />
@@ -1228,6 +1240,27 @@
     <Compile Include="Pages\BankLoanPages\BankLoanAuditTransferList.aspx.designer.cs">
       <DependentUpon>BankLoanAuditTransferList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BankLoanPages\EndingContractApply.aspx.cs">
+      <DependentUpon>EndingContractApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\EndingContractApply.aspx.designer.cs">
+      <DependentUpon>EndingContractApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\EndingContractAudit.aspx.cs">
+      <DependentUpon>EndingContractAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\EndingContractAudit.aspx.designer.cs">
+      <DependentUpon>EndingContractAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\EndingContractAuditList.aspx.cs">
+      <DependentUpon>EndingContractAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BankLoanPages\EndingContractAuditList.aspx.designer.cs">
+      <DependentUpon>EndingContractAuditList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BankLoanPages\FeePayAudit.aspx.cs">
       <DependentUpon>FeePayAudit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1473,6 +1506,27 @@
     <Compile Include="Pages\FolkFinancingPages\AccountingAuditPrinter.aspx.designer.cs">
       <DependentUpon>AccountingAuditPrinter.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FolkFinancingPages\EndingContractApply.aspx.cs">
+      <DependentUpon>EndingContractApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\EndingContractApply.aspx.designer.cs">
+      <DependentUpon>EndingContractApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\EndingContractAudit.aspx.cs">
+      <DependentUpon>EndingContractAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\EndingContractAudit.aspx.designer.cs">
+      <DependentUpon>EndingContractAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\EndingContractAuditList.aspx.cs">
+      <DependentUpon>EndingContractAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\EndingContractAuditList.aspx.designer.cs">
+      <DependentUpon>EndingContractAuditList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FolkFinancingPages\FinancingApplyAdd.aspx.cs">
       <DependentUpon>FinancingApplyAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1655,6 +1709,27 @@
     <Compile Include="Pages\InvestmentLoanPages\CustomerList.aspx.designer.cs">
       <DependentUpon>CustomerList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\EndingContractApply.aspx.cs">
+      <DependentUpon>EndingContractApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\EndingContractApply.aspx.designer.cs">
+      <DependentUpon>EndingContractApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\EndingContractAudit.aspx.cs">
+      <DependentUpon>EndingContractAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\EndingContractAudit.aspx.designer.cs">
+      <DependentUpon>EndingContractAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\EndingContractAuditList.aspx.cs">
+      <DependentUpon>EndingContractAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentLoanPages\EndingContractAuditList.aspx.designer.cs">
+      <DependentUpon>EndingContractAuditList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\InvestmentLoanPages\LoanContract.aspx.cs">
       <DependentUpon>LoanContract.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1808,6 +1883,27 @@
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\AllProjectList.aspx.designer.cs">
       <DependentUpon>AllProjectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\EndingContractApply.aspx.cs">
+      <DependentUpon>EndingContractApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\EndingContractApply.aspx.designer.cs">
+      <DependentUpon>EndingContractApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\EndingContractAudit.aspx.cs">
+      <DependentUpon>EndingContractAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\EndingContractAudit.aspx.designer.cs">
+      <DependentUpon>EndingContractAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\EndingContractAuditList.aspx.cs">
+      <DependentUpon>EndingContractAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InvestmentProjectPages\EndingContractAuditList.aspx.designer.cs">
+      <DependentUpon>EndingContractAuditList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvestmentProjectPages\ImprestPayAudit.aspx.cs">
       <DependentUpon>ImprestPayAudit.aspx</DependentUpon>
