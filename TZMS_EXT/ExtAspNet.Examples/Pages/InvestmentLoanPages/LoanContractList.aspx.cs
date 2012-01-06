@@ -125,7 +125,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 switch (state)
                 {
                     case "0":
-                        strCondtion.Append(" AND Status in (1,2,3,4,5,6) ");
+                        strCondtion.Append(" AND Status in (1,2,3,4,5,6,7,11) ");
                         break;
                     case "1":
                         strCondtion.Append(" AND Status = 1 ");
@@ -196,7 +196,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             if (_Info.Status == 9 || _Info.Status == 8)
             {
-                e.Values[9] = "<span class=\"gray\">终止合同</span>";
+             //e.Values[9] = "<span class=\"gray\">合同终止</span>";
                 e.Values[10] = "<span class=\"gray\">业务移交</span>";
             }
             if (!this.CurrentRoles.Contains(RoleType.CJGL))

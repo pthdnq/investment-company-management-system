@@ -140,6 +140,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
 
+            this.tbCash.Text = _Info.Cash.ToString();
+            this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
 
         }
 

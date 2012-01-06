@@ -76,8 +76,8 @@
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="76px" Text="终止合同" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?Type=Stop&ID={0}"
-                                Title="终止合同" WindowID="wndNew" />
+                            <ext:WindowField Width="76px" Text="合同终止" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LoanContract.aspx?Type=View&ID={0}"
+                                Title="合同终止" WindowID="wndNew" />
 
                                  <ext:WindowField Width="76px" Text="业务移交" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="PaymentAuditTransfer.aspx?Type=Owner&ID={0}"
                                 Title="业务移交" WindowID="Window1" /> 

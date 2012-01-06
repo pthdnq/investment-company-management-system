@@ -208,7 +208,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 e.Values[10] = "<span class=\"gray\">申请支付费用</span>";
             }
-            if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9)
+            if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9 || _Info.Status == 8)
             {
                 e.Values[11] = "<span class=\"gray\"></span>";
             }
