@@ -550,6 +550,12 @@ namespace TZMS.Web
                 case "9":
                     StrStatusName = "已删除";
                     break;
+                case "8":
+                    StrStatusName = "已终止";
+                    break;
+                case "11":
+                    StrStatusName = "终止未通过";
+                    break;
                 default:
                     break;
             }

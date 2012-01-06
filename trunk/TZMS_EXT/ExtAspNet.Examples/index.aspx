@@ -368,6 +368,8 @@
                                                 Text="收款信息列表" />
                                             <ext:TreeNode Leaf="true" NodeID="zzht" IconUrl="images/16/终止合同.gif" OnClientClick=" tabs('zzht','');"
                                                 Text="终止合同列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="zzhhIL" IconUrl="images/16/终止合同.gif" OnClientClick=" tabs('zzhhIL','');"
+                                                Text="终止审核列表" />
                                             <ext:TreeNode Leaf="true" NodeID="dzysqspil" OnClientClick=" tabs('dzysqspil','');"
                                                 IconUrl="images/16/贷款申请列表.png" Text="待转移申请审批列表" />
                                             <ext:TreeNode Leaf="true" NodeID="khylb" OnClientClick=" tabs('khylb','');" IconUrl="images/16/项目信息列表.png"
@@ -402,6 +404,8 @@
                                                 IconUrl="images/16/贷款申请列表.png" Text="待转移申请审批列表" />
                                             <ext:TreeNode Leaf="true" NodeID="dzyzcspip" OnClientClick=" tabs('dzyzcspip','');"
                                                 IconUrl="images/16/贷款申请审核列表.png" Text="待转移过程审批列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="zzhhIP" IconUrl="images/16/终止合同.gif" OnClientClick=" tabs('zzhhIP','');"
+                                                Text="终止审核列表" />
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -432,6 +436,8 @@
                                                 IconUrl="images/16/贷款申请列表.png" Text="待转移申请审批列表" />
                                             <ext:TreeNode Leaf="true" NodeID="dzyzcspbl" OnClientClick=" tabs('dzyzcspbl','');"
                                                 IconUrl="images/16/贷款申请审核列表.png" Text="待转移过程审批列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="zzhhBL" IconUrl="images/16/终止合同.gif" OnClientClick=" tabs('zzhhBL','');"
+                                                Text="终止审核列表" />
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -460,6 +466,8 @@
                                                 IconUrl="images/16/贷款申请列表.png" Text="待转移申请审批列表" />
                                             <ext:TreeNode Leaf="true" NodeID="dzyzcspff" OnClientClick=" tabs('dzyzcspff','');"
                                                 IconUrl="images/16/贷款申请审核列表.png" Text="待转移过程审批列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="zzhhFF" IconUrl="images/16/终止合同.gif" OnClientClick=" tabs('zzhhFF','');"
+                                                Text="终止审核列表" />
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -600,7 +608,7 @@
                     break;
 
 
-                //假勤管理                                                                                  
+                //假勤管理                                                                                       
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤", icon);
                     break;
@@ -629,7 +637,7 @@
                     LoadTab("Pages/attendance/NoAttendToFile.aspx", "未打卡归档", icon);
                     break;
 
-                // 薪资管理.                    
+                // 薪资管理.                         
                 case "wdxz":
                     LoadTab("Pages/Salary/MySalary.aspx", "我的薪资", icon);
                     break;
@@ -652,7 +660,7 @@
                     LoadTab("Pages/Salary/AddSalaryApproveList.aspx", "加薪审批", icon);
                     break;
 
-                // 消息管理.                                       
+                // 消息管理.                                            
                 case "wdxx":
                     LoadTab("Pages/Message/MyMessageList.aspx", "我的消息", icon);
                     break;
@@ -662,7 +670,7 @@
                 case "fsxx":
                     LoadTab("Pages/Message/NewMessage.aspx?Type=Add", "发送消息", icon);
                     break;
-                // 业务管理                                       
+                // 业务管理                                            
                 case "ptyw":
                     LoadTab("Pages/Yewu/CommonYewu.aspx", "普通业务创建", icon);
                     break;
@@ -707,7 +715,7 @@
                     LoadTab("Pages/ProbationPages/UserLeaveTransferToFile.aspx", "离职交接归档", icon);
                     break;
 
-                // 物资管理                                    
+                // 物资管理                                         
                 case "wzsq":
                     LoadTab("Pages/MaterialsPages/MaterialsApplyList.aspx", "物资申请", icon);
                     break;
@@ -718,7 +726,7 @@
                     LoadTab("Pages/MaterialsPages/MaterialsManagePage.aspx", "物资管理", icon);
                     break;
 
-                // 代帐管理                                     
+                // 代帐管理                                          
                 case "paal":
                     LoadTab("Pages/ProxyAccountingPages/ProxyAccountingUnitList.aspx", "代帐单位", icon);
                     break;
@@ -732,7 +740,7 @@
                     LoadTab("Pages/ProxyAccountingPages/ProxyAccountingPrint.aspx", "代帐单导出", icon);
                     break;
 
-                //投资部借款 InvestmentLoan                                                           
+                //投资部借款 InvestmentLoan                                                                
                 case "fksq":
                     LoadTab("Pages/InvestmentLoanPages/PaymentApplyList.aspx", "借款申请", icon);
                     break;
@@ -755,7 +763,7 @@
                     LoadTab("Pages/InvestmentLoanPages/LoanContractList.aspx", "借款合同", icon);
                     break;
 
-                //投资部项目实施 InvestmentProject                                                             
+                //投资部项目实施 InvestmentProject                                                                  
                 case "xmsq":
                     LoadTab("Pages/InvestmentProjectPages/ProjectApplyList.aspx", "项目申请列表", icon);
                     break;
@@ -781,7 +789,7 @@
                     LoadTab("Pages/InvestmentProjectPages/AllProjectList.aspx", "所有项目列表", icon);
                     break;
 
-                //银行贷款 BankLoan                                                               
+                //银行贷款 BankLoan                                                                    
                 case "dksq":
                     LoadTab("Pages/BankLoanPages/BankLoanApplyList.aspx", "贷款申请列表", icon);
                     break;
@@ -807,7 +815,7 @@
                     LoadTab("Pages/BankLoanPages/AllFeePayList.aspx", "所有费用支出列表", icon);
                     break;
 
-                //民间融资 FolkFinancing                                                                  
+                //民间融资 FolkFinancing                                                                       
                 case "rzsq":
                     LoadTab("Pages/FolkFinancingPages/FinancingApplyList.aspx", "融资申请列表", icon);
                     break;
@@ -830,7 +838,7 @@
                     LoadTab("Pages/FolkFinancingPages/PaymentRecordList.aspx", "支付记录列表", icon);
                     break;
 
-                //资金流量              
+                //资金流量                   
                 case "zjll":
                     LoadTab("Pages/CashFlow/CashFlowStatementList.aspx", "资金流量表", icon);
                     break;
@@ -847,7 +855,7 @@
                     LoadTab("Pages/CashFlow/FolkFinancingBAList.aspx", "民间融资会计核算", icon);
                     break;
 
-                //审批转移           
+                //审批转移                
                 case "dzysqspbl":
                     LoadTab("Pages/BankLoanPages/BankLoanAuditTransferList.aspx", "待转移申请审批", icon);
                     break;
@@ -876,8 +884,21 @@
                 case "khylb":
                     LoadTab("Pages/InvestmentLoanPages/CustomerList.aspx", "客户一览表", icon);
                     break;
+                //合同终止审核  
+                case "zzhhBL":
+                    LoadTab("Pages/BankLoanPages/EndingContractAuditList.aspx", "终止审核列表", icon);
+                    break;
+                case "zzhhIL":
+                    LoadTab("Pages/InvestmentLoanPages/EndingContractAuditList.aspx", "终止审核列表", icon);
+                    break;
+                case "zzhhIP":
+                    LoadTab("Pages/InvestmentProjectPages/EndingContractAuditList.aspx", "终止审核列表", icon);
+                    break;
+                case "zzhhFF":
+                    LoadTab("Pages/FolkFinancingPages/EndingContractAuditList.aspx", "终止审核列表", icon);
+                    break;
 
-                //网络报销      Baoxiao                                                               
+                //网络报销      Baoxiao                                                                    
                 case "bxsq":
                     LoadTab("Pages/Baoxiao/BaoxiaoApplyList.aspx", "报销申请", icon);
                     break;
@@ -917,10 +938,10 @@
 
         function SetMessageInfo() {
             __doPostBack('btnMessage', '');
-           // var message = Ext.getCmp('<%= btnMessage.ClientID %>');
-           // message.onClick(message);
-          //  message.handler.call(message.scope);
-           // message.events.click.listeners[0].fireFn(message, message.events.click.listeners[0].scope);
+            // var message = Ext.getCmp('<%= btnMessage.ClientID %>');
+            // message.onClick(message);
+            //  message.handler.call(message.scope);
+            // message.events.click.listeners[0].fireFn(message, message.events.click.listeners[0].scope);
         }
 
         function test() {
