@@ -139,7 +139,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                         strCondtion.Append(" AND (Status = 1 OR Status = 4)  ");
                         break;
                     case "2":
-                        strCondtion.Append(" AND Status = 2 ");
+                        strCondtion.Append(" AND (Status = 2 OR Status = 11 ) ");
                         break;
                     case "3":
                         strCondtion.Append(" AND Status = 3  ");
@@ -149,6 +149,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                         break;
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
+                        break;
+                    case "7":
+                        strCondtion.Append(" AND Status = 7 ");
+                        break;
+                    case "8":
+                        strCondtion.Append(" AND Status = 8 ");
                         break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");

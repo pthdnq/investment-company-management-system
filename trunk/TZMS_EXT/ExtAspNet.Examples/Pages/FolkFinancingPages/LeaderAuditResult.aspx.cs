@@ -110,16 +110,19 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                         strCondtion.Append(" AND Status = 1 ");
                         break;
                     case "2":
-                        strCondtion.Append(" AND Status = 2 ");
+                        strCondtion.Append(" AND ( Status = 2 OR Status = 11 ) ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND (Status = 3 OR Status = 4) ");
+                        strCondtion.Append(" AND ( Status = 3 OR Status = 4 ) ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");
                         break;
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
+                        break;
+                    case "8":
+                        strCondtion.Append(" AND Status = 8 ");
                         break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
@@ -171,7 +174,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             FolkFinancingInfo _Info = (FolkFinancingInfo)e.DataItem;
 
-            if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9)
+            if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9 || _Info.Status == 8)
             {
                 e.Values[12] = "<span class=\"gray\">业务移交</span>";
             }

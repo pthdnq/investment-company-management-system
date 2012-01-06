@@ -26,6 +26,8 @@
                                 <ext:ListItem Text="审核中" Value="3" />
                                 <ext:ListItem Text="已通过" Value="4" />
                                 <ext:ListItem Text="未通过" Value="2" />
+                                <ext:ListItem Text="终止审核中" Value="7" />
+                                <ext:ListItem Text="已终止" Value="8" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
@@ -75,7 +77,7 @@
                                 HeaderText="签订日期" />
                             <ext:BoundField Width="60px" DataField="DownPayment" HeaderText="预付定金" />
                             <ext:BoundField DataField="NextOperaterName" Width="73px" HeaderText="当前执行人" />
-                            <ext:TemplateField Width="55px" HeaderText="状态">
+                            <ext:TemplateField Width="66px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>
                                 </ItemTemplate>
@@ -85,13 +87,15 @@
                             <ext:WindowField Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanApplyEdit.aspx?Type=Edit&ID={0}"
                                 Title="编辑" WindowID="wndEdit" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
-                            <ext:TemplateField Width="65px" HeaderText="核算状态">
+                            <ext:TemplateField Width="60px" HeaderText="核算状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:WindowField Width="65px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanApplyEditBA.aspx?Type=Edit&ID={0}"
+                            <ext:WindowField Width="60px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="BankLoanApplyEditBA.aspx?Type=Edit&ID={0}"
                                 Title="查看-备注(会计核算)" WindowID="wndNewBA" HeaderText="核算操作" />
+                            <ext:WindowField Width="60px" Text="合同终止" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="EndingContractApply.aspx?Type=Apply&ID={0}"
+                                Title="合同终止申请" WindowID="wndEnding" />
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -109,6 +113,9 @@
     </ext:Window>
     <ext:Window ID="wndEdit" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="438px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+    <ext:Window ID="wndEnding" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="480px" Width="584px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

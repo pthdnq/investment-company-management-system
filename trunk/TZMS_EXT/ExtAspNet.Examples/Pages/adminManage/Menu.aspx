@@ -789,6 +789,17 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="zzhhIL" OnClientClick="return false;"
+                                        Text="终止审核列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
                                 </Nodes>
                             </ext:TreeNode>
                             <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="InvestmentProject"
@@ -895,6 +906,17 @@
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzyzcspip" OnClientClick="return false;"
                                         Text="待转移过程审批列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="zzhhIP" OnClientClick="return false;"
+                                        Text="终止审核列表">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -1018,6 +1040,17 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="zzhhBL" OnClientClick="return false;"
+                                        Text="终止审核列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
                                 </Nodes>
                             </ext:TreeNode>
                             <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="FolkFinancing" Text="民间融资">
@@ -1112,6 +1145,17 @@
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzyzcspff" OnClientClick="return false;"
                                         Text="待转移过程审批列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="zzhhFF" OnClientClick="return false;"
+                                        Text="终止审核列表">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">

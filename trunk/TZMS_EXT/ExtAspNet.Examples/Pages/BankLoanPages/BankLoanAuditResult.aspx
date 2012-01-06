@@ -26,6 +26,7 @@
                                 <ext:ListItem Text="审核中" Value="3" />
                                 <ext:ListItem Text="已通过" Value="4" />
                                 <ext:ListItem Text="未通过" Value="2" />
+                                <ext:ListItem Text="已终止" Value="8" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">

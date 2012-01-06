@@ -26,6 +26,7 @@
                                 <ext:ListItem Text="审核中" Value="3" />
                                 <ext:ListItem Text="已通过" Value="4" Selected="true" />
                                 <ext:ListItem Text="未通过" Value="2" />
+                                <ext:ListItem Text="已终止" Value="8" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
@@ -78,11 +79,10 @@
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectAuditResultView.aspx?Type=Edit&ID={0}"
                                 Title="查看" WindowID="wndNew" />
-                                <ext:WindowField Width="76px" Text="业务移交" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectAuditTransfer.aspx?Type=Owner&ID={0}"
+                            <ext:WindowField Width="76px" Text="业务移交" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="ProjectAuditTransfer.aspx?Type=Owner&ID={0}"
                                 Title="业务移交" WindowID="Window1" />
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />
-                            
                         </Columns>
                     </ext:Grid>
                 </Items>
