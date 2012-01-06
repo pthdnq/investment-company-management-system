@@ -60,6 +60,7 @@
     <Compile Include="BaoXiaoPinZhengApplyCtrl.cs" />
     <Compile Include="BaoXiaoPinZhengApproveCtrl.cs" />
     <Compile Include="BusinessCtrl.cs" />
+    <Compile Include="BusinessRecordCtrl.cs" />
     <Compile Include="CashFlowSetterCtrl.cs" />
     <Compile Include="CashFlowStatementCtrl.cs" />
     <Compile Include="ChuRuCtrl.cs" />
