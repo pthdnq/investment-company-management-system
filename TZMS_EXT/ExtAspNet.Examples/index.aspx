@@ -760,7 +760,7 @@
                     LoadTab("Pages/InvestmentLoanPages/ReceivablesInfoList.aspx", "收款信息", icon);
                     break;
                 case "zzht":
-                    LoadTab("Pages/InvestmentLoanPages/LoanContractList.aspx", "借款合同", icon);
+                    LoadTab("Pages/InvestmentLoanPages/LoanContractList.aspx", "终止合同列表", icon);
                     break;
 
                 //投资部项目实施 InvestmentProject                                                                  
