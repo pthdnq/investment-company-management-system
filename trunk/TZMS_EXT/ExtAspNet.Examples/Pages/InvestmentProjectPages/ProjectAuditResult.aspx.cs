@@ -15,7 +15,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
     /// </summary>
     public partial class ProjectAuditResult : BasePage
     {
-        #region viewstate 
+        #region viewstate
         /// <summary>
         /// 用于存储 状态的ViewState.
         /// </summary>
@@ -67,7 +67,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             if (!IsPostBack)
             {
-               // this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectApplyAdd.aspx?Type=Add", "新增 - 项目申请");
+                // this.btnNew.OnClientClick = wndNew.GetShowReference("ProjectApplyAdd.aspx?Type=Add", "新增 - 项目申请");
                 this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
 
                 // 绑定下拉框.
@@ -81,7 +81,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// 绑定下拉框.
         /// </summary>
         private void BindDDL()
-        { 
+        {
             ViewStateState = ddlstState.SelectedValue;
             ViewStateSearchText = ttbSearch.Text.Trim();
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
@@ -95,11 +95,11 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             #region 条件
             StringBuilder strCondtion = new StringBuilder();
-         //   strCondtion.Append("  CreaterID = '" + this.CurrentUser.ObjectId + "' ");
-             strCondtion.Append("   Status<>0 "); 
+            //   strCondtion.Append("  CreaterID = '" + this.CurrentUser.ObjectId + "' ");
+            strCondtion.Append("   Status<>0 ");
 
             if (!string.IsNullOrEmpty(state))
-            { 
+            {
                 // 申请状态.
                 switch (state)
                 {
@@ -113,7 +113,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                         strCondtion.Append(" AND ( Status = 2 OR Status = 11 ) ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND Status = 3  ");
+                        strCondtion.Append(" AND  ( Status = 3  OR Status = 7   ) ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");
@@ -191,7 +191,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
-       
+
 
         /// <summary>
         /// 状态变动事件
@@ -236,7 +236,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             InvestmentProjectInfo _Info = (InvestmentProjectInfo)e.DataItem;
 
-        
+
             if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9 || _Info.Status == 8)
             {
                 e.Values[11] = "<span class=\"gray\">业务移交</span>";
@@ -283,6 +283,9 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     break;
                 case "5":
                     StrStatusName = "已确认";
+                    break;
+                case "7":
+                    StrStatusName = "终止审核中";
                     break;
                 case "8":
                     StrStatusName = "已终止";

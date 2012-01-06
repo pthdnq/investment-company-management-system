@@ -132,10 +132,10 @@ namespace TZMS.Web.Pages.BankLoanPages
                         strCondtion.Append(" AND Status = 1  ");
                         break;
                     case "2":
-                        strCondtion.Append(" AND Status = 2 ");
+                        strCondtion.Append(" AND Status = 2 OR  Status = 11 ) ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND Status = 3  ");
+                        strCondtion.Append(" AND ( Status = 3 OR  Status = 7 )  ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");

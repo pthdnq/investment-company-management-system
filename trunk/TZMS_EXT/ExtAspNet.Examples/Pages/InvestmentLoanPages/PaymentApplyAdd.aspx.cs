@@ -122,12 +122,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             decimal transfer = 0;
             if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text))
             {
-                loanAmount = decimal.Parse(this.tbLoanAmount.Text.Trim());
+                decimal.TryParse(this.tbLoanAmount.Text.Trim(), out loanAmount);
                 transfer = loanAmount;
             }
             if (!string.IsNullOrWhiteSpace(this.tbCash.Text))
             {
-                cash = decimal.Parse(this.tbCash.Text.Trim());
+                decimal.TryParse(this.tbCash.Text.Trim(), out cash);
                 if (loanAmount != 0)
                 {
                     transfer = loanAmount - cash;

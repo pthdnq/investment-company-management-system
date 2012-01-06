@@ -114,7 +114,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                         strCondtion.Append(" AND (Status = 2 OR  Status = 11) ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND (Status = 3 OR Status = 4) ");
+                        strCondtion.Append(" AND (Status = 3 OR Status = 4 OR Status = 7) ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");

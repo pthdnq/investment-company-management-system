@@ -79,11 +79,11 @@
                             </ext:TextBox>
                             <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" runat="server" ShowRedStar="true"
                                 Required="true">
-                                <ext:DropDownList Hidden="true" HideMode="Display" runat="server" Label="付款方式" ID="ddlLoanType">
-                                    <ext:ListItem Text="现金" Value="Cash" />
-                                    <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
-                                </ext:DropDownList>
                             </ext:TextBox>
+                            <ext:DropDownList Hidden="true" HideMode="Display" runat="server" Label="付款方式" ID="ddlLoanType">
+                                <ext:ListItem Text="现金" Value="Cash" />
+                                <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
+                            </ext:DropDownList>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
