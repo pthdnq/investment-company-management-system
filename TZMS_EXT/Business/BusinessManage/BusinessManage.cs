@@ -118,5 +118,74 @@ namespace com.TZMS.Business.BusinessManage
             BusinessRecordCtrl _ctrl = new BusinessRecordCtrl();
             return _ctrl.SelectAsList(boName, condition);
         }
+
+        /// <summary>
+        /// 转换业务标示到字符串
+        /// </summary>
+        /// <param name="isNormalBusiness">是否是普通业务</param>
+        /// <param name="nCurrentBusiness">业务编号</param>
+        /// <returns>业务名称</returns>
+        public string ConvertBusinessTypeToString(bool isNormalBusiness, int nCurrentBusiness)
+        {
+            string strName = string.Empty;
+
+            if (isNormalBusiness)
+            {
+                switch (nCurrentBusiness)
+                {
+                    case 0:
+                        strName = "签订合同";
+                        break;
+                    case 1:
+                        strName = "业务转交";
+                        break;
+                    case 2:
+                        strName = "核名";
+                        break;
+                    case 3:
+                        strName = "刻章";
+                        break;
+                    case 4:
+                        strName = "各类许可证";
+                        break;
+                    case 5:
+                        strName = "开户";
+                        break;
+                    case 6:
+                        strName = "验资报告";
+                        break;
+                    case 7:
+                        strName = "营业执照";
+                        break;
+                    case 8:
+                        strName = "办代码证";
+                        break;
+                    case 9:
+                        strName = "办国地税";
+                        break;
+                    case 10:
+                        strName = "转基本户";
+                        break;
+                    case 11:
+                        strName = "税务备案";
+                        break;
+                    case 12:
+                        strName = "增资(开户、验资报告、营业执照)";
+                        break;
+                    case 13:
+                        strName = "完成";
+                        break;
+                    case 14:
+                        strName = "异常终止";
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            { }
+
+            return strName;
+        }
     }
 }

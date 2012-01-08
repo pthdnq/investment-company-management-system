@@ -10,7 +10,7 @@
 namespace TZMS.Web {
     
     
-    public partial class NormalBusinessOperateList {
+    public partial class SpecialMoney {
         
         /// <summary>
         /// form1 control.
@@ -40,129 +40,66 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Panel pelMain;
         
         /// <summary>
-        /// Form2 control.
+        /// Toolbar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Form Form2;
+        protected global::ExtAspNet.Toolbar Toolbar1;
         
         /// <summary>
-        /// FormRow1 control.
+        /// btnClose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow1;
+        protected global::ExtAspNet.Button btnClose;
         
         /// <summary>
-        /// tbxSearch control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbxSearch;
+        protected global::ExtAspNet.Button btnSubmit;
         
         /// <summary>
-        /// ddlstAproveState control.
+        /// pelOperator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstAproveState;
+        protected global::ExtAspNet.Panel pelOperator;
         
         /// <summary>
-        /// btnSearch control.
+        /// mainForm2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Button btnSearch;
+        protected global::ExtAspNet.Form mainForm2;
         
         /// <summary>
-        /// Label1 control.
+        /// tbxSpcialMoney control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label Label1;
+        protected global::ExtAspNet.TextBox tbxSpcialMoney;
         
         /// <summary>
-        /// FormRow2 control.
+        /// taaSpcialMoney control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.FormRow FormRow2;
-        
-        /// <summary>
-        /// dpkStartTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkStartTime;
-        
-        /// <summary>
-        /// dpkEndTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkEndTime;
-        
-        /// <summary>
-        /// Label3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Label Label3;
-        
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Label Label4;
-        
-        /// <summary>
-        /// pelGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Panel pelGrid;
-        
-        /// <summary>
-        /// gridBusiness control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Grid gridBusiness;
-        
-        /// <summary>
-        /// wndNewNormalBusiness control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Window wndNewNormalBusiness;
+        protected global::ExtAspNet.TextArea taaSpcialMoney;
     }
 }

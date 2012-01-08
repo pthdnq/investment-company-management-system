@@ -327,7 +327,7 @@
                                         runat="server">
                                         <Nodes>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/普通业务.gif" NodeID="ptyw" AutoPostBack="false"
-                                                OnClientClick=" tabs('ptyw','UserKey');" Text="普通业务创建">
+                                                OnClientClick=" tabs('ptyw','UserKey');" Text="普通业务列表">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/报销申请.gif" NodeID="ptywcz" AutoPostBack="false"
                                                 OnClientClick=" tabs('ptywcz','UserKey');" Text="普通业务操作">
@@ -672,10 +672,10 @@
                     break;
                 // 业务管理                                            
                 case "ptyw":
-                    LoadTab("Pages/Yewu/CommonYewu.aspx", "普通业务创建", icon);
+                    LoadTab("Pages/BusinessPages/NormalBusinessList.aspx", "普通业务列表", icon);
                     break;
                 case "ptywcz":
-                    LoadTab("Pages/Yewu/CommonYewuAppList.aspx", "普通业务操作", icon);
+                    LoadTab("Pages/BusinessPages/NormalBusinessOperateList.aspx", "普通业务操作", icon);
                     break;
                 case "dzywcj":
                     LoadTab("Pages/Yewu/DingzhiYewu.aspx", "定制业务创建", icon);
