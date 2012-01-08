@@ -624,6 +624,10 @@
     <Content Include="Pages\Baoxiao\BaoxiaoToFile.aspx" />
     <Content Include="Pages\Baoxiao\CheckBaoxiaoApp.aspx" />
     <Content Include="Pages\Baoxiao\NewBaoxiaoApply.aspx" />
+    <Content Include="Pages\BusinessPages\NewNormalBusiness.aspx" />
+    <Content Include="Pages\BusinessPages\NormalBusinessList.aspx" />
+    <Content Include="Pages\BusinessPages\NormalBusinessOperateList.aspx" />
+    <Content Include="Pages\BusinessPages\OperatorNormalBusiness.aspx" />
     <Content Include="Pages\CashFlow\BankLoanBA.aspx" />
     <Content Include="Pages\CashFlow\BankLoanBAList.aspx" />
     <Content Include="Pages\CashFlow\CashFlowSetterInit.aspx" />
@@ -1414,6 +1418,34 @@
     </Compile>
     <Compile Include="Pages\Baoxiao\NewBaoxiaoApply.aspx.designer.cs">
       <DependentUpon>NewBaoxiaoApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NewNormalBusiness.aspx.cs">
+      <DependentUpon>NewNormalBusiness.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NewNormalBusiness.aspx.designer.cs">
+      <DependentUpon>NewNormalBusiness.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NormalBusinessList.aspx.cs">
+      <DependentUpon>NormalBusinessList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NormalBusinessList.aspx.designer.cs">
+      <DependentUpon>NormalBusinessList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NormalBusinessOperateList.aspx.cs">
+      <DependentUpon>NormalBusinessOperateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NormalBusinessOperateList.aspx.designer.cs">
+      <DependentUpon>NormalBusinessOperateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\OperatorNormalBusiness.aspx.cs">
+      <DependentUpon>OperatorNormalBusiness.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\OperatorNormalBusiness.aspx.designer.cs">
+      <DependentUpon>OperatorNormalBusiness.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CashFlow\BankLoanBA.aspx.cs">
       <DependentUpon>BankLoanBA.aspx</DependentUpon>
@@ -2919,9 +2951,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\BusinessPages\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{8AD7E97C-6BE2-4A0C-8500-3B485E0F271F}</Project>
