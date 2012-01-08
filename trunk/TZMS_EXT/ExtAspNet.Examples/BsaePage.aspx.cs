@@ -244,7 +244,7 @@ namespace TZMS.Web
             /// <summary>
             /// 业务部门总监
             /// </summary>
-            //YWZJ = 7,
+            YWZJ = 7,
             /// <summary>
             /// 行政部门主管
             /// </summary>

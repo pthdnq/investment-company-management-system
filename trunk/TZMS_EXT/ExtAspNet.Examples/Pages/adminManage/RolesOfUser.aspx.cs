@@ -258,6 +258,9 @@ namespace TZMS.Web
                     //strRole = "财务部门总监";
                     strRole = "民间融资费用支付申请";
                     break;
+                case RoleType.YWZJ:
+                    strRole = "业务成本变更";
+                    break;
                 case RoleType.DSZ:
                     //strRole = "董事长";
                     strRole = "投融资业务款(备用金)>30w归档";
