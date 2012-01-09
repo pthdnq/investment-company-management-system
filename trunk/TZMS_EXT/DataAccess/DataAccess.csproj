@@ -59,6 +59,8 @@
     <Compile Include="BaoxiaoCtrl.cs" />
     <Compile Include="BaoXiaoPinZhengApplyCtrl.cs" />
     <Compile Include="BaoXiaoPinZhengApproveCtrl.cs" />
+    <Compile Include="BusinessCostApplyCtrl.cs" />
+    <Compile Include="BusinessCostApproveCtrl.cs" />
     <Compile Include="BusinessCtrl.cs" />
     <Compile Include="BusinessRecordCtrl.cs" />
     <Compile Include="CashFlowSetterCtrl.cs" />
