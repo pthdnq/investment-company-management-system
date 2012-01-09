@@ -82,6 +82,40 @@ namespace TZMS.Web
             gridBusiness.DataBind();
         }
 
+        /// <summary>
+        /// 判断某用户是否包含某特定角色
+        /// </summary>
+        /// <param name="strObjectID"></param>
+        /// <param name="roleType"></param>
+        /// <returns></returns>
+        public bool ContainsRole(string strObjectID, RoleType roleType)
+        {
+            bool isContain = false;
+
+            if (!string.IsNullOrEmpty(strObjectID))
+            {
+                RolesManage _rolesManage = new RolesManage();
+                UserRoles _userRoles = _rolesManage.GetRolesByObjectID(strObjectID);
+                if (_userRoles != null)
+                {
+                    string[] roles = _userRoles.Roles.Split(',');
+                    foreach (string role in roles)
+                    {
+                        if (!string.IsNullOrEmpty(role))
+                        {
+                            if (role == ((int)roleType).ToString())
+                            {
+                                isContain = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return isContain;
+        }
+
         #endregion
 
         #region 页面事件
@@ -118,6 +152,12 @@ namespace TZMS.Web
             string strBusinessID = ((GridRow)gridBusiness.Rows[e.RowIndex]).Values[1];
             if (e.CommandName == "View")
             {
+                if (!this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZJ))
+                {
+                    Alert.Show("当前步骤是\"业务转交\",请移交至业务总监进行办理!");
+                    return;
+                }
+
                 wndNewNormalBusiness.IFrameUrl = "OperatorNormalBusiness.aspx?RecordID=" + strRecordID + "&BusinessID=" + strBusinessID;
                 wndNewNormalBusiness.Hidden = false;
             }

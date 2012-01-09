@@ -206,7 +206,7 @@ namespace TZMS.Web
                     case "0":
                         e.Values[5] = "未完成";
                         e.Values[9] = "<span class=\"gray\">删除</span>";
-
+                        e.Values[8] = "<span class=\"gray\">编辑</span>";
                         if (!this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZJ))
                         {
                             e.Values[7] = "<span class=\"gray\">成本变更</span>";

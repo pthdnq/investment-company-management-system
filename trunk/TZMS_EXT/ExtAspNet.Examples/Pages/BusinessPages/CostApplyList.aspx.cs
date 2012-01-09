@@ -163,6 +163,7 @@ namespace TZMS.Web
                 {
                     case "0":
                         e.Values[7] = "审批中";
+                        e.Values[4] = "";
                         e.Values[9] = "<span class=\"gray\">编辑</span>";
                         e.Values[10] = "<span class=\"gray\">删除</span>";
                         break;
@@ -176,6 +177,7 @@ namespace TZMS.Web
                         break;
                     case "2":
                         e.Values[7] = "未通过";
+                        e.Values[4] = "";
                         if (CurrentLevel == VisitLevel.View)
                         {
                             e.Values[9] = "<span class=\"gray\">编辑</span>";

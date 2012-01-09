@@ -181,7 +181,7 @@ namespace TZMS.Web
             // 获取数据.
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append("ApplyID = '" + ApplyID + "'");
-            strCondition.Append(" and ApproveState = 1 and ApproveOp <> 0");
+            strCondition.Append(" and ApproveState = 1");
             List<BusinessCostApproveInfo> lstBaoxiaoCheckInfo = new BusinessManage().GetCostApproveByCondition(strCondition.ToString());
 
             lstBaoxiaoCheckInfo.Sort(delegate(BusinessCostApproveInfo x, BusinessCostApproveInfo y) { return DateTime.Compare(y.ApproveTime, x.ApproveTime); });

@@ -27,7 +27,7 @@
                 BodyPadding="3px" ShowHeader="false" AnchorValue="100% -36">
                 <Items>
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                        AutoHeight="true" Height="430px">
+                        AutoHeight="true" Height="460px">
                         <Tabs>
                             <ext:Tab ID="Tab1" Title="普通业务" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
@@ -83,20 +83,30 @@
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="33% 33% 33%">
+                                            <ext:FormRow ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxSumMoney" runat="server" Label="合同总金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
                                                         RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
                                                     </ext:TextBox>
+                                                </Items>
+                                            </ext:FormRow>
+                                            <ext:FormRow ColumnWidths="30% 20% 30% 20%">
+                                                <Items>
                                                     <ext:TextBox ID="tbxPreMoney" runat="server" Label="预付金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
                                                         RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
                                                     </ext:TextBox>
+                                                    <ext:Image ID="imgPreMoney" ImageUrl="../../images/ico_leaveALLOW.gif" ShowLabel="false"
+                                                        runat="server">
+                                                    </ext:Image>
                                                     <ext:TextBox ID="tbxBalanceMoney" runat="server" Label="业务余款金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
                                                         RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
                                                     </ext:TextBox>
+                                                    <ext:Image ID="imgBalanceMoney" ImageUrl="../../images/ico_leaveALLOW.gif" ShowLabel="false"
+                                                        runat="server">
+                                                    </ext:Image>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="33% 33% 33%">
+                                            <ext:FormRow ColumnWidths="25% 25% 25%">
                                                 <Items>
                                                     <ext:CheckBox ID="CheckBox1" Text="业务办理结束付款" runat="server" ShowLabel="false">
                                                     </ext:CheckBox>
@@ -131,7 +141,8 @@
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaOther" runat="server" Label="备注" Height="60px" MaxLength="500" MaxLengthMessage="最多只能输入500个字!">
+                                                    <ext:TextArea ID="taaOther" runat="server" Label="备注" Height="60px" MaxLength="500"
+                                                        MaxLengthMessage="最多只能输入500个字!">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>

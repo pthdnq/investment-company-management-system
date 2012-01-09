@@ -120,20 +120,30 @@
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="33% 33% 33%">
+                                            <ext:FormRow ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxSumMoney" runat="server" Label="合同总金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                                        RegexMessage="金额格式不正确!">
-                                                    </ext:TextBox>
-                                                    <ext:TextBox ID="tbxPreMoney" runat="server" Label="预付金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                                        RegexMessage="金额格式不正确!">
-                                                    </ext:TextBox>
-                                                    <ext:TextBox ID="tbxBalanceMoney" runat="server" Label="业务余款金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                                        RegexMessage="金额格式不正确!">
+                                                        RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="33% 33% 33%">
+                                            <ext:FormRow ColumnWidths="30% 20% 30% 20%">
+                                                <Items>
+                                                    <ext:TextBox ID="tbxPreMoney" runat="server" Label="预付金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                                        RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
+                                                    </ext:TextBox>
+                                                    <ext:Image ID="imgPreMoney" ImageUrl="../../images/ico_leaveALLOW.gif" ShowLabel="false"
+                                                        runat="server">
+                                                    </ext:Image>
+                                                    <ext:TextBox ID="tbxBalanceMoney" runat="server" Label="业务余款金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                                        RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
+                                                    </ext:TextBox>
+                                                    <ext:Image ID="imgBalanceMoney" ImageUrl="../../images/ico_leaveALLOW.gif" ShowLabel="false"
+                                                        runat="server">
+                                                    </ext:Image>
+                                                </Items>
+                                            </ext:FormRow>
+                                            <ext:FormRow ColumnWidths="25% 25% 25%">
                                                 <Items>
                                                     <ext:CheckBox ID="CheckBox1" Text="业务办理结束付款" runat="server" ShowLabel="false">
                                                     </ext:CheckBox>
@@ -201,7 +211,7 @@
     </ext:Panel>
     <ext:Window ID="wndSpecialMoney" Title="特殊费用" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Self" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="200px"
-        Width="400px" onclose="wndSpecialMoney_Close">
+        Width="400px" OnClose="wndSpecialMoney_Close">
     </ext:Window>
     </form>
 </body>
