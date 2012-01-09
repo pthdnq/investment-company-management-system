@@ -32,14 +32,15 @@
                             </ext:Button>
                         </Items>
                     </ext:FormRow>
-                    <ext:FormRow ID="FormRow2" runat="server">
+                    <%-- 不知道为什么要加这块代码，shunlian注释2012年1月9日-- %>
+                   <%-- <ext:FormRow ID="FormRow2" runat="server">
                         <Items>
                             <ext:Label ID="Label3" runat="server">
                             </ext:Label>
                             <ext:Label ID="Label4" runat="server">
                             </ext:Label>
                         </Items>
-                    </ext:FormRow>
+                    </ext:FormRow>--%>
                 </Rows>
             </ext:Form>
             <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -42"
