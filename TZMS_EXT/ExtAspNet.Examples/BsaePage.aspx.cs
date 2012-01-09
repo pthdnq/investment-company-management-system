@@ -46,6 +46,14 @@ namespace TZMS.Web
         {
             get { return WebConfigurationManager.AppSettings["SYSTEMNAME"].ToString(); }
         }
+
+        /// <summary>
+        /// 一级站点（和日历共享数据）
+        /// </summary>
+        protected string WebSite
+        {
+            get { return WebConfigurationManager.AppSettings["WebSite"].ToString(); }
+        }
         #endregion
 
         /// <summary>

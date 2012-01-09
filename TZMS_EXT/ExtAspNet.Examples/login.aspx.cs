@@ -102,6 +102,7 @@ namespace TZMS.Web
                 return false;
             }
             CurrentUser = user;
+
             //定义cookie对象以及名为Info的项  
             HttpCookie cookie = new HttpCookie("Info");
             //定义时间对象 
@@ -112,7 +113,7 @@ namespace TZMS.Web
             cookie.Expires = dt.Add(ts);
             //增加属性 
             cookie.Values.Add("userName", user.AccountNo);
-            //cookie.Domain = "enroll.sse.ustc.edu.cn";
+            cookie.Domain = WebSite;
             //确定写入cookie中   
             Response.AppendCookie(cookie);
             Session["account"] = user.ObjectId.ToString();
