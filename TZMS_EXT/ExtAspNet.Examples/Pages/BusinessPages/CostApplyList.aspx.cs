@@ -8,6 +8,7 @@ using ExtAspNet;
 using System.Text;
 using com.TZMS.Business.BusinessManage;
 using com.TZMS.Model;
+using com.TZMS.Business;
 
 namespace TZMS.Web
 {
@@ -15,7 +16,23 @@ namespace TZMS.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                CurrentLevel = GetCurrentLevel("ywfysq");
 
+                wndCostApply.OnClientCloseButtonClick = wndCostApply.GetHidePostBackReference();
+                btnNewCostApply.OnClientClick = wndCostApply.GetShowReference("CostApply.aspx?Type=Add") + "return false;";
+
+                dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
+                dpkEndTime.SelectedDate = DateTime.Now;
+
+                BindGrid();
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    btnNewCostApply.Enabled = false;
+                }
+            }
         }
 
         #region 私有方法
@@ -38,7 +55,7 @@ namespace TZMS.Web
 
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append(" IsDelete <> 1");
-                strCondition.Append(" and UserID ='" + CurrentUser.ObjectId.ToString() + "'");
+            strCondition.Append(" and UserID ='" + CurrentUser.ObjectId.ToString() + "'");
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
                 strCondition.Append(" and CompanyName Like '%" + tbxSearch.Text.Trim() + "%'");
@@ -98,7 +115,31 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridCostApply_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
+            string strApplyID = ((GridRow)gridCostApply.Rows[e.RowIndex]).Values[0];
+            if (e.CommandName == "View")
+            {
+                wndCostApply.IFrameUrl = "CostApply.aspx?Type=View&ID=" + strApplyID;
+                wndCostApply.Hidden = false;
+            }
 
+            if (e.CommandName == "Edit")
+            {
+                wndCostApply.IFrameUrl = "CostApply.aspx?Type=Edit&ID=" + strApplyID;
+                wndCostApply.Hidden = false;
+            }
+
+            if (e.CommandName == "Delete")
+            {
+                BusinessManage _manage = new BusinessManage();
+                BusinessCostApplyInfo _applyInfo = _manage.GetCostApplyByObjectID(strApplyID);
+                if (_applyInfo != null)
+                {
+                    _applyInfo.IsDelete = true;
+                    _manage.UpdateCostApply(_applyInfo);
+
+                    BindGrid();
+                }
+            }
         }
 
         /// <summary>
@@ -108,7 +149,44 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridCostApply_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
+            if (e.DataItem != null)
+            {
+                e.Values[2] = e.Values[2].ToString() == "0" ? "预收定金" : "业务尾款";
+                e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd");
+                UserInfo _approveUser = new UserManage().GetUserByObjectID(e.Values[6].ToString());
+                if (_approveUser != null)
+                {
+                    e.Values[6] = _approveUser.Name;
+                }
 
+                switch (e.Values[7].ToString())
+                {
+                    case "0":
+                        e.Values[7] = "审批中";
+                        e.Values[9] = "<span class=\"gray\">编辑</span>";
+                        e.Values[10] = "<span class=\"gray\">删除</span>";
+                        break;
+                    case "1":
+                        e.Values[7] = "已确认";
+                        e.Values[9] = "<span class=\"gray\">编辑</span>";
+                        if (CurrentLevel == VisitLevel.View)
+                        {
+                            e.Values[10] = "<span class=\"gray\">删除</span>";
+                        }
+                        break;
+                    case "2":
+                        e.Values[7] = "未通过";
+                        if (CurrentLevel == VisitLevel.View)
+                        {
+                            e.Values[9] = "<span class=\"gray\">编辑</span>";
+                            e.Values[10] = "<span class=\"gray\">删除</span>";
+                        }
+
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         /// <summary>
