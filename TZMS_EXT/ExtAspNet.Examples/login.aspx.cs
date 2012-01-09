@@ -119,6 +119,7 @@ namespace TZMS.Web
             //确定写入cookie中   
             Response.AppendCookie(cookie);
             Session["account"] = user.ObjectId.ToString();
+            string id = Session.SessionID;
             return true;
         }
 
