@@ -624,6 +624,12 @@
     <Content Include="Pages\Baoxiao\BaoxiaoToFile.aspx" />
     <Content Include="Pages\Baoxiao\CheckBaoxiaoApp.aspx" />
     <Content Include="Pages\Baoxiao\NewBaoxiaoApply.aspx" />
+    <Content Include="Pages\BusinessPages\CostApply.aspx" />
+    <Content Include="Pages\BusinessPages\CostApplyList.aspx" />
+    <Content Include="Pages\BusinessPages\CostApprove.aspx" />
+    <Content Include="Pages\BusinessPages\CostApproveList.aspx" />
+    <Content Include="Pages\BusinessPages\CostConfirm.aspx" />
+    <Content Include="Pages\BusinessPages\CostConfirmList.aspx" />
     <Content Include="Pages\BusinessPages\NewNormalBusiness.aspx" />
     <Content Include="Pages\BusinessPages\NormalBusinessList.aspx" />
     <Content Include="Pages\BusinessPages\NormalBusinessOperateList.aspx" />
@@ -1419,6 +1425,48 @@
     </Compile>
     <Compile Include="Pages\Baoxiao\NewBaoxiaoApply.aspx.designer.cs">
       <DependentUpon>NewBaoxiaoApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostApply.aspx.cs">
+      <DependentUpon>CostApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostApply.aspx.designer.cs">
+      <DependentUpon>CostApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostApplyList.aspx.cs">
+      <DependentUpon>CostApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostApplyList.aspx.designer.cs">
+      <DependentUpon>CostApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostApprove.aspx.cs">
+      <DependentUpon>CostApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostApprove.aspx.designer.cs">
+      <DependentUpon>CostApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostApproveList.aspx.cs">
+      <DependentUpon>CostApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostApproveList.aspx.designer.cs">
+      <DependentUpon>CostApproveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostConfirm.aspx.cs">
+      <DependentUpon>CostConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostConfirm.aspx.designer.cs">
+      <DependentUpon>CostConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostConfirmList.aspx.cs">
+      <DependentUpon>CostConfirmList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CostConfirmList.aspx.designer.cs">
+      <DependentUpon>CostConfirmList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\BusinessPages\NewNormalBusiness.aspx.cs">
       <DependentUpon>NewNormalBusiness.aspx</DependentUpon>
