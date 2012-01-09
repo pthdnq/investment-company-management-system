@@ -88,7 +88,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             #region View
             //if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("Apply"))
             //{
-            if (_Info.Status > 7 && _Info.Status != 11)
+            if (_Info.Status > 6 && _Info.Status != 11)
             {
                 // this.btnDismissed.Hidden = true;
                 this.btnSave.Hidden = true;
@@ -157,7 +157,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
 
-
+            this.tbCash.Text = _Info.Cash.ToString();
+            this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
         }
 
         /// <summary>

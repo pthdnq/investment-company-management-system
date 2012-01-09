@@ -94,8 +94,8 @@ namespace TZMS.Web.Pages.BankLoanPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-          //  strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-               strCondtion.Append("   Status<>9 "); 
+            //  strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
+            strCondtion.Append("   Status<>9 ");
 
             if (!string.IsNullOrEmpty(state))
             {
@@ -107,7 +107,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                         //  strCondtion.Append(" AND Status = 1 ");
                         break;
                     case "1":
-                        strCondtion.Append(" AND (Status = 1 OR Status = 3) ");
+                        strCondtion.Append(" AND (Status = 1 OR Status = 3 OR  Status = 7 ) ");
                         break;
                     case "2":
                         strCondtion.Append(" AND Status = 2 ");

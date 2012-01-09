@@ -116,7 +116,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             #region 条件
             StringBuilder strCondtion = new StringBuilder();
             strCondtion.Append("  BorrowerAId = '" + ObjectID + "' ");
-         //   strCondtion.Append("   Status<>0 ");
+            //   strCondtion.Append("   Status<>0 ");
 
             if (!string.IsNullOrEmpty(state))
             {
@@ -131,16 +131,22 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                         strCondtion.Append(" AND Status = 1 ");
                         break;
                     case "2":
-                        strCondtion.Append(" AND Status = 2 ");
+                        strCondtion.Append(" AND (Status = 2 OR  Status = 11) ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND (Status = 3 OR Status = 4) ");
+                        strCondtion.Append(" AND  Status = 3  ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");
                         break;
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
+                        break;
+                    case "7":
+                        strCondtion.Append(" AND Status = 7 ");
+                        break;
+                    case "8":
+                        strCondtion.Append(" AND Status = 8 ");
                         break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
@@ -307,8 +313,17 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 case "5":
                     StrStatusName = "已确认";
                     break;
+                case "7":
+                    StrStatusName = "终止审核中";
+                    break;
+                case "8":
+                    StrStatusName = "已终止";
+                    break;
                 case "9":
                     StrStatusName = "已删除";
+                    break;
+                case "11":
+                    StrStatusName = "终止未通过";
                     break;
                 default:
                     break;

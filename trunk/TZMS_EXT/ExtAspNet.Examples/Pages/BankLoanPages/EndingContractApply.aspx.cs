@@ -87,7 +87,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             #region View
          //   if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
-            if (_Info.Status > 7 && _Info.Status != 11)
+            if (_Info.Status > 6 && _Info.Status != 11)
             {
                 this.btnDismissed.Hidden = true;
                 this.btnSave.Hidden = true;

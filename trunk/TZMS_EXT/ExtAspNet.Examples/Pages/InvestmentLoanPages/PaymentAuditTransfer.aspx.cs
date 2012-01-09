@@ -63,7 +63,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 {
                     btnSave.Hidden = true;
                     btnDismissed.Hidden = false;
-                 
+
                 }
 
                 bindUserInterface(strID);
@@ -126,6 +126,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
+
+            this.tbCash.Text = _Info.Cash.ToString();
+            this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
         }
 
         /// <summary>
@@ -196,20 +199,20 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 strLastNextOperaterName = _Info.CreaterName;
                 //下一步操作
                 _Info.CreaterName = this.ddlstApproveUser.SelectedText;
-                _Info.CreaterId = new Guid(this.ddlstApproveUser.SelectedValue); 
+                _Info.CreaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             }
             else
             {
                 _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
                 _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
-        
+
             }
             _Info.SubmitTime = DateTime.Now;
             int result = 3;
             result = manage.Update(_Info);
             if (result == -1)
             {
-                string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, this.ddlstApproveUser.SelectedText);// (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
+                string statusName = string.Format("从 {0} 转移至 {1}", strLastNextOperaterName, this.ddlstApproveUser.SelectedText);// (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
                 manage.AddHistory(_Info.ObjectId, strOperationType, string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
 
                 Alert.Show("操作成功!");

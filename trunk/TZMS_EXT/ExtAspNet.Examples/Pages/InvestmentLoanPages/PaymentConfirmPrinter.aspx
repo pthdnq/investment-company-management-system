@@ -12,11 +12,11 @@
         <input id="btnPrinter" type="button" value="打印" onclick="javascript: PrintBill();" />
         <h1>
             付款确认 
-            <br />
+            <br /></h1>
           
         <h2>
            项目：
-            <asp:Label runat="server" ID="tbProjectName"></asp:Label></h1>
+            <asp:Label runat="server" ID="tbProjectName"></asp:Label>
            </h2>
         <h3>
          借款人：
