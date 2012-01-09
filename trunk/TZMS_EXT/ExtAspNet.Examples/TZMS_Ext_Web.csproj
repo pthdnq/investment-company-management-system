@@ -387,7 +387,12 @@
     <Content Include="images\Logo.ico" />
     <Content Include="images\logo03.png" />
     <Content Include="images\LogoBg.jpg" />
+    <Content Include="images\logo\bg2.jpg" />
+    <Content Include="images\logo\favicon.gif" />
+    <Content Include="images\logo\favicon.ico" />
+    <Content Include="images\logo\favicon.png" />
     <Content Include="images\logo\Logo03.png" />
+    <Content Include="images\logo\topLogo.jpg" />
     <Content Include="images\Logo_横向_03.png" />
     <Content Include="images\love.jpg" />
     <Content Include="images\mbxz.jpg" />
