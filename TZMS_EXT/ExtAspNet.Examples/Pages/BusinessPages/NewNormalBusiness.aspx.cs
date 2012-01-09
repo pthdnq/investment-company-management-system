@@ -64,6 +64,8 @@ namespace TZMS.Web
                     case "Add":
                         tabOperateHistory.Hidden = true;
                         BindSigner();
+                        imgBalanceMoney.Hidden = true;
+                        imgPreMoney.Hidden = true;
                         dpkSignTime.SelectedDate = DateTime.Now;
                         tbxCostMoney.Enabled = false;
                         tbxOtherMoney.Enabled = false;
@@ -154,6 +156,11 @@ namespace TZMS.Web
                 taaOtherMoneyExplain.Text = _info.OtherMoneyExplain;
                 taaContent.Text = _info.Content;
                 taaOther.Text = _info.Other;
+
+                if (_info.BalanceMoneyType != 1)
+                    imgBalanceMoney.Hidden = true;
+                if (_info.PreMoneyType != 1)
+                    imgPreMoney.Hidden = true;
 
                 // 杂项.
                 if (!string.IsNullOrEmpty(_info.CheckOther))

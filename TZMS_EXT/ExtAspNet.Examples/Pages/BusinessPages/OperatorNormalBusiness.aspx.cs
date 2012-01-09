@@ -167,6 +167,11 @@ namespace TZMS.Web
                 taaContent.Text = _info.Content;
                 taaOther.Text = _info.Other;
 
+                if (_info.BalanceMoneyType != 1)
+                    imgBalanceMoney.Hidden = true;
+                if (_info.PreMoneyType != 1)
+                    imgPreMoney.Hidden = true;
+
                 // 杂项.
                 if (!string.IsNullOrEmpty(_info.CheckOther))
                 {
@@ -267,6 +272,12 @@ namespace TZMS.Web
                 // 完成.
                 if (ddlstNext.SelectedValue == "13")
                 {
+                    if (_info.SumMoney != (_info.PreMoney + _info.BalanceMoney))
+                    {
+                        Alert.Show("已收取费用与合同金额不匹配，请检查业务费用!");
+                        return;
+                    }
+
                     wndSpecialMoney.IFrameUrl = "SpecialMoney.aspx";
                     wndSpecialMoney.Hidden = false;
                     return;
@@ -501,5 +512,6 @@ namespace TZMS.Web
         }
 
         #endregion
+
     }
 }
