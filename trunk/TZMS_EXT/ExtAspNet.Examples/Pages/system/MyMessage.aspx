@@ -15,7 +15,7 @@
         <Toolbars>
             <ext:Toolbar ID="Toolbar1" runat="server">
                 <Items>
-                    <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
+                    <ext:Button ID="btnSave" runat="server"  Enabled="false" ValidateForms="mainFrame" OnClick="btnSave_Click"
                         Icon="Disk" Text="保存">
                     </ext:Button>
                 </Items>

@@ -24,7 +24,7 @@ namespace TZMS.Web
                 this.btnSave.Enabled = false;
                 BindDept();
                 bindUserInterface();
-                this.btnSave.Enabled = true;
+                //this.btnSave.Enabled = true;
             }
         }
 
