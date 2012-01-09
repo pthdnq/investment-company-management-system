@@ -131,6 +131,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
+
+            this.tbCash.Text = _Info.Cash.ToString();
+            this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
+
         }
 
         /// <summary>
@@ -229,6 +233,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     Alert.Show("操作失败!");
                     return;
                 }
+                #endregion
+
+                #region customer
+                CustomerInfo customer = manage.GetCustomerByObjectID(_Info.BorrowerAId.ToString());
+                customer.Status = 1;
+                manage.UpdateCustomer(customer);
                 #endregion
 
                 string statusName = "借款，已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";

@@ -144,7 +144,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
 
-
+            this.tbCash.Text = _Info.Cash.ToString();
+            this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
         }
 
         /// <summary>
@@ -260,6 +261,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 string statusName = (status == 11) ? "不同意" : (status == 7) ? "同意，继续审批" : "同意，归档";
                 manage.AddHistory(_Info.ObjectId, "合同终止", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+            
+                if (status == 8)
+                {
+                    //结清客户的借款状态
+                    manage.CleanCustomerStatus(_Info.BorrowerAId.ToString());
+                }
 
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

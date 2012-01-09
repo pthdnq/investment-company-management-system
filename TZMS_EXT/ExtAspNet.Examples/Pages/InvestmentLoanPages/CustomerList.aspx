@@ -20,12 +20,12 @@
                         <Items>
                             <ext:TextBox Label="项目名称" ShowLabel="false" runat="server" EmptyText="请输入客户姓名查询"
                                 ID="ttbSearch" />
+                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
+                            </ext:Button>
                             <ext:DatePicker Hidden="true" ID="dpkStartTime" runat="server" Label="开始日期">
                             </ext:DatePicker>
                             <ext:DatePicker Hidden="true" ID="dpkEndTime" runat="server" Label="结束日期">
                             </ext:DatePicker>
-                            <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
-                            </ext:Button>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow Hidden="true">
@@ -38,8 +38,8 @@
                                 <ext:ListItem Text="已确认" Value="5" />--%>
                                 <%--     <ext:ListItem Text="已删除" Value="9" />--%>
                             </ext:DropDownList>
-                            <ext:Label ID="Labeltmp2" runat="server" />
-                            <ext:Label ID="Labeltmp3" runat="server" />
+                            <ext:Label Hidden="true" ID="Labeltmp2" runat="server" />
+                            <ext:Label Hidden="true" ID="Labeltmp3" runat="server" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -87,7 +87,7 @@
     <ext:Window ID="wndEdit" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="164px" Width="530px" OnClose="wndNew_Close">
     </ext:Window>
-       <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="554px" Width="830px" OnClose="wndNew_Close">
     </ext:Window>
     </form>

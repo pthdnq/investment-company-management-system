@@ -193,6 +193,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextBox tbPayerBName;
         
         /// <summary>
+        /// tbCash control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbCash;
+        
+        /// <summary>
         /// ddlLoanType control.
         /// </summary>
         /// <remarks>
@@ -200,6 +209,24 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.DropDownList ddlLoanType;
+        
+        /// <summary>
+        /// lbTransferAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label lbTransferAccount;
+        
+        /// <summary>
+        /// tbRateOfReturn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbRateOfReturn;
         
         /// <summary>
         /// tbGuarantor control.
@@ -236,15 +263,6 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextBox tbLoanTimeLimit;
-        
-        /// <summary>
-        /// tbRateOfReturn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbRateOfReturn;
         
         /// <summary>
         /// tbCollateral control.
