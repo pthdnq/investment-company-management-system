@@ -22,7 +22,9 @@
                             <ext:TextBox ID="tbxSearch" runat="server" EmptyText="请输入姓名或物资名称查询" ShowLabel="false">
                             </ext:TextBox>
                             <ext:DropDownList ID="ddlstWuZhiType" runat="server" Label="物资类型">
-                                <ext:ListItem Text="办公用品" Value="0" Selected="true" />
+                                <ext:ListItem Text="全部" Value="all" Selected="true" />
+
+                                <ext:ListItem Text="办公用品" Value="0"  />
                                 <ext:ListItem Text="固定资产" Value="1" />
                             </ext:DropDownList>
                             <ext:DropDownList ID="ddlstAproveState" runat="server" Label="审批状态">

@@ -34,8 +34,13 @@ namespace TZMS.Web
 
         #region 私有方法
 
+        /// <summary>
+        /// 绑定类型
+        /// </summary>
         private void BindType()
         {
+            ddlstType.Items.Add(new ExtAspNet.ListItem("全部", "all"));
+
             ddlstType.Items.Add(new ExtAspNet.ListItem("办公用品", "0"));
             //if (CurrentRoles.Contains(RoleType.WZSQ_GD))
             //{
@@ -59,8 +64,10 @@ namespace TZMS.Web
             {
                 strCondition.Append(" and MaterialsName Like '%" + tbxSearch.Text.Trim() + "%'");
             }
-
-            strCondition.Append(" and MaterialsType = " + ddlstType.SelectedValue);
+            if (ddlstType.SelectedValue != "all")
+            {
+                strCondition.Append(" and MaterialsType = " + ddlstType.SelectedValue);
+            }
             strCondition.Append(" order by CurrentNumbers desc");
 
             #endregion
