@@ -41,6 +41,7 @@ namespace TZMS.Web
 
         private void BindType()
         {
+            ddlstType.Items.Add(new ExtAspNet.ListItem("全部", "all"));
             ddlstType.Items.Add(new ExtAspNet.ListItem("办公用品", "0"));
             if (CurrentRoles.Contains(RoleType.WZSQ_GD))
             {
@@ -74,8 +75,10 @@ namespace TZMS.Web
             {
                 strCondition.Append(" and MaterialsName LIKE '%" + tbxSearch.Text.Trim() + "%'");
             }
-
-            strCondition.Append(" and MaterialsType = " + ddlstType.SelectedValue);
+            if (ddlstType.SelectedValue != "all")
+            {
+                strCondition.Append(" and MaterialsType = " + ddlstType.SelectedValue);
+            }
             strCondition.Append(" and State = " + ddlstAproveState.SelectedValue);
             strCondition.Append(" and ApplyTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
 

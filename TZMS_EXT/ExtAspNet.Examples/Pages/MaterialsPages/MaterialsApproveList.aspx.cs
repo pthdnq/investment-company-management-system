@@ -76,8 +76,10 @@ namespace TZMS.Web
             }
 
             // 物资类型.
-            strCondition.Append(" and MaterialsType = " + ddlstWuZhiType.SelectedValue);
-
+            if (ddlstWuZhiType.SelectedValue != "all")
+            {
+                strCondition.Append(" and MaterialsType = " + ddlstWuZhiType.SelectedValue);
+            }
             // 审批状态.
             if (ddlstAproveState.SelectedIndex == 1)
             {
