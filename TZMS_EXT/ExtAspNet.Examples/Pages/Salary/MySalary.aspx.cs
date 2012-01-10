@@ -51,7 +51,7 @@ namespace TZMS.Web
 
             StringBuilder strCondition = new StringBuilder();
             strCondition.Append(" UserID='" + CurrentUser.ObjectId.ToString() + "'");
-            strCondition.Append(" and state = 2");
+            strCondition.Append(" and state = 3");
             strCondition.Append(" and Year =" + ddlstYear.SelectedValue + " and Month =" + ddlstMonth.SelectedValue);
 
             #endregion

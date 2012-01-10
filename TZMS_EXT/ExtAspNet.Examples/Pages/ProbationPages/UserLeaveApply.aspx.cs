@@ -365,6 +365,7 @@ namespace TZMS.Web
                     _applyInfo.ContractStartDate = Convert.ToDateTime(dpkContractStartDate.SelectedDate);
                     _applyInfo.ContractEndDate = Convert.ToDateTime(dpkContractEndDate.SelectedDate);
                     _applyInfo.LeaveDate = Convert.ToDateTime(dpkLeaveDate.SelectedDate);
+                    _applyInfo.LeaveType = short.Parse(ddlstLeaveType.SelectedValue);
                     _applyInfo.LeaveSeason = taaLeaveReason.Text.Trim();
                     _applyInfo.State = 0;
                     _applyInfo.ApproverID = new Guid(ddlstApproveUser.SelectedValue);
