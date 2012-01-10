@@ -109,7 +109,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 this.ddlstNext.Enabled = false;
             }
             else if (OperateType.Equals("Edit"))
-            { 
+            {
                 SetContrl(_Info.IsPassImprest || !_Info.NeedImprest, false);
             }
 
@@ -257,7 +257,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             {
                 _Info = manage.GetProcessByObjectID(ForOrObjectID);
 
-                _Info.Status = _Info.NeedImprest ? 1 : 5;
+                _Info.Status = _Info.NeedImprest ? (_Info.IsPassImprest ? 5 : 1) : 5;
             }
             else
             {

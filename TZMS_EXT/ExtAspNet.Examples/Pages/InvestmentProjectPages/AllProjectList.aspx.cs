@@ -114,7 +114,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                         strCondtion.Append(" AND (Status = 2 OR  Status = 11) ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND (Status = 3 OR Status = 4 OR Status = 7) ");
+                        strCondtion.Append(" AND (Status = 3  OR Status = 7) ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");
@@ -282,6 +282,9 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     break;
                 case "5":
                     StrStatusName = "已确认";
+                    break;
+                case "7":
+                    StrStatusName = "终止审核中";
                     break;
                 case "8":
                     StrStatusName = "已终止";

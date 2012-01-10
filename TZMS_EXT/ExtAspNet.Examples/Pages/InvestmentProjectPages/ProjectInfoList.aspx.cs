@@ -110,10 +110,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                         strCondtion.Append(" AND Status = 1 ");
                         break;
                     case "2":
-                        strCondtion.Append(" AND Status = 2 ");
+                        strCondtion.Append(" AND  ( Status = 2 OR Status = 11 )  ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND Status = 3 ");
+                        strCondtion.Append(" AND ( Status = 3  OR Status = 7   )  ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");
@@ -283,8 +283,17 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 case "6":
                     StrStatusName = "已通过";
                     break;
+                case "7":
+                    StrStatusName = "终止审核中";
+                    break;
+                case "8":
+                    StrStatusName = "已终止";
+                    break;
                 case "9":
                     StrStatusName = "已删除";
+                    break;
+                case "11":
+                    StrStatusName = "终止未通过";
                     break;
                 default:
                     break;

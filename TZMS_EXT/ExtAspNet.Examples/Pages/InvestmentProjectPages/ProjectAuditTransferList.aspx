@@ -31,7 +31,7 @@
                     </ext:FormRow>
                     <ext:FormRow Hidden="true">
                         <Items>
-                            <ext:Label ID="Label4" runat="server" />
+                      <%--      <ext:Label ID="Label4" runat="server" />--%>
                             <ext:DropDownList ID="ddlstState" runat="server" Label="状态" Hidden="true">
                                 <ext:ListItem Text="待审核" Value="1" Selected="true" />
                                 <%--            <ext:ListItem Text="审核中" Value="3" />--%>
@@ -40,8 +40,8 @@
                                 <%--          <ext:ListItem Text="未通过" Value="2" />--%>
                                 <%--        <ext:ListItem Text="已删除" Value="9" />--%>
                             </ext:DropDownList>
-                            <ext:Label ID="Label1" runat="server" />
-                            <ext:Label ID="Label2" runat="server" />
+                         <%--   <ext:Label ID="Label1" runat="server" />
+                            <ext:Label ID="Label2" runat="server" />--%>
                         </Items>
                     </ext:FormRow>
                 </Rows>

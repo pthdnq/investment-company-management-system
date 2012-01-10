@@ -242,7 +242,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 _Info = manage.GetProcessByObjectID(ForOrObjectID);
 
-                _Info.Status = _Info.NeedImprest == 1 ? 1 : 5;
+                _Info.Status = _Info.NeedImprest == 1 ? (_Info.IsPassImprest ? 5 : 1) : 5;
             }
             else
             {
