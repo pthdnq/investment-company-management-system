@@ -250,6 +250,7 @@ namespace TZMS.Web
                     _archiveApproveInfo.CheckDateTime = _currentApproveInfo.CheckDateTime.AddSeconds(1);
                     _archiveApproveInfo.Checkstate = 1;
                     _archiveApproveInfo.CheckOp = "3";
+                    _archiveApproveInfo.CheckSugest = "实际加薪" + _applyInfo.OtherSalary + "元";
                     _archiveApproveInfo.ApplyId = _applyInfo.ObjectId;
                     _manage.AddNewSalaryCheck(_archiveApproveInfo);
                 }

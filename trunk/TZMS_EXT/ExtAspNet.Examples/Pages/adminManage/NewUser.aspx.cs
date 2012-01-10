@@ -378,7 +378,7 @@ namespace TZMS.Web
             else
             {
                 dpbProbationTime.Required = false;
-                dpbProbationTime.Required = false;
+                dpbProbationTime.ShowRedStar = false;
                 dpbProbationTime.Hidden = true;
                 dpbProbationTime.Enabled = false;
             }

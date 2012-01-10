@@ -86,7 +86,14 @@ namespace TZMS.Web
             //        break;
             //}
 
-            strCondition.Append(" state = " + ddlState.SelectedValue);
+            if (Convert.ToInt32(ddlstYear.SelectedValue) >= 2)
+            {
+                strCondition.Append(" state >= 2 ");
+            }
+            else
+            {
+                strCondition.Append(" state = " + ddlState.SelectedValue);
+            }
             strCondition.Append(" and Year = " + ddlstYear.SelectedValue);
             strCondition.Append(" and Month = " + ddlstMonth.SelectedValue);
             //strCondition.Append(" and (CreateTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59")
@@ -242,6 +249,7 @@ namespace TZMS.Web
                         //e.Values[8] = "<span class=\"gray\">导出</span>";
                         break;
                     case "2":
+                    case "3":
                         e.Values[4] = "归档";
                         e.Values[5] = SystemUser.Name;
                         e.Values[6] = "<span class=\"gray\">申请</span>";
