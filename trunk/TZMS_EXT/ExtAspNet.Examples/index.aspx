@@ -51,7 +51,7 @@
                             <td>
                                
                                 <%--<a href="#" style="color:#fff;"><asp:Label ID="labCurrentVersion" runat="server"></asp:Label></a>--%>
-                                <img alt=""  id="logo"  src="images/logo/topLogo.jpg"/>
+                                <img alt=""  id="logo"  src="images/logo/topLogo.png"/>
                                
                             </td>
                             <td align="right">

@@ -393,6 +393,7 @@
     <Content Include="images\logo\favicon.png" />
     <Content Include="images\logo\Logo03.png" />
     <Content Include="images\logo\topLogo.jpg" />
+    <Content Include="images\logo\topLogo.png" />
     <Content Include="images\Logo_横向_03.png" />
     <Content Include="images\love.jpg" />
     <Content Include="images\mbxz.jpg" />
