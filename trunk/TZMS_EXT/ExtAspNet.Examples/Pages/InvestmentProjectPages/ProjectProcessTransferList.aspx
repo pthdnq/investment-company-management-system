@@ -39,9 +39,9 @@
                                 <%--            <ext:ListItem Text="未通过" Value="2" />--%>
                                 <%--        <ext:ListItem Text="已删除" Value="9" />--%>
                             </ext:DropDownList>
-                            <ext:Label ID="Label4" runat="server" />
+             <%--               <ext:Label ID="Label4" runat="server" />
                             <ext:Label ID="Label1" runat="server" />
-                            <ext:Label ID="Label2" runat="server" />
+                            <ext:Label ID="Label2" runat="server" />--%>
                         </Items>
                     </ext:FormRow>
                 </Rows>

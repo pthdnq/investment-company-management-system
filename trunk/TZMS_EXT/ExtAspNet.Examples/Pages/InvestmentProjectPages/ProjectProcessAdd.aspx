@@ -31,7 +31,7 @@
                         BodyPadding="5px">
                         <Items>
                             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
-                                Height="160px" runat="server">
+                                Height="163px" runat="server">
                                 <Rows>
                                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                                         <Items>

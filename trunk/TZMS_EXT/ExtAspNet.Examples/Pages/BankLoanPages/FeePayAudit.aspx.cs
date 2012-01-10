@@ -131,7 +131,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 this.taImplementationPhase.Text = _info.ImplementationPhase;
                 this.tbAmountExpended.Text = _info.AmountExpended.ToString();
                 this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
-                this.taRemark.Text = _info.Remark;
+                this.taRemark.Text = _info.ImprestRemark;
 
             //    if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
               //  {
