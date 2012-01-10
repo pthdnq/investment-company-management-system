@@ -24,6 +24,7 @@
                             <ext:DropDownList ID="ddlstAproveState" runat="server" Label="业务状态">
                                 <ext:ListItem Text="待办理" Value="0" Selected="true" />
                                 <ext:ListItem Text="已办理" Value="1" />
+                                <ext:ListItem Text="已转移" Value="2" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
                             </ext:Button>
@@ -61,6 +62,7 @@
                             <ext:BoundField DataField="State" HeaderText="操作状态" />
                             <ext:BoundField DataField="CheckDateTime" HeaderText="操作时间" />
                             <ext:LinkButtonField Width="38px" Text="办理" CommandName="View" />
+                            <ext:LinkButtonField Width="75px" Text="业务转移" CommandName="Transfer" />
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -70,6 +72,10 @@
     <ext:Window ID="wndNewNormalBusiness" Title="办理普通业务" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
         Height="650px" Width="700px" OnClose="wndNewNormalBusiness_Close">
+    </ext:Window>
+    <ext:Window ID="wndNormalBusinessTransfer" Title="普通业务转移" Popup="false" EnableIFrame="true"
+        IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
+        Height="580px" Width="700px" onclose="wndNormalBusinessTransfer_Close" >
     </ext:Window>
     </form>
 </body>

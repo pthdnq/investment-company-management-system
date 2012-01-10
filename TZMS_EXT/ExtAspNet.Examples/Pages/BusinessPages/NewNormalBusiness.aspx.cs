@@ -198,7 +198,7 @@ namespace TZMS.Web
             if (string.IsNullOrEmpty(ApplyID))
                 return;
             BusinessManage _manage = new BusinessManage();
-            List<BusinessRecordInfo> lstRecord = _manage.GetBusinessRecordByCondition(" BusinessID = '" + ApplyID + "' and State = 1 order by CheckDateTime desc");
+            List<BusinessRecordInfo> lstRecord = _manage.GetBusinessRecordByCondition(" BusinessID = '" + ApplyID + "' and State >= 1 order by CheckDateTime desc");
 
             lstRecord.Sort(delegate(BusinessRecordInfo x, BusinessRecordInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
 

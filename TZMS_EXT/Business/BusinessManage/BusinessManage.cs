@@ -241,6 +241,9 @@ namespace com.TZMS.Business.BusinessManage
             {
                 switch (nCurrentBusiness)
                 {
+                    case -1:
+                        strName = "业务转移";
+                        break;
                     case 0:
                         strName = "签订合同";
                         break;

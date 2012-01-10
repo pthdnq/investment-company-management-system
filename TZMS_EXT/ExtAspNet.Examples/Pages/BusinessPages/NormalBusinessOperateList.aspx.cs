@@ -25,6 +25,7 @@ namespace TZMS.Web
                 dpkEndTime.SelectedDate = DateTime.Now;
 
                 wndNewNormalBusiness.OnClientCloseButtonClick = wndNewNormalBusiness.GetHidePostBackReference();
+                wndNormalBusinessTransfer.OnClientCloseButtonClick = wndNormalBusinessTransfer.GetHidePostBackReference();
 
                 BindGrid();
             }
@@ -152,14 +153,23 @@ namespace TZMS.Web
             string strBusinessID = ((GridRow)gridBusiness.Rows[e.RowIndex]).Values[1];
             if (e.CommandName == "View")
             {
-                if (!this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZJ))
+                if ((((GridRow)gridBusiness.Rows[e.RowIndex]).Values[6]).Contains("办理"))
                 {
-                    Alert.Show("当前步骤是\"业务转交\",请移交至业务总监进行办理!");
-                    return;
+                    if ((((GridRow)gridBusiness.Rows[e.RowIndex]).Values[6]).Contains("业务转交") && 
+                        !this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZJ))
+                    {
+                        Alert.Show("当前步骤是\"业务转交\",请移交至业务总监进行办理!");
+                        return;
+                    }
                 }
-
                 wndNewNormalBusiness.IFrameUrl = "OperatorNormalBusiness.aspx?RecordID=" + strRecordID + "&BusinessID=" + strBusinessID;
                 wndNewNormalBusiness.Hidden = false;
+            }
+
+            if (e.CommandName == "Transfer")
+            {
+                wndNormalBusinessTransfer.IFrameUrl = "NormalBusinessTransfer.aspx?RecordID=" + strRecordID + "&BusinessID=" + strBusinessID;
+                wndNormalBusinessTransfer.Hidden = false;
             }
         }
 
@@ -183,13 +193,20 @@ namespace TZMS.Web
                         if (CurrentLevel == VisitLevel.View)
                         {
                             e.Values[6] = "<span class=\"gray\">办理</span>";
+                            e.Values[7] = "<span class=\"gray\">业务转移</span>";
                         }
-
                         break;
                     case "1":
                         e.Values[4] = "已办理";
                         e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd");
                         e.Values[6] = e.Values[6].ToString().Replace("办理", "查看");
+                        e.Values[7] = "<span class=\"gray\">业务转移</span>";
+                        break;
+                    case "2":
+                        e.Values[4] = "已转移";
+                        e.Values[5] = DateTime.Parse(e.Values[5].ToString()).ToString("yyyy-MM-dd");
+                        e.Values[6] = e.Values[6].ToString().Replace("办理", "查看");
+                        e.Values[7] = "<span class=\"gray\">业务转移</span>";
                         break;
                     default:
                         break;
@@ -203,6 +220,16 @@ namespace TZMS.Web
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void wndNewNormalBusiness_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
+        {
+            BindGrid();
+        }
+
+        /// <summary>
+        /// 转移窗口关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndNormalBusinessTransfer_Close(object sender, WindowCloseEventArgs e)
         {
             BindGrid();
         }

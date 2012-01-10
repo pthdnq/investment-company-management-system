@@ -647,6 +647,7 @@
     <Content Include="Pages\BusinessPages\NewNormalBusiness.aspx" />
     <Content Include="Pages\BusinessPages\NormalBusinessList.aspx" />
     <Content Include="Pages\BusinessPages\NormalBusinessOperateList.aspx" />
+    <Content Include="Pages\BusinessPages\NormalBusinessTransfer.aspx" />
     <Content Include="Pages\BusinessPages\OperatorNormalBusiness.aspx" />
     <Content Include="Pages\BusinessPages\SpecialMoney.aspx" />
     <Content Include="Pages\CashFlow\BankLoanBA.aspx" />
@@ -1502,6 +1503,13 @@
     </Compile>
     <Compile Include="Pages\BusinessPages\NormalBusinessOperateList.aspx.designer.cs">
       <DependentUpon>NormalBusinessOperateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NormalBusinessTransfer.aspx.cs">
+      <DependentUpon>NormalBusinessTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NormalBusinessTransfer.aspx.designer.cs">
+      <DependentUpon>NormalBusinessTransfer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\BusinessPages\OperatorNormalBusiness.aspx.cs">
       <DependentUpon>OperatorNormalBusiness.aspx</DependentUpon>
