@@ -5,27 +5,27 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ExtAspNet;
-using System.Text;
 using com.TZMS.Business;
 using System.Data;
 using com.TZMS.Model;
+using System.Text;
 using com.TZMS.Business.BusinessManage;
 
 namespace TZMS.Web
 {
-    public partial class NormalBusinessOperateList : BasePage
+    public partial class CustomizeBusinessOperateList : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                CurrentLevel = GetCurrentLevel("ptywcz");
+                CurrentLevel = GetCurrentLevel("dzywcz");
 
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
-                wndNewNormalBusiness.OnClientCloseButtonClick = wndNewNormalBusiness.GetHidePostBackReference();
-                wndNormalBusinessTransfer.OnClientCloseButtonClick = wndNormalBusinessTransfer.GetHidePostBackReference();
+                wndNewCustomizeBusiness.OnClientCloseButtonClick = wndNewCustomizeBusiness.GetHidePostBackReference();
+                wndCustomizeBusinessTransfer.OnClientCloseButtonClick = wndCustomizeBusinessTransfer.GetHidePostBackReference();
 
                 BindGrid();
             }
@@ -50,7 +50,7 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" CheckerID = '" + CurrentUser.ObjectId.ToString() + "' and CurrentBusiness <> 0 and CurrentBusiness <> 13 and CurrentBusiness <> 14 and BusinessType = 0");
+            strCondition.Append(" CheckerID = '" + CurrentUser.ObjectId.ToString() + "' and CurrentBusiness <> 0 and CurrentBusiness <> 17 and CurrentBusiness <> 18 and BusinessType = 1");
 
             // 查询文本
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
@@ -72,49 +72,15 @@ namespace TZMS.Web
             _comHelp.SelectList = "*";
             _comHelp.SearchCondition = strCondition.ToString();
             _comHelp.PageSize = PageCounts;
-            _comHelp.PageIndex = gridBusiness.PageIndex;
+            _comHelp.PageIndex = gridCustomizeBusiness.PageIndex;
             _comHelp.OrderExpression = "CheckDateTime desc";
 
             DataTable dtbLeaveApproves = _commSelect.ComSelect(ref _comHelp);
-            gridBusiness.RecordCount = _comHelp.TotalCount;
-            gridBusiness.PageSize = PageCounts;
+            gridCustomizeBusiness.RecordCount = _comHelp.TotalCount;
+            gridCustomizeBusiness.PageSize = PageCounts;
 
-            gridBusiness.DataSource = dtbLeaveApproves.Rows;
-            gridBusiness.DataBind();
-        }
-
-        /// <summary>
-        /// 判断某用户是否包含某特定角色
-        /// </summary>
-        /// <param name="strObjectID"></param>
-        /// <param name="roleType"></param>
-        /// <returns></returns>
-        public bool ContainsRole(string strObjectID, RoleType roleType)
-        {
-            bool isContain = false;
-
-            if (!string.IsNullOrEmpty(strObjectID))
-            {
-                RolesManage _rolesManage = new RolesManage();
-                UserRoles _userRoles = _rolesManage.GetRolesByObjectID(strObjectID);
-                if (_userRoles != null)
-                {
-                    string[] roles = _userRoles.Roles.Split(',');
-                    foreach (string role in roles)
-                    {
-                        if (!string.IsNullOrEmpty(role))
-                        {
-                            if (role == ((int)roleType).ToString())
-                            {
-                                isContain = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-
-            return isContain;
+            gridCustomizeBusiness.DataSource = dtbLeaveApproves.Rows;
+            gridCustomizeBusiness.DataBind();
         }
 
         #endregion
@@ -136,9 +102,9 @@ namespace TZMS.Web
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void gridBusiness_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
+        protected void gridCustomizeBusiness_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
         {
-            gridBusiness.PageIndex = e.NewPageIndex;
+            gridCustomizeBusiness.PageIndex = e.NewPageIndex;
             BindGrid();
         }
 
@@ -147,29 +113,20 @@ namespace TZMS.Web
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void gridBusiness_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
+        protected void gridCustomizeBusiness_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
-            string strRecordID = ((GridRow)gridBusiness.Rows[e.RowIndex]).Values[0];
-            string strBusinessID = ((GridRow)gridBusiness.Rows[e.RowIndex]).Values[1];
+            string strRecordID = ((GridRow)gridCustomizeBusiness.Rows[e.RowIndex]).Values[0];
+            string strBusinessID = ((GridRow)gridCustomizeBusiness.Rows[e.RowIndex]).Values[1];
             if (e.CommandName == "View")
             {
-                if ((((GridRow)gridBusiness.Rows[e.RowIndex]).Values[6]).Contains("办理"))
-                {
-                    if ((((GridRow)gridBusiness.Rows[e.RowIndex]).Values[6]).Contains("业务转交") && 
-                        !this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZJ))
-                    {
-                        Alert.Show("当前步骤是\"业务转交\",请移交至业务总监进行办理!");
-                        return;
-                    }
-                }
-                wndNewNormalBusiness.IFrameUrl = "OperatorNormalBusiness.aspx?RecordID=" + strRecordID + "&BusinessID=" + strBusinessID;
-                wndNewNormalBusiness.Hidden = false;
+                wndNewCustomizeBusiness.IFrameUrl = "OperatorCustomizeBusiness.aspx?RecordID=" + strRecordID + "&BusinessID=" + strBusinessID;
+                wndNewCustomizeBusiness.Hidden = false;
             }
 
             if (e.CommandName == "Transfer")
             {
-                wndNormalBusinessTransfer.IFrameUrl = "NormalBusinessTransfer.aspx?RecordID=" + strRecordID + "&BusinessID=" + strBusinessID;
-                wndNormalBusinessTransfer.Hidden = false;
+                wndCustomizeBusinessTransfer.IFrameUrl = "CustomizeBusinessTransfer.aspx?RecordID=" + strRecordID + "&BusinessID=" + strBusinessID;
+                wndCustomizeBusinessTransfer.Hidden = false;
             }
         }
 
@@ -178,12 +135,12 @@ namespace TZMS.Web
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void gridBusiness_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
+        protected void gridCustomizeBusiness_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
             if (e.DataItem != null)
             {
                 BusinessManage _manage = new BusinessManage();
-                e.Values[3] = _manage.ConvertBusinessTypeToString(true, Convert.ToInt32(e.Values[3].ToString()));
+                e.Values[3] = _manage.ConvertBusinessTypeToString(false, Convert.ToInt32(e.Values[3].ToString()));
 
                 switch (e.Values[4].ToString())
                 {
@@ -215,21 +172,21 @@ namespace TZMS.Web
         }
 
         /// <summary>
-        /// 办理窗口关闭事件
+        /// 审批窗口关闭事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void wndNewNormalBusiness_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
+        protected void wndNewCustomizeBusiness_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
             BindGrid();
         }
 
         /// <summary>
-        /// 转移窗口关闭事件
+        /// 业务转移关闭事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void wndNormalBusinessTransfer_Close(object sender, WindowCloseEventArgs e)
+        protected void wndCustomizeBusinessTransfer_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
             BindGrid();
         }

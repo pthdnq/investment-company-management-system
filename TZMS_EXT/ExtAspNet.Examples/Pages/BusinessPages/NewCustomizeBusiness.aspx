@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewNormalBusiness.aspx.cs"
-    Inherits="TZMS.Web.NewNormalBusiness" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewCustomizeBusiness.aspx.cs"
+    Inherits="TZMS.Web.NewCustomizeBusiness" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,10 +26,66 @@
             <ext:Panel ID="pelOperator" runat="server" ShowBorder="false" EnableBackgroundColor="true"
                 BodyPadding="3px" ShowHeader="false" AnchorValue="100% -36">
                 <Items>
+                    <ext:Form ID="mainForm2" EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px"
+                        runat="server">
+                        <Rows>
+                            <ext:FormRow ColumnWidths="25% 25% 25% 25%">
+                                <Items>
+                                    <ext:CheckBox ID="cbxCMBG" Text="名称变更" runat="server" AutoPostBack="true" ShowLabel="false"
+                                        OnCheckedChanged="cbxCMBG_CheckedChanged">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxGDMCBG" Text="股东名称、发起人姓名变更" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxZCZBBG" Text="注册资本变更" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="cbxZCZBBG_CheckedChanged">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxJYCSBG" Text="经营场所变更" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ColumnWidths="25% 25% 25% 25%">
+                                <Items>
+                                    <ext:CheckBox ID="cbxFDDBRBG" Text="法定代表人变更" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxGDBG" Text="股东变更" runat="server" ShowLabel="false" AutoPostBack="true"
+                                        OnCheckedChanged="cbxGDBG_CheckedChanged">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxSSZBBG" Text="实收资本变更" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxGSLXBG" Text="公司类型变更" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ColumnWidths="25% 25% 25% 25%">
+                                <Items>
+                                    <ext:CheckBox ID="cbxYYQXBG" Text="营业期限变更" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxJYFWBG" Text="经营范围变更" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxZXDJ" Text="注销登记" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxFGSBG" Text="分公司变更" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="25% 25% 25% 25%">
+                                <Items>
+                                    <ext:CheckBox ID="cbxFGSZX" Text="分公司注销" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxZCNJ" Text="正常年检" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxTSNJ" Text="特殊年检" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                    <ext:CheckBox ID="cbxJTYWBL" Text="集团业务办理" runat="server" ShowLabel="false">
+                                    </ext:CheckBox>
+                                </Items>
+                            </ext:FormRow>
+                        </Rows>
+                    </ext:Form>
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
                         AutoHeight="true" Height="460px">
                         <Tabs>
-                            <ext:Tab ID="Tab1" Title="普通业务" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab1" Title="定制业务" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Form EnableBackgroundColor="true" LabelWidth="90px" ShowHeader="false" ShowBorder="false"
                                         BodyPadding="5px" ID="mainForm" runat="server">
@@ -47,31 +103,8 @@
                                             <ext:FormRow ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxCompanyName" runat="server" Required="true" ShowRedStar="true"
-                                                        Label="公司名称" MaxLength="100" MaxLengthMessage="最多只能输入100个字!">
+                                                        Label="业务标题" MaxLength="100" MaxLengthMessage="最多只能输入100个字!">
                                                     </ext:TextBox>
-                                                </Items>
-                                            </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="50% 50%">
-                                                <Items>
-                                                    <ext:TextBox ID="tbxRegisteredMoney" runat="server" Label="注册资金" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                                        RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
-                                                    </ext:TextBox>
-                                                    <ext:DropDownList ID="ddlstCZType" runat="server" Label="出资方式">
-                                                        <ext:ListItem Text="分期出资" Value="0" />
-                                                        <ext:ListItem Text="一次性出资" Value="1" />
-                                                    </ext:DropDownList>
-                                                </Items>
-                                            </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="50% 50%">
-                                                <Items>
-                                                    <ext:DropDownList ID="ddlstCompanyType" runat="server" Label="公司类型">
-                                                        <ext:ListItem Text="一般纳税人" Value="0" />
-                                                        <ext:ListItem Text="小规模" Value="1" />
-                                                    </ext:DropDownList>
-                                                    <ext:DropDownList ID="ddlstCompanyNameType" runat="server" Label="公司名类型">
-                                                        <ext:ListItem Text="安徽名" Value="0" />
-                                                        <ext:ListItem Text="合肥名" Value="1" />
-                                                    </ext:DropDownList>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="50% 50%">
@@ -83,11 +116,13 @@
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="60%">
+                                            <ext:FormRow ColumnWidths="80% 20%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxSumMoney" runat="server" Label="合同总金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
                                                         RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
                                                     </ext:TextBox>
+                                                    <ext:CheckBox ID="CheckBox1" Text="业务办理结束付款" runat="server" ShowLabel="false">
+                                                    </ext:CheckBox>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="30% 20% 30% 20%">
@@ -104,16 +139,6 @@
                                                     <ext:Image ID="imgBalanceMoney" ImageUrl="../../images/ico_leaveALLOW.gif" ShowLabel="false"
                                                         runat="server">
                                                     </ext:Image>
-                                                </Items>
-                                            </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="25% 25% 25%">
-                                                <Items>
-                                                    <ext:CheckBox ID="CheckBox1" Text="业务办理结束付款" runat="server" ShowLabel="false">
-                                                    </ext:CheckBox>
-                                                    <ext:CheckBox ID="CheckBox2" Text="注册资金客户垫付" runat="server" ShowLabel="false">
-                                                    </ext:CheckBox>
-                                                    <ext:CheckBox ID="CheckBox3" Text="银行工本费客户垫付" runat="server" ShowLabel="false">
-                                                    </ext:CheckBox>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="50% 50%">
