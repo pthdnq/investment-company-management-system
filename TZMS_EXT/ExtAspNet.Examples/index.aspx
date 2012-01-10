@@ -702,10 +702,10 @@
                     LoadTab("Pages/BusinessPages/CostConfirmList.aspx", "业务费用确认", icon);
                     break;
                 case "byjsq":
-                    LoadTab("Pages/Yewu/ImprestApplyList.aspx", "备用金申请", icon);
+                    LoadTab("Pages/BusinessPages/BusinessImprestApplyList.aspx", "备用金申请", icon);
                     break;
                 case "byjsp":
-                    LoadTab("Pages/Yewu/ImprestApproveList.aspx", "备用金审批", icon);
+                    LoadTab("Pages/BusinessPages/BusinessImprestApproveList.aspx", "备用金审批", icon);
                     break;
 
                 case "zzsq":
