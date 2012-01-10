@@ -97,7 +97,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             #region 条件
 
             StringBuilder strCondtion = new StringBuilder();
-            if ((!string.IsNullOrEmpty(state)) && (state.Equals("4") || state.Equals("2")))
+            if ((!string.IsNullOrEmpty(state)) && (state.Equals("5") || state.Equals("2")))
             {
                 strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
             }
@@ -125,10 +125,10 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                         strCondtion.Append(" AND (Status = 3 OR Status = 4 ) ");
                         break;
                     case "4":
-                        strCondtion.Append("  AND (Status > 2 AND Status < 9 ) ");
+                        strCondtion.Append("  AND  Status = 4 ");
                         break;
                     case "5":
-                        strCondtion.Append(" AND (Status = 5  OR Status = 3) ");
+                        strCondtion.Append(" AND (Status > 2 AND Status < 9 ) ");
                         break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
@@ -276,32 +276,33 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         protected string GetStatusName(string strStatus)
         {
             string StrStatusName = string.Empty;
-            switch (strStatus)
-            {
-                case "0":
-                    //  strCondtion.Append(" AND Status = 1 ");
-                    break;
-                case "1":
-                    StrStatusName = "待审核";
-                    break;
-                case "2":
-                    StrStatusName = "未通过";
-                    break;
-                case "3":
-                    StrStatusName = "待审核";
-                    break;
-                case "4":
-                    StrStatusName = "待审核";
-                    break;
-                case "5":
-                    StrStatusName = "已确认";
-                    break;
-                case "9":
-                    StrStatusName = "已删除";
-                    break;
-                default:
-                    break;
-            }
+            StrStatusName = this.ddlstState.SelectedText;
+            //switch (strStatus)
+            //{
+            //    case "0":
+            //        //  strCondtion.Append(" AND Status = 1 ");
+            //        break;
+            //    case "1":
+            //        StrStatusName = "待审核";
+            //        break;
+            //    case "2":
+            //        StrStatusName = "未通过";
+            //        break;
+            //    case "3":
+            //        StrStatusName = "待审核";
+            //        break;
+            //    case "4":
+            //        StrStatusName = "待审核";
+            //        break;
+            //    case "5":
+            //        StrStatusName = "已确认";
+            //        break;
+            //    case "9":
+            //        StrStatusName = "已删除";
+            //        break;
+            //    default:
+            //        break;
+            //}
             return StrStatusName;
         }
         #endregion
