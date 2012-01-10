@@ -294,7 +294,73 @@ namespace com.TZMS.Business.BusinessManage
                 }
             }
             else
-            { }
+            {
+                switch (nCurrentBusiness)
+                {
+                    case -1:
+                        strName = "业务转移";
+                        break;
+                    case 0:
+                        strName = "签订合同";
+                        break;
+                    case 1:
+                        strName = "名称变更";
+                        break;
+                    case 2:
+                        strName = "股东名称、发起人姓名变更";
+                        break;
+                    case 3:
+                        strName = "注册资本变更";
+                        break;
+                    case 4:
+                        strName = "经营场所变更";
+                        break;
+                    case 5:
+                        strName = "法定代表人变更";
+                        break;
+                    case 6:
+                        strName = "股东变更";
+                        break;
+                    case 7:
+                        strName = "实收资本变更";
+                        break;
+                    case 8:
+                        strName = "公司类型变更";
+                        break;
+                    case 9:
+                        strName = "营业期限变更";
+                        break;
+                    case 10:
+                        strName = "经营范围变更";
+                        break;
+                    case 11:
+                        strName = "注销登记";
+                        break;
+                    case 12:
+                        strName = "分公司变更";
+                        break;
+                    case 13:
+                        strName = "分公司注销";
+                        break;
+                    case 14:
+                        strName = "正常年检";
+                        break;
+                    case 15:
+                        strName = "特殊年检";
+                        break;
+                    case 16:
+                        strName = "集团业务办理";
+                        break;
+                    case 17:
+                        strName = "完成";
+                        break;
+                    case 18:
+                        strName = "异常终止";
+                        break;
+                    default:
+                        break;
+                }
+            }
 
             return strName;
         }

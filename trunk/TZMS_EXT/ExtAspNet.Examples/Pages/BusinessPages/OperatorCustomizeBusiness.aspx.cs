@@ -4,15 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ExtAspNet;
 using com.TZMS.Model;
 using com.TZMS.Business.BusinessManage;
-using ExtAspNet;
 using com.TZMS.Business;
 using System.Text.RegularExpressions;
 
 namespace TZMS.Web
 {
-    public partial class OperatorNormalBusiness : BasePage
+    public partial class OperatorCustomizeBusiness : BasePage
     {
         /// <summary>
         /// RecordID
@@ -65,7 +65,6 @@ namespace TZMS.Web
 
                 BindNext();
                 BindApprover();
-                //BindSigner();
                 BindBusinessInfo();
                 BindOperateHistory();
                 DisableAllControls();
@@ -80,20 +79,24 @@ namespace TZMS.Web
         /// </summary>
         private void BindNext()
         {
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("业务转交", "1"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("核名", "2"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("刻章", "3"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("各类许可证", "4"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("开户", "5"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("验资报告", "6"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("营业执照", "7"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("办代码证", "8"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("办国地税", "9"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("转基本户", "10"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("税务备案", "11"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("增资(开户、验资报告、营业执照)", "12"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("完成", "13"));
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("异常终止", "14"));
+            if (string.IsNullOrEmpty(BusinessID))
+                return;
+            BusinessManage _manage = new BusinessManage();
+            BusinessInfo _info = _manage.GetBusinessByObjectID(BusinessID);
+            if (_info != null)
+            {
+                string[] arrayCells = _info.BusinessCells.Split(',');
+                foreach (string cell in arrayCells)
+                {
+                    if (!string.IsNullOrEmpty(cell))
+                    {
+                        ddlstNext.Items.Add(new ExtAspNet.ListItem(_manage.ConvertBusinessTypeToString(false, Convert.ToInt32(cell)), cell));
+                    }
+                }
+                ddlstNext.Items.Add(new ExtAspNet.ListItem("完成", "17"));
+                ddlstNext.Items.Add(new ExtAspNet.ListItem("异常终止", "18"));
+                ddlstNext.SelectedIndex = 0;
+            }
         }
 
         /// <summary>
@@ -117,26 +120,6 @@ namespace TZMS.Web
         }
 
         /// <summary>
-        /// 绑定签订人
-        /// </summary>
-        private void BindSigner()
-        {
-            ddlstSigner.Items.Clear();
-
-            if (!CurrentChecker.Contains(CurrentUser))
-            {
-                ddlstSigner.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
-            }
-
-            foreach (UserInfo user in CurrentChecker)
-            {
-                ddlstSigner.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
-            }
-
-            ddlstSigner.SelectedIndex = 0;
-        }
-
-        /// <summary>
         /// 绑定业务信息
         /// </summary>
         private void BindBusinessInfo()
@@ -150,13 +133,8 @@ namespace TZMS.Web
             {
                 ddlstSigner.Items.Clear();
                 ddlstSigner.Items.Add(new ExtAspNet.ListItem(_info.SignerName, _info.SignerID.ToString()));
-                //ddlstSigner.SelectedValue = _info.SignerID.ToString();
                 dpkSignTime.SelectedDate = _info.SignTime;
                 tbxCompanyName.Text = _info.CompanyName;
-                tbxRegisteredMoney.Text = _info.RegisteredMoney.ToString();
-                ddlstCZType.SelectedValue = _info.CZType.ToString();
-                ddlstCompanyType.SelectedValue = _info.CompanyType.ToString();
-                ddlstCompanyNameType.SelectedValue = _info.CompanyNameType.ToString();
                 tbxSumMoney.Text = _info.SumMoney.ToString();
                 tbxPreMoney.Text = _info.PreMoney.ToString();
                 tbxBalanceMoney.Text = _info.BalanceMoney.ToString();
@@ -174,30 +152,8 @@ namespace TZMS.Web
                     imgPreMoney.Hidden = true;
 
                 // 杂项.
-                if (!string.IsNullOrEmpty(_info.CheckOther))
-                {
-                    string[] arrayOther = _info.CheckOther.Split(',');
-                    foreach (string strOther in arrayOther)
-                    {
-                        if (!string.IsNullOrEmpty(strOther))
-                        {
-                            switch (strOther)
-                            {
-                                case "1":
-                                    CheckBox1.Checked = true;
-                                    break;
-                                case "2":
-                                    CheckBox2.Checked = true;
-                                    break;
-                                case "3":
-                                    CheckBox3.Checked = true;
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                    }
-                }
+                if (_info.CheckOther == "1")
+                    CheckBox1.Checked = true;
             }
         }
 
@@ -234,18 +190,12 @@ namespace TZMS.Web
             tbxCompanyName.Required = false;
             tbxCompanyName.ShowRedStar = false;
             tbxCompanyName.Enabled = false;
-            tbxRegisteredMoney.Enabled = false;
-            ddlstCZType.Enabled = false;
-            ddlstCompanyType.Enabled = false;
-            ddlstCompanyNameType.Enabled = false;
             tbxContact.Enabled = false;
             tbxContactPhoneNumber.Enabled = false;
             tbxSumMoney.Enabled = false;
             tbxPreMoney.Enabled = false;
             tbxBalanceMoney.Enabled = false;
             CheckBox1.Enabled = false;
-            CheckBox2.Enabled = false;
-            CheckBox3.Enabled = false;
             tbxCostMoney.Enabled = false;
             tbxOtherMoney.Enabled = false;
             taaOtherMoneyExplain.Enabled = false;
@@ -271,7 +221,7 @@ namespace TZMS.Web
                 #region 完成
 
                 // 完成.
-                if (ddlstNext.SelectedValue == "13")
+                if (ddlstNext.SelectedValue == "17")
                 {
                     if (_info.SumMoney != (_info.PreMoney + _info.BalanceMoney))
                     {
@@ -301,7 +251,7 @@ namespace TZMS.Web
                 #region 异常终止
 
                 // 异常终止.
-                if (ddlstNext.SelectedValue == "14")
+                if (ddlstNext.SelectedValue == "18")
                 {
                     _info.State = 2;
 
@@ -328,7 +278,7 @@ namespace TZMS.Web
                     _recordInfo.CheckrDept = CurrentUser.Dept;
                     _recordInfo.CheckDateTime = DateTime.Now;
                     _recordInfo.State = 1;
-                    _recordInfo.CurrentBusiness = 14;
+                    _recordInfo.CurrentBusiness = 18;
                     _recordInfo.BusinessID = _info.ObjectID;
 
                     _manage.AddNewBusinessRecord(_recordInfo);
@@ -439,7 +389,7 @@ namespace TZMS.Web
         }
 
         /// <summary>
-        /// 提交事件
+        /// 确认办理事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -449,7 +399,7 @@ namespace TZMS.Web
         }
 
         /// <summary>
-        /// 办理历史数据行绑定事件
+        /// 操作历史数据行绑定事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -458,29 +408,16 @@ namespace TZMS.Web
             if (e.DataItem != null)
             {
                 e.Values[1] = DateTime.Parse(e.Values[1].ToString()).ToString("yyyy-MM-dd HH:mm");
-                e.Values[2] = new BusinessManage().ConvertBusinessTypeToString(true, Convert.ToInt32(e.Values[2].ToString()));
+                e.Values[2] = new BusinessManage().ConvertBusinessTypeToString(false, Convert.ToInt32(e.Values[2].ToString()));
             }
         }
 
         /// <summary>
-        /// 
+        /// 特殊费用窗口关闭事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void cbxSecond_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbxSecond.Checked == true)
-            {
-                taaQTFYSM.Text += "\r\n此次办理是二次办理";
-            }
-        }
-
-        /// <summary>
-        /// 特殊费用关闭事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void wndSpecialMoney_Close(object sender, WindowCloseEventArgs e)
+        protected void wndSpecialMoney_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
             BusinessManage _manage = new BusinessManage();
             BusinessInfo _info = _manage.GetBusinessByObjectID(BusinessID);
@@ -527,7 +464,7 @@ namespace TZMS.Web
                 _recordInfo.CheckrDept = CurrentUser.Dept;
                 _recordInfo.CheckDateTime = DateTime.Now;
                 _recordInfo.State = 1;
-                _recordInfo.CurrentBusiness = 13;
+                _recordInfo.CurrentBusiness = 17;
                 _recordInfo.BusinessID = _info.ObjectID;
 
                 _manage.AddNewBusinessRecord(_recordInfo);
@@ -546,7 +483,20 @@ namespace TZMS.Web
             }
         }
 
-        #endregion
+        /// <summary>
+        /// 二次办理选中事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void cbxSecond_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxSecond.Checked == true)
+            {
+                taaQTFYSM.Text += "\r\n此次办理是二次办理";
+            }
 
+        }
+
+        #endregion
     }
 }

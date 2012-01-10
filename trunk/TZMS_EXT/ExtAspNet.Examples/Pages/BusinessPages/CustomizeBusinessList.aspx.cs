@@ -4,27 +4,27 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ExtAspNet;
-using System.Text;
-using com.TZMS.Model;
-using com.TZMS.Business.BusinessManage;
 using com.TZMS.Business;
+using com.TZMS.Model;
+using System.Text;
+using ExtAspNet;
+using com.TZMS.Business.BusinessManage;
 
 namespace TZMS.Web
 {
-    public partial class NormalBusinessList : BasePage
+    public partial class CustomizeBusinessList : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                CurrentLevel = GetCurrentLevel("ptyw");
+                CurrentLevel = GetCurrentLevel("dzywcj");
 
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
-                wndNewNormalBusiness.OnClientCloseButtonClick = wndNewNormalBusiness.GetHidePostBackReference();
-                btnNewNormalBusiness.OnClientClick = wndNewNormalBusiness.GetShowReference("NewNormalBusiness.aspx?Type=Add") + "return false;";
+                wndNewCustomizeBusiness.OnClientCloseButtonClick = wndNewCustomizeBusiness.GetHidePostBackReference();
+                btnNewNormalBusiness.OnClientClick = wndNewCustomizeBusiness.GetShowReference("NewCustomizeBusiness.aspx?Type=Add") + "return false;";
 
                 BindGrid();
 
@@ -88,7 +88,7 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" IsDelete <> 1 and BusinessType = 0");
+            strCondition.Append(" IsDelete <> 1 and BusinessType = 1");
             if (!this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZJ))
             {
                 strCondition.Append(" and CreaterID ='" + CurrentUser.ObjectId.ToString() + "'");
@@ -104,20 +104,20 @@ namespace TZMS.Web
             #endregion
 
             List<BusinessInfo> lstApply = new BusinessManage().GetBusinessByCondition(strCondition.ToString());
-            this.gridBusiness.RecordCount = lstApply.Count;
-            this.gridBusiness.PageSize = PageCounts;
-            int currentIndex = this.gridBusiness.PageIndex;
+            this.gridCustomizeBusiness.RecordCount = lstApply.Count;
+            this.gridCustomizeBusiness.PageSize = PageCounts;
+            int currentIndex = this.gridCustomizeBusiness.PageIndex;
             //计算当前页面显示行数据
-            if (lstApply.Count > this.gridBusiness.PageSize)
+            if (lstApply.Count > this.gridCustomizeBusiness.PageSize)
             {
-                if (lstApply.Count > (currentIndex + 1) * this.gridBusiness.PageSize)
+                if (lstApply.Count > (currentIndex + 1) * this.gridCustomizeBusiness.PageSize)
                 {
-                    lstApply.RemoveRange((currentIndex + 1) * this.gridBusiness.PageSize, lstApply.Count - (currentIndex + 1) * this.gridBusiness.PageSize);
+                    lstApply.RemoveRange((currentIndex + 1) * this.gridCustomizeBusiness.PageSize, lstApply.Count - (currentIndex + 1) * this.gridCustomizeBusiness.PageSize);
                 }
-                lstApply.RemoveRange(0, currentIndex * this.gridBusiness.PageSize);
+                lstApply.RemoveRange(0, currentIndex * this.gridCustomizeBusiness.PageSize);
             }
-            this.gridBusiness.DataSource = lstApply;
-            this.gridBusiness.DataBind();
+            this.gridCustomizeBusiness.DataSource = lstApply;
+            this.gridCustomizeBusiness.DataBind();
         }
 
         #endregion
@@ -139,9 +139,9 @@ namespace TZMS.Web
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void gridBusiness_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
+        protected void gridCustomizeBusiness_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
         {
-            gridBusiness.PageIndex = e.NewPageIndex;
+            gridCustomizeBusiness.PageIndex = e.NewPageIndex;
             BindGrid();
         }
 
@@ -150,25 +150,25 @@ namespace TZMS.Web
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void gridBusiness_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
+        protected void gridCustomizeBusiness_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
-            string strApplyID = ((GridRow)gridBusiness.Rows[e.RowIndex]).Values[0];
+            string strApplyID = ((GridRow)gridCustomizeBusiness.Rows[e.RowIndex]).Values[0];
             if (e.CommandName == "View")
             {
-                wndNewNormalBusiness.IFrameUrl = "NewNormalBusiness.aspx?Type=View&ID=" + strApplyID;
-                wndNewNormalBusiness.Hidden = false;
+                wndNewCustomizeBusiness.IFrameUrl = "NewCustomizeBusiness.aspx?Type=View&ID=" + strApplyID;
+                wndNewCustomizeBusiness.Hidden = false;
             }
 
             if (e.CommandName == "Edit")
             {
-                wndNewNormalBusiness.IFrameUrl = "NewNormalBusiness.aspx?Type=Edit&ID=" + strApplyID;
-                wndNewNormalBusiness.Hidden = false;
+                wndNewCustomizeBusiness.IFrameUrl = "NewCustomizeBusiness.aspx?Type=Edit&ID=" + strApplyID;
+                wndNewCustomizeBusiness.Hidden = false;
             }
 
             if (e.CommandName == "Change")
             {
-                wndNewNormalBusiness.IFrameUrl = "NewNormalBusiness.aspx?Type=Change&ID=" + strApplyID;
-                wndNewNormalBusiness.Hidden = false;
+                wndNewCustomizeBusiness.IFrameUrl = "NewCustomizeBusiness.aspx?Type=Change&ID=" + strApplyID;
+                wndNewCustomizeBusiness.Hidden = false;
             }
 
             if (e.CommandName == "Delete")
@@ -190,7 +190,7 @@ namespace TZMS.Web
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void gridBusiness_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
+        protected void gridCustomizeBusiness_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
         {
             if (e.DataItem != null)
             {
@@ -198,7 +198,7 @@ namespace TZMS.Web
                 BusinessRecordInfo _recordInfo = _manage.GetBusinessRecordByObjectID(e.Values[4].ToString());
                 if (_recordInfo != null)
                 {
-                    e.Values[4] = _manage.ConvertBusinessTypeToString(true, _recordInfo.CurrentBusiness);
+                    e.Values[4] = _manage.ConvertBusinessTypeToString(false, _recordInfo.CurrentBusiness);
                 }
 
                 switch (e.Values[5].ToString())
@@ -236,11 +236,11 @@ namespace TZMS.Web
         }
 
         /// <summary>
-        /// 窗口事件关闭事件
+        /// 创建窗口关闭事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void wndNewNormalBusiness_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
+        protected void wndNewCustomizeBusiness_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
             BindGrid();
         }

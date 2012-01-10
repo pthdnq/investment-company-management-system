@@ -644,10 +644,15 @@
     <Content Include="Pages\BusinessPages\CostApproveList.aspx" />
     <Content Include="Pages\BusinessPages\CostConfirm.aspx" />
     <Content Include="Pages\BusinessPages\CostConfirmList.aspx" />
+    <Content Include="Pages\BusinessPages\CustomizeBusinessList.aspx" />
+    <Content Include="Pages\BusinessPages\CustomizeBusinessOperateList.aspx" />
+    <Content Include="Pages\BusinessPages\CustomizeBusinessTransfer.aspx" />
+    <Content Include="Pages\BusinessPages\NewCustomizeBusiness.aspx" />
     <Content Include="Pages\BusinessPages\NewNormalBusiness.aspx" />
     <Content Include="Pages\BusinessPages\NormalBusinessList.aspx" />
     <Content Include="Pages\BusinessPages\NormalBusinessOperateList.aspx" />
     <Content Include="Pages\BusinessPages\NormalBusinessTransfer.aspx" />
+    <Content Include="Pages\BusinessPages\OperatorCustomizeBusiness.aspx" />
     <Content Include="Pages\BusinessPages\OperatorNormalBusiness.aspx" />
     <Content Include="Pages\BusinessPages\SpecialMoney.aspx" />
     <Content Include="Pages\CashFlow\BankLoanBA.aspx" />
@@ -1483,6 +1488,34 @@
     <Compile Include="Pages\BusinessPages\CostConfirmList.aspx.designer.cs">
       <DependentUpon>CostConfirmList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BusinessPages\CustomizeBusinessList.aspx.cs">
+      <DependentUpon>CustomizeBusinessList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CustomizeBusinessList.aspx.designer.cs">
+      <DependentUpon>CustomizeBusinessList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CustomizeBusinessOperateList.aspx.cs">
+      <DependentUpon>CustomizeBusinessOperateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CustomizeBusinessOperateList.aspx.designer.cs">
+      <DependentUpon>CustomizeBusinessOperateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CustomizeBusinessTransfer.aspx.cs">
+      <DependentUpon>CustomizeBusinessTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\CustomizeBusinessTransfer.aspx.designer.cs">
+      <DependentUpon>CustomizeBusinessTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NewCustomizeBusiness.aspx.cs">
+      <DependentUpon>NewCustomizeBusiness.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NewCustomizeBusiness.aspx.designer.cs">
+      <DependentUpon>NewCustomizeBusiness.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BusinessPages\NewNormalBusiness.aspx.cs">
       <DependentUpon>NewNormalBusiness.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1510,6 +1543,13 @@
     </Compile>
     <Compile Include="Pages\BusinessPages\NormalBusinessTransfer.aspx.designer.cs">
       <DependentUpon>NormalBusinessTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\OperatorCustomizeBusiness.aspx.cs">
+      <DependentUpon>OperatorCustomizeBusiness.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\OperatorCustomizeBusiness.aspx.designer.cs">
+      <DependentUpon>OperatorCustomizeBusiness.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\BusinessPages\OperatorNormalBusiness.aspx.cs">
       <DependentUpon>OperatorNormalBusiness.aspx</DependentUpon>

@@ -333,7 +333,7 @@
                                                 OnClientClick=" tabs('ptywcz','UserKey');" Text="普通业务操作">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务创建.png" NodeID="dzywcj" AutoPostBack="false"
-                                                OnClientClick=" tabs('dzywcj','UserKey');" Text="定制业务创建">
+                                                OnClientClick=" tabs('dzywcj','UserKey');" Text="定制业务列表">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务操作.png" NodeID="dzywcz" AutoPostBack="false"
                                                 OnClientClick=" tabs('dzywcz','UserKey');" Text="定制业务操作">
@@ -687,10 +687,10 @@
                     LoadTab("Pages/BusinessPages/NormalBusinessOperateList.aspx", "普通业务操作", icon);
                     break;
                 case "dzywcj":
-                    LoadTab("Pages/Yewu/DingzhiYewu.aspx", "定制业务创建", icon);
+                    LoadTab("Pages/BusinessPages/CustomizeBusinessList.aspx", "定制业务列表", icon);
                     break;
                 case "dzywcz":
-                    LoadTab("Pages/Yewu/DingZhiYeWuAppList.aspx", "定制业务操作", icon);
+                    LoadTab("Pages/BusinessPages/CustomizeBusinessOperateList.aspx", "定制业务操作", icon);
                     break;
                 case "ywfysq":
                     LoadTab("Pages/BusinessPages/CostApplyList.aspx", "业务费用申请", icon);
