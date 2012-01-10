@@ -62,6 +62,8 @@
     <Compile Include="BusinessCostApplyCtrl.cs" />
     <Compile Include="BusinessCostApproveCtrl.cs" />
     <Compile Include="BusinessCtrl.cs" />
+    <Compile Include="BusinessImprestApplyCtrl.cs" />
+    <Compile Include="BusinessImprestApproveCtrl.cs" />
     <Compile Include="BusinessRecordCtrl.cs" />
     <Compile Include="CashFlowSetterCtrl.cs" />
     <Compile Include="CashFlowStatementCtrl.cs" />

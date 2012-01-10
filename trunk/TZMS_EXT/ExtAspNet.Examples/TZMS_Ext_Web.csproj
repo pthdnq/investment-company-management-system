@@ -638,6 +638,8 @@
     <Content Include="Pages\Baoxiao\BaoxiaoToFile.aspx" />
     <Content Include="Pages\Baoxiao\CheckBaoxiaoApp.aspx" />
     <Content Include="Pages\Baoxiao\NewBaoxiaoApply.aspx" />
+    <Content Include="Pages\BusinessPages\BusinessImprestApplyList.aspx" />
+    <Content Include="Pages\BusinessPages\BusinessImprestApproveList.aspx" />
     <Content Include="Pages\BusinessPages\CostApply.aspx" />
     <Content Include="Pages\BusinessPages\CostApplyList.aspx" />
     <Content Include="Pages\BusinessPages\CostApprove.aspx" />
@@ -647,6 +649,8 @@
     <Content Include="Pages\BusinessPages\CustomizeBusinessList.aspx" />
     <Content Include="Pages\BusinessPages\CustomizeBusinessOperateList.aspx" />
     <Content Include="Pages\BusinessPages\CustomizeBusinessTransfer.aspx" />
+    <Content Include="Pages\BusinessPages\NewBusinessImprestApply.aspx" />
+    <Content Include="Pages\BusinessPages\NewBusinessImprestApprove.aspx" />
     <Content Include="Pages\BusinessPages\NewCustomizeBusiness.aspx" />
     <Content Include="Pages\BusinessPages\NewNormalBusiness.aspx" />
     <Content Include="Pages\BusinessPages\NormalBusinessList.aspx" />
@@ -1446,6 +1450,20 @@
     <Compile Include="Pages\Baoxiao\NewBaoxiaoApply.aspx.designer.cs">
       <DependentUpon>NewBaoxiaoApply.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BusinessPages\BusinessImprestApplyList.aspx.cs">
+      <DependentUpon>BusinessImprestApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\BusinessImprestApplyList.aspx.designer.cs">
+      <DependentUpon>BusinessImprestApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\BusinessImprestApproveList.aspx.cs">
+      <DependentUpon>BusinessImprestApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\BusinessImprestApproveList.aspx.designer.cs">
+      <DependentUpon>BusinessImprestApproveList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BusinessPages\CostApply.aspx.cs">
       <DependentUpon>CostApply.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1508,6 +1526,20 @@
     </Compile>
     <Compile Include="Pages\BusinessPages\CustomizeBusinessTransfer.aspx.designer.cs">
       <DependentUpon>CustomizeBusinessTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NewBusinessImprestApply.aspx.cs">
+      <DependentUpon>NewBusinessImprestApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NewBusinessImprestApply.aspx.designer.cs">
+      <DependentUpon>NewBusinessImprestApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NewBusinessImprestApprove.aspx.cs">
+      <DependentUpon>NewBusinessImprestApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BusinessPages\NewBusinessImprestApprove.aspx.designer.cs">
+      <DependentUpon>NewBusinessImprestApprove.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\BusinessPages\NewCustomizeBusiness.aspx.cs">
       <DependentUpon>NewCustomizeBusiness.aspx</DependentUpon>

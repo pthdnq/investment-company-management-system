@@ -50,6 +50,8 @@
     <Compile Include="BaoXiaoPinZhengApproveInfo.cs" />
     <Compile Include="BusinessCostApplyInfo.cs" />
     <Compile Include="BusinessCostApproveInfo.cs" />
+    <Compile Include="BusinessImprestApplyInfo.cs" />
+    <Compile Include="BusinessImprestApproveInfo.cs" />
     <Compile Include="BusinessInfo.cs" />
     <Compile Include="BusinessRecordInfo.cs" />
     <Compile Include="CashFlowSetterInfo.cs" />

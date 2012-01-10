@@ -228,6 +228,114 @@ namespace com.TZMS.Business.BusinessManage
         }
 
         /// <summary>
+        /// 添加新的业务记录
+        /// </summary>
+        /// <param name="baoxiao">业务记录实例</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>执行结果</returns>
+        public int AddNewImprestApply(BusinessImprestApplyInfo info, string boName = BoName)
+        {
+            BusinessImprestApplyCtrl _ctrl = new BusinessImprestApplyCtrl();
+            return _ctrl.Insert(boName, info);
+        }
+
+        /// <summary>
+        /// 更新业务记录
+        /// </summary>
+        /// <param name="baoxiao">业务记录实例</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>执行结果</returns>
+        public int UpdateImprestApply(BusinessImprestApplyInfo info, string boName = BoName)
+        {
+            BusinessImprestApplyCtrl _ctrl = new BusinessImprestApplyCtrl();
+            return _ctrl.UpDate(boName, info);
+        }
+
+        /// <summary>
+        /// 根据指定的ObjectID来获取业务记录实例
+        /// </summary>
+        /// <param name="objectID">业务记录实例ObjectID</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>业务实例</returns>
+        public BusinessImprestApplyInfo GetImprestApplyByObjectID(string objectID, string boName = BoName)
+        {
+            BusinessImprestApplyCtrl _ctrl = new BusinessImprestApplyCtrl();
+            List<BusinessImprestApplyInfo> lstBaoxiao = _ctrl.SelectAsList(boName, "ObjectID='" + objectID + "'");
+            if (lstBaoxiao.Count == 0)
+            {
+                return null;
+            }
+
+            return lstBaoxiao[0];
+        }
+
+        /// <summary>
+        /// 根据指定的查询条件获取业务记录实例集合
+        /// </summary>
+        /// <param name="condition">查询条件</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>业务记录实例集合</returns>
+        public List<BusinessImprestApplyInfo> GetImprestApplyByCondition(string condition, string boName = BoName)
+        {
+            BusinessImprestApplyCtrl _ctrl = new BusinessImprestApplyCtrl();
+            return _ctrl.SelectAsList(boName, condition);
+        }
+
+        /// <summary>
+        /// 添加新的业务记录
+        /// </summary>
+        /// <param name="baoxiao">业务记录实例</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>执行结果</returns>
+        public int AddNewImprestApprove(BusinessImprestApproveInfo info, string boName = BoName)
+        {
+            BusinessImprestApproveCtrl _ctrl = new BusinessImprestApproveCtrl();
+            return _ctrl.Insert(boName, info);
+        }
+
+        /// <summary>
+        /// 更新业务记录
+        /// </summary>
+        /// <param name="baoxiao">业务记录实例</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>执行结果</returns>
+        public int UpdateImprestApprove(BusinessImprestApproveInfo info, string boName = BoName)
+        {
+            BusinessImprestApproveCtrl _ctrl = new BusinessImprestApproveCtrl();
+            return _ctrl.UpDate(boName, info);
+        }
+
+        /// <summary>
+        /// 根据指定的ObjectID来获取业务记录实例
+        /// </summary>
+        /// <param name="objectID">业务记录实例ObjectID</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>业务实例</returns>
+        public BusinessImprestApproveInfo GetImprestApproveByObjectID(string objectID, string boName = BoName)
+        {
+            BusinessImprestApproveCtrl _ctrl = new BusinessImprestApproveCtrl();
+            List<BusinessImprestApproveInfo> lstBaoxiao = _ctrl.SelectAsList(boName, "ObjectID='" + objectID + "'");
+            if (lstBaoxiao.Count == 0)
+            {
+                return null;
+            }
+
+            return lstBaoxiao[0];
+        }
+
+        /// <summary>
+        /// 根据指定的查询条件获取业务记录实例集合
+        /// </summary>
+        /// <param name="condition">查询条件</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>业务记录实例集合</returns>
+        public List<BusinessImprestApproveInfo> GetImprestApproveByCondition(string condition, string boName = BoName)
+        {
+            BusinessImprestApproveCtrl _ctrl = new BusinessImprestApproveCtrl();
+            return _ctrl.SelectAsList(boName, condition);
+        }
+
+        /// <summary>
         /// 转换业务标示到字符串
         /// </summary>
         /// <param name="isNormalBusiness">是否是普通业务</param>
