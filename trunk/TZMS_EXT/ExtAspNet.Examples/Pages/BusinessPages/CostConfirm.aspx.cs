@@ -184,6 +184,7 @@ namespace TZMS.Web
                 _approveInfo.ApproveState = 1;
                 _approveInfo.ApproveTime = DateTime.Now;
                 _approveInfo.ApproveOp = 4;
+                _approveInfo.ApproverSugest = "实际收取业务费用" + tbxActualMoney.Text + "元";
                 _manage.UpdateCostApprove(_approveInfo);
             }
 

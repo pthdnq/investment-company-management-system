@@ -69,6 +69,7 @@ namespace TZMS.Web
                 BindBusinessInfo();
                 BindOperateHistory();
                 DisableAllControls();
+                SetPanelState();
             }
         }
 
@@ -208,7 +209,7 @@ namespace TZMS.Web
             if (string.IsNullOrEmpty(BusinessID))
                 return;
             BusinessManage _manage = new BusinessManage();
-            List<BusinessRecordInfo> lstRecord = _manage.GetBusinessRecordByCondition(" BusinessID = '" + BusinessID + "' and State = 1 order by CheckDateTime desc");
+            List<BusinessRecordInfo> lstRecord = _manage.GetBusinessRecordByCondition(" BusinessID = '" + BusinessID + "' and State >= 1 order by CheckDateTime desc");
 
             lstRecord.Sort(delegate(BusinessRecordInfo x, BusinessRecordInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
 
@@ -341,7 +342,8 @@ namespace TZMS.Web
                         _info.CostMoney += Convert.ToDecimal(tbxCBJE.Text.Trim());
                     if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
                         _info.OtherMoney += Convert.ToDecimal(tbxQTFY.Text.Trim());
-                    _info.OtherMoneyExplain += "\r\n" + taaQTFYSM.Text.Trim();
+                    if (!string.IsNullOrEmpty(taaQTFYSM.Text.Trim()))
+                        _info.OtherMoneyExplain += "\r\n" + taaQTFYSM.Text.Trim();
                     _info.CurrentUserID = new Guid(ddlstApproveUser.SelectedValue);
 
                     // 更新现有记录.
@@ -387,6 +389,25 @@ namespace TZMS.Web
             else
             {
                 Alert.Show("办理失败!");
+            }
+        }
+
+        /// <summary>
+        /// 设置面板状态
+        /// </summary>
+        private void SetPanelState()
+        {
+            if (string.IsNullOrEmpty(RecordID))
+                return;
+            BusinessManage _manage = new BusinessManage();
+            BusinessRecordInfo _approveInfo = _manage.GetBusinessRecordByObjectID(RecordID);
+            if (_approveInfo != null)
+            {
+                if (_approveInfo.State != 0)
+                {
+                    btnSubmit.Hidden = true;
+                    mainForm2.Hidden = true;
+                }
             }
         }
 

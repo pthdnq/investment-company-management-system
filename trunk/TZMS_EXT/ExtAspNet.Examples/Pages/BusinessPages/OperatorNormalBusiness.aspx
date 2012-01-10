@@ -196,8 +196,8 @@
                                             <ext:BoundField DataField="CheckerName" HeaderText="办理人" />
                                             <ext:BoundField DataField="CheckDateTime" HeaderText="办理时间" />
                                             <ext:BoundField DataField="CurrentBusiness" HeaderText="办理类型" />
-                                            <ext:BoundField DataField="CostMoney" HeaderText="成本金额" />
-                                            <ext:BoundField DataField="OtherMoney" HeaderText="其它费用" />
+                                            <ext:BoundField DataField="CostMoney" Width="60px" HeaderText="成本金额" />
+                                            <ext:BoundField DataField="OtherMoney" Width="60px" HeaderText="其它费用" />
                                             <ext:BoundField DataField="Explain" HeaderText="说明" ExpandUnusedSpace="true" DataTooltipField="Explain" />
                                         </Columns>
                                     </ext:Grid>
