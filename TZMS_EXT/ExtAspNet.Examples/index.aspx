@@ -40,7 +40,7 @@
         runat="server"></ext:PageManager>
     <ext:RegionPanel ID="RegionPanel1" ShowBorder="false" runat="server">
         <Regions>
-            <ext:Region ID="Region1" Margins="0 0 0 0" Height="62px" ShowBorder="false" ShowHeader="false"
+            <ext:Region ID="Region1" Margins="0 0 0 0" Height="70px" ShowBorder="false" ShowHeader="false"
                 Position="Top" Layout="Fit" runat="server">
                 <Items>
                     <ext:ContentPanel ShowBorder="false" ShowHeader="false" BodyStyle="background:  url(images/top_bg.jpg) repeat-x;"
