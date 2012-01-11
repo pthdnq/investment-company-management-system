@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" />
+    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" AutoScroll="false" ShowBorder="true" ShowHeader="false">
         <Toolbars>
@@ -46,10 +46,10 @@
                         <Tabs>
                             <ext:Tab ID="Tab1" Title="备用金申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
-                                    <ext:Form EnableBackgroundColor="true" LabelWidth="65px" ShowHeader="false" ShowBorder="true"
-                                        BodyPadding="5px" ID="mainForm" runat="server" AutoScroll="true">
+                                    <ext:Form ID="CustomizeForm" EnableBackgroundColor="true" LabelWidth="65px" ShowHeader="false"
+                                        ShowBorder="true" BodyPadding="5px" runat="server" AutoScroll="true" Height="400px">
                                         <Rows>
-                                            <ext:FormRow ColumnWidths="50% 50%">
+                                            <ext:FormRow ID="frw1" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
                                                     <ext:Label ID="lblName" runat="server" Label="申请人">
                                                     </ext:Label>
@@ -57,24 +57,26 @@
                                                     </ext:Label>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="50% 50%">
+                                            <ext:FormRow ID="frw2" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
                                                     <ext:DropDownList ID="ddlstBusinessType" Label="业务类型" runat="server" Required="true"
-                                                        ShowRedStar="true" AutoPostBack="True" OnSelectedIndexChanged="ddlstBusinessType_SelectedIndexChanged">
-                                                        <ext:ListItem Text="普通业务" Value="0" Selected="true" />
-                                                        <ext:ListItem Text="定制业务" Value="1" />
+                                                        ShowRedStar="true" AutoPostBack="True" OnSelectedIndexChanged="ddlstBusinessType_SelectedIndexChanged"
+                                                        EnableAjax="false">
                                                     </ext:DropDownList>
-                                                    <ext:DropDownList ID="ddlstBusinessTitle" runat="server" Required="true" ShowRedStar="true">
+                                                    <ext:DropDownList ID="ddlstBusinessTitle" Label="业务标题" runat="server" Required="true"
+                                                        ShowRedStar="true" AutoPostBack="True" OnSelectedIndexChanged="ddlstBusinessTitle_SelectedIndexChanged"
+                                                        EnableAjax="false">
                                                     </ext:DropDownList>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="60%">
+                                            <ext:FormRow ID="frw3" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:Label ID="lblMoney" runat="server" Label="总金额" >
-                                                    </ext:Label>
+                                                    <ext:TextBox ID="lblMoney" runat="server" Label="总金额(元)" Required="true" ShowRedStar="true"
+                                                        Enabled="false">
+                                                    </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="60%">
+                                            <ext:FormRow ID="frw4" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextArea ID="tbxSument" runat="server" Enabled="false" Label="申请事由" MaxLength="1000"
                                                         Height="100px" MaxLengthMessage="最多只能输入1000个字！">
