@@ -66,7 +66,7 @@
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="BusinessID" Hidden="true" />
                             <ext:BoundField DataField="ApplyTime" HeaderText="申请时间" />
-                            <ext:BoundField DataField="BusinessName" HeaderText="业务标题" DataTooltipField="Title" />
+                            <ext:BoundField DataField="BusinessName" HeaderText="业务标题" DataTooltipField="BusinessName" />
                             <ext:BoundField DataField="SumMoney" HeaderText="总金额" />
                             <ext:BoundField DataField="Sument" HeaderText="收款事由" DataTooltipField="Sument" ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="ApproverID" HeaderText="当前执行人" />
@@ -82,7 +82,7 @@
     </ext:Panel>
     <ext:Window ID="wndNewBusinessImprestApply" Title="备用金申请" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
-        Height="500px" Width="700px" OnClose="wndNewBusinessImprestApply_Close">
+        Height="600px" Width="700px" OnClose="wndNewBusinessImprestApply_Close">
     </ext:Window>
     </form>
 </body>
