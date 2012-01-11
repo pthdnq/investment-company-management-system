@@ -190,7 +190,7 @@ namespace TZMS.Web
                     _applyInfo.ExamSalary = Convert.ToDecimal(tbxExamSalary.Text.Trim());
                     _applyInfo.State = 0;
                     _applyInfo.CurrentCheckerId = new Guid(ddlstApproveUser.SelectedValue);
-
+                    _applyInfo.Context = taaReason.Text.Trim();
                     result = _manage.UpdateAddSalary(_applyInfo);
 
                     // 插入待审批记录到报销审批流程表.
@@ -203,7 +203,7 @@ namespace TZMS.Web
                     _approveInfo.CheckDateTime = ACommonInfo.DBMAXDate;
                     _approveInfo.Checkstate = 0;
                     _approveInfo.ApplyId = _applyInfo.ObjectId;
-
+                    
                     _manage.AddNewSalaryCheck(_approveInfo);
                 }
             }
