@@ -39,6 +39,12 @@
     <Compile Include="AccountantAuditHistoryInfo.cs" />
     <Compile Include="ACommonInfo.cs" />
     <Compile Include="AddSalaryInfo.cs" />
+    <Compile Include="AdminImprestHistoryInfo.cs" />
+    <Compile Include="AdminImprestInfo.cs" />
+    <Compile Include="AdminPaymentHistoryInfo.cs" />
+    <Compile Include="AdminPaymentInfo.cs" />
+    <Compile Include="AdminReceivablesHistoryInfo.cs" />
+    <Compile Include="AdminReceivablesInfo.cs" />
     <Compile Include="AttendInfo.cs" />
     <Compile Include="BankLoanHistoryInfo.cs" />
     <Compile Include="BankLoanInfo.cs" />
