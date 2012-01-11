@@ -146,7 +146,7 @@ namespace com.TZMS.DataAccess
 
                 SqlParameter[] sqlparam =
 				{
-					new SqlParameter ( "@ObjectID", SqlDbType.NVarChar )
+					new SqlParameter ( "@Condition", SqlDbType.NVarChar )
 				};
                 int i = 0;
                 sqlparam[i++].Value = objectID;
