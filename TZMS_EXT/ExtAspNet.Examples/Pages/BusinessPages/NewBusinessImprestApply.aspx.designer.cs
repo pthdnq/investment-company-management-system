@@ -130,13 +130,22 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Tab Tab1;
         
         /// <summary>
-        /// mainForm control.
+        /// CustomizeForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Form mainForm;
+        protected global::ExtAspNet.Form CustomizeForm;
+        
+        /// <summary>
+        /// frw1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow frw1;
         
         /// <summary>
         /// lblName control.
@@ -157,6 +166,15 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Label lblApplyTime;
         
         /// <summary>
+        /// frw2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow frw2;
+        
+        /// <summary>
         /// ddlstBusinessType control.
         /// </summary>
         /// <remarks>
@@ -175,13 +193,31 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DropDownList ddlstBusinessTitle;
         
         /// <summary>
+        /// frw3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow frw3;
+        
+        /// <summary>
         /// lblMoney control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label lblMoney;
+        protected global::ExtAspNet.TextBox lblMoney;
+        
+        /// <summary>
+        /// frw4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.FormRow frw4;
         
         /// <summary>
         /// tbxSument control.

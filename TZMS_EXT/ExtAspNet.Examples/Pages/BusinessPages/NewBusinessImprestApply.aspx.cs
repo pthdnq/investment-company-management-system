@@ -56,6 +56,116 @@ namespace TZMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                string strOperatorType = Request.QueryString["Type"];
+                string strApplyID = Request.QueryString["ID"];
+
+                switch (strOperatorType)
+                {
+                    case "Add":
+                        {
+                            OperatorType = strOperatorType;
+                            lblName.Text = CurrentUser.Name;
+                            lblApplyTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+                            tabApproveHistory.Hidden = true;
+                            // 绑定下一步.
+                            BindNext();
+                            BindBusinessType();
+                            // 绑定审批人.
+                            ApproveUser();
+                            this.ddlstBusinessType_SelectedIndexChanged(null, null);
+                        }
+                        break;
+                    case "View":
+                        {
+                            OperatorType = strOperatorType;
+                            ApplyID = strApplyID;
+
+                            // 绑定下一步.
+                            BindNext();
+                            BindBusinessType();
+                            // 绑定审批人.
+                            ApproveUser();
+                            // 绑定申请单信息.
+                            BindApplyInfo();
+                            // 绑定审批历史.
+                            BindApproveHistory();
+                            // 禁用所有控件.
+                            DisableAllControls();
+                        }
+                        break;
+                    case "Edit":
+                        {
+                            OperatorType = strOperatorType;
+                            ApplyID = strApplyID;
+
+                            // 绑定下一步.
+                            BindNext();
+                            BindBusinessType();
+                            // 绑定审批人.
+                            ApproveUser();
+                            // 绑定申请单信息.
+                            BindApplyInfo();
+                            // 绑定审批历史.
+                            BindApproveHistory();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                if (ddlstApproveUser.SelectedItem == null)
+                {
+                    Alert.Show("您的“执行人”为空，请在我的首页设置我的审批人！");
+                }
+            }
+            else
+            {
+                if (ddlstBusinessType.SelectedIndex == 0)
+                {
+                    GenerateNormalImprest(new BusinessManage());
+                }
+                else
+                {
+                    GenerateCustomizeImprest();
+                }
+            }
+            //else
+            //{
+            //    if (Request.Form["__EVENTTARGET"].Contains("generate"))
+            //    {
+            //        if (Request.Form["__EVENTTARGET"].Contains("cbx"))
+            //        {
+            //            // 查找控件.
+            //            string[] arrayControlsName = Request.Form["__EVENTTARGET"].Split('$');
+            //            ExtAspNet.FormRow formRow = CustomizeForm.FindControl(arrayControlsName[arrayControlsName.Length - 2]) as ExtAspNet.FormRow;
+            //            if (formRow != null)
+            //            {
+            //                ExtAspNet.CheckBox checkBox = formRow.FindControl(arrayControlsName[arrayControlsName.Length - 1]) as ExtAspNet.CheckBox;
+            //                checkBox_CheckedChanged(checkBox, null);
+            //            }
+            //        }
+
+            //        if (Request.Form["__EVENTTARGET"].Contains("tbx"))
+            //        {
+            //            // 查找控件.
+            //            //string[] arrayControlsName = Request.Form["__EVENTTARGET"].Split('$');
+            //            textbox_TextChanged(Request.Form["__EVENTTARGET"], null);
+            //            //ExtAspNet.FormRow formRow = CustomizeForm.FindControl(arrayControlsName[arrayControlsName.Length - 2]) as ExtAspNet.FormRow;
+            //            //if (formRow != null)
+            //            //{
+            //            //    ExtAspNet.TextBox textBox = formRow.FindControl(arrayControlsName[arrayControlsName.Length - 1]) as ExtAspNet.TextBox;
+            //            //    textbox_TextChanged(textBox, null);
+            //            //}
+            //        }
+            //    }
+            //}
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("---------------init" + "   " + ddlstBusinessType.SelectedIndex);
 
         }
 
@@ -68,6 +178,17 @@ namespace TZMS.Web
         {
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             ddlstNext.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// 绑定业务类型.
+        /// </summary>
+        private void BindBusinessType()
+        {
+            ddlstBusinessType.Items.Clear();
+            ddlstBusinessType.Items.Add(new ExtAspNet.ListItem("普通业务", "0"));
+            ddlstBusinessType.Items.Add(new ExtAspNet.ListItem("定制业务", "1"));
+            ddlstBusinessType.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -206,6 +327,7 @@ namespace TZMS.Web
                 lblName.Text = _info.UserName;
                 lblApplyTime.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
                 ddlstBusinessType.SelectedValue = _info.BusinessType.ToString();
+                this.ddlstBusinessType_SelectedIndexChanged(null, null);
                 ddlstBusinessTitle.SelectedValue = _info.BusinessID.ToString();
                 tbxSument.Text = _info.Sument;
 
@@ -281,14 +403,178 @@ namespace TZMS.Web
         {
             ddlstBusinessTitle.Items.Clear();
             BusinessManage _manage = new BusinessManage();
+            List<BusinessInfo> lstBusiness = _manage.GetBusinessByCondition(" IsDelete = 0 and BusinessType = 0 and State = 0");
+            foreach (BusinessInfo info in lstBusiness)
+            {
+                ddlstBusinessTitle.Items.Add(new ExtAspNet.ListItem(info.CompanyName, info.ObjectID.ToString()));
+            }
+
+            ddlstBusinessTitle.SelectedIndex = 0;
+
+            GenerateNormalImprest(_manage);
+        }
+
+        /// <summary>
+        /// 生成普通业务的表单项.
+        /// </summary>
+        /// <param name="_manage"></param>
+        private void GenerateNormalImprest(BusinessManage _manage)
+        {
+            // 设置表单.
+            // 清空现有生成的表单行.
+            //foreach (FormRow row in CustomizeForm.Rows)
+            //{
+            //    if (row.ID.Contains("generate"))
+            //    {
+            //        CustomizeForm.Rows.Remove(row);
+            //    }
+            //}
+            int count = CustomizeForm.Rows.Count;
+            for (int i = count - 1; i >= 0; --i)
+            {
+                if (CustomizeForm.Rows[i].ID.Contains("generate"))
+                {
+                    CustomizeForm.Rows.RemoveAt(i);
+                }
+            }
+
+            // 生成普通业务表单行.
+            for (int i = 0; i < 12; i++)
+            {
+                FormRow row = new FormRow();
+                row.ID = "generateNormal" + i;
+                row.ColumnWidths = "40% 60%";
+
+                ExtAspNet.CheckBox checkBox = new ExtAspNet.CheckBox();
+                checkBox.ID = "cbxNormal" + i;
+                checkBox.ShowLabel = false;
+                checkBox.Height = lblMoney.Height;
+                checkBox.AutoPostBack = true;
+                checkBox.Text = _manage.ConvertBusinessTypeToString(true, i + 1);
+                checkBox.CheckedChanged += new EventHandler(checkBox_CheckedChanged);
+                row.Items.Add(checkBox);
+
+                ExtAspNet.TextBox textbox = new ExtAspNet.TextBox();
+                textbox.ID = "tbxNormal" + i;
+                textbox.AutoPostBack = true;
+                textbox.TextChanged += new EventHandler(textbox_TextChanged);
+                textbox.Label = "金额(元)";
+                textbox.Regex = "^[0-9]*\\.?[0-9]{1,2}$";
+                textbox.RegexMessage = "金额格式不正确!";
+                row.Items.Add(textbox);
+
+                CustomizeForm.Rows.Insert(CustomizeForm.Rows.Count - 1, row);
+            }
+        }
+
+        /// <summary>
+        /// 文本变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void textbox_TextChanged(object sender, EventArgs e)
+        {
+            Alert.Show(((ExtAspNet.TextBox)sender).Label);
+
+            //string[] arrayControlsName = ((string)sender).Split('$');
+            //ExtAspNet.FormRow formRow = CustomizeForm.FindControl(arrayControlsName[arrayControlsName.Length - 2]) as ExtAspNet.FormRow;
+            //if (formRow != null)
+            //{
+            //    ExtAspNet.TextBox textBox = formRow.FindControl(arrayControlsName[arrayControlsName.Length - 1]) as ExtAspNet.TextBox;
+            //    Alert.Show(textBox.ID);
+            //}
+        }
+
+        /// <summary>
+        /// 复选框点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Alert.Show(((ExtAspNet.CheckBox)sender).Text);
+            //ExtAspNet.CheckBox cbx = (ExtAspNet.CheckBox)sender;
+            //if (cbx.Checked)
+            //{
+            //    ExtAspNet.TextBox tbx = (ExtAspNet.TextBox)CustomizeForm.FindControl("tbx" + cbx.ID.Replace("cbx", ""));
+            //    tbx.Required = true;
+            //    tbx.ShowRedStar = true;
+            //}
+            //else
+            //{
+            //    ExtAspNet.TextBox tbx = (ExtAspNet.TextBox)CustomizeForm.FindControl("tbx" + cbx.ID.Replace("cbx", ""));
+            //    tbx.Required = false;
+            //    tbx.ShowRedStar = false;
+            //}
         }
 
         /// <summary>
         /// 绑定定制业务
         /// </summary>
         private void BindCustomizeBusiness()
-        { 
-        
+        {
+            ddlstBusinessTitle.Items.Clear();
+            BusinessManage _manage = new BusinessManage();
+            List<BusinessInfo> lstBusiness = _manage.GetBusinessByCondition(" IsDelete = 0 and BusinessType = 1 and State = 0");
+            foreach (BusinessInfo info in lstBusiness)
+            {
+                ddlstBusinessTitle.Items.Add(new ExtAspNet.ListItem(info.CompanyName, info.ObjectID.ToString()));
+            }
+
+            ddlstBusinessTitle.SelectedIndex = 0;
+
+            GenerateCustomizeImprest();
+        }
+
+        /// <summary>
+        /// 生成定制业务的表单项.
+        /// </summary>
+        private void GenerateCustomizeImprest()
+        {
+            // 设置表单.
+            // 清空现有生成的表单行.
+            int count = CustomizeForm.Rows.Count;
+            for (int i = count - 1; i >= 0; --i)
+            {
+                if (CustomizeForm.Rows[i].ID.Contains("generate"))
+                {
+                    CustomizeForm.Rows.RemoveAt(i);
+                }
+            }
+
+            BusinessManage _manage = new BusinessManage();
+            BusinessInfo _info = _manage.GetBusinessByObjectID(ddlstBusinessTitle.SelectedValue);
+            if (_info != null)
+            {
+                string[] arrayCells = _info.BusinessCells.Split(',');
+                foreach (string cell in arrayCells)
+                {
+                    if (!string.IsNullOrEmpty(cell))
+                    {
+                        FormRow row = new FormRow();
+                        row.ID = "generateCustomize" + cell;
+                        row.ColumnWidths = "40% 60%";
+
+                        ExtAspNet.CheckBox checkBox = new ExtAspNet.CheckBox();
+                        checkBox.ID = "cbxCustomize" + cell;
+                        checkBox.ShowLabel = false;
+                        checkBox.Height = lblMoney.Height;
+                        checkBox.AutoPostBack = true;
+                        checkBox.Text = _manage.ConvertBusinessTypeToString(false, Convert.ToInt32(cell));
+                        checkBox.CheckedChanged += new EventHandler(checkBox_CheckedChanged);
+                        row.Items.Add(checkBox);
+
+                        ExtAspNet.TextBox textbox = new ExtAspNet.TextBox();
+                        textbox.ID = "tbxCustomize" + cell;
+                        textbox.Label = "金额(元)";
+                        textbox.Regex = "^[0-9]*\\.?[0-9]{1,2}$";
+                        textbox.RegexMessage = "金额格式不正确!";
+                        row.Items.Add(textbox);
+
+                        CustomizeForm.Rows.Insert(CustomizeForm.Rows.Count - 1, row);
+                    }
+                }
+            }
         }
 
         #endregion
@@ -322,7 +608,29 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void ddlstBusinessType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("---------------ddlstBusinessType_SelectedIndexChanged");
 
+            if (ddlstBusinessType.SelectedIndex == 0)
+            {
+                BindNormalBusiness();
+            }
+            else
+            {
+                BindCustomizeBusiness();
+            }
+        }
+
+        /// <summary>
+        /// 业务标题变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ddlstBusinessTitle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlstBusinessType.SelectedIndex != 0)
+            {
+                GenerateCustomizeImprest();
+            }
         }
 
         /// <summary>
