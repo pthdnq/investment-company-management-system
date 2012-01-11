@@ -18,7 +18,7 @@ namespace com.TZMS.Model
     /// BankLoanProjectProcessHistory实体类
     /// </summary>
     [Serializable]
-    public class BankLoanProjectProcessHistoryInfo :ACommonInfo
+    public class BankLoanProjectProcessHistoryInfo : ACommonInfo
     {
 
         #region Constructor
