@@ -9,6 +9,7 @@ using System.Text;
 using com.TZMS.Business.BusinessManage;
 using com.TZMS.Model;
 using com.TZMS.Business;
+using System.Text.RegularExpressions;
 
 namespace TZMS.Web
 {
@@ -122,14 +123,17 @@ namespace TZMS.Web
             }
             else
             {
-                if (ddlstBusinessType.SelectedIndex == 0)
-                {
-                    GenerateNormalImprest(new BusinessManage());
-                }
-                else
-                {
-                    GenerateCustomizeImprest();
-                }
+                //if (Request.Form["__EVENTTARGET"] != "pelMain$Toolbar1$btnSubmit" && Request.Form["__EVENTTARGET"] != "pelMain_Toolbar1_btnClose")
+                //{
+                    if (ddlstBusinessType.SelectedIndex == 0)
+                    {
+                        GenerateNormalImprest();
+                    }
+                    else
+                    {
+                        GenerateCustomizeImprest();
+                    }
+                //}
             }
             //else
             //{
@@ -161,12 +165,6 @@ namespace TZMS.Web
             //        }
             //    }
             //}
-        }
-
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("---------------init" + "   " + ddlstBusinessType.SelectedIndex);
-
         }
 
         #region 私有方法
@@ -205,6 +203,61 @@ namespace TZMS.Web
         }
 
         /// <summary>
+        /// 获取动态控件的值
+        /// </summary>
+        private string GetGenerateValue()
+        {
+            StringBuilder stringBuiler = new StringBuilder();
+            int count = CustomizeForm.Rows.Count;
+            string strTemp = string.Empty;
+            for (int i = count - 1; i >= 0; --i)
+            {
+                strTemp = string.Empty;
+                if (CustomizeForm.Rows[i].ID.Contains("generate"))
+                {
+                    if ((CustomizeForm.Rows[i].Items[0] as ExtAspNet.CheckBox).Checked)
+                    {
+                        strTemp += (CustomizeForm.Rows[i].Items[0] as ExtAspNet.CheckBox).Text + "$" + (CustomizeForm.Rows[i].Items[1] as ExtAspNet.TextBox).Text;
+                    }
+                }
+                if (strTemp != string.Empty)
+                    stringBuiler.Append(strTemp + "|");
+            }
+
+            return stringBuiler.ToString();
+        }
+
+        /// <summary>
+        /// 绑定动态控件的值
+        /// </summary>
+        /// <param name="strSument"></param>
+        private void BindGernrateValue(string strSument)
+        {
+            if (!string.IsNullOrEmpty(strSument))
+            {
+                int count = CustomizeForm.Rows.Count;
+                string[] arraySuments = strSument.Split('|');
+                foreach (string subSument in arraySuments)
+                {
+                    if (!string.IsNullOrEmpty(subSument))
+                    {
+                        for (int i = count - 1; i >= 0; --i)
+                        {
+                            if (CustomizeForm.Rows[i].ID.Contains("generate"))
+                            {
+                                if ((CustomizeForm.Rows[i].Items[0] as ExtAspNet.CheckBox).Text == subSument.Split('$')[0])
+                                {
+                                    (CustomizeForm.Rows[i].Items[0] as ExtAspNet.CheckBox).Checked = true;
+                                    (CustomizeForm.Rows[i].Items[1] as ExtAspNet.TextBox).Text = subSument.Split('$')[1];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// 提交报销申请单
         /// </summary>
         private void SaveApply()
@@ -231,6 +284,7 @@ namespace TZMS.Web
                 _applyInfo.BusinessID = new Guid(ddlstBusinessTitle.SelectedValue);
                 _applyInfo.BusinessType = Convert.ToInt16(ddlstBusinessType.SelectedValue);
                 _applyInfo.BusinessName = ddlstBusinessTitle.SelectedText;
+                _applyInfo.ApplySument = GetGenerateValue();
                 _applyInfo.Sument = tbxSument.Text.Trim();
                 _applyInfo.SumMoney = Convert.ToDecimal(lblMoney.Text.Trim());
                 _applyInfo.ApplyTime = DateTime.Now;
@@ -281,6 +335,7 @@ namespace TZMS.Web
                     _applyInfo.BusinessType = Convert.ToInt16(ddlstBusinessType.SelectedValue);
                     _applyInfo.BusinessName = ddlstBusinessTitle.SelectedText;
                     _applyInfo.SumMoney = Convert.ToDecimal(lblMoney.Text.Trim());
+                    _applyInfo.ApplySument = GetGenerateValue();
                     _applyInfo.Sument = tbxSument.Text.Trim();
                     _applyInfo.State = 0;
                     _applyInfo.ApproverID = new Guid(ddlstApproveUser.SelectedValue);
@@ -329,7 +384,9 @@ namespace TZMS.Web
                 ddlstBusinessType.SelectedValue = _info.BusinessType.ToString();
                 this.ddlstBusinessType_SelectedIndexChanged(null, null);
                 ddlstBusinessTitle.SelectedValue = _info.BusinessID.ToString();
+                lblMoney.Text = _info.SumMoney.ToString();
                 tbxSument.Text = _info.Sument;
+                BindGernrateValue(_info.ApplySument);
 
                 // 查找最早的审批记录.
                 List<BusinessImprestApproveInfo> lstApprove = _manage.GetImprestApproveByCondition(" ApplyID = '" + ApplyID + "' and ApproveOp <> 0");
@@ -373,6 +430,17 @@ namespace TZMS.Web
             tbxSument.Required = false;
             tbxSument.ShowRedStar = false;
             tbxSument.Enabled = false;
+
+            // 动态控件.
+            int count = CustomizeForm.Rows.Count;
+            for (int i = count - 1; i >= 0; --i)
+            {
+                if (CustomizeForm.Rows[i].ID.Contains("generate"))
+                {
+                    (CustomizeForm.Rows[i].Items[0] as ExtAspNet.CheckBox).Enabled = false;
+                    (CustomizeForm.Rows[i].Items[1] as ExtAspNet.TextBox).Enabled = false;
+                }
+            }
         }
 
         /// <summary>
@@ -411,32 +479,47 @@ namespace TZMS.Web
 
             ddlstBusinessTitle.SelectedIndex = 0;
 
-            GenerateNormalImprest(_manage);
+            GenerateNormalImprest();
+        }
+
+        /// <summary>
+        /// 绑定定制业务
+        /// </summary>
+        private void BindCustomizeBusiness()
+        {
+            ddlstBusinessTitle.Items.Clear();
+            BusinessManage _manage = new BusinessManage();
+            List<BusinessInfo> lstBusiness = _manage.GetBusinessByCondition(" IsDelete = 0 and BusinessType = 1 and State = 0");
+            foreach (BusinessInfo info in lstBusiness)
+            {
+                ddlstBusinessTitle.Items.Add(new ExtAspNet.ListItem(info.CompanyName, info.ObjectID.ToString()));
+            }
+
+            ddlstBusinessTitle.SelectedIndex = 0;
+
+            GenerateCustomizeImprest();
         }
 
         /// <summary>
         /// 生成普通业务的表单项.
         /// </summary>
         /// <param name="_manage"></param>
-        private void GenerateNormalImprest(BusinessManage _manage)
+        private void GenerateNormalImprest()
         {
             // 设置表单.
             // 清空现有生成的表单行.
-            //foreach (FormRow row in CustomizeForm.Rows)
-            //{
-            //    if (row.ID.Contains("generate"))
-            //    {
-            //        CustomizeForm.Rows.Remove(row);
-            //    }
-            //}
             int count = CustomizeForm.Rows.Count;
             for (int i = count - 1; i >= 0; --i)
             {
                 if (CustomizeForm.Rows[i].ID.Contains("generate"))
                 {
+                    //(CustomizeForm.Rows[i].Items[0] as ExtAspNet.CheckBox).Checked = false;
+                    //(CustomizeForm.Rows[i].Items[1] as ExtAspNet.TextBox).Text = "";
                     CustomizeForm.Rows.RemoveAt(i);
                 }
             }
+
+            BusinessManage _manage = new BusinessManage();
 
             // 生成普通业务表单行.
             for (int i = 0; i < 12; i++)
@@ -468,69 +551,11 @@ namespace TZMS.Web
         }
 
         /// <summary>
-        /// 文本变动事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void textbox_TextChanged(object sender, EventArgs e)
-        {
-            Alert.Show(((ExtAspNet.TextBox)sender).Label);
-
-            //string[] arrayControlsName = ((string)sender).Split('$');
-            //ExtAspNet.FormRow formRow = CustomizeForm.FindControl(arrayControlsName[arrayControlsName.Length - 2]) as ExtAspNet.FormRow;
-            //if (formRow != null)
-            //{
-            //    ExtAspNet.TextBox textBox = formRow.FindControl(arrayControlsName[arrayControlsName.Length - 1]) as ExtAspNet.TextBox;
-            //    Alert.Show(textBox.ID);
-            //}
-        }
-
-        /// <summary>
-        /// 复选框点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            Alert.Show(((ExtAspNet.CheckBox)sender).Text);
-            //ExtAspNet.CheckBox cbx = (ExtAspNet.CheckBox)sender;
-            //if (cbx.Checked)
-            //{
-            //    ExtAspNet.TextBox tbx = (ExtAspNet.TextBox)CustomizeForm.FindControl("tbx" + cbx.ID.Replace("cbx", ""));
-            //    tbx.Required = true;
-            //    tbx.ShowRedStar = true;
-            //}
-            //else
-            //{
-            //    ExtAspNet.TextBox tbx = (ExtAspNet.TextBox)CustomizeForm.FindControl("tbx" + cbx.ID.Replace("cbx", ""));
-            //    tbx.Required = false;
-            //    tbx.ShowRedStar = false;
-            //}
-        }
-
-        /// <summary>
-        /// 绑定定制业务
-        /// </summary>
-        private void BindCustomizeBusiness()
-        {
-            ddlstBusinessTitle.Items.Clear();
-            BusinessManage _manage = new BusinessManage();
-            List<BusinessInfo> lstBusiness = _manage.GetBusinessByCondition(" IsDelete = 0 and BusinessType = 1 and State = 0");
-            foreach (BusinessInfo info in lstBusiness)
-            {
-                ddlstBusinessTitle.Items.Add(new ExtAspNet.ListItem(info.CompanyName, info.ObjectID.ToString()));
-            }
-
-            ddlstBusinessTitle.SelectedIndex = 0;
-
-            GenerateCustomizeImprest();
-        }
-
-        /// <summary>
         /// 生成定制业务的表单项.
         /// </summary>
         private void GenerateCustomizeImprest()
         {
+
             // 设置表单.
             // 清空现有生成的表单行.
             int count = CustomizeForm.Rows.Count;
@@ -569,6 +594,8 @@ namespace TZMS.Web
                         textbox.Label = "金额(元)";
                         textbox.Regex = "^[0-9]*\\.?[0-9]{1,2}$";
                         textbox.RegexMessage = "金额格式不正确!";
+                        textbox.AutoPostBack = true;
+                        textbox.TextChanged += new EventHandler(textbox_TextChanged);
                         row.Items.Add(textbox);
 
                         CustomizeForm.Rows.Insert(CustomizeForm.Rows.Count - 1, row);
@@ -580,6 +607,72 @@ namespace TZMS.Web
         #endregion
 
         #region 页面事件
+
+        /// <summary>
+        /// 文本变动事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void textbox_TextChanged(object sender, EventArgs e)
+        {
+            //Alert.Show(((ExtAspNet.TextBox)sender).Label);
+
+            ExtAspNet.TextBox tbxSelected = (ExtAspNet.TextBox)sender;
+            if (tbxSelected != null)
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                Decimal sumMoney = 0;
+                foreach (ExtAspNet.FormRow formRow in CustomizeForm.Rows)
+                {
+                    if (formRow.ID.Contains("generate"))
+                    {
+                        ExtAspNet.CheckBox subCheckBox = formRow.FindControl(formRow.ID.Replace("generate", "cbx")) as ExtAspNet.CheckBox;
+                        ExtAspNet.TextBox subTextBox = formRow.FindControl(formRow.ID.Replace("generate", "tbx")) as ExtAspNet.TextBox;
+                        if (subCheckBox.Checked)
+                        {
+                            string money = string.IsNullOrEmpty(subTextBox.Text.Trim()) ? "0" : subTextBox.Text.Trim();
+                            stringBuilder.AppendLine(subCheckBox.Text + "    " + money + "元");
+                            sumMoney += Convert.ToDecimal(money);
+                        }
+                    }
+                }
+
+                tbxSument.Text = stringBuilder.ToString();
+                lblMoney.Text = sumMoney.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 复选框点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            ExtAspNet.CheckBox cbxSelected = (ExtAspNet.CheckBox)sender;
+            if (cbxSelected != null)
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                Decimal sumMoney = 0;
+                foreach (ExtAspNet.FormRow formRow in CustomizeForm.Rows)
+                {
+                    if (formRow.ID.Contains("generate"))
+                    {
+                        ExtAspNet.CheckBox subCheckBox = formRow.FindControl(formRow.ID.Replace("generate", "cbx")) as ExtAspNet.CheckBox;
+                        ExtAspNet.TextBox subTextBox = formRow.FindControl(formRow.ID.Replace("generate", "tbx")) as ExtAspNet.TextBox;
+                        if (subCheckBox.Checked)
+                        {
+                            string money = string.IsNullOrEmpty(subTextBox.Text.Trim()) ? "0" : subTextBox.Text.Trim();
+                            stringBuilder.AppendLine(subCheckBox.Text + "    " + money + "元");
+                            sumMoney += Convert.ToDecimal(money);
+                        }
+                    }
+                }
+
+                tbxSument.Text = stringBuilder.ToString();
+                lblMoney.Text = sumMoney.ToString();
+            }
+        }
 
         /// <summary>
         /// 关闭事件
@@ -598,6 +691,12 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            if ( Convert.ToDecimal(lblMoney.Text) == 0)
+            {
+                Alert.Show("总金额不可为零!");
+                return;
+            }
+
             SaveApply();
         }
 
@@ -608,7 +707,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void ddlstBusinessType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("---------------ddlstBusinessType_SelectedIndexChanged");
+            //System.Diagnostics.Debug.WriteLine("---------------ddlstBusinessType_SelectedIndexChanged");
 
             if (ddlstBusinessType.SelectedIndex == 0)
             {
@@ -617,6 +716,18 @@ namespace TZMS.Web
             else
             {
                 BindCustomizeBusiness();
+            }
+
+            lblMoney.Text = "0.00";
+            tbxSument.Text = "";
+            int count = CustomizeForm.Rows.Count;
+            for (int i = count - 1; i >= 0; --i)
+            {
+                if (CustomizeForm.Rows[i].ID.Contains("generate"))
+                {
+                    (CustomizeForm.Rows[i].Items[0] as ExtAspNet.CheckBox).Checked = false;
+                    (CustomizeForm.Rows[i].Items[1] as ExtAspNet.TextBox).Text = "";
+                }
             }
         }
 
@@ -630,6 +741,21 @@ namespace TZMS.Web
             if (ddlstBusinessType.SelectedIndex != 0)
             {
                 GenerateCustomizeImprest();
+            }
+            else
+            {
+                GenerateNormalImprest();
+            }
+            lblMoney.Text = "0.00";
+            tbxSument.Text = "";
+            int count = CustomizeForm.Rows.Count;
+            for (int i = count - 1; i >= 0; --i)
+            {
+                if (CustomizeForm.Rows[i].ID.Contains("generate"))
+                {
+                    (CustomizeForm.Rows[i].Items[0] as ExtAspNet.CheckBox).Checked = false;
+                    (CustomizeForm.Rows[i].Items[1] as ExtAspNet.TextBox).Text = "";
+                }
             }
         }
 

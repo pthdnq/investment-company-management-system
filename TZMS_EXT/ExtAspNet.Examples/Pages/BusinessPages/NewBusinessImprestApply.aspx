@@ -42,12 +42,13 @@
                         </Rows>
                     </ext:Form>
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                        AutoHeight="true" Height="389px">
+                        AutoHeight="true" Height="589px">
                         <Tabs>
                             <ext:Tab ID="Tab1" Title="备用金申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
-                                    <ext:Form ID="CustomizeForm" EnableBackgroundColor="true" LabelWidth="65px" ShowHeader="false"
-                                        ShowBorder="true" BodyPadding="5px" runat="server" AutoScroll="true" Height="400px">
+                                    <ext:Form ID="CustomizeForm" EnableBackgroundColor="true" LabelWidth="75px" ShowHeader="false"
+                                        ShowBorder="true" BodyPadding="5px" runat="server" AutoScroll="true" Height="550px"
+                                        AutoHeight="false">
                                         <Rows>
                                             <ext:FormRow ID="frw1" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
@@ -72,7 +73,7 @@
                                             <ext:FormRow ID="frw3" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextBox ID="lblMoney" runat="server" Label="总金额(元)" Required="true" ShowRedStar="true"
-                                                        Enabled="false">
+                                                        Enabled="false" Text="0.00">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
