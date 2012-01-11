@@ -53,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCheckManage\CheckMange.cs" />
+    <Compile Include="attendance\AdminImprestManage.cs" />
+    <Compile Include="attendance\AdminPaymentManage.cs" />
+    <Compile Include="attendance\AdminReceivablesManage.cs" />
     <Compile Include="attendance\ChuRuManage.cs" />
     <Compile Include="attendance\LeaveAppManage.cs" />
     <Compile Include="attendance\NoAttendManage.cs" />
