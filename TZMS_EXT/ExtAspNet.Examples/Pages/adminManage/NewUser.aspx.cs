@@ -292,6 +292,13 @@ namespace TZMS.Web
                 return;
             }
 
+            if (rblProbationState.SelectedValue=="1"
+                && dpbProbationTime.SelectedDate.ToString()=="")
+            {
+                 Alert.Show("转正日期必须要填写!");
+                return;
+            }
+
             // 执行操作.
             int result = 3;
             if (OperatorType == "Add")
