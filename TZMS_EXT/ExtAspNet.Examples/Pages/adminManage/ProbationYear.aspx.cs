@@ -163,6 +163,10 @@ namespace TZMS.Web
                 {
                     e.Values[7] = "不到1年";
                 }
+                if (e.Values[6].ToString().Contains("9999-"))
+                {
+                    e.Values[6] = "";
+                }
             }
         }
 
