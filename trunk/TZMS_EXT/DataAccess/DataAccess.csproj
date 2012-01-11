@@ -50,6 +50,12 @@
   <ItemGroup>
     <Compile Include="AccountantAuditHistoryCtrl.cs" />
     <Compile Include="AddSalaryCtrl.cs" />
+    <Compile Include="AdminImprestCtrl.cs" />
+    <Compile Include="AdminImprestHistoryCtrl.cs" />
+    <Compile Include="AdminPaymentCtrl.cs" />
+    <Compile Include="AdminPaymentHistoryCtrl.cs" />
+    <Compile Include="AdminReceivablesCtrl.cs" />
+    <Compile Include="AdminReceivablesHistoryCtrl.cs" />
     <Compile Include="AttendInfoCtrl.cs" />
     <Compile Include="BankLoanCtrl.cs" />
     <Compile Include="BankLoanHistoryCtrl.cs" />
