@@ -550,6 +550,27 @@
     <Content Include="images\zytz.jpg" />
     <Content Include="index.aspx" />
     <Content Include="library\blowery.Web.HttpCompress.dll" />
+    <Content Include="Pages\AdminExpensesManage\AdminImprestApply.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminImprestApplyList.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminImprestAudit.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminImprestAuditList.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminImprestConfirm.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminImprestConfirmList.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminImprestConfirmPrinter.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminPaymentApply.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminPaymentApplyList.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminPaymentAudit.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminPaymentAuditList.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminPaymentConfirm.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminPaymentConfirmList.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminPaymentConfirmPrinter.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminReceivablesApply.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminReceivablesApplyList.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminReceivablesAudit.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminReceivablesAuditList.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminReceivablesConfirm.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminReceivablesConfirmList.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminReceivablesConfirmPrinter.aspx" />
     <Content Include="Pages\adminManage\ChooseJiangCheng.aspx" />
     <Content Include="Pages\adminManage\ChooseZJ.aspx" />
     <Content Include="Pages\adminManage\ChuRuApply.aspx" />
@@ -875,6 +896,153 @@
     </Compile>
     <Compile Include="BsaePage.aspx.designer.cs">
       <DependentUpon>BsaePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestApply.aspx.cs">
+      <DependentUpon>AdminImprestApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestApply.aspx.designer.cs">
+      <DependentUpon>AdminImprestApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestApplyList.aspx.cs">
+      <DependentUpon>AdminImprestApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestApplyList.aspx.designer.cs">
+      <DependentUpon>AdminImprestApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestAudit.aspx.cs">
+      <DependentUpon>AdminImprestAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestAudit.aspx.designer.cs">
+      <DependentUpon>AdminImprestAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestAuditList.aspx.cs">
+      <DependentUpon>AdminImprestAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestAuditList.aspx.designer.cs">
+      <DependentUpon>AdminImprestAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestConfirm.aspx.cs">
+      <DependentUpon>AdminImprestConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestConfirm.aspx.designer.cs">
+      <DependentUpon>AdminImprestConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestConfirmList.aspx.cs">
+      <DependentUpon>AdminImprestConfirmList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestConfirmList.aspx.designer.cs">
+      <DependentUpon>AdminImprestConfirmList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestConfirmPrinter.aspx.cs">
+      <DependentUpon>AdminImprestConfirmPrinter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestConfirmPrinter.aspx.designer.cs">
+      <DependentUpon>AdminImprestConfirmPrinter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentApply.aspx.cs">
+      <DependentUpon>AdminPaymentApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentApply.aspx.designer.cs">
+      <DependentUpon>AdminPaymentApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentApplyList.aspx.cs">
+      <DependentUpon>AdminPaymentApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentApplyList.aspx.designer.cs">
+      <DependentUpon>AdminPaymentApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentAudit.aspx.cs">
+      <DependentUpon>AdminPaymentAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentAudit.aspx.designer.cs">
+      <DependentUpon>AdminPaymentAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentAuditList.aspx.cs">
+      <DependentUpon>AdminPaymentAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentAuditList.aspx.designer.cs">
+      <DependentUpon>AdminPaymentAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentConfirm.aspx.cs">
+      <DependentUpon>AdminPaymentConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentConfirm.aspx.designer.cs">
+      <DependentUpon>AdminPaymentConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentConfirmList.aspx.cs">
+      <DependentUpon>AdminPaymentConfirmList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentConfirmList.aspx.designer.cs">
+      <DependentUpon>AdminPaymentConfirmList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentConfirmPrinter.aspx.cs">
+      <DependentUpon>AdminPaymentConfirmPrinter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentConfirmPrinter.aspx.designer.cs">
+      <DependentUpon>AdminPaymentConfirmPrinter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesApply.aspx.cs">
+      <DependentUpon>AdminReceivablesApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesApply.aspx.designer.cs">
+      <DependentUpon>AdminReceivablesApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesApplyList.aspx.cs">
+      <DependentUpon>AdminReceivablesApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesApplyList.aspx.designer.cs">
+      <DependentUpon>AdminReceivablesApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesAudit.aspx.cs">
+      <DependentUpon>AdminReceivablesAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesAudit.aspx.designer.cs">
+      <DependentUpon>AdminReceivablesAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesAuditList.aspx.cs">
+      <DependentUpon>AdminReceivablesAuditList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesAuditList.aspx.designer.cs">
+      <DependentUpon>AdminReceivablesAuditList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesConfirm.aspx.cs">
+      <DependentUpon>AdminReceivablesConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesConfirm.aspx.designer.cs">
+      <DependentUpon>AdminReceivablesConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesConfirmList.aspx.cs">
+      <DependentUpon>AdminReceivablesConfirmList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesConfirmList.aspx.designer.cs">
+      <DependentUpon>AdminReceivablesConfirmList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesConfirmPrinter.aspx.cs">
+      <DependentUpon>AdminReceivablesConfirmPrinter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesConfirmPrinter.aspx.designer.cs">
+      <DependentUpon>AdminReceivablesConfirmPrinter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\ChooseJiangCheng.aspx.cs">
       <DependentUpon>ChooseJiangCheng.aspx</DependentUpon>
