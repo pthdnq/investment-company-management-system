@@ -230,8 +230,14 @@ namespace TZMS.Web
             ddlstCompanyNameType.Enabled = false;
             tbxContact.Enabled = false;
             tbxContactPhoneNumber.Enabled = false;
+            tbxSumMoney.Required = false;
+            tbxSumMoney.ShowRedStar = false;
             tbxSumMoney.Enabled = false;
+            tbxPreMoney.Required = false;
+            tbxPreMoney.ShowRedStar = false;
             tbxPreMoney.Enabled = false;
+            tbxBalanceMoney.Required = false;
+            tbxBalanceMoney.ShowRedStar = false;
             tbxBalanceMoney.Enabled = false;
             CheckBox1.Enabled = false;
             CheckBox2.Enabled = false;
@@ -269,7 +275,7 @@ namespace TZMS.Web
                 _info.SignerName = ddlstSigner.SelectedText;
                 _info.SignTime = Convert.ToDateTime(dpkSignTime.SelectedDate);
                 _info.CompanyName = tbxCompanyName.Text.Trim();
-                _info.RegisteredMoney = Convert.ToDecimal(tbxRegisteredMoney.Text.Trim());
+                _info.RegisteredMoney = string.IsNullOrEmpty(tbxRegisteredMoney.Text.Trim()) ? 0 : Convert.ToDecimal(tbxRegisteredMoney.Text.Trim());
                 _info.CZType = short.Parse(ddlstCZType.SelectedValue);
                 _info.CompanyType = short.Parse(ddlstCompanyType.SelectedValue);
                 _info.CompanyNameType = short.Parse(ddlstCompanyNameType.SelectedValue);
@@ -331,7 +337,7 @@ namespace TZMS.Web
                     _info.SignerName = ddlstSigner.SelectedText;
                     _info.SignTime = Convert.ToDateTime(dpkSignTime.SelectedDate);
                     _info.CompanyName = tbxCompanyName.Text.Trim();
-                    _info.RegisteredMoney = Convert.ToDecimal(tbxRegisteredMoney.Text.Trim());
+                    _info.RegisteredMoney = string.IsNullOrEmpty(tbxRegisteredMoney.Text.Trim()) ? 0 : Convert.ToDecimal(tbxRegisteredMoney.Text.Trim());
                     _info.CZType = short.Parse(ddlstCZType.SelectedValue);
                     _info.CompanyType = short.Parse(ddlstCompanyType.SelectedValue);
                     _info.CompanyNameType = short.Parse(ddlstCompanyNameType.SelectedValue);

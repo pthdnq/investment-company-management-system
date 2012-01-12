@@ -191,7 +191,7 @@ namespace TZMS.Web
                         {
                             case "1":
                                 cbxCMBG.Checked = true;
-                                cbxCMBG.Enabled = !IsComplete;
+                                cbxCMBG.Enabled = IsComplete;
                                 if (!IsComplete)
                                 {
                                     cbxZCZBBG.Checked = false;
@@ -200,11 +200,11 @@ namespace TZMS.Web
                                 break;
                             case "2":
                                 cbxGDMCBG.Checked = true;
-                                cbxGDMCBG.Enabled = !IsComplete;
+                                cbxGDMCBG.Enabled = IsComplete;
                                 break;
                             case "3":
                                 cbxZCZBBG.Checked = true;
-                                cbxZCZBBG.Enabled = !IsComplete;
+                                cbxZCZBBG.Enabled = IsComplete;
                                 if (!IsComplete)
                                 {
                                     cbxCMBG.Checked = false;
@@ -215,15 +215,15 @@ namespace TZMS.Web
                                 break;
                             case "4":
                                 cbxJYCSBG.Checked = true;
-                                cbxJYCSBG.Enabled = !IsComplete;
+                                cbxJYCSBG.Enabled = IsComplete;
                                 break;
                             case "5":
                                 cbxFDDBRBG.Checked = true;
-                                cbxFDDBRBG.Enabled = !IsComplete;
+                                cbxFDDBRBG.Enabled = IsComplete;
                                 break;
                             case "6":
                                 cbxGDBG.Checked = true;
-                                cbxGDBG.Enabled = !IsComplete;
+                                cbxGDBG.Enabled = IsComplete;
                                 if (!IsComplete)
                                 {
                                     cbxZCZBBG.Checked = false;
@@ -232,43 +232,43 @@ namespace TZMS.Web
                                 break;
                             case "7":
                                 cbxSSZBBG.Checked = true;
-                                cbxSSZBBG.Enabled = !IsComplete;
+                                cbxSSZBBG.Enabled = IsComplete;
                                 break;
                             case "8":
                                 cbxGSLXBG.Checked = true;
-                                cbxGSLXBG.Enabled = !IsComplete;
+                                cbxGSLXBG.Enabled = IsComplete;
                                 break;
                             case "9":
                                 cbxYYQXBG.Checked = true;
-                                cbxYYQXBG.Enabled = !IsComplete;
+                                cbxYYQXBG.Enabled = IsComplete;
                                 break;
                             case "10":
                                 cbxJYFWBG.Checked = true;
-                                cbxJYFWBG.Enabled = !IsComplete;
+                                cbxJYFWBG.Enabled = IsComplete;
                                 break;
                             case "11":
                                 cbxZXDJ.Checked = true;
-                                cbxZXDJ.Enabled = !IsComplete;
+                                cbxZXDJ.Enabled = IsComplete;
                                 break;
                             case "12":
                                 cbxFGSBG.Checked = true;
-                                cbxFGSBG.Enabled = !IsComplete;
+                                cbxFGSBG.Enabled = IsComplete;
                                 break;
                             case "13":
                                 cbxFGSZX.Checked = true;
-                                cbxFGSZX.Enabled = !IsComplete;
+                                cbxFGSZX.Enabled = IsComplete;
                                 break;
                             case "14":
                                 cbxZCNJ.Checked = true;
-                                cbxZCNJ.Enabled = !IsComplete;
+                                cbxZCNJ.Enabled = IsComplete;
                                 break;
                             case "15":
                                 cbxTSNJ.Checked = true;
-                                cbxTSNJ.Enabled = !IsComplete;
+                                cbxTSNJ.Enabled = IsComplete;
                                 break;
                             case "16":
                                 cbxJTYWBL.Checked = true;
-                                cbxJTYWBL.Enabled = !IsComplete;
+                                cbxJTYWBL.Enabled = IsComplete;
                                 break;
                             default:
                                 break;
@@ -318,8 +318,14 @@ namespace TZMS.Web
             tbxCompanyName.Enabled = false;
             tbxContact.Enabled = false;
             tbxContactPhoneNumber.Enabled = false;
+            tbxSumMoney.Required = false;
+            tbxSumMoney.ShowRedStar = false;
             tbxSumMoney.Enabled = false;
+            tbxPreMoney.Required = false;
+            tbxPreMoney.ShowRedStar = false;
             tbxPreMoney.Enabled = false;
+            tbxBalanceMoney.Required = false;
+            tbxBalanceMoney.ShowRedStar = false;
             tbxBalanceMoney.Enabled = false;
             CheckBox1.Enabled = false;
             tbxCostMoney.Enabled = false;
@@ -392,7 +398,7 @@ namespace TZMS.Web
                 _info.State = 0;
                 _info.CurrentUserID = CurrentUser.ObjectId;
                 _info.IsDelete = false;
-                _info.BusinessCells = GetCells();
+                _info.BusinessCells = strCell;
                 _info.BusinessType = 1;
 
                 // 杂项.
@@ -448,23 +454,28 @@ namespace TZMS.Web
                     _info.CurrentUserID = CurrentUser.ObjectId;
                     _info.IsDelete = false;
                     _info.BusinessType = 1;
-                    _info.BusinessCells = GetCells();
+                    _info.BusinessCells += "," + strCell;
 
+                    // 创建待办理记录.
+                    BusinessRecordInfo _recordInfo = null;
                     if (CheckBox1.Checked)
                         _info.CheckOther = "1";
 
-                    // 创建待办理记录.
-                    BusinessRecordInfo _recordInfo = new BusinessRecordInfo();
-                    _recordInfo.ObjectID = Guid.NewGuid();
-                    _recordInfo.CheckerID = CurrentUser.ObjectId;
-                    _recordInfo.CheckerName = CurrentUser.Name;
-                    _recordInfo.State = 0;
-                    _recordInfo.CurrentBusiness = 1;
-                    _recordInfo.BusinessID = _info.ObjectID;
+                    if (_info.State != 0)
+                    {
+                        _recordInfo = new BusinessRecordInfo();
+                        _recordInfo.ObjectID = Guid.NewGuid();
+                        _recordInfo.CheckerID = CurrentUser.ObjectId;
+                        _recordInfo.CheckerName = CurrentUser.Name;
+                        _recordInfo.State = 0;
+                        _recordInfo.CurrentBusiness = Convert.ToInt32(_info.BusinessCells.Split(',')[0]); ;
+                        _recordInfo.BusinessID = _info.ObjectID;
 
-                    _manage.AddNewBusinessRecord(_recordInfo);
+                        _manage.AddNewBusinessRecord(_recordInfo);
 
-                    _info.CurrentBusinessRecordID = _recordInfo.ObjectID;
+                        _info.CurrentBusinessRecordID = _recordInfo.ObjectID;
+                    }
+                    
                     result = _manage.UpdateBusiness(_info);
                 }
             }
