@@ -93,6 +93,10 @@
     <Compile Include="ProxyAccountingApplyInfo.cs" />
     <Compile Include="ProxyAccountingApproveInfo.cs" />
     <Compile Include="ProxyAccountingUnitInfo.cs" />
+    <Compile Include="ProxyAmountInfo.cs" />
+    <Compile Include="ProxyAmountTemplateApplyInfo.cs" />
+    <Compile Include="ProxyAmountTemplateApproveInfo.cs" />
+    <Compile Include="ProxyAmountUnitInfo.cs" />
     <Compile Include="ReceivablesAuditHistoryInfo.cs" />
     <Compile Include="ReceivablesInfo.cs" />
     <Compile Include="RecruitmentApplyInfo.cs" />

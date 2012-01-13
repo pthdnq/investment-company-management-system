@@ -25,18 +25,6 @@
             <ext:Panel ID="pelOperator" runat="server" ShowBorder="false" EnableBackgroundColor="true"
                 BodyPadding="3px" ShowHeader="false" AnchorValue="100% -36">
                 <Items>
-                    <ext:Form ID="mainForm2" EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px"
-                        runat="server">
-                        <Rows>
-                            <ext:FormRow ColumnWidths="60%">
-                                <Items>
-                                    <ext:TextBox ID="tbxActualMoney" runat="server" Label="实际金额" Required="true" ShowRedStar="true"
-                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
-                                    </ext:TextBox>
-                                </Items>
-                            </ext:FormRow>
-                        </Rows>
-                    </ext:Form>
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
                         AutoHeight="true" Height="335px">
                         <Tabs>

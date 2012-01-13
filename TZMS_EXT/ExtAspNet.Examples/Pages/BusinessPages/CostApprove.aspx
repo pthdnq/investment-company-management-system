@@ -41,6 +41,13 @@
                                     </ext:DropDownList>
                                 </Items>
                             </ext:FormRow>
+                            <ext:FormRow ColumnWidths="60%">
+                                <Items>
+                                    <ext:TextBox ID="tbxActualMoney" runat="server" Label="实际金额" ShowRedStar="true" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                        RegexMessage="金额格式不正确!" Hidden="true">
+                                    </ext:TextBox>
+                                </Items>
+                            </ext:FormRow>
                             <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="50% 50%">
                                 <Items>
                                     <ext:TextArea ID="taaApproveSugest" Height="50px" runat="server" Label="审批意见" MaxLength="100"
@@ -86,8 +93,8 @@
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextBox ID="taaOther" runat="server" Label="备注" Height="60px" MaxLength="100" Enabled="false"
-                                                        MaxLengthMessage="最多只能输入100个字!">
+                                                    <ext:TextBox ID="taaOther" runat="server" Label="备注" Height="60px" MaxLength="100"
+                                                        Enabled="false" MaxLengthMessage="最多只能输入100个字!">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
