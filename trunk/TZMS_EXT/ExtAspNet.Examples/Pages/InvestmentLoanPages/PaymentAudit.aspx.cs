@@ -58,11 +58,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
 
-                OperateType = Request.QueryString["Type"];
+                OperateType = Request.QueryString["Type"]; 
 
-
-                bindInterface(strID);
-
+                bindInterface(strID); 
                 // 绑定审批历史.
                 BindHistory();
             }

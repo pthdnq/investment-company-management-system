@@ -364,6 +364,18 @@ namespace TZMS.Web
                 //case RoleType.QT:
                 //    strRole = "前台";
                 //    break;
+                case RoleType.XZBBYJGDDY1:
+                    strRole = "行政部备用金>1w归档";
+                    break;
+                case RoleType.XZBBYJGDXY1:
+                    strRole = "行政部备用金<1w归档";
+                    break;
+                case RoleType.XZBFKJGD:
+                    strRole = "行政部付款归档";
+                    break;
+                case RoleType.XZBSKGD:
+                    strRole = "行政部收款上交归档";
+                    break;
             }
 
             return strRole;
