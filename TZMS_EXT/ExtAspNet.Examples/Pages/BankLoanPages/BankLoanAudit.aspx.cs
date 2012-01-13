@@ -288,8 +288,6 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             ddlstApproveUser.SelectedIndex = 0;
         }
-        #endregion
-
-
+        #endregion 
     }
 }
