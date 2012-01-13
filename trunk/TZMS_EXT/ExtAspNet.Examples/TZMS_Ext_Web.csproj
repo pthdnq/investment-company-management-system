@@ -557,6 +557,7 @@
     <Content Include="Pages\AdminExpensesManage\AdminImprestConfirm.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminImprestConfirmList.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminImprestConfirmPrinter.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminImprestList.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminPaymentApply.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminPaymentApplyList.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminPaymentAudit.aspx" />
@@ -564,6 +565,7 @@
     <Content Include="Pages\AdminExpensesManage\AdminPaymentConfirm.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminPaymentConfirmList.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminPaymentConfirmPrinter.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminPaymentList.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminReceivablesApply.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminReceivablesApplyList.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminReceivablesAudit.aspx" />
@@ -571,6 +573,7 @@
     <Content Include="Pages\AdminExpensesManage\AdminReceivablesConfirm.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminReceivablesConfirmList.aspx" />
     <Content Include="Pages\AdminExpensesManage\AdminReceivablesConfirmPrinter.aspx" />
+    <Content Include="Pages\AdminExpensesManage\AdminReceivablesList.aspx" />
     <Content Include="Pages\adminManage\ChooseJiangCheng.aspx" />
     <Content Include="Pages\adminManage\ChooseZJ.aspx" />
     <Content Include="Pages\adminManage\ChuRuApply.aspx" />
@@ -946,6 +949,13 @@
     <Compile Include="Pages\AdminExpensesManage\AdminImprestConfirmPrinter.aspx.designer.cs">
       <DependentUpon>AdminImprestConfirmPrinter.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestList.aspx.cs">
+      <DependentUpon>AdminImprestList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminImprestList.aspx.designer.cs">
+      <DependentUpon>AdminImprestList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AdminExpensesManage\AdminPaymentApply.aspx.cs">
       <DependentUpon>AdminPaymentApply.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -995,6 +1005,13 @@
     <Compile Include="Pages\AdminExpensesManage\AdminPaymentConfirmPrinter.aspx.designer.cs">
       <DependentUpon>AdminPaymentConfirmPrinter.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentList.aspx.cs">
+      <DependentUpon>AdminPaymentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminPaymentList.aspx.designer.cs">
+      <DependentUpon>AdminPaymentList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AdminExpensesManage\AdminReceivablesApply.aspx.cs">
       <DependentUpon>AdminReceivablesApply.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1043,6 +1060,13 @@
     </Compile>
     <Compile Include="Pages\AdminExpensesManage\AdminReceivablesConfirmPrinter.aspx.designer.cs">
       <DependentUpon>AdminReceivablesConfirmPrinter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesList.aspx.cs">
+      <DependentUpon>AdminReceivablesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminExpensesManage\AdminReceivablesList.aspx.designer.cs">
+      <DependentUpon>AdminReceivablesList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminManage\ChooseJiangCheng.aspx.cs">
       <DependentUpon>ChooseJiangCheng.aspx</DependentUpon>
