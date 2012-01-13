@@ -104,6 +104,10 @@
     <Compile Include="ProxyAccountingApplyCtrl.cs" />
     <Compile Include="ProxyAccountingApproveCtrl.cs" />
     <Compile Include="ProxyAccountingUnitCtrl.cs" />
+    <Compile Include="ProxyAmountCtrl.cs" />
+    <Compile Include="ProxyAmountTemplateApplyCtrl.cs" />
+    <Compile Include="ProxyAmountTemplateApproveCtrl.cs" />
+    <Compile Include="ProxyAmountUnitCtrl.cs" />
     <Compile Include="ReceivablesAuditHistoryCtrl.cs" />
     <Compile Include="ReceivablesCtrl.cs" />
     <Compile Include="RecruitmentApplyCtrl.cs" />

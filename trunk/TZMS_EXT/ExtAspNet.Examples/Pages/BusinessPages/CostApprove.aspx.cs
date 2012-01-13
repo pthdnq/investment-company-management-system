@@ -290,6 +290,32 @@ namespace TZMS.Web
             }
             else if (ddlstNext.SelectedText == "会计核算")
             {
+                if (string.IsNullOrEmpty(tbxActualMoney.Text.Trim()))
+                {
+                    Alert.Show("实际金额不可为空!");
+                    return;
+                }
+
+                BusinessInfo _info = _manage.GetBusinessByObjectID(_applyInfo.BusinessID.ToString());
+                if (_info != null)
+                {
+                    if (_applyInfo.CostType == 0)
+                    {
+                        _info.PreMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
+                        _info.PreMoneyType = 1;
+                    }
+                    else if (_applyInfo.CostType == 1)
+                    {
+                        _info.BalanceMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
+                        _info.BalanceMoneyType = 1;
+                    }
+
+                    _manage.UpdateBusiness(_info);
+                }
+
+                _approveInfo.ApproverSugest = "实际收取业务费用" + tbxActualMoney.Text + "元";
+                _manage.UpdateCostApprove(_approveInfo);
+
                 BusinessCostApproveInfo _archiverApproveInfo = new BusinessCostApproveInfo();
                 UserInfo _approveUser = new UserManage().GetUserByObjectID(ddlstApproveUser.SelectedValue);
                 if (_approveUser != null)
@@ -402,12 +428,14 @@ namespace TZMS.Web
                 BindConfirmUser();
                 btnPass.Text = "会计核算";
                 btnPass.ConfirmText = "您确认会计核算吗?";
+                tbxActualMoney.Hidden = false;
             }
             else
             {
                 BindApproveUser();
                 btnPass.Text = "同意";
                 btnPass.Text = "您确认同意吗?";
+                tbxActualMoney.Hidden = true;
             }
         }
 

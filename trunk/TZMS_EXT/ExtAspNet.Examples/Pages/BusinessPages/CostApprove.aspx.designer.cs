@@ -121,6 +121,15 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DropDownList ddlstApproveUser;
         
         /// <summary>
+        /// tbxActualMoney control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbxActualMoney;
+        
+        /// <summary>
         /// FormRow6 control.
         /// </summary>
         /// <remarks>

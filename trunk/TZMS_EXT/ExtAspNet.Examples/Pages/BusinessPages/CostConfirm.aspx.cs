@@ -124,7 +124,7 @@ namespace TZMS.Web
                 if (_approveInfo.ApproveState == 1)
                 {
                     btnPass.Hidden = true;
-                    mainForm2.Hidden = true;
+                    //mainForm2.Hidden = true;
                 }
             }
         }
@@ -159,24 +159,24 @@ namespace TZMS.Web
             if (_applyInfo != null && _approveInfo != null)
             {
                 BusinessInfo _info = _manage.GetBusinessByObjectID(_applyInfo.BusinessID.ToString());
-                if (_info != null)
-                {
-                    if (_applyInfo.CostType == 0)
-                    {
-                        _info.PreMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
-                        _info.PreMoneyType = 1;
-                    }
-                    else if (_applyInfo.CostType == 1)
-                    {
-                        _info.BalanceMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
-                        _info.BalanceMoneyType = 1;
-                    }
+                //if (_info != null)
+                //{
+                //    if (_applyInfo.CostType == 0)
+                //    {
+                //        _info.PreMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
+                //        _info.PreMoneyType = 1;
+                //    }
+                //    else if (_applyInfo.CostType == 1)
+                //    {
+                //        _info.BalanceMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
+                //        _info.BalanceMoneyType = 1;
+                //    }
 
-                    _manage.UpdateBusiness(_info);
-                }
+                //    _manage.UpdateBusiness(_info);
+                //}
 
                 // 更新现有申请信息.
-                _applyInfo.ActualMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
+                //_applyInfo.ActualMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
                 _applyInfo.State = 1;
                 result = _manage.UpdateCostApply(_applyInfo);
 
@@ -184,7 +184,7 @@ namespace TZMS.Web
                 _approveInfo.ApproveState = 1;
                 _approveInfo.ApproveTime = DateTime.Now;
                 _approveInfo.ApproveOp = 4;
-                _approveInfo.ApproverSugest = "实际收取业务费用" + tbxActualMoney.Text + "元";
+                //_approveInfo.ApproverSugest = "实际收取业务费用" + tbxActualMoney.Text + "元";
                 _manage.UpdateCostApprove(_approveInfo);
             }
 
