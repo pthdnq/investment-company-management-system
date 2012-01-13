@@ -388,6 +388,26 @@ namespace TZMS.Web
             ///// 前台（入门登记）
             ///// </summary>
             //QT = 36,
+             
+            /// <summary>
+            /// 行政部备用金大于1w归档
+            /// </summary>
+            XZBBYJGDDY1=37,
+
+            /// <summary>
+            /// 行政部备用金小于1w归档
+            /// </summary>
+            XZBBYJGDXY1 = 38,
+
+            /// <summary>
+            /// 行政部付款归档 
+            /// </summary>
+            XZBFKJGD = 39,
+
+            /// <summary>
+            /// 行政部收款上交归档 
+            /// </summary>
+            XZBSKGD = 40
         }
 
         /// <summary>
@@ -449,7 +469,7 @@ namespace TZMS.Web
             /// <summary>
             /// 其他
             /// </summary>
-            QT = 10
+            QT = 10 
         }
 
         /// <summary>
