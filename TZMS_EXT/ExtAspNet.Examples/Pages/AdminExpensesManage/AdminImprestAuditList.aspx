@@ -64,15 +64,12 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField ExpandUnusedSpace="true" DataTooltipField="ProjectName" DataField="ProjectName"
+                              <ext:BoundField ExpandUnusedSpace="true" DataTooltipField="ProjectName" DataField="ProjectName"
                                 HeaderText="项目名称" />
-                            <ext:BoundField Width="75px" DataField="CustomerName" HeaderText="客户名称" />
-                            <ext:BoundField Width="75px" DataField="LoanCompany" HeaderText="贷款公司" />
-                            <ext:BoundField Width="70px" DataField="LoanAmount" DataTooltipField="LoanAmount"
-                                HeaderText="贷款金额" />
-                            <ext:BoundField Width="80px" DataField="CollateralCompany" HeaderText="抵押物公司" />
-                            <ext:BoundField Width="70px" DataField="SignDate" DataFormatString="{0:yyyy/MM/dd}"
-                                HeaderText="签订日期" />
+                            <ext:BoundField Width="80px" DataField="PrepaidAmount" DataTooltipField="LoanAmount"
+                                HeaderText="预支金额" />
+                            <ext:BoundField Width="150px" DataField="Use" HeaderText="用途" />
+                            <ext:BoundField Width="150px" DataField="Remark" HeaderText="备注" />
                             <ext:BoundField DataField="NextOperaterName" Width="73px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="66px" HeaderText="状态">
                                 <ItemTemplate>

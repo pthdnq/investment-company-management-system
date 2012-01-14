@@ -1259,6 +1259,142 @@
                                     </ext:TreeNode>
                                 </Nodes>
                             </ext:TreeNode>
+                            <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="ZJSH" Text="行政部费用管理">
+                                <Nodes>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzbyjsq" OnClientClick="return false;"
+                                        Text="备用金申请列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzbyjsh" OnClientClick="return false;"
+                                        Text="备用金审核列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzbyjqr" OnClientClick="return false;"
+                                        Text="备用金确认列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzbyj" OnClientClick="return false;"
+                                        Text="备用金信息列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzsksjsq" OnClientClick="return false;"
+                                        Text="收款上交申请列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzsksjqr" OnClientClick="return false;"
+                                        Text="收款上交确认列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzsksjsh" OnClientClick="return false;"
+                                        Text="收款上交审核列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzsksj" OnClientClick="return false;"
+                                        Text="收款上交信息列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzfksjsq" OnClientClick="return false;"
+                                        Text="行政付款申请列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzfksjsh" OnClientClick="return false;"
+                                        Text="行政付款审核列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzfksjqr" OnClientClick="return false;"
+                                        Text="行政付款确认列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzfksj" OnClientClick="return false;"
+                                        Text="行政付款信息列表">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                </Nodes>
+                            </ext:TreeNode>
                         </Nodes>
                     </ext:Tree>
                 </Items>

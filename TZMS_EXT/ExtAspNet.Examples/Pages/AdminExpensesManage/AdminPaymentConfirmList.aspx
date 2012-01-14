@@ -66,13 +66,13 @@
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField ExpandUnusedSpace="true" DataTooltipField="ProjectName" DataField="ProjectName"
                                 HeaderText="项目名称" />
-                            <ext:BoundField Width="75px" DataField="CustomerName" HeaderText="客户名称" />
-                            <ext:BoundField Width="75px" DataField="LoanCompany" HeaderText="贷款公司" />
-                            <ext:BoundField Width="70px" DataField="LoanAmount" DataTooltipField="LoanAmount"
-                                HeaderText="贷款金额" />
-                            <ext:BoundField Width="80px" DataField="CollateralCompany" HeaderText="抵押物公司" />
-                            <ext:BoundField Width="70px" DataField="SignDate" DataFormatString="{0:yyyy/MM/dd}"
-                                HeaderText="签订日期" />
+                      <ext:BoundField Width="85px" DataField="Company" HeaderText="单位" />
+                            <ext:BoundField Width="80px" DataField="DateFor" DataFormatString="{0:yyyy/MM/dd}"
+                                HeaderText="时间" />
+                        <ext:BoundField Width="120px" DataField="Cause" HeaderText="付款事由" />
+                            <ext:BoundField Width="70px" DataField="AmountOfPayment" DataTooltipField="LoanAmount"
+                                HeaderText="金额" />
+                            <ext:BoundField Width="65px" DataField="Company" HeaderText="付款方式" />
                             <ext:BoundField DataField="NextOperaterName" Width="73px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="66px" HeaderText="状态">
                                 <ItemTemplate>
