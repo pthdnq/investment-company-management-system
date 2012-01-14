@@ -49,16 +49,16 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" ApproverID = '" + CurrentUser.ObjectId.ToString() + "' and ApproveOp >= 3");
+            strCondition.Append(" ApproverID = '" + CurrentUser.ObjectId.ToString() + "' and ApproveOp = 2 ");
 
             // 审批状态.
             if (ddlstAproveState.SelectedIndex == 1)
             {
-                strCondition.Append(" and ApproveOp = 3");
+                strCondition.Append(" and ApproveState = 0");
             }
             else if (ddlstAproveState.SelectedIndex == 2)
             {
-                strCondition.Append(" and ApproveOp = 4");
+                strCondition.Append(" and ApproveState = 1");
             }
 
             strCondition.Append(" and (ApproveTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '"

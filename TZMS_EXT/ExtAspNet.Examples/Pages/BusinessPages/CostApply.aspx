@@ -87,7 +87,7 @@
                                     </ext:Form>
                                 </Items>
                             </ext:Tab>
-                            <ext:Tab ID="tabApproveHistory" Title="审批历史" EnableBackgroundColor="true" runat="server"
+                            <ext:Tab ID="tabApproveHistory" Title="确认历史" EnableBackgroundColor="true" runat="server"
                                 BodyPadding="5px">
                                 <Items>
                                     <ext:Grid ID="gridApproveHistory" Title="Grid1" ShowBorder="true" ShowHeader="false"

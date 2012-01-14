@@ -162,25 +162,25 @@ namespace TZMS.Web
                 switch (e.Values[7].ToString())
                 {
                     case "0":
-                        e.Values[7] = "审批中";
+                        e.Values[7] = "待出纳确认";
                         e.Values[4] = "";
-                        e.Values[9] = "<span class=\"gray\">编辑</span>";
+                        //e.Values[9] = "<span class=\"gray\">编辑</span>";
                         e.Values[10] = "<span class=\"gray\">删除</span>";
                         break;
                     case "1":
-                        e.Values[7] = "已确认";
-                        e.Values[9] = "<span class=\"gray\">编辑</span>";
+                        e.Values[7] = "出纳已确认";
+                        //e.Values[9] = "<span class=\"gray\">编辑</span>";
                         if (CurrentLevel == VisitLevel.View)
                         {
                             e.Values[10] = "<span class=\"gray\">删除</span>";
                         }
                         break;
                     case "2":
-                        e.Values[7] = "未通过";
+                        e.Values[7] = "已归档";
                         e.Values[4] = "";
                         if (CurrentLevel == VisitLevel.View)
                         {
-                            e.Values[9] = "<span class=\"gray\">编辑</span>";
+                            //e.Values[9] = "<span class=\"gray\">编辑</span>";
                             e.Values[10] = "<span class=\"gray\">删除</span>";
                         }
 

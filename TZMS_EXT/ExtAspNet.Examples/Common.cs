@@ -104,6 +104,11 @@ namespace TZMS
             /// 代帐费
             /// </summary>
             public static string ProxyAccounting = "代帐费";
+
+            /// <summary>
+            /// 业务费用收取
+            /// </summary>
+            public static string BusinessCost = "业务费用收取";
         }
 
         #region 附件

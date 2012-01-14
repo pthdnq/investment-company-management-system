@@ -8,6 +8,7 @@ using com.TZMS.Business.BusinessManage;
 using com.TZMS.Model;
 using System.Text;
 using ExtAspNet;
+using com.TZMS.Business;
 
 namespace TZMS.Web
 {
@@ -60,6 +61,8 @@ namespace TZMS.Web
                 ApproveID = Request.QueryString["ApproveID"];
                 ApplyID = Request.QueryString["ApplyID"];
 
+                BindNext();
+                BindApproveUser();
                 BindApplyInfo();
                 BindApproveHistory();
                 SetPanelState();
@@ -67,6 +70,48 @@ namespace TZMS.Web
         }
 
         #region 私有方法
+
+        /// <summary>
+        /// 绑定下一步
+        /// </summary>
+        private void BindNext()
+        {
+            ddlstNext.Items.Clear();
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("确认", "0"));
+            BusinessManage _manage = new BusinessManage();
+            BusinessCostApplyInfo _applyInfo = _manage.GetCostApplyByObjectID(ApplyID);
+            if (_applyInfo != null)
+            {
+                if (_applyInfo.ActualMoney >= 300000)
+                {
+                    if (CurrentRoles.Contains(RoleType.YWFYSQQRGDDY30W))
+                    {
+                        ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                    }
+                }
+                else
+                {
+                    if (CurrentRoles.Contains(RoleType.YWFYSQQRGDXY30W))
+                    {
+                        ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 绑定执行人
+        /// </summary>
+        private void BindApproveUser()
+        {
+            ddlstApproveUser.Items.Clear();
+            foreach (UserInfo item in CurrentChecker)
+            {
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(item.Name, item.ObjectId.ToString()));
+            }
+
+            ddlstApproveUser.SelectedIndex = 0;
+        }
 
         /// <summary>
         /// 绑定报销申请单信息
@@ -124,7 +169,7 @@ namespace TZMS.Web
                 if (_approveInfo.ApproveState == 1)
                 {
                     btnPass.Hidden = true;
-                    //mainForm2.Hidden = true;
+                    mainForm2.Hidden = true;
                 }
             }
         }
@@ -158,34 +203,56 @@ namespace TZMS.Web
             int result = 3;
             if (_applyInfo != null && _approveInfo != null)
             {
-                BusinessInfo _info = _manage.GetBusinessByObjectID(_applyInfo.BusinessID.ToString());
-                //if (_info != null)
-                //{
-                //    if (_applyInfo.CostType == 0)
-                //    {
-                //        _info.PreMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
-                //        _info.PreMoneyType = 1;
-                //    }
-                //    else if (_applyInfo.CostType == 1)
-                //    {
-                //        _info.BalanceMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
-                //        _info.BalanceMoneyType = 1;
-                //    }
+                if (ddlstNext.SelectedIndex == 0)
+                {
+                    _applyInfo.ApproverID = new Guid(ddlstApproveUser.SelectedValue);
+                    result = _manage.UpdateCostApply(_applyInfo);
 
-                //    _manage.UpdateBusiness(_info);
-                //}
+                    // 更新确认信息.
+                    _approveInfo.ApproveState = 1;
+                    _approveInfo.ApproveTime = DateTime.Now;
+                    _approveInfo.ApproverSugest = string.IsNullOrEmpty(taaApproveSugest.Text.Trim()) ? "同意" : taaApproveSugest.Text.Trim();
+                    _manage.UpdateCostApprove(_approveInfo);
 
-                // 更新现有申请信息.
-                //_applyInfo.ActualMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
-                _applyInfo.State = 1;
-                result = _manage.UpdateCostApply(_applyInfo);
+                    // 插入下条确认信息.
+                    BusinessCostApproveInfo _archiverApproveInfo = new BusinessCostApproveInfo();
+                    UserInfo _approveUser = new UserManage().GetUserByObjectID(ddlstApproveUser.SelectedValue);
+                    if (_approveUser != null)
+                    {
+                        _archiverApproveInfo.ObjectID = Guid.NewGuid();
+                        _archiverApproveInfo.ApproverID = _approveUser.ObjectId;
+                        _archiverApproveInfo.ApproverName = _approveUser.Name;
+                        _archiverApproveInfo.ApproverDept = _approveUser.Dept;
+                        _archiverApproveInfo.ApproveState = 0;
+                        _archiverApproveInfo.ApproveOp = 2;
+                        _archiverApproveInfo.ApplyID = _applyInfo.ObjectID;
 
-                // 更新现有审批信息.
-                _approveInfo.ApproveState = 1;
-                _approveInfo.ApproveTime = DateTime.Now;
-                _approveInfo.ApproveOp = 4;
-                //_approveInfo.ApproverSugest = "实际收取业务费用" + tbxActualMoney.Text + "元";
-                _manage.UpdateCostApprove(_approveInfo);
+                        _manage.AddNewCostApprove(_archiverApproveInfo);
+                    }
+                }
+
+                if (ddlstNext.SelectedIndex == 1)
+                {
+                    _applyInfo.State = 2;
+                    _applyInfo.ApproverID = SystemUser.ObjectId;
+                    result = _manage.UpdateCostApply(_applyInfo);
+
+                    _approveInfo.ApproveState = 1;
+                    _approveInfo.ApproveTime = DateTime.Now;
+                    _approveInfo.ApproverSugest = string.IsNullOrEmpty(taaApproveSugest.Text.Trim()) ? "同意" : taaApproveSugest.Text.Trim();
+                    _manage.UpdateCostApprove(_approveInfo);
+
+                    BusinessCostApproveInfo _archiverApproveInfo = new BusinessCostApproveInfo();
+                    _archiverApproveInfo.ObjectID = Guid.NewGuid();
+                    _archiverApproveInfo.ApproverID = SystemUser.ObjectId;
+                    _archiverApproveInfo.ApproverName = SystemUser.Name;
+                    _archiverApproveInfo.ApproverDept = SystemUser.Dept;
+                    _archiverApproveInfo.ApproveState = 1;
+                    _archiverApproveInfo.ApproveOp = 4;
+                    _archiverApproveInfo.ApproveTime = DateTime.Now;
+                    _archiverApproveInfo.ApplyID = _applyInfo.ObjectID;
+                    _manage.AddNewCostApprove(_archiverApproveInfo);
+                }
             }
 
             if (result == -1)
@@ -194,7 +261,7 @@ namespace TZMS.Web
             }
             else
             {
-                Alert.Show("确认失败!");
+                Alert.Show(ddlstNext.SelectedText + "失败!");
             }
         }
 
@@ -214,17 +281,45 @@ namespace TZMS.Web
                         e.Values[2] = "起草";
                         break;
                     case "1":
-                        e.Values[2] = "审批-通过";
+                        e.Values[2] = "出纳确认";
                         break;
                     case "2":
-                        e.Values[2] = "审批-不通过";
+                        e.Values[2] = "费用确认";
                         break;
                     case "4":
-                        e.Values[2] = "已确认";
+                        e.Values[2] = "归档";
                         break;
                     default:
                         break;
                 }
+            }
+        }
+
+        /// <summary>
+        /// 下一步变动选择事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ddlstNext_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlstNext.SelectedIndex == 0)
+            {
+                ddlstApproveUser.Hidden = false;
+                ddlstApproveUser.Required = true;
+                ddlstApproveUser.ShowRedStar = true;
+                ddlstApproveUser.Enabled = true;
+                btnPass.Text = "确认";
+                btnPass.Text = "您确定确认吗?";
+            }
+            else if (ddlstNext.SelectedIndex == 1)
+            {
+                ddlstApproveUser.Hidden = true;
+                ddlstApproveUser.Required = false;
+                ddlstApproveUser.ShowRedStar = false;
+                ddlstApproveUser.Enabled = false;
+                btnPass.Text = "归档";
+                btnPass.ConfirmText = "您确定归档吗?";
+
             }
         }
 

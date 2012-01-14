@@ -15,8 +15,8 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnPass" Text="确认业务费用" Icon="Accept" runat="server" ValidateForms="mainForm2"
-                        OnClick="btnPass_Click" ConfirmText="您确认业务费用吗?">
+                    <ext:Button ID="btnPass" Text="确认" Icon="Accept" runat="server" ValidateForms="mainForm2"
+                        OnClick="btnPass_Click" ConfirmText="您确定确认吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -25,6 +25,28 @@
             <ext:Panel ID="pelOperator" runat="server" ShowBorder="false" EnableBackgroundColor="true"
                 BodyPadding="3px" ShowHeader="false" AnchorValue="100% -36">
                 <Items>
+                    <ext:Form ID="mainForm2" EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px"
+                        runat="server">
+                        <Rows>
+                            <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
+                                <Items>
+                                    <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
+                                        Label="下一步" AutoPostBack="True" OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
+                                    </ext:DropDownList>
+                                    <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
+                                        RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
+                                    </ext:DropDownList>
+                                </Items>
+                            </ext:FormRow>
+                            <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="50% 50%">
+                                <Items>
+                                    <ext:TextArea ID="taaApproveSugest" Height="50px" runat="server" Label="确认意见" MaxLength="100"
+                                        MaxLengthMessage="最多只能输入100个字！">
+                                    </ext:TextArea>
+                                </Items>
+                            </ext:FormRow>
+                        </Rows>
+                    </ext:Form>
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
                         AutoHeight="true" Height="335px">
                         <Tabs>
@@ -70,7 +92,7 @@
                                     </ext:Form>
                                 </Items>
                             </ext:Tab>
-                            <ext:Tab ID="Tab2" Title="审批历史" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab2" Title="确认历史" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Grid ID="gridCostApproveHistory" Title="Grid1" ShowBorder="true" ShowHeader="false"
                                         runat="server" EnableRowNumber="True" AutoScroll="true" AutoHeight="true" OnRowDataBound="gridApproveHistory_RowDataBound">

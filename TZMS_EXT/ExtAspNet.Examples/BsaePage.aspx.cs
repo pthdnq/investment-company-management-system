@@ -407,7 +407,22 @@ namespace TZMS.Web
             /// <summary>
             /// 行政部收款上交归档 
             /// </summary>
-            XZBSKGD = 40
+            XZBSKGD = 40,
+
+            /// <summary>
+            /// 业务费用收取出纳确认
+            /// </summary>
+            YWFYSQCNQR = 41,
+
+            /// <summary>
+            /// 业务费用收取确认归档>30W
+            /// </summary>
+            YWFYSQQRGDDY30W = 42,
+
+            /// <summary>
+            /// 业务费用收取确认归档<30W
+            /// </summary>
+            YWFYSQQRGDXY30W = 43
         }
 
         /// <summary>

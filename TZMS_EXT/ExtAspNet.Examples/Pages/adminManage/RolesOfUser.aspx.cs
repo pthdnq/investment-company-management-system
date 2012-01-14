@@ -376,6 +376,15 @@ namespace TZMS.Web
                 case RoleType.XZBSKGD:
                     strRole = "行政部收款上交归档";
                     break;
+                case RoleType.YWFYSQCNQR:
+                    strRole = "业务费用收取出纳确认";
+                    break;
+                case RoleType.YWFYSQQRGDDY30W:
+                    strRole = "业务费用收取确认归档>30W";
+                    break;
+                case RoleType.YWFYSQQRGDXY30W:
+                    strRole = "业务费用收取确认归档<30W";
+                    break;
             }
 
             return strRole;

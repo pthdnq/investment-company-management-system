@@ -620,7 +620,7 @@
                             <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="YWGL" Text="业务管理">
                                 <Nodes>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="ptyw" OnClientClick="return false;"
-                                        Text="普通业务创建">
+                                        Text="普通业务列表">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -642,7 +642,7 @@
                                         </Nodes>
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzywcj" OnClientClick="return false;"
-                                        Text="定制业务创建">
+                                        Text="定制业务列表">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -664,7 +664,7 @@
                                         </Nodes>
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="ywfysq" OnClientClick="return false;"
-                                        Text="业务费用申请">
+                                        Text="业务费用收取申请">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -675,7 +675,7 @@
                                         </Nodes>
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="ywfysp" OnClientClick="return false;"
-                                        Text="业务费用审批">
+                                        Text="业务费用收取出纳确认">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -686,7 +686,7 @@
                                         </Nodes>
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="ywfyqr" OnClientClick="return false;"
-                                        Text="业务费用确认">
+                                        Text="业务费用收取确认归档">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
