@@ -339,13 +339,13 @@
                                                 OnClientClick=" tabs('dzywcz','UserKey');" Text="定制业务操作">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务操作.png" NodeID="ywfysq" AutoPostBack="false"
-                                                OnClientClick=" tabs('ywfysq','UserKey');" Text="业务费用申请">
+                                                OnClientClick=" tabs('ywfysq','UserKey');" Text="业务费用收取申请">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务操作.png" NodeID="ywfysp" AutoPostBack="false"
-                                                OnClientClick=" tabs('ywfysp','UserKey');" Text="业务费用审批">
+                                                OnClientClick=" tabs('ywfysp','UserKey');" Text="业务费用收取出纳确认">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务操作.png" NodeID="ywfyqr" AutoPostBack="false"
-                                                OnClientClick=" tabs('ywfyqr','UserKey');" Text="业务费用确认">
+                                                OnClientClick=" tabs('ywfyqr','UserKey');" Text="业务费用收取确认归档">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务.gif" NodeID="byjsq" AutoPostBack="false"
                                                 OnClientClick=" tabs('byjsq','UserKey');" Text="备用金申请">
@@ -726,13 +726,13 @@
                     LoadTab("Pages/BusinessPages/CustomizeBusinessOperateList.aspx", "定制业务操作", icon);
                     break;
                 case "ywfysq":
-                    LoadTab("Pages/BusinessPages/CostApplyList.aspx", "业务费用申请", icon);
+                    LoadTab("Pages/BusinessPages/CostApplyList.aspx", "业务费用收取申请", icon);
                     break;
                 case "ywfysp":
-                    LoadTab("Pages/BusinessPages/CostApproveList.aspx", "业务费用审批", icon);
+                    LoadTab("Pages/BusinessPages/CostApproveList.aspx", "业务费用收取出纳确认", icon);
                     break;
                 case "ywfyqr":
-                    LoadTab("Pages/BusinessPages/CostConfirmList.aspx", "业务费用确认", icon);
+                    LoadTab("Pages/BusinessPages/CostConfirmList.aspx", "业务费用收取确认归档", icon);
                     break;
                 case "byjsq":
                     LoadTab("Pages/BusinessPages/BusinessImprestApplyList.aspx", "备用金申请", icon);

@@ -173,7 +173,7 @@ namespace TZMS.Web
                 switch (e.Values[8].ToString())
                 {
                     case "0":
-                        e.Values[8] = "待审批";
+                        e.Values[8] = "待确认";
                         e.Values[9] = "";
                         e.Values[10] = "";
 
@@ -184,10 +184,10 @@ namespace TZMS.Web
 
                         break;
                     case "1":
-                        e.Values[8] = "已审批";
+                        e.Values[8] = "已确认";
                         e.Values[9] = e.Values[9].ToString() == "1" ? "同意" : "不同意";
                         e.Values[10] = DateTime.Parse(e.Values[10].ToString()).ToString("yyyy-MM-dd HH:mm");
-                        e.Values[11] = e.Values[11].ToString().Replace("审批", "查看");
+                        e.Values[11] = e.Values[11].ToString().Replace("确认", "查看");
                         break;
                     default:
                         break;

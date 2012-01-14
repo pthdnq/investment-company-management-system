@@ -15,11 +15,11 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnPass" Text="同意" Icon="Accept" runat="server" ValidateForms="mainForm2"
-                        OnClick="btnPass_Click" ConfirmText="您确定同意吗?">
+                    <ext:Button ID="btnPass" Text="确认" Icon="Accept" runat="server" ValidateForms="mainForm2"
+                        OnClick="btnPass_Click" ConfirmText="您确定确认吗?">
                     </ext:Button>
                     <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click"
-                        ConfirmText="您确定不同意吗?">
+                        Hidden="true" ConfirmText="您确定不同意吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -34,7 +34,7 @@
                             <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                                 <Items>
                                     <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstNext" runat="server"
-                                        AutoPostBack="true" Label="下一步" OnSelectedIndexChanged="ddlstNext_SelectedIndexChanged">
+                                        Label="下一步">
                                     </ext:DropDownList>
                                     <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstApproveUser" runat="server"
                                         RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
@@ -43,15 +43,15 @@
                             </ext:FormRow>
                             <ext:FormRow ColumnWidths="60%">
                                 <Items>
-                                    <ext:TextBox ID="tbxActualMoney" runat="server" Label="实际金额" ShowRedStar="true" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                        RegexMessage="金额格式不正确!" Hidden="true">
+                                    <ext:TextBox ID="tbxActualMoney" runat="server" Label="实际金额" Required="true" ShowRedStar="true"
+                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                                     </ext:TextBox>
                                 </Items>
                             </ext:FormRow>
-                            <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="50% 50%">
+                            <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="50% 50%" Hidden="true">
                                 <Items>
                                     <ext:TextArea ID="taaApproveSugest" Height="50px" runat="server" Label="审批意见" MaxLength="100"
-                                        MaxLengthMessage="最多只能输入100个字！">
+                                        MaxLengthMessage="最多只能输入100个字！" Hidden="true">
                                     </ext:TextArea>
                                 </Items>
                             </ext:FormRow>
@@ -102,7 +102,7 @@
                                     </ext:Form>
                                 </Items>
                             </ext:Tab>
-                            <ext:Tab ID="Tab2" Title="审批历史" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab2" Title="确认历史" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Grid ID="gridCostApproveHistory" Title="Grid1" ShowBorder="true" ShowHeader="false"
                                         runat="server" EnableRowNumber="True" AutoScroll="true" AutoHeight="true" OnRowDataBound="gridApproveHistory_RowDataBound">

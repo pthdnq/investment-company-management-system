@@ -97,11 +97,49 @@ namespace TZMS.Web
         #region 私有方法
 
         /// <summary>
+        /// 根据角色类型来获取用户
+        /// </summary>
+        /// <param name="roleType">角色类型</param>
+        /// <returns>用户集合</returns>
+        private List<UserRoles> GetUsersByRole(RoleType roleType)
+        {
+            List<UserRoles> lstUserRoles = new List<UserRoles>();
+            List<UserRoles> lstRoles = new RolesManage().GerRolesByCondition("1 = 1");
+            if (lstRoles.Count > 0)
+            {
+                string[] arrayRoles = { };
+                bool isContain = false;
+                foreach (UserRoles role in lstRoles)
+                {
+                    isContain = false;
+                    arrayRoles = role.Roles.Split(',');
+                    foreach (string strRole in arrayRoles)
+                    {
+                        if (string.IsNullOrEmpty(strRole))
+                            continue;
+                        if ((int)roleType == Convert.ToInt32(strRole))
+                        {
+                            isContain = true;
+                            break;
+                        }
+                    }
+
+                    if (isContain)
+                    {
+                        lstUserRoles.Add(role);
+                    }
+                }
+            }
+
+            return lstUserRoles;
+        }
+
+        /// <summary>
         /// 绑定下一步
         /// </summary>
         private void BindNext()
         {
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("出纳确认", "0"));
             ddlstNext.SelectedIndex = 0;
         }
 
@@ -110,9 +148,12 @@ namespace TZMS.Web
         /// </summary>
         private void BindApprover()
         {
-            foreach (UserInfo user in CurrentChecker)
+            ddlstApproveUser.Items.Clear();
+            List<UserRoles> lstRoles = GetUsersByRole(RoleType.YWFYSQCNQR);
+
+            foreach (UserRoles role in lstRoles)
             {
-                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(role.Name, role.UserObjectId.ToString()));
             }
 
             ddlstApproveUser.SelectedIndex = 0;
@@ -411,13 +452,13 @@ namespace TZMS.Web
                         e.Values[2] = "起草";
                         break;
                     case "1":
-                        e.Values[2] = "审批-通过";
+                        e.Values[2] = "出纳确认";
                         break;
                     case "2":
-                        e.Values[2] = "审批-不通过";
+                        e.Values[2] = "费用确认";
                         break;
                     case "4":
-                        e.Values[2] = "已确认";
+                        e.Values[2] = "归档";
                         break;
                     default:
                         break;

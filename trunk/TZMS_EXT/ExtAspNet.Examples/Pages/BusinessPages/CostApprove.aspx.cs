@@ -76,15 +76,15 @@ namespace TZMS.Web
         /// </summary>
         private void BindNext()
         {
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
-            foreach (RoleType roleType in CurrentRoles)
-            {
-                if (roleType == RoleType.HSKJ)
-                {
-                    ddlstNext.Items.Add(new ExtAspNet.ListItem("会计核算", "1"));
-                    break;
-                }
-            }
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("确认", "0"));
+            //foreach (RoleType roleType in CurrentRoles)
+            //{
+            //    if (roleType == RoleType.HSKJ)
+            //    {
+            //        ddlstNext.Items.Add(new ExtAspNet.ListItem("会计核算", "1"));
+            //        break;
+            //    }
+            //}
             ddlstNext.SelectedIndex = 0;
         }
 
@@ -260,6 +260,8 @@ namespace TZMS.Web
 
             // 更新申请表.
             BusinessCostApplyInfo _applyInfo = _manage.GetCostApplyByObjectID(ApplyID);
+            _applyInfo.State = 1;
+            _applyInfo.ActualMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
             _applyInfo.ApproverID = new Guid(ddlstApproveUser.SelectedValue);
             int result = _manage.UpdateCostApply(_applyInfo);
 
@@ -268,69 +270,71 @@ namespace TZMS.Web
             _approveInfo.ApproveTime = DateTime.Now;
             _approveInfo.ApproveState = 1;
             _approveInfo.ApproveOp = 1;
-            _approveInfo.ApproverSugest = string.IsNullOrEmpty(taaApproveSugest.Text.Trim()) ? "同意" : taaApproveSugest.Text.Trim();
+            _approveInfo.ApproverSugest = "实际收取业务费用" + tbxActualMoney.Text + "元";
             _manage.UpdateCostApprove(_approveInfo);
 
-            // 插入新的记录到流程申请表.
-            if (ddlstNext.SelectedText == "审批")
+            BusinessInfo _info = _manage.GetBusinessByObjectID(_applyInfo.BusinessID.ToString());
+            if (_info != null)
             {
-                BusinessCostApproveInfo _nextApproveInfo = new BusinessCostApproveInfo();
-                UserInfo _approveUser = new UserManage().GetUserByObjectID(ddlstApproveUser.SelectedValue);
-                if (_approveUser != null)
+                if (_applyInfo.CostType == 0)
                 {
-                    _nextApproveInfo.ObjectID = Guid.NewGuid();
-                    _nextApproveInfo.ApproverID = _approveUser.ObjectId;
-                    _nextApproveInfo.ApproverName = _approveUser.Name;
-                    _nextApproveInfo.ApproverDept = _approveUser.Dept;
-                    _nextApproveInfo.ApproveState = 0;
-                    _nextApproveInfo.ApplyID = _applyInfo.ObjectID;
-
-                    _manage.AddNewCostApprove(_nextApproveInfo);
+                    _info.PreMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
+                    _info.PreMoneyType = 1;
                 }
+                else if (_applyInfo.CostType == 1)
+                {
+                    _info.BalanceMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
+                    _info.BalanceMoneyType = 1;
+                }
+
+                _manage.UpdateBusiness(_info);
             }
-            else if (ddlstNext.SelectedText == "会计核算")
+
+            BusinessCostApproveInfo _archiverApproveInfo = new BusinessCostApproveInfo();
+            UserInfo _approveUser = new UserManage().GetUserByObjectID(ddlstApproveUser.SelectedValue);
+            if (_approveUser != null)
             {
-                if (string.IsNullOrEmpty(tbxActualMoney.Text.Trim()))
-                {
-                    Alert.Show("实际金额不可为空!");
-                    return;
-                }
+                _archiverApproveInfo.ObjectID = Guid.NewGuid();
+                _archiverApproveInfo.ApproverID = _approveUser.ObjectId;
+                _archiverApproveInfo.ApproverName = _approveUser.Name;
+                _archiverApproveInfo.ApproverDept = _approveUser.Dept;
+                _archiverApproveInfo.ApproveState = 0;
+                _archiverApproveInfo.ApproveOp = 2;
+                _archiverApproveInfo.ApplyID = _applyInfo.ObjectID;
 
-                BusinessInfo _info = _manage.GetBusinessByObjectID(_applyInfo.BusinessID.ToString());
-                if (_info != null)
-                {
-                    if (_applyInfo.CostType == 0)
-                    {
-                        _info.PreMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
-                        _info.PreMoneyType = 1;
-                    }
-                    else if (_applyInfo.CostType == 1)
-                    {
-                        _info.BalanceMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
-                        _info.BalanceMoneyType = 1;
-                    }
-
-                    _manage.UpdateBusiness(_info);
-                }
-
-                _approveInfo.ApproverSugest = "实际收取业务费用" + tbxActualMoney.Text + "元";
-                _manage.UpdateCostApprove(_approveInfo);
-
-                BusinessCostApproveInfo _archiverApproveInfo = new BusinessCostApproveInfo();
-                UserInfo _approveUser = new UserManage().GetUserByObjectID(ddlstApproveUser.SelectedValue);
-                if (_approveUser != null)
-                {
-                    _archiverApproveInfo.ObjectID = Guid.NewGuid();
-                    _archiverApproveInfo.ApproverID = _approveUser.ObjectId;
-                    _archiverApproveInfo.ApproverName = _approveUser.Name;
-                    _archiverApproveInfo.ApproverDept = _approveUser.Dept;
-                    _archiverApproveInfo.ApproveState = 0;
-                    _archiverApproveInfo.ApproveOp = 3;
-                    _archiverApproveInfo.ApplyID = _applyInfo.ObjectID;
-
-                    _manage.AddNewCostApprove(_archiverApproveInfo);
-                }
+                _manage.AddNewCostApprove(_archiverApproveInfo);
             }
+
+            CashFlowManage _cashFlowManage = new CashFlowManage();
+            _cashFlowManage.Add(_applyInfo.ActualMoney, DateTime.Now, TZMS.Common.FlowDirection.Receive, TZMS.Common.Biz.BusinessCost, 
+                _applyInfo.CompanyName + "的" + (_applyInfo.CostType == 0 ? "预收定金" : "业务尾款") + "收取", string.Empty);
+
+            //// 插入新的记录到流程申请表.
+            //if (ddlstNext.SelectedText == "审批")
+            //{
+            //    BusinessCostApproveInfo _nextApproveInfo = new BusinessCostApproveInfo();
+            //    UserInfo _approveUser = new UserManage().GetUserByObjectID(ddlstApproveUser.SelectedValue);
+            //    if (_approveUser != null)
+            //    {
+            //        _nextApproveInfo.ObjectID = Guid.NewGuid();
+            //        _nextApproveInfo.ApproverID = _approveUser.ObjectId;
+            //        _nextApproveInfo.ApproverName = _approveUser.Name;
+            //        _nextApproveInfo.ApproverDept = _approveUser.Dept;
+            //        _nextApproveInfo.ApproveState = 0;
+            //        _nextApproveInfo.ApplyID = _applyInfo.ObjectID;
+
+            //        _manage.AddNewCostApprove(_nextApproveInfo);
+            //    }
+            //}
+            //else if (ddlstNext.SelectedText == "会计核算")
+            //{
+            //    if (string.IsNullOrEmpty(tbxActualMoney.Text.Trim()))
+            //    {
+            //        Alert.Show("实际金额不可为空!");
+            //        return;
+            //    }
+
+            //}
 
             if (result == -1)
             {
@@ -402,13 +406,13 @@ namespace TZMS.Web
                         e.Values[2] = "起草";
                         break;
                     case "1":
-                        e.Values[2] = "审批-通过";
+                        e.Values[2] = "出纳确认";
                         break;
                     case "2":
-                        e.Values[2] = "审批-不通过";
+                        e.Values[2] = "费用确认";
                         break;
                     case "4":
-                        e.Values[2] = "已确认";
+                        e.Values[2] = "归档";
                         break;
                     default:
                         break;

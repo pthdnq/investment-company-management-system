@@ -22,9 +22,9 @@
                             <ext:TextBox ID="tbxSearch" runat="server" EmptyText="请输入公司名称查询" ShowLabel="false">
                             </ext:TextBox>
                             <ext:DropDownList ID="ddlstAproveState" runat="server" Label="申请状态">
-                                <ext:ListItem Text="审批中" Value="0" Selected="true" />
-                                <ext:ListItem Text="已确认" Value="1" />
-                                <ext:ListItem Text="未通过" Value="2" />
+                                <ext:ListItem Text="待出纳确认" Value="0" Selected="true" />
+                                <ext:ListItem Text="出纳已确认" Value="1" />
+                                <ext:ListItem Text="已归档" Value="2" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
                             </ext:Button>
@@ -58,10 +58,9 @@
                 </Toolbars>
                 <Items>
                     <ext:Grid ID="gridCostApply" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
-                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" 
-                        AutoHeight="true" OnPageIndexChange="gridCostApply_PageIndexChange" 
-                        OnRowCommand="gridCostApply_RowCommand" OnRowDataBound="gridCostApply_RowDataBound"
-                        >
+                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                        OnPageIndexChange="gridCostApply_PageIndexChange" OnRowCommand="gridCostApply_RowCommand"
+                        OnRowDataBound="gridCostApply_RowDataBound">
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="CompanyName" HeaderText="公司名称" ExpandUnusedSpace="true"
@@ -73,7 +72,7 @@
                             <ext:BoundField DataField="ApproverID" HeaderText="当前执行人" />
                             <ext:BoundField DataField="State" HeaderText="状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
-                            <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
+                            <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" Hidden="true" />
                             <ext:LinkButtonField Width="38px" Text="删除" CommandName="Delete" ConfirmTarget="Parent"
                                 ConfirmText="确定删除该申请单?" />
                         </Columns>
@@ -84,7 +83,7 @@
     </ext:Panel>
     <ext:Window ID="wndCostApply" Title="业务费用收取申请" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
-        Height="500px" Width="700px" onclose="wndCostApply_Close">
+        Height="500px" Width="700px" OnClose="wndCostApply_Close">
     </ext:Window>
     </form>
 </body>

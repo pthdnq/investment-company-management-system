@@ -23,13 +23,13 @@
                             </ext:TextBox>
                             <ext:DropDownList ID="ddlstCostType" runat="server" Label="费用类型">
                                 <ext:ListItem Text="全部" Value="-1" Selected="true" />
-                                <ext:ListItem Text="预收定金" Value="0"  />
+                                <ext:ListItem Text="预收定金" Value="0" />
                                 <ext:ListItem Text="业务尾款" Value="1" />
                             </ext:DropDownList>
-                            <ext:DropDownList ID="ddlstAproveState" runat="server" Label="审批状态">
+                            <ext:DropDownList ID="ddlstAproveState" runat="server" Label="确认状态">
                                 <ext:ListItem Text="全部" Value="0" />
-                                <ext:ListItem Text="待审批" Value="1" Selected="true" />
-                                <ext:ListItem Text="已审批" Value="2" />
+                                <ext:ListItem Text="待确认" Value="1" Selected="true" />
+                                <ext:ListItem Text="已确认" Value="2" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
                             </ext:Button>
@@ -66,17 +66,17 @@
                                 ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="CostType" HeaderText="费用类型" />
                             <ext:BoundField DataField="ApplyMoney" HeaderText="金额" />
-                            <ext:BoundField DataField="ApproveState" Width="60px" HeaderText="审批状态" />
-                            <ext:BoundField DataField="ApproveOp" Width="60px" HeaderText="审批结果" />
-                            <ext:BoundField DataField="ApproveTime" Width="100px" HeaderText="审批时间" />
-                            <ext:LinkButtonField Width="38px" Text="审批" CommandName="Approve" />
+                            <ext:BoundField DataField="ApproveState" Width="60px" HeaderText="确认状态" />
+                            <ext:BoundField DataField="ApproveOp" Width="60px" HeaderText="审批结果" Hidden="true" />
+                            <ext:BoundField DataField="ApproveTime" Width="100px" HeaderText="确认时间" />
+                            <ext:LinkButtonField Width="38px" Text="确认" CommandName="Approve" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndCostApprove" Title="业务费用审批" Popup="false" EnableIFrame="true"
+    <ext:Window ID="wndCostApprove" Title="业务费用收取出纳确认" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
         Height="500px" Width="700px" OnClose="wndCostApprove_Close">
     </ext:Window>
