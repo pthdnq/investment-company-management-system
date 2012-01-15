@@ -13,5 +13,25 @@ namespace TZMS.Web
         {
 
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void gridApply_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
+        {
+
+        }
+
+        protected void gridApply_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
+        {
+
+        }
+
+        protected void gridApply_RowDataBound(object sender, ExtAspNet.GridRowEventArgs e)
+        {
+
+        }
     }
 }
