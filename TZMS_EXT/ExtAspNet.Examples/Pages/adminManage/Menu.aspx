@@ -523,8 +523,8 @@
                             </ext:TreeNode>
                             <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="DZFGL" Text="代账管理">
                                 <Nodes>
-                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="paal" OnClientClick="return false;"
-                                        Text="代账单位">
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzdwgl" OnClientClick="return false;"
+                                        Text="代账单位管理">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -534,8 +534,8 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzfsq" OnClientClick="return false;"
-                                        Text="代账费申请">
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzdmbzz" OnClientClick="return false;"
+                                        Text="代账单模板制作">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -545,8 +545,8 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzfsp" OnClientClick="return false;"
-                                        Text="代账费审批">
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzdmbsp" OnClientClick="return false;"
+                                        Text="代账单模板审批">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -556,8 +556,19 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
-                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzfdy" OnClientClick="return false;"
-                                        Text="代账单导出">
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzdgl" OnClientClick="return false;"
+                                        Text="代账单管理">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="wddzd" OnClientClick="return false;"
+                                        Text="我的代帐单">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">

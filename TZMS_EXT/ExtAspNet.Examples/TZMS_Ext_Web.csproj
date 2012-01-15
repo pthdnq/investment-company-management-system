@@ -809,6 +809,15 @@
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingUnitList.aspx" />
     <Content Include="Pages\ProxyAccountingPages\ProxyAccountingUnitNew.aspx" />
     <Content Include="Pages\ProxyAccountingPages\SelectAccountancy.aspx" />
+    <Content Include="Pages\ProxyAmount\GenerateProxyAmount.aspx" />
+    <Content Include="Pages\ProxyAmount\MyProxyAmount.aspx" />
+    <Content Include="Pages\ProxyAmount\NewProxyAmountUnit.aspx" />
+    <Content Include="Pages\ProxyAmount\ProxyAmountTemplateApply.aspx" />
+    <Content Include="Pages\ProxyAmount\ProxyAmountTemplateApplyList.aspx" />
+    <Content Include="Pages\ProxyAmount\ProxyAmountTemplateApprove.aspx" />
+    <Content Include="Pages\ProxyAmount\ProxyAmountTemplateApproveList.aspx" />
+    <Content Include="Pages\ProxyAmount\ProxyAmountUnit.aspx" />
+    <Content Include="Pages\ProxyAmount\SelectProxyAmounter.aspx" />
     <Content Include="Pages\Salary\AddSalaryApply.aspx" />
     <Content Include="Pages\Salary\AddSalaryApplyList.aspx" />
     <Content Include="Pages\Salary\AddSalaryApprove.aspx" />
@@ -2670,6 +2679,69 @@
     </Compile>
     <Compile Include="Pages\ProxyAccountingPages\SelectAccountancy.aspx.designer.cs">
       <DependentUpon>SelectAccountancy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\GenerateProxyAmount.aspx.cs">
+      <DependentUpon>GenerateProxyAmount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\GenerateProxyAmount.aspx.designer.cs">
+      <DependentUpon>GenerateProxyAmount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\MyProxyAmount.aspx.cs">
+      <DependentUpon>MyProxyAmount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\MyProxyAmount.aspx.designer.cs">
+      <DependentUpon>MyProxyAmount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\NewProxyAmountUnit.aspx.cs">
+      <DependentUpon>NewProxyAmountUnit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\NewProxyAmountUnit.aspx.designer.cs">
+      <DependentUpon>NewProxyAmountUnit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountTemplateApply.aspx.cs">
+      <DependentUpon>ProxyAmountTemplateApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountTemplateApply.aspx.designer.cs">
+      <DependentUpon>ProxyAmountTemplateApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountTemplateApplyList.aspx.cs">
+      <DependentUpon>ProxyAmountTemplateApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountTemplateApplyList.aspx.designer.cs">
+      <DependentUpon>ProxyAmountTemplateApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountTemplateApprove.aspx.cs">
+      <DependentUpon>ProxyAmountTemplateApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountTemplateApprove.aspx.designer.cs">
+      <DependentUpon>ProxyAmountTemplateApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountTemplateApproveList.aspx.cs">
+      <DependentUpon>ProxyAmountTemplateApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountTemplateApproveList.aspx.designer.cs">
+      <DependentUpon>ProxyAmountTemplateApproveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountUnit.aspx.cs">
+      <DependentUpon>ProxyAmountUnit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountUnit.aspx.designer.cs">
+      <DependentUpon>ProxyAmountUnit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\SelectProxyAmounter.aspx.cs">
+      <DependentUpon>SelectProxyAmounter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\SelectProxyAmounter.aspx.designer.cs">
+      <DependentUpon>SelectProxyAmounter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Salary\AddSalaryApply.aspx.cs">
       <DependentUpon>AddSalaryApply.aspx</DependentUpon>
