@@ -18,8 +18,7 @@ namespace TZMS.Web
             {
                 CurrentLevel = GetCurrentLevel("paal");
 
-                wndUnit.Title = "新增单位";
-                btnNewUnit.OnClientClick = wndUnit.GetShowReference("ProxyAccountingUnitNew.aspx?Type=Add") + "return false;";
+                btnNewUnit.OnClientClick = wndUnit.GetShowReference("NewProxyAmountUnit.aspx?Type=Add") + "return false;";
                 wndUnit.OnClientCloseButtonClick = wndUnit.GetHidePostBackReference();
 
                 BindGrid();

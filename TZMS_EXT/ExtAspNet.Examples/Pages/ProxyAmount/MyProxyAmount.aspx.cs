@@ -13,5 +13,15 @@ namespace TZMS.Web
         {
 
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnPrint_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
