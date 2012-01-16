@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPaymentAudit.aspx.cs" Inherits="TZMS.Web.Pages.AdminExpensesManage.AdminPaymentAudit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPaymentAudit.aspx.cs"
+    Inherits="TZMS.Web.Pages.AdminExpensesManage.AdminPaymentAudit" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>AdminPaymentAudit</title>
@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
-        EnableLargeHeader="true"   AutoHeight="true"  Title="Panel" AutoScroll="false" ShowBorder="true"
+        EnableLargeHeader="true" AutoHeight="true" Title="Panel" AutoScroll="false" ShowBorder="true"
         ShowHeader="false">
         <!--工具栏-->
         <Toolbars>
@@ -59,52 +59,40 @@
                                 <Rows>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbProjectName" Enabled="false" Label="项目名称"  runat="server"
-                                                MaxLength="50" MaxLengthMessage="最多只能输入50个字符！">
+                                            <ext:TextBox ID="tbProjectName" Enabled="false" Label="项目名称" runat="server" MaxLength="200"
+                                                MaxLengthMessage="最多只能输入200个字符！">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbCustomerName" Enabled="false" Label="客户名称" runat="server" MaxLength="20"
+                                            <ext:TextBox ID="tbCompany" Enabled="false" Label="单位" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个字符！">
                                             </ext:TextBox>
-                                            <ext:TextBox ID="tbLoanCompany" Enabled="false" Label="贷款公司" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个字符！" >
-                                            </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="贷款金额" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
-                                            </ext:TextBox>
-                                            <ext:TextBox ID="tbLoanFee" Enabled="false" Label="贷款手续费" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个字母或数字！" Regex="^[a-zA-Z0-9]*$" RegexMessage="只能输入字母或数字!">
-                                            </ext:TextBox>
-                                        </Items>
-                                    </ext:FormRow>
-                                    <ext:FormRow ColumnWidths="50% 50%">
-                                        <Items>
-                                            <ext:TextBox ID="tbCollateralCompany" Enabled="false" Label="抵押物公司" runat="server"
-                                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                                RegexMessage="不能输入特殊字符!">
-                                            </ext:TextBox>
-                                        </Items>
-                                    </ext:FormRow>
-                                    <ext:FormRow ColumnWidths="50% 50%">
-                                        <Items>
-                                            <ext:DatePicker ID="dpSignDate" Enabled="false" Label="签订日期" runat="server">
+                                            <ext:DatePicker ID="dpDateFor" Enabled="false" Label="时间" runat="server">
                                             </ext:DatePicker>
-                                            <ext:TextBox ID="tbDownPayment" Enabled="false" Label="预付定金" runat="server" MaxLength="2"
-                                                MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox ID="tbAmountOfPayment" Enabled="false" Label="金额" runat="server" MaxLength="8"
+                                                MaxLengthMessage="最多只能输入8个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextArea ID="taContact" Enabled="false" Label="联系方式(贷款人，抵押物方)" runat="server">
+                                            <ext:TextArea ID="taCause" Enabled="false" Label="付款事由" runat="server" MaxLength="200"
+                                                MaxLengthMessage="最多只能输入200个字符！">
                                             </ext:TextArea>
+                                        </Items>
+                                    </ext:FormRow>
+                                    <ext:FormRow ColumnWidths="50% 50%">
+                                        <Items>
+                                            <ext:DropDownList runat="server" Enabled="false" Label="付款方式" ID="ddlPaymentType">
+                                                <ext:ListItem Text="现金" Value="Cash" />
+                                                <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
+                                            </ext:DropDownList>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="100%">
@@ -119,13 +107,13 @@
                         </Items>
                     </ext:Tab>
                     <ext:Tab ID="tabHistory" Title="操作历史" EnableBackgroundColor="true" runat="server"
-                      Layout="Fit"   BodyPadding="5px">
+                        Layout="Fit" BodyPadding="5px">
                         <Items>
                             <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="50px" DataField="OperationerName" HeaderText="操作人" />
-                   <%--                 <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
+                                    <%--                 <ext:BoundField Width="55px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
                                     <ext:BoundField Width="60px" DataField="OperationType" HeaderText="操作类型" />

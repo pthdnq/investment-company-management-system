@@ -142,16 +142,12 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             }
             #endregion
 
-            //this.tbCollateralCompany.Text = _Info.CollateralCompany;
-            //this.tbCustomerName.Text = _Info.CustomerName;
-            //this.tbDownPayment.Text = _Info.DownPayment.ToString();
-            //this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
-            //this.tbLoanCompany.Text = _Info.LoanCompany;
-            //this.tbLoanFee.Text = _Info.LoanFee.ToString();
-            //this.tbRemark.Text = _Info.Remark;
-            //this.taContact.Text = _Info.Contact;
-
-            //  this.dpSignDate.SelectedDate = _Info.SignDate;
+            this.tbRemark.Text = _Info.Remark;
+            this.tbCompany.Text = _Info.Company;
+            this.taCause.Text = _Info.Cause;
+            this.tbAmountOfReceivables.Text = _Info.AmountOfReceivables.ToString();
+            this.dpDateFor.SelectedDate = _Info.DateFor;
+     
             this.tbProjectName.Text = _Info.ProjectName;
 
             //  taAuditOpinion.Text = _Info.AuditOpinion;
@@ -239,15 +235,12 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
             _Info.ProjectName = this.tbProjectName.Text.Trim();
 
-            //_Info.CustomerName = this.tbCustomerName.Text.Trim();
-            //_Info.CollateralCompany = this.tbCollateralCompany.Text.Trim();
-            //_Info.Contact = this.taContact.Text.Trim();
-
-            //_Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Trim());
-            //_Info.DownPayment = decimal.Parse(this.tbDownPayment.Text.Trim());
-            //_Info.LoanFee = decimal.Parse(this.tbLoanFee.Text.Trim());
-            //_Info.SignDate = this.dpSignDate.SelectedDate.Value;
-            //_Info.LoanCompany = this.tbLoanCompany.Text;
+         
+            _Info.Cause = this.taCause.Text.Trim();
+            _Info.AmountOfReceivables = decimal.Parse(this.tbAmountOfReceivables.Text.Trim());
+            _Info.Remark = this.tbRemark.Text.Trim();
+            _Info.DateFor = this.dpDateFor.SelectedDate.Value;
+            _Info.Company = this.tbCompany.Text;
 
             #endregion
 

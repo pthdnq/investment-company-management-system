@@ -59,51 +59,30 @@
                                 <Rows>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbProjectName" Enabled="false" Label="项目名称" runat="server" MaxLength="50"
-                                                MaxLengthMessage="最多只能输入50个字符！">
+                                            <ext:TextBox ID="tbProjectName" Enabled="false" Label="项目名称" runat="server">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbCustomerName" Enabled="false" Label="客户名称" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个字符！">
-                                            </ext:TextBox>
-                                            <ext:TextBox ID="tbLoanCompany" Enabled="false" Label="贷款公司" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个字符！">
+                                            <ext:TextBox ID="tbCompany" Label="单位" runat="server" MaxLength="200" Enabled="false"
+                                                MaxLengthMessage="最多只能输入200个字符！">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="贷款金额" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
-                                            </ext:TextBox>
-                                            <ext:TextBox ID="tbLoanFee" Enabled="false" Label="贷款手续费" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个字母或数字！" Regex="^[a-zA-Z0-9]*$" RegexMessage="只能输入字母或数字!">
-                                            </ext:TextBox>
-                                        </Items>
-                                    </ext:FormRow>
-                                    <ext:FormRow ColumnWidths="50% 50%">
-                                        <Items>
-                                            <ext:TextBox ID="tbCollateralCompany" Enabled="false" Label="抵押物公司" runat="server"
-                                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                                RegexMessage="不能输入特殊字符!">
-                                            </ext:TextBox>
-                                        </Items>
-                                    </ext:FormRow>
-                                    <ext:FormRow ColumnWidths="50% 50%">
-                                        <Items>
-                                            <ext:DatePicker ID="dpSignDate" Enabled="false" Label="签订日期" runat="server">
+                                            <ext:DatePicker ID="dpDateFor" Label="时间" Enabled="false" runat="server">
                                             </ext:DatePicker>
-                                            <ext:TextBox ID="tbDownPayment" Enabled="false" Label="预付定金" runat="server" MaxLength="2"
-                                                MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox ID="tbAmountOfReceivables" Label="金额" Enabled="false" runat="server"
+                                                MaxLength="8" MaxLengthMessage="最多只能输入8个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextArea ID="taContact" Enabled="false" Label="联系方式(贷款人，抵押物方)" runat="server">
+                                            <ext:TextArea ID="taCause" Label="收款事由" runat="server" Enabled="false" MaxLength="200"
+                                                MaxLengthMessage="最多只能输入200个字符！">
                                             </ext:TextArea>
                                         </Items>
                                     </ext:FormRow>

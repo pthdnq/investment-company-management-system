@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using com.TZMS.Business;
-using com.TZMS.Model; 
+using com.TZMS.Model;
 using System.Text;
 
 namespace TZMS.Web.Pages.AdminExpensesManage
@@ -65,9 +65,9 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             if (_info != null)
             {
                 this.tbProjectName.Text = _info.ProjectName;
-                //this.lbImplementationPhase.Text = _info.ImplementationPhase;
+                this.lbImplementationPhase.Text = _info.Use;
 
-                //this.lbLoanAmount.Text = _info.AmountExpended.ToString();
+                this.lbLoanAmount.Text = _info.PrepaidAmount.ToString();
                 //this.lbLoanDate.Text = _info.ExpendedTime.ToString();
 
                 lbApplier.Text = _info.CreaterName;

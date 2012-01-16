@@ -11,19 +11,19 @@
     <div>
         <input id="btnPrinter" type="button" value="打印" onclick="javascript: PrintBill();" />
         <h1>
-            备用金支付确认
+            收款上交确认
             <br />
         </h1>
         <h2>
             项目名称：
             <asp:Label runat="server" ID="tbProjectName"></asp:Label>
             <br />
-            进展阶段：
+            事由：
             <asp:Label runat="server" ID="lbImplementationPhase"></asp:Label></h2>
         <h3>
-            预支金额：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
+            金额：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
             <br />
-            支用时间：
+            时间：
             <asp:Label runat="server" ID="lbLoanDate"></asp:Label>
             <%--  <br />
             备用金余额：
@@ -32,7 +32,7 @@
             申请人：
             <asp:Label runat="server" ID="lbApplier"></asp:Label>
             <br />
-            操作人：
+            出纳会计：
             <asp:Label runat="server" ID="lbPaymenter"></asp:Label>
             <br />
             <%--           支付方式：

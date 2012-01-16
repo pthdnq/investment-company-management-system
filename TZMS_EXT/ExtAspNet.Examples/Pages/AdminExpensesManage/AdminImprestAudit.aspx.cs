@@ -142,7 +142,9 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             //this.tbRemark.Text = _Info.Remark;
             //this.taContact.Text = _Info.Contact;
 
-            //this.dpSignDate.SelectedDate = _Info.SignDate;
+            this.taUse.Text = _Info.Use;
+            this.tbPrepaidAmount.Text = _Info.PrepaidAmount.ToString();
+            this.tbRemark.Text = _Info.Remark;
             this.tbProjectName.Text = _Info.ProjectName;
         }
 

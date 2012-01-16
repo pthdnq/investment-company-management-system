@@ -69,10 +69,14 @@
                             <ext:BoundField Width="85px" DataField="Company" HeaderText="单位" />
                             <ext:BoundField Width="80px" DataField="DateFor" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="时间" />
-                           <ext:BoundField Width="120px" DataField="Cause" HeaderText="付款事由" />
+                            <ext:BoundField Width="120px" DataField="Cause" HeaderText="付款事由" />
                             <ext:BoundField Width="70px" DataField="AmountOfPayment" DataTooltipField="LoanAmount"
                                 HeaderText="金额" />
-                            <ext:BoundField Width="65px" DataField="Company" HeaderText="付款方式" />
+                            <ext:TemplateField Width="66px" HeaderText="付款方式">
+                                <ItemTemplate>
+                                    <%# DataBinder.Eval(Container.DataItem, "PaymentType").ToString().Equals("Cash") ? "现金" : "转账"%>
+                                </ItemTemplate>
+                            </ext:TemplateField>
                             <ext:BoundField DataField="NextOperaterName" Width="73px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="66px" HeaderText="状态">
                                 <ItemTemplate>
