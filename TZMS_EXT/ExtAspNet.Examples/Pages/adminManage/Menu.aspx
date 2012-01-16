@@ -1270,7 +1270,7 @@
                                     </ext:TreeNode>
                                 </Nodes>
                             </ext:TreeNode>
-                            <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="ZJSH" Text="行政部费用管理">
+                            <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="XZBFYGL" Text="行政部费用管理">
                                 <Nodes>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="xzbyjsq" OnClientClick="return false;"
                                         Text="备用金申请列表">
