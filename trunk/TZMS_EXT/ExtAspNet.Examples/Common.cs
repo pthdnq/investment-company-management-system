@@ -109,6 +109,21 @@ namespace TZMS
             /// 业务费用收取
             /// </summary>
             public static string BusinessCost = "业务费用收取";
+
+            /// <summary>
+            /// 行政部备用金
+            /// </summary>
+            public static string AdminImprest = "行政部备用金";
+
+            /// <summary>
+            /// 行政支付
+            /// </summary>
+            public static string AdminPayment = "行政支付";
+
+            /// <summary>
+            /// 行政部收款上交
+            /// </summary>
+            public static string AdminReceivables = "行政部收款上交";
         }
 
         #region 附件
