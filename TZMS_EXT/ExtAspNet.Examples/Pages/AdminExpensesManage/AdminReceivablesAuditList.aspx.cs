@@ -122,7 +122,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                         strCondtion.Append(" AND Status = 3  ");
                         break;
                     case "4":
-                        strCondtion.Append(" AND  (Status = 4 OR Status = 3 OR Status = 2 )  ");
+                        strCondtion.Append(" AND  (Status = 4 OR Status = 3 OR Status = 2 OR Status = 5 )  ");
                         break;
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");

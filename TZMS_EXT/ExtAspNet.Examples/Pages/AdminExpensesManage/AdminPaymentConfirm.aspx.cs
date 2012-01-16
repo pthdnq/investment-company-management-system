@@ -54,22 +54,19 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
-        {
-            InitControl();
-
+        { 
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
                 OperateType = Request.QueryString["Type"];
 
-                bindUserInterface(strID);
-
-
+                bindUserInterface(strID);  
                 // 绑定审批人.
                 //   ApproveUser();
                 BindHistory();
             }
+            InitControl(); 
         }
 
         private void InitControl()
@@ -98,6 +95,8 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                 this.taAuditOpinion.Text = _Info.AuditOpinion;
                 this.taAuditOpinion.Enabled = false;
 
+                this.ToolbarSeparator1.Hidden = true;
+                this.taAuditOpinion.Hidden = true;
                 //this.ddlstApproveUser.Items.Add(new ExtAspNet.ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
                 //this.ddlstNext.Enabled = false;
                 //this.ddlstApproveUser.Enabled = false;

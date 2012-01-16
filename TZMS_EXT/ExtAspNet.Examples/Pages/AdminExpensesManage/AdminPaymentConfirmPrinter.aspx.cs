@@ -72,8 +72,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
                 lbApplier.Text = _info.CreaterName;
                 lbPaymenter.Text = _info.AccountingName;
-                //     this.taRemark.Text = _info.Remark;
-                //     this.taAuditOpinion.Text = _info.AuditOpinion;
+           
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
                 //{
                 this.tbDate.Text = DateTime.Now.ToShortDateString();

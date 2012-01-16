@@ -54,9 +54,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
-        {
-            InitControl();
-
+        { 
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
@@ -68,8 +66,9 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
                 // 绑定审批人.
                 //   ApproveUser();
-                BindHistory();
+                BindHistory(); 
             }
+            InitControl();
         }
 
         private void InitControl()
