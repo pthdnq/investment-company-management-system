@@ -147,7 +147,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             this.taCause.Text = _Info.Cause;
             this.tbAmountOfReceivables.Text = _Info.AmountOfReceivables.ToString();
             this.dpDateFor.SelectedDate = _Info.DateFor;
-     
+
             this.tbProjectName.Text = _Info.ProjectName;
 
             //  taAuditOpinion.Text = _Info.AuditOpinion;
@@ -225,6 +225,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             else
             {
                 _Info = new AdminReceivablesInfo();
+                _Info.ObjectId = new Guid();
                 _Info.AccountingName = this.ddlstApproveUser.SelectedText;
                 _Info.AccountingId = new Guid(this.ddlstApproveUser.SelectedValue);
 
@@ -239,7 +240,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
             _Info.ProjectName = this.tbProjectName.Text.Trim();
 
-         
+
             _Info.Cause = this.taCause.Text.Trim();
             _Info.AmountOfReceivables = decimal.Parse(this.tbAmountOfReceivables.Text.Trim());
             _Info.Remark = this.tbRemark.Text.Trim();
@@ -258,7 +259,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             //{
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
-        
+
             // }
             _Info.SubmitTime = DateTime.Now;
             //审批人
@@ -300,7 +301,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
         /// 绑定下一步
         /// </summary>
         private void BindNext(bool needAccountant)
-        { 
+        {
             if (needAccountant)
             {
                 ddlstNext.Items.Add(new ExtAspNet.ListItem("出纳确认", "0"));
