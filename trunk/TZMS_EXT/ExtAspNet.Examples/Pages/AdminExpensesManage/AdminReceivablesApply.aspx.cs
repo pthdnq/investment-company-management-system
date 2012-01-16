@@ -225,7 +225,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             else
             {
                 _Info = new AdminReceivablesInfo();
-                _Info.ObjectId = new Guid();
+                _Info.ObjectId =  Guid.NewGuid();
                 _Info.AccountingName = this.ddlstApproveUser.SelectedText;
                 _Info.AccountingId = new Guid(this.ddlstApproveUser.SelectedValue);
 
