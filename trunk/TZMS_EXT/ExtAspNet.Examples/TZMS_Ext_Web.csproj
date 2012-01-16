@@ -812,6 +812,7 @@
     <Content Include="Pages\ProxyAmount\GenerateProxyAmount.aspx" />
     <Content Include="Pages\ProxyAmount\MyProxyAmount.aspx" />
     <Content Include="Pages\ProxyAmount\NewProxyAmountUnit.aspx" />
+    <Content Include="Pages\ProxyAmount\ProxyAmountDetial.aspx" />
     <Content Include="Pages\ProxyAmount\ProxyAmountTemplateApply.aspx" />
     <Content Include="Pages\ProxyAmount\ProxyAmountTemplateApplyList.aspx" />
     <Content Include="Pages\ProxyAmount\ProxyAmountTemplateApprove.aspx" />
@@ -2700,6 +2701,13 @@
     </Compile>
     <Compile Include="Pages\ProxyAmount\NewProxyAmountUnit.aspx.designer.cs">
       <DependentUpon>NewProxyAmountUnit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountDetial.aspx.cs">
+      <DependentUpon>ProxyAmountDetial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ProxyAmount\ProxyAmountDetial.aspx.designer.cs">
+      <DependentUpon>ProxyAmountDetial.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProxyAmount\ProxyAmountTemplateApply.aspx.cs">
       <DependentUpon>ProxyAmountTemplateApply.aspx</DependentUpon>
