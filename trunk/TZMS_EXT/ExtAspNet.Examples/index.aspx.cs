@@ -1031,6 +1031,64 @@ namespace TZMS.Web
             if (Tree10.Nodes.Count == 0)
                 AccordionPane14.Hidden = true;
             #endregion
+
+            #region 行政部费用管理
+
+            for (int i = this.TreeXZBFYGL.Nodes.Count - 1; i > -1; i--)
+            {
+                flag = false;
+                flag = !CheckIDIsExist(TreeXZBFYGL.Nodes[i].NodeID);
+                //switch (Tree10.Nodes[i].Text)
+                //{
+                //    case "资金流量表":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //        && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "投资借款会计核算":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "项目实施会计核算":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "银行贷款会计核算":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //    case "民间融资会计核算":
+                //        if (!CurrentRoles.Contains(RoleType.CJGL) && !CurrentRoles.Contains(RoleType.DSZ)
+                //       && !CurrentRoles.Contains(RoleType.ZJL) && !CurrentRoles.Contains(RoleType.FZJL)
+                //        && !CurrentRoles.Contains(RoleType.TZZJ) && !CurrentRoles.Contains(RoleType.CWZJ)
+                //            && !CurrentRoles.Contains(RoleType.HSKJ) && !CurrentRoles.Contains(RoleType.CWZJ))
+                //        {
+                //            flag = true;
+                //        }
+                //        break;
+                //}
+                if (flag)
+                {
+                    TreeXZBFYGL.Nodes.RemoveAt(i);
+                }
+            }
+            if (TreeXZBFYGL.Nodes.Count == 0)
+                AccordionPane15.Hidden = true;
+            #endregion
         }
 
         protected void btnMessage_Click(object sender, EventArgs e)
