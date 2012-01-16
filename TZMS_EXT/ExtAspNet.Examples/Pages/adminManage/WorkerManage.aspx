@@ -63,19 +63,19 @@
                         OnRowDataBound="gridUser_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                            <ext:BoundField Width="70px" DataField="JobNo" HeaderText="工号" />
-                            <ext:BoundField DataField="Name" HeaderText="姓名" />
+                            <ext:BoundField Width="65px" DataField="JobNo" HeaderText="工号" />
+                            <ext:BoundField DataField="Name" Width="68px" HeaderText="姓名" />
                             <ext:BoundField Width="80px" DataField="AccountNo" HeaderText="账号" />
-                            <ext:TemplateField Width="60px" HeaderText="性别">
+                            <ext:TemplateField Width="45px" HeaderText="性别">
                                 <ItemTemplate>
                                     <%# (Convert.ToBoolean(DataBinder.Eval(Container.DataItem,"Sex")) == true) ? "男" : "女" %>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:BoundField Width="80px" DataField="Dept" HeaderText="部门" />
-                            <ext:BoundField Width="130px" DataField="PhoneNumber" HeaderText="联系电话" />
-                            <ext:BoundField DataField="BackIpPhoneNumber" Width="130px" HeaderText="备用联系电话" />
-                            <ext:BoundField Width="140px" DataField="Email" HeaderText="邮箱" />
-                            <ext:TemplateField Width="70px" HeaderText="员工状态">
+                            <ext:BoundField Width="115px" DataField="PhoneNumber" HeaderText="联系电话" />
+                            <ext:BoundField DataField="BackIpPhoneNumber" Width="120px" HeaderText="备用联系电话" />
+                            <ext:BoundField Width="128px" DataField="Email" HeaderText="邮箱" />
+                            <ext:TemplateField Width="60px" HeaderText="员工状态">
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem,"State").ToString() == "1") ? "在职" : "离职" %>
                                 </ItemTemplate>
