@@ -55,8 +55,6 @@ namespace TZMS.Web.Pages.AdminExpensesManage
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
         {
-            InitControl();
-
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
@@ -70,6 +68,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                 //   ApproveUser();
                 BindHistory();
             }
+            InitControl();
         }
 
         private void InitControl()
@@ -97,7 +96,8 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                 this.btnSave.Hidden = true;
                 this.taAuditOpinion.Text = _Info.AuditOpinion;
                 this.taAuditOpinion.Enabled = false;
-
+                this.taAuditOpinion.Hidden = true;
+                this.ToolbarSeparator2.Hidden = true;
                 //this.ddlstApproveUser.Items.Add(new ExtAspNet.ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
                 //this.ddlstNext.Enabled = false;
                 //this.ddlstApproveUser.Enabled = false;
@@ -128,15 +128,6 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             //    HighMoneyTips.Text = "提醒：本次操作资金总额大于1W。";
             //}
             #endregion
-
-            //this.tbCollateralCompany.Text = _Info.CollateralCompany;
-            //this.tbCustomerName.Text = _Info.CustomerName;
-            //this.tbDownPayment.Text = _Info.DownPayment.ToString();
-            //this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
-            //this.tbLoanCompany.Text = _Info.LoanCompany;
-            //this.tbLoanFee.Text = _Info.LoanFee.ToString();
-            //this.tbRemark.Text = _Info.Remark;
-            //this.taContact.Text = _Info.Contact;
 
             this.taUse.Text = _Info.Use;
             this.tbPrepaidAmount.Text = _Info.PrepaidAmount.ToString();
@@ -235,8 +226,8 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             //下一步操作人
             //if (status != 3)
             //{
-                _Info.NextOperaterName = "";
-                _Info.NextOperaterId = Guid.Empty;
+            _Info.NextOperaterName = "";
+            _Info.NextOperaterId = Guid.Empty;
             //}
             //else
             //{
