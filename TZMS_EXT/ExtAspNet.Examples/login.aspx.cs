@@ -114,12 +114,12 @@ namespace TZMS.Web
             cookie.Expires = dt.Add(ts);
             //增加属性 
             cookie.Values.Add("userName", user.AccountNo);
-            cookie.Domain = WebSite;
+            //cookie.Domain = WebSite;
             cookie.Path = "/";
             //确定写入cookie中   
             Response.AppendCookie(cookie);
             Session["account"] = user.ObjectId.ToString();
-            string id = Session.SessionID;
+            //string id = Session.SessionID;
             return true;
         }
 
