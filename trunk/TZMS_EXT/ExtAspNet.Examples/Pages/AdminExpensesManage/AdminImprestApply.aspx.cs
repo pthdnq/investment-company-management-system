@@ -67,7 +67,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                     BindHistory();
                 }
                 else
-                { 
+                {
                     ApproveUser();
                     this.tabHistory.Hidden = true;
                 }
@@ -92,7 +92,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             }
             AdminImprestInfo _Info = new AdminImprestManage().GetUserByObjectID(ObjectID);
 
-            #region View 
+            #region View
 
             if (OperateType.Equals("View"))
             {
@@ -137,10 +137,12 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             //this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
             //this.tbLoanCompany.Text = _Info.LoanCompany;
             //this.tbLoanFee.Text = _Info.LoanFee.ToString();
-            //this.tbRemark.Text = _Info.Remark;
+            //  this.dpSignDate.SelectedDate = _Info.SignDate;
             //this.taContact.Text = _Info.Contact;
 
-            //  this.dpSignDate.SelectedDate = _Info.SignDate;
+            this.taUse.Text = _Info.Use;
+            this.tbPrepaidAmount.Text = _Info.PrepaidAmount.ToString();
+            this.tbRemark.Text = _Info.Remark;
             this.tbProjectName.Text = _Info.ProjectName;
 
             //  taAuditOpinion.Text = _Info.AuditOpinion;
@@ -218,7 +220,9 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             #region content
 
             _Info.ProjectName = this.tbProjectName.Text.Trim();
-
+            _Info.PrepaidAmount = decimal.Parse(this.tbPrepaidAmount.Text.Trim());
+            _Info.Use = this.taUse.Text.Trim();
+            _Info.Remark = this.tbRemark.Text.Trim();
             //_Info.CustomerName = this.tbCustomerName.Text.Trim();
             //_Info.CollateralCompany = this.tbCollateralCompany.Text.Trim();
             //_Info.Contact = this.taContact.Text.Trim();

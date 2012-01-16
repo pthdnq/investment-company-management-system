@@ -18,13 +18,13 @@
             项目名称：
             <asp:Label runat="server" ID="tbProjectName"></asp:Label>
             <br />
-            进展阶段：
+            用途：
             <asp:Label runat="server" ID="lbImplementationPhase"></asp:Label></h2>
         <h3>
             预支金额：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
-            <br />
+         <%--   <br />
             支用时间：
-            <asp:Label runat="server" ID="lbLoanDate"></asp:Label>
+            <asp:Label runat="server" ID="lbLoanDate"></asp:Label>--%>
             <%--  <br />
             备用金余额：
             <asp:Label runat="server" ID="tbImprestAmount"></asp:Label>--%>
@@ -32,7 +32,7 @@
             申请人：
             <asp:Label runat="server" ID="lbApplier"></asp:Label>
             <br />
-            操作人：
+            出纳会计：
             <asp:Label runat="server" ID="lbPaymenter"></asp:Label>
             <br />
             <%--           支付方式：

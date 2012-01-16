@@ -132,16 +132,12 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             //}
             #endregion
 
-            //this.tbCollateralCompany.Text = _Info.CollateralCompany;
-            //this.tbCustomerName.Text = _Info.CustomerName;
-            //this.tbDownPayment.Text = _Info.DownPayment.ToString();
-            //this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
-            //this.tbLoanCompany.Text = _Info.LoanCompany;
-            //this.tbLoanFee.Text = _Info.LoanFee.ToString();
-            //this.tbRemark.Text = _Info.Remark;
-            //this.taContact.Text = _Info.Contact;
-
-            //this.dpSignDate.SelectedDate = _Info.SignDate;
+            this.tbRemark.Text = _Info.Remark;
+            this.tbCompany.Text = _Info.Company;
+            this.taCause.Text = _Info.Cause;
+            this.tbAmountOfPayment.Text = _Info.AmountOfPayment.ToString();
+            this.dpDateFor.SelectedDate = _Info.DateFor;
+            this.ddlPaymentType.SelectedValue = _Info.PaymentType;
             this.tbProjectName.Text = _Info.ProjectName;
         }
 
