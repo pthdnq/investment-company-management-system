@@ -506,7 +506,7 @@
                             <ext:AccordionPane ID="AccordionPane15" runat="server" Title="行政部费用管理" IconUrl="images/16/收款信息.gif"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="Tree1" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
+                                    <ext:Tree ID="TreeXZBFYGL" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
                                         <Nodes>
                                             <ext:TreeNode Leaf="true" NodeID="xzbyjsq" OnClientClick=" tabs('xzbyjsq','');" Text="备用金申请列表"
                                                 IconUrl="images/16/借款申请.gif" />

@@ -364,13 +364,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.AccordionPane AccordionPane15;
         
         /// <summary>
-        /// Tree1 control.
+        /// TreeXZBFYGL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Tree Tree1;
+        protected global::ExtAspNet.Tree TreeXZBFYGL;
         
         /// <summary>
         /// mainRegion control.
