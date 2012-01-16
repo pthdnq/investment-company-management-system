@@ -95,7 +95,9 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                 this.btnDismissed.Hidden = true;
                 this.btnSave.Hidden = true;
                 this.taAuditOpinion.Text = _Info.AuditOpinion;
+                this.taAuditOpinion.ShowRedStar = false;
                 this.taAuditOpinion.Enabled = false;
+                this.taAuditOpinion.Hidden = true;
 
                 this.ddlstApproveUser.Items.Add(new ExtAspNet.ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
 
