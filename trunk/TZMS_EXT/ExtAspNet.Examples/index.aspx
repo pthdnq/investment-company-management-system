@@ -529,7 +529,7 @@
                                             <ext:TreeNode Leaf="true" NodeID="xzfksjsh" OnClientClick=" tabs('xzfksjsh','');"
                                                 Text="行政付款审核列表" IconUrl="images/16/支付确认列表.gif" />
                                             <ext:TreeNode Leaf="true" NodeID="xzfksjqr" IconUrl="images/16/借款确认.gif" OnClientClick=" tabs('xzfksjqr','');"
-                                                Text="借款确认列表" />
+                                                Text="行政付款确认列表" />
                                             <ext:TreeNode Leaf="true" NodeID="xzfksj" OnClientClick=" tabs('xzfksj','');" Text="行政付款信息列表"
                                                 IconUrl="images/16/支付记录列表.gif" />
                                         </Nodes>
@@ -981,7 +981,7 @@
                     LoadTab("Pages/AdminExpensesManage/AdminReceivablesList.aspx", "收款上交信息列表", icon);
                     break;
                 case "xzfksjsq":
-                    LoadTab("Pages/AdminExpensesManage/AdminPaymentApplyList.aspx.aspx", "行政付款申请列表", icon);
+                    LoadTab("Pages/AdminExpensesManage/AdminPaymentApplyList.aspx", "行政付款申请列表", icon);
                     break;
                 case "xzfksjsh":
                     LoadTab("Pages/AdminExpensesManage/AdminPaymentAuditList.aspx", "行政付款审核列表", icon);
