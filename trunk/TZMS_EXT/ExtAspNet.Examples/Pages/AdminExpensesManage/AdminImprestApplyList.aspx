@@ -66,7 +66,7 @@
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField ExpandUnusedSpace="true" DataTooltipField="ProjectName" DataField="ProjectName"
                                 HeaderText="项目名称" />
-                            <ext:BoundField Width="80px" DataField="PrepaidAmount" DataTooltipField="LoanAmount"
+                            <ext:BoundField Width="80px" DataField="PrepaidAmount" DataTooltipField="PrepaidAmount"
                                 HeaderText="预支金额" />
                             <ext:BoundField Width="190px" DataField="Use" HeaderText="用途" />
                             <ext:BoundField Width="180px" DataField="Remark" HeaderText="备注" />
@@ -88,7 +88,7 @@
         </Items>
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="445px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="365px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="443px" Width="550px" OnClose="wndNew_Close">

@@ -77,7 +77,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
         /// </summary>
         private void InitControl()
         {
-            this.btnNew.OnClientClick = wndNew.GetShowReference("AdminImprestApply.aspx?Type=Add", "新增 - 贷款申请");
+            this.btnNew.OnClientClick = wndNew.GetShowReference("AdminImprestApply.aspx?Type=Add", "新增 -  备用金申请");
             this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
 
             CurrentLevel = GetCurrentLevel("xzbyjsq");

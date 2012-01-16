@@ -210,6 +210,9 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             else
             {
                 _Info = new AdminPaymentInfo();
+                _Info.CreaterId = this.CurrentUser.ObjectId;
+                _Info.CreaterName = this.CurrentUser.Name;
+                _Info.CreateTime = DateTime.Now;
             }
 
             _Info.Status = status;

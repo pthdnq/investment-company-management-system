@@ -77,10 +77,10 @@ namespace TZMS.Web.Pages.AdminExpensesManage
         /// </summary>
         private void InitControl()
         {
-            this.btnNew.OnClientClick = wndNew.GetShowReference("AdminPaymentApply.aspx?Type=Add", "新增 - 贷款申请");
+            this.btnNew.OnClientClick = wndNew.GetShowReference("AdminPaymentApply.aspx?Type=Add", "新增 - 行政付款申请");
             this.wndNew.OnClientCloseButtonClick = wndNew.GetHidePostBackReference();
 
-            CurrentLevel = GetCurrentLevel("xzfksj");
+            CurrentLevel = GetCurrentLevel("xzfksjsq");
             if (this.CurrentLevel.Equals(VisitLevel.View))
             {
                 btnNew.Hidden = true;
