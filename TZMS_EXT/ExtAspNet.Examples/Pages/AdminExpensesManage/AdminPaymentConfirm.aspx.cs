@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web; 
 using com.TZMS.Business;
 using com.TZMS.Model;
 using ExtAspNet;
@@ -11,6 +9,9 @@ using System.Text;
 
 namespace TZMS.Web.Pages.AdminExpensesManage
 {
+    /// <summary>
+    /// AdminPaymentConfirm
+    /// </summary>
     public partial class AdminPaymentConfirm : BasePage
     {
         #region 属性
@@ -54,19 +55,19 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
-        { 
+        {
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
                 OperateType = Request.QueryString["Type"];
 
-                bindUserInterface(strID);  
+                bindUserInterface(strID);
                 // 绑定审批人.
                 //   ApproveUser();
                 BindHistory();
             }
-            InitControl(); 
+            InitControl();
         }
 
         private void InitControl()
@@ -259,7 +260,6 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             }
         }
 
-
         /// <summary>
         /// 绑定下一步
         /// </summary>
@@ -282,7 +282,6 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             {
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
             }
-
             ddlstApproveUser.SelectedIndex = 0;
         }
         #endregion
