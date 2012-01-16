@@ -18,7 +18,7 @@
                 <Items>
                     <ext:Button ID="btnClose" EnablePostBack="false" Text="关闭" runat="server" Icon="SystemClose" />
                     <ext:ToolbarSeparator ID="ToolbarSeparator2" runat="server" />
-                    <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
+                    <ext:Button ID="btnSave" runat="server" ValidateForms="pelMain" OnClick="btnSave_Click"
                         IconUrl="~/Images/ico_nextstep.gif" Text="提交" ConfirmText="您确定提交该申请吗?" />
                     <ext:Button ID="btnDismissed" Hidden="true" runat="server" ValidateForms="mainFrame"
                         OnClick="btnDismissed_Click" IconUrl="~/Images/ico_firststep.gif" Text="不通过"
