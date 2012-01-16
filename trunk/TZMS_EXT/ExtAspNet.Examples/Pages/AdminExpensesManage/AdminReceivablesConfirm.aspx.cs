@@ -97,6 +97,8 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                 this.btnSave.Hidden = true;
                 this.taAuditOpinion.Text = _Info.AuditOpinion;
                 this.taAuditOpinion.Enabled = false;
+                this.taAuditOpinion.Hidden = true;
+                this.ToolbarSeparator1.Hidden = true;
 
                 this.ddlstApproveUser.Items.Add(new ExtAspNet.ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
                 this.ddlstNext.ShowRedStar = false;
@@ -226,13 +228,13 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             //下一步操作人
             //if (status != 3)
             //{
-            _Info.NextOperaterName = "";
-            _Info.NextOperaterId = Guid.Empty;
+            //   _Info.NextOperaterName = "";
+            // _Info.NextOperaterId = Guid.Empty;
             //}
             //else
             //{
-            // _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-            //   _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             //   }
             _Info.SubmitTime = DateTime.Now;
             //审批人
