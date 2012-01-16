@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminImprestList.aspx.cs" Inherits="TZMS.Web.Pages.AdminExpensesManage.AdminImprestList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminImprestList.aspx.cs"
+    Inherits="TZMS.Web.Pages.AdminExpensesManage.AdminImprestList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -64,7 +64,7 @@
                         OnRowDataBound="gridData_RowDataBound" Width="100%">
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
-                           <ext:BoundField ExpandUnusedSpace="true" DataTooltipField="ProjectName" DataField="ProjectName"
+                            <ext:BoundField ExpandUnusedSpace="true" DataTooltipField="ProjectName" DataField="ProjectName"
                                 HeaderText="项目名称" />
                             <ext:BoundField Width="80px" DataField="PrepaidAmount" DataTooltipField="PrepaidAmount"
                                 HeaderText="预支金额" />
@@ -78,9 +78,11 @@
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="AdminImprestAudit.aspx?Type=View&ID={0}"
                                 Title="查看" WindowID="wndView" />
-                            <ext:WindowField  Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="AdminImprestApply.aspx?Type=Edit&ID={0}"
-                                Title="编辑" WindowID="wndEdit" />
-                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
+                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
+                                DataIFrameUrlFormatString="AdminImprestApply.aspx?Type=Edit&ID={0}" Title="编辑"
+                                WindowID="wndEdit" />
+                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该记录?"
+                                CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>

@@ -70,7 +70,7 @@
                             <ext:BoundField Width="80px" DataField="DateFor" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="时间" />
                             <ext:BoundField Width="120px" DataField="Cause" HeaderText="付款事由" />
-                            <ext:BoundField Width="70px" DataField="AmountOfPayment" DataTooltipField="LoanAmount"
+                            <ext:BoundField Width="70px" DataField="AmountOfPayment" DataTooltipField="AmountOfPayment"
                                 HeaderText="金额" />
                             <ext:TemplateField Width="66px" HeaderText="付款方式">
                                 <ItemTemplate>
@@ -88,7 +88,7 @@
                             <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
                                 DataIFrameUrlFormatString="AdminPaymentApply.aspx?Type=Edit&ID={0}" Title="编辑"
                                 WindowID="wndEdit" />
-                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
+                            <ext:LinkButtonField  Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>

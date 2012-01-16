@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminReceivablesApplyList.aspx.cs" Inherits="TZMS.Web.Pages.AdminExpensesManage.AdminReceivablesApplyList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminReceivablesApplyList.aspx.cs"
+    Inherits="TZMS.Web.Pages.AdminExpensesManage.AdminReceivablesApplyList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>AdminReceivablesApplyList</title>
@@ -25,7 +25,7 @@
                                 <ext:ListItem Text="待审核" Value="1" Selected="true" />
                                 <ext:ListItem Text="审核中" Value="3" />
                                 <ext:ListItem Text="已通过" Value="5" />
-                         <%--       <ext:ListItem Text="已确认" Value="5" />
+                                <%--       <ext:ListItem Text="已确认" Value="5" />
                                 <ext:ListItem Text="未通过" Value="2" />--%>
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
@@ -66,11 +66,11 @@
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField ExpandUnusedSpace="true" DataTooltipField="ProjectName" DataField="ProjectName"
                                 HeaderText="项目名称" />
-                        <ext:BoundField Width="85px" DataField="Company" HeaderText="单位" />
+                            <ext:BoundField Width="85px" DataField="Company" HeaderText="单位" />
                             <ext:BoundField Width="80px" DataField="DateFor" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="时间" />
                             <ext:BoundField Width="120px" DataField="Cause" HeaderText="收款事由" />
-                            <ext:BoundField Width="70px" DataField="AmountOfReceivables" DataTooltipField="LoanAmount"
+                            <ext:BoundField Width="70px" DataField="AmountOfReceivables" DataTooltipField="AmountOfReceivables"
                                 HeaderText="金额" />
                             <ext:BoundField DataField="NextOperaterName" Width="73px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="66px" HeaderText="状态">
