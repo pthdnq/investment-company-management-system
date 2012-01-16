@@ -27,7 +27,7 @@
                 BodyPadding="3px" ShowHeader="false" AnchorValue="100% -36">
                 <Items>
                     <ext:Form EnableBackgroundColor="true" ShowHeader="false" ShowBorder="false" BodyPadding="5px"
-                        ID="mainForm" runat="server" LabelWidth="60px">
+                        ID="mainForm" runat="server" LabelWidth="80px">
                         <Rows>
                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="50% 50%">
                                 <Items>

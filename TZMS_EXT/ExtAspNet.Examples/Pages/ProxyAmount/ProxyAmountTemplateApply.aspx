@@ -51,7 +51,8 @@
                                         <Rows>
                                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="50%">
                                                 <Items>
-                                                    <ext:DropDownList ID="ddlstProxyAmountType" Label="费用类型" Required="true" ShowRedStar="true">
+                                                    <ext:DropDownList ID="ddlstProxyAmountType" Label="费用类型" Required="true" ShowRedStar="true"
+                                                        runat="server">
                                                         <ext:ListItem Text="代帐费" Value="0" Selected="true" />
                                                         <ext:ListItem Text="年检费" Value="1" />
                                                     </ext:DropDownList>
@@ -69,14 +70,14 @@
                                                     <ext:Label ID="lblCNMoney" runat="server" Label="大写金额">
                                                     </ext:Label>
                                                     <ext:TextBox ID="tbxMoney" runat="server" Label="小写金额" Required="true" ShowRedStar="true"
-                                                        AutoPostBack="true" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
+                                                        AutoPostBack="true" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" OnTextChanged="tbxMoney_TextChanged">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow8" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxSument" runat="server" Required="true" ShowRedStar="true" Label="收款事由"
-                                                        MaxLength="100" MaxLengthMessage="最多只能输入100个字！" Hidden="true">
+                                                    <ext:TextBox ID="tbxSument" runat="server" Label="收款事由" MaxLength="100" MaxLengthMessage="最多只能输入100个字！"
+                                                        Hidden="true">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
