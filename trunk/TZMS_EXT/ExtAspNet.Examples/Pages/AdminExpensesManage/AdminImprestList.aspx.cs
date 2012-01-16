@@ -186,11 +186,11 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             AdminImprestInfo _Info = (AdminImprestInfo)e.DataItem;
 
             //  if (_Info.Status != 1 && _Info.Status != 2)
-            if (_Info.Status != 2 || this.CurrentLevel.Equals(VisitLevel.View))
-            {
-                e.Values[13] = "<span class=\"gray\">删除</span>";
-                e.Values[12] = "<span class=\"gray\">编辑</span>";
-            }
+            //if (_Info.Status != 2 || this.CurrentLevel.Equals(VisitLevel.View))
+            //{
+                //e.Values[8] = "<span class=\"gray\">删除</span>";
+                //e.Values[9] = "<span class=\"gray\">编辑</span>";
+          //  }
         }
 
         /// <summary>

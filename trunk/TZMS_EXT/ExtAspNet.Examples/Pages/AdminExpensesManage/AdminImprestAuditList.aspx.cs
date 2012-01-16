@@ -173,7 +173,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
             if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
             {
-                e.Values[11] = "<span class=\"gray\">审核</span>";
+                e.Values[8] = "<span class=\"gray\">审核</span>";
 
             }
         }

@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminReceivablesList.aspx.cs" Inherits="TZMS.Web.Pages.AdminExpensesManage.AdminReceivablesList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminReceivablesList.aspx.cs"
+    Inherits="TZMS.Web.Pages.AdminExpensesManage.AdminReceivablesList" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>AdminReceivablesList</title>
@@ -25,8 +25,8 @@
                                 <ext:ListItem Text="待审核" Value="1" Selected="true" />
                                 <ext:ListItem Text="审核中" Value="3" />
                                 <ext:ListItem Text="已通过" Value="5" />
-                         <%--       <ext:ListItem Text="已确认" Value="5" />--%>
-                            <%--    <ext:ListItem Text="未通过" Value="2" />--%>
+                                <%--       <ext:ListItem Text="已确认" Value="5" />--%>
+                                <%--    <ext:ListItem Text="未通过" Value="2" />--%>
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
@@ -66,7 +66,7 @@
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField ExpandUnusedSpace="true" DataTooltipField="ProjectName" DataField="ProjectName"
                                 HeaderText="项目名称" />
-                          <ext:BoundField Width="85px" DataField="Company" HeaderText="单位" />
+                            <ext:BoundField Width="85px" DataField="Company" HeaderText="单位" />
                             <ext:BoundField Width="80px" DataField="DateFor" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="时间" />
                             <ext:BoundField Width="120px" DataField="Cause" HeaderText="收款事由" />
@@ -80,9 +80,11 @@
                             </ext:TemplateField>
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="AdminReceivablesAudit.aspx?Type=View&ID={0}"
                                 Title="查看" WindowID="wndView" />
-                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="AdminReceivablesApply.aspx?Type=Edit&ID={0}"
-                                Title="编辑" WindowID="wndEdit" />
-                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmText="确定删除该记录?" CommandName="Delete" />
+                            <ext:WindowField Hidden="true" Width="38px" Text="编辑" DataIFrameUrlFields="ObjectId"
+                                DataIFrameUrlFormatString="AdminReceivablesApply.aspx?Type=Edit&ID={0}" Title="编辑"
+                                WindowID="wndEdit" />
+                            <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该记录?"
+                                CommandName="Delete" />
                         </Columns>
                     </ext:Grid>
                 </Items>
