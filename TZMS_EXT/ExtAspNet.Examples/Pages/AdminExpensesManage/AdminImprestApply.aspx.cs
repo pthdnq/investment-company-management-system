@@ -213,7 +213,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             else
             {
                 _Info = new AdminImprestInfo();
-                _Info.ObjectId = new Guid();
+                _Info.ObjectId = Guid.NewGuid();
                 _Info.CreaterId = this.CurrentUser.ObjectId;
                 _Info.CreaterName = this.CurrentUser.Name;
                 _Info.CreateTime = DateTime.Now;
