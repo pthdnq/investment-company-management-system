@@ -246,6 +246,27 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             result = manage.Update(_Info);
             if (result == -1)
             {
+                #region cashflow
+                int itmp = new CashFlowManage().Add(new CashFlowStatementInfo()
+                {
+                    ObjectId = Guid.NewGuid(),
+                    Amount = _Info.AmountOfReceivables,
+                    DateFor = DateTime.Now,
+                    FlowDirection = Common.FlowDirection.Receive,
+                    FlowType = "",
+                    Biz = Common.Biz.AdminReceivables,
+                    ProjectName = _Info.ProjectName,
+                    IsAccountingAudit = 1
+                });
+                if (itmp != -1)
+                {
+                    _Info.Status = 1;
+                    manage.Update(_Info);
+                    Alert.Show("操作失败!");
+                    return;
+                }
+                #endregion
+
                 string statusName = "出纳确认，提交领导确认";//(status == 2) ? "不同意" : (status == 3) ? "同意，继续确认" : "同意，归档";
                 manage.AddHistory(_Info.ObjectId, "出纳确认", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
