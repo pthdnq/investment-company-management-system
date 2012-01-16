@@ -34,24 +34,24 @@ namespace com.TZMS.Model
 		
 		#region Field
 		private Guid _objectId;
-		private string _projectName;
-		private string _company;
-		private DateTime _dateFor;
-		private string _cause;
-		private Decimal _amountOfReceivables;
-		private string _remark;
-		private string _auditOpinion;
-		private string _accountingName;
+        private string _projectName = DBEmptyString;
+        private string _company = DBEmptyString;
+        private DateTime _dateFor = DBEmptyDate;
+        private string _cause = DBEmptyString;
+        private Decimal _amountOfReceivables = DBEmptyDecimal;
+        private string _remark = DBEmptyString;
+        private string _auditOpinion = DBEmptyString;
+        private string _accountingName = DBEmptyString;
 		private Guid _accountingId;
 		private Guid _createrId;
-		private string _createrName;
-		private DateTime _createTime;
-		private int _status;
+        private string _createrName = DBEmptyString;
+        private DateTime _createTime = DBEmptyDate;
+        private int _status = DBEmptyInt;
 		private Guid _nextOperaterId;
-		private string _nextOperaterName;
-		private string _nextOperateDesc;
-		private DateTime _submitTime;
-		private string _adulters;
+        private string _nextOperaterName = DBEmptyString;
+        private string _nextOperateDesc = DBEmptyString;
+        private DateTime _submitTime = DBEmptyDate;
+        private string _adulters = DBEmptyString;
 		#endregion 
 
 		#region Property
