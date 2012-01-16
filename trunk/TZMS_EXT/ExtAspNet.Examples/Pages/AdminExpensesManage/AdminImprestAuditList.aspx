@@ -66,7 +66,7 @@
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                               <ext:BoundField ExpandUnusedSpace="true" DataTooltipField="ProjectName" DataField="ProjectName"
                                 HeaderText="项目名称" />
-                            <ext:BoundField Width="80px" DataField="PrepaidAmount" DataTooltipField="LoanAmount"
+                            <ext:BoundField Width="80px" DataField="PrepaidAmount" DataTooltipField="PrepaidAmount"
                                 HeaderText="预支金额" />
                             <ext:BoundField Width="150px" DataField="Use" HeaderText="用途" />
                             <ext:BoundField Width="150px" DataField="Remark" HeaderText="备注" />
