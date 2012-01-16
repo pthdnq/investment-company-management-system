@@ -74,6 +74,7 @@ namespace TZMS.Web
                             tbxJobNo.Text = new UserManage().GetNextJobNo();
                             dpkLeaveTime.Hidden = true;
                             this.rblProbationState_SelectedIndexChanged(null, null);
+                            this.titleMention.Hidden = false;
                         }
                         break;
                     case "Edit":
