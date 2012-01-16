@@ -72,6 +72,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@CollecterName",DbType.String),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                new SqlParameter("@ProxyAmountType",DbType.Int16)
 				};
 
                 int i = 0;
@@ -93,6 +94,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProxyAmountInfo.CollecterName;
                 sqlparam[i++].Value = ProxyAmountInfo.State;
                 sqlparam[i++].Value = ProxyAmountInfo.IsDelete;
+                sqlparam[i++].Value = ProxyAmountInfo.ProxyAmountType;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -165,6 +167,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@CollecterName",DbType.String),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                new SqlParameter("@ProxyAmountType",DbType.Int16)
                 };
 
                 int i = 0;
@@ -186,6 +189,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProxyAmountInfo.CollecterName;
                 sqlparam[i++].Value = ProxyAmountInfo.State;
                 sqlparam[i++].Value = ProxyAmountInfo.IsDelete;
+                sqlparam[i++].Value = ProxyAmountInfo.ProxyAmountType;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -342,7 +346,10 @@ namespace com.TZMS.DataAccess
             {
                 ProxyAmountInfoInfo.IsDelete = bool.Parse(DataUtil.GetStringValueOfRow(ProxyAmountInfoInfoDataRow, "IsDelete"));
             }
-
+            if (ProxyAmountInfoInfoDataRow["ProxyAmountType"] != null)
+            {
+                ProxyAmountInfoInfo.ProxyAmountType = short.Parse(DataUtil.GetStringValueOfRow(ProxyAmountInfoInfoDataRow, "ProxyAmountType"));
+            }
             return ProxyAmountInfoInfo;
         }
         #endregion

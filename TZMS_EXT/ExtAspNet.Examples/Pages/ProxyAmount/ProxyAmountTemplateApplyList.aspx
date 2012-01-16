@@ -73,8 +73,8 @@
                             <ext:BoundField HeaderText="收款单位" Hidden="true" />
                             <ext:BoundField DataField="ApproverID" HeaderText="当前执行人" />
                             <ext:BoundField DataField="State" HeaderText="申请状态" />
-                            <ext:LinkButtonField Width="38px" Text="启用" CommandName="On" />
-                            <ext:LinkButtonField Width="38px" Text="终止" CommandName="Off" />
+                            <ext:LinkButtonField Width="38px" Text="启用" CommandName="On" ConfirmText="您确定启用该模板吗?" />
+                            <ext:LinkButtonField Width="38px" Text="终止" CommandName="Off" ConfirmText="您确定终止该模板吗?" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
                         </Columns>

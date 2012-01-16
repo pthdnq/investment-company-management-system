@@ -51,6 +51,7 @@ namespace com.TZMS.Model
         private string _collecterName = DBEmptyString;
         private short _state = -1;
         private bool _isDelete = false;
+        private short _proxyAmountType;
         #endregion
 
         #region Property
@@ -214,6 +215,12 @@ namespace com.TZMS.Model
         {
             get { return _isDelete; }
             set { _isDelete = value; }
+        }
+
+        public short ProxyAmountType
+        {
+            get { return _proxyAmountType; }
+            set { _proxyAmountType = value; }
         }
 
         #endregion

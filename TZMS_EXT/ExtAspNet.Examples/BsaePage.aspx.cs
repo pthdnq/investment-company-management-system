@@ -240,7 +240,7 @@ namespace TZMS.Web
             /// <summary>
             /// 行政部门总监
             /// </summary>
-          //  XZZJ = 4,
+            //  XZZJ = 4,
             /// <summary>
             /// 财务部门总监
             /// </summary>
@@ -280,7 +280,7 @@ namespace TZMS.Web
             /// <summary>
             /// 代账会计
             /// </summary>
-            //DZKJ = 14,
+            DZKJ = 14,
             /// <summary>
             /// 核算会计
             /// </summary>
@@ -388,11 +388,11 @@ namespace TZMS.Web
             ///// 前台（入门登记）
             ///// </summary>
             //QT = 36,
-             
+
             /// <summary>
             /// 行政部备用金大于1w归档
             /// </summary>
-            XZBBYJGDDY1=37,
+            XZBBYJGDDY1 = 37,
 
             /// <summary>
             /// 行政部备用金小于1w归档
@@ -422,7 +422,12 @@ namespace TZMS.Web
             /// <summary>
             /// 业务费用收取确认归档<30W
             /// </summary>
-            YWFYSQQRGDXY30W = 43
+            YWFYSQQRGDXY30W = 43,
+
+            /// <summary>
+            /// 代帐单模板归档
+            /// </summary>
+            DZDMBGD = 44
         }
 
         /// <summary>
@@ -484,7 +489,7 @@ namespace TZMS.Web
             /// <summary>
             /// 其他
             /// </summary>
-            QT = 10 
+            QT = 10
         }
 
         /// <summary>
@@ -557,7 +562,7 @@ namespace TZMS.Web
             return false;
         }
 
-      
+
 
 
         #region 自定义状态方法

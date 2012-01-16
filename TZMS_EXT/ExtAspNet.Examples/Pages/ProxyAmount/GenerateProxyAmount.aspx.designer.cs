@@ -67,13 +67,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.TextBox tbxSearch;
         
         /// <summary>
-        /// ddlstAproveState control.
+        /// ddlstProxyAmounter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstAproveState;
+        protected global::ExtAspNet.DropDownList ddlstProxyAmounter;
         
         /// <summary>
         /// btnSearch control.
@@ -175,13 +175,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Label Label11;
         
         /// <summary>
-        /// dpkGenerateDate control.
+        /// dpkGenerateDZDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker dpkGenerateDate;
+        protected global::ExtAspNet.DatePicker dpkGenerateDZDate;
         
         /// <summary>
         /// Label2 control.
@@ -211,13 +211,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Label Label5;
         
         /// <summary>
-        /// DatePicker1 control.
+        /// dpkGenerateNJDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DatePicker DatePicker1;
+        protected global::ExtAspNet.DatePicker dpkGenerateNJDate;
         
         /// <summary>
         /// Label6 control.
@@ -229,12 +229,21 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Label Label6;
         
         /// <summary>
-        /// gridApply control.
+        /// gridProxyAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Grid gridApply;
+        protected global::ExtAspNet.Grid gridProxyAmount;
+        
+        /// <summary>
+        /// wndProxyAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Window wndProxyAmount;
     }
 }

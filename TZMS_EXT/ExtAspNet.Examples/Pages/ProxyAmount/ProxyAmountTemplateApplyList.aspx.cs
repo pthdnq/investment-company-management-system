@@ -26,6 +26,8 @@ namespace TZMS.Web
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
+                BindGrid();
+
                 if (CurrentLevel == VisitLevel.View)
                 {
                     btnNewProxy.Enabled = false;
@@ -55,8 +57,14 @@ namespace TZMS.Web
             {
                 strCondition.Append(" and ProxyAmountUnitName Like '%" + tbxSearch.Text.Trim() + "%'");
             }
-
-            strCondition.Append(" and State = " + Convert.ToInt32(ddlstAproveState.SelectedValue));
+            if (Convert.ToInt32(ddlstAproveState.SelectedValue) >= 2)
+            {
+                strCondition.Append(" and State >= 2");
+            }
+            else
+            {
+                strCondition.Append(" and State = " + ddlstAproveState.SelectedValue);
+            }
             strCondition.Append(" and ApplyTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
 
             #endregion
@@ -170,11 +178,11 @@ namespace TZMS.Web
                         break;
                     case "3":
                         e.Values[9] = "归档";
-                        e.Values[11] = "<span class=\"gray\">终止</span>";
+                        e.Values[10] = "<span class=\"gray\">启用</span>";
                         break;
                     case "4":
                         e.Values[9] = "归档";
-                        e.Values[10] = "<span class=\"gray\">启用</span>";
+                        e.Values[11] = "<span class=\"gray\">终止</span>";
                         break;
                     default:
                         break;
