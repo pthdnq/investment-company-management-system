@@ -56,14 +56,12 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="ApplyID" Hidden="true" />
-                            <ext:BoundField DataField="PayUnitName" Width="220px" HeaderText="交款单位" />
-                            <ext:BoundField DataField="ProxyAccountingName" HeaderText="代帐人" />
+                            <ext:BoundField DataField="ProxyAmountUnitName" HeaderText="交款单位" ExpandUnusedSpace="true"
+                                DataTooltipField="ProxyAmountUnitName" />
+                            <ext:BoundField DataField="ProxyAmounterName" HeaderText="代帐人" />
                             <ext:BoundField DataField="CNMoney" Hidden="true" HeaderText="金额(大写)" />
                             <ext:BoundField DataField="ENMoney" HeaderText="金额(小写)" />
-                            <ext:BoundField DataField="Sument" HeaderText="收款事由" DataTooltipField="Sument" ExpandUnusedSpace="true" />
-                            <ext:BoundField DataField="CollectMethod" Hidden="true" HeaderText="收款方式" />
-                            <ext:BoundField DataField="OpeningDate" HeaderText="开票日期" Hidden="true" />
-                            <ext:BoundField HeaderText="收款单位" Hidden="true" />
+                            <ext:BoundField DataField="CollectMethod" HeaderText="收款方式" />
                             <ext:BoundField DataField="ApproveState" Width="60px" HeaderText="审批状态" />
                             <ext:BoundField DataField="Result" Width="60px" HeaderText="审批结果" />
                             <ext:BoundField DataField="ApproveDate" Width="100px" HeaderText="审批时间" />
