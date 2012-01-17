@@ -208,7 +208,7 @@ namespace TZMS.Web
             {
                 _userInfo = new UserInfo();
                 //默认密码：1111
-                _userInfo.Password = "1";
+                _userInfo.Password = "1111";
                 // 用户ID.
                 _userInfo.ObjectId = Guid.NewGuid();
             }
