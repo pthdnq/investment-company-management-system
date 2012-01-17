@@ -13,7 +13,7 @@
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
         Layout="Anchor">
-        <items>
+        <Items>
             <ext:Form ID="Form2" ShowBorder="False" LabelWidth="55px" BodyPadding="5px" AnchorValue="100%"
                 EnableBackgroundColor="true" ShowHeader="False" runat="server">
                 <Rows>
@@ -49,21 +49,21 @@
             <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -60"
                 Layout="Fit" runat="server">
                 <Items>
-                    <ext:Grid ID="gridApprove" Title="Grid1" ShowBorder="true" ShowHeader="false"
-                        AllowPaging="true" runat="server" IsDatabasePaging="true" EnableRowNumber="True"
-                        AutoHeight="true" OnPageIndexChange="gridApprove_PageIndexChange" 
-                        OnRowCommand="gridApprove_RowCommand" OnRowDataBound="gridApprove_RowDataBound">
+                    <ext:Grid ID="gridApprove" Title="Grid1" ShowBorder="true" ShowHeader="false" AllowPaging="true"
+                        runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoHeight="true"
+                        OnPageIndexChange="gridApprove_PageIndexChange" OnRowCommand="gridApprove_RowCommand"
+                        OnRowDataBound="gridApprove_RowDataBound">
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="ApplyID" Hidden="true" />
                             <ext:BoundField DataField="PayUnitName" Width="220px" HeaderText="交款单位" />
                             <ext:BoundField DataField="ProxyAccountingName" HeaderText="代帐人" />
-                            <ext:BoundField DataField="CNMoney"  Hidden="true" HeaderText="金额(大写)" />
+                            <ext:BoundField DataField="CNMoney" Hidden="true" HeaderText="金额(大写)" />
                             <ext:BoundField DataField="ENMoney" HeaderText="金额(小写)" />
                             <ext:BoundField DataField="Sument" HeaderText="收款事由" DataTooltipField="Sument" ExpandUnusedSpace="true" />
-                            <ext:BoundField DataField="CollectMethod"  Hidden="true" HeaderText="收款方式" />
+                            <ext:BoundField DataField="CollectMethod" Hidden="true" HeaderText="收款方式" />
                             <ext:BoundField DataField="OpeningDate" HeaderText="开票日期" />
-                            <ext:BoundField HeaderText="收款单位"  Hidden="true" />
+                            <ext:BoundField HeaderText="收款单位" Hidden="true" />
                             <ext:BoundField DataField="ApproveState" Width="60px" HeaderText="审批状态" />
                             <ext:BoundField DataField="Result" Width="60px" HeaderText="审批结果" />
                             <ext:BoundField DataField="ApproveDate" Width="100px" HeaderText="审批时间" />
@@ -72,11 +72,11 @@
                     </ext:Grid>
                 </Items>
             </ext:Panel>
-        </items>
+        </Items>
     </ext:Panel>
     <ext:Window ID="wndApprove" Title="代账审批" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
-        Width="700px" onclose="wndApprove_Close">
+        Width="700px" OnClose="wndApprove_Close">
     </ext:Window>
     </form>
 </body>

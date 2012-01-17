@@ -122,12 +122,28 @@ namespace TZMS.Web
 
             if (e.CommandName == "On")
             {
+                ProxyAmountManage _manage = new ProxyAmountManage();
+                ProxyAmountTemplateApplyInfo _info = _manage.GetTemplateApplyByObjectID(strApplyID);
+                if (_info != null)
+                {
+                    _info.State = 3;
+                    _manage.UpdateTemplateApply(_info);
 
+                    BindGrid();
+                }
             }
 
             if (e.CommandName == "Off")
             {
+                ProxyAmountManage _manage = new ProxyAmountManage();
+                ProxyAmountTemplateApplyInfo _info = _manage.GetTemplateApplyByObjectID(strApplyID);
+                if (_info != null)
+                {
+                    _info.State = 4;
+                    _manage.UpdateTemplateApply(_info);
 
+                    BindGrid();
+                }
             }
 
             if (e.CommandName == "View")
