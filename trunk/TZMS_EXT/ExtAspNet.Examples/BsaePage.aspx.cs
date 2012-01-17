@@ -427,7 +427,12 @@ namespace TZMS.Web
             /// <summary>
             /// 代帐单模板归档
             /// </summary>
-            DZDMBGD = 44
+            DZDMBGD = 44,
+
+            /// <summary>
+            /// 代帐费收取出纳确认
+            /// </summary>
+            DZFSQCNQR = 45
         }
 
         /// <summary>

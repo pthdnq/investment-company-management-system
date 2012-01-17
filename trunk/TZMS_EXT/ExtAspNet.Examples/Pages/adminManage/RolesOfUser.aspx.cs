@@ -388,6 +388,9 @@ namespace TZMS.Web
                 case RoleType.DZDMBGD:
                     strRole = "代帐单模板归档";
                     break;
+                case RoleType.DZFSQCNQR:
+                    strRole = "代帐费收取出纳确认";
+                    break;
             }
 
             return strRole;

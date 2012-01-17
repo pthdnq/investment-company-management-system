@@ -578,6 +578,17 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzfygl" OnClientClick="return false;"
+                                        Text="代帐费用管理">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
                                 </Nodes>
                             </ext:TreeNode>
                             <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="CWBX" Text="财务报销">
