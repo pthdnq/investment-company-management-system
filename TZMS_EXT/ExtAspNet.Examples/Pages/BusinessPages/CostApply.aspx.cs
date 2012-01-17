@@ -400,6 +400,8 @@ namespace TZMS.Web
         protected void ddlstCompanyname_SelectedIndexChanged(object sender, EventArgs e)
         {
             BusinessManage _manage = new BusinessManage();
+            if (ddlstCompanyname.Items.Count == 0)
+                return;
             BusinessInfo _info = _manage.GetBusinessByObjectID(ddlstCompanyname.SelectedValue);
             if (_info != null)
             {
