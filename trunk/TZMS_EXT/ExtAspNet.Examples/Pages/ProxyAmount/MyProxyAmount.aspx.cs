@@ -317,7 +317,15 @@ namespace TZMS.Web
         void btnButton_Click(object sender, EventArgs e)
         {
             ExtAspNet.Button btnButton = (ExtAspNet.Button)sender;
-            //Alert.Show(btnButton.ID);
+            int index = Convert.ToInt32(btnButton.ID.Replace("btnDynamic", ""));
+            if (DataSource.Count > 0 && (DataSource.Count - 1 >= index))
+            {
+                ProxyAmountManage _manage = new ProxyAmountManage();
+                ProxyAmountInfo _info = DataSource[index];
+                _info.State = 1;
+                _manage.UpdateProxyAmount(_info);
+                BindGrid();
+            }
         }
 
         #endregion
