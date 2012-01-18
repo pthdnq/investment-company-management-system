@@ -203,6 +203,13 @@ namespace TZMS.Web
                     default:
                         break;
                 }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    e.Values[10] = "<span class=\"gray\">启用</span>";
+                    e.Values[11] = "<span class=\"gray\">终止</span>";
+                    e.Values[13] = "<span class=\"gray\">编辑</span>";
+                }
             }
         }
 
