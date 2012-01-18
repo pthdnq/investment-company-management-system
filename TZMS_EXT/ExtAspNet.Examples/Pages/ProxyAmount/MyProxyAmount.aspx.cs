@@ -309,6 +309,12 @@ namespace TZMS.Web
                 {
                     btnButton.Enabled = false;
                 }
+
+                if (CurrentLevel == VisitLevel.View)
+                {
+                    btnButton.Enabled = false;
+                }
+
                 row4.Items.Add(btnButton);
                 form4.Rows.Add(row4);
 
