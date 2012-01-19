@@ -54,6 +54,8 @@ namespace TZMS.Web
             }
             else
             {
+                System.Diagnostics.Debug.WriteLine("Refresh");
+
                 GenerateStyle(DataSource);
             }
         }
@@ -212,6 +214,7 @@ namespace TZMS.Web
                 row2 = new FormRow();
                 row2.ColumnWidths = "100%";
                 label2 = new ExtAspNet.Label();
+                label2.ID = "lblDynamic" + i;
                 label2.ShowLabel = false;
                 label2.CssStyle = "TEXT-ALIGN:center";
                 label2.Width = 100;
@@ -320,6 +323,8 @@ namespace TZMS.Web
 
                 panel.Items.Add(form4);
 
+                ++i;
+
                 #endregion
 
                 pelPrint.Items.Add(panel);
@@ -328,6 +333,8 @@ namespace TZMS.Web
 
         void btnButton_Click(object sender, EventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("Event");
+
             ExtAspNet.Button btnButton = (ExtAspNet.Button)sender;
             int index = Convert.ToInt32(btnButton.ID.Replace("btnDynamic", ""));
             if (DataSource.Count > 0 && (DataSource.Count - 1 >= index))
@@ -336,7 +343,15 @@ namespace TZMS.Web
                 ProxyAmountInfo _info = DataSource[index];
                 _info.State = 1;
                 _manage.UpdateProxyAmount(_info);
-                BindGrid();
+
+                btnButton.Enabled = false;
+                ExtAspNet.Form form = ((ExtAspNet.Panel)pelPrint.Items[index]).Items[1] as ExtAspNet.Form;
+                ExtAspNet.FormRow row = form.Rows[2];
+                ExtAspNet.Label lblDynamic = (row.Items[0] as ExtAspNet.Label);
+                lblDynamic.Text = "已上交";
+                //BindGrid();
+
+                //GenerateStyle(DataSource);
             }
         }
 
