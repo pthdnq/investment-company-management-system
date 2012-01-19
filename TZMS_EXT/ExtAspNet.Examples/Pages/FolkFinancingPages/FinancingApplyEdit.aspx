@@ -44,7 +44,7 @@
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
                             <ext:TextArea ID="taAuditOpinion" Label="审核备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！"
-                                Hidden="true" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                                Hidden="true" >
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>
@@ -93,8 +93,8 @@
                                         <Items>
                                             <ext:DatePicker ID="dpLoanDate" Label="借款日期" runat="server">
                                             </ext:DatePicker>
-                                            <ext:TextBox ID="dpDueDateForPay" Label="应付账款款日" ShowRedStar="true" Required="true"
-                                                runat="server" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="[1-3][0-9]*$"
+                                            <ext:TextBox ID="dpDueDateForPay" Label="应付账款日" ShowRedStar="true" Required="true"
+                                                runat="server" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$"
                                                 RegexMessage="只能输入数字!" Text="1">
                                             </ext:TextBox>
                                         </Items>

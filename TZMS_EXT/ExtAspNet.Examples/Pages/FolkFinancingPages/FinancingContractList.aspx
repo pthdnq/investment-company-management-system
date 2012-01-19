@@ -26,9 +26,10 @@
                                 <ext:ListItem Text="审核中" Value="3" />
                                 <ext:ListItem Text="已通过" Value="5" Selected="true" />
                                 <ext:ListItem Text="未通过" Value="2" />
+                                <ext:ListItem Text="已终止" Value="8" />
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
-                            <ext:TextBox Label="应付款日" ShowLabel="true" runat="server" EmptyText="输入1,2... ;0表示查询所有"
+                            <ext:TextBox Label="应付账款日" ShowLabel="true" runat="server" EmptyText="输入1,2... ;0表示查询所有"
                                 ID="tbSeachDueDay" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$"
                                 RegexMessage="只能输入数字!" />
                             <%--         <ext:Label ID="Labeltmp1" runat="server" />--%>
@@ -73,7 +74,7 @@
                             <ext:BoundField Width="80px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="借款日期" />
                             <ext:BoundField Width="80px" DataField="DueDateForPay" DataFormatString="每月{0}日"
-                                HeaderText="应付款日" />
+                                HeaderText="应付账款日" />
                             <ext:BoundField Width="100px" DataField="ContactPhone" HeaderText="联系电话" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="70px" HeaderText="状态">

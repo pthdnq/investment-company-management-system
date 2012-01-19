@@ -305,8 +305,17 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 case "6":
                     StrStatusName = "已通过";
                     break;
+                case "7":
+                    StrStatusName = "终止审核中";
+                    break;
+                case "8":
+                    StrStatusName = "已终止";
+                    break;
                 case "9":
                     StrStatusName = "已删除";
+                    break;
+                case "11":
+                    StrStatusName = "终止未通过";
                     break;
                 default:
                     break;

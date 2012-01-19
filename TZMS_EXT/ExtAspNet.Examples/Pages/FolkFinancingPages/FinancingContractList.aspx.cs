@@ -143,16 +143,19 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                         strCondtion.Append(" AND Status = 1 ");
                         break;
                     case "2":
-                        strCondtion.Append(" AND Status = 2 ");
+                        strCondtion.Append(" AND (Status = 2 OR Status = 11 ) ");
                         break;
                     case "3":
-                        strCondtion.Append(" AND (Status = 3 OR Status = 4 ) ");
+                        strCondtion.Append(" AND (Status = 3 OR Status = 4 OR Status = 7 ) ");
                         break;
                     case "4":
                         strCondtion.Append(" AND Status = 4 ");
                         break;
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
+                        break;
+                    case "8":
+                        strCondtion.Append(" AND Status = 8 ");
                         break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
@@ -300,6 +303,54 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             BindGridData(ViewStateState, ViewStateSearchText);
         }
 
+        #endregion
+
+        #region 自定义方法
+        /// <summary>
+        /// 获取状态名字
+        /// </summary>
+        /// <param name="strStatus"></param>
+        /// <returns></returns>
+        protected string GetStatusName(string strStatus)
+        {
+            string StrStatusName = string.Empty;
+            switch (strStatus)
+            {
+                case "0":
+                    //  strCondtion.Append(" AND Status = 1 ");
+                    break;
+                case "1":
+                    StrStatusName = "待审核";
+                    break;
+                case "2":
+                    StrStatusName = "未通过";
+                    break;
+                case "3":
+                    StrStatusName = "已审核";
+                    break;
+                case "4":
+                    StrStatusName = "已通过";
+                    break;
+                case "5":
+                    StrStatusName = "已通过";
+                    break;
+                case "7":
+                    StrStatusName = "终止审核中";
+                    break;
+                case "8":
+                    StrStatusName = "已终止";
+                    break;
+                case "9":
+                    StrStatusName = "已删除";
+                    break;
+                case "11":
+                    StrStatusName = "终止未通过";
+                    break;
+                default:
+                    break;
+            }
+            return StrStatusName;
+        }
         #endregion
     }
 }
