@@ -171,7 +171,7 @@ namespace TZMS.Web
             {
                 DateTime selectDate = Convert.ToDateTime(dpkGenerateDZDate.SelectedDate);
                 List<ProxyAmountInfo> lstProxyAmount = _manage.GetProxyAmountByCondition(" ProxyAmountType = 0 and  ProxyAmounterID ='" + info.ProxyAmounterID.ToString()
-                    + "' and Month(OpeningDate) = " + selectDate.Month + " and Year(OpeningDate) = " + selectDate.Year);
+                    + "' and Sument Like '%" + selectDate.Year + "年" + selectDate.Month + "月份%'");
                 if (lstProxyAmount.Count == 0)
                 {
                     ProxyAmountInfo _info = new ProxyAmountInfo();
@@ -209,12 +209,12 @@ namespace TZMS.Web
         protected void btnGenerateNJ_Click(object sender, EventArgs e)
         {
             ProxyAmountManage _manage = new ProxyAmountManage();
-            List<ProxyAmountTemplateApplyInfo> lstTemplate = _manage.GetTemplateApplyByCondition(" IsDelete = 0 and State = 3 and TemplateType = 0");
+            List<ProxyAmountTemplateApplyInfo> lstTemplate = _manage.GetTemplateApplyByCondition(" IsDelete = 0 and State = 3 and TemplateType = 1");
             foreach (ProxyAmountTemplateApplyInfo info in lstTemplate)
             {
-                DateTime selectDate = Convert.ToDateTime(dpkGenerateDZDate.SelectedDate);
+                DateTime selectDate = Convert.ToDateTime(dpkGenerateNJDate.SelectedDate);
                 List<ProxyAmountInfo> lstProxyAmount = _manage.GetProxyAmountByCondition(" ProxyAmountType = 1 and  ProxyAmounterID ='" + info.ProxyAmounterID.ToString()
-                    + "' and Month(OpeningDate) = " + selectDate.Month + " and Year(OpeningDate) = " + selectDate.Year);
+                    + "' and Sument Like '%" + selectDate.Year + "年%'");
                 if (lstProxyAmount.Count == 0)
                 {
                     ProxyAmountInfo _info = new ProxyAmountInfo();
