@@ -48,7 +48,8 @@
                 <Toolbars>
                     <ext:Toolbar ID="toolApp" runat="server">
                         <Items>
-                            <ext:Button ID="btnGenerateDZ" Text="代帐费生成" ToolTip="代帐费生成" Icon="Add" runat="server" OnClick="btnGenerateDZ_Click">
+                            <ext:Button ID="btnGenerateDZ" Text="代帐费生成" ToolTip="代帐费生成" Icon="Add" runat="server"
+                                OnClick="btnGenerateDZ_Click">
                             </ext:Button>
                             <ext:Label ID="Label11" runat="server" Text="生成">
                             </ext:Label>
@@ -56,7 +57,8 @@
                             </ext:DatePicker>
                             <ext:Label ID="Label2" runat="server" Text="代帐费">
                             </ext:Label>
-                            <ext:Button ID="btnGenerateNJ" Text="年检费生成" ToolTip="年检费生成" Icon="Add" runat="server" OnClick="btnGenerateNJ_Click">
+                            <ext:Button ID="btnGenerateNJ" Text="年检费生成" ToolTip="年检费生成" Icon="Add" runat="server"
+                                OnClick="btnGenerateNJ_Click">
                             </ext:Button>
                             <ext:Label ID="Label5" runat="server" Text="生成">
                             </ext:Label>
@@ -75,7 +77,7 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="ProxyAmountID" Hidden="true" />
-                            <ext:BoundField DataField="TemplateType" HeaderText="费用类型" />
+                            <ext:BoundField DataField="ProxyAmountType" HeaderText="费用类型" />
                             <ext:BoundField DataField="ProxyAmountUnitName" HeaderText="交款单位" ExpandUnusedSpace="true"
                                 DataTooltipField="ProxyAmountUnitName" />
                             <ext:BoundField DataField="ProxyAmounterName" HeaderText="代帐人" />
@@ -97,7 +99,7 @@
     </ext:Panel>
     <ext:Window ID="wndProxyAmount" Title="代账单" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
-        Width="700px" onclose="wndProxyAmount_Close">
+        Width="700px" OnClose="wndProxyAmount_Close">
     </ext:Window>
     </form>
 </body>
