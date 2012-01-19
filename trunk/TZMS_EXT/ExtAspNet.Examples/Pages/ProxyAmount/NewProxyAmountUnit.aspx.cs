@@ -108,7 +108,7 @@ namespace TZMS.Web
             if (_info != null)
             {
                 tbxUnitName.Text = _info.UnitName;
-                lblAccountancy.Text = _info.UnitName;
+                lblAccountancy.Text = _info.UserName;
                 tbxTitle.Text = _info.UnitAddress;
                 taaOther.Text = _info.Other;
                 tbxSMDJNumber.Text = _info.SMDJNumber;

@@ -22,6 +22,8 @@ namespace TZMS.Web
                 btnNewUnit.OnClientClick = wndProxyAmountUnit.GetShowReference("NewProxyAmountUnit.aspx?Type=Add") + "return false;";
                 wndProxyAmountUnit.OnClientCloseButtonClick = wndProxyAmountUnit.GetHidePostBackReference();
 
+                BindGrid();
+
                 if (CurrentLevel == VisitLevel.View)
                 {
                     btnNewUnit.Enabled = false;
