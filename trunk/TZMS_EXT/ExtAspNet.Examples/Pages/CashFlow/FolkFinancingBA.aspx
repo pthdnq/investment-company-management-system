@@ -44,8 +44,8 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
-                            <ext:TextArea ID="taAuditOpinion" Label="审核备注" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                            <ext:TextArea ID="taAuditOpinion" Label="审核意见" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！"
+                                ShowRedStar="true" Required="true" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>
@@ -129,9 +129,10 @@
                                     </ext:FormRow>
                                     <ext:FormRow ID="FormRow6" runat="server" ColumnWidths="10% 90%">
                                         <Items>
-                                        <ext:Label runat="server"  ShowLabel="false" Text="附件"></ext:Label>
+                                            <ext:Label runat="server" ShowLabel="false" Text="附件">
+                                            </ext:Label>
                                             <ext:ContentPanel ID="ContentPanel1" runat="server" BodyPadding="5px" EnableBackgroundColor="true"
-                                                 ShowBorder="false" ShowHeader="false" Height="172px"> <ucl:MudFlexCtrl  ID="MUDAttachment" runat="server" AttributeName="附件属性" SystemName="会计核算"></ucl:MudFlexCtrl>
+                                                ShowBorder="false" ShowHeader="false" Height="172px"> <ucl:MudFlexCtrl  ID="MUDAttachment" runat="server" AttributeName="附件属性" SystemName="会计核算"></ucl:MudFlexCtrl>
 
                                             </ext:ContentPanel>
                                         </Items>
@@ -141,7 +142,7 @@
                         </Items>
                     </ext:Tab>
                     <ext:Tab ID="tabHistory" Title="操作历史" EnableBackgroundColor="true" runat="server"
-                      Layout="Fit"   BodyPadding="5px">
+                        Layout="Fit" BodyPadding="5px">
                         <Items>
                             <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">

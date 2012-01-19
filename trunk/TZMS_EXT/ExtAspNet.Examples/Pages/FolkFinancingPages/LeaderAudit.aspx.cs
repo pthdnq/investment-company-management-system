@@ -228,7 +228,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             _Info.Status = status;
 
-            if (status == 5)
+            if (status != 3)
             {
                 _Info.NextOperaterName = "";
                 _Info.NextOperaterId = Guid.Empty;

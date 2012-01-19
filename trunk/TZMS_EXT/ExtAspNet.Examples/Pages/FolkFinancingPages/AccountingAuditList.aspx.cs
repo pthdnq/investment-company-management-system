@@ -128,7 +128,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                         strCondtion.Append("  AND  Status = 4 ");
                         break;
                     case "5":
-                        strCondtion.Append(" AND (Status > 2 AND Status < 9 ) ");
+                        strCondtion.Append(" AND (Status > 1 AND Status < 9 ) ");
                         break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
@@ -180,7 +180,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             FolkFinancingInfo _Info = (FolkFinancingInfo)e.DataItem;
 
-            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId) || _Info.Status != 4)
             {
                 e.Values[11] = "<span class=\"gray\">审核</span>";
             }

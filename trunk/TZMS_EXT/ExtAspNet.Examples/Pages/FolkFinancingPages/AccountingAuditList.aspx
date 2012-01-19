@@ -64,13 +64,13 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="90px" DataField="BorrowerNameA" HeaderText="借款人" />
-                            <ext:BoundField Width="90px" DataField="Lenders" HeaderText="出款人" />
+                            <ext:BoundField Width="90px" DataField="Lenders" HeaderText="出借人" />
                             <ext:BoundField Width="90px" DataField="Guarantee" HeaderText="担保人" Hidden="true" />
                             <ext:BoundField Width="105px" DataField="LoanAmount" HeaderText="借款金额" />
                             <ext:BoundField Width="100px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="借款日期" />
                             <ext:BoundField Width="110px" DataField="DueDateForPay" DataFormatString="每月{0}日"
-                                HeaderText="应付款日" />
+                                HeaderText="应付账款日" />
                             <ext:BoundField Width="110px" DataField="ContactPhone" HeaderText="联系电话" Hidden="true" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="70px" HeaderText="状态">

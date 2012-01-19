@@ -94,7 +94,7 @@
                                         <Items>
                                             <ext:DatePicker ID="dpLoanDate" Label="借款日期" runat="server" Enabled="false">
                                             </ext:DatePicker>
-                                            <ext:TextBox Hidden="true" ID="dpDueDateForPay" Label="应付款日" Enabled="false" runat="server"
+                                            <ext:TextBox Hidden="true" ID="dpDueDateForPay" Label="应付账款日" Enabled="false" runat="server"
                                                 MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="[1-3][0-9]*$" RegexMessage="只能输入数字!"
                                                 Text="1">
                                             </ext:TextBox>
