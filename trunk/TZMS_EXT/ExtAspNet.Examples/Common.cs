@@ -11,7 +11,6 @@ namespace TZMS
 {
     public class Common
     {
-
         /// <summary>
         /// 部门
         /// </summary>
@@ -267,6 +266,90 @@ namespace TZMS
 
             MUDFilesCtrl fileCtrl = new MUDFilesCtrl();
             fileCtrl.ResetFiles(string.Empty, systemName, recordId, attributeName);
+        }
+        #endregion
+
+        #region
+        /// <summary>
+        /// 获取money大写（整数部分）
+        /// </summary>
+        /// <param name="origanDec">money int</param>
+        /// <param name="origanString">大写字符串</param>
+        /// <param name="NZero">位数</param>
+        /// <returns>money大写字符串</returns>
+        public static string GetUperNumNames(int origanDec, string origanString = "", int NZero = 0)
+        {
+            origanString = origanString.Replace("零零", "零");
+            if (origanDec == 0)
+            {
+                // GetUperSingleNumName(origanDec) + origanString; 
+                return origanString.Replace("零零", "零").Replace("零元", "元").Replace("零万", "万").Replace("零亿", "亿");
+            }
+            else
+            {
+                string tmp = GetUperSingleNumName(origanDec - origanDec / 10 * 10);
+                if (!tmp.Equals("零"))
+                {
+                    tmp += GetNZeroName(NZero);
+                }
+                else if (NZero == 0 || NZero == 4 || NZero == 8)
+                {
+                    tmp = GetNZeroName(NZero);
+                } 
+                origanString = tmp + origanString;
+                return GetUperNumNames(origanDec / 10, origanString, ++NZero);
+            } 
+        }
+
+        /// <summary>
+        /// 获取单个数字大写
+        /// </summary>
+        /// <param name="lowerNum">数字</param>
+        /// <returns>大写</returns>
+        protected static string GetUperSingleNumName(int lowerNum)
+        {
+            string UperNumName = string.Empty;
+            switch (lowerNum)
+            {
+                case 0: UperNumName = "零"; break;
+                case 1: UperNumName = "壹"; break;
+                case 2: UperNumName = "贰"; break;
+                case 3: UperNumName = "叁"; break;
+                case 4: UperNumName = "肆"; break;
+                case 5: UperNumName = "伍"; break;
+                case 6: UperNumName = "陆"; break;
+                case 7: UperNumName = "柒"; break;
+                case 8: UperNumName = "捌"; break;
+                case 9: UperNumName = "玖"; break;
+                default: break;
+            }
+            return UperNumName;
+        }
+
+        /// <summary>
+        /// 获取位数单位
+        /// </summary>
+        /// <param name="NZero">几个零</param>
+        /// <returns>单位</returns>
+        protected static string GetNZeroName(int NZero)
+        {
+            string name = string.Empty;
+            switch (NZero)
+            {
+                case 0: name = "元"; break;
+                case 1: name = "拾"; break;
+                case 2: name = "佰"; break;
+                case 3: name = "仟"; break;
+                case 4: name = "万"; break;
+                case 5: name = "拾"; break;
+                case 6: name = "佰"; break;
+                case 7: name = "仟"; break;
+                case 8: name = "亿"; break;
+                case 9: name = "拾"; break;
+                case 10: name = "佰"; break;
+                default: name = ""; break;
+            }
+            return name;
         }
         #endregion
 
