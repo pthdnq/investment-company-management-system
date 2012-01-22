@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using com.TZMS.Business;
-using com.TZMS.Model; 
+using com.TZMS.Model;
 using System.Text;
 
 namespace TZMS.Web.Pages.AdminExpensesManage
@@ -66,19 +66,15 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             {
                 this.tbProjectName.Text = _info.ProjectName;
                 this.lbImplementationPhase.Text = _info.Cause;
-
+                string uper = Common.GetUperNumNames((int)_info.AmountOfReceivables, string.Empty);
+                lbLoanAmountUper.Text = uper;
                 this.lbLoanAmount.Text = _info.AmountOfReceivables.ToString();
-                this.lbLoanDate.Text = _info.DateFor.ToShortDateString();
+                this.lbLoanDate.Text = _info.DateFor.ToString("yyyy年MM月dd日");
 
                 lbApplier.Text = _info.CreaterName;
                 lbPaymenter.Text = _info.AccountingName;
-                //     this.taRemark.Text = _info.Remark;
-                //     this.taAuditOpinion.Text = _info.AuditOpinion;
-                //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
-                //{
-                this.tbDate.Text = DateTime.Now.ToShortDateString();
-                //    }
 
+             //   this.tbDate.Text = DateTime.Now.ToString("yyyy年MM月dd日"); 
             }
         }
         #endregion

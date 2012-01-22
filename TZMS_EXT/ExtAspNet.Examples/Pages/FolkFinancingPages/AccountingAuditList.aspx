@@ -84,19 +84,19 @@
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="AccountingAudit.aspx?Type=View&ID={0}"
-                                Title="查看" WindowID="wndNew" />
+                                Title="查看" WindowID="Window1" />
                         </Columns>
                     </ext:Grid>
                 </Items>
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndRolesForUser" runat="server" Popup="false" WindowPosition="Center"
-        IsModal="true" Title="权限编辑页面" Target="Parent" EnableIFrame="true" IFrameUrl="about:blank"
-        Height="370px" Width="400px">
-    </ext:Window>
+
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="529px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="449px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+      <ext:Window ID="Window1" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="379px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

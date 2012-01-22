@@ -63,7 +63,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 OperateType = Request.QueryString["Type"];
                 bindUserInterface(strID);
                 // 绑定审批人.
-            //    ApproveUser();
+                //    ApproveUser();
                 // 绑定审批历史.
                 BindHistory();
             }
@@ -98,6 +98,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                     this.btnSave.Hidden = true;
                     this.taAuditOpinion.Text = _Info.AuditOpinion;
                     this.taAuditOpinion.Enabled = false;
+                    this.taAuditOpinion.ShowRedStar = false;
+                    this.taAuditOpinion.Hidden = true;
 
                     this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
                     this.ddlstNext.Enabled = false;
