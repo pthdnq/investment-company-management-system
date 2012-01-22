@@ -53,7 +53,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
         #region 页面加载及数据初始化
         protected void Page_Load(object sender, EventArgs e)
-        { 
+        {
             if (!IsPostBack)
             {
                 string strID = Request.QueryString["ID"];
@@ -62,17 +62,17 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
                 bindUserInterface(strID);
                 // 绑定审批人.
-           //     ApproveUser();
+                //     ApproveUser();
                 // 绑定审批历史.
                 BindHistory();
-            }  
+            }
             InitControl();
         }
 
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHidePostBackReference();
-            hlPrinter.NavigateUrl = "AccountingAuditPrinter.aspx?ID=" + ObjectID ;
+            hlPrinter.NavigateUrl = "AccountingAuditPrinter.aspx?ID=" + ObjectID;
         }
 
         /// <summary>
@@ -99,9 +99,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                     this.btnSave.Hidden = true;
                     this.taAuditOpinion.Text = _Info.AuditOpinion;
                     this.taAuditOpinion.Enabled = false;
+                    this.taAuditOpinion.Hidden = true;
 
                     this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
                     this.ddlstNext.Enabled = false;
+                    this.ddlstNext.ShowRedStar = false;
+                    this.ddlstApproveUser.ShowRedStar = false;
                     this.ddlstApproveUser.Enabled = false;
                 }
                 else
@@ -214,7 +217,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                     FlowDirection = Common.FlowDirection.Receive,
                     FlowType = "",
                     Biz = Common.Biz.FolkFinancing,
-                    ProjectName =  _Info.Lenders+"出借"+_Info.BorrowerNameA,
+                    ProjectName = _Info.Lenders + "出借" + _Info.BorrowerNameA,
                     IsAccountingAudit = 1
                 });
                 if (itmp != -1)
@@ -247,7 +250,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-             //   ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+                //   ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

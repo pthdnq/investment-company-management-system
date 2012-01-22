@@ -65,15 +65,16 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 this.tbProjectName.Text = _info.ProjectName;
                 this.lbBorrowerNameA.Text = _info.ReceivablesAccount;
-
+                string uper = Common.GetUperNumNames((int)_info.AmountofpaidUp, string.Empty);
+                lbLoanAmountUper.Text = uper;
                 this.lbLoanAmount.Text = _info.AmountofpaidUp.ToString();
-                this.lbLoanDate.Text = _info.DateForReceivables.ToShortDateString();
+                this.lbLoanDate.Text = _info.DateForReceivables.ToString("yyyy年MM月dd日");
                 lbPaymenter.Text = _info.AccountingName;
                 //     this.taRemark.Text = _info.Remark;
                 //     this.taAuditOpinion.Text = _info.AuditOpinion;
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
                 //{
-                this.tbDate.Text = DateTime.Now.ToShortDateString();
+            //    this.tbDate.Text = DateTime.Now.ToString("yyyy年MM月dd日");
                 //    }
 
             }

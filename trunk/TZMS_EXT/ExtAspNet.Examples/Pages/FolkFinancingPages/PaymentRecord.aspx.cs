@@ -126,7 +126,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.tbPaymentAccount.Text = _info.PaymentAccount;
                 this.tbReceivablesAccount.Text = _info.ReceivablesAccount;
                 this.tbAmountOfPayment.Text = _info.AmountOfPayment.ToString();
-                this.taAuditOpinion.Text = _info.AuditOpinion;
+                this.taAuditOpinion.Text = _info.AccountingRemark;
                 this.taRemark.Text = _info.Remark;
 
                 if (DateTime.Compare(_info.DueDateForPay, DateTime.Parse("1900-1-1 12:00")) != 0)

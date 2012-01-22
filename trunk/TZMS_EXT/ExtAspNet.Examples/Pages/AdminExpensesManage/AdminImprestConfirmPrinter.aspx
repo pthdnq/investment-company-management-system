@@ -1,45 +1,85 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminImprestConfirmPrinter.aspx.cs" Inherits="TZMS.Web.Pages.AdminExpensesManage.AdminImprestConfirmPrinter" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminImprestConfirmPrinter.aspx.cs"
+    Inherits="TZMS.Web.Pages.AdminExpensesManage.AdminImprestConfirmPrinter" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>备用金支付确认</title>
+    <style type="text/css">
+        body
+        {
+            background: url(images/bodyback.jpg);
+            background-repeat: repeat-x;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .jxtable
+        {
+            border-collapse: collapse;
+            border: solid 1px #000;
+            width: 800px;
+        }
+        .jxtable td
+        {
+            border: solid 1px #000;
+        }
+        .tabletitle
+        {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <input id="btnPrinter" type="button" value="打印" onclick="javascript: PrintBill();" />
-        <h1>
-            备用金支付确认
-            <br />
-        </h1>
-        <h2>
-            项目名称：
+    <div style="width: 800px;">
+        <div class="tabletitle">
+            <h3>
+                安徽吉信投资发展集团借款凭证</h3>
+        </div>
+        <h5>
+            申请时间： <asp:Label runat="server" ID="tbDate"></asp:Label></h5>
+        <table class="jxtable" border="1" cellpadding="10" cellspacing="0">
+               <tr>
+                <td colspan="2">
+                项目名称：
             <asp:Label runat="server" ID="tbProjectName"></asp:Label>
-            <br />
-            用途：
-            <asp:Label runat="server" ID="lbImplementationPhase"></asp:Label></h2>
-        <h3>
-            预支金额：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
-         <%--   <br />
-            支用时间：
-            <asp:Label runat="server" ID="lbLoanDate"></asp:Label>--%>
-            <%--  <br />
-            备用金余额：
-            <asp:Label runat="server" ID="tbImprestAmount"></asp:Label>--%>
-            <br />
-            申请人：
-            <asp:Label runat="server" ID="lbApplier"></asp:Label>
-            <br />
-            出纳会计：
-            <asp:Label runat="server" ID="lbPaymenter"></asp:Label>
-            <br />
-            <%--           支付方式：
-            <asp:Label runat="server" ID="lbLoanType"></asp:Label>--%>
-        </h3>
-        <h4>
-            <asp:Label runat="server" ID="tbDate"></asp:Label></h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    借款用途：   <asp:Label runat="server" ID="lbImplementationPhase"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    申请人： <asp:Label runat="server" ID="lbApplier"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    预支金额（大写）：<asp:Label runat="server" ID="lbLoanAmountUper"></asp:Label>
+                </td>
+                <td>
+                    （小写）：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    审批历史：
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    备注：
+                </td>
+            </tr>
+        </table>
+        <h6>     出纳会计：
+            <asp:Label runat="server" ID="lbPaymenter"></asp:Label> </h6>
+    </div>
+    <div>
+        <input id="btnPrinter" type="button" value="打印" onclick="javascript: PrintBill();" /> 
     </div>
     </form>
 </body>

@@ -85,7 +85,7 @@
                             <ext:LinkButtonField Hidden="true" Width="38px" Text="删除" ConfirmText="确定删除该员工?"
                                 CommandName="Delete" />
                             <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LeaderAudit.aspx?Type=View&ID={0}"
-                                Title="查看" WindowID="wndNew" />
+                                Title="查看" WindowID="wndView" />
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -94,6 +94,9 @@
     </ext:Panel>
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="480px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+        <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="410px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

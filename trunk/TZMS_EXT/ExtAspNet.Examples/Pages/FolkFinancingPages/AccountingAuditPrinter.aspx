@@ -4,28 +4,78 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>融资收款确认</title>
+    <style type="text/css">
+        body
+        {
+            background: url(images/bodyback.jpg);
+            background-repeat: repeat-x;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .jxtable
+        {
+            border-collapse: collapse;
+            border: solid 1px #000;
+            width: 800px;
+        }
+        .jxtable td
+        {
+            border: solid 1px #000;
+        }
+        .tabletitle
+        {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
+    <div style="width: 800px;">
+        <div class="tabletitle">
+            <h3>
+                安徽吉信投资发展集团借款凭证</h3>
+        </div>
+        <h5>
+            借款时间：
+            <asp:Label runat="server" ID="lbLoanDate"></asp:Label></h5>
+        <table class="jxtable" border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <td colspan="2">
+                    项目名称：
+                    <asp:Label runat="server" ID="tbProjectName"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    出借人：<asp:Label runat="server" ID="lbLenders"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    金额（大写）：<asp:Label runat="server" ID="lbLoanAmountUper"></asp:Label>
+                </td>
+                <td>
+                    （小写）：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    审批历史：
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    备注：
+                </td>
+            </tr>
+        </table>
+        <h6>
+            <asp:Label runat="server" ID="tbDate"></asp:Label></h6>
+    </div>
     <div>
         <input id="btnPrinter" type="button" value="打印" onclick="javascript: PrintBill();" />
-        <h1>
-            项目名称：
-            <asp:Label runat="server" ID="tbProjectName"></asp:Label></h1>
-        <h2>
-            出款人：<asp:Label runat="server" ID="lbLenders"></asp:Label>
-            <br />
-            借款人：
-            <asp:Label runat="server" ID="lbBorrowerNameA"></asp:Label></h2>
-        <h3>
-            收款金额：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
-            <br />
-            借款时间：
-            <asp:Label runat="server" ID="lbLoanDate"></asp:Label>
-        </h3>
-        <h4>
-            <asp:Label runat="server" ID="tbDate"></asp:Label></h4>
     </div>
     </form>
 </body>

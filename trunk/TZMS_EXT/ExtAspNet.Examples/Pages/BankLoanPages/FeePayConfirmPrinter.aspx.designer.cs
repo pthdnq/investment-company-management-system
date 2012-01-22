@@ -22,6 +22,15 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// tbDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tbDate;
+        
+        /// <summary>
         /// tbProjectName control.
         /// </summary>
         /// <remarks>
@@ -40,24 +49,6 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::System.Web.UI.WebControls.Label taImplementationPhase;
         
         /// <summary>
-        /// tbAmountExpended control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tbAmountExpended;
-        
-        /// <summary>
-        /// tbImprestAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tbImprestAmount;
-        
-        /// <summary>
         /// lbApplier control.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,24 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::System.Web.UI.WebControls.Label lbApplier;
         
         /// <summary>
+        /// lbLoanAmountUper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbLoanAmountUper;
+        
+        /// <summary>
+        /// tbAmountExpended control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tbAmountExpended;
+        
+        /// <summary>
         /// lbPaymenter control.
         /// </summary>
         /// <remarks>
@@ -74,14 +83,5 @@ namespace TZMS.Web.Pages.BankLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbPaymenter;
-        
-        /// <summary>
-        /// tbDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tbDate;
     }
 }

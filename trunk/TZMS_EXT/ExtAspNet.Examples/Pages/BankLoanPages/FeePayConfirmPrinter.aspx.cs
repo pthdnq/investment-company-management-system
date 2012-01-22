@@ -63,19 +63,18 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 this.tbProjectName.Text = _info.ProjectName; 
 
-                this.taImplementationPhase.Text = _info.ImplementationPhase;
+                this.taImplementationPhase.Text = _info.Use;
+
+                string uper = Common.GetUperNumNames((int)_info.AmountExpended, string.Empty);
+                lbLoanAmountUper.Text = uper;
                 this.tbAmountExpended.Text = _info.AmountExpended.ToString();
-                this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
+              //  this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
 
                 lbApplier.Text = _info.CreaterName;
                 lbPaymenter.Text = _info.NextOperaterName;
-           //     this.taRemark.Text = _info.Remark;
-           //     this.taAuditOpinion.Text = _info.AuditOpinion;
-                //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
-                //{
-                    this.tbDate.Text = DateTime.Now.ToShortDateString();
-            //    }
 
+                this.tbDate.Text = _info.CreateTime.ToString("yyyy年MM月dd日");
+      
             }
         }
     }

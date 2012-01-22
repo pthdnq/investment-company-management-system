@@ -62,20 +62,26 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             // 绑定数据.
             if (_info != null)
             {
-                this.tbProjectName.Text = "融资收款确认";
+                this.tbProjectName.Text = "民间融资收款确认";
                 this.lbLenders.Text = _info.Lenders;
-                this.lbBorrowerNameA.Text = _info.BorrowerNameA;
+                //  this.lbBorrowerNameA.Text = _info.BorrowerNameA;
+                string uper =Common.GetUperNumNames((int)_info.LoanAmount, string.Empty);
+                lbLoanAmountUper.Text = uper;
                 this.lbLoanAmount.Text = _info.LoanAmount.ToString();
-                this.lbLoanDate.Text = _info.LoanDate.ToString();
+                this.lbLoanDate.Text = _info.LoanDate.ToString("yyyy年MM月dd日");
                 //     this.taRemark.Text = _info.Remark;
                 //     this.taAuditOpinion.Text = _info.AuditOpinion;
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
                 //{
-                this.tbDate.Text = DateTime.Now.ToShortDateString();
+                this.tbDate.Text = DateTime.Now.ToString("yyyy年MM月dd日");
                 //    }
 
             }
         }
+
+   
+
+        
         #endregion
     }
 }
