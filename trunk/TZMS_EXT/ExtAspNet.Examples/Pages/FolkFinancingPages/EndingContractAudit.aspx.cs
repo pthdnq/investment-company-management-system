@@ -143,6 +143,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
 
                 this.ddlInterestType.SelectedValue = _Info.InterestType;
+                 
+                this.tbCash.Text = _Info.Cash.ToString();
+                this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
             }
         }
 

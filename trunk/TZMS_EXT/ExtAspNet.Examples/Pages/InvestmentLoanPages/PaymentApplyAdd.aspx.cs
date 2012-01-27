@@ -277,7 +277,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 _customer.Status = 1;
                 manage.UpdateCustomer(_customer);
 
-                manage.AddHistory(_Info.ObjectId, "新增", "借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
+                manage.AddHistory(_Info.ObjectId, "新增", "新增借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
                 new CashFlowManage().AddHistory(_Info.ObjectId, "新增", "投资部借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "InvestmentLoan");
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

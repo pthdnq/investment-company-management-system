@@ -220,6 +220,15 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextBox tbPayerBName;
         
         /// <summary>
+        /// tbLoanTimeLimit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbLoanTimeLimit;
+        
+        /// <summary>
         /// ddlLoanType control.
         /// </summary>
         /// <remarks>
@@ -238,13 +247,31 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         protected global::ExtAspNet.TextBox tbLoanAmount;
         
         /// <summary>
-        /// tbLoanTimeLimit control.
+        /// tbCash control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbLoanTimeLimit;
+        protected global::ExtAspNet.TextBox tbCash;
+        
+        /// <summary>
+        /// lbTransferAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label lbTransferAccount;
+        
+        /// <summary>
+        /// tbRateOfReturn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbRateOfReturn;
         
         /// <summary>
         /// dpLoanDate control.
@@ -290,15 +317,6 @@ namespace TZMS.Web.Pages.InvestmentLoanPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.TextBox tbGuarantorPhone;
-        
-        /// <summary>
-        /// tbRateOfReturn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.TextBox tbRateOfReturn;
         
         /// <summary>
         /// tbRemark control.

@@ -5,10 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using com.TZMS.Business;
+using com.TZMS.Model;
+using System.Text;
 
 namespace TZMS.Web.Pages.FolkFinancingPages
 {
-    public partial class AccountingAuditPrinter : System.Web.UI.Page
+    public partial class AccountingAuditPrinter : BasePage
     {
         #region 属性
         /// <summary>
@@ -65,23 +67,31 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.tbProjectName.Text = "民间融资收款确认";
                 this.lbLenders.Text = _info.Lenders;
                 //  this.lbBorrowerNameA.Text = _info.BorrowerNameA;
-                string uper =Common.GetUperNumNames((int)_info.LoanAmount, string.Empty);
+                string uper = Common.GetUperNumNames((int)_info.LoanAmount, string.Empty);
                 lbLoanAmountUper.Text = uper;
                 this.lbLoanAmount.Text = _info.LoanAmount.ToString();
                 this.lbLoanDate.Text = _info.LoanDate.ToString("yyyy年MM月dd日");
+                lbPaymenter.Text = this.CurrentUser.Name;
                 //     this.taRemark.Text = _info.Remark;
                 //     this.taAuditOpinion.Text = _info.AuditOpinion;
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
                 //{
-                this.tbDate.Text = DateTime.Now.ToString("yyyy年MM月dd日");
+                //    this.tbDate.Text = DateTime.Now.ToString("yyyy年MM月dd日");
                 //    }
-
+                string strCondition = string.Format("ForId = '{0}'  ORDER BY OperationTime ASC", _info.ObjectId);
+                List<FolkFinancingHistoryInfo> lstInfo = new FolkFinancingManage().GetHistoryByCondtion(strCondition.ToString());
+                StringBuilder strHistory = new StringBuilder();
+                foreach (FolkFinancingHistoryInfo info in lstInfo)
+                {
+                    strHistory.Append(string.Format("<br/>{1}于{0:yyyy年MM月dd日}{2}", info.OperationTime, info.OperationerName, info.OperationDesc));
+                } 
+                lbHistory.Text = strHistory.ToString();
             }
         }
 
-   
 
-        
+
+
         #endregion
     }
 }

@@ -32,8 +32,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 ViewState["OperatorType"] = value;
             }
         }
-
-
+         
         private string ViewStateZJ
         {
             get
@@ -168,6 +167,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbBorrowerNameA.Enabled = false;
             this.tbBorrowerPhone.Enabled = false;
             tbBorrowerNameA.ShowTrigger = false;
+
+            this.tbCash.Text = _Info.Cash.ToString();
+            this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
+
         }
 
         /// <summary>
@@ -191,6 +194,28 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         #endregion
 
         #region 页面及控件事件
+        protected void tbCash_OnTextChanged(object sender, EventArgs e)
+        {
+            decimal loanAmount = 0;
+            decimal cash = 0;
+            decimal transfer = 0;
+            if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text))
+            {
+                decimal.TryParse(this.tbLoanAmount.Text.Trim(), out loanAmount);
+                transfer = loanAmount;
+            }
+            if (!string.IsNullOrWhiteSpace(this.tbCash.Text))
+            {
+                decimal.TryParse(this.tbCash.Text.Trim(), out cash);
+                if (loanAmount != 0)
+                {
+                    transfer = loanAmount - cash;
+                }
+            }
+
+            this.lbTransferAccount.Text = string.Format("转账：{0} 元", transfer);
+        }
+         
         /// <summary>
         /// 保存
         /// </summary>

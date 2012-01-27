@@ -36,6 +36,29 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         #endregion
 
         #region 页面及控件事件
+        protected void tbCash_OnTextChanged(object sender, EventArgs e)
+        {
+            decimal loanAmount = 0;
+            decimal cash = 0;
+            decimal transfer = 0;
+            if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text))
+            {
+                decimal.TryParse(this.tbLoanAmount.Text.Trim(), out loanAmount);
+                transfer = loanAmount;
+            }
+            if (!string.IsNullOrWhiteSpace(this.tbCash.Text))
+            {
+                decimal.TryParse(this.tbCash.Text.Trim(), out cash);
+                if (loanAmount != 0)
+                {
+                    transfer = loanAmount - cash;
+                }
+            }
+
+            this.lbTransferAccount.Text = string.Format("转账：{0} 元", transfer);
+        }
+
+
         /// <summary>
         /// 保存
         /// </summary>
@@ -71,7 +94,10 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             if (!string.IsNullOrEmpty(this.tbLoanAmount.Text))
             {
                 _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Trim());
-            }
+            } 
+            _Info.Cash = decimal.Parse(this.tbCash.Text.Trim());
+            _Info.TransferAccount = _Info.LoanAmount - _Info.Cash;
+
             _Info.LoanDate = this.dpLoanDate.SelectedDate.Value;
             _Info.LoanType = this.ddlLoanType.SelectedValue;
             _Info.InterestType = this.ddlInterestType.SelectedValue;
@@ -102,8 +128,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             if (result == -1)
             {
-                manage.AddHistory(_Info.ObjectId, "申请", "民间融资申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
-                new CashFlowManage().AddHistory(_Info.ObjectId, "申请", "民间融资申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark,"FolkFinancing");
+                manage.AddHistory(_Info.ObjectId, "新增", "新增民间融资申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
+                new CashFlowManage().AddHistory(_Info.ObjectId, "新增", "新增民间融资申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "FolkFinancing");
                 
                 Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

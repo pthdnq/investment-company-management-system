@@ -97,6 +97,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 {
                     this.btnDismissed.Hidden = true;
                     this.btnSave.Hidden = true;
+                    this.ToolbarSeparator1.Hidden = true;
                     this.taAuditOpinion.Text = _Info.AuditOpinion;
                     this.taAuditOpinion.Enabled = false;
                     this.taAuditOpinion.Hidden = true;
@@ -145,6 +146,10 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.tbRemark.Text = _Info.Remark;
                 this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
                 this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
+
+                this.ddlInterestType.SelectedValue = _Info.InterestType;
+                this.tbCash.Text = _Info.Cash.ToString();
+                this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
             }
         }
 

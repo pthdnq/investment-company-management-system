@@ -63,7 +63,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    审批历史：
+                    审批历史：<asp:Label runat="server" ID="lbHistory" /> 
                 </td>
             </tr>
             <tr>

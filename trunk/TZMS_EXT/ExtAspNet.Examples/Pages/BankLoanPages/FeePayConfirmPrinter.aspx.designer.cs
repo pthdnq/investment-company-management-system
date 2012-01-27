@@ -76,6 +76,15 @@ namespace TZMS.Web.Pages.BankLoanPages {
         protected global::System.Web.UI.WebControls.Label tbAmountExpended;
         
         /// <summary>
+        /// lbHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbHistory;
+        
+        /// <summary>
         /// lbPaymenter control.
         /// </summary>
         /// <remarks>

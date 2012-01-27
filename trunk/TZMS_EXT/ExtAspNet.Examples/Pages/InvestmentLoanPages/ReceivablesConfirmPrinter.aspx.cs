@@ -76,7 +76,14 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 //{
             //    this.tbDate.Text = DateTime.Now.ToString("yyyy年MM月dd日");
                 //    }
-
+                string strCondition = string.Format("ForId = '{0}'  ORDER BY OperationTime ASC", _info.ObjectId);
+                List<com.TZMS.Model.ReceivablesAuditHistoryInfo> lstInfo = new InvestmentLoanManage().GetProcessHistoryByCondtion(strCondition.ToString());
+                System.Text.StringBuilder strHistory = new System.Text.StringBuilder();
+                foreach (var info in lstInfo)
+                {
+                    strHistory.Append(string.Format("<br/>{1}于{0:yyyy年MM月dd日}{2}", info.OperationTime, info.OperationerName, info.OperationDesc));
+                }
+                lbHistory.Text = strHistory.ToString();
             }
         }
         #endregion
