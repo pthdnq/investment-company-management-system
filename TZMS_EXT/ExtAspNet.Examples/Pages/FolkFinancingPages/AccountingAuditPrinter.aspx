@@ -62,7 +62,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    审批历史：
+                    审批历史：<asp:Label runat="server" ID="lbHistory" /> 
                 </td>
             </tr>
             <tr>
@@ -72,7 +72,8 @@
             </tr>
         </table>
         <h6>
-            <asp:Label runat="server" ID="tbDate"></asp:Label></h6>
+             出纳会计：
+            <asp:Label runat="server" ID="lbPaymenter"></asp:Label></h6>
     </div>
     <div>
         <input id="btnPrinter" type="button" value="打印" onclick="javascript: PrintBill();" />

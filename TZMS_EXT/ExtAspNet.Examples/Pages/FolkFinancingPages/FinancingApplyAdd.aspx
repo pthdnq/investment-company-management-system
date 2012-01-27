@@ -25,7 +25,7 @@
         </Toolbars>
         <Items>
             <ext:Form EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px" ID="mainFrame"
-              AutoHeight="true"   runat="server">
+                AutoHeight="true" runat="server">
                 <Rows>
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
@@ -55,26 +55,31 @@
                                 MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
-                        </Items>
-                    </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
-                        <Items>
                             <ext:TextBox ID="tbLoanAmount" Label="借款金额" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
-                            </ext:TextBox>
-                            <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                RegexMessage="不能输入特殊字符!">
+                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!"
+                                AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" CompareControl="tbLoanAmount"
+                                CompareType="Int" CompareOperator="LessThanEqual" CompareMessage="现金不能大于借款总金额">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:DatePicker ID="dpLoanDate" Label="借款日期" runat="server"  ShowRedStar="true" Required="true">
+                            <ext:TextBox ID="tbCash" Label="现金(元)" ShowRedStar="true" Required="true" runat="server"
+                                AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
+                                Regex="^[0-9]*$" RegexMessage="只能输入数字!" CompareControl="tbLoanAmount" CompareType="Int"
+                                CompareOperator="LessThanEqual" CompareMessage="现金不能大于借款总金额">
+                            </ext:TextBox>
+                            <ext:Label runat="server" ID="lbTransferAccount" Text="转账：0 元">
+                            </ext:Label>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="50% 50%">
+                        <Items>
+                            <ext:DatePicker ID="dpLoanDate" Label="借款日期" runat="server" ShowRedStar="true" Required="true">
                             </ext:DatePicker>
                             <ext:TextBox ID="dpDueDateForPay" Label="应付账款日" ShowRedStar="true" Required="true"
                                 runat="server" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$"
-                               EmptyText="某日"  RegexMessage="只能输入数字!" >
+                                EmptyText="某日" RegexMessage="只能输入数字!">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
@@ -90,7 +95,12 @@
                                 runat="server" MaxLength="8" MaxLengthMessage="最多只能输入8个数字！" Regex="^[0-9]*$"
                                 RegexMessage="只能输入数字!">
                             </ext:TextBox>
-                            <ext:DropDownList ID="ddlLoanType" Label="借款方式" runat="server">
+                            <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" ShowRedStar="true" Required="true"
+                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                RegexMessage="不能输入特殊字符!">
+                            </ext:TextBox>
+                            <ext:DropDownList ID="ddlLoanType" Hidden="true" HideMode="Display" Label="借款方式"
+                                runat="server">
                                 <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
                                 <ext:ListItem Text="现金" Value="Cash" />
                             </ext:DropDownList>
@@ -98,20 +108,20 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                             <ext:DropDownList ID="ddlInterestType" Label="利息" runat="server">
+                            <ext:DropDownList ID="ddlInterestType" Label="利息" runat="server">
                                 <ext:ListItem Text="先付" Value="先付" Selected="true" />
                                 <ext:ListItem Text="后付" Value="后付" />
                             </ext:DropDownList>
                             <ext:TextBox ID="tbContactPhone" Label="联系电话" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
                                 Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}" RegexMessage="电话号码格式不正确!">
                             </ext:TextBox>
-                        <%--    <ext:Label runat="server" ID="lbtmp221"></ext:Label>--%>
+                            <%--    <ext:Label runat="server" ID="lbtmp221"></ext:Label>--%>
                         </Items>
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
             <ext:Form EnableBackgroundColor="true" EnableCollapse="true" Title="会计核算" BodyPadding="5px"
-             AutoHeight="true"    ID="Form2" runat="server">
+                AutoHeight="true" ID="Form2" runat="server">
                 <Rows>
                     <ext:FormRow ID="FormRow1" runat="server" ColumnWidths="60% 40%">
                         <Items>

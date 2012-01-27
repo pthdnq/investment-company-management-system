@@ -44,7 +44,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextArea ID="taAuditOpinion" Label="审核意见" Enabled="false" Height="54px" runat="server"
-                                 Hidden="true"      MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                                Hidden="true" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -66,8 +66,8 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextArea   ID="tbProjectOverview" Label="项目概述" ShowRedStar="true"
-                                                Required="true" Height="50px" runat="server" MaxLength="300" MaxLengthMessage="最多只能输入300个字符！" />
+                                            <ext:TextArea ID="tbProjectOverview" Label="项目概述" ShowRedStar="true" Required="true"
+                                                Height="50px" runat="server" MaxLength="300" MaxLengthMessage="最多只能输入300个字符！" />
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
@@ -96,8 +96,10 @@
                                                 runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                                 RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
-                                            <ext:DropDownList runat="server" Label="付款方式" ID="ddlLoanType" ShowRedStar="true"
+                                            <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" runat="server" ShowRedStar="true"
                                                 Required="true">
+                                            </ext:TextBox>
+                                            <ext:DropDownList runat="server" Label="付款方式" ID="ddlLoanType" Hidden="true" HideMode="Display">
                                                 <ext:ListItem Text="现金" Value="Cash" />
                                                 <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
                                             </ext:DropDownList>
@@ -106,12 +108,24 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox ID="tbLoanAmount" Label="借款金额(元)" ShowRedStar="true" Required="true"
-                                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$"
-                                                RegexMessage="只能输入数字!">
+                                                AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" runat="server" MaxLength="20"
+                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!" CompareControl="tbCash"
+                                                CompareType="Int" CompareOperator="GreaterThanEqual" CompareMessage="现金不能大于借款总金额">
                                             </ext:TextBox>
-                                            <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" runat="server" ShowRedStar="true"
-                                                Required="true">
+                                            <ext:TextBox ID="tbCash" Label="现金(元)" ShowRedStar="true" Required="true" runat="server"
+                                                AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
+                                                Regex="^[0-9]*$" RegexMessage="只能输入数字!" CompareControl="tbLoanAmount" CompareType="Int"
+                                                CompareOperator="LessThanEqual" CompareMessage="现金不能大于借款总金额">
                                             </ext:TextBox>
+                                        </Items>
+                                    </ext:FormRow>
+                                    <ext:FormRow ColumnWidths="50% 50%">
+                                        <Items>
+                                            <ext:Label runat="server" ID="lbTransferAccount" Text="转账：0 元">
+                                            </ext:Label>
+                                            <ext:TextBox ID="tbRateOfReturn" Label="投资回报率(%)" runat="server" ShowRedStar="true"
+                                                Required="true" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$"
+                                                RegexMessage="只能输入数字!" />
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
@@ -145,13 +159,6 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbRateOfReturn" Label="投资回报率(%)" runat="server" ShowRedStar="true"
-                                                Required="true" MaxLength="2" MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$"
-                                                RegexMessage="只能输入数字!" />
-                                        </Items>
-                                    </ext:FormRow>
-                                    <ext:FormRow ColumnWidths="50% 50%">
-                                        <Items>
                                             <ext:TextArea ID="tbRemark" Enabled="false" Label="备注" runat="server" MaxLength="200"
                                                 Height="50px" MaxLengthMessage="最多只能输入200个字符！" />
                                         </Items>
@@ -161,7 +168,7 @@
                         </Items>
                     </ext:Tab>
                     <ext:Tab ID="tabHistory" Title="操作历史" EnableBackgroundColor="true" runat="server"
-                    Layout="Fit"     BodyPadding="5px">
+                        Layout="Fit" BodyPadding="5px">
                         <Items>
                             <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">

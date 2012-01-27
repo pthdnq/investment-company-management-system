@@ -103,10 +103,13 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.ddlLoanType.SelectedValue = _Info.LoanType;
                 this.tbRemark.Text = _Info.Remark;
                 this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+            
                 this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
                 this.ddlInterestType.SelectedValue = _Info.InterestType;
                 this.taAuditOpinion.Text = _Info.AuditOpinion;
 
+                this.tbCash.Text = _Info.Cash.ToString();
+                this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
             }
         }
 
@@ -131,6 +134,30 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         #endregion
 
         #region 页面及控件事件
+        protected void tbCash_OnTextChanged(object sender, EventArgs e)
+        {
+            decimal loanAmount = 0;
+            decimal cash = 0;
+            decimal transfer = 0;
+            if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text))
+            {
+                decimal.TryParse(this.tbLoanAmount.Text.Trim(), out loanAmount);
+                transfer = loanAmount;
+            }
+            if (!string.IsNullOrWhiteSpace(this.tbCash.Text))
+            {
+                decimal.TryParse(this.tbCash.Text.Trim(), out cash);
+                if (loanAmount != 0)
+                {
+                    transfer = loanAmount - cash;
+                }
+            }
+
+            this.lbTransferAccount.Text = string.Format("转账：{0} 元", transfer);
+        }
+
+
+
         protected void btnDismissed_Click(object sender, EventArgs e)
         {
             //打回
@@ -211,6 +238,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.LoanType = this.ddlLoanType.SelectedValue;
             _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
             #endregion
+            _Info.Cash = decimal.Parse(this.tbCash.Text.Trim());
+            _Info.TransferAccount = _Info.LoanAmount - _Info.Cash;
+
 
             if (status == 5)
             {

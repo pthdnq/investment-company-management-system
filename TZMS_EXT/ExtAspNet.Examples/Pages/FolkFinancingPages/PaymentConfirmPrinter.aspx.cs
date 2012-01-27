@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using com.TZMS.Business;
+using System.Text;
 
 namespace TZMS.Web.Pages.FolkFinancingPages
 {
@@ -77,7 +78,14 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 //{
                 //this.tbDate.Text = DateTime.Now.ToString("yyyy年MM月dd日");
                 //    }
-
+                string strCondition = string.Format("ForId = '{0}'  ORDER BY OperationTime ASC", _info.ObjectId);
+                List<com.TZMS.Model.FinancingFeePaymentHistoryInfo> lstInfo = new FolkFinancingManage().GetProcessHistoryByCondtion(strCondition.ToString());
+                StringBuilder strHistory = new StringBuilder();
+                foreach (var info in lstInfo)
+                {
+                    strHistory.Append(string.Format("<br/>{1}于{0:yyyy年MM月dd日}{2}", info.OperationTime, info.OperationerName, info.OperationDesc));
+                }
+                lbHistory.Text = strHistory.ToString();
             }
         }
         #endregion

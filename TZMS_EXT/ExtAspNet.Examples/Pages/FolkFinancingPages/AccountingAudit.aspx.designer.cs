@@ -211,13 +211,22 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.TextBox tbLoanAmount;
         
         /// <summary>
-        /// tbLoanTimeLimit control.
+        /// tbCash control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox tbLoanTimeLimit;
+        protected global::ExtAspNet.TextBox tbCash;
+        
+        /// <summary>
+        /// lbTransferAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Label lbTransferAccount;
         
         /// <summary>
         /// dpLoanDate control.
@@ -256,6 +265,15 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::ExtAspNet.TextBox tbBorrowingCost;
         
         /// <summary>
+        /// tbLoanTimeLimit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.TextBox tbLoanTimeLimit;
+        
+        /// <summary>
         /// ddlLoanType control.
         /// </summary>
         /// <remarks>
@@ -263,6 +281,15 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.DropDownList ddlLoanType;
+        
+        /// <summary>
+        /// ddlInterestType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DropDownList ddlInterestType;
         
         /// <summary>
         /// tbContactPhone control.

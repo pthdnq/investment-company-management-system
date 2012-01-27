@@ -67,12 +67,21 @@ namespace TZMS.Web.Pages.FolkFinancingPages {
         protected global::System.Web.UI.WebControls.Label lbLoanAmount;
         
         /// <summary>
-        /// tbDate control.
+        /// lbHistory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tbDate;
+        protected global::System.Web.UI.WebControls.Label lbHistory;
+        
+        /// <summary>
+        /// lbPaymenter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbPaymenter;
     }
 }
