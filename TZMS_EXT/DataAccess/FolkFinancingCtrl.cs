@@ -86,6 +86,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@BAAdulters",DbType.String),
                    	new SqlParameter("@LoanTimeLimit",DbType.String),
                             	new SqlParameter("@InterestType",DbType.String),
+                                   	new SqlParameter("@Cash",DbType.Decimal),
+                                	new SqlParameter("@TransferAccount",DbType.Decimal),
 				};
 				
 				int i=0;
@@ -121,6 +123,8 @@ namespace com.TZMS.DataAccess
 				sqlparam[i++].Value = FolkFinancingInfo.BAAdulters;
                 sqlparam[i++].Value = FolkFinancingInfo.LoanTimeLimit;
                 sqlparam[i++].Value = FolkFinancingInfo.InterestType;
+                sqlparam[i++].Value = FolkFinancingInfo.Cash;
+                sqlparam[i++].Value = FolkFinancingInfo.TransferAccount;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -207,6 +211,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@BAAdulters",DbType.String),
                    	new SqlParameter("@LoanTimeLimit",DbType.String),
                          	new SqlParameter("@InterestType",DbType.String),
+                               	new SqlParameter("@Cash",DbType.Decimal),
+                                	new SqlParameter("@TransferAccount",DbType.Decimal),
                 };
 
                 int i = 0;
@@ -242,6 +248,8 @@ namespace com.TZMS.DataAccess
 				sqlparam[i++].Value = FolkFinancingInfo.BAAdulters;
                 sqlparam[i++].Value = FolkFinancingInfo.LoanTimeLimit;
                 sqlparam[i++].Value = FolkFinancingInfo.InterestType;
+                sqlparam[i++].Value = FolkFinancingInfo.Cash;
+                sqlparam[i++].Value = FolkFinancingInfo.TransferAccount;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -453,6 +461,14 @@ namespace com.TZMS.DataAccess
             if (FolkFinancingInfoInfoDataRow["InterestType"] != null)
             {
                 FolkFinancingInfoInfo.InterestType = DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "InterestType");
+            }
+            if (FolkFinancingInfoInfoDataRow["Cash"] != null)
+            {
+                FolkFinancingInfoInfo.Cash = Decimal.Parse(DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "Cash"));
+            }
+            if (FolkFinancingInfoInfoDataRow["TransferAccount"] != null)
+            {
+                FolkFinancingInfoInfo.TransferAccount = Decimal.Parse(DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "TransferAccount"));
             }
             return FolkFinancingInfoInfo;
         }
