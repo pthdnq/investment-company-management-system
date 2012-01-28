@@ -269,7 +269,7 @@ namespace TZMS
         }
         #endregion
 
-        #region
+        #region money转大写（整数部分）
         /// <summary>
         /// 获取money大写（整数部分）
         /// </summary>
@@ -306,7 +306,7 @@ namespace TZMS
         /// </summary>
         /// <param name="lowerNum">数字</param>
         /// <returns>大写</returns>
-        protected static string GetUperSingleNumName(int lowerNum)
+        private static string GetUperSingleNumName(int lowerNum)
         {
             string UperNumName = string.Empty;
             switch (lowerNum)
@@ -331,7 +331,7 @@ namespace TZMS
         /// </summary>
         /// <param name="NZero">几个零</param>
         /// <returns>单位</returns>
-        protected static string GetNZeroName(int NZero)
+        private static string GetNZeroName(int NZero)
         {
             string name = string.Empty;
             switch (NZero)
