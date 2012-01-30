@@ -53,7 +53,7 @@
                             <ext:BoundField DataField="UnitAddress" HeaderText="单位地址" DataTooltipField="UnitAddress"
                                 ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="Other" HeaderText="备注" DataTooltipField="Other" />
-                            <ext:BoundField DataField="AccountancyName" Width="70px" HeaderText="代账会计" />
+                            <ext:BoundField DataField="UserName" Width="70px" HeaderText="代账会计" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
                             <ext:LinkButtonField Width="38px" Text="删除" ConfirmTarget="Parent" ConfirmText="确定删除该单位?"

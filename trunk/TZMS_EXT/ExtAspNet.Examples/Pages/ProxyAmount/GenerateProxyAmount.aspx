@@ -90,7 +90,7 @@
                             <ext:BoundField DataField="State" HeaderText="代帐单状态" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
-                            <ext:LinkButtonField Width="38px" Text="删除" ConfirmTarget="Parent" ConfirmText="确定删除该代账费申请单?" />
+                            <ext:LinkButtonField Width="38px" Text="删除" CommandName="Delete" ConfirmTarget="Parent" ConfirmText="确定删除该代账费申请单?" />
                         </Columns>
                     </ext:Grid>
                 </Items>

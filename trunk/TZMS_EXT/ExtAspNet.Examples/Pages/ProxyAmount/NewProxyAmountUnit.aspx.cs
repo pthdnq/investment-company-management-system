@@ -199,7 +199,7 @@ namespace TZMS.Web
                 _info.GSManager = tbxGSManager.Text.Trim();
                 _info.DSManager = tbxDSManager.Text.Trim();
                 _info.UserID = new Guid(Accountancy.Split(',')[0]);
-                _info.UnitName = Accountancy.Split(',')[1];
+                _info.UserName = Accountancy.Split(',')[1];
 
                 int result = _manage.UpdateUnit(_info);
                 if (result == -1)

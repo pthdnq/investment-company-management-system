@@ -80,7 +80,7 @@ namespace TZMS.Web
         /// </summary>
         private void BindNext()
         {
-            ddlstNext.Items.Add(new ExtAspNet.ListItem("业务转交", "1"));
+            //ddlstNext.Items.Add(new ExtAspNet.ListItem("业务转交", "1"));
             ddlstNext.Items.Add(new ExtAspNet.ListItem("核名", "2"));
             ddlstNext.Items.Add(new ExtAspNet.ListItem("刻章", "3"));
             ddlstNext.Items.Add(new ExtAspNet.ListItem("各类许可证", "4"));
@@ -123,15 +123,15 @@ namespace TZMS.Web
         {
             ddlstSigner.Items.Clear();
 
-            if (!CurrentChecker.Contains(CurrentUser))
-            {
+            //if (!CurrentChecker.Contains(CurrentUser))
+            //{
                 ddlstSigner.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
-            }
+            //}
 
-            foreach (UserInfo user in CurrentChecker)
-            {
-                ddlstSigner.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
-            }
+            //foreach (UserInfo user in CurrentChecker)
+            //{
+            //    ddlstSigner.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+            //}
 
             ddlstSigner.SelectedIndex = 0;
         }

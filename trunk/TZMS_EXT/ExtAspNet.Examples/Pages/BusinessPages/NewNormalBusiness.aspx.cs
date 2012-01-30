@@ -320,7 +320,7 @@ namespace TZMS.Web
                 _recordInfo.CheckerID = CurrentUser.ObjectId;
                 _recordInfo.CheckerName = CurrentUser.Name;
                 _recordInfo.State = 0;
-                _recordInfo.CurrentBusiness = 1;
+                _recordInfo.CurrentBusiness = 2;
                 _recordInfo.BusinessID = _info.ObjectID;
 
                 _manage.AddNewBusinessRecord(_recordInfo);

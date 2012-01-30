@@ -153,15 +153,15 @@ namespace TZMS.Web
             string strBusinessID = ((GridRow)gridBusiness.Rows[e.RowIndex]).Values[1];
             if (e.CommandName == "View")
             {
-                if ((((GridRow)gridBusiness.Rows[e.RowIndex]).Values[6]).Contains("办理"))
-                {
-                    if ((((GridRow)gridBusiness.Rows[e.RowIndex]).Values[6]).Contains("业务转交") && 
-                        !this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZJ))
-                    {
-                        Alert.Show("当前步骤是\"业务转交\",请移交至业务总监进行办理!");
-                        return;
-                    }
-                }
+                //if ((((GridRow)gridBusiness.Rows[e.RowIndex]).Values[6]).Contains("办理"))
+                //{
+                //    if ((((GridRow)gridBusiness.Rows[e.RowIndex]).Values[6]).Contains("业务转交") &&
+                //        !this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZJ))
+                //    {
+                //        Alert.Show("当前步骤是\"业务转交\",请移交至业务总监进行办理!");
+                //        return;
+                //    }
+                //}
                 wndNewNormalBusiness.IFrameUrl = "OperatorNormalBusiness.aspx?RecordID=" + strRecordID + "&BusinessID=" + strBusinessID;
                 wndNewNormalBusiness.Hidden = false;
             }
@@ -190,6 +190,12 @@ namespace TZMS.Web
                     case "0":
                         e.Values[4] = "待办理";
                         e.Values[5] = "";
+
+                        if (!this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZJ))
+                        {
+                            e.Values[7] = "<span class=\"gray\">业务转移</span>";
+                        }
+
                         if (CurrentLevel == VisitLevel.View)
                         {
                             e.Values[6] = "<span class=\"gray\">办理</span>";
