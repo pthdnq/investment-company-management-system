@@ -32,7 +32,7 @@
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
                             </ext:Button>
-                            <ext:Label ID="Labeltmp1" runat="server" />
+          <%--                  <ext:Label ID="Labeltmp1" runat="server" />--%>
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow>
@@ -42,7 +42,7 @@
                             <ext:DatePicker ID="dpkEndTime" runat="server" Label="结束日期">
                             </ext:DatePicker>
                             <ext:Label ID="Labeltmp2" runat="server" />
-                            <ext:Label ID="Labeltmp3" runat="server" />
+           <%--                 <ext:Label ID="Labeltmp3" runat="server" />--%>
                         </Items>
                     </ext:FormRow>
                 </Rows>
