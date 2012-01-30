@@ -96,8 +96,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// </summary>
         private void BindDDL()
         {
-            this.btnNew.OnClientClick = wndNew.GetShowReference("FinancingApplyAdd.aspx?Type=Add", "新增 - 民间融资");
-            this.wndNew.OnClientCloseButtonClick = wndNew.GetHideReference();
+            this.btnNew.OnClientClick = wndNew1.GetShowReference("FinancingApplyAdd.aspx?Type=Add", "新增 - 民间融资");
+            this.wndNew1.OnClientCloseButtonClick = wndNew1.GetHideReference();
 
             //this.CurrentLevel = GetCurrentLevel("rzsq");
             //if (this.CurrentLevel.Equals(VisitLevel.View))

@@ -101,7 +101,7 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndNew1" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="434px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="wndNewBA" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
