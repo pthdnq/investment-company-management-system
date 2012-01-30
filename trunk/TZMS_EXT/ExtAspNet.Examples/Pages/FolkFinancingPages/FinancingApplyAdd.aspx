@@ -89,7 +89,7 @@
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
-                    <ext:FormRow ColumnWidths="50% 50%">
+                    <ext:FormRow ColumnWidths="50% 49% 1%">
                         <Items>
                             <ext:TextBox ID="tbBorrowingCost" Label="借款成本" ShowRedStar="true" Required="true"
                                 runat="server" MaxLength="8" MaxLengthMessage="最多只能输入8个数字！" Regex="^[0-9]*$"
