@@ -186,10 +186,17 @@ namespace TZMS.Web
 
                 e.Values[6] = DateTime.Parse(e.Values[6].ToString()).ToString("yyyy-MM-dd");
                 e.Values[8] = DateTime.Parse(e.Values[8].ToString()).ToString("yyyy-MM-dd HH:mm");
-                UserInfo _userInfo = new UserManage().GetUserByObjectID(e.Values[9].ToString());
-                if (_userInfo != null)
+                if (e.Values[9].ToString() == SystemUser.ObjectId.ToString())
                 {
-                    e.Values[9] = _userInfo.Name;
+                    e.Values[9] = SystemUser.Name;
+                }
+                else
+                {
+                    UserInfo _userInfo = new UserManage().GetUserByObjectID(e.Values[9].ToString());
+                    if (_userInfo != null)
+                    {
+                        e.Values[9] = _userInfo.Name;
+                    }
                 }
 
                 // 审批状态.

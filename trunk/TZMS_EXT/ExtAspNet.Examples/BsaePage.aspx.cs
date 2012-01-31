@@ -432,7 +432,17 @@ namespace TZMS.Web
             /// <summary>
             /// 代帐费收取出纳确认
             /// </summary>
-            DZFSQCNQR = 45
+            DZFSQCNQR = 45,
+
+            /// <summary>
+            /// 物资采购确认归档>30W
+            /// </summary>
+            WZCGQRGDDY30W = 46,
+
+            /// <summary>
+            /// 物资采购确认归档<30W
+            /// </summary>
+            WZCGQRGDXY30W = 47
         }
 
         /// <summary>

@@ -391,6 +391,12 @@ namespace TZMS.Web
                 case RoleType.DZFSQCNQR:
                     strRole = "代帐费收取出纳确认";
                     break;
+                case RoleType.WZCGQRGDDY30W:
+                    strRole = "物资采购确认归档>30W";
+                    break;
+                case RoleType.WZCGQRGDXY30W:
+                    strRole = "物资采购确认归档<30W";
+                    break;
             }
 
             return strRole;
