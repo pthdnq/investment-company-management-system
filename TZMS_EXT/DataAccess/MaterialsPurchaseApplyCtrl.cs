@@ -51,7 +51,7 @@ namespace com.TZMS.DataAccess
             try
             {
                 //??????
-                string strsql = " MaterialsPurchaseApply_Add";
+                string strsql = "MaterialsPurchaseApply_Add";
                 SqlParameter[] sqlparam =
                 {
 				new SqlParameter("@ObjectID",DbType.Guid),
@@ -110,7 +110,7 @@ namespace com.TZMS.DataAccess
         {
             try
             {
-                string strsql = " MaterialsPurchaseApply_Delete";
+                string strsql = "MaterialsPurchaseApply_Delete";
 
                 SqlParameter[] sqlparam =
 				{
@@ -140,7 +140,7 @@ namespace com.TZMS.DataAccess
             try
             {
                 //??????
-                string strsql = " MaterialsPurchaseApply_Update";
+                string strsql = "MaterialsPurchaseApply_Update";
                 SqlParameter[] sqlparam =
                 {
 				new SqlParameter("@ObjectID",DbType.Guid),
@@ -201,7 +201,7 @@ namespace com.TZMS.DataAccess
             try
             {
                 //??????
-                string strsql = " MaterialsPurchaseApply_Search";
+                string strsql = "MaterialsPurchaseApply_Search";
                 SqlParameter[] sqlparam =
                 {
 					new SqlParameter("@Condition",SqlDbType.NVarChar), 
