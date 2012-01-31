@@ -48,6 +48,7 @@ namespace com.TZMS.Model
         private short _state = -1;
         private Guid _approverId;
         private bool _isDelete = false;
+        private DateTime _needsDate = DBMAXDate;
         #endregion
 
         #region Property
@@ -184,6 +185,15 @@ namespace com.TZMS.Model
         {
             get { return _isDelete; }
             set { _isDelete = value; }
+        }
+
+        /// <summary>
+        /// IsDelete 
+        /// </summary> 
+        public DateTime NeedsDate
+        {
+            get { return _needsDate; }
+            set { _needsDate = value; }
         }
 
         #endregion

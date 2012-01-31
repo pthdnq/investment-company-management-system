@@ -263,11 +263,20 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzgl" OnClientClick=" tabs('wzgl','UserKey');"
                                                 Text="物资管理">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzcgsq" OnClientClick=" tabs('wzcgsq','UserKey');"
+                                                Text="物资采购申请">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资审批.gif" NodeID="wzcgsp" OnClientClick=" tabs('wzcgsp','UserKey');"
+                                                Text="物资采购审批">
+                                            </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzsq" OnClientClick=" tabs('wzsq','UserKey');"
-                                                Text="物资申请">
+                                                Text="物资领用申请">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/物资审批.gif" NodeID="wzsp" OnClientClick=" tabs('wzsp','UserKey');"
-                                                Text="物资审批">
+                                                Text="物资领用审批">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资审批.gif" NodeID="wzlytj" OnClientClick=" tabs('wzlytj','UserKey');"
+                                                Text="物资领用统计">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
@@ -773,15 +782,24 @@
                     LoadTab("Pages/ProbationPages/UserLeaveTransferToFile.aspx", "离职交接归档", icon);
                     break;
 
-                // 物资管理                                                 
-                case "wzsq":
-                    LoadTab("Pages/MaterialsPages/MaterialsApplyList.aspx", "物资申请", icon);
-                    break;
-                case "wzsp":
-                    LoadTab("Pages/MaterialsPages/MaterialsApproveList.aspx", "物资审批", icon);
-                    break;
+                // 物资管理 
                 case "wzgl":
                     LoadTab("Pages/MaterialsPages/MaterialsManagePage.aspx", "物资管理", icon);
+                    break;
+                case "wzcgsq":
+                    LoadTab("Pages/MaterialsPages/MaterialsPurchaseApplyList.aspx", "物资采购申请", icon);
+                    break;
+                case "wzcgsp":
+                    LoadTab("Pages/MaterialsPages/MaterialsPurchaseApproveList.aspx", "物资采购审批", icon);
+                    break;
+                case "wzsq":
+                    LoadTab("Pages/MaterialsPages/MaterialsApplyList.aspx", "物资领用申请", icon);
+                    break;
+                case "wzsp":
+                    LoadTab("Pages/MaterialsPages/MaterialsApproveList.aspx", "物资领用审批", icon);
+                    break;
+                case "wzlytj":
+                    LoadTab("Pages/MaterialsPages/MaterialsStatistics.aspx", "物资领用统计", icon);
                     break;
 
                 // 代帐管理                                                  
