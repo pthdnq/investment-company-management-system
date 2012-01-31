@@ -497,8 +497,30 @@
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="wzcgsq" OnClientClick="return false;"
+                                        Text="物资采购申请">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="wzcgsp" OnClientClick="return false;"
+                                        Text="物资采购审批">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="wzsq" OnClientClick="return false;"
-                                        Text="物资申请">
+                                        Text="物资领用申请">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -509,7 +531,18 @@
                                         </Nodes>
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="wzsp" OnClientClick="return false;"
-                                        Text="物资审批">
+                                        Text="物资领用审批">
+                                        <Nodes>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="查看">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
+                                                Text="编辑">
+                                            </ext:TreeNode>
+                                        </Nodes>
+                                    </ext:TreeNode>
+                                    <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="wzlytj" OnClientClick="return false;"
+                                        Text="物资领用统计">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">

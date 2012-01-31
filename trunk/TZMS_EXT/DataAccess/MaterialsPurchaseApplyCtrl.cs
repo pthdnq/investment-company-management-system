@@ -69,6 +69,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@ApproverID",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                new SqlParameter("@NeedsDate",DbType.DateTime)
 				};
 
                 int i = 0;
@@ -87,6 +88,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.State;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.ApproverID;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.IsDelete;
+                sqlparam[i++].Value = MaterialsPurchaseApplyInfo.NeedsDate;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -156,6 +158,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@ApproverID",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                new SqlParameter("@NeedsDate",DbType.DateTime)
                 };
 
                 int i = 0;
@@ -174,6 +177,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.State;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.ApproverID;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.IsDelete;
+                sqlparam[i++].Value = MaterialsPurchaseApplyInfo.NeedsDate;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -318,7 +322,10 @@ namespace com.TZMS.DataAccess
             {
                 MaterialsPurchaseApplyInfoInfo.IsDelete = bool.Parse(DataUtil.GetStringValueOfRow(MaterialsPurchaseApplyInfoInfoDataRow, "IsDelete"));
             }
-
+            if (MaterialsPurchaseApplyInfoInfoDataRow["NeedsDate"] != null)
+            {
+                MaterialsPurchaseApplyInfoInfo.NeedsDate = DateTime.Parse(DataUtil.GetStringValueOfRow(MaterialsPurchaseApplyInfoInfoDataRow, "NeedsDate"));
+            }
             return MaterialsPurchaseApplyInfoInfo;
         }
         #endregion
