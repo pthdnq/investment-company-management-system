@@ -94,6 +94,7 @@
     <Compile Include="MaterialsApplyCtrl.cs" />
     <Compile Include="MaterialsApproveCtrl.cs" />
     <Compile Include="MaterialsManageCtrl.cs" />
+    <Compile Include="MaterialsPurchaseApplyCtrl.cs" />
     <Compile Include="MessageCtrl.cs" />
     <Compile Include="NoAttendCheckCtrl.cs" />
     <Compile Include="NoAttendCtrl.cs" />

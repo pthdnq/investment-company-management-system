@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DataAccess\bin\Debug\DataAccess.dll</HintPath>
-    </Reference>
     <Reference Include="iFlytek.BaseClass">
       <HintPath>..\Model\_DLL\iFlytek.BaseClass.dll</HintPath>
     </Reference>
@@ -43,9 +39,6 @@
     </Reference>
     <Reference Include="iFlytek.DbAccess">
       <HintPath>..\Model\_DLL\iFlytek.DbAccess.dll</HintPath>
-    </Reference>
-    <Reference Include="Model">
-      <HintPath>..\DataAccess\bin\Debug\Model.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -85,7 +78,16 @@
     <Compile Include="WuZhiManage\WuZhiManage.cs" />
     <Compile Include="YewuManage\YewuManage.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{0537F543-2280-4751-9E8D-626AEEDCB921}</Project>
+      <Name>DataAccess %28DataAccess\DataAccess%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{F3BDD97F-4828-48BA-9220-B95E93ED1B94}</Project>
+      <Name>Model %28Model\Model%29</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

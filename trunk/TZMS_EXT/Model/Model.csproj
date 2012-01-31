@@ -83,6 +83,7 @@
     <Compile Include="MaterialsApplyInfo.cs" />
     <Compile Include="MaterialsApproveInfo.cs" />
     <Compile Include="MaterialsManageInfo.cs" />
+    <Compile Include="MaterialsPurchaseApplyInfo.cs" />
     <Compile Include="MessageInfo.cs" />
     <Compile Include="NoAttendCheckInfo.cs" />
     <Compile Include="NoAttendInfo.cs" />
