@@ -781,8 +781,13 @@
     <Content Include="Pages\MaterialsPages\MaterialsApproveList.aspx" />
     <Content Include="Pages\MaterialsPages\MaterialsComsume.aspx" />
     <Content Include="Pages\MaterialsPages\MaterialsManagePage.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsPurchaseApplyList.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsPurchaseApprove.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsPurchaseApproveList.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsStatistics.aspx" />
     <Content Include="Pages\MaterialsPages\MaterialsSubComsume.aspx" />
     <Content Include="Pages\MaterialsPages\NewMaterials.aspx" />
+    <Content Include="Pages\MaterialsPages\NewMaterialsPurchase.aspx" />
     <Content Include="Pages\Message\MyMessageList.aspx" />
     <Content Include="Pages\Message\NewMessage.aspx" />
     <Content Include="Pages\Message\SelectReceivers.aspx" />
@@ -2486,6 +2491,34 @@
     <Compile Include="Pages\MaterialsPages\MaterialsManagePage.aspx.designer.cs">
       <DependentUpon>MaterialsManagePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsPurchaseApplyList.aspx.cs">
+      <DependentUpon>MaterialsPurchaseApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsPurchaseApplyList.aspx.designer.cs">
+      <DependentUpon>MaterialsPurchaseApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsPurchaseApprove.aspx.cs">
+      <DependentUpon>MaterialsPurchaseApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsPurchaseApprove.aspx.designer.cs">
+      <DependentUpon>MaterialsPurchaseApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsPurchaseApproveList.aspx.cs">
+      <DependentUpon>MaterialsPurchaseApproveList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsPurchaseApproveList.aspx.designer.cs">
+      <DependentUpon>MaterialsPurchaseApproveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsStatistics.aspx.cs">
+      <DependentUpon>MaterialsStatistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsStatistics.aspx.designer.cs">
+      <DependentUpon>MaterialsStatistics.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MaterialsPages\MaterialsSubComsume.aspx.cs">
       <DependentUpon>MaterialsSubComsume.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2499,6 +2532,13 @@
     </Compile>
     <Compile Include="Pages\MaterialsPages\NewMaterials.aspx.designer.cs">
       <DependentUpon>NewMaterials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\NewMaterialsPurchase.aspx.cs">
+      <DependentUpon>NewMaterialsPurchase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\NewMaterialsPurchase.aspx.designer.cs">
+      <DependentUpon>NewMaterialsPurchase.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Message\MyMessageList.aspx.cs">
       <DependentUpon>MyMessageList.aspx</DependentUpon>

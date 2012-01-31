@@ -183,5 +183,59 @@ namespace com.TZMS.Business
             MaterialsApproveCtrl _ctrl = new MaterialsApproveCtrl();
             return _ctrl.SelectAsList(boName, condition);
         }
+
+        /// <summary>
+        /// 添加新申请
+        /// </summary>
+        /// <param name="info">申请实例</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>操作结果</returns>
+        public int AddNewPurchaseApply(MaterialsPurchaseApplyInfo info, string boName = BoName)
+        {
+            MaterialsPurchaseApplyCtrl _ctrl = new MaterialsPurchaseApplyCtrl();
+            return _ctrl.Insert(boName, info);
+        }
+
+        /// <summary>
+        /// 更新申请
+        /// </summary>
+        /// <param name="info">申请实例</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>操作结果</returns>
+        public int UpdatePurchaseApply(MaterialsPurchaseApplyInfo info, string boName = BoName)
+        {
+            MaterialsPurchaseApplyCtrl _ctrl = new MaterialsPurchaseApplyCtrl();
+            return _ctrl.UpDate(boName, info);
+        }
+
+        /// <summary>
+        /// 根据ID获取申请实例
+        /// </summary>
+        /// <param name="objectID">申请实例</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>申请实例</returns>
+        public MaterialsPurchaseApplyInfo GetPurchaseApplyByObjectID(string objectID, string boName = BoName)
+        {
+            MaterialsPurchaseApplyCtrl _ctrl = new MaterialsPurchaseApplyCtrl();
+            List<MaterialsPurchaseApplyInfo> lstApplys = _ctrl.SelectAsList(boName, "ObjectID='" + objectID + "'");
+            if (lstApplys.Count == 0)
+            {
+                return null;
+            }
+
+            return lstApplys[0];
+        }
+
+        /// <summary>
+        /// 根据查询条件获取申请实例集合
+        /// </summary>
+        /// <param name="condition">查询条件</param>
+        /// <param name="boName">连接字符串Key</param>
+        /// <returns>申请实例集合</returns>
+        public List<MaterialsPurchaseApplyInfo> GetPurchaseApplyByCondition(string condition, string boName = BoName)
+        {
+            MaterialsPurchaseApplyCtrl _ctrl = new MaterialsPurchaseApplyCtrl();
+            return _ctrl.SelectAsList(boName, condition);
+        }
     }
 }
