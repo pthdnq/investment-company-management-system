@@ -52,7 +52,7 @@
                 <Toolbars>
                     <ext:Toolbar ID="toolApp" runat="server">
                         <Items>
-                            <ext:Button ID="btnNewMaterial" Text="物资申请" ToolTip="物资申请" Icon="Add" runat="server">
+                            <ext:Button ID="btnNewMaterial" Text="物资领用申请" ToolTip="物资领用申请" Icon="Add" runat="server">
                             </ext:Button>
                         </Items>
                     </ext:Toolbar>
@@ -81,7 +81,7 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndNewApply" Title="物资申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndNewApply" Title="物资领用申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="500px"
         Width="700px" OnClose="wndNewApply_Close">
     </ext:Window>

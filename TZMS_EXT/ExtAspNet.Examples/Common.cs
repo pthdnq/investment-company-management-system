@@ -123,6 +123,11 @@ namespace TZMS
             /// 行政部收款上交
             /// </summary>
             public static string AdminReceivables = "行政部收款上交";
+
+            /// <summary>
+            /// 物资采购
+            /// </summary>
+            public static string MaterialsPurchase = "物资采购";
         }
 
         #region 附件

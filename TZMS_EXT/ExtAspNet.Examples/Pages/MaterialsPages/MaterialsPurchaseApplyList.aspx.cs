@@ -26,6 +26,7 @@ namespace TZMS.Web
                 wndNewPurchaseApply.Title = "物资采购申请";
                 btnNewMaterial.OnClientClick = wndNewPurchaseApply.GetShowReference("NewMaterialsPurchase.aspx?Type=Add") + "return false;";
                 wndNewPurchaseApply.OnClientCloseButtonClick = wndNewPurchaseApply.GetHidePostBackReference();
+                wndPurchaseImport.OnClientCloseButtonClick = wndPurchaseImport.GetHidePostBackReference();
 
                 BindType();
                 BindGrid();
@@ -161,6 +162,12 @@ namespace TZMS.Web
                     BindGrid();
                 }
             }
+
+            if (e.CommandName == "Import")
+            {
+                wndPurchaseImport.IFrameUrl = "MaterialsPurchaseImport.aspx?ID=" + strApplyID;
+                wndPurchaseImport.Hidden = false;
+            }
         }
 
         /// <summary>
@@ -206,14 +213,20 @@ namespace TZMS.Web
                         e.Values[10] = "审批中";
                         e.Values[12] = "<span class=\"gray\">编辑</span>";
                         e.Values[13] = "<span class=\"gray\">删除</span>";
+                        e.Values[14] = "<span class=\"gray\">入库</span>";
                         break;
                     case "1":
                         e.Values[10] = "未通过";
+                        e.Values[14] = "<span class=\"gray\">入库</span>";
                         break;
                     case "2":
                         e.Values[10] = "已归档";
                         e.Values[12] = "<span class=\"gray\">编辑</span>";
                         e.Values[13] = "<span class=\"gray\">删除</span>";
+                        if (Convert.ToBoolean(e.Values[15].ToString()))
+                        {
+                            e.Values[14] = "<span class=\"gray\">入库</span>";
+                        }
                         break;
                     default:
                         break;
@@ -223,6 +236,7 @@ namespace TZMS.Web
                 {
                     e.Values[12] = "<span class=\"gray\">编辑</span>";
                     e.Values[13] = "<span class=\"gray\">删除</span>";
+                    e.Values[14] = "<span class=\"gray\">入库</span>";
                 }
             }
         }
@@ -233,6 +247,16 @@ namespace TZMS.Web
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void wndNewPurchaseApply_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
+        {
+            BindGrid();
+        }
+
+        /// <summary>
+        /// 入库窗口关闭事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void wndPurchaseImport_Close(object sender, WindowCloseEventArgs e)
         {
             BindGrid();
         }

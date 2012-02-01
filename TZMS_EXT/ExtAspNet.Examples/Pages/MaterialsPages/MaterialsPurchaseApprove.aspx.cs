@@ -248,11 +248,6 @@ namespace TZMS.Web
                     _applyInfo.ApproverID = SystemUser.ObjectId;
                     result = _manage.UpdatePurchaseApply(_applyInfo);
 
-                    // 更新物资信息.
-                    MaterialsManageInfo _manageInfo = _manage.GetMaterialByObjectID(_applyInfo.MaterialsID.ToString());
-                    _manageInfo.CurrentNumbers += 1;
-                    _manage.UpdateMaterial(_manageInfo);
-
                     // 更新现有审批记录.
                     _currentApproveInfo.ApproveState = 1;
                     _currentApproveInfo.Result = 0;
@@ -380,6 +375,9 @@ namespace TZMS.Web
                         break;
                     case "4":
                         e.Values[2] = "归档";
+                        break;
+                    case "5":
+                        e.Values[2] = "入库";
                         break;
                     default:
                         break;

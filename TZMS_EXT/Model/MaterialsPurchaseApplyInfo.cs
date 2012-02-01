@@ -49,6 +49,7 @@ namespace com.TZMS.Model
         private Guid _approverId;
         private bool _isDelete = false;
         private DateTime _needsDate = DBMAXDate;
+        private bool _hasImport = false;
         #endregion
 
         #region Property
@@ -194,6 +195,15 @@ namespace com.TZMS.Model
         {
             get { return _needsDate; }
             set { _needsDate = value; }
+        }
+
+        /// <summary>
+        /// IsDelete 
+        /// </summary> 
+        public bool HasImport
+        {
+            get { return _hasImport; }
+            set { _hasImport = value; }
         }
 
         #endregion
