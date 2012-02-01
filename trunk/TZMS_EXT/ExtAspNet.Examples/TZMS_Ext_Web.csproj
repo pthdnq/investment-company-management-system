@@ -784,6 +784,7 @@
     <Content Include="Pages\MaterialsPages\MaterialsPurchaseApplyList.aspx" />
     <Content Include="Pages\MaterialsPages\MaterialsPurchaseApprove.aspx" />
     <Content Include="Pages\MaterialsPages\MaterialsPurchaseApproveList.aspx" />
+    <Content Include="Pages\MaterialsPages\MaterialsPurchaseImport.aspx" />
     <Content Include="Pages\MaterialsPages\MaterialsStatistics.aspx" />
     <Content Include="Pages\MaterialsPages\MaterialsSubComsume.aspx" />
     <Content Include="Pages\MaterialsPages\NewMaterials.aspx" />
@@ -2511,6 +2512,13 @@
     </Compile>
     <Compile Include="Pages\MaterialsPages\MaterialsPurchaseApproveList.aspx.designer.cs">
       <DependentUpon>MaterialsPurchaseApproveList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsPurchaseImport.aspx.cs">
+      <DependentUpon>MaterialsPurchaseImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MaterialsPages\MaterialsPurchaseImport.aspx.designer.cs">
+      <DependentUpon>MaterialsPurchaseImport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\MaterialsPages\MaterialsStatistics.aspx.cs">
       <DependentUpon>MaterialsStatistics.aspx</DependentUpon>

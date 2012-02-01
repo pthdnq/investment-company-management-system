@@ -77,6 +77,8 @@
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
                             <ext:LinkButtonField Width="38px" Text="删除" CommandName="Delete" ConfirmTarget="Parent"
                                 ConfirmText="确定删除该物资采购申请单?" />
+                            <ext:LinkButtonField Width="38px" Text="入库" CommandName="Import" />
+                            <ext:BoundField DataField="HasImport" Hidden=true />
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -86,6 +88,10 @@
     <ext:Window ID="wndNewPurchaseApply" Title="物资采购申请" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
         Height="500px" Width="700px" OnClose="wndNewPurchaseApply_Close">
+    </ext:Window>
+    <ext:Window ID="wndPurchaseImport" Title="物资入库" Popup="false" EnableIFrame="true"
+        IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
+        Height="500px" Width="700px" onclose="wndPurchaseImport_Close">
     </ext:Window>
     </form>
 </body>
