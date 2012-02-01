@@ -251,7 +251,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 string strOpertationType = OperateType.Equals("Edit") ? "编辑" : "新增";
                 string strDesc = string.Format(" {0} 费用支付", strOpertationType);
-                string strRemark = OperateType.Equals("Edit") ? "" : _Info.Remark;
+                string strRemark = _Info.Remark;// OperateType.Equals("Edit") ? "" : _Info.Remark;
                 manage.AddHistory(true, _Info.ObjectId, strOpertationType, strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, strRemark);
 
                 Alert.Show("操作成功!");

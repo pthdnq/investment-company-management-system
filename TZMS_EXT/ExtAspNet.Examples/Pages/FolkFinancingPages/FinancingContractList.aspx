@@ -14,7 +14,7 @@
         EnableLargeHeader="true" Title="Panel" ShowBorder="false" ShowHeader="false"
         Layout="Anchor">
         <Items>
-            <ext:Form ID="Form2" ShowBorder="False" LabelWidth="55px" BodyPadding="5px" AnchorValue="100%"
+            <ext:Form ID="Form2" ShowBorder="False" LabelWidth="65px" BodyPadding="5px" AnchorValue="100%"
                 EnableBackgroundColor="true" ShowHeader="False" runat="server">
                 <Rows>
                     <ext:FormRow>
@@ -86,6 +86,8 @@
                                 Title="申请支付费用" WindowID="wndNew" />
                             <ext:WindowField Width="66px" Text="业务移交" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LeaderAuditTransfer.aspx?Type=Owner&ID={0}"
                                 Title="业务移交" WindowID="Window1" />
+                            <ext:WindowField Width="38px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="LeaderAudit.aspx?Type=View&ID={0}"
+                                Title="查看" WindowID="wndView" />
                         </Columns>
                     </ext:Grid>
                 </Items>
@@ -97,6 +99,9 @@
     </ext:Window>
     <ext:Window ID="Window1" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="480px" Width="550px" OnClose="wndNew_Close">
+    </ext:Window>
+    <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+        Target="Parent" runat="server" IsModal="true" Height="410px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>
 </body>

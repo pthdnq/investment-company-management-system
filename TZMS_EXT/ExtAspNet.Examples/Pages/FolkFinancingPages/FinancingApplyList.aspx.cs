@@ -209,14 +209,14 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             //if (_Info.BAStatus == 2 || _Info.BAStatus == 1)
             if (_Info.BAStatus == 2 && this.CurrentRoles.Contains(RoleType.TZZJ))
             {
-                //if (_Info.Status != 9)
-                //{
-                 //   e.Values[14] = e.Values[14].ToString().Replace("查看", "编辑");// "<span class=\"gray\">查看/修改</span>";
-                //}
-                //else
-                //{
-                  e.Values[14] = "<span class=\"gray\">编辑</span>";
-                //}
+                if (_Info.Status != 9)
+                {
+                    e.Values[15] = e.Values[15].ToString().Replace("查看", "编辑");// "<span class=\"gray\">查看/修改</span>";
+                }
+                else
+                {
+                    e.Values[15] = "<span class=\"gray\">编辑</span>";
+                }
             }
 
             //  if (_Info.Status != 1 && _Info.Status != 2)
@@ -311,36 +311,41 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         protected string GetStatusName(string strStatus)
         {
             string StrStatusName = string.Empty;
-            StrStatusName = this.ddlstState.SelectedText;
-            //switch (strStatus)
-            //{
-            //    case "0":
-            //        //  strCondtion.Append(" AND Status = 1 ");
-            //        break;
-            //    case "1":
-            //        StrStatusName = "待审核";
-            //        break;
-            //    case "2":
-            //        StrStatusName = "未通过";
-            //        break;
-            //    case "3":
-            //        StrStatusName = "审核中";
-            //        break;
-            //    case "4":
-            //        StrStatusName = "已通过";
-            //        break;
-            //    case "5":
-            //        StrStatusName = "待审核";
-            //        break;
-            //    case "6":
-            //        StrStatusName = "已通过";
-            //        break;
-            //    case "9":
-            //        StrStatusName = "已删除";
-            //        break;
-            //    default:
-            //        break;
-            //}
+            switch (strStatus)
+            {
+                case "0":
+                    //  strCondtion.Append(" AND Status = 1 ");
+                    break;
+                case "1":
+                    StrStatusName = "待审核";
+                    break;
+                case "2":
+                    StrStatusName = "未通过";
+                    break;
+                case "3":
+                    StrStatusName = "审核中";
+                    break;
+                case "4":
+                    StrStatusName = "待审核";
+                    break;
+                case "5":
+                    StrStatusName = "已通过";
+                    break;
+                case "7":
+                    StrStatusName = "终止审核中";
+                    break;
+                case "8":
+                    StrStatusName = "已终止";
+                    break;
+                case "9":
+                    StrStatusName = "已删除";
+                    break;
+                case "11":
+                    StrStatusName = "终止未通过";
+                    break;
+                default:
+                    break;
+            }
             return StrStatusName;
         }
         #endregion

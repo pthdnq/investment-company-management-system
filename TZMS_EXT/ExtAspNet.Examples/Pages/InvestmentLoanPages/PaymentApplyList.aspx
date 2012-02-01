@@ -114,7 +114,7 @@
         Target="Parent" runat="server" IsModal="true" Height="462px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="wndNewBA" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="442px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="372px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="wndEdit" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="462px" Width="550px" OnClose="wndNew_Close">

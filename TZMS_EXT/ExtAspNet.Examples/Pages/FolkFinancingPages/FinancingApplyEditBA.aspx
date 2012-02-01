@@ -52,14 +52,15 @@
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
                             <ext:TextArea ID="taAuditOpinion" Enabled="false" Label="审核备注" runat="server" MaxLength="200"
-                                MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                                Hidden="true" MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                RegexMessage="不能输入特殊字符!">
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>
                 </Rows>
             </ext:Form>
             <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                AutoHeight="true" Height="242px">
+                AutoHeight="true" Height="240px">
                 <Tabs>
                     <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                         <Items>
@@ -144,7 +145,7 @@
                         </Items>
                     </ext:Tab>
                     <ext:Tab ID="tabHistory" Title="操作历史" EnableBackgroundColor="true" runat="server"
-                    Layout="Fit"     BodyPadding="5px">
+                        Layout="Fit" BodyPadding="5px">
                         <Items>
                             <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
