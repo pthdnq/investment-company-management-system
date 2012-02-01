@@ -282,7 +282,7 @@ namespace TZMS.Web
             /// </summary>
             DZKJ = 14,
             /// <summary>
-            /// 核算会计
+            /// 核算会计-核算会计材料归档(投融资)
             /// </summary>
             HSKJ = 15,
             /// <summary>
