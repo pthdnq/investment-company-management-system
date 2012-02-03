@@ -243,13 +243,13 @@ namespace TZMS.Web.Pages
                             btnSend.Enabled = false;
                             tbxTitle.Required = false;
                             tbxTitle.ShowRedStar = false;
-                            tbxTitle.Enabled = false;
+                            tbxTitle.Readonly = true;
                             taaContent.Required = false;
                             taaContent.ShowRedStar = false;
-                            taaContent.Enabled = false;
+                            taaContent.Readonly = true;
                             lblRecevices.ShowRedStar = false;
                             lblRecevices.Required = false;
-                            lblRecevices.Enabled = false;
+                            lblRecevices.Readonly = true;
                             btnRecevicer.Hidden = true;
                         }
                         break;
@@ -267,10 +267,10 @@ namespace TZMS.Web.Pages
                             lblRecevices.Hidden = true;
                             tbxTitle.Required = false;
                             tbxTitle.ShowRedStar = false;
-                            tbxTitle.Enabled = false;
+                            tbxTitle.Readonly = true;
                             taaContent.Required = false;
                             taaContent.ShowRedStar = false;
-                            taaContent.Enabled = false;
+                            taaContent.Readonly = true;
                         }
                         break;
                     default:
