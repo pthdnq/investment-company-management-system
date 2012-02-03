@@ -19,6 +19,9 @@
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
                         Icon="Disk" Text="保存">
                     </ext:Button>
+                    <ext:Button ID="btnInitPsw" runat="server" Hidden="true" ValidateForms="mainFrame" OnClick="btnInitPsw_Click"
+                        Icon="Sitemap" Text="初始化密码">
+                    </ext:Button>
                     <ext:Label ID="titleMention"  runat="server"  Hidden="true" Text="提示：初始密码为 1111"></ext:Label>
                 </Items>
             </ext:Toolbar>
