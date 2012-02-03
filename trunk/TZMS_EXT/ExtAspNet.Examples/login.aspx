@@ -92,6 +92,7 @@
 
     </style>
     <script type="text/javascript">
+        window.history.forward(1); 
         function tzmslogin_() {
             var txtName = document.getElementById("tbxUserName").value;
             var txtPsw = document.getElementById("tbxPassword").value;

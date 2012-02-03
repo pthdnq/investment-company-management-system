@@ -1052,6 +1052,7 @@
             });
         }
         function SystemBack() {
+           
             window.location.href = "login.aspx";
             return false;
         }
