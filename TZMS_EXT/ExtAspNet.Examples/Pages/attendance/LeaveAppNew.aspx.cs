@@ -213,6 +213,8 @@ namespace TZMS.Web
                 int typeValue = (int)ConvertStringToAttedType(_leaveInfo.Type);
                 ddlstLeaveType.SelectedValue = typeValue.ToString();
                 taaLeaveReason.Text = _leaveInfo.Reason;
+
+                //this.txtHours = _leaveInfo.
                 if (ddlstLeaveType.SelectedText == "病假")
                 {
                     ContentPanel1.Hidden = false;
