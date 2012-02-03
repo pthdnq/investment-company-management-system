@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="2012年2月2日.txt" />
     <Content Include="App_Flash\AC_OETags.js" />
     <Content Include="App_Flash\RSTFlexUser.swf" />
     <Content Include="App_Flash\UploadApp.swf" />
