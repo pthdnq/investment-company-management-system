@@ -19,10 +19,11 @@
                     <ext:Button ID="btnSave" runat="server" ValidateForms="mainFrame" OnClick="btnSave_Click"
                         Icon="Disk" Text="保存">
                     </ext:Button>
-                    <ext:Button ID="btnInitPsw" runat="server" Hidden="true" ValidateForms="mainFrame" OnClick="btnInitPsw_Click"
-                        Icon="Key" Text="初始化密码">
+                    <ext:Button ID="btnInitPsw" runat="server" Hidden="true" ValidateForms="mainFrame"
+                        OnClick="btnInitPsw_Click" Icon="Key" Text="初始化密码">
                     </ext:Button>
-                    <ext:Label ID="titleMention"  runat="server"  Hidden="true" Text="提示：初始密码为 1111"></ext:Label>
+                    <ext:Label ID="titleMention" runat="server" Hidden="true" Text="提示：初始密码为 1111">
+                    </ext:Label>
                 </Items>
             </ext:Toolbar>
         </Toolbars>
@@ -58,8 +59,8 @@
                                 runat="server">
                             </ext:DropDownList>
                             <ext:TextBox ID="tbxPosition" Label="职位" runat="server" Required="true" ShowRedStar="true"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                RegexMessage="不能输入特殊字符!">
+                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！">
+                                <%-- Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"--%>
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
