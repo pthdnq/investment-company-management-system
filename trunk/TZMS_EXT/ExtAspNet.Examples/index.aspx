@@ -171,7 +171,7 @@
                                                 Text="调休申请">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/我的审批.gif" NodeID="wdsp" OnClientClick=" tabs('wdsp','UserKey');"
-                                                Text="我的审批">
+                                                Text="假勤审批">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/请假归档.gif" NodeID="qjgd" OnClientClick=" tabs('qjgd','UserKey');"
                                                 Text="请假归档">
@@ -680,7 +680,7 @@
                     LoadTab("Pages/attendance/WorkLeaveApp.aspx", "调休申请", icon);
                     break;
                 case "wdsp":
-                    LoadTab("Pages/attendance/MyCheckApp.aspx", "我的审批", icon);
+                    LoadTab("Pages/attendance/MyCheckApp.aspx", "假勤审批", icon);
                     break;
                 case "qjgd":
                     LoadTab("Pages/attendance/AttendToFile.aspx", "请假归档", icon);
