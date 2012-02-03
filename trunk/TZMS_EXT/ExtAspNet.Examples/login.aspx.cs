@@ -20,10 +20,11 @@ namespace TZMS.Web
         /// <param name="sender">sender</param>
         /// <param name="e">e</param>
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {    
+            Session.RemoveAll();
+            //CurrentUser = null;
             if (!IsPostBack)
             {
-                Session.RemoveAll();
                 //LoadData();
                 if (Request.Cookies["Info"] != null)
                 {

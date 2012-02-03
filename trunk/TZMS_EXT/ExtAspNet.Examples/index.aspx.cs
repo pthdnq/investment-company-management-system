@@ -23,6 +23,11 @@ namespace TZMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (CurrentUser == null)
+            {
+                Response.Redirect("~/login.aspx");
+            }
+
             if (!IsPostBack)
             {
                 SetMenu();
