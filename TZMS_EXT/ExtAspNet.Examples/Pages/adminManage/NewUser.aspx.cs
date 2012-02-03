@@ -81,7 +81,8 @@ namespace TZMS.Web
                         {
                             OperatorType = strOperatorType;
                             UserID = strUserID;
-
+                            btnInitPsw.Hidden = false;
+                            titleMention.Hidden = false;
                             bindUserInterface(strUserID);
                         }
                         break;
@@ -293,10 +294,10 @@ namespace TZMS.Web
                 return;
             }
 
-            if (rblProbationState.SelectedValue=="1"
-                && dpbProbationTime.SelectedDate.ToString()=="")
+            if (rblProbationState.SelectedValue == "1"
+                && dpbProbationTime.SelectedDate.ToString() == "")
             {
-                 Alert.Show("转正日期必须要填写!");
+                Alert.Show("转正日期必须要填写!");
                 return;
             }
 
@@ -349,6 +350,29 @@ namespace TZMS.Web
         protected void btnSave_Click(object sender, EventArgs e)
         {
             saveUserInfo();
+        }
+
+        /// <summary>
+        /// 初始化密码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnInitPsw_Click(object sender, EventArgs e)
+        {
+            UserInfo _userInfo = null;
+            UserManage _userManage = new UserManage();
+            _userInfo = _userManage.GetUserByObjectID(UserID);
+            _userInfo.Password = "1111";
+            int result = _userManage.UpdateUser(_userInfo);
+            if (result == -1)
+            {
+                //Alert.Show("编辑员工成功!");
+                PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
+            }
+            else
+            {
+                Alert.Show("初始化密码失败!");
+            }
         }
 
         /// <summary>
