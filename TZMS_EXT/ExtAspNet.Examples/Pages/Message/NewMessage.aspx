@@ -41,8 +41,8 @@
                                 <Items>
                                     <%--                                    <ext:Label ID="lblRecevices" runat="server" Label="收信人">
                                     </ext:Label>--%>
-                                    <ext:TextBox ID="lblRecevices" runat="server" Label="收信人" ShowRedStar="true" Required="true"
-                                        Enabled="false">
+                                    <ext:TextBox ID="lblRecevices" Readonly="true" runat="server" Label="收信人" ShowRedStar="true" Required="true"
+                                        >
                                     </ext:TextBox>
                                     <ext:Button ID="btnRecevicer" OnClick="btnRecevicer_Click" runat="server" Text="设置收信人...">
                                     </ext:Button>

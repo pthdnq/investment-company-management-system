@@ -68,7 +68,7 @@
     </ext:Panel>
     <ext:Window ID="wndViewMessage" Title="查看消息" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Width="700px" EnableConfirmOnClose="true"
-        Height="600px" onclose="wndViewMessage_Close">
+        Height="530px" onclose="wndViewMessage_Close">
     </ext:Window>
     </form>
 </body>
