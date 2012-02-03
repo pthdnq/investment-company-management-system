@@ -174,7 +174,8 @@ namespace com.TZMS.Business
         {
             string currentJobNo = string.Empty;
             UserCtrl uc = new UserCtrl();
-            List<UserInfo> users = uc.SelectAsList(boName, " state<> 2 ");
+            //List<UserInfo> users = uc.SelectAsList(boName, " state<> 2 ");
+            List<UserInfo> users = uc.SelectAsList(boName, " 1=1 ");
             if (users.Count == 0)
             {
                 return "1000";
