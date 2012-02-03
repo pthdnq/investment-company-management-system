@@ -255,7 +255,7 @@
                                         </Nodes>
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="wdsp" OnClientClick="return false;"
-                                        Text="我的审批">
+                                        Text="假勤审批">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
