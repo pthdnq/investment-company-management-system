@@ -86,6 +86,7 @@ namespace TZMS.Web
         private void BindProxyAmounter()
         {
             ddlstProxyAmounter.Items.Clear();
+            ddlstProxyAmounter.Items.Add(new ExtAspNet.ListItem("全部", "0"));
             List<UserRoles> lstRoles = this.GetUsersByRole(RoleType.DZKJ);
             foreach (UserRoles role in lstRoles)
             {
@@ -119,7 +120,8 @@ namespace TZMS.Web
 
             if (ddlstProxyAmounter.Items.Count > 0)
             {
-                strCondition.Append(" and ProxyAmounterID = '" + ddlstProxyAmounter.SelectedValue + "'");
+                if (ddlstProxyAmounter.SelectedText != "全部")
+                    strCondition.Append(" and ProxyAmounterID = '" + ddlstProxyAmounter.SelectedValue + "'");
             }
 
             strCondition.Append(" and Year(OpeningDate) = " + Convert.ToDateTime(dpkStartTime.SelectedDate).Year

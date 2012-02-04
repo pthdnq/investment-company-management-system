@@ -52,8 +52,8 @@
                             </ext:FormRow>
                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="60%">
                                 <Items>
-                                    <ext:TextArea ID="taaOther" runat="server" Height="100px" Label="备注" MaxLength="200"
-                                        MaxLengthMessage="最多只能输入200个字!">
+                                    <ext:TextArea ID="taaOther" runat="server" Height="100px" Label="交接内容" Required="true"
+                                        ShowRedStar="true" MaxLength="200" MaxLengthMessage="最多只能输入200个字!">
                                     </ext:TextArea>
                                 </Items>
                             </ext:FormRow>

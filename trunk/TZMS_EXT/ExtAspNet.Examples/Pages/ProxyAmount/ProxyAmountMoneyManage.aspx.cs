@@ -74,6 +74,7 @@ namespace TZMS.Web
         private void BindProxyAmounter()
         {
             ddlstProxyAmounter.Items.Clear();
+            ddlstProxyAmounter.Items.Add(new ExtAspNet.ListItem("全部", "0"));
             List<UserRoles> lstRoles = this.GetUsersByRole(RoleType.DZKJ);
             foreach (UserRoles role in lstRoles)
             {
@@ -107,7 +108,8 @@ namespace TZMS.Web
 
             if (ddlstProxyAmounter.Items.Count > 0)
             {
-                strCondition.Append(" and ProxyAmounterID = '" + ddlstProxyAmounter.SelectedValue + "'");
+                if (ddlstProxyAmounter.SelectedText != "全部")
+                    strCondition.Append(" and ProxyAmounterID = '" + ddlstProxyAmounter.SelectedValue + "'");
             }
 
             strCondition.Append(" and Year(OpeningDate) = " + Convert.ToDateTime(dpkStartTime.SelectedDate).Year
@@ -199,7 +201,7 @@ namespace TZMS.Web
                 switch (e.Values[10].ToString())
                 {
                     case "1":
-                        e.Values[10] = "待确认";
+                        e.Values[10] = "待收款";
                         if (CurrentLevel == VisitLevel.View)
                         {
                             e.Values[11] = "<span class=\"gray\">确认收款</span>";
@@ -212,7 +214,7 @@ namespace TZMS.Web
 
                         break;
                     case "2":
-                        e.Values[10] = "已确认";
+                        e.Values[10] = "已收款";
                         e.Values[11] = "<span class=\"gray\">确认收款</span>";
                         break;
                     default:
