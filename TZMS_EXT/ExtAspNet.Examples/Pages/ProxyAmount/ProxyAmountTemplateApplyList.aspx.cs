@@ -170,10 +170,17 @@ namespace TZMS.Web
             {
                 e.Values[2] = e.Values[2].ToString() == "0" ? "代帐费" : "年检费";
 
-                UserInfo _approveUser = new UserManage().GetUserByObjectID(e.Values[8].ToString());
-                if (_approveUser != null)
+                if (e.Values[8].ToString() == SystemUser.ObjectId.ToString())
                 {
-                    e.Values[8] = _approveUser.Name;
+                    e.Values[8] = SystemUser.Name;
+                }
+                else
+                {
+                    UserInfo _approveUser = new UserManage().GetUserByObjectID(e.Values[8].ToString());
+                    if (_approveUser != null)
+                    {
+                        e.Values[8] = _approveUser.Name;
+                    }
                 }
 
                 switch (e.Values[9].ToString())

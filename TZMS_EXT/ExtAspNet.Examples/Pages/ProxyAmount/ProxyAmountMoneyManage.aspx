@@ -62,7 +62,7 @@
                             <ext:BoundField DataField="CollectMethod" HeaderText="收款方式" />
                             <ext:BoundField DataField="OpeningDate" HeaderText="开票日期" />
                             <ext:BoundField DataField="CollecterName" HeaderText="收款单位" />
-                            <ext:BoundField DataField="State" HeaderText="代帐单状态" />
+                            <ext:BoundField DataField="State" HeaderText="收款状态" />
                             <ext:LinkButtonField Width="75px" Text="确认收款" CommandName="View" ConfirmText="您确认收款嘛?" />
                         </Columns>
                     </ext:Grid>

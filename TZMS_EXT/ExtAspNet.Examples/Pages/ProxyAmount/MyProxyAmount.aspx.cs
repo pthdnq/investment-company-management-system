@@ -54,9 +54,10 @@ namespace TZMS.Web
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine("Refresh");
+                System.Diagnostics.Debug.WriteLine(Request.Form["__EVENTTARGET"]);
 
-                GenerateStyle(DataSource);
+                if (Request.Form["__EVENTTARGET"].Contains("btnDynamic"))
+                    GenerateStyle(DataSource);
             }
         }
 
@@ -80,14 +81,14 @@ namespace TZMS.Web
 
             StringBuilder strCondition = new StringBuilder();
 
-            strCondition.Append(" IsDelete <> 1");
+            strCondition.Append(" IsDelete <> 1 and ProxyAmounterID = '" + CurrentUser.ObjectId.ToString() + "'");
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
             {
                 strCondition.Append(" and ProxyAmountUnitName Like '%" + tbxSearch.Text.Trim() + "%'");
             }
 
             strCondition.Append(" and OpeningDate between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59") + "'");
-
+            strCondition.Append(" order by State asc, OpeningDate desc ");
             #endregion
 
             List<ProxyAmountInfo> lstProxyAmount = new ProxyAmountManage().GetProxyAmountByCondition(strCondition.ToString());
@@ -263,7 +264,7 @@ namespace TZMS.Web
                 label3.ShowLabel = false;
                 label3.CssStyle = "TEXT-ALIGN:center";
                 label3.Width = 100;
-                label3.Text = info.State == 2 ? "出纳已到收款" : "出纳未到收款";
+                label3.Text = info.State == 2 ? "出纳已收到收款" : "出纳未收到收款";
                 row3.Items.Add(label3);
                 form3.Rows.Add(row3);
 

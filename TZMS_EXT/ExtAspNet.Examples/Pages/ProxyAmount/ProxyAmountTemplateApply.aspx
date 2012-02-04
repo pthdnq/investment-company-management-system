@@ -86,6 +86,7 @@
                                                     <ext:DropDownList Required="true" ShowRedStar="true" ID="ddlstCollectMethod" runat="server"
                                                         Label="收款方式">
                                                         <ext:ListItem Text="现金" Value="现金" Selected="true" />
+                                                        <ext:ListItem Text="转账" Value="转账" />
                                                     </ext:DropDownList>
                                                     <ext:DatePicker ID="dpkOpeningDate" runat="server" Label="开票日期" AutoPostBack="true"
                                                         Hidden="true">

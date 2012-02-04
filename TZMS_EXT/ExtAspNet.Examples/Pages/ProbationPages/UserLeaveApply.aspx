@@ -119,7 +119,7 @@
                                             <ext:BoundField DataField="TransferName" HeaderText="交接人" />
                                             <ext:BoundField DataField="TransferTime" HeaderText="交接时间" />
                                             <ext:BoundField DataField="TransferType" HeaderText="交接类型" />
-                                            <ext:BoundField DataField="Other" HeaderText="备注" DataTooltipField="Other" ExpandUnusedSpace="true" />
+                                            <ext:BoundField DataField="Other" HeaderText="交接内容" DataTooltipField="Other" ExpandUnusedSpace="true" />
                                         </Columns>
                                     </ext:Grid>
                                 </Items>
