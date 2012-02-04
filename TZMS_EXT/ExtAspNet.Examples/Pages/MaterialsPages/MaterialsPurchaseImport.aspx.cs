@@ -70,6 +70,11 @@ namespace TZMS.Web
                     dpkNeedsDate.Text = _info.NeedsDate.ToString("yyyy-MM-dd");
                     taaSument.Text = _info.Sument;
                     taaOther.Text = _info.Other;
+
+                    if (_info.HasImport)
+                    {
+                        btnPass.Enabled = false;
+                    }
                 }
             }
         }
@@ -94,7 +99,6 @@ namespace TZMS.Web
             this.gridApproveHistory.DataSource = lstBaoxiaoCheckInfo;
             this.gridApproveHistory.DataBind();
         }
-
         #endregion
 
         #region 页面事件
@@ -126,35 +130,36 @@ namespace TZMS.Web
             int result = 3;
             if (_info != null)
             {
-                int importCount = Convert.ToInt32(tbxImportCount.Text.Trim());
-                decimal importMoney = Convert.ToDecimal(tbxImportMoney.Text.Trim());
+                //int importCount = Convert.ToInt32(tbxImportCount.Text.Trim());
+                //decimal importMoney = Convert.ToDecimal(tbxImportMoney.Text.Trim());
 
-                if (importCount > _info.Count)
-                {
-                    Alert.Show("入库数量不可大于申请数量!");
-                    return;
-                }
+                //if (importCount > _info.Count)
+                //{
+                //    Alert.Show("入库数量不可大于申请数量!");
+                //    return;
+                //}
 
-                if (importMoney > _info.Money)
-                {
-                    Alert.Show("入库金额不可大于申请金额!");
-                    return;
-                }
+                //if (importMoney > _info.Money)
+                //{
+                //    Alert.Show("入库金额不可大于申请金额!");
+                //    return;
+                //}
 
                 _info.HasImport = true;
+                _info.ImportTime = DateTime.Now;
                 result = _manage.UpdatePurchaseApply(_info);
 
                 // 更新数量.
                 MaterialsManageInfo _materialInfo = _manage.GetMaterialByObjectID(_info.MaterialsID.ToString());
                 if (_materialInfo != null)
                 {
-                    _materialInfo.Numbers += importCount;
+                    _materialInfo.Numbers += _info.Count;
                     _manage.UpdateMaterial(_materialInfo);
 
                     // 资金流量.
                     CashFlowManage _cashFlowManage = new CashFlowManage();
-                    _cashFlowManage.Add(importMoney, DateTime.Now, TZMS.Common.FlowDirection.Payment, TZMS.Common.Biz.MaterialsPurchase, 
-                        "采购" + (_materialInfo.MaterialsType == 0? "办公用品" : "固定资产") + _materialInfo.MaterialsName + " 数量" + importCount, string.Empty);
+                    _cashFlowManage.Add(_info.Money, DateTime.Now, TZMS.Common.FlowDirection.Payment, TZMS.Common.Biz.MaterialsPurchase, 
+                        "采购" + (_materialInfo.MaterialsType == 0? "办公用品" : "固定资产") + _materialInfo.MaterialsName + " 数量" + _info.Count, string.Empty);
                 }
 
                 // 插入入库记录.
@@ -165,7 +170,7 @@ namespace TZMS.Web
                 _archiveApproveInfo.ApproveTime = DateTime.Now;
                 _archiveApproveInfo.ApproveState = 1;
                 _archiveApproveInfo.ApproveOp = 5;
-                _archiveApproveInfo.ApproveSugest = "数量:" + importCount + " 金额:" + importMoney.ToString() + "元";  
+                _archiveApproveInfo.ApproveSugest = "数量:" + _info.Count + " 金额:" + _info.Money.ToString() + "元";  
                 _archiveApproveInfo.ApplyID = _info.ObjectID;
                 _manage.AddNewApprove(_archiveApproveInfo);
             }

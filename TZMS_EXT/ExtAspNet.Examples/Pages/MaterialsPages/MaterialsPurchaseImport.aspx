@@ -16,7 +16,7 @@
                 <Items>
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
-                    <ext:Button ID="btnPass" Text="入库" Icon="Accept" runat="server" ValidateForms="mainForm2"
+                    <ext:Button ID="btnPass" Text="确认入库" Icon="Accept" runat="server" ValidateForms="mainForm2"
                         OnClick="btnPass_Click" ConfirmText="您确定入库吗?">
                     </ext:Button>
                 </Items>
@@ -27,15 +27,14 @@
                 BodyPadding="3px" ShowHeader="false" AnchorValue="100% -36">
                 <Items>
                     <ext:Form ID="mainForm2" EnableBackgroundColor="true" ShowHeader="false" BodyPadding="5px"
-                        runat="server">
+                        runat="server" Hidden="true">
                         <Rows>
                             <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                                 <Items>
-                                    <ext:TextBox ID="tbxImportCount" runat="server" Required="true" ShowRedStar="true"
-                                        Label="数量" Regex="^\d*$" RegexMessage="只能输入数字!">
+                                    <ext:TextBox ID="tbxImportCount" runat="server" Label="数量" Regex="^\d*$" RegexMessage="只能输入数字!">
                                     </ext:TextBox>
-                                    <ext:TextBox ID="tbxImportMoney" runat="server" Required="true" ShowRedStar="true"
-                                        Label="金额" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
+                                    <ext:TextBox ID="tbxImportMoney" runat="server" Label="金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                        RegexMessage="金额格式不正确!">
                                     </ext:TextBox>
                                 </Items>
                             </ext:FormRow>

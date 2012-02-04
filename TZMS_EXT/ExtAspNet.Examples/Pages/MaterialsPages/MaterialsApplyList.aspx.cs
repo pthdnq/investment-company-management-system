@@ -23,7 +23,7 @@ namespace TZMS.Web
                 dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
                 dpkEndTime.SelectedDate = DateTime.Now;
 
-                wndNewApply.Title = "物资申请";
+                wndNewApply.Title = "物资领用申请";
                 btnNewMaterial.OnClientClick = wndNewApply.GetShowReference("MaterialsApply.aspx?Type=Add") + "return false;";
                 wndNewApply.OnClientCloseButtonClick = wndNewApply.GetHidePostBackReference();
 

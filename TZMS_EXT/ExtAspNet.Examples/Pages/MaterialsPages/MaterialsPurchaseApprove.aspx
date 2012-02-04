@@ -22,6 +22,8 @@
                     <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click"
                         ConfirmText="您确定不同意吗?">
                     </ext:Button>
+                    <ext:Label ID="Label2" runat="server" Text="提醒:金额大于30万董事长归档，小于30万总经理归档">
+                    </ext:Label>
                 </Items>
             </ext:Toolbar>
         </Toolbars>

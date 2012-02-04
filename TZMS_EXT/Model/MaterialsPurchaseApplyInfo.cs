@@ -50,6 +50,7 @@ namespace com.TZMS.Model
         private bool _isDelete = false;
         private DateTime _needsDate = DBMAXDate;
         private bool _hasImport = false;
+        private DateTime _importTime = DBMAXDate;
         #endregion
 
         #region Property
@@ -204,6 +205,15 @@ namespace com.TZMS.Model
         {
             get { return _hasImport; }
             set { _hasImport = value; }
+        }
+
+        /// <summary>
+        /// IsDelete 
+        /// </summary> 
+        public DateTime ImportTime
+        {
+            get { return _importTime; }
+            set { _importTime = value; }
         }
 
         #endregion

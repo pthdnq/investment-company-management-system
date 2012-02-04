@@ -10,7 +10,7 @@
 namespace TZMS.Web {
     
     
-    public partial class MaterialsPurchaseApplyList {
+    public partial class MaterialsPurchaseImportList {
         
         /// <summary>
         /// form1 control.
@@ -67,13 +67,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.TextBox tbxSearch;
         
         /// <summary>
-        /// ddlstType control.
+        /// ddlstWuZhiType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.DropDownList ddlstType;
+        protected global::ExtAspNet.DropDownList ddlstWuZhiType;
         
         /// <summary>
         /// ddlstAproveState control.
@@ -103,6 +103,15 @@ namespace TZMS.Web {
         protected global::ExtAspNet.FormRow FormRow2;
         
         /// <summary>
+        /// ddlstDept control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.DropDownList ddlstDept;
+        
+        /// <summary>
         /// dpkStartTime control.
         /// </summary>
         /// <remarks>
@@ -121,22 +130,13 @@ namespace TZMS.Web {
         protected global::ExtAspNet.DatePicker dpkEndTime;
         
         /// <summary>
-        /// Label3 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Label Label3;
-        
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Label Label4;
+        protected global::ExtAspNet.Label Label1;
         
         /// <summary>
         /// pelGrid control.
@@ -148,24 +148,6 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Panel pelGrid;
         
         /// <summary>
-        /// toolApp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Toolbar toolApp;
-        
-        /// <summary>
-        /// btnNewMaterial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Button btnNewMaterial;
-        
-        /// <summary>
         /// gridApply control.
         /// </summary>
         /// <remarks>
@@ -175,12 +157,12 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Grid gridApply;
         
         /// <summary>
-        /// wndNewPurchaseApply control.
+        /// wndNewPurchaseImport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Window wndNewPurchaseApply;
+        protected global::ExtAspNet.Window wndNewPurchaseImport;
     }
 }

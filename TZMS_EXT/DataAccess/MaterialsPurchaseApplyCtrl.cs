@@ -70,7 +70,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ApproverID",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
                 new SqlParameter("@NeedsDate",DbType.DateTime),
-                new SqlParameter("@HasImport",DbType.Boolean)
+                new SqlParameter("@HasImport",DbType.Boolean),
+                new SqlParameter("@ImportTime",DbType.DateTime)
 				};
 
                 int i = 0;
@@ -91,6 +92,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.IsDelete;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.NeedsDate;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.HasImport;
+                sqlparam[i++].Value = MaterialsPurchaseApplyInfo.ImportTime;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -161,7 +163,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ApproverID",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
                 new SqlParameter("@NeedsDate",DbType.DateTime),
-                new SqlParameter("@HasImport",DbType.Boolean)
+                new SqlParameter("@HasImport",DbType.Boolean),
+                new SqlParameter("@ImportTime",DbType.DateTime)
                 };
 
                 int i = 0;
@@ -182,6 +185,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.IsDelete;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.NeedsDate;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.HasImport;
+                sqlparam[i++].Value = MaterialsPurchaseApplyInfo.ImportTime;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -333,6 +337,10 @@ namespace com.TZMS.DataAccess
             if (MaterialsPurchaseApplyInfoInfoDataRow["HasImport"] != null)
             {
                 MaterialsPurchaseApplyInfoInfo.HasImport = bool.Parse(DataUtil.GetStringValueOfRow(MaterialsPurchaseApplyInfoInfoDataRow, "HasImport"));
+            }
+            if (MaterialsPurchaseApplyInfoInfoDataRow["ImportTime"] != null)
+            {
+                MaterialsPurchaseApplyInfoInfo.ImportTime = DateTime.Parse(DataUtil.GetStringValueOfRow(MaterialsPurchaseApplyInfoInfoDataRow, "ImportTime"));
             }
             return MaterialsPurchaseApplyInfoInfo;
         }
