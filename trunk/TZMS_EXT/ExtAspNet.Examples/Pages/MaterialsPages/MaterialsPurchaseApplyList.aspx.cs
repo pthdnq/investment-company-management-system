@@ -26,7 +26,7 @@ namespace TZMS.Web
                 wndNewPurchaseApply.Title = "物资采购申请";
                 btnNewMaterial.OnClientClick = wndNewPurchaseApply.GetShowReference("NewMaterialsPurchase.aspx?Type=Add") + "return false;";
                 wndNewPurchaseApply.OnClientCloseButtonClick = wndNewPurchaseApply.GetHidePostBackReference();
-                wndPurchaseImport.OnClientCloseButtonClick = wndPurchaseImport.GetHidePostBackReference();
+                //wndPurchaseImport.OnClientCloseButtonClick = wndPurchaseImport.GetHidePostBackReference();
 
                 BindType();
                 BindGrid();
@@ -163,11 +163,11 @@ namespace TZMS.Web
                 }
             }
 
-            if (e.CommandName == "Import")
-            {
-                wndPurchaseImport.IFrameUrl = "MaterialsPurchaseImport.aspx?ID=" + strApplyID;
-                wndPurchaseImport.Hidden = false;
-            }
+            //if (e.CommandName == "Import")
+            //{
+            //    wndPurchaseImport.IFrameUrl = "MaterialsPurchaseImport.aspx?ID=" + strApplyID;
+            //    wndPurchaseImport.Hidden = false;
+            //}
         }
 
         /// <summary>

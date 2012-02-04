@@ -63,6 +63,7 @@ namespace TZMS.Web
                     ddlstMaterials.Text = _manageInfo.MaterialsName;
                     lblTotalCount.Text = _manageInfo.Numbers.ToString();
                 }
+                tbxActualCount.Text = _applyInfo.ApplyCount.ToString();
                 tbxNumbers.Text = _applyInfo.ApplyCount.ToString();
                 taaOther.Text = _applyInfo.Other;
             }

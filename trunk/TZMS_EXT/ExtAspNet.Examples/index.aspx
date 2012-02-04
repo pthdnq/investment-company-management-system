@@ -269,6 +269,9 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/物资审批.gif" NodeID="wzcgsp" OnClientClick=" tabs('wzcgsp','UserKey');"
                                                 Text="物资采购审批">
                                             </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资审批.gif" NodeID="wzcgrk" OnClientClick=" tabs('wzcgrk','UserKey');"
+                                                Text="物资采购入库">
+                                            </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzsq" OnClientClick=" tabs('wzsq','UserKey');"
                                                 Text="物资领用申请">
                                             </ext:TreeNode>
@@ -791,6 +794,9 @@
                     break;
                 case "wzcgsp":
                     LoadTab("Pages/MaterialsPages/MaterialsPurchaseApproveList.aspx", "物资采购审批", icon);
+                    break;
+                case "wzcgrk":
+                    LoadTab("Pages/MaterialsPages/MaterialsPurchaseImportList.aspx", "物资采购入库", icon);
                     break;
                 case "wzsq":
                     LoadTab("Pages/MaterialsPages/MaterialsApplyList.aspx", "物资领用申请", icon);
