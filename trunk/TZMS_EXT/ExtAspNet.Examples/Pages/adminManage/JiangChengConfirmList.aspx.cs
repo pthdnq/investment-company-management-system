@@ -59,7 +59,8 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" (UserID ='" + CurrentUser.ObjectId.ToString() + "' or ZJID = '" + CurrentUser.ObjectId.ToString() + "')");
+            strCondition.Append("((UserID = '" + CurrentUser.ObjectId.ToString()+ "' and ((State = 0 and UserConfirmTime >= '"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm")+"') "
+                + " or (State = 1 and ConfirmType = 0))) or (ZJID = '" + CurrentUser.ObjectId.ToString() + "' and (( State = 0 and UserConfirmTime < '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "') or (State = 1 and ConfirmType = 1)) ))");
 
             if (ddlstAproveState.SelectedIndex != 0)
             {
@@ -138,8 +139,8 @@ namespace TZMS.Web
             {
                 e.Values[5] = e.Values[5].ToString() == "0" ? "奖励" : "惩罚";
                 e.Values[7] = DateTime.Parse(e.Values[7].ToString()).ToString("yyyy-MM-dd HH:mm");
-                if (CurrentUser.ObjectId.ToString() == e.Values[1].ToString())
-                {
+                //if (CurrentUser.ObjectId.ToString() == e.Values[1].ToString())
+                //{
                     switch (e.Values[9].ToString())
                     {
                         case "0":
@@ -163,32 +164,32 @@ namespace TZMS.Web
                         default:
                             break;
                     }
-                }
-                else if (CurrentUser.ObjectId.ToString() == e.Values[2].ToString())
-                {
-                    switch (e.Values[9].ToString())
-                    {
-                        case "0":
-                            e.Values[9] = "待个人确认";
-                            e.Values[10] = "<span class=\"gray\">确认</span>";
-                            break;
-                        case "1":
-                            e.Values[9] = "待确认";
-                            //判断页面是否可编辑（可查看不用考虑）
-                            if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
-                            {
-                                e.Values[10] = "<span class=\"gray\">确认</span>";
-                            }
-                            break;
-                        case "2":
-                            e.Values[9] = "已确认";
-                            //e.Values[10] = "<span class=\"gray\">确认</span>";
-                            e.Values[10] = e.Values[10].ToString().Replace("确认", "查看");
-                            break;
-                        default:
-                            break;
-                    }
-                }
+                //}
+                //else if (CurrentUser.ObjectId.ToString() == e.Values[2].ToString())
+                //{
+                //    switch (e.Values[9].ToString())
+                //    {
+                //        case "0":
+                //            e.Values[9] = "待个人确认";
+                //            e.Values[10] = "<span class=\"gray\">确认</span>";
+                //            break;
+                //        case "1":
+                //            e.Values[9] = "待确认";
+                //            //判断页面是否可编辑（可查看不用考虑）
+                //            if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
+                //            {
+                //                e.Values[10] = "<span class=\"gray\">确认</span>";
+                //            }
+                //            break;
+                //        case "2":
+                //            e.Values[9] = "已确认";
+                //            //e.Values[10] = "<span class=\"gray\">确认</span>";
+                //            e.Values[10] = e.Values[10].ToString().Replace("确认", "查看");
+                //            break;
+                //        default:
+                //            break;
+                //    }
+                //}
             }
         }
 

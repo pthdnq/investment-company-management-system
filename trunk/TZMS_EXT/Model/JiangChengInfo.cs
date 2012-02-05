@@ -45,6 +45,9 @@ namespace com.TZMS.Model
         private Guid _zjid;
         private string _zJName = DBEmptyString;
         private short _state = DBEmptyShort;
+        private DateTime _userConfirmTime = DBMAXDate;
+        private DateTime _confirmTime = DBMAXDate;
+        private short _confirmType = 0;
         #endregion
 
         #region Property
@@ -154,6 +157,24 @@ namespace com.TZMS.Model
         {
             get { return _state; }
             set { _state = value; }
+        }
+
+        public DateTime UserConfirmTime
+        {
+            get { return _userConfirmTime; }
+            set { _userConfirmTime = value; }
+        }
+
+        public DateTime ConfirmTime
+        {
+            get { return _confirmTime; }
+            set { _confirmTime = value; }
+        }
+
+        public short ConfirmType
+        {
+            get { return _confirmType; }
+            set { _confirmType = value; }
         }
 
         #endregion

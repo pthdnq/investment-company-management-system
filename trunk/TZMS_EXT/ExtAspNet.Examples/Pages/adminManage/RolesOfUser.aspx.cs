@@ -397,6 +397,24 @@ namespace TZMS.Web
                 case RoleType.WZCGQRGDXY30W:
                     strRole = "物资采购确认归档<30W";
                     break;
+                case RoleType.XZBJCDQR:
+                    strRole = "行政部奖惩单确认";
+                    break;
+                case RoleType.CWBJCDQR:
+                    strRole = "财务部奖惩单确认";
+                    break;
+                case RoleType.TZBJCDQR:
+                    strRole = "投资部奖惩单确认";
+                    break;
+                case RoleType.YWBJCDQR:
+                    strRole = "业务部奖惩单确认";
+                    break;
+                case RoleType.ZJBJCDQR:
+                    strRole = "总经办奖惩单确认";
+                    break;
+                case RoleType.JSZXJCDQR:
+                    strRole = "结算中心奖惩单确认";
+                    break;
             }
 
             return strRole;

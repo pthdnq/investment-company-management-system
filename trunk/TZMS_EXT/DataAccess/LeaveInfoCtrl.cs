@@ -67,7 +67,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@ApproverId",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
-                new SqlParameter("@UserObjectID",DbType.Guid)
+                new SqlParameter("@UserObjectID",DbType.Guid),
+                new SqlParameter("@LeaveHours",DbType.Int32)
 				};
 
                 int i = 0;
@@ -85,6 +86,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = LeaveInfo.ApproverId;
                 sqlparam[i++].Value = LeaveInfo.IsDelete;
                 sqlparam[i++].Value = LeaveInfo.UserObjectId;
+                sqlparam[i++].Value = LeaveInfo.LeaveHours;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -152,7 +154,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@ApproverId",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
-                 new SqlParameter("@UserObjectID",DbType.Guid)
+                new SqlParameter("@UserObjectID",DbType.Guid),
+                new SqlParameter("@LeaveHours",DbType.Int32)
                 };
 
                 int i = 0;
@@ -170,6 +173,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = LeaveInfo.ApproverId;
                 sqlparam[i++].Value = LeaveInfo.IsDelete;
                 sqlparam[i++].Value = LeaveInfo.UserObjectId;
+                sqlparam[i++].Value = LeaveInfo.LeaveHours;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -309,6 +313,10 @@ namespace com.TZMS.DataAccess
             if (LeaveInfoInfoDataRow["UserObjectId"] != null)
             {
                 LeaveInfoInfo.UserObjectId = new Guid(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "UserObjectId"));
+            }
+            if (LeaveInfoInfoDataRow["LeaveHours"] != null)
+            {
+                LeaveInfoInfo.LeaveHours = Convert.ToInt32(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "LeaveHours"));
             }
             return LeaveInfoInfo;
         }

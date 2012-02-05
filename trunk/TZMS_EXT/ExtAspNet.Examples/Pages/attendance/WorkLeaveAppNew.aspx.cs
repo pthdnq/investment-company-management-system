@@ -186,6 +186,7 @@ namespace TZMS.Web
                 int typeValue = (int)ConvertStringToAttedType(_leaveInfo.Type);
                 ddlstLeaveType.SelectedValue = typeValue.ToString();
                 taaLeaveReason.Text = _leaveInfo.Reason;
+                txtHours.Text = _leaveInfo.LeaveHours.ToString();
 
                 // 查找最早的审批记录.
                 List<LeaveApproveInfo> lstApprove = _leaveManage.GetLeaveApprovesByCondition(" LeaveID = '" + _leaveInfo.ObjectId.ToString() + 
@@ -240,6 +241,10 @@ namespace TZMS.Web
             taaLeaveReason.Required = false;
             taaLeaveReason.ShowRedStar = false;
             taaLeaveReason.Enabled = false;
+
+            txtHours.Required = false;
+            txtHours.ShowRedStar = false;
+            txtHours.Enabled = false;
 
             btnSave.Enabled = false;
         }
@@ -373,6 +378,7 @@ namespace TZMS.Web
                 _leaveInfo.State = 1;
                 _leaveInfo.Reason = taaLeaveReason.Text.Trim();
                 _leaveInfo.IsDelete = false;
+                _leaveInfo.LeaveHours = Convert.ToInt32(txtHours.Text.Trim());
 
                 result = _leaveAppManage.AddNewLeaveInfo(_leaveInfo);
 
@@ -435,6 +441,7 @@ namespace TZMS.Web
                 _leaveInfo.State = 1;
                 _leaveInfo.Reason = taaLeaveReason.Text.Trim();
                 _leaveInfo.IsDelete = false;
+                _leaveInfo.LeaveHours = Convert.ToInt32(txtHours.Text.Trim());
 
                 result = _leaveAppManage.UpdateLeaveInfo(_leaveInfo);
 

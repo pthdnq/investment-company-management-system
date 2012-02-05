@@ -74,20 +74,22 @@ namespace TZMS.Web
             JiangChengInfo _info = _manage.GetJiangChengByObjectID(JiangChengID);
             if (_info != null)
             {
-                if (_info.UserID.ToString() == CurrentUser.ObjectId.ToString())
-                {
-                    if (_info.State > 0)
-                        btnSubmit.Enabled = false;
-                }
-                else if (_info.ZjID.ToString() == CurrentUser.ObjectId.ToString())
-                {
-                    if (_info.State > 1)
-                        btnSubmit.Enabled = false;
-                }
-                else
-                {
+                if (_info.State > 0)
                     btnSubmit.Enabled = false;
-                }
+                //if (_info.UserID.ToString() == CurrentUser.ObjectId.ToString())
+                //{
+                //    if (_info.State > 0)
+                //        btnSubmit.Enabled = false;
+                //}
+                //else if (_info.ZjID.ToString() == CurrentUser.ObjectId.ToString())
+                //{
+                //    if (_info.State > 1)
+                //        btnSubmit.Enabled = false;
+                //}
+                //else
+                //{
+                //    btnSubmit.Enabled = false;
+                //}
             }
         }
 
@@ -120,7 +122,14 @@ namespace TZMS.Web
             int result = 3;
             if (_info != null)
             {
-                _info.State += 1;
+                //_info.State += 1;
+                if (DateTime.Now > _info.UserConfirmTime)
+                {
+                    
+                    _info.ConfirmType = 1;
+                }
+                _info.ConfirmTime = DateTime.Now;
+                _info.State = 1;
                 result = _manage.UpdateJiangCheng(_info);
             }
             if (result == -1)

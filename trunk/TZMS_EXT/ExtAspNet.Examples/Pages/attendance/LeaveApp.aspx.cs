@@ -206,9 +206,9 @@ namespace TZMS.Web
                 e.Values[3] = DateTime.Parse(e.Values[3].ToString()).ToString("yyyy-MM-dd HH:00");
 
                 // 设置时长.
-                DateTime startTime = DateTime.Parse(e.Values[2].ToString());
-                DateTime endTime = DateTime.Parse(e.Values[3].ToString());
-                e.Values[4] = ((TimeSpan)(endTime - startTime)).TotalHours.ToString();
+                //DateTime startTime = DateTime.Parse(e.Values[2].ToString());
+                //DateTime endTime = DateTime.Parse(e.Values[3].ToString());
+                //e.Values[4] = ((TimeSpan)(endTime - startTime)).TotalHours.ToString();
 
                 //// 设置编辑按钮.
                 //if (Convert.ToInt32(e.Values[8].ToString()) != 3)

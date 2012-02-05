@@ -110,7 +110,8 @@ namespace TZMS.Web
                 arrayRoles = user.Roles.Split(',');
                 for (int i = 0; i < arrayRoles.Length; i++)
                 {
-                    if (arrayRoles[i] == "4" || arrayRoles[i] == "5" || arrayRoles[i] == "6" || arrayRoles[i] == "7")
+                    if (arrayRoles[i] == "48" || arrayRoles[i] == "49" || arrayRoles[i] == "50" 
+                        || arrayRoles[i] == "51" || arrayRoles[i] == "52" || arrayRoles[i] == "53")
                     {
                         isContains = true;
                         break;

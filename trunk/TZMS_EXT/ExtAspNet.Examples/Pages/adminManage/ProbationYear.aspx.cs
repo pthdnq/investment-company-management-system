@@ -154,7 +154,7 @@ namespace TZMS.Web
             {
                 DateTime probationTime = DateTime.Parse(e.Values[6].ToString());
                 e.Values[6] = probationTime.ToString("yyyy-MM-dd");
-                int i = Convert.ToInt32(((TimeSpan)(DateTime.Now - probationTime)).TotalDays / 365);
+                int i = (int)Math.Floor((double)(((TimeSpan)(DateTime.Now - probationTime)).TotalDays / 365.0));
                 if (i >= 1)
                 {
                     e.Values[7] = i + "年";

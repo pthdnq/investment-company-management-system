@@ -187,7 +187,8 @@ namespace TZMS.Web
                     e.Values[2] = _leaveInfo.WriteTime.ToString("yyyy-MM-dd HH:mm");
                     e.Values[3] = _leaveInfo.StartTime.ToString("yyyy-MM-dd HH:00");
                     e.Values[4] = _leaveInfo.StopTime.ToString("yyyy-MM-dd HH:00");
-                    e.Values[5] = ((TimeSpan)(DateTime.Parse(e.Values[4].ToString()) - DateTime.Parse(e.Values[3].ToString()))).TotalHours.ToString();
+                    e.Values[5] = _leaveInfo.LeaveHours.ToString();
+                    //e.Values[5] = ((TimeSpan)(DateTime.Parse(e.Values[4].ToString()) - DateTime.Parse(e.Values[3].ToString()))).TotalHours.ToString();
                     e.Values[6] = _leaveInfo.Type;
                     e.Values[7] = _leaveInfo.Reason;
                     e.Values[8] = lstLeaveApproveInfo[0].ApproverName;
