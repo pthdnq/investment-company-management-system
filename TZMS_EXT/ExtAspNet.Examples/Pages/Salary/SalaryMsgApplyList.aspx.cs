@@ -86,7 +86,7 @@ namespace TZMS.Web
             //        break;
             //}
 
-            if (Convert.ToInt32(ddlstYear.SelectedValue) >= 2)
+            if (Convert.ToInt32(ddlState.SelectedValue) >= 2)
             {
                 strCondition.Append(" state >= 2 ");
             }

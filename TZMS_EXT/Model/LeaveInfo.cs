@@ -49,6 +49,7 @@ namespace com.TZMS.Model
         private Guid _approverId;
         private bool _isDelete = true;
         private Guid _userObjectId;
+        private int _leaveHours;
 
         #endregion
 
@@ -178,6 +179,15 @@ namespace com.TZMS.Model
         {
             get { return _isDelete; }
             set { _isDelete = value; }
+        }
+
+        /// <summary>
+        /// IsDelete 
+        /// </summary> 
+        public int LeaveHours
+        {
+            get { return _leaveHours; }
+            set { _leaveHours = value; }
         }
 
         #endregion

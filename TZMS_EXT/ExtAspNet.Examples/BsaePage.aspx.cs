@@ -442,7 +442,37 @@ namespace TZMS.Web
             /// <summary>
             /// 物资采购确认归档<30W
             /// </summary>
-            WZCGQRGDXY30W = 47
+            WZCGQRGDXY30W = 47,
+
+            /// <summary>
+            /// 行政部奖惩单确认
+            /// </summary>
+            XZBJCDQR = 48,
+
+            /// <summary>
+            /// 财务部奖惩单确认
+            /// </summary>
+            CWBJCDQR = 49,
+
+            /// <summary>
+            /// 投资部奖惩单确认
+            /// </summary>
+            TZBJCDQR = 50,
+
+            /// <summary>
+            /// 业务部奖惩单确认
+            /// </summary>
+            YWBJCDQR = 51,
+
+            /// <summary>
+            /// 总经办奖惩单确认
+            /// </summary>
+            ZJBJCDQR = 52,
+
+            /// <summary>
+            /// 结算中心奖惩单确认
+            /// </summary>
+            JSZXJCDQR = 53
         }
 
         /// <summary>

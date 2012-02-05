@@ -213,6 +213,7 @@ namespace TZMS.Web
                 int typeValue = (int)ConvertStringToAttedType(_leaveInfo.Type);
                 ddlstLeaveType.SelectedValue = typeValue.ToString();
                 taaLeaveReason.Text = _leaveInfo.Reason;
+                txtHours.Text = _leaveInfo.LeaveHours.ToString();
 
                 //this.txtHours = _leaveInfo.
                 if (ddlstLeaveType.SelectedText == "病假")
@@ -274,6 +275,10 @@ namespace TZMS.Web
             taaLeaveReason.Required = false;
             taaLeaveReason.ShowRedStar = false;
             taaLeaveReason.Enabled = false;
+
+            txtHours.Required = false;
+            txtHours.ShowRedStar = false;
+            txtHours.Enabled = false;
 
             btnSave.Enabled = false;
         }
@@ -412,6 +417,7 @@ namespace TZMS.Web
                 _leaveInfo.State = 1;
                 _leaveInfo.Reason = taaLeaveReason.Text.Trim();
                 _leaveInfo.IsDelete = false;
+                _leaveInfo.LeaveHours = Convert.ToInt32(txtHours.Text.Trim());
 
                 result = _leaveAppManage.AddNewLeaveInfo(_leaveInfo);
 
@@ -477,6 +483,7 @@ namespace TZMS.Web
                 _leaveInfo.State = 1;
                 _leaveInfo.Reason = taaLeaveReason.Text.Trim();
                 _leaveInfo.IsDelete = false;
+                _leaveInfo.LeaveHours = Convert.ToInt32(txtHours.Text.Trim());
 
                 result = _leaveAppManage.UpdateLeaveInfo(_leaveInfo);
 

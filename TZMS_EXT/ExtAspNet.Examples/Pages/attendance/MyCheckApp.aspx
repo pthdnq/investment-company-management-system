@@ -66,7 +66,7 @@
                                 ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="StartTime" Width="100px" HeaderText="开始时间" />
                             <ext:BoundField DataField="StopTime" Width="100px" HeaderText="结束时间" />
-                            <ext:BoundField Width="70px" HeaderText="时长(小时)" />
+                            <ext:BoundField Width="70px" DataField="LeaveHours" HeaderText="时长(小时)" />
                             <ext:BoundField DataField="ApproveResult" Width="60px" HeaderText="审批状态" />
                             <ext:BoundField DataField="ApproveResult" Width="60px" HeaderText="审批结果" />
                             <ext:BoundField DataField="ApproveTime" Width="140px" HeaderText="审批时间" />

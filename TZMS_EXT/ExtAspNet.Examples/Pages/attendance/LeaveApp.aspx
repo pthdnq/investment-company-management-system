@@ -52,7 +52,7 @@
                             <ext:BoundField DataField="WriteTime" HeaderText="申请时间" />
                             <ext:BoundField DataField="StartTime" HeaderText="开始时间" />
                             <ext:BoundField DataField="StopTime" HeaderText="结束时间" />
-                            <ext:BoundField HeaderText="时长(小时)" />
+                            <ext:BoundField DataField="LeaveHours" HeaderText="时长(小时)" />
                             <ext:BoundField DataField="Type" HeaderText="请假类型" />
                             <ext:BoundField DataField="Reason" HeaderText="请假原因" DataTooltipField="Reason" ExpandUnusedSpace="true" />
                             <ext:BoundField HeaderText="当前审批人" />

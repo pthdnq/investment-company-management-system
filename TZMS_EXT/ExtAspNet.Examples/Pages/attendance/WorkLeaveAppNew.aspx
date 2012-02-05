@@ -129,7 +129,7 @@
                                                         Label="请假类型" AutoPostBack="True">
                                                     </ext:DropDownList>
                                                      <ext:TextBox ID="txtHours" ShowRedStar="true" MaxLength="5" MaxLengthMessage="最多只能输入5个字！"
-                                                        Required="true" EmptyText="单位：小时" runat="server" Label="请假时长">
+                                                        Required="true" EmptyText="单位：小时" runat="server" Label="请假时长" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>

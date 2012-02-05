@@ -66,6 +66,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ZjID",DbType.Guid),
 				new SqlParameter("@ZJName",DbType.String),
 				new SqlParameter("@State",DbType.Int16),
+                new SqlParameter("@UserConfirmTime",DbType.DateTime),
+                new SqlParameter("@ConfirmTime",DbType.DateTime),
+                new SqlParameter("@ConfirmType",DbType.Int16)
 				};
 
                 int i = 0;
@@ -81,6 +84,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = JiangChengInfo.ZjID;
                 sqlparam[i++].Value = JiangChengInfo.ZJName;
                 sqlparam[i++].Value = JiangChengInfo.State;
+                sqlparam[i++].Value = JiangChengInfo.UserConfirmTime;
+                sqlparam[i++].Value = JiangChengInfo.ConfirmTime;
+                sqlparam[i++].Value = JiangChengInfo.ConfirmType;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -147,6 +153,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@ZjID",DbType.Guid),
 				new SqlParameter("@ZJName",DbType.String),
 				new SqlParameter("@State",DbType.Int16),
+                new SqlParameter("@UserConfirmTime",DbType.DateTime),
+                new SqlParameter("@ConfirmTime",DbType.DateTime),
+                new SqlParameter("@ConfirmType",DbType.Int16)
                 };
 
                 int i = 0;
@@ -162,6 +171,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = JiangChengInfo.ZjID;
                 sqlparam[i++].Value = JiangChengInfo.ZJName;
                 sqlparam[i++].Value = JiangChengInfo.State;
+                sqlparam[i++].Value = JiangChengInfo.UserConfirmTime;
+                sqlparam[i++].Value = JiangChengInfo.ConfirmTime;
+                sqlparam[i++].Value = JiangChengInfo.ConfirmType;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -294,7 +306,18 @@ namespace com.TZMS.DataAccess
             {
                 Info.State = short.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "State"));
             }
-
+            if (InfoDataRow["UserConfirmTime"] != null)
+            {
+                Info.UserConfirmTime = DateTime.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "UserConfirmTime"));
+            }
+            if (InfoDataRow["ConfirmTime"] != null)
+            {
+                Info.ConfirmTime = DateTime.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "ConfirmTime"));
+            }
+            if (InfoDataRow["ConfirmType"] != null)
+            {
+                Info.ConfirmType = short.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "ConfirmType"));
+            }
             return Info;
         }
         #endregion

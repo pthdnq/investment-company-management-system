@@ -152,7 +152,8 @@ namespace TZMS.Web
                 lblAppDate.Text = _leaveInfo.WriteTime.ToString("yyyy-MM-dd HH:mm");
                 lblStartTime.Text = _leaveInfo.StartTime.ToString("yyyy-MM-dd HH:00");
                 lblStopTime.Text = _leaveInfo.StopTime.ToString("yyyy-MM-dd HH:00");
-                lblHours.Text = ((TimeSpan)(_leaveInfo.StopTime - _leaveInfo.StartTime)).TotalHours.ToString() + "小时";
+                //lblHours.Text = ((TimeSpan)(_leaveInfo.StopTime - _leaveInfo.StartTime)).TotalHours.ToString() + "小时";
+                lblHours.Text = _leaveInfo.LeaveHours + "小时";
                 lblLeaveType.Text = _leaveInfo.Type;
                 taaLeaveReason.Text = _leaveInfo.Reason;
                 if (_leaveInfo.Type == "病假")

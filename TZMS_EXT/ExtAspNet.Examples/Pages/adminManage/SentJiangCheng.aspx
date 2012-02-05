@@ -26,7 +26,7 @@
             <ext:Panel ID="pelOperator" runat="server" ShowBorder="false" EnableBackgroundColor="true"
                 BodyPadding="3px" ShowHeader="false" AnchorValue="100% -36">
                 <Items>
-                    <ext:Form EnableBackgroundColor="true" LabelWidth="85px" ShowHeader="false" ShowBorder="true"
+                    <ext:Form EnableBackgroundColor="true" LabelWidth="65px" ShowHeader="false" ShowBorder="true"
                         BodyPadding="5px" ID="mainForm" runat="server">
                         <Rows>
                             <ext:FormRow ColumnWidths="50% 50%">
@@ -37,13 +37,15 @@
                                     </ext:Label>
                                 </Items>
                             </ext:FormRow>
-                            <ext:FormRow ColumnWidths="50% 50%">
+                            <ext:FormRow ColumnWidths="50% 20% 30%">
                                 <Items>
                                     <ext:TextBox ID="tbxJCName" runat="server" Label="奖惩人" Required="true" ShowRedStar="true"
                                         Enabled="false">
                                     </ext:TextBox>
                                     <ext:Button ID="btnSetJC" runat="server" Text="选取奖惩人..." OnClick="btnSetJC_Click">
                                     </ext:Button>
+                                    <ext:DatePicker ID="dpkConfirmTime" runat="server" Label="确认时间" Required="true" ShowRedStar="true">
+                                    </ext:DatePicker>
                                 </Items>
                             </ext:FormRow>
                             <ext:FormRow ColumnWidths="50% 50%">
@@ -78,11 +80,11 @@
     </ext:Panel>
     <ext:Window ID="wndChooseJC" Title="选取奖惩人" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="450px"
-        Width="560px" onclose="wndChooseJC_Close" >
+        Width="560px" OnClose="wndChooseJC_Close">
     </ext:Window>
     <ext:Window ID="wndChooseZJ" Title="选取部门领导" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true" Height="450px"
-        Width="560px" onclose="wndChooseZJ_Close">
+        Width="560px" OnClose="wndChooseZJ_Close">
     </ext:Window>
     </form>
 </body>

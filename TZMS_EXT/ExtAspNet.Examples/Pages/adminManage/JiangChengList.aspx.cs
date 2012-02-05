@@ -152,15 +152,17 @@ namespace TZMS.Web
                 switch (e.Values[7].ToString())
                 {
                     case "0":
-                        e.Values[7] = "待个人确认";
+                        e.Values[7] = "待确认";
+                        e.Values[8] = "";
                         break;
                     case "1":
-                        e.Values[7] = "待部门领导确认";
-                        e.Values[9] = "<span class=\"gray\">编辑</span>";
+                        e.Values[7] = "已确认";
+                        e.Values[8] = e.Values[8].ToString() == "0" ? "个人确认" : "领导确认";
+                        e.Values[10] = "<span class=\"gray\">编辑</span>";
                         break;
                     case "2":
                         e.Values[7] = "部门领导已确认";
-                        e.Values[9] = "<span class=\"gray\">编辑</span>";
+                        e.Values[10] = "<span class=\"gray\">编辑</span>";
                         break;
                     default:
                         break;
@@ -169,7 +171,7 @@ namespace TZMS.Web
                 //判断页面是否可编辑（可查看不用考虑）
                 if (PageModel != VisitLevel.Edit && PageModel != VisitLevel.Both)
                 {
-                    e.Values[9] = "<span class=\"gray\">编辑</span>";
+                    e.Values[10] = "<span class=\"gray\">编辑</span>";
                 }
             }
         }

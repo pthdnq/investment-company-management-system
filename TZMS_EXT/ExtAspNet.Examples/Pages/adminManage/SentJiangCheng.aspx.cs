@@ -103,6 +103,7 @@ namespace TZMS.Web
                         ApplyID = strApplyID;
                         lblName.Text = CurrentUser.Name;
                         lblApplyTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+                        dpkConfirmTime.SelectedDate = DateTime.Now;
                         break;
                     case "View":
                         OperatorType = strOperatorType;
@@ -173,6 +174,9 @@ namespace TZMS.Web
                     _info.ZJName = _ZJUser.Name;
                     _info.Type = Convert.ToInt16(ddlstType.SelectedValue);
                     _info.Reason = taaReason.Text.Trim();
+                    _info.UserConfirmTime = Convert.ToDateTime(dpkConfirmTime.SelectedDate);
+                    _info.UserConfirmTime = _info.UserConfirmTime.AddHours(23);
+                    _info.UserConfirmTime = _info.UserConfirmTime.AddMinutes(59);
                     _info.State = 0;
 
                     result = _manage.AddNewJiangCheng(_info);
@@ -190,6 +194,9 @@ namespace TZMS.Web
                     _info.ZjID = _ZJUser.ObjectId;
                     _info.ZJName = _ZJUser.Name;
                     _info.Type = Convert.ToInt16(ddlstType.SelectedValue);
+                    _info.UserConfirmTime = Convert.ToDateTime(dpkConfirmTime.SelectedDate);
+                    _info.UserConfirmTime = _info.UserConfirmTime.AddHours(23);
+                    _info.UserConfirmTime = _info.UserConfirmTime.AddMinutes(59);
                     _info.Reason = taaReason.Text.Trim();
                     _info.State = 0;
 
@@ -226,6 +233,7 @@ namespace TZMS.Web
                 tbxZJ.Text = _info.ZJName;
                 ddlstType.SelectedValue = _info.Type.ToString();
                 taaReason.Text = _info.Reason;
+                dpkConfirmTime.SelectedDate = _info.UserConfirmTime;
             }
         }
 
@@ -249,6 +257,9 @@ namespace TZMS.Web
             tbxJCName.ShowRedStar = false;
             tbxZJ.Required = false;
             tbxZJ.ShowRedStar = false;
+            dpkConfirmTime.Required = false;
+            dpkConfirmTime.ShowRedStar = false;
+            dpkConfirmTime.Enabled = false;
         }
         #endregion
 

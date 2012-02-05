@@ -59,6 +59,7 @@
                             <ext:BoundField DataField="CreateTime" HeaderText="下发时间" />
                             <ext:BoundField DataField="ZJName" HeaderText="部门领导" />
                             <ext:BoundField DataField="State" HeaderText="当前状态" />
+                            <ext:BoundField DataField="ConfirmType" HeaderText="确认类型" />
                             <ext:LinkButtonField Width="38px" Text="查看" CommandName="View" />
                             <ext:LinkButtonField Width="38px" Text="编辑" CommandName="Edit" />
                         </Columns>

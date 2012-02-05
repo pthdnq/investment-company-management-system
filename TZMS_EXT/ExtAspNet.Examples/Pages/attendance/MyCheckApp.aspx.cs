@@ -298,9 +298,9 @@ namespace TZMS.Web
                 e.Values[10] = DateTime.Parse(e.Values[10].ToString()).ToString("yyyy-MM-dd HH:00");
                 e.Values[11] = DateTime.Parse(e.Values[11].ToString()).ToString("yyyy-MM-dd HH:00");
                 // 设置时长.
-                DateTime startTime = DateTime.Parse(e.Values[10].ToString());
-                DateTime endTime = DateTime.Parse(e.Values[11].ToString());
-                e.Values[12] = ((TimeSpan)(endTime - startTime)).TotalHours.ToString();
+                //DateTime startTime = DateTime.Parse(e.Values[10].ToString());
+                //DateTime endTime = DateTime.Parse(e.Values[11].ToString());
+                //e.Values[12] = ((TimeSpan)(endTime - startTime)).TotalHours.ToString();
                 switch (e.Values[13].ToString())
                 {
                     case "0":
