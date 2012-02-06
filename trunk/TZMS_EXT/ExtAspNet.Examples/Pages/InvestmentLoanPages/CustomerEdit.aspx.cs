@@ -115,6 +115,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
             if (result == -1)
             {
+                manage.UpdateCustomerLoanInfo(_Info);
+
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

@@ -129,9 +129,9 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                 BindNext(false);
             }
 
-            if (_Info.PrepaidAmount > 10000)
+            if (_Info.PrepaidAmount >= 10000)
             {
-                HighMoneyTips.Text = "提醒：本次操作资金总额大于1W。";
+                HighMoneyTips.Text = "提醒：本次操作资金总额大于或等于1W。";
             }
             #endregion
 

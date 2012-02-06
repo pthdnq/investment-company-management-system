@@ -68,7 +68,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             BankLoanInfo _Info = new BankLoanManage().GetUserByObjectID(ObjectID);
             MUDAttachment.RecordID = _Info.ObjectId.ToString();
 
-            if (_Info.Status != 2)
+            if (_Info.Status == 2 || _Info.BAStatus != 2)
             {
                 this.btnSave.Hidden = true;
             }
@@ -97,7 +97,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             // this.tbRemark.Text = _Info.Remark;
             this.taRemark.Text = _Info.Remark;
             this.taContact.Text = _Info.Contact;
-
+            this.tbProjectName.Text = _Info.ProjectName;
             this.dpSignDate.SelectedDate = _Info.SignDate;
 
         }

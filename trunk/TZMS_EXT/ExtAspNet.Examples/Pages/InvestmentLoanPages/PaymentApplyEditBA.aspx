@@ -61,7 +61,7 @@
                 <Tabs>
                     <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                         <Items>
-                            <ext:Form EnableBackgroundColor="true" LabelWidth="97px" ShowHeader="false" ShowBorder="false"
+                            <ext:Form EnableBackgroundColor="true" LabelWidth="47px" ShowHeader="false" ShowBorder="false"
                                 BodyPadding="5px" ID="mainForm" runat="server">
                                 <Rows>
                                     <ext:FormRow ColumnWidths="50% 50%">

@@ -72,6 +72,7 @@
                                 HeaderText="借款日期" />
                             <ext:BoundField Width="110px" DataField="DueDateForPay" DataFormatString="每月{0}日"
                                 HeaderText="应付账款日" />
+                            <ext:BoundField Width="60px" DataField="InterestType" HeaderText="利息" />
                             <ext:BoundField Width="110px" DataField="ContactPhone" HeaderText="联系电话" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
@@ -95,7 +96,7 @@
     <ext:Window ID="wndNew" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="480px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
-        <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
+    <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="410px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     </form>

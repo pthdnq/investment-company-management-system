@@ -72,6 +72,7 @@
                                 HeaderText="借款日期" />
                             <ext:BoundField Width="110px" DataField="DueDateForPay" DataFormatString="每月{0}日"
                                 HeaderText="应付账款日" />
+                            <ext:BoundField Width="60px" DataField="InterestType" HeaderText="利息" />
                             <ext:BoundField Width="110px" DataField="ContactPhone" HeaderText="联系电话" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="38px" HeaderText="状态">

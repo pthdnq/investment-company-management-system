@@ -83,7 +83,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             CurrentLevel = GetCurrentLevel("xzbyjsq");
             if (this.CurrentLevel.Equals(VisitLevel.View))
             {
-                btnNew.Hidden = true;
+                btnNew.Enabled = false;
             }
 
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);

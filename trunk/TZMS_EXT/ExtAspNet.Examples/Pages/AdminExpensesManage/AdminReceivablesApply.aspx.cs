@@ -302,14 +302,15 @@ namespace TZMS.Web.Pages.AdminExpensesManage
         /// </summary>
         private void BindNext(bool needAccountant)
         {
-            if (needAccountant)
-            {
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("出纳确认", "0"));
-            }
-            else
-            {
-                ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
-            }
+            ddlstNext.Items.Add(new ExtAspNet.ListItem("出纳确认", "0"));
+            //if (needAccountant)
+            //{
+            //    ddlstNext.Items.Add(new ExtAspNet.ListItem("出纳确认", "0"));
+            //}
+            //else
+            //{
+            //    ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
+            //}
             ddlstNext.SelectedIndex = 0;
         }
 

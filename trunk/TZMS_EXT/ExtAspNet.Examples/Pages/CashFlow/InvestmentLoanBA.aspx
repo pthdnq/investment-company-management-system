@@ -49,11 +49,11 @@
                 </Rows>
             </ext:Form>
             <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                AutoHeight="true" Height="278px">
+                AutoHeight="true" Height="308px">
                 <Tabs>
                     <ext:Tab ID="TabForm" Title="表单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                         <Items>
-                            <ext:Form EnableBackgroundColor="true" LabelWidth="55px" ShowHeader="false" ShowBorder="false"
+                            <ext:Form EnableBackgroundColor="true" LabelWidth="50px" ShowHeader="false" ShowBorder="false"
                                 BodyPadding="5px" ID="mainForm" runat="server">
                                 <Rows>
                                     <ext:FormRow ColumnWidths="50% 50%">

@@ -66,8 +66,8 @@
                             <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="130px" DataField="DateFor" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="日期" />
-                            <ext:BoundField Width="90px" DataField="Amount" HeaderText="借方(元)" />
                             <ext:BoundField Width="90px" DataField="Amount" HeaderText="贷方(元)" />
+                            <ext:BoundField Width="90px" DataField="Amount" HeaderText="借方(元)" />
                             <ext:BoundField Width="130px" DataField="RemainingAmount" HeaderText="余额(元)" />
                             <ext:BoundField Width="150px" DataField="Biz" HeaderText="业务类型" />
                             <ext:BoundField Hidden="true" Width="100px" DataField="Summary" HeaderText="项目摘要" />
