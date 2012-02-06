@@ -325,8 +325,8 @@ MaterialsPurchaseApplyView
 姓名：钱会
 时间：2012年2月4日
 内容：
-1.对JiangCheng表添加新字段:UserConfirmTime、ConfirmTime、ConfirmType，并修改相应的存储过程;
-2.对LeaveInfo表添加新自动:LeaveHours,并修改相应的视图以及存储过程;
+1.对JiangCheng表添加新字段:UserConfirmTime - datetime、ConfirmTime - datetime、ConfirmType-smalltype，并修改相应的存储过程;
+2.对LeaveInfo表添加新自动:LeaveHours-int,并修改相应的视图以及存储过程;
 	 
 ---------------------------------------------------------------------------------------------------
  
