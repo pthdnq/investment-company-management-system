@@ -103,15 +103,15 @@ namespace TZMS.Web
         {
             ddlstApproveUser.Items.Clear();
 
-            if (!CurrentChecker.Contains(CurrentUser))
-            {
+            //if (!CurrentChecker.Contains(CurrentUser))
+            //{
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
-            }
+            //}
 
-            foreach (UserInfo user in CurrentChecker)
-            {
-                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
-            }
+            //foreach (UserInfo user in CurrentChecker)
+            //{
+            //    ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+            //}
 
             ddlstApproveUser.SelectedIndex = 0;
         }

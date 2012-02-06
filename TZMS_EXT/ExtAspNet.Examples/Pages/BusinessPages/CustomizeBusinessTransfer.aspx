@@ -44,7 +44,7 @@
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
                         AutoHeight="true" Height="470px">
                         <Tabs>
-                            <ext:Tab ID="Tab1" Title="普通业务" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab1" Title="定制业务" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Form EnableBackgroundColor="true" LabelWidth="90px" ShowHeader="false" ShowBorder="false"
                                         BodyPadding="5px" ID="mainForm" runat="server">
@@ -62,7 +62,7 @@
                                             <ext:FormRow ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxCompanyName" runat="server" Required="true" ShowRedStar="true"
-                                                        Label="业务标题">
+                                                        Label="公司名称">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>

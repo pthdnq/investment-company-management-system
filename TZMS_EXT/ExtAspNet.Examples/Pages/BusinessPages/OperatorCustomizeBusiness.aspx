@@ -56,7 +56,7 @@
                             </ext:FormRow>
                             <ext:FormRow ColumnWidths="60%">
                                 <Items>
-                                    <ext:TextArea ID="taaQTFYSM" runat="server" Label="说明" Height="60px" MaxLength="500"
+                                    <ext:TextArea ID="taaQTFYSM" runat="server" Label="说明" Height="40px" MaxLength="500"
                                         MaxLengthMessage="最大只能输入500个字!">
                                     </ext:TextArea>
                                 </Items>
@@ -66,7 +66,7 @@
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
                         AutoHeight="true" Height="430px">
                         <Tabs>
-                            <ext:Tab ID="Tab1" Title="普通业务" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab1" Title="定制业务" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
                                     <ext:Form EnableBackgroundColor="true" LabelWidth="90px" ShowHeader="false" ShowBorder="false"
                                         BodyPadding="5px" ID="mainForm" runat="server">
@@ -84,7 +84,7 @@
                                             <ext:FormRow ColumnWidths="80% 20%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxCompanyName" runat="server" Required="true" ShowRedStar="true"
-                                                        Label="业务标题">
+                                                        Label="公司名称">
                                                     </ext:TextBox>
                                                     <ext:CheckBox ID="CheckBox1" Text="业务办理结束付款" runat="server" ShowLabel="false">
                                                     </ext:CheckBox>

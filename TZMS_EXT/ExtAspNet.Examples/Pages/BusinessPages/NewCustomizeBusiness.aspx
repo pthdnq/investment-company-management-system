@@ -103,7 +103,7 @@
                                             <ext:FormRow ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxCompanyName" runat="server" Required="true" ShowRedStar="true"
-                                                        Label="业务标题" MaxLength="100" MaxLengthMessage="最多只能输入100个字!">
+                                                        Label="公司名称" MaxLength="100" MaxLengthMessage="最多只能输入100个字!">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>

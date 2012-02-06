@@ -42,13 +42,13 @@
                         </Rows>
                     </ext:Form>
                     <ext:TabStrip ID="TabStrip1" runat="server" ActiveTabIndex="0" ShowBorder="false"
-                        AutoHeight="true" Height="589px">
+                        AutoHeight="true" Height="450px">
                         <Tabs>
-                            <ext:Tab ID="Tab1" Title="备用金申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
+                            <ext:Tab ID="Tab1" Title="备用金申请单" EnableBackgroundColor="true" runat="server" BodyPadding="5px"
+                                AutoScroll="true" Height="450px">
                                 <Items>
                                     <ext:Form ID="CustomizeForm" EnableBackgroundColor="true" LabelWidth="75px" ShowHeader="false"
-                                        ShowBorder="true" BodyPadding="5px" runat="server" AutoScroll="true" Height="550px"
-                                        AutoHeight="false">
+                                        ShowBorder="true" BodyPadding="5px" runat="server" AutoScroll="true" Height="550px">
                                         <Rows>
                                             <ext:FormRow ID="frw1" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
@@ -64,7 +64,7 @@
                                                         ShowRedStar="true" AutoPostBack="True" OnSelectedIndexChanged="ddlstBusinessType_SelectedIndexChanged"
                                                         EnableAjax="false">
                                                     </ext:DropDownList>
-                                                    <ext:DropDownList ID="ddlstBusinessTitle" Label="业务标题" runat="server" Required="true"
+                                                    <ext:DropDownList ID="ddlstBusinessTitle" Label="公司名称" runat="server" Required="true"
                                                         ShowRedStar="true" AutoPostBack="True" OnSelectedIndexChanged="ddlstBusinessTitle_SelectedIndexChanged"
                                                         EnableAjax="false">
                                                     </ext:DropDownList>
