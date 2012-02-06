@@ -89,7 +89,7 @@ namespace TZMS.Web
                         dpkSignTime.SelectedDate = DateTime.Now;
                         tbxCostMoney.Enabled = false;
                         tbxOtherMoney.Enabled = false;
-                        taaOtherMoneyExplain.Enabled = false;
+                        taaOtherMoneyExplain.Readonly = true;
                         break;
 
                     case "View":
@@ -134,15 +134,15 @@ namespace TZMS.Web
         {
             ddlstSigner.Items.Clear();
 
-            if (!CurrentChecker.Contains(CurrentUser))
-            {
+            //if (!CurrentChecker.Contains(CurrentUser))
+            //{
                 ddlstSigner.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
-            }
+            //}
 
-            foreach (UserInfo user in CurrentChecker)
-            {
-                ddlstSigner.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
-            }
+            //foreach (UserInfo user in CurrentChecker)
+            //{
+            //    ddlstSigner.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+            //}
 
             ddlstSigner.SelectedIndex = 0;
         }
@@ -330,7 +330,7 @@ namespace TZMS.Web
             CheckBox1.Enabled = false;
             tbxCostMoney.Enabled = false;
             tbxOtherMoney.Enabled = false;
-            taaOtherMoneyExplain.Enabled = false;
+            taaOtherMoneyExplain.Readonly = true;
             taaContent.Required = false;
             taaContent.ShowRedStar = false;
             taaContent.Enabled = false;
@@ -700,5 +700,26 @@ namespace TZMS.Web
         }
 
         #endregion
+
+        protected void tbxPreMoney_TextChanged(object sender, EventArgs e)
+        {
+            decimal sumMoney = 0;
+            if (Decimal.TryParse(tbxSumMoney.Text.Trim(), out sumMoney))
+            {
+                if (string.IsNullOrEmpty(tbxPreMoney.Text.Trim()))
+                {
+                    tbxBalanceMoney.Text = sumMoney.ToString();
+                }
+                else
+                {
+                    decimal preMoney = 0;
+                    if (decimal.TryParse(tbxPreMoney.Text.Trim(), out preMoney))
+                    {
+                        tbxBalanceMoney.Text = (sumMoney - preMoney).ToString();
+                    }
+                }
+
+            }
+        }
     }
 }

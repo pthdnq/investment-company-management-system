@@ -522,7 +522,7 @@ namespace TZMS.Web
             BusinessManage _manage = new BusinessManage();
 
             // 生成普通业务表单行.
-            for (int i = 0; i < 12; i++)
+            for (int i = 1; i < 12; i++)
             {
                 FormRow row = new FormRow();
                 row.ID = "generateNormal" + i;

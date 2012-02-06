@@ -15,8 +15,8 @@
         <Toolbars>
             <ext:Toolbar ID="Toolbar1" runat="server">
                 <Items>
-                    <ext:Button ID="btnSave" runat="server"  Enabled="false" ValidateForms="mainFrame" OnClick="btnSave_Click"
-                        Icon="Disk" Text="保存">
+                    <ext:Button ID="btnSave" runat="server" Enabled="false" ValidateForms="mainFrame"
+                        OnClick="btnSave_Click" Icon="Disk" Text="保存">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
@@ -138,6 +138,12 @@
                             <ext:TextBox ID="tbxAddress" Label="住址" runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！"
                                 Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
+                        </Items>
+                    </ext:FormRow>
+                    <ext:FormRow ColumnWidths="100%">
+                        <Items>
+                            <ext:TextArea ID="tbxRecord" Label="履历" runat="server" Readonly="true" Height="60px">
+                            </ext:TextArea>
                         </Items>
                     </ext:FormRow>
                 </Rows>

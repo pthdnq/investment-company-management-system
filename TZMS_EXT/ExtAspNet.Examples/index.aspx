@@ -599,7 +599,7 @@
         Height="450px">
     </ext:Window>
     <ext:Window ID="myMessageWindow" Title="个人信息" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Width="550px" Height="400">
+        Target="Parent" runat="server" IsModal="true" Width="550px" Height="450">
     </ext:Window>
     <ext:Window ID="changePswWindow" Title="修改密码" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Width="350px" Height="200px">

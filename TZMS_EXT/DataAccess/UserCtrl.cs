@@ -76,7 +76,8 @@ namespace com.TZMS.DataAccess
                 new SqlParameter("@ProbationTime",DbType.DateTime),
                 new SqlParameter("@LeaveTime",DbType.DateTime),
                 new SqlParameter("@BaseSalary",DbType.Decimal),
-                new SqlParameter("@Menu",DbType.String)
+                new SqlParameter("@Menu",DbType.String),
+                new SqlParameter("@Record",DbType.String)
 				};
 
                 int i = 0;
@@ -103,6 +104,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.LeaveTime;
                 sqlparam[i++].Value = UserInfo.BaseSalary;
                 sqlparam[i++].Value = UserInfo.Menu;
+                sqlparam[i++].Value = UserInfo.Record;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -180,7 +182,8 @@ namespace com.TZMS.DataAccess
                 new SqlParameter("@ProbationTime",DbType.DateTime),
                 new SqlParameter("@LeaveTime",DbType.DateTime),
                 new SqlParameter("@BaseSalary",DbType.Decimal),
-                new SqlParameter("@Menu",DbType.String)
+                new SqlParameter("@Menu",DbType.String),
+                new SqlParameter("@Record",DbType.String)
                 };
 
                 int i = 0;
@@ -207,6 +210,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.LeaveTime;
                 sqlparam[i++].Value = UserInfo.BaseSalary;
                 sqlparam[i++].Value = UserInfo.Menu;
+                sqlparam[i++].Value = UserInfo.Record;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -388,6 +392,11 @@ namespace com.TZMS.DataAccess
             {
                 if (!string.IsNullOrEmpty(UserInfoInfoDataRow["Menu"].ToString()))
                     UserInfoInfo.Menu = UserInfoInfoDataRow["Menu"].ToString();
+            }
+            if (UserInfoInfoDataRow["Record"] != null)
+            {
+                if (!string.IsNullOrEmpty(UserInfoInfoDataRow["Record"].ToString()))
+                    UserInfoInfo.Record = UserInfoInfoDataRow["Record"].ToString();
             }
             return UserInfoInfo;
         }

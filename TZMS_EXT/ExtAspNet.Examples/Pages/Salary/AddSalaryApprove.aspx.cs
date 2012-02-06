@@ -232,6 +232,7 @@ namespace TZMS.Web
                     // 更新员工信息表中的基本工资.
                     UserInfo _applyUser = _userManage.GetUserByObjectID(_applyInfo.UserId.ToString());
                     _applyUser.BaseSalary += _applyInfo.OtherSalary;
+                    _applyUser.Record += DateTime.Now.ToString("yyyy-MM-dd") + " 加薪" + _applyInfo.OtherSalary + "元\r\n";
                     _userManage.UpdateUser(_applyUser);
 
                     // 更新现有审批记录.

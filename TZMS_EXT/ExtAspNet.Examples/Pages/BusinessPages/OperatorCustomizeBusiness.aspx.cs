@@ -198,7 +198,7 @@ namespace TZMS.Web
             CheckBox1.Enabled = false;
             tbxCostMoney.Enabled = false;
             tbxOtherMoney.Enabled = false;
-            taaOtherMoneyExplain.Enabled = false;
+            taaOtherMoneyExplain.Readonly = true;
             taaContent.Required = false;
             taaContent.ShowRedStar = false;
             taaContent.Enabled = false;

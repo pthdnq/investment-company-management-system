@@ -179,6 +179,7 @@ namespace TZMS.Web
                         {
                             string currentPosition = _applyUser.Position;
                             _applyUser.Position = _applyInfo.ApplyPosition;
+                            _applyUser.Record += DateTime.Now.ToString("yyyy-MM-dd") + " 晋升调岗为" + _applyUser.Position + "\r\n";
                             _userManage.UpdateUser(_applyUser);
 
                             Alert.Show("此员工从" + currentPosition + "岗位调岗到" + _applyUser.Position + "岗位，请在员工管理里面对该员工进行权限配置");
