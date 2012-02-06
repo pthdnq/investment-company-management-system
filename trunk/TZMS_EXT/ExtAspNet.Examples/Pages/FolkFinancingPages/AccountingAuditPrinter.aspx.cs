@@ -68,7 +68,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.lbLenders.Text = _info.Lenders;
                 //  this.lbBorrowerNameA.Text = _info.BorrowerNameA;
 
-                Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames((int)_info.LoanAmount, string.Empty);
+                Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames(_info.LoanAmount, string.Empty);
                 lbLoanAmountUper.Text = uper;
                 this.lbLoanAmount.Text = _info.LoanAmount.ToString();
                 this.lbLoanDate.Text = _info.LoanDate.ToString("yyyy年MM月dd日");

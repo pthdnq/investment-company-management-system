@@ -92,7 +92,7 @@
                                 <Items>
                                     <ext:TextBox Hidden="true" ID="tbImprestAmount" Label="备用金余额" ShowRedStar="true"
                                         Required="true" runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！"
-                                        Regex="^[0-9]*$" RegexMessage="只能输入数字!">
+                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                                     </ext:TextBox>
                                     <ext:Label ID="Labeltmpx3" runat="server" />
                                 </Items>
@@ -101,7 +101,7 @@
                                 <Items>
                                     <ext:TextBox Hidden="true" ID="tbAmountExpended" Label="预支金额" ShowRedStar="true"
                                         Required="true" runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！"
-                                        Regex="^[0-9]*$" RegexMessage="只能输入数字!">
+                                       Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                                     </ext:TextBox>
                                     <ext:Label ID="Label1" runat="server" />
                                 </Items>
