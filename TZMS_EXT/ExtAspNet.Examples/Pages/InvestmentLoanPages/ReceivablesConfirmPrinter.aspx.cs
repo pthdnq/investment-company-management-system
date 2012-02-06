@@ -65,7 +65,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 this.tbProjectName.Text = _info.ProjectName;
                 this.lbBorrowerNameA.Text = _info.ReceivablesAccount;
-                  Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames((int)_info.AmountofpaidUp, string.Empty);
+                  Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames(_info.AmountofpaidUp, string.Empty);
                 lbLoanAmountUper.Text = uper;
                 this.lbLoanAmount.Text = _info.AmountofpaidUp.ToString();
                 this.lbLoanDate.Text = _info.DateForReceivables.ToString("yyyy年MM月dd日");

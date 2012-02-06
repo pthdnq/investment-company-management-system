@@ -77,8 +77,7 @@
                                             <ext:DatePicker ID="dpDateFor" Label="时间" ShowRedStar="true" Required="true" runat="server">
                                             </ext:DatePicker>
                                             <ext:TextBox ID="tbAmountOfReceivables" Label="金额" ShowRedStar="true" Required="true"
-                                                runat="server" MaxLength="8" MaxLengthMessage="最多只能输入8个数字！" Regex="^[0-9]*$"
-                                                RegexMessage="只能输入数字!">
+                                                runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>

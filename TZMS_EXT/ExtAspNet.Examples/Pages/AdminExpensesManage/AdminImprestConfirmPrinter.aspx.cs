@@ -66,7 +66,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             {
                 this.tbProjectName.Text = _info.ProjectName;
                 this.lbImplementationPhase.Text = _info.Use;
-                  Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames((int)_info.PrepaidAmount, string.Empty);
+                  Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames(_info.PrepaidAmount, string.Empty);
                 lbLoanAmountUper.Text = uper;
                 this.lbLoanAmount.Text = _info.PrepaidAmount.ToString();
                 //this.lbLoanDate.Text = _info.ExpendedTime.ToString();
