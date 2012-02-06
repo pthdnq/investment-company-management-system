@@ -697,6 +697,7 @@
     <Content Include="Pages\FolkFinancingPages\AccountingAudit.aspx" />
     <Content Include="Pages\FolkFinancingPages\AccountingAuditList.aspx" />
     <Content Include="Pages\FolkFinancingPages\AccountingAuditPrinter.aspx" />
+    <Content Include="Pages\FolkFinancingPages\ContractViewList.aspx" />
     <Content Include="Pages\FolkFinancingPages\EndingContractApply.aspx" />
     <Content Include="Pages\FolkFinancingPages\EndingContractAudit.aspx" />
     <Content Include="Pages\FolkFinancingPages\EndingContractAuditList.aspx" />
@@ -1898,6 +1899,13 @@
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\AccountingAuditPrinter.aspx.designer.cs">
       <DependentUpon>AccountingAuditPrinter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\ContractViewList.aspx.cs">
+      <DependentUpon>ContractViewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FolkFinancingPages\ContractViewList.aspx.designer.cs">
+      <DependentUpon>ContractViewList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FolkFinancingPages\EndingContractApply.aspx.cs">
       <DependentUpon>EndingContractApply.aspx</DependentUpon>
