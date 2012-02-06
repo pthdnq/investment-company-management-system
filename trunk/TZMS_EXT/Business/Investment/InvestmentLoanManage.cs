@@ -270,6 +270,20 @@ namespace com.TZMS.Business
             return cCtrl.UpDate(boName, info);
         }
 
+        public int UpdateCustomerLoanInfo(CustomerInfo info, string boName = BoName)
+        {
+            int iResult = -1;
+            string strCondition = string.Format(" BorrowerAId ='{0}' AND Status <> 9 AND Status <> 8 ", info.ObjectId);
+            var iillist = GetUsersByCondtion(strCondition);
+            foreach (var loan in iillist)
+            {
+                loan.BorrowerNameA = info.Name;
+                loan.BorrowerPhone = info.MobilePhone;
+                iResult = ctrl.UpDate(boName, loan);
+            }
+            return iResult;
+        }
+
         /// <summary>
         /// 更新借款状态
         /// </summary>
