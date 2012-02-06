@@ -99,7 +99,7 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="100%">
                                         <Items>
-                                            <ext:TextArea ID="tbRemark" Enabled="false" Label="备注" runat="server" MaxLength="300"
+                                            <ext:TextArea ID="tbRemark"  Label="备注" runat="server" MaxLength="300"
                                                 MaxLengthMessage="最多只能输入300个字符！">
                                             </ext:TextArea>
                                         </Items>

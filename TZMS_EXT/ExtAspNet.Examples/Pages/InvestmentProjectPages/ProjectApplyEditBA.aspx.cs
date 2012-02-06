@@ -66,7 +66,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             InvestmentProjectInfo _Info = new InvestmentProjectManage().GetUserByObjectID(strID);
             MUDAttachment.RecordID = _Info.ObjectId.ToString();
 
-            if (_Info.Status == 2 || _Info.Status == 1)
+            if (_Info.Status == 2 || _Info.BAStatus != 2)
             {
                 this.btnSave.Hidden = false;
             }

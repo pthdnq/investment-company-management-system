@@ -83,7 +83,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             CurrentLevel = GetCurrentLevel("xzsksjsq");
             if (this.CurrentLevel.Equals(VisitLevel.View))
             {
-                btnNew.Hidden = true;
+                btnNew.Enabled = false;
             }
 
             dpkStartTime.SelectedDate = DateTime.Now.AddMonths(-1);
@@ -293,7 +293,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                     StrStatusName = "已通过";
                     break;
                 case "5":
-                    StrStatusName = "已确认";
+                    StrStatusName = "已通过";
                     break;
                 case "9":
                     StrStatusName = "已删除";

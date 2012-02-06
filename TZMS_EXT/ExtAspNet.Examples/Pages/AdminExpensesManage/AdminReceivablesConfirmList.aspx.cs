@@ -178,7 +178,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
         {
             AdminReceivablesInfo _userInfo = (AdminReceivablesInfo)e.DataItem;
 
-            if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId) || !ViewState.Equals("4"))
             {
                 e.Values[9] = "<span class=\"gray\">确认</span>";
             }

@@ -48,10 +48,10 @@
             </ext:Form>
             <ext:Panel ID="pelGrid" ShowBorder="True" ShowHeader="false" AnchorValue="100% -54"
                 Layout="Fit" runat="server">
-                <Toolbars>
-                    <ext:Toolbar ID="toolUser" runat="server">
+                <Toolbars >
+                    <ext:Toolbar ID="toolUser" runat="server"  Hidden="true" >
                         <Items>
-                            <ext:Button ID="btnNew" Text="新增" Icon="Add" runat="server">
+                            <ext:Button ID="btnNew" Text="新增" Icon="Add" runat="server"  Hidden="true" >
                             </ext:Button>
                             <ext:Button Hidden="true" ID="btnDelete" Text="删除" Icon="Delete" runat="server" />
                         </Items>

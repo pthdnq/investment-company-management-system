@@ -61,7 +61,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            { 
+            {
                 // 绑定控件.
                 InitControl();
                 // 绑定列表.
@@ -171,7 +171,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
         {
             AdminImprestInfo _Info = (AdminImprestInfo)e.DataItem;
 
-            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId) || !ViewState.Equals("1"))
             {
                 e.Values[8] = "<span class=\"gray\">审核</span>";
 

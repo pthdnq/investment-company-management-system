@@ -218,7 +218,7 @@ namespace TZMS.Web.Pages.CashFlow
                     List<Guid> receives = new List<Guid>();
                     receives.Add(_Info.CreaterId);
                     string strTitle = "银行贷款会计核算通过提醒";
-                    string strContent = string.Format("{0} 项目已予{1}通过会计审核，请查看。", _Info.ProjectName, _Info.SubmitBATime.ToShortDateString());
+                    string strContent = string.Format("{0} 项目已于{1}通过会计审核，请查看。", _Info.ProjectName, _Info.SubmitBATime.ToShortDateString());
                     new MessageManage().SendMessage(_Info.ObjectId, this.CurrentUser.ObjectId, receives, strTitle, strContent);
                 }
                 #endregion

@@ -176,7 +176,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             if (!this.CurrentRoles.Contains(RoleType.CJGL) || _Info.Status == 9 || _Info.Status == 8)
             {
-                e.Values[12] = "<span class=\"gray\">业务移交</span>";
+                e.Values[13] = "<span class=\"gray\">业务移交</span>";
             }
         }
         #endregion

@@ -69,11 +69,11 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             com.TZMS.Model.FolkFinancingInfo _Info = new FolkFinancingManage().GetUserByObjectID(strID);
 
             MUDAttachment.RecordID = _Info.ObjectId.ToString();
-            if (_Info.Status == 2 || _Info.Status == 1)
+            if (_Info.Status == 2 || _Info.BAStatus != 2)
             {
                 this.btnSave.Hidden = false;
             }
-               
+
             // 绑定数据.
             if (_Info != null)
             {
@@ -106,7 +106,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.ddlLoanType.SelectedValue = _Info.LoanType;
                 this.tbRemark.Text = _Info.Remark;
                 this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
-              
+
             }
         }
 
@@ -223,7 +223,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-             //   ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                //   ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

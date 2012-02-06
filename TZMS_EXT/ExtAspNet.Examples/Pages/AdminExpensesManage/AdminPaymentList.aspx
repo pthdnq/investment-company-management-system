@@ -26,7 +26,7 @@
                                 <ext:ListItem Text="审核中" Value="3" />
                                 <ext:ListItem Text="已通过" Value="4" />
                                 <ext:ListItem Text="已确认" Value="5"  Selected="true" />
-                          <%--      <ext:ListItem Text="未通过" Value="2" />--%>
+                           <ext:ListItem Text="未通过" Value="2" /> 
                                 <ext:ListItem Text="已删除" Value="9" />
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Icon="Magnifier" Text="查询" OnClick="ttbSearch_Trigger1Click">
@@ -51,7 +51,7 @@
                 <Toolbars>
                     <ext:Toolbar ID="toolUser" runat="server"  Hidden="true">
                         <Items>
-                            <ext:Button ID="btnNew" Text="新增" Icon="Add" runat="server">
+                            <ext:Button ID="btnNew" Text="新增" Icon="Add" runat="server"  Hidden="true" >
                             </ext:Button>
                             <ext:Button Hidden="true" ID="btnDelete" Text="删除" Icon="Delete" runat="server" />
                         </Items>
