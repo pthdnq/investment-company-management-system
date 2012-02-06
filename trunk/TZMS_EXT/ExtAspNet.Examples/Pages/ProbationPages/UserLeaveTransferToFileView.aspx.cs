@@ -153,7 +153,7 @@ namespace TZMS.Web
                 {
                     _leaveUser.State = 0;
                     _leaveUser.LeaveTime = _applyInfo.LeaveDate;
-
+                    _leaveUser.Record += _leaveUser.LeaveTime.ToString("yyyy-MM-dd") + " 离职\r\n";
                    result =  _userManage.UpdateUser(_leaveUser);
                 }
             }

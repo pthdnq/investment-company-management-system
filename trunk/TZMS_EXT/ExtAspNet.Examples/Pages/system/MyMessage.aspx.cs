@@ -120,6 +120,7 @@ namespace TZMS.Web
                 tbxEmail.Text = _userInfo.Email;
                 // 住址.
                 tbxAddress.Text = _userInfo.Address;
+                tbxRecord.Text = _userInfo.Record;
             }
         }
 

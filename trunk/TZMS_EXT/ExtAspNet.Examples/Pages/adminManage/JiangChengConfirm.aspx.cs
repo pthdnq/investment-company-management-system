@@ -131,6 +131,14 @@ namespace TZMS.Web
                 _info.ConfirmTime = DateTime.Now;
                 _info.State = 1;
                 result = _manage.UpdateJiangCheng(_info);
+
+                UserManage _userManage = new UserManage();
+                UserInfo _userInfo = _userManage.GetUserByObjectID(_info.UserID.ToString());
+                if (_userInfo != null)
+                {
+                    _userInfo.Record += _info.CreateTime.ToString("yyyy-MM-dd") + (_info.Type == 0 ? " 获得一次奖励\r\n" : " 获得一次惩罚\r\n");
+                    _userManage.UpdateUser(_userInfo);
+                }
             }
             if (result == -1)
             {

@@ -176,22 +176,31 @@ namespace com.TZMS.Business
             UserCtrl uc = new UserCtrl();
             //List<UserInfo> users = uc.SelectAsList(boName, " state<> 2 ");
             List<UserInfo> users = uc.SelectAsList(boName, " 1=1 ");
-            if (users.Count == 0)
+            //if (users.Count == 0)
+            //{
+            //    return "1000";
+            //}
+            //UserInfo user = users[users.Count - 1];
+            //currentJobNo = user.JobNo;
+            //int re = 0;
+            //if (int.TryParse(currentJobNo, out re))
+            //{
+            //    re++;
+            //}
+            //else
+            //{
+            //    return "0000";
+            //}
+
+            //return re.ToString();
+
+            if (users.Count > 0)
             {
-                return "1000";
+                users.Sort(delegate(UserInfo x, UserInfo y) { return Convert.ToInt32(y.JobNo) - Convert.ToInt32(x.JobNo); });
+                return (Convert.ToInt32(users[0].JobNo) + 1).ToString();
             }
-            UserInfo user = users[users.Count - 1];
-            currentJobNo = user.JobNo;
-            int re = 0;
-            if (int.TryParse(currentJobNo, out re))
-            {
-                re++;
-            }
-            else
-            {
-                return "0000";
-            }
-            return re.ToString();
+
+            return "1000";
         }
 
         //public bool 

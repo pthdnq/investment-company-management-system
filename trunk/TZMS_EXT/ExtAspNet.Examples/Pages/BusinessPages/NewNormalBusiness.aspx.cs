@@ -69,7 +69,7 @@ namespace TZMS.Web
                         dpkSignTime.SelectedDate = DateTime.Now;
                         tbxCostMoney.Enabled = false;
                         tbxOtherMoney.Enabled = false;
-                        taaOtherMoneyExplain.Enabled = false;
+                        taaOtherMoneyExplain.Readonly = true;
                         break;
 
                     case "View":
@@ -99,6 +99,21 @@ namespace TZMS.Web
                         taaOtherMoneyExplain.Enabled = false;
                         break;
 
+                    case "Reset":
+                        BindSigner();
+                        BindBusinessInfo();
+                        BindOperateHistory();
+                        DisableAllControls();
+                        tbxCompanyName.Required = true;
+                        tbxCompanyName.ShowRedStar = true;
+                        tbxCompanyName.Enabled = true;
+                        taaContent.Required = true;
+                        taaContent.ShowRedStar = true;
+                        taaContent.Enabled = true;
+                        taaOther.Enabled = true;
+                        btnSubmit.Enabled = true;
+                        break;
+
                     default:
                         break;
                 }
@@ -114,15 +129,15 @@ namespace TZMS.Web
         {
             ddlstSigner.Items.Clear();
 
-            if (!CurrentChecker.Contains(CurrentUser))
-            {
-                ddlstSigner.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
-            }
+            //if (!CurrentChecker.Contains(CurrentUser))
+            //{
+            ddlstSigner.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
+            //}
 
-            foreach (UserInfo user in CurrentChecker)
-            {
-                ddlstSigner.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
-            }
+            //foreach (UserInfo user in CurrentChecker)
+            //{
+            //    ddlstSigner.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
+            //}
 
             ddlstSigner.SelectedIndex = 0;
         }
@@ -244,7 +259,7 @@ namespace TZMS.Web
             CheckBox3.Enabled = false;
             tbxCostMoney.Enabled = false;
             tbxOtherMoney.Enabled = false;
-            taaOtherMoneyExplain.Enabled = false;
+            taaOtherMoneyExplain.Readonly = true;
             taaContent.Required = false;
             taaContent.ShowRedStar = false;
             taaContent.Enabled = false;
@@ -412,6 +427,18 @@ namespace TZMS.Web
                     result = _manage.UpdateBusiness(_info);
                 }
             }
+            else if (OperatorType == "Reset")
+            {
+                _info = _manage.GetBusinessByObjectID(ApplyID);
+                if (_info != null)
+                {
+                    _info.CompanyName = tbxCompanyName.Text.Trim();
+                    _info.Content = taaContent.Text.Trim();
+                    _info.Other = taaOther.Text.Trim();
+
+                    result = _manage.UpdateBusiness(_info);
+                }
+            }
 
             if (result == -1)
             {
@@ -462,5 +489,47 @@ namespace TZMS.Web
         }
 
         #endregion
+
+        protected void tbxSumMoney_TextChanged(object sender, EventArgs e)
+        {
+            decimal sumMoney = 0;
+            if (Decimal.TryParse(tbxSumMoney.Text.Trim(), out sumMoney))
+            {
+                if (string.IsNullOrEmpty(tbxPreMoney.Text.Trim()))
+                {
+                    tbxBalanceMoney.Text = sumMoney.ToString();
+                }
+                else
+                {
+                    decimal preMoney = 0;
+                    if (decimal.TryParse(tbxPreMoney.Text.Trim(), out preMoney))
+                    {
+                        tbxBalanceMoney.Text = (sumMoney - preMoney).ToString();
+                    }
+                }
+
+            }
+        }
+
+        protected void tbxPreMoney_TextChanged(object sender, EventArgs e)
+        {
+            decimal sumMoney = 0;
+            if (Decimal.TryParse(tbxSumMoney.Text.Trim(), out sumMoney))
+            {
+                if (string.IsNullOrEmpty(tbxPreMoney.Text.Trim()))
+                {
+                    tbxBalanceMoney.Text = sumMoney.ToString();
+                }
+                else
+                {
+                    decimal preMoney = 0;
+                    if (decimal.TryParse(tbxPreMoney.Text.Trim(), out preMoney))
+                    {
+                        tbxBalanceMoney.Text = (sumMoney - preMoney).ToString();
+                    }
+                }
+
+            }
+        }
     }
 }

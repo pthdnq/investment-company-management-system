@@ -151,6 +151,12 @@
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
+                    <ext:FormRow ColumnWidths="100%">
+                        <Items>
+                            <ext:TextArea ID="tbxRecord" Label="履历" runat="server" Readonly="true" Height="60px">
+                            </ext:TextArea>
+                        </Items>
+                    </ext:FormRow>
                 </Rows>
             </ext:Form>
         </Items>

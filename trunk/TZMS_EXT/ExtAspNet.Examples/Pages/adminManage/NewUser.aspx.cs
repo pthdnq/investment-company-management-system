@@ -188,6 +188,7 @@ namespace TZMS.Web
                 tbxEmail.Text = _userInfo.Email;
                 // 住址.
                 tbxAddress.Text = _userInfo.Address;
+                tbxRecord.Text = _userInfo.Record;
             }
         }
 
@@ -305,6 +306,7 @@ namespace TZMS.Web
             int result = 3;
             if (OperatorType == "Add")
             {
+                _userInfo.Record += _userInfo.EntryDate.ToString("yyyy-MM-dd") + " 入职\r\n";
                 result = _userManage.AddUser(_userInfo);
                 if (result == -1)
                 {

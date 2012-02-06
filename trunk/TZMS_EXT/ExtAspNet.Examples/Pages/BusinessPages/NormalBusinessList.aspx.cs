@@ -153,6 +153,7 @@ namespace TZMS.Web
         protected void gridBusiness_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
             string strApplyID = ((GridRow)gridBusiness.Rows[e.RowIndex]).Values[0];
+            string strState = ((GridRow)gridBusiness.Rows[e.RowIndex]).Values[5];
             if (e.CommandName == "View")
             {
                 wndNewNormalBusiness.IFrameUrl = "NewNormalBusiness.aspx?Type=View&ID=" + strApplyID;
@@ -161,8 +162,16 @@ namespace TZMS.Web
 
             if (e.CommandName == "Edit")
             {
-                wndNewNormalBusiness.IFrameUrl = "NewNormalBusiness.aspx?Type=Edit&ID=" + strApplyID;
-                wndNewNormalBusiness.Hidden = false;
+                if (strState == "未完成")
+                {
+                    wndNewNormalBusiness.IFrameUrl = "NewNormalBusiness.aspx?Type=Reset&ID=" + strApplyID;
+                    wndNewNormalBusiness.Hidden = false;
+                }
+                else
+                {
+                    wndNewNormalBusiness.IFrameUrl = "NewNormalBusiness.aspx?Type=Edit&ID=" + strApplyID;
+                    wndNewNormalBusiness.Hidden = false;
+                }
             }
 
             if (e.CommandName == "Change")
@@ -206,7 +215,7 @@ namespace TZMS.Web
                     case "0":
                         e.Values[5] = "未完成";
                         e.Values[9] = "<span class=\"gray\">删除</span>";
-                        e.Values[8] = "<span class=\"gray\">编辑</span>";
+                        //e.Values[8] = "<span class=\"gray\">编辑</span>";
                         if (!this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZJ))
                         {
                             e.Values[7] = "<span class=\"gray\">成本变更</span>";
