@@ -69,7 +69,7 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow7" runat="server" ColumnWidths="50% 50%">
                                                 <Items>
-                                                    <ext:Label ID="lblBusinessName" runat="server" Label="业务标题">
+                                                    <ext:Label ID="lblBusinessName" runat="server" Label="公司名称">
                                                     </ext:Label>
                                                     <ext:Label ID="lblMoney" runat="server" Label="总金额(元)">
                                                     </ext:Label>

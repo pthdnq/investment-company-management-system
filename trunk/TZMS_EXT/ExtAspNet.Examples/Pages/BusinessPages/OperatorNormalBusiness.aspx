@@ -56,7 +56,7 @@
                             </ext:FormRow>
                             <ext:FormRow ColumnWidths="60%">
                                 <Items>
-                                    <ext:TextArea ID="taaQTFYSM" runat="server" Label="说明" Height="60px" MaxLength="500"
+                                    <ext:TextArea ID="taaQTFYSM" runat="server" Label="说明" Height="20px" MaxLength="500"
                                         MaxLengthMessage="最大只能输入500个字!">
                                     </ext:TextArea>
                                 </Items>
@@ -68,7 +68,7 @@
                         <Tabs>
                             <ext:Tab ID="Tab1" Title="普通业务" EnableBackgroundColor="true" runat="server" BodyPadding="5px">
                                 <Items>
-                                    <ext:Form EnableBackgroundColor="true" LabelWidth="90px" ShowHeader="false" ShowBorder="false"
+                                    <ext:Form EnableBackgroundColor="true" LabelWidth="75px" ShowHeader="false" ShowBorder="false"
                                         BodyPadding="5px" ID="mainForm" runat="server">
                                         <Rows>
                                             <ext:FormRow ColumnWidths="50% 50%">
@@ -88,7 +88,7 @@
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="50% 50%">
+                                            <ext:FormRow ColumnWidths="33% 33% 33%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxRegisteredMoney" runat="server" Label="注册资金" Regex="^[0-9]*\.?[0-9]{1,2}$"
                                                         RegexMessage="金额格式不正确!">
@@ -97,34 +97,41 @@
                                                         <ext:ListItem Text="分期出资" Value="0" />
                                                         <ext:ListItem Text="一次性出资" Value="1" />
                                                     </ext:DropDownList>
-                                                </Items>
-                                            </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="50% 50%">
-                                                <Items>
                                                     <ext:DropDownList ID="ddlstCompanyType" runat="server" Label="公司类型">
                                                         <ext:ListItem Text="一般纳税人" Value="0" />
                                                         <ext:ListItem Text="小规模" Value="1" />
                                                     </ext:DropDownList>
+                                                </Items>
+                                            </ext:FormRow>
+                                            <ext:FormRow ColumnWidths="33% 33% 33%">
+                                                <Items>
                                                     <ext:DropDownList ID="ddlstCompanyNameType" runat="server" Label="公司名类型">
                                                         <ext:ListItem Text="安徽名" Value="0" />
                                                         <ext:ListItem Text="合肥名" Value="1" />
                                                     </ext:DropDownList>
-                                                </Items>
-                                            </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="50% 50%">
-                                                <Items>
                                                     <ext:TextBox ID="tbxContact" runat="server" Label="联系人">
                                                     </ext:TextBox>
-                                                    <ext:TextBox ID="tbxContactPhoneNumber" runat="server" Label="联系人电话/手机" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
+                                                    <ext:TextBox ID="tbxContactPhoneNumber" runat="server" Label="联系电话" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
                                                         RegexMessage="电话号码格式不正确!">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="60%">
+<%--                                            <ext:FormRow ColumnWidths="50% 50%">
+                                                <Items>
+                                                    
+                                                </Items>
+                                            </ext:FormRow>--%>
+                                            <ext:FormRow ColumnWidths="40% 20% 20% 20%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxSumMoney" runat="server" Label="合同总金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
                                                         RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
                                                     </ext:TextBox>
+                                                    <ext:CheckBox ID="CheckBox1" Text="业务办理结束付款" runat="server" ShowLabel="false">
+                                                    </ext:CheckBox>
+                                                    <ext:CheckBox ID="CheckBox2" Text="注册资金客户垫付" runat="server" ShowLabel="false">
+                                                    </ext:CheckBox>
+                                                    <ext:CheckBox ID="CheckBox3" Text="银行工本费客户垫付" runat="server" ShowLabel="false">
+                                                    </ext:CheckBox>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="30% 20% 30% 20%">
@@ -143,7 +150,7 @@
                                                     </ext:Image>
                                                 </Items>
                                             </ext:FormRow>
-                                            <ext:FormRow ColumnWidths="25% 25% 25%">
+<%--                                            <ext:FormRow ColumnWidths="25% 25% 25%">
                                                 <Items>
                                                     <ext:CheckBox ID="CheckBox1" Text="业务办理结束付款" runat="server" ShowLabel="false">
                                                     </ext:CheckBox>
@@ -152,7 +159,7 @@
                                                     <ext:CheckBox ID="CheckBox3" Text="银行工本费客户垫付" runat="server" ShowLabel="false">
                                                     </ext:CheckBox>
                                                 </Items>
-                                            </ext:FormRow>
+                                            </ext:FormRow>--%>
                                             <ext:FormRow ColumnWidths="50% 50%">
                                                 <Items>
                                                     <ext:TextBox ID="tbxCostMoney" runat="server" Label="成本金额" Regex="^[0-9]*\.?[0-9]{1,2}$"

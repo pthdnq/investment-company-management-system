@@ -71,7 +71,7 @@
     </ext:Panel>
     <ext:Window ID="wndNewNormalBusiness" Title="办理普通业务" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
-        Height="650px" Width="700px" OnClose="wndNewNormalBusiness_Close">
+        Height="550px" Width="700px" OnClose="wndNewNormalBusiness_Close">
     </ext:Window>
     <ext:Window ID="wndNormalBusinessTransfer" Title="普通业务转移" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"

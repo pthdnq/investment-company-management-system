@@ -67,7 +67,7 @@
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="CreaterID" Hidden="true" />
                             <ext:BoundField DataField="BusinessType" Hidden="true" />
-                            <ext:BoundField DataField="CompanyName" HeaderText="业务标题" ExpandUnusedSpace="true"
+                            <ext:BoundField DataField="CompanyName" HeaderText="公司名称" ExpandUnusedSpace="true"
                                 DataTooltipField="CompanyName" />
                             <ext:BoundField DataField="CurrentBusinessRecordID" HeaderText="当前办理流程" />
                             <ext:BoundField DataField="State" HeaderText="业务状态" />

@@ -19,7 +19,7 @@
                 <Rows>
                     <ext:FormRow ID="FormRow1" runat="server">
                         <Items>
-                            <ext:TextBox ID="tbxSearch" runat="server" EmptyText="请输入业务标题查询" ShowLabel="false">
+                            <ext:TextBox ID="tbxSearch" runat="server" EmptyText="请输入公司名称查询" ShowLabel="false">
                             </ext:TextBox>
                             <ext:DropDownList ID="ddlstAproveState" runat="server" Label="业务状态">
                                 <ext:ListItem Text="待办理" Value="0" Selected="true" />
@@ -58,7 +58,7 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="BusinessID" Hidden="true" />
-                            <ext:BoundField DataField="CompanyName" HeaderText="业务标题" ExpandUnusedSpace="true"
+                            <ext:BoundField DataField="CompanyName" HeaderText="公司名称" ExpandUnusedSpace="true"
                                 DataTooltipField="CompanyName" />
                             <ext:BoundField DataField="CurrentBusiness" HeaderText="当前办理流程" />
                             <ext:BoundField DataField="State" HeaderText="操作状态" />
@@ -73,7 +73,7 @@
     </ext:Panel>
     <ext:Window ID="wndNewCustomizeBusiness" Title="办理定制业务" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
-        Height="650px" Width="700px" onclose="wndNewCustomizeBusiness_Close">
+        Height="550px" Width="700px" onclose="wndNewCustomizeBusiness_Close">
     </ext:Window>
     <ext:Window ID="wndCustomizeBusinessTransfer" Title="定制业务转移" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" EnableConfirmOnClose="true"
