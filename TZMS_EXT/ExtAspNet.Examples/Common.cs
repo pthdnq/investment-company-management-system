@@ -278,6 +278,38 @@ namespace TZMS
         public class MoneyLowToUper
         {
             /// <summary>
+            ///  获取money大写（两位小数）
+            /// </summary>
+            /// <param name="origanDec">两位小数</param>
+            /// <param name="origanString">origanString</param>
+            /// <returns>大写</returns>
+            public string GetUperNumNames(decimal origanDec, string origanString = "")
+            {
+                origanString = GetUperNumNames((int)origanDec);
+                int afterPoint = (int)((origanDec - (int)origanDec) * 100);
+                // afterPoint = afterPoint.Split('.')[0];
+                //小数部分 
+                if (afterPoint.Equals(0))
+                {
+                    origanString += "整";
+                }
+                else
+                {
+                    int afterPoint1 = afterPoint / 10;
+                    if (!afterPoint1.Equals(0))
+                    {
+                        origanString += string.Format("{0}角", GetUperSingleNumName(afterPoint1));
+                    }
+                    int afterPoint2 = afterPoint - afterPoint1 * 10;
+                    if (!afterPoint2.Equals(0))
+                    {
+                        origanString += string.Format("{0}分", GetUperSingleNumName(afterPoint2));
+                    }
+                }
+                return origanString;
+            }
+
+            /// <summary>
             /// 获取money大写（整数部分）
             /// </summary>
             /// <param name="origanDec">money int</param>
@@ -359,7 +391,7 @@ namespace TZMS
                 return name;
             }
         }
- 
+
         #endregion
 
     }
