@@ -3436,15 +3436,15 @@
     <None Include="images\ico_logo.psd" />
     <None Include="images\old9-logo.psd" />
     <None Include="images\step.psd" />
-    <None Include="Template\工资表.xls">
+    <Content Include="Template\工资表.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Template\收款收据.xls">
+    </Content>
+    <Content Include="Template\收款收据.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Template\考勤记录.xls">
+    </Content>
+    <Content Include="Template\考勤记录.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
