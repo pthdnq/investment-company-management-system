@@ -49,18 +49,25 @@ namespace TZMS.Web
                 Alert.Show("只能导入后缀为xls或xlsx的文件!");
                 return;
             }
-
+            // 保存文件.
+            string randomFilePath = Server.MapPath("..\\..\\Temp\\" + Guid.NewGuid().ToString() + strFileExt);
+            uploadExcel.PostedFile.SaveAs(randomFilePath);
             try
             {
                 // 导入数据.
                 WorkerAttendManage _manage = new WorkerAttendManage();
-                _manage.ImportAttendInfo(_manage.GetExcelData(uploadExcel.PostedFile.FileName));
+                _manage.ImportAttendInfo(_manage.GetExcelData(randomFilePath));
 
                 Alert.Show("导入成功!");
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Alert.Show("导入失败: " + ex.Message);
+                Alert.Show("导入失败: 请检查Excel格式!");
+            }
+            finally
+            {
+                File.Delete(randomFilePath);
             }
 
         }
