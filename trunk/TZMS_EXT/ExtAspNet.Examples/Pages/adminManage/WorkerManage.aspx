@@ -73,7 +73,7 @@
                             </ext:TemplateField>
                             <ext:BoundField Width="80px" DataField="Dept" HeaderText="部门" />
                             <ext:BoundField Width="115px" DataField="PhoneNumber" HeaderText="联系电话" />
-                            <ext:BoundField DataField="BackIpPhoneNumber" Width="120px" HeaderText="备用联系电话" />
+                            <ext:BoundField DataField="BackIpPhoneNumber" Width="120px" HeaderText="员工级别" />
                             <ext:BoundField Width="128px" DataField="Email" HeaderText="邮箱" />
                             <ext:TemplateField Width="60px" HeaderText="员工状态">
                                 <ItemTemplate>

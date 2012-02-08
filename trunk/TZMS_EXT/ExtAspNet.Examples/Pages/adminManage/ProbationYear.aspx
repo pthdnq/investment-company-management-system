@@ -67,7 +67,7 @@
                             <ext:BoundField DataField="ProbationTime" HeaderText="转正日期" />
                             <ext:BoundField HeaderText="转正年数" />
                             <ext:BoundField Width="145px" DataField="PhoneNumber" HeaderText="联系电话" />
-                            <ext:BoundField DataField="BackIpPhoneNumber" Width="145px" HeaderText="备用联系电话" />
+                            <ext:BoundField DataField="BackIpPhoneNumber" Width="145px" HeaderText="员工级别" />
                             <ext:BoundField Width="150px" DataField="Email" HeaderText="邮箱" />
                         </Columns>
                     </ext:Grid>

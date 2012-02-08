@@ -730,7 +730,7 @@
                                         </Nodes>
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="ywfysq" OnClientClick="return false;"
-                                        Text="业务费用收取申请">
+                                        Text="业务费用收取记录">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">

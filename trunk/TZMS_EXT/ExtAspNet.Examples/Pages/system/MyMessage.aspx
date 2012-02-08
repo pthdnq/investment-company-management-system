@@ -120,7 +120,7 @@
                             <ext:TextBox ID="tbxPhoneNumber" Label="联系电话" runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
                                 Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}" RegexMessage="电话号码格式不正确!">
                             </ext:TextBox>
-                            <ext:TextBox ID="tbxBackupPhoneNumber" Label="备用联系电话" runat="server" MaxLength="20"
+                            <ext:TextBox ID="tbxBackupPhoneNumber" Label="员工级别" runat="server" MaxLength="20"
                                 MaxLengthMessage="最多只能输入20个字符！" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
                                 RegexMessage="电话号码格式不正确!">
                             </ext:TextBox>

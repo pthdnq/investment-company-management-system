@@ -75,7 +75,7 @@
                                         MaxLength="21" Width="80px" Style="ime-mode: disabled" onkeypress="if ((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46) event.returnValue=false;"></asp:TextBox>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:TemplateField HeaderText="考核工资" Hidden="true">
+                            <ext:TemplateField HeaderText="提成工资" Hidden="true">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxExamSalary" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "ExamSalary") %>'
                                         MaxLength="21" Width="80px" Style="ime-mode: disabled" onkeypress="if ((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46) event.returnValue=false;"></asp:TextBox>
@@ -117,7 +117,7 @@
                                         MaxLength="50" Width="85px"></asp:TextBox>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:TemplateField HeaderText="试用期补发工资" Width="150px">
+                            <ext:TemplateField HeaderText="补发工资" Width="150px">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxSYQGZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"SYQGZ") %>'
                                         MaxLength="50" Width="135px"></asp:TextBox>
@@ -135,7 +135,7 @@
                                         MaxLength="50" Width="85px"></asp:TextBox>
                                 </ItemTemplate>
                             </ext:TemplateField>
-                            <ext:TemplateField HeaderText="考核工资">
+                            <ext:TemplateField HeaderText="提成工资">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxKHGZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"KHGZ") %>'
                                         MaxLength="50" Width="85px"></asp:TextBox>
