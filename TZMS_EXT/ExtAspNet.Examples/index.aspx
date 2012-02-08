@@ -357,7 +357,7 @@
                                                 OnClientClick=" tabs('dzywcz','UserKey');" Text="定制业务操作">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务操作.png" NodeID="ywfysq" AutoPostBack="false"
-                                                OnClientClick=" tabs('ywfysq','UserKey');" Text="业务费用收取申请">
+                                                OnClientClick=" tabs('ywfysq','UserKey');" Text="业务费用收取记录">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/定制业务操作.png" NodeID="ywfysp" AutoPostBack="false"
                                                 OnClientClick=" tabs('ywfysp','UserKey');" Text="业务费用收取出纳确认">
@@ -745,7 +745,7 @@
                     LoadTab("Pages/BusinessPages/CustomizeBusinessOperateList.aspx", "定制业务操作", icon);
                     break;
                 case "ywfysq":
-                    LoadTab("Pages/BusinessPages/CostApplyList.aspx", "业务费用收取申请", icon);
+                    LoadTab("Pages/BusinessPages/CostApplyList.aspx", "业务费用收取记录", icon);
                     break;
                 case "ywfysp":
                     LoadTab("Pages/BusinessPages/CostApproveList.aspx", "业务费用收取出纳确认", icon);

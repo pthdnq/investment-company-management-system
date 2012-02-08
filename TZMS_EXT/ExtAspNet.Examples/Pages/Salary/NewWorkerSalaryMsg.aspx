@@ -51,7 +51,7 @@
                                     <ext:TextBox ID="tbxBaseSalary" Label="基本工资" runat="server" Required="true" ShowRedStar="true"
                                         Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
                                     </ext:TextBox>
-                                    <ext:TextBox ID="tbxExamSalary" Label="考核工资" runat="server" Required="true" ShowRedStar="true"
+                                    <ext:TextBox ID="tbxExamSalary" Label="提成工资" runat="server" Required="true" ShowRedStar="true"
                                         Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
                                     </ext:TextBox>
                                 </Items>
@@ -88,7 +88,7 @@
                             </ext:FormRow>
                             <ext:FormRow ColumnWidths="50% 50%">
                                 <Items>
-                                    <ext:TextBox ID="tbxSYQGZ" Label="试用期补发工资" runat="server" Required="true" ShowRedStar="true"
+                                    <ext:TextBox ID="tbxSYQGZ" Label="补发工资" runat="server" Required="true" ShowRedStar="true"
                                         MaxLength="50" MaxLengthMessage="最多只能输入50个字!" Text="0.00">
                                     </ext:TextBox>
                                     <ext:TextBox ID="tbxNZJ" Label="年终奖" runat="server" Required="true" ShowRedStar="true"
@@ -101,7 +101,7 @@
                                     <ext:TextBox ID="tbxJLGZ" Label="奖励工资" runat="server" Required="true" ShowRedStar="true"
                                         MaxLength="50" MaxLengthMessage="最多只能输入50个字!" Text="0.00">
                                     </ext:TextBox>
-                                    <ext:TextBox ID="tbxKHGZ" Label="考核工资" runat="server" Required="true" ShowRedStar="true"
+                                    <ext:TextBox ID="tbxKHGZ" Label="提成工资" runat="server" Required="true" ShowRedStar="true"
                                         MaxLength="50" MaxLengthMessage="最多只能输入50个字!" Text="0.00">
                                     </ext:TextBox>
                                 </Items>

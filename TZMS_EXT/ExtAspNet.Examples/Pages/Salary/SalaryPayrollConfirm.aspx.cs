@@ -408,10 +408,10 @@ namespace TZMS.Web
                     w.Cells[i * 4 + 1, 21].PutValue("实发工资");
                     w.Cells[i * 4 + 2, 2].PutValue("基本工资");
                     w.Cells[i * 4 + 2, 3].PutValue("工龄工资");
-                    w.Cells[i * 4 + 2, 4].PutValue("试用期补发工资");
+                    w.Cells[i * 4 + 2, 4].PutValue("补发工资");
                     w.Cells[i * 4 + 2, 5].PutValue("年终奖");
                     w.Cells[i * 4 + 2, 6].PutValue("奖励工资");
-                    w.Cells[i * 4 + 2, 7].PutValue("考核工资");
+                    w.Cells[i * 4 + 2, 7].PutValue("提成工资");
                     w.Cells[i * 4 + 2, 8].PutValue("餐补");
                     w.Cells[i * 4 + 2, 9].PutValue("交通补助");
                     w.Cells[i * 4 + 2, 11].PutValue("迟到");

@@ -60,17 +60,17 @@
                                             <ext:BoundField DataField="Name" HeaderText="员工姓名" />
                                             <ext:BoundField Width="75px" DataField="Dept" HeaderText="部门" />
                                             <ext:BoundField Width="75px" DataField="BaseSalary" HeaderText="基本工资" Hidden="true" />
-                                            <ext:BoundField Width="75px" DataField="ExamSalary" HeaderText="考核工资" Hidden="true" />
+                                            <ext:BoundField Width="75px" DataField="ExamSalary" HeaderText="提成工资" Hidden="true" />
                                             <ext:BoundField Width="75px" DataField="BackSalary" HeaderText="补贴" Hidden="true" />
                                             <ext:BoundField Width="75px" DataField="OtherSalary" HeaderText="其它" Hidden="true" />
                                             <ext:BoundField Width="85px" DataField="ShouldSalary" HeaderText="应发工资总额" Hidden="true" />
                                             <ext:BoundField Width="85px" DataField="Salary" HeaderText="实发工资总额" Hidden="true" />
                                             <ext:BoundField DataField="Jbgz" HeaderText="基本工资" Width="150px" />
                                             <ext:BoundField DataField="Glgz" HeaderText="工龄工资" />
-                                            <ext:BoundField DataField="Syqgz" HeaderText="试用期补发工资" Width="150px" />
+                                            <ext:BoundField DataField="Syqgz" HeaderText="补发工资" Width="150px" />
                                             <ext:BoundField DataField="Nzj" HeaderText="年终奖" />
                                             <ext:BoundField DataField="Jlgz" HeaderText="奖励工资" />
-                                            <ext:BoundField DataField="Khgz" HeaderText="考核工资" />
+                                            <ext:BoundField DataField="Khgz" HeaderText="提成工资" />
                                             <ext:BoundField DataField="Cb" HeaderText="餐补" />
                                             <ext:BoundField DataField="Jtbz" HeaderText="交通补助" />
                                             <ext:BoundField DataField="Yfgz" HeaderText="应发工资" />
