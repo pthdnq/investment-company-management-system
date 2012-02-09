@@ -107,12 +107,15 @@ namespace TZMS.Web
         /// </summary>
         private void BindArchiver()
         {
+            ddlstApproveUser.Items.Clear();
+            
             UserInfo _user = new UserManage().GetUserByObjectID(strArchiver);
             if (_user != null)
             {
-                ddlstApproveUser.Items.Clear();
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(_user.Name, _user.ObjectId.ToString()));
             }
+
+            ddlstApproveUser.SelectedIndex = 0;
         }
 
         /// <summary>

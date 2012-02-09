@@ -112,6 +112,9 @@ namespace TZMS.Web
                 }
                 lstUserInfo.RemoveRange(0, currentIndex * this.gridUser.PageSize);
             }
+
+            lstUserInfo.Sort(delegate(UserInfo x, UserInfo y) { return Convert.ToInt32(x.JobNo) - Convert.ToInt32(y.JobNo); });
+
             this.gridUser.DataSource = lstUserInfo;
             this.gridUser.DataBind();
         }

@@ -91,14 +91,10 @@ namespace TZMS.Web
         /// </summary>
         private void BindApproveUser()
         {
-            ddlstApproveUser.Items.Clear();
-
             foreach (UserInfo item in CurrentChecker)
             {
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(item.Name, item.ObjectId.ToString()));
             }
-
-            ddlstApproveUser.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -109,8 +105,8 @@ namespace TZMS.Web
             UserInfo _user = new UserManage().GetUserByObjectID(strArchiver);
             if (_user != null)
             {
-                ddlstApproveUser.Items.Clear();
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(_user.Name, _user.ObjectId.ToString()));
+                
             }
         }
 
@@ -311,6 +307,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void ddlstNext_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ddlstApproveUser.Items.Clear();
             if (ddlstNext.SelectedIndex == 0)
             {
                 BindApproveUser();

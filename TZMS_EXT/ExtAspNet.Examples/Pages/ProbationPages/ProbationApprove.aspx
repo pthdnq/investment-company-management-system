@@ -20,7 +20,7 @@
                         OnClick="btnPass_Click" ConfirmText="您确定同意吗?">
                     </ext:Button>
                     <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click"
-                        ConfirmText="您确定不同意吗?">
+                        ValidateForms="frmApprove" ConfirmText="您确定不同意吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
