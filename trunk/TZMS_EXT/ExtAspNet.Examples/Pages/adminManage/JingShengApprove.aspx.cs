@@ -106,7 +106,10 @@ namespace TZMS.Web
             if (_user != null)
             {
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(_user.Name, _user.ObjectId.ToString()));
-                
+            }
+            else
+            {
+                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem("", "-1"));
             }
         }
 
@@ -307,6 +310,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void ddlstNext_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ddlstApproveUser.SelectedIndex = -1;
             ddlstApproveUser.Items.Clear();
             if (ddlstNext.SelectedIndex == 0)
             {
