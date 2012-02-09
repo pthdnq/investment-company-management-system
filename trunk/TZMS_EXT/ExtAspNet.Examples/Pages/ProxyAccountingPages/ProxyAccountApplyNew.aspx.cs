@@ -622,11 +622,11 @@ namespace TZMS.Web
                 lblCNMoney.Text = Format(money);
                 if (!this.ckYear.Checked)
                 {
-                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日代账") + tbxMoney.Text.Trim() + "元";
+                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月代账") + tbxMoney.Text.Trim() + "元";
                 }
                 else
                 {
-                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日年检") + tbxMoney.Text.Trim() + "元";
+                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年年检") + tbxMoney.Text.Trim() + "元";
                 }
             }
         }
@@ -638,7 +638,20 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void dpkOpeningDate_TextChanged(object sender, EventArgs e)
         {
-            tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日代账") + tbxMoney.Text.Trim() + "元";
+            //tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月代账") + tbxMoney.Text.Trim() + "元";
+            double money;
+            if (double.TryParse(tbxMoney.Text.Trim(), out money))
+            {
+                lblCNMoney.Text = Format(money);
+                if (!this.ckYear.Checked)
+                {
+                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月代账") + tbxMoney.Text.Trim() + "元";
+                }
+                else
+                {
+                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年年检") + tbxMoney.Text.Trim() + "元";
+                }
+            }
         }
 
         /// <summary>

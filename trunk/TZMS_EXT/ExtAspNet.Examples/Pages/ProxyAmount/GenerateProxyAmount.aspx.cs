@@ -173,7 +173,7 @@ namespace TZMS.Web
             {
                 DateTime selectDate = Convert.ToDateTime(dpkGenerateDZDate.SelectedDate);
                 List<ProxyAmountInfo> lstProxyAmount = _manage.GetProxyAmountByCondition(" ProxyAmountType = 0 and  ProxyAmounterID ='" + info.ProxyAmounterID.ToString()
-                    + "' and Sument Like '%" + selectDate.Year + "年" + selectDate.Month + "月份%'");
+                    + "' and Sument Like '%" + selectDate.Year + "年" + selectDate.Month + "月份%' and IsDelete = 0 ");
                 if (lstProxyAmount.Count == 0)
                 {
                     ProxyAmountInfo _info = new ProxyAmountInfo();
