@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using com.TZMS.Model;
 using com.TZMS.Business;
 using ExtAspNet;
+using System.Text.RegularExpressions;
+using System.Text;
 
 namespace TZMS.Web
 {
@@ -307,6 +309,10 @@ namespace TZMS.Web
             if (OperatorType == "Add")
             {
                 _userInfo.Record += _userInfo.EntryDate.ToString("yyyy-MM-dd") + " 入职\r\n";
+                if (_userInfo.IsProbation)
+                    _userInfo.Record += _userInfo.ProbationTime.ToString("yyyy-MM-dd") + " 转正\r\n";
+                if (_userInfo.State == 0)
+                    _userInfo.Record += _userInfo.LeaveTime.ToString("yyyy-MM-dd") + " 离职\r\n";
                 result = _userManage.AddUser(_userInfo);
                 if (result == -1)
                 {
@@ -328,6 +334,33 @@ namespace TZMS.Web
             }
             else
             {
+                string[] arrayRecord = Regex.Split(_userInfo.Record, "\r\n", RegexOptions.None);
+                StringBuilder tempBuilder = new StringBuilder();
+                foreach (string record in arrayRecord)
+                {
+                    if (!string.IsNullOrEmpty(record))
+                    {
+                        if (record.Contains("转正"))
+                        {
+                            if (_userInfo.IsProbation)
+                                tempBuilder.Append(_userInfo.ProbationTime.ToString("yyyy-MM-dd") + " 转正\r\n");
+                        }
+                        else if (record.Contains("离职"))
+                        {
+                            if (_userInfo.State == 0)
+                                tempBuilder.Append(_userInfo.LeaveTime.ToString("yyyy-MM-dd") + " 离职\r\n");
+                        }
+                        else
+                        {
+                            tempBuilder.Append(record + "\r\n");
+                        }
+                    }
+                }
+                if (_userInfo.IsProbation && !_userInfo.Record.Contains("转正"))
+                    tempBuilder.Append(_userInfo.ProbationTime.ToString("yyyy-MM-dd") + " 转正\r\n");
+                if (_userInfo.State == 0 && !_userInfo.Record.Contains("离职"))
+                    tempBuilder.Append(_userInfo.LeaveTime.ToString("yyyy-MM-dd") + " 离职\r\n");
+                _userInfo.Record = tempBuilder.ToString();
                 result = _userManage.UpdateUser(_userInfo);
                 if (result == -1)
                 {
@@ -386,10 +419,16 @@ namespace TZMS.Web
         {
             if (rblState.SelectedIndex == 0)
             {
+                dpkLeaveTime.Required = false;
+                dpkLeaveTime.ShowRedStar = false;
+                dpkLeaveTime.Enabled = false;
                 dpkLeaveTime.Hidden = true;
             }
             else
             {
+                dpkLeaveTime.Required = true;
+                dpkLeaveTime.ShowRedStar = true;
+                dpkLeaveTime.Enabled = true;
                 dpkLeaveTime.Hidden = false;
             }
         }

@@ -174,7 +174,7 @@ namespace TZMS.Web
                     {
                         _applyUser.IsProbation = true;
                         _applyUser.ProbationTime = DateTime.Now;
-                        _applyUser.Record += _applyUser.ProbationTime.ToString("yyyyMM-dd") + " 转正\r\n";
+                        _applyUser.Record += _applyUser.ProbationTime.ToString("yyyy-MM-dd") + " 转正\r\n";
                         _userManage.UpdateUser(_applyUser);
                     }
                 }
