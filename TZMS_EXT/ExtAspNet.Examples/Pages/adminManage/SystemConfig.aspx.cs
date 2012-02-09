@@ -33,8 +33,8 @@ namespace TZMS.Web
                     btnNewUser.Enabled = false;
                 }
 
-                newSetCheckerWindow.OnClientCloseButtonClick = newSetCheckerWindow.GetHidePostBackReference();
-                btnNewUser.OnClientClick = newSetCheckerWindow.GetShowReference(@"SetPersonOfXZ.aspx") + " return false;";
+                newSetCheckerWindowxz.OnClientCloseButtonClick = newSetCheckerWindowxz.GetHidePostBackReference();
+                btnNewUser.OnClientClick = newSetCheckerWindowxz.GetShowReference(@"SetPersonOfXZ.aspx") + " return false;";
                 this.txtXzgd.Text = strArchiverName;
             }
         }

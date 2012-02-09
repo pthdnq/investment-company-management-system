@@ -34,7 +34,7 @@
             </ext:Form>
         </Items>
     </ext:Panel>
-        <ext:Window ID="newSetCheckerWindow" Title="设置行政归档人[只能设置1位用户]" Popup="false" EnableIFrame="true"
+        <ext:Window ID="newSetCheckerWindowxz" Title="设置行政归档人[只能设置1位用户]" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" OnClose="newSetCheckerWindow_Close" Target="Parent" runat="server" IsModal="true" Width="600px"
         Height="450px">
     </ext:Window>
