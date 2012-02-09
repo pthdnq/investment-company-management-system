@@ -137,6 +137,7 @@ namespace TZMS.Web
                 lblUnitName.Text = _info.ProxyAmountUnitName;
                 lblCNMoney.Text = _info.CNMoney;
                 tbxMoney.Text = _info.ENMoney.ToString();
+                ddlstCollectMethod.SelectedValue = _info.CollectMethod;
                 tbxSument.Text = _info.Sument;
                 ddlstCollectMethod.SelectedValue = _info.CollectMethod;
                 dpkOpeningDate.SelectedDate = _info.OpeningDate;
@@ -442,7 +443,20 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void dpkOpeningDate_TextChanged(object sender, EventArgs e)
         {
-            tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日代账") + tbxMoney.Text.Trim() + "元";
+            double money;
+            if (double.TryParse(tbxMoney.Text.Trim(), out money))
+            {
+                lblCNMoney.Text = Format(money);
+                if (lblAmountType.Text == "代帐费")
+                {
+                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月代账") + tbxMoney.Text.Trim() + "元";
+                }
+                else
+                {
+                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年年检") + tbxMoney.Text.Trim() + "元";
+                }
+            }
+            //tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月dd日代账") + tbxMoney.Text.Trim() + "元";
         }
 
         #endregion
