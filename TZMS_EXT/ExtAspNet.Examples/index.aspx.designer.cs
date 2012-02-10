@@ -211,6 +211,24 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Tree treeWZGL;
         
         /// <summary>
+        /// AccordionPane15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.AccordionPane AccordionPane15;
+        
+        /// <summary>
+        /// TreeXZBFYGL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ExtAspNet.Tree TreeXZBFYGL;
+        
+        /// <summary>
         /// AccordionPane9 control.
         /// </summary>
         /// <remarks>
@@ -227,24 +245,6 @@ namespace TZMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::ExtAspNet.Tree treeDZFGL;
-        
-        /// <summary>
-        /// AccordionPane7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.AccordionPane AccordionPane7;
-        
-        /// <summary>
-        /// treeCWBX control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ExtAspNet.Tree treeCWBX;
         
         /// <summary>
         /// AccordionPane12 control.
@@ -355,22 +355,22 @@ namespace TZMS.Web {
         protected global::ExtAspNet.Tree Tree10;
         
         /// <summary>
-        /// AccordionPane15 control.
+        /// AccordionPane7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.AccordionPane AccordionPane15;
+        protected global::ExtAspNet.AccordionPane AccordionPane7;
         
         /// <summary>
-        /// TreeXZBFYGL control.
+        /// treeCWBX control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.Tree TreeXZBFYGL;
+        protected global::ExtAspNet.Tree treeCWBX;
         
         /// <summary>
         /// mainRegion control.

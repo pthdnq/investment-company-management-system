@@ -100,7 +100,7 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane2" runat="server" Title="行政管理" Icon="Cog" BodyPadding="1px 1px"
+                            <ext:AccordionPane ID="AccordionPane2" runat="server" Title="集团综合部-行政管理" Icon="Cog" BodyPadding="1px 1px"
                                 ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="treeXZGL" Hidden="false" EnableLines="false" ShowHeader="false" ShowBorder="false"
@@ -153,7 +153,7 @@
                                 </Items>
                             </ext:AccordionPane>
                             <ext:AccordionPane ID="AccordionPane3" runat="server" IconUrl="images/16/假勤管理.gif"
-                                Title="假勤管理" BodyPadding="1px 1px" ShowBorder="false">
+                                Title="集团综合部-假勤管理" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="treeJQGL" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
@@ -190,7 +190,7 @@
                                 </Items>
                             </ext:AccordionPane>
                             <ext:AccordionPane ID="AccordionPane13" runat="server" IconUrl="images/16/薪资管理.png"
-                                Title="薪资管理" BodyPadding="1px 1px" ShowBorder="false">
+                                Title="集团综合部-薪资管理" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="treeXZGL1" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
@@ -221,7 +221,7 @@
                                 </Items>
                             </ext:AccordionPane>
                             <ext:AccordionPane ID="AccordionPane11" runat="server" IconUrl="images/16/转正管理.png"
-                                Title="转正离职" BodyPadding="1px 1px" ShowBorder="false">
+                                Title="集团综合部-转正离职" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="treeZZLZ" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
@@ -255,7 +255,7 @@
                                 </Items>
                             </ext:AccordionPane>
                             <ext:AccordionPane ID="AccordionPane10" runat="server" IconUrl="images/16/物资管理.gif"
-                                Title="物资管理" BodyPadding="1px 1px" ShowBorder="false">
+                                Title="集团综合部-物资管理" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="treeWZGL" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
@@ -285,8 +285,42 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
+                            <ext:AccordionPane ID="AccordionPane15" runat="server" Title="集团综合部-费用管理" IconUrl="images/16/收款信息.gif"
+                                BodyPadding="1px 1px" ShowBorder="false">
+                                <Items>
+                                    <ext:Tree ID="TreeXZBFYGL" EnableLines="false" ShowHeader="false" ShowBorder="false"
+                                        runat="server">
+                                        <Nodes>
+                                            <ext:TreeNode Leaf="true" NodeID="xzbyjsq" OnClientClick=" tabs('xzbyjsq','');" Text="备用金申请列表"
+                                                IconUrl="images/16/借款申请.gif" />
+                                            <ext:TreeNode Leaf="true" NodeID="xzbyjsh" OnClientClick=" tabs('xzbyjsh','');" Text="备用金审核列表"
+                                                IconUrl="images/16/项目实施.png" />
+                                            <ext:TreeNode Leaf="true" NodeID="xzbyjqr" OnClientClick=" tabs('xzbyjqr','');" IconUrl="images/16/支付确认列表.gif"
+                                                Text="备用金确认列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="xzbyj" OnClientClick=" tabs('xzbyj','');" Text="备用金信息列表"
+                                                IconUrl="images/16/银行贷款.png" />
+                                            <ext:TreeNode Leaf="true" NodeID="xzsksjsq" OnClientClick=" tabs('xzsksjsq','');"
+                                                Text="收款上交申请列表" IconUrl="images/16/民间融资.gif" />
+                                            <ext:TreeNode Leaf="true" NodeID="xzsksjqr" OnClientClick=" tabs('xzsksjqr','');"
+                                                IconUrl="images/16/支付确认列表.gif" Text="收款上交确认列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="xzsksjsh" OnClientClick=" tabs('xzsksjsh','');"
+                                                Text="收款上交审核列表" IconUrl="images/16/领导审核.gif" />
+                                            <ext:TreeNode Leaf="true" NodeID="xzsksj" OnClientClick=" tabs('xzsksj','');" Text="收款上交信息列表"
+                                                IconUrl="images/16/融资合同列表.gif" />
+                                            <ext:TreeNode Leaf="true" NodeID="xzfksjsq" OnClientClick=" tabs('xzfksjsq','');"
+                                                Text="行政付款申请列表" IconUrl="images/16/支付审核列表.gif" />
+                                            <ext:TreeNode Leaf="true" NodeID="xzfksjsh" OnClientClick=" tabs('xzfksjsh','');"
+                                                Text="行政付款审核列表" IconUrl="images/16/支付确认列表.gif" />
+                                            <ext:TreeNode Leaf="true" NodeID="xzfksjqr" IconUrl="images/16/借款确认.gif" OnClientClick=" tabs('xzfksjqr','');"
+                                                Text="行政付款确认列表" />
+                                            <ext:TreeNode Leaf="true" NodeID="xzfksj" OnClientClick=" tabs('xzfksj','');" Text="行政付款信息列表"
+                                                IconUrl="images/16/支付记录列表.gif" />
+                                        </Nodes>
+                                    </ext:Tree>
+                                </Items>
+                            </ext:AccordionPane>
                             <ext:AccordionPane ID="AccordionPane9" runat="server" IconUrl="images/16/代账管理.gif"
-                                Title="代账管理" BodyPadding="1px 1px" ShowBorder="false">
+                                Title="吉信财务管理公司" BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="treeDZFGL" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
@@ -313,32 +347,8 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane7" runat="server" Title="财务报销" IconUrl="images/16/网络报销.png"
-                                BodyPadding="1px 1px" ShowBorder="false">
-                                <Items>
-                                    <ext:Tree ID="treeCWBX" EnableLines="false" ShowHeader="false" ShowBorder="false"
-                                        runat="server">
-                                        <Nodes>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销申请.gif" NodeID="bxsq" AutoPostBack="false"
-                                                OnClientClick=" tabs('bxsq','UserKey');" Text="报销申请">
-                                            </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销审批.gif" NodeID="bxsp" AutoPostBack="false"
-                                                OnClientClick=" tabs('bxsp','UserKey');" Text="报销审批">
-                                            </ext:TreeNode>
-                                            <%--<ext:TreeNode Leaf="true" IconUrl="images/16/报销列表.gif" NodeID="bxgd" OnClientClick=" tabs('bxgd','UserKey');"
-                                                Text="报销归档">
-                                            </ext:TreeNode>--%>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销凭证.png" NodeID="bxpzsq" AutoPostBack="false"
-                                                OnClientClick=" tabs('bxpzsq','UserKey');" Text="报销凭证">
-                                            </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销凭证审批.png" NodeID="bxpzsp" AutoPostBack="false"
-                                                OnClientClick=" tabs('bxpzsp','UserKey');" Text="报销凭证审批">
-                                            </ext:TreeNode>
-                                        </Nodes>
-                                    </ext:Tree>
-                                </Items>
-                            </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane12" runat="server" Title="业务管理" IconUrl="images/16/业务管理.gif"
+                            
+                            <ext:AccordionPane ID="AccordionPane12" runat="server" Title="吉信企业管理公司" IconUrl="images/16/业务管理.gif"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="treeYWGL" EnableLines="false" ShowHeader="false" ShowBorder="false"
@@ -375,7 +385,7 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane1" runat="server" Title="投资部借款" IconUrl="images/16/借款申请.gif"
+                            <ext:AccordionPane ID="AccordionPane1" runat="server" Title="集团风险控制部" IconUrl="images/16/借款申请.gif"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="TreeInvestmentLoan" EnableLines="false" ShowHeader="false" ShowBorder="false"
@@ -405,7 +415,7 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane4" runat="server" Title="投资部项目实施" IconUrl="images/16/项目实施.png"
+                            <ext:AccordionPane ID="AccordionPane4" runat="server" Title="中企聚成担保-集团外项目" IconUrl="images/16/项目实施.png"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="TreeInvestmentProject" EnableLines="false" ShowHeader="false" ShowBorder="false"
@@ -437,7 +447,7 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane5" runat="server" Title="银行贷款" IconUrl="images/16/银行贷款.png"
+                            <ext:AccordionPane ID="AccordionPane5" runat="server" Title="中企聚成担保-集团内项目" IconUrl="images/16/银行贷款.png"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="TreeBankLoan" EnableLines="false" ShowHeader="false" ShowBorder="false"
@@ -469,7 +479,7 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane6" runat="server" Title="民间融资" IconUrl="images/16/民间融资.gif"
+                            <ext:AccordionPane ID="AccordionPane6" runat="server" Title="集团财务部-融资" IconUrl="images/16/民间融资.gif"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="TreeFolkFinancing" EnableLines="false" ShowHeader="false" ShowBorder="false"
@@ -499,7 +509,7 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane14" runat="server" Title="资金审核" IconUrl="images/16/收款信息.gif"
+                            <ext:AccordionPane ID="AccordionPane14" runat="server" Title="集团财务部-资金审核" IconUrl="images/16/收款信息.gif"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
                                     <ext:Tree ID="Tree10" EnableLines="false" ShowHeader="false" ShowBorder="false" runat="server">
@@ -518,36 +528,27 @@
                                     </ext:Tree>
                                 </Items>
                             </ext:AccordionPane>
-                            <ext:AccordionPane ID="AccordionPane15" runat="server" Title="行政部费用管理" IconUrl="images/16/收款信息.gif"
+                            <ext:AccordionPane ID="AccordionPane7" runat="server" Title="集团财务部-财务报销" IconUrl="images/16/网络报销.png"
                                 BodyPadding="1px 1px" ShowBorder="false">
                                 <Items>
-                                    <ext:Tree ID="TreeXZBFYGL" EnableLines="false" ShowHeader="false" ShowBorder="false"
+                                    <ext:Tree ID="treeCWBX" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" NodeID="xzbyjsq" OnClientClick=" tabs('xzbyjsq','');" Text="备用金申请列表"
-                                                IconUrl="images/16/借款申请.gif" />
-                                            <ext:TreeNode Leaf="true" NodeID="xzbyjsh" OnClientClick=" tabs('xzbyjsh','');" Text="备用金审核列表"
-                                                IconUrl="images/16/项目实施.png" />
-                                            <ext:TreeNode Leaf="true" NodeID="xzbyjqr" OnClientClick=" tabs('xzbyjqr','');" IconUrl="images/16/支付确认列表.gif"
-                                                Text="备用金确认列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="xzbyj" OnClientClick=" tabs('xzbyj','');" Text="备用金信息列表"
-                                                IconUrl="images/16/银行贷款.png" />
-                                            <ext:TreeNode Leaf="true" NodeID="xzsksjsq" OnClientClick=" tabs('xzsksjsq','');"
-                                                Text="收款上交申请列表" IconUrl="images/16/民间融资.gif" />
-                                            <ext:TreeNode Leaf="true" NodeID="xzsksjqr" OnClientClick=" tabs('xzsksjqr','');"
-                                                IconUrl="images/16/支付确认列表.gif" Text="收款上交确认列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="xzsksjsh" OnClientClick=" tabs('xzsksjsh','');"
-                                                Text="收款上交审核列表" IconUrl="images/16/领导审核.gif" />
-                                            <ext:TreeNode Leaf="true" NodeID="xzsksj" OnClientClick=" tabs('xzsksj','');" Text="收款上交信息列表"
-                                                IconUrl="images/16/融资合同列表.gif" />
-                                            <ext:TreeNode Leaf="true" NodeID="xzfksjsq" OnClientClick=" tabs('xzfksjsq','');"
-                                                Text="行政付款申请列表" IconUrl="images/16/支付审核列表.gif" />
-                                            <ext:TreeNode Leaf="true" NodeID="xzfksjsh" OnClientClick=" tabs('xzfksjsh','');"
-                                                Text="行政付款审核列表" IconUrl="images/16/支付确认列表.gif" />
-                                            <ext:TreeNode Leaf="true" NodeID="xzfksjqr" IconUrl="images/16/借款确认.gif" OnClientClick=" tabs('xzfksjqr','');"
-                                                Text="行政付款确认列表" />
-                                            <ext:TreeNode Leaf="true" NodeID="xzfksj" OnClientClick=" tabs('xzfksj','');" Text="行政付款信息列表"
-                                                IconUrl="images/16/支付记录列表.gif" />
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销申请.gif" NodeID="bxsq" AutoPostBack="false"
+                                                OnClientClick=" tabs('bxsq','UserKey');" Text="报销申请">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销审批.gif" NodeID="bxsp" AutoPostBack="false"
+                                                OnClientClick=" tabs('bxsp','UserKey');" Text="报销审批">
+                                            </ext:TreeNode>
+                                            <%--<ext:TreeNode Leaf="true" IconUrl="images/16/报销列表.gif" NodeID="bxgd" OnClientClick=" tabs('bxgd','UserKey');"
+                                                Text="报销归档">
+                                            </ext:TreeNode>--%>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销凭证.png" NodeID="bxpzsq" AutoPostBack="false"
+                                                OnClientClick=" tabs('bxpzsq','UserKey');" Text="报销凭证">
+                                            </ext:TreeNode>
+                                            <ext:TreeNode Leaf="true" IconUrl="images/16/报销凭证审批.png" NodeID="bxpzsp" AutoPostBack="false"
+                                                OnClientClick=" tabs('bxpzsp','UserKey');" Text="报销凭证审批">
+                                            </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
                                 </Items>
@@ -669,7 +670,7 @@
                     break;
 
 
-                //假勤管理                                                                                               
+                //假勤管理                                                                                                
                 case "ygkq":
                     LoadTab("Pages/attendance/WorkerAttend.aspx", "员工考勤", icon);
                     break;
@@ -698,7 +699,7 @@
                     LoadTab("Pages/attendance/NoAttendToFile.aspx", "未打卡归档", icon);
                     break;
 
-                // 薪资管理.                                 
+                // 薪资管理.                                  
                 case "wdxz":
                     LoadTab("Pages/Salary/MySalary.aspx", "我的薪资", icon);
                     break;
@@ -721,7 +722,7 @@
                     LoadTab("Pages/Salary/AddSalaryApproveList.aspx", "加薪审批", icon);
                     break;
 
-                // 消息管理.                                                    
+                // 消息管理.                                                     
                 case "wdxx":
                     LoadTab("Pages/Message/MyMessageList.aspx", "我的消息", icon);
                     break;
@@ -731,7 +732,7 @@
                 case "fsxx":
                     LoadTab("Pages/Message/NewMessage.aspx?Type=Add", "发送消息", icon);
                     break;
-                // 业务管理                                                    
+                // 业务管理                                                     
                 case "ptyw":
                     LoadTab("Pages/BusinessPages/NormalBusinessList.aspx", "普通业务列表", icon);
                     break;
@@ -785,7 +786,7 @@
                     LoadTab("Pages/ProbationPages/UserLeaveTransferToFile.aspx", "离职交接归档", icon);
                     break;
 
-                // 物资管理 
+                // 物资管理  
                 case "wzgl":
                     LoadTab("Pages/MaterialsPages/MaterialsManagePage.aspx", "物资管理", icon);
                     break;
@@ -808,7 +809,7 @@
                     LoadTab("Pages/MaterialsPages/MaterialsStatistics.aspx", "物资领用统计", icon);
                     break;
 
-                // 代帐管理                                                  
+                // 代帐管理                                                   
                 case "dzdwgl":
                     LoadTab("Pages/ProxyAmount/ProxyAmountUnit.aspx", "代帐单位管理", icon);
                     break;
@@ -828,7 +829,7 @@
                     LoadTab("Pages/ProxyAmount/ProxyAmountMoneyManage.aspx", "代帐费用管理", icon);
                     break;
 
-                //投资部借款 InvestmentLoan                                                                        
+                //投资部借款 InvestmentLoan                                                                         
                 case "fksq":
                     LoadTab("Pages/InvestmentLoanPages/PaymentApplyList.aspx", "借款申请", icon);
                     break;
@@ -851,7 +852,7 @@
                     LoadTab("Pages/InvestmentLoanPages/LoanContractList.aspx", "终止合同列表", icon);
                     break;
 
-                //投资部项目实施 InvestmentProject                                                                          
+                //投资部项目实施 InvestmentProject                                                                           
                 case "xmsq":
                     LoadTab("Pages/InvestmentProjectPages/ProjectApplyList.aspx", "项目申请列表", icon);
                     break;
@@ -877,7 +878,7 @@
                     LoadTab("Pages/InvestmentProjectPages/AllProjectList.aspx", "所有项目列表", icon);
                     break;
 
-                //银行贷款 BankLoan                                                                            
+                //银行贷款 BankLoan                                                                             
                 case "dksq":
                     LoadTab("Pages/BankLoanPages/BankLoanApplyList.aspx", "贷款申请列表", icon);
                     break;
@@ -903,7 +904,7 @@
                     LoadTab("Pages/BankLoanPages/AllFeePayList.aspx", "所有费用支出列表", icon);
                     break;
 
-                //民间融资 FolkFinancing                                                                               
+                //民间融资 FolkFinancing                                                                                
                 case "rzsq":
                     LoadTab("Pages/FolkFinancingPages/FinancingApplyList.aspx", "融资申请列表", icon);
                     break;
@@ -926,7 +927,7 @@
                     LoadTab("Pages/FolkFinancingPages/PaymentRecordList.aspx", "支付记录列表", icon);
                     break;
 
-                //资金流量                           
+                //资金流量                            
                 case "zjll":
                     LoadTab("Pages/CashFlow/CashFlowStatementList.aspx", "资金流量表", icon);
                     break;
@@ -943,7 +944,7 @@
                     LoadTab("Pages/CashFlow/FolkFinancingBAList.aspx", "民间融资会计核算", icon);
                     break;
 
-                //审批转移                        
+                //审批转移                         
                 case "dzysqspbl":
                     LoadTab("Pages/BankLoanPages/BankLoanAuditTransferList.aspx", "待转移申请审批", icon);
                     break;
@@ -972,7 +973,7 @@
                 case "khylb":
                     LoadTab("Pages/InvestmentLoanPages/CustomerList.aspx", "客户一览表", icon);
                     break;
-                //合同终止审核          
+                //合同终止审核           
                 case "zzhhBL":
                     LoadTab("Pages/BankLoanPages/EndingContractAuditList.aspx", "终止审核列表", icon);
                     break;
@@ -986,7 +987,7 @@
                     LoadTab("Pages/FolkFinancingPages/EndingContractAuditList.aspx", "终止审核列表", icon);
                     break;
 
-                //行政部费用管理            
+                //行政部费用管理             
                 case "xzbyjsq":
                     LoadTab("Pages/AdminExpensesManage/AdminImprestApplyList.aspx", "备用金申请列表", icon);
                     break;
@@ -1024,7 +1025,7 @@
                     LoadTab("Pages/AdminExpensesManage/AdminPaymentList.aspx", "行政付款信息列表", icon);
                     break;
 
-                //网络报销      Baoxiao                                                                            
+                //网络报销      Baoxiao                                                                             
                 case "bxsq":
                     LoadTab("Pages/Baoxiao/BaoxiaoApplyList.aspx", "报销申请", icon);
                     break;
@@ -1058,7 +1059,7 @@
             });
         }
         function SystemBack() {
-           
+
             window.location.href = "login.aspx";
             return false;
         }
