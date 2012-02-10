@@ -30,7 +30,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox ID="tbOriginalAmount" Label="初始资金" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="8" MaxLengthMessage="最多只能输入8个数字！" Regex="^[0-9]*$"
+                                runat="server" MaxLength="8" MaxLengthMessage="最多只能输入8个数字！" 
                                 RegexMessage="只能输入数字!">
                             </ext:TextBox>
                         </Items>
