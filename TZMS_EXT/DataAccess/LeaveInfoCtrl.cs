@@ -314,7 +314,7 @@ namespace com.TZMS.DataAccess
             {
                 LeaveInfoInfo.UserObjectId = new Guid(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "UserObjectId"));
             }
-            if (LeaveInfoInfoDataRow["LeaveHours"] != null)
+            if (LeaveInfoInfoDataRow["LeaveHours"] != null && DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "LeaveHours")!="")
             {
                 LeaveInfoInfo.LeaveHours = Convert.ToInt32(DataUtil.GetStringValueOfRow(LeaveInfoInfoDataRow, "LeaveHours"));
             }
