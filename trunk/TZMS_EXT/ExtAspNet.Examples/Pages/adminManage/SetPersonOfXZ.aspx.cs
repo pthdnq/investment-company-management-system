@@ -9,6 +9,8 @@ using com.TZMS.Business;
 using System.Text;
 using ExtAspNet;
 using System.Xml;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace TZMS.Web
 {
@@ -186,17 +188,28 @@ namespace TZMS.Web
             }
             UserInfo user = SelectedUser[0]; 
             //新数据
-            string path = AppDomain.CurrentDomain.BaseDirectory;
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(path+"\\pages\\adminManage\\XZPerson.xml");
-            //查找<Person></Person>  
-            XmlNode root = xmlDoc.SelectSingleNode("Person"); 
-            //将子节点类型转换为XmlElement类型  
-            XmlElement xe = (XmlElement)root;
-            xe.SetAttribute("id", user.ObjectId.ToString());  
-            xe.SetAttribute("name", user.Name);
-            xe.SetAttribute("deptname", user.Dept); 
-            xmlDoc.Save(path + "\\pages\\adminManage\\XZPerson.xml");
+            //string path = AppDomain.CurrentDomain.BaseDirectory;
+            //XmlDocument xmlDoc = new XmlDocument();
+            //xmlDoc.Load(path+"\\pages\\adminManage\\XZPerson.xml");
+            ////查找<Person></Person>  
+            //XmlNode root = xmlDoc.SelectSingleNode("Person"); 
+            ////将子节点类型转换为XmlElement类型  
+            //XmlElement xe = (XmlElement)root;
+            //xe.SetAttribute("id", user.ObjectId.ToString());  
+            //xe.SetAttribute("name", user.Name);
+            //xe.SetAttribute("deptname", user.Dept); 
+            //xmlDoc.Save(path + "\\pages\\adminManage\\XZPerson.xml");
+
+            SqlConnection conn = new SqlConnection(System.Web.Configuration.WebConfigurationManager.AppSettings["CONNECTIONSTRINGFORPROVINCE_Main"]);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("delete from Archiver", conn);
+            cmd.ExecuteNonQuery();
+
+            cmd = new SqlCommand("insert into Archiver values('" + user.ObjectId.ToString() + "', '" + user.Name + "', '" + user.Dept + "')",conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+
             PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
             //Alert.Show("设置行政归档人成功！");
         }
