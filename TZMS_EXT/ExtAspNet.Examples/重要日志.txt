@@ -316,7 +316,8 @@ MaterialsPurchaseApplyView
 --------------------------------------------------------------------------------------------------
 姓名：钱会
 时间：2012年2月4日
-内容：对MaterialsPurchaseApply表添加新字段，并修改存储过程以及视图MaterialsPurchaseApproveView、
+内容：对MaterialsPurchaseApply表添加新字段 NeedsDate- datatime  ， HasImport  - bit，  ImportTime - datatime
+，并修改存储过程以及视图MaterialsPurchaseApproveView、
 MaterialsPurchaseApplyView
 	 
 ---------------------------------------------------------------------------------------------------
