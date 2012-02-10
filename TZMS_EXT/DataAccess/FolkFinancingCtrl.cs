@@ -462,11 +462,13 @@ namespace com.TZMS.DataAccess
             {
                 FolkFinancingInfoInfo.InterestType = DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "InterestType");
             }
-            if (FolkFinancingInfoInfoDataRow["Cash"] != null)
+            FolkFinancingInfoInfo.Cash = 0;
+            if (FolkFinancingInfoInfoDataRow["Cash"] != null && DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "Cash")!="")
             {
                 FolkFinancingInfoInfo.Cash = Decimal.Parse(DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "Cash"));
             }
-            if (FolkFinancingInfoInfoDataRow["TransferAccount"] != null)
+            FolkFinancingInfoInfo.TransferAccount = 0;
+            if (FolkFinancingInfoInfoDataRow["TransferAccount"] != null && DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "TransferAccount")!="")
             {
                 FolkFinancingInfoInfo.TransferAccount = Decimal.Parse(DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "TransferAccount"));
             }
