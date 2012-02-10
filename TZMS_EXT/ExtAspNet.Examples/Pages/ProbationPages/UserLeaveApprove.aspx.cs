@@ -524,6 +524,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void ddlstNext_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ddlstApproveUser.Items.Clear();
             if (ddlstNext.SelectedIndex == 0)
             {
                 BindApproveUser();
