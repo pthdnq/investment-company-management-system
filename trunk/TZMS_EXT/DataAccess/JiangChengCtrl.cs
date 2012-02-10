@@ -306,15 +306,15 @@ namespace com.TZMS.DataAccess
             {
                 Info.State = short.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "State"));
             }
-            if (InfoDataRow["UserConfirmTime"] != null)
+            if (InfoDataRow["UserConfirmTime"] != null && DataUtil.GetStringValueOfRow(InfoDataRow, "UserConfirmTime")!="")
             {
                 Info.UserConfirmTime = DateTime.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "UserConfirmTime"));
             }
-            if (InfoDataRow["ConfirmTime"] != null)
+            if (InfoDataRow["ConfirmTime"] != null && DataUtil.GetStringValueOfRow(InfoDataRow, "ConfirmTime")!="")
             {
                 Info.ConfirmTime = DateTime.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "ConfirmTime"));
             }
-            if (InfoDataRow["ConfirmType"] != null)
+            if (InfoDataRow["ConfirmType"] != null && DataUtil.GetStringValueOfRow(InfoDataRow, "ConfirmType")!="")
             {
                 Info.ConfirmType = short.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "ConfirmType"));
             }
