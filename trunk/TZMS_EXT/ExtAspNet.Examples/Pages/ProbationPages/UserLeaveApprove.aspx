@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
+    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" EnableAjax="false" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" AutoScroll="false" ShowBorder="true" ShowHeader="false">
         <Toolbars>
@@ -20,7 +20,7 @@
                         OnClick="btnPass_Click" ConfirmText="您确定同意吗?">
                     </ext:Button>
                     <ext:Button ID="btnRefuse" Text="不同意" Icon="Stop" runat="server" OnClick="btnRefuse_Click"
-                        ConfirmText="您确定不同意吗?">
+                        ValidateForms="frmApprove" ConfirmText="您确定不同意吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>
