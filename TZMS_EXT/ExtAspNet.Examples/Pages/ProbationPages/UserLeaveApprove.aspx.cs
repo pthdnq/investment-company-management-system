@@ -235,7 +235,7 @@ namespace TZMS.Web
             #region 绑定所属部门
 
             {
-                List<UserRoles> lstUserRoles = null;
+                List<UserRoles> lstUserRoles = new List<UserRoles>();
                 switch (_applyUser.Dept)
                 {
                     case "行政部":
@@ -250,6 +250,12 @@ namespace TZMS.Web
                     case "业务部":
                         lstUserRoles = GetUsersByRole(RoleType.YWZG, "1 = 1");
                         break;
+                    case "总经办":
+                        lstUserRoles = GetUsersByRole(RoleType.ZJZG, "1 = 1");
+                        break;
+                    case "":
+                        lstUserRoles = GetUsersByRole(RoleType.JSZXZG, "1 = 1");
+                        break;
                     default:
                         break;
                 }
@@ -259,7 +265,7 @@ namespace TZMS.Web
                     _tempUser = _userManage.GetUserByObjectID(role.UserObjectId.ToString());
                     if (_tempUser != null)
                     {
-                        if (_tempUser.State != 2 && _tempUser.Dept == _applyUser.Dept)
+                        if (_tempUser.State != 2 /* && _tempUser.Dept == _applyUser.Dept */)
                         {
                             ddlstTransferSSDept.Items.Add(new ExtAspNet.ListItem(_tempUser.Name, _tempUser.ObjectId.ToString()));
                             _tempUser = null;

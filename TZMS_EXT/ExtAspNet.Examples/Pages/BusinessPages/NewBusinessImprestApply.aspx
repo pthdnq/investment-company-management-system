@@ -79,7 +79,7 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="frw4" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="tbxSument" runat="server" Enabled="false" Label="申请事由" MaxLength="1000"
+                                                    <ext:TextArea ID="tbxSument" runat="server" Readonly="true" Label="申请事由" MaxLength="1000"
                                                         Height="100px" MaxLengthMessage="最多只能输入1000个字！">
                                                     </ext:TextArea>
                                                 </Items>
