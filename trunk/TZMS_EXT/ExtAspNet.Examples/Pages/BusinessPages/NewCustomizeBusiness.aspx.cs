@@ -365,14 +365,15 @@ namespace TZMS.Web
             int result = 3;
 
             string strCell = GetCells();
-            if (string.IsNullOrEmpty(strCell))
-            {
-                Alert.Show("请选择业务!");
-                return;
-            }
 
             if (OperatorType == "Add")
             {
+                if (string.IsNullOrEmpty(strCell))
+                {
+                    Alert.Show("请选择业务!");
+                    return;
+                }
+
                 // 创建业务实例.
                 _info = new BusinessInfo();
                 _info.ObjectID = Guid.NewGuid();

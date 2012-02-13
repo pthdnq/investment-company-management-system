@@ -501,7 +501,17 @@ namespace TZMS.Web
             /// <summary>
             /// 结算中心奖惩单确认
             /// </summary>
-            JSZXJCDQR = 53
+            JSZXJCDQR = 53,
+
+            /// <summary>
+            /// 总经办员工离职审批
+            /// </summary>
+            ZJZG = 54,
+
+            /// <summary>
+            /// 结算中心员工离职审批
+            /// </summary>
+            JSZXZG = 55
         }
 
         /// <summary>

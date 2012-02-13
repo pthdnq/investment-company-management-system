@@ -125,14 +125,14 @@ namespace TZMS.Web
             {
                 //if (Request.Form["__EVENTTARGET"] != "pelMain$Toolbar1$btnSubmit" && Request.Form["__EVENTTARGET"] != "pelMain_Toolbar1_btnClose")
                 //{
-                    if (ddlstBusinessType.SelectedIndex == 0)
-                    {
-                        GenerateNormalImprest();
-                    }
-                    else
-                    {
-                        GenerateCustomizeImprest();
-                    }
+                if (ddlstBusinessType.SelectedIndex == 0)
+                {
+                    GenerateNormalImprest();
+                }
+                else
+                {
+                    GenerateCustomizeImprest();
+                }
                 //}
             }
             //else
@@ -429,7 +429,7 @@ namespace TZMS.Web
             ddlstBusinessTitle.Enabled = false;
             tbxSument.Required = false;
             tbxSument.ShowRedStar = false;
-            tbxSument.Enabled = false;
+            tbxSument.Readonly = true;
 
             // 动态控件.
             int count = CustomizeForm.Rows.Count;
@@ -531,7 +531,8 @@ namespace TZMS.Web
                 ExtAspNet.CheckBox checkBox = new ExtAspNet.CheckBox();
                 checkBox.ID = "cbxNormal" + i;
                 checkBox.ShowLabel = false;
-                checkBox.Height = lblMoney.Height;
+                //checkBox.Height = lblMoney.Height;
+                checkBox.CssStyle = "margin:6px 0px 0px 0px;";
                 checkBox.AutoPostBack = true;
                 checkBox.Text = _manage.ConvertBusinessTypeToString(true, i + 1);
                 checkBox.CheckedChanged += new EventHandler(checkBox_CheckedChanged);
@@ -541,7 +542,7 @@ namespace TZMS.Web
                 textbox.ID = "tbxNormal" + i;
                 textbox.AutoPostBack = true;
                 textbox.TextChanged += new EventHandler(textbox_TextChanged);
-                textbox.Label = "金额(元)";
+                textbox.Label = "金额";
                 textbox.Regex = "^[0-9]*\\.?[0-9]{1,2}$";
                 textbox.RegexMessage = "金额格式不正确!";
                 row.Items.Add(textbox);
@@ -583,7 +584,8 @@ namespace TZMS.Web
                         ExtAspNet.CheckBox checkBox = new ExtAspNet.CheckBox();
                         checkBox.ID = "cbxCustomize" + cell;
                         checkBox.ShowLabel = false;
-                        checkBox.Height = lblMoney.Height;
+                        //checkBox.Height = lblMoney.Height;
+                        checkBox.CssStyle = "margin:6px 0px 0px 0px;";
                         checkBox.AutoPostBack = true;
                         checkBox.Text = _manage.ConvertBusinessTypeToString(false, Convert.ToInt32(cell));
                         checkBox.CheckedChanged += new EventHandler(checkBox_CheckedChanged);
@@ -691,7 +693,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if ( Convert.ToDecimal(lblMoney.Text) == 0)
+            if (Convert.ToDecimal(lblMoney.Text) == 0)
             {
                 Alert.Show("总金额不可为零!");
                 return;

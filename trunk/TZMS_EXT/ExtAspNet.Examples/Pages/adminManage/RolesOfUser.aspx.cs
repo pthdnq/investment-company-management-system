@@ -415,6 +415,13 @@ namespace TZMS.Web
                 case RoleType.JSZXJCDQR:
                     strRole = "结算中心奖惩单确认";
                     break;
+                case RoleType.ZJZG:
+                    strRole = "总经办员工离职审批";
+                    break;
+                case RoleType.JSZXZG:
+                    strRole = "结算中心员工离职审批";
+                    break;
+                
             }
 
             return strRole;

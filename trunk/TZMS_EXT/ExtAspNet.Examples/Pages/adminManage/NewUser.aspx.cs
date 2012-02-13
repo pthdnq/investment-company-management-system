@@ -350,6 +350,10 @@ namespace TZMS.Web
                             if (_userInfo.State == 0)
                                 tempBuilder.Append(_userInfo.LeaveTime.ToString("yyyy-MM-dd") + " 离职\r\n");
                         }
+                        else if (record.Contains("入职"))
+                        {
+                            tempBuilder.Append(_userInfo.EntryDate.ToString("yyyy-MM-dd") + " 入职\r\n");
+                        }
                         else
                         {
                             tempBuilder.Append(record + "\r\n");
