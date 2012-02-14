@@ -81,7 +81,14 @@ namespace com.TZMS.Business
                             _info.Dept = row[2].ToString();
                             _info.PushTime1 = DateTime.Parse(DateTime.Parse(row[3].ToString()).ToString("yyyy-MM-dd ") + row[5].ToString());
                             _info.PushTime2 = DateTime.Parse(DateTime.Parse(row[3].ToString()).ToString("yyyy-MM-dd ") + row[6].ToString());
-
+                            if (row[7].ToString().Length < 50)
+                            {
+                                _info.Other = row[7].ToString();
+                            }
+                            else
+                            {
+                                _info.Other = row[7].ToString().Substring(0,48);
+                            }
                             this.AddNewAttendInfo(_info);
                         }
                         else
@@ -93,7 +100,14 @@ namespace com.TZMS.Business
                     {
                         _info.PushTime1 = DateTime.Parse(DateTime.Parse(row[3].ToString()).ToString("yyyy-MM-dd ") + row[5].ToString());
                         _info.PushTime2 = DateTime.Parse(DateTime.Parse(row[3].ToString()).ToString("yyyy-MM-dd ") + row[6].ToString());
-
+                        if (row[7].ToString().Length < 50)
+                        {
+                            _info.Other = row[7].ToString();
+                        }
+                        else
+                        {
+                            _info.Other = row[7].ToString().Substring(0, 48);
+                        }
                         this.UpdateAttendInfo(_info);
                     }
                 }
