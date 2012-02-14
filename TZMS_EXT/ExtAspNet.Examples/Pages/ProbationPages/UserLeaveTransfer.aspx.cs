@@ -108,7 +108,7 @@ namespace TZMS.Web
             }
         }
 
-        
+
         #endregion
 
         #region 页面事件
@@ -159,8 +159,19 @@ namespace TZMS.Web
                     // 设置申请单的交接状态.
                     UserLeaveApplyInfo _applyInfo = _manage.GetApplyByObjectID(ApplyID);
                     UserInfo _archiverUser = new UserManage().GetUserByObjectID(strArchiver);
+                    if (string.IsNullOrEmpty(strArchiver))
+                    {
+                        Alert.Show("请管理员配置行政归档员!");
+                        return;
+                    }
+                    if (_archiverUser == null)
+                    {
+                        Alert.Show("请管理员检查行政归档员是否存在!");
+                        return;
+                    }
                     if (_applyInfo != null && _archiverUser != null)
                     {
+
                         _applyInfo.TransferID = new Guid(strArchiver);
                         _applyInfo.TransferState = 0;
 
