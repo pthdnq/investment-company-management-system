@@ -272,10 +272,19 @@ namespace TZMS.Web
                 Alert.Show("审批意见不可为空!");
                 return;
             }
-
+            if (string.IsNullOrEmpty(strArchiver))
+            {
+                Alert.Show("请管理员配置行政归档员!");
+                return;
+            }
             NoAttendManage _manage = new NoAttendManage();
             NoAttendInfo _info = _manage.GetNoAttendInfoByObjectID(NoAttendID);
             UserInfo _archiveUser = new UserManage().GetUserByObjectID(strArchiver);
+            if (_archiveUser == null)
+            {
+                Alert.Show("请管理员检查行政归档员是否存在!");
+                return;
+            }
             if (_info != null && _archiveUser != null)
             {
                 int result = 3;

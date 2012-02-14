@@ -485,12 +485,21 @@ namespace TZMS.Web
                 Alert.Show("审批意见不可为空!");
                 return;
             }
-
+            if (string.IsNullOrEmpty(strArchiver))
+            {
+                Alert.Show("请管理员配置行政归档员!");
+                return;
+            }
             UserLeaveManage _manage = new UserLeaveManage();
 
             // 更新申请表.
             UserLeaveApplyInfo _applyInfo = _manage.GetApplyByObjectID(ApplyID);
             UserInfo _archiveUser = new UserManage().GetUserByObjectID(strArchiver);
+            if (_archiveUser == null)
+            {
+                Alert.Show("请管理员检查行政归档员是否存在!");
+                return;
+            }
             _applyInfo.ApproverID = _archiveUser.ObjectId;
             int result = _manage.UpdateApply(_applyInfo);
 
