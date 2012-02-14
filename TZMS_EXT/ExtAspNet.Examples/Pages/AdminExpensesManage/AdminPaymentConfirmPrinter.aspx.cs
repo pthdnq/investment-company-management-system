@@ -68,15 +68,16 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                 this.lbCause.Text = _info.Cause;
 
 
-                  Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames(_info.AmountOfPayment, string.Empty);
+                Common.MoneyLowToUper common = new Common.MoneyLowToUper(); 
+                string uper = common.GetUperNumNames(_info.AmountOfPayment, string.Empty);
                 lbLoanAmountUper.Text = uper;
                 this.lbLoanAmount.Text = _info.AmountOfPayment.ToString();
                 this.lbLoanDate.Text = _info.DateFor.ToString("yyyy年MM月dd日");
 
                 lbApplier.Text = _info.CreaterName;
                 lbPaymenter.Text = _info.AccountingName;
-            
-              //  this.tbDate.Text = DateTime.Now.ToString("yyyy年MM月dd日");
+
+                //  this.tbDate.Text = DateTime.Now.ToString("yyyy年MM月dd日");
 
                 string strCondition = string.Format("ForId = '{0}'  ORDER BY OperationTime ASC", _info.ObjectId);
                 List<com.TZMS.Model.AdminPaymentHistoryInfo> lstInfo = new AdminPaymentManage().GetHistoryByCondtion(strCondition.ToString());
