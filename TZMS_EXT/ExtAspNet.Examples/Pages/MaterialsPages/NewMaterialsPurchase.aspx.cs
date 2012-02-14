@@ -299,6 +299,7 @@ namespace TZMS.Web
                 if (_manageInfo != null)
                 {
                     ddlstType.SelectedValue = _manageInfo.MaterialsType.ToString();
+                    BindMaterials();
                     ddlstMaterialName.SelectedValue = _manageInfo.ObjectID.ToString();
                 }
                 lblName.Text = _info.UserName;

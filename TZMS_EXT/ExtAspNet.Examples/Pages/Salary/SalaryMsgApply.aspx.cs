@@ -73,6 +73,7 @@ namespace TZMS.Web
                     ApplyID = strApplyID;
                     BindNext();
                     ApproveUser();
+                    BindApplyInfo();
                     BindWorkerSalaryMsgGrid();
                     BindApproveHistory();
                     DisableAllControls();
@@ -102,8 +103,6 @@ namespace TZMS.Web
             {
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
             }
-
-            ddlstApproveUser.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -114,7 +113,7 @@ namespace TZMS.Web
             SalaryManage _manage = new SalaryManage();
 
             // 查找最早的审批记录.
-            List<SalaryCheckInfo> lstApprove = _manage.GetSalaryCheckByCondition(" ApplyID = '" + ApplyID + "' and ApproveOp <> 0");
+            List<SalaryCheckInfo> lstApprove = _manage.GetSalaryCheckByCondition(" ApplyID = '" + ApplyID + "' and CheckOp <> '0'");
             if (lstApprove.Count == 1)
             {
                 ddlstApproveUser.SelectedValue = lstApprove[0].CheckerId.ToString();
