@@ -62,6 +62,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@PushTime2",DbType.DateTime),
 				new SqlParameter("@StartWorkTime",DbType.DateTime),
 				new SqlParameter("@StopWorkTime",DbType.DateTime),
+                new SqlParameter("@Other",DbType.String),
 				};
 				
 				int i=0;
@@ -73,7 +74,8 @@ namespace com.TZMS.DataAccess
 				sqlparam[i++].Value = AttendInfo.PushTime1; 
 				sqlparam[i++].Value = AttendInfo.PushTime2; 
 				sqlparam[i++].Value = AttendInfo.StartWorkTime; 
-				sqlparam[i++].Value = AttendInfo.StopWorkTime; 
+				sqlparam[i++].Value = AttendInfo.StopWorkTime;
+                sqlparam[i++].Value = AttendInfo.Other;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -137,6 +139,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@PushTime2",DbType.DateTime),
 				new SqlParameter("@StartWorkTime",DbType.DateTime),
 				new SqlParameter("@StopWorkTime",DbType.DateTime),
+                 new SqlParameter("@Other",DbType.String),
                 };
 
                 int i = 0;
@@ -148,7 +151,8 @@ namespace com.TZMS.DataAccess
 				sqlparam[i++].Value = AttendInfo.PushTime1; 
 				sqlparam[i++].Value = AttendInfo.PushTime2; 
 				sqlparam[i++].Value = AttendInfo.StartWorkTime; 
-				sqlparam[i++].Value = AttendInfo.StopWorkTime; 
+				sqlparam[i++].Value = AttendInfo.StopWorkTime;
+                sqlparam[i++].Value = AttendInfo.Other;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -268,6 +272,11 @@ namespace com.TZMS.DataAccess
             if (AttendInfoInfoDataRow["StopWorkTime"] != null)
             {
                 AttendInfoInfo.StopWorkTime = DateTime.Parse(AttendInfoInfoDataRow["StopWorkTime"].ToString());
+            }
+
+            if (AttendInfoInfoDataRow["Other"] != null)
+            {
+                AttendInfoInfo.Other = AttendInfoInfoDataRow["Other"].ToString();
             }
 
             return AttendInfoInfo;
