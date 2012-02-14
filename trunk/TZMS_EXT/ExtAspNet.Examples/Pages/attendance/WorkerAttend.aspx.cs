@@ -231,12 +231,13 @@ namespace TZMS.Web
                             break;
                         case 72:
                             {
-                                string strPushTime1 = lstAttendInfo[i].PushTime1.ToString("HH:mm");
-                                string strPushTime2 = lstAttendInfo[i].PushTime2.ToString("HH:mm");
-                                if (strPushTime1 == "00:00" || strPushTime1 == "00:00")
-                                {
-                                    strValue = "缺勤一天";
-                                }
+                                //string strPushTime1 = lstAttendInfo[i].PushTime1.ToString("HH:mm");
+                                //string strPushTime2 = lstAttendInfo[i].PushTime2.ToString("HH:mm");
+                                //if (strPushTime1 == "00:00" || strPushTime1 == "00:00")
+                                //{
+                                //    strValue = "缺勤一天";
+                                //}
+                                strValue = lstAttendInfo[i].Other;
                             }
                             break;
 
@@ -285,10 +286,11 @@ namespace TZMS.Web
                 e.Values[5] = (_info.PushTime1.ToString("HH:mm") == "00:00" ? "" : _info.PushTime1.ToString("HH:mm"));
                 e.Values[6] = (_info.PushTime2.ToString("HH:mm") == "00:00" ? "" : _info.PushTime2.ToString("HH:mm"));
 
-                if (e.Values[5].ToString() == "" || e.Values[6].ToString() == "")
-                {
-                    e.Values[7] = "缺勤一天";
-                }
+                //if (e.Values[5].ToString() == "" || e.Values[6].ToString() == "")
+                //{
+                //    e.Values[7] = "缺勤一天";
+                //}
+                e.Values[7] = _info.Other;
             }
         }
 
