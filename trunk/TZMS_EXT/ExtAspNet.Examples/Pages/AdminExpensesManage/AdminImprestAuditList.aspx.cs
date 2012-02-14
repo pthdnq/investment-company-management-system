@@ -171,8 +171,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
         {
             AdminImprestInfo _Info = (AdminImprestInfo)e.DataItem;
 
-            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId) || !ViewState.Equals("1"))
-            {
+            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId) || !this.ddlstState.SelectedValue.Equals("1"))            {
                 e.Values[8] = "<span class=\"gray\">审核</span>";
 
             }
