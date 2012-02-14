@@ -46,9 +46,21 @@ namespace com.TZMS.Model
         private DateTime _pushTime2;
         private DateTime _startWorkTime;
         private DateTime _stopWorkTime;
+        private string _other = string.Empty;
+
         #endregion
 
         #region Property
+
+        /// <summary>
+        /// Other
+        /// </summary>
+        public string Other
+        {
+            get { return _other; }
+            set { _other = value; }
+        }
+
         /// <summary>
         /// ObjectID 
         /// </summary> 
