@@ -64,6 +64,14 @@ namespace TZMS.Web
                 BindNoAttendInfo();
                 BindApproveHistory();
                 SetPanelState();
+                if (string.IsNullOrEmpty(strArchiver))
+                {
+                    this.btnPass.Enabled = false;
+                    this.btnRefuse.Enabled = false;
+                    this.ddlstNext.Enabled = false;
+                    this.ddlstApproveUser.Enabled = false;
+                    Alert.Show("请管理员配置行政归档员!");
+                }
             }
         }
 

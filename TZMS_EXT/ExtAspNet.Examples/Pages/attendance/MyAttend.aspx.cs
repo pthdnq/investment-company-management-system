@@ -148,10 +148,11 @@ namespace TZMS.Web
                 e.Values[2] = (_info.PushTime1.ToString("HH:mm") == "00:00" ? "" : _info.PushTime1.ToString("HH:mm"));
                 e.Values[3] = (_info.PushTime2.ToString("HH:mm") == "00:00" ? "" : _info.PushTime2.ToString("HH:mm"));
 
-                if (e.Values[2].ToString() == "" || e.Values[3].ToString() == "")
-                {
-                    e.Values[4] = "缺勤一天";
-                }
+                //if (e.Values[2].ToString() == "" || e.Values[3].ToString() == "")
+                //{
+                //    e.Values[4] = "缺勤一天";
+                //}
+                e.Values[4] = _info.Other;
             }
         }
     }
