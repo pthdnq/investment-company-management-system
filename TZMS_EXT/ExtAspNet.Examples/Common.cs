@@ -285,8 +285,8 @@ namespace TZMS
             /// <returns>大写</returns>
             public string GetUperNumNames(decimal origanDec, string origanString = "")
             {
-                origanString = GetUperNumNames((int)origanDec);
-                int afterPoint = (int)((origanDec - (int)origanDec) * 100);
+                origanString = GetUperNumNames((long)origanDec);
+                long afterPoint = (long)((origanDec - (long)origanDec) * 100);
                 // afterPoint = afterPoint.Split('.')[0];
                 //小数部分 
                 if (afterPoint.Equals(0))
@@ -295,18 +295,48 @@ namespace TZMS
                 }
                 else
                 {
-                    int afterPoint1 = afterPoint / 10;
+                    long afterPoint1 = afterPoint / 10;
                     if (!afterPoint1.Equals(0))
                     {
                         origanString += string.Format("{0}角", GetUperSingleNumName(afterPoint1));
                     }
-                    int afterPoint2 = afterPoint - afterPoint1 * 10;
+                    long afterPoint2 = afterPoint - afterPoint1 * 10;
                     if (!afterPoint2.Equals(0))
                     {
                         origanString += string.Format("{0}分", GetUperSingleNumName(afterPoint2));
                     }
                 }
                 return origanString;
+            }
+            /// <summary>
+            /// 获取money大写（整数部分）
+            /// </summary>
+            /// <param name="origanDec">money int</param>
+            /// <param name="origanString">大写字符串</param>
+            /// <param name="NZero">位数</param>
+            /// <returns>money大写字符串</returns>
+            public string GetUperNumNames(long origanDec, string origanString = "", int NZero = 0)
+            {
+                origanString = origanString.Replace("零零", "零");
+                if (origanDec == 0)
+                {
+                    // GetUperSingleNumName(origanDec) + origanString; 
+                    return origanString.Replace("零零", "零").Replace("零元", "元").Replace("零万", "万").Replace("零亿", "亿");
+                }
+                else
+                {
+                    string tmp = GetUperSingleNumName(origanDec - origanDec / 10 * 10);
+                    if (!tmp.Equals("零"))
+                    {
+                        tmp += GetNZeroName(NZero);
+                    }
+                    else if (NZero == 0 || NZero == 4 || NZero == 8)
+                    {
+                        tmp = GetNZeroName(NZero);
+                    }
+                    origanString = tmp + origanString;
+                    return GetUperNumNames(origanDec / 10, origanString, ++NZero);
+                }
             }
 
             /// <summary>
@@ -345,7 +375,7 @@ namespace TZMS
             /// </summary>
             /// <param name="lowerNum">数字</param>
             /// <returns>大写</returns>
-            private string GetUperSingleNumName(int lowerNum)
+            private string GetUperSingleNumName(long lowerNum)
             {
                 string UperNumName = string.Empty;
                 switch (lowerNum)
