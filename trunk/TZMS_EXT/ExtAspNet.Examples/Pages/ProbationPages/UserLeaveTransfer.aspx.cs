@@ -60,6 +60,13 @@ namespace TZMS.Web
 
                 BindArchiver();
                 BindTransferInfo();
+                if (string.IsNullOrEmpty(strArchiver))
+                {
+                    this.btnPass.Enabled = false;
+                    this.ddlstArchiver.Enabled = false;
+                    //this.ddlstApproveUser.Enabled = false;
+                    Alert.Show("请管理员配置行政归档员!");
+                }
             }
         }
 
