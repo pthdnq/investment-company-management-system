@@ -153,6 +153,7 @@ namespace TZMS.Web
         private void BindMaterials()
         {
             MaterialsManage _manage = new MaterialsManage();
+            ddlstMaterialName.Items.Clear();
             List<MaterialsManageInfo> lstMaterials = _manage.GetMaterialsByCondition(" MaterialsType = " + ddlstType.SelectedValue);
             foreach (MaterialsManageInfo info in lstMaterials)
             {

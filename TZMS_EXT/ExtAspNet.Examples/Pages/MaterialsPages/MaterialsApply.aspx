@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" />
+    <ext:PageManager ID="PageManager1" runat="server" AutoSizePanelID="pelMain" EnableAjax="false" />
     <ext:Panel ID="pelMain" runat="server" EnableBackgroundColor="true" BodyPadding="3px"
         EnableLargeHeader="true" Title="Panel" AutoScroll="false" ShowBorder="true" ShowHeader="false">
         <Toolbars>
@@ -63,8 +63,7 @@
                                                         Label="物资类型" AutoPostBack="True" OnSelectedIndexChanged="ddlstType_SelectedIndexChanged">
                                                     </ext:DropDownList>
                                                     <ext:DropDownList ID="ddlstMaterials" runat="server" Required="true" Label="物资名称"
-                                                        ShowRedStar="true" AutoPostBack="True" 
-                                                        OnSelectedIndexChanged="ddlstMaterials_SelectedIndexChanged">
+                                                        ShowRedStar="true" AutoPostBack="True" OnSelectedIndexChanged="ddlstMaterials_SelectedIndexChanged">
                                                     </ext:DropDownList>
                                                 </Items>
                                             </ext:FormRow>
