@@ -44,10 +44,10 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox ID="tbPenalbond" Label="违约金" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
+                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                             </ext:TextBox>
                             <ext:TextBox ID="tbImprest" Label="备用金" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
+                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>

@@ -109,12 +109,12 @@
                                         <Items>
                                             <ext:TextBox ID="tbLoanAmount" Label="借款金额(元)" ShowRedStar="true" Required="true"
                                                 AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!" CompareControl="tbCash"
+                                                MaxLengthMessage="最多只能输入20个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!" CompareControl="tbCash"
                                                 CompareType="Int" CompareOperator="GreaterThanEqual" CompareMessage="现金不能大于借款总金额">
                                             </ext:TextBox>
                                             <ext:TextBox ID="tbCash" Label="现金(元)" ShowRedStar="true" Required="true" runat="server"
                                                 AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
-                                                Regex="^[0-9]*$" RegexMessage="只能输入数字!" CompareControl="tbLoanAmount" CompareType="Int"
+                                                Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!" CompareControl="tbLoanAmount" CompareType="Int"
                                                 CompareOperator="LessThanEqual" CompareMessage="现金不能大于借款总金额">
                                             </ext:TextBox>
                                         </Items>
