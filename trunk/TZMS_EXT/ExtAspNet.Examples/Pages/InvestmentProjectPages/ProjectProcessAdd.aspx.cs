@@ -71,7 +71,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     bindInterface(strID);
                     tabHistory.Hidden = false;
                 }
-
+                if (OperateType.Equals("Add"))
+                {
+                    SetImprestAmount(false);
+                }
                 // 绑定下一步.
                 BindNext();
                 // 绑定审批人.
@@ -196,13 +199,31 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             this.gridHistory.DataSource = lstInfo;
             this.gridHistory.DataBind();
         }
+
+        /// <summary>
+        /// 设置备用金信息 标签是否必填（true：必填，false：不要求必须填写）
+        /// </summary>
+        /// <param name="flag"></param>
+        private void SetImprestAmount(bool flag)
+        {
+            tbImprestAmount.Required = flag;
+            tbAmountExpended.Required = flag;
+            tbExpendedTime.Required = flag;
+            tbUse.Required = flag;
+
+        }
+
         #endregion
 
         #region 页面及控件事件
 
-
+        /// <summary>
+        /// 是否备用金
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void cbIsAmountExpended_OnCheckedChanged(object sender, EventArgs e)
-        {
+        {              
             if (cbIsAmountExpended.Checked)
             {
                 //    gpAmount.Hidden = false;
@@ -211,6 +232,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 tbExpendedTime.Hidden = false;
                 tbUse.Hidden = false;
                 tbImprestRemark.Hidden = false;
+
             }
             else
             {
@@ -221,6 +243,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 tbUse.Hidden = true;
                 tbImprestRemark.Hidden = true;
             }
+            //SetImprestAmount(cbIsAmountExpended.Checked);
         }
 
         /// <summary>
@@ -232,6 +255,27 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             if (cbIsAmountExpended.Checked)
             {
+                if (string.IsNullOrEmpty(tbImprestAmount.Text.Trim()))
+                {
+                    Alert.Show("备用金额 必填");
+                    return;
+                }
+                if (string.IsNullOrEmpty(tbAmountExpended.Text.Trim()))
+                {
+                    Alert.Show("预支金额 必填");
+                    return;
+                }
+                if (string.IsNullOrEmpty(tbExpendedTime.Text.Trim()))
+                {
+                    Alert.Show("支用时间 必填");
+                    return;
+                }
+                if (string.IsNullOrEmpty(tbUse.Text.Trim()))
+                {
+                    Alert.Show("用途 必填");
+                    return;
+                }
+
                 //有备用金
                 saveInfo(1);
             }
