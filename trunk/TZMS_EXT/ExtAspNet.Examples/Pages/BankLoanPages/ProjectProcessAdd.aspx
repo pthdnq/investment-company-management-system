@@ -90,8 +90,8 @@
                         <Rows>
                             <ext:FormRow ColumnWidths="60% 40%">
                                 <Items>
-                                    <ext:TextBox Hidden="true" ID="tbImprestAmount" Label="备用金余额" ShowRedStar="true"
-                                        Required="true" runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！"
+                                    <ext:TextBox Hidden="true" ID="tbImprestAmount" Label="备用金额" ShowRedStar="true"
+                                         runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！"
                                         Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                                     </ext:TextBox>
                                     <ext:Label ID="Labeltmpx3" runat="server" />
@@ -100,7 +100,7 @@
                             <ext:FormRow ColumnWidths="60% 40%">
                                 <Items>
                                     <ext:TextBox Hidden="true" ID="tbAmountExpended" Label="预支金额" ShowRedStar="true"
-                                        Required="true" runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！"
+                                         runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！"
                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                                     </ext:TextBox>
                                     <ext:Label ID="Label1" runat="server" />
@@ -108,7 +108,7 @@
                             </ext:FormRow>
                             <ext:FormRow ColumnWidths="60% 40%">
                                 <Items>
-                                    <ext:TextBox Hidden="true" ID="tbExpendedTime" Label="支用时间" ShowRedStar="true" Required="true"
+                                    <ext:TextBox Hidden="true" ID="tbExpendedTime" Label="支用时间" ShowRedStar="true" 
                                         runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！">
                                     </ext:TextBox>
                                     <ext:Label ID="Label2" runat="server" />
@@ -116,7 +116,7 @@
                             </ext:FormRow>
                             <ext:FormRow>
                                 <Items>
-                                    <ext:TextArea Hidden="true" ID="tbUse" Label="用途" ShowRedStar="true" Required="true"
+                                    <ext:TextArea Hidden="true" ID="tbUse" Label="用途" ShowRedStar="true" 
                                         runat="server" Height="50px" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
                                     </ext:TextArea>
                                 </Items>

@@ -235,6 +235,30 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// </summary>
         private void saveInfo()
         {
+            //有备用金
+            if (cbIsAmountExpended.Checked)
+            {
+                if (string.IsNullOrEmpty(tbImprestAmount.Text.Trim()))
+                {
+                    Alert.Show("备用金额 必填!");
+                    return;
+                }
+                if (string.IsNullOrEmpty(tbAmountExpended.Text.Trim()))
+                {
+                    Alert.Show("预支金额 必填!");
+                    return;
+                }
+                if (string.IsNullOrEmpty(tbExpendedTime.Text.Trim()))
+                {
+                    Alert.Show("支用时间 必填!");
+                    return;
+                }
+                if (string.IsNullOrEmpty(tbUse.Text.Trim()))
+                {
+                    Alert.Show("用途 必填!");
+                    return;
+                }
+            }
             com.TZMS.Model.BankLoanProjectProcessInfo _Info = null;
             BankLoanManage manage = new BankLoanManage();
             //  ID.
