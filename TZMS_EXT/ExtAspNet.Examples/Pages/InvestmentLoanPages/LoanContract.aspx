@@ -62,7 +62,7 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextArea ID="tbProjectOverview" Enabled="false" Label="项目概述" Height="52px" runat="server"
+                                            <ext:TextArea ID="tbProjectOverview" Readonly="true" Label="项目概述" Height="52px" runat="server"
                                                 MaxLength="200" MaxLengthMessage="最多只能输入200个字母或数字！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                                 RegexMessage="不能输入特殊字符!" />
                                         </Items>
@@ -145,7 +145,7 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextArea ID="tbRemark" Enabled="false" Label="备注" runat="server" MaxLength="200"
+                                            <ext:TextArea ID="tbRemark" Readonly="true" Label="备注" runat="server" MaxLength="200"
                                                 Height="54px" MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
                                                 RegexMessage="不能输入特殊字符!" />
                                         </Items>
