@@ -57,8 +57,8 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="TextBox2" Enabled="false"  Label="支用金额" ShowRedStar="true" Required="true" runat="server"
-                                Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
+                            <ext:TextBox ID="TextBox211" Enabled="false"  Label="支用金额" ShowRedStar="true" Required="true" runat="server"
+                                Text="0" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
@@ -70,8 +70,8 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="TextBox3" Enabled="false"  Label="备用金额余额" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
+                            <ext:TextBox ID="TextBox31" Enabled="false"  Label="备用金额余额" ShowRedStar="true" Required="true" runat="server"
+                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>

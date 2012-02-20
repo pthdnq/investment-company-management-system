@@ -83,10 +83,10 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbContractAmount" Label="合同总金额" runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10位数字！"
+                            <ext:TextBox ID="tbContractAmount" Label="合同总金额" runat="server" MaxLength="12" MaxLengthMessage="最多只能输入12位数字！"
                              Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" ShowRedStar="true" Required="true">
                             </ext:TextBox>
-                            <ext:TextBox ID="tbDownPayment" Label="预付定金" runat="server" MaxLength="10" MaxLengthMessage="最多只能输入10位数字！"
+                            <ext:TextBox ID="tbDownPayment" Label="预付定金" runat="server" MaxLength="12" MaxLengthMessage="最多只能输入12位数字！"
                            Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" ShowRedStar="true" Required="true">
                             </ext:TextBox>
                         </Items>

@@ -12,6 +12,11 @@ namespace TZMS
     public class Common
     {
         /// <summary>
+        /// 最大金额
+        /// </summary>
+       public const Int64 MaxMoney = 9999999999999999;
+
+        /// <summary>
         /// 部门
         /// </summary>
         public static class DEPT

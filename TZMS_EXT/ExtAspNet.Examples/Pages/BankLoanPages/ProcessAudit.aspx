@@ -64,7 +64,7 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox ID="tbAmountExpended" Enabled="false" Label="支用金额" runat="server" Text="0"
-                                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
+                                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
@@ -77,7 +77,7 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox ID="tbImprestAmount" Enabled="false" Label="备用金余额" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
+                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
