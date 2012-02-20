@@ -44,17 +44,17 @@
                                             <ext:TextBox ID="tbCustomerName" Enabled="false" Label="客户名称" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个字符！">
                                             </ext:TextBox>
-                                            <ext:TextBox ID="tbLoanCompany" Enabled="false" Label="贷款公司" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！">
+                                            <ext:TextBox ID="tbLoanCompany" runat="server" Enabled="false" Label="贷款公司" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="贷款金额" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*$" RegexMessage="只能输入字母!">
+                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
                                             <ext:TextBox ID="tbLoanFee" Enabled="false" Label="贷款手续费" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个字母或数字！" Regex="^[a-zA-Z0-9]*$" RegexMessage="只能输入字母或数字!">
+                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>

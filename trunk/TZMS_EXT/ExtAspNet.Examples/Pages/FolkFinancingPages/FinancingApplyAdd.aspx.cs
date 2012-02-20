@@ -66,6 +66,16 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            if (Decimal.Parse(tbLoanAmount.Text.Trim()) > Common.MaxMoney)
+            {
+                Alert.Show("借款金额 整数部分不能超过16位！");
+                return;
+            }
+            if (Decimal.Parse(tbCash.Text.Trim()) > Common.MaxMoney)
+            {
+                Alert.Show("现金 整数部分不能超过16位！");
+                return;
+            }
             saveInfo();
         }
 
