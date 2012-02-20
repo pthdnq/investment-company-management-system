@@ -46,6 +46,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 ApproveUser();
                 // 绑定审批历史.
                 BindHistory();
+
             }
         }
 
@@ -66,9 +67,22 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             InvestmentLoanInfo _Info = new InvestmentLoanManage().GetUserByObjectID(ObjectID);
             MUDAttachment.RecordID = _Info.ObjectId.ToString();
-            if (_Info.Status == 2 || _Info.BAStatus != 2)
+            //if (_Info.Status == 2 || _Info.BAStatus == 2)
+            //{
+            //    this.btnSave.Hidden = false;
+            //}
+            //else
+            //{
+            //    this.btnSave.Hidden = true;
+            //}
+            // shunlian 20120220
+            if ( _Info.BAStatus == 2)
             {
                 this.btnSave.Hidden = false;
+            }
+            else
+            {
+                this.btnSave.Hidden = true;
             }
 
             #region 下一步方式
