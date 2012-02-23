@@ -13,7 +13,7 @@ namespace com.TZMS.Model
         public const string DBEmptyString = "";
 
         /// <summary>
-        /// 数据库空字符串
+        /// 最小时间
         /// </summary>
         public static DateTime DBEmptyDate = DateTime.Parse("1900-1-1 12:00");
 
