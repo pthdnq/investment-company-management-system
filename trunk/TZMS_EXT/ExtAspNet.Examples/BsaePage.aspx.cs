@@ -768,7 +768,7 @@ namespace TZMS.Web
             _info.SenderName = CurrentUser.Name;
             _info.DeptName = CurrentUser.Dept;
             _info.Tile = "系统提醒";
-            _info.Context = receiverName + " , 您好！/r/n " + funBase + " ，您有一条 待审批 信息！";
+            _info.Context = receiverName + " , 您好！\r\n" + funBase + " 中，您有一条 待审批 信息！";
             _info.ReceviceId = new Guid(receiverID);
             _info.Recevicer = receiverName;
             _info.SendDate = DateTime.Now; ;
@@ -797,7 +797,7 @@ namespace TZMS.Web
             _info.SenderName = CurrentUser.Name;
             _info.DeptName = CurrentUser.Dept;
             _info.Tile = "系统提醒";
-            _info.Context = receiverName + " , 您好！/r/n " + funBase + " ，您有一条 " + state + " 信息！";
+            _info.Context = receiverName + " , 您好！\r\n " + funBase + " 中，您有一条 " + state + " 信息！";
             _info.ReceviceId = new Guid(receiverID);
             _info.Recevicer = receiverName;
             _info.SendDate = DateTime.Now; ;
