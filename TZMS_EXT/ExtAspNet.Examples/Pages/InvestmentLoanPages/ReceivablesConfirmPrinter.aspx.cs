@@ -65,7 +65,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 this.tbProjectName.Text = _info.ProjectName;
                 this.lbBorrowerNameA.Text = _info.ReceivablesAccount;
-                  Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames(_info.AmountofpaidUp, string.Empty);
+                Common.MoneyLowToUper common = new Common.MoneyLowToUper();
+                string uper = common.GetUperNumNames(_info.AmountofpaidUp, string.Empty);
                 lbLoanAmountUper.Text = uper;
                 this.lbLoanAmount.Text = _info.AmountofpaidUp.ToString();
                 this.lbLoanDate.Text = _info.DateForReceivables.ToString("yyyy年MM月dd日");
@@ -74,7 +75,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 //     this.taAuditOpinion.Text = _info.AuditOpinion;
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
                 //{
-            //    this.tbDate.Text = DateTime.Now.ToString("yyyy年MM月dd日");
+                //    this.tbDate.Text = DateTime.Now.ToString("yyyy年MM月dd日");
                 //    }
                 string strCondition = string.Format("ForId = '{0}'  ORDER BY OperationTime ASC", _info.ObjectId);
                 List<com.TZMS.Model.ReceivablesAuditHistoryInfo> lstInfo = new InvestmentLoanManage().GetProcessHistoryByCondtion(strCondition.ToString());

@@ -164,7 +164,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal RegisteredMoney
         {
-            get { return _registeredMoney; }
+            get { return GetDecimal(_registeredMoney); }
             set { _registeredMoney = value; }
         }
 
@@ -200,7 +200,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal SumMoney
         {
-            get { return _sumMoney; }
+            get { return GetDecimal(_sumMoney); }
             set { _sumMoney = value; }
         }
 
@@ -209,7 +209,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal PreMoney
         {
-            get { return _preMoney; }
+            get { return GetDecimal(_preMoney); }
             set { _preMoney = value; }
         }
 
@@ -227,7 +227,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal BalanceMoney
         {
-            get { return _balanceMoney; }
+            get { return GetDecimal(_balanceMoney); }
             set { _balanceMoney = value; }
         }
 
@@ -263,7 +263,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal CostMoney
         {
-            get { return _costMoney; }
+            get { return GetDecimal(_costMoney); }
             set { _costMoney = value; }
         }
 
@@ -272,7 +272,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal OtherMoney
         {
-            get { return _otherMoney; }
+            get { return GetDecimal(_otherMoney); }
             set { _otherMoney = value; }
         }
 

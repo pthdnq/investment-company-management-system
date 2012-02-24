@@ -76,14 +76,14 @@ namespace com.TZMS.Model
 
         public Decimal Cash
         {
-            get { return _Cash; }
+            get { return GetDecimal(_Cash); }
             set { _Cash = value; }
         }
         private Decimal _TransferAccount = DBEmptyDecimal;
 
         public Decimal TransferAccount
         {
-            get { return _TransferAccount; }
+            get { return GetDecimal(_TransferAccount); }
             set { _TransferAccount = value; }
         }
         #endregion
@@ -139,7 +139,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal LoanAmount
         {
-            get { return _loanAmount; }
+            get { return GetDecimal(_loanAmount); }
             set { _loanAmount = value; }
         }
 
@@ -175,7 +175,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal BorrowingCost
         {
-            get { return _borrowingCost; }
+            get { return GetDecimal(_borrowingCost); }
             set { _borrowingCost = value; }
         }
 

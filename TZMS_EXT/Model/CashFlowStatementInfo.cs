@@ -89,7 +89,7 @@ namespace com.TZMS.Model
         /// </summary> 
 		public Decimal Amount
 		{
-			get { return _amount; }
+			get { return GetDecimal(_amount); }
 			set { _amount = value; }
 		}
 
@@ -98,7 +98,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal RemainingAmount
         {
-            get { return _remainingAmount; }
+            get { return GetDecimal(_remainingAmount); }
             set { _remainingAmount = value; }
         }
 

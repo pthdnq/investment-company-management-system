@@ -53,7 +53,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal OriginalAmount
         {
-            get { return _originalAmount; }
+            get { return GetDecimal(_originalAmount); }
             set { _originalAmount = value; }
         }
 

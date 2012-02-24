@@ -139,7 +139,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal ApplyMoney
         {
-            get { return _applyMoney; }
+            get { return GetDecimal(_applyMoney); }
             set { _applyMoney = value; }
         }
 
@@ -148,7 +148,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal ActualMoney
         {
-            get { return _actualMoney; }
+            get { return GetDecimal(_actualMoney); }
             set { _actualMoney = value; }
         }
 

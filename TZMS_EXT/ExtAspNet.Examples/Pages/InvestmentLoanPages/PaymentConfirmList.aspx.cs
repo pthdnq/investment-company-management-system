@@ -185,7 +185,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             InvestmentLoanInfo _userInfo = (InvestmentLoanInfo)e.DataItem;
 
-            if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId)  || this.ddlstState.SelectedText.Trim() == "已确认")
             {
                 e.Values[11] = "<span class=\"gray\">确认</span>";
             }

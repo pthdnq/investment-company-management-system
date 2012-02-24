@@ -115,7 +115,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal CostMoney
         {
-            get { return _costMoney; }
+            get { return GetDecimal(_costMoney); }
             set { _costMoney = value; }
         }
 
@@ -124,7 +124,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal OtherMoney
         {
-            get { return _otherMoney; }
+            get { return GetDecimal(_otherMoney); }
             set { _otherMoney = value; }
         }
 

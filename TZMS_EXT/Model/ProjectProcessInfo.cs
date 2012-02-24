@@ -113,7 +113,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal AmountExpended
         {
-            get { return _amountExpended; }
+            get { return GetDecimal(_amountExpended); }
             set { _amountExpended = value; }
         }
 
@@ -131,7 +131,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal ImprestAmount
         {
-            get { return _imprestAmount; }
+            get { return GetDecimal(_imprestAmount); }
             set { _imprestAmount = value; }
         }
 
@@ -149,7 +149,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal PrepaidAmount
         {
-            get { return _prepaidAmount; }
+            get { return GetDecimal(_prepaidAmount); }
             set { _prepaidAmount = value; }
         }
 

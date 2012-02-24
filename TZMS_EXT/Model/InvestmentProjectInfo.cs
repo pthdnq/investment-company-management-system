@@ -142,7 +142,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal ContractAmount
         {
-            get { return _contractAmount; }
+            get { return GetDecimal(_contractAmount); }
             set { _contractAmount = value; }
         }
 
@@ -151,7 +151,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal DownPayment
         {
-            get { return _downPayment; }
+            get { return GetDecimal(_downPayment); }
             set { _downPayment = value; }
         }
 

@@ -141,7 +141,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal ENMoney
         {
-            get { return _eNMoney; }
+            get { return GetDecimal(_eNMoney); }
             set { _eNMoney = value; }
         }
 

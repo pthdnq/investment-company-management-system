@@ -17,197 +17,197 @@ namespace com.TZMS.Model
     /// <summary>
     /// AdminImprest???
     /// </summary>
-	[Serializable]
+    [Serializable]
     public class AdminImprestInfo : ACommonInfo
-	{	 
-		
-		#region Constructor
-		
+    {
+
+        #region Constructor
+
         /// <summary>
         /// Constructor
         /// </summary>
         public AdminImprestInfo()
         {
-			//todo
+            //todo
         }
-        #endregion 
-		
-		#region Field
-		private Guid _objectId;
+        #endregion
+
+        #region Field
+        private Guid _objectId;
         private string _projectName = DBEmptyString;
         private Decimal _prepaidAmount = DBEmptyDecimal;
         private string _use = DBEmptyString;
         private string _remark = DBEmptyString;
         private string _auditOpinion = DBEmptyString;
         private string _accountingName = DBEmptyString;
-		private Guid _accountingId;
-		private Guid _createrId;
+        private Guid _accountingId;
+        private Guid _createrId;
         private string _createrName = DBEmptyString;
         private DateTime _createTime = DBEmptyDate;
         private int _status = DBEmptyInt;
-		private Guid _nextOperaterId;
+        private Guid _nextOperaterId;
         private string _nextOperaterName = DBEmptyString;
         private string _nextOperateDesc = DBEmptyString;
         private DateTime _submitTime = DBEmptyDate;
         private string _adulters = DBEmptyString;
-		#endregion 
+        #endregion
 
-		#region Property
-		/// <summary>
+        #region Property
+        /// <summary>
         /// ObjectID 
         /// </summary> 
-		public Guid ObjectId
-		{
-			get { return _objectId; }
-			set { _objectId = value; }
-		}
+        public Guid ObjectId
+        {
+            get { return _objectId; }
+            set { _objectId = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// ProjectName 
         /// </summary> 
-		public string ProjectName
-		{
-			get { return _projectName; }
-			set { _projectName = value; }
-		}
+        public string ProjectName
+        {
+            get { return _projectName; }
+            set { _projectName = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// PrepaidAmount 
         /// </summary> 
-		public Decimal PrepaidAmount
-		{
-			get { return _prepaidAmount; }
-			set { _prepaidAmount = value; }
-		}
+        public Decimal PrepaidAmount
+        {
+            get { return GetDecimal(_prepaidAmount); }
+            set { _prepaidAmount = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// Use 
         /// </summary> 
-		public string Use
-		{
-			get { return _use; }
-			set { _use = value; }
-		}
+        public string Use
+        {
+            get { return _use; }
+            set { _use = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// Remark 
         /// </summary> 
-		public string Remark
-		{
-			get { return _remark; }
-			set { _remark = value; }
-		}
+        public string Remark
+        {
+            get { return _remark; }
+            set { _remark = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// AuditOpinion 
         /// </summary> 
-		public string AuditOpinion
-		{
-			get { return _auditOpinion; }
-			set { _auditOpinion = value; }
-		}
+        public string AuditOpinion
+        {
+            get { return _auditOpinion; }
+            set { _auditOpinion = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// AccountingName 
         /// </summary> 
-		public string AccountingName
-		{
-			get { return _accountingName; }
-			set { _accountingName = value; }
-		}
+        public string AccountingName
+        {
+            get { return _accountingName; }
+            set { _accountingName = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// AccountingID 
         /// </summary> 
-		public Guid AccountingId
-		{
-			get { return _accountingId; }
-			set { _accountingId = value; }
-		}
+        public Guid AccountingId
+        {
+            get { return _accountingId; }
+            set { _accountingId = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// CreaterID 
         /// </summary> 
-		public Guid CreaterId
-		{
-			get { return _createrId; }
-			set { _createrId = value; }
-		}
+        public Guid CreaterId
+        {
+            get { return _createrId; }
+            set { _createrId = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// CreaterName 
         /// </summary> 
-		public string CreaterName
-		{
-			get { return _createrName; }
-			set { _createrName = value; }
-		}
+        public string CreaterName
+        {
+            get { return _createrName; }
+            set { _createrName = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// CreateTime 
         /// </summary> 
-		public DateTime CreateTime
-		{
-			get { return _createTime; }
-			set { _createTime = value; }
-		}
+        public DateTime CreateTime
+        {
+            get { return _createTime; }
+            set { _createTime = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// Status 
         /// </summary> 
-		public int Status
-		{
-			get { return _status; }
-			set { _status = value; }
-		}
+        public int Status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// NextOperaterID 
         /// </summary> 
-		public Guid NextOperaterId
-		{
-			get { return _nextOperaterId; }
-			set { _nextOperaterId = value; }
-		}
+        public Guid NextOperaterId
+        {
+            get { return _nextOperaterId; }
+            set { _nextOperaterId = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// NextOperaterName 
         /// </summary> 
-		public string NextOperaterName
-		{
-			get { return _nextOperaterName; }
-			set { _nextOperaterName = value; }
-		}
+        public string NextOperaterName
+        {
+            get { return _nextOperaterName; }
+            set { _nextOperaterName = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// NextOperateDesc 
         /// </summary> 
-		public string NextOperateDesc
-		{
-			get { return _nextOperateDesc; }
-			set { _nextOperateDesc = value; }
-		}
+        public string NextOperateDesc
+        {
+            get { return _nextOperateDesc; }
+            set { _nextOperateDesc = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// SubmitTime 
         /// </summary> 
-		public DateTime SubmitTime
-		{
-			get { return _submitTime; }
-			set { _submitTime = value; }
-		}
+        public DateTime SubmitTime
+        {
+            get { return _submitTime; }
+            set { _submitTime = value; }
+        }
 
-		/// <summary>
+        /// <summary>
         /// Adulters 
         /// </summary> 
-		public string Adulters
-		{
-			get { return _adulters; }
-			set { _adulters = value; }
-		}
+        public string Adulters
+        {
+            get { return _adulters; }
+            set { _adulters = value; }
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }
 
 

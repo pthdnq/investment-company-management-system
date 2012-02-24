@@ -140,7 +140,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal Money
         {
-            get { return _money; }
+            get { return GetDecimal(_money); }
             set { _money = value; }
         }
 

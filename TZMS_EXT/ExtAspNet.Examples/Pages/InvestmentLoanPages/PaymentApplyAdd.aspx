@@ -88,12 +88,12 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbLoanAmount" Label="借款金额(元)" ShowRedStar="true" Required="true"
+                            <ext:TextBox ID="tbLoanAmount" Label="借款金额(元)" Text="0.00" ShowRedStar="true" Required="true"
                                 AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" runat="server" MaxLength="20"
                                 MaxLengthMessage="最多只能输入20个数字！"   Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!"  CompareControl="tbCash"
                                 CompareType="Float" CompareOperator="GreaterThanEqual" CompareMessage="现金不能大于借款总金额">
                             </ext:TextBox>
-                            <ext:TextBox ID="tbCash" Label="现金(元)" ShowRedStar="true" Required="true" runat="server"
+                            <ext:TextBox ID="tbCash" Label="现金(元)" ShowRedStar="true" Text="0.00" Required="true" runat="server"
                                 AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
                                  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!"  CompareControl="tbLoanAmount" CompareType="Float"
                                 CompareOperator="LessThanEqual" CompareMessage="现金不能大于借款总金额">

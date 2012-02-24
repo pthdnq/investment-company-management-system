@@ -107,7 +107,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal LoanAmount
         {
-            get { return _loanAmount; }
+            get { return GetDecimal(_loanAmount); }
             set { _loanAmount = value; }
         }
 
@@ -116,7 +116,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal LoanFee
         {
-            get { return _loanFee; }
+            get { return GetDecimal(_loanFee); }
             set { _loanFee = value; }
         }
 
@@ -143,7 +143,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal DownPayment
         {
-            get { return _downPayment; }
+            get { return GetDecimal(_downPayment); }
             set { _downPayment = value; }
         }
 
