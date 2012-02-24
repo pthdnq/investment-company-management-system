@@ -171,8 +171,22 @@ namespace TZMS.Web
             List<ProxyAmountTemplateApplyInfo> lstTemplate = _manage.GetTemplateApplyByCondition(" IsDelete = 0 and State = 3 and TemplateType = 0");
             foreach (ProxyAmountTemplateApplyInfo info in lstTemplate)
             {
+                int count = 0;
+                foreach(ProxyAmountTemplateApplyInfo checkInfo in lstTemplate)
+                {
+                    if (checkInfo.ProxyAmountUnitID == info.ProxyAmountUnitID)
+                    {
+                        count++;
+                    }
+                }
+                if (count > 1)
+                {
+                    Alert.Show(info.ProxyAmountUnitName+" 有 "+count.ToString()+" 个代账费模板，系统无法生成对应的代账费单！\r\n 请保留1个模板，方可生成！");
+                    continue;
+                }
+                
                 DateTime selectDate = Convert.ToDateTime(dpkGenerateDZDate.SelectedDate);
-                List<ProxyAmountInfo> lstProxyAmount = _manage.GetProxyAmountByCondition(" ProxyAmountType = 0 and  ProxyAmounterID ='" + info.ProxyAmounterID.ToString()
+                List<ProxyAmountInfo> lstProxyAmount = _manage.GetProxyAmountByCondition(" ProxyAmountType = 0 and  [ProxyAmountID] ='" + info.ProxyAmountUnitID.ToString()
                     + "' and Sument Like '%" + selectDate.Year + "年" + selectDate.Month + "月份%' and IsDelete = 0 ");
                 if (lstProxyAmount.Count == 0)
                 {
@@ -214,8 +228,21 @@ namespace TZMS.Web
             List<ProxyAmountTemplateApplyInfo> lstTemplate = _manage.GetTemplateApplyByCondition(" IsDelete = 0 and State = 3 and TemplateType = 1");
             foreach (ProxyAmountTemplateApplyInfo info in lstTemplate)
             {
+                int count = 0;
+                foreach (ProxyAmountTemplateApplyInfo checkInfo in lstTemplate)
+                {
+                    if (checkInfo.ProxyAmountUnitID == info.ProxyAmountUnitID)
+                    {
+                        count++;
+                    }
+                }
+                if (count > 1)
+                {
+                    Alert.Show(info.ProxyAmountUnitName + " 有 " + count.ToString() + " 个年检费模板，系统无法生成对应的年检费单！\r\n 请保留1个模板，方可生成！");
+                    continue;
+                }
                 DateTime selectDate = Convert.ToDateTime(dpkGenerateNJDate.SelectedDate);
-                List<ProxyAmountInfo> lstProxyAmount = _manage.GetProxyAmountByCondition(" ProxyAmountType = 1 and  ProxyAmounterID ='" + info.ProxyAmounterID.ToString()
+                List<ProxyAmountInfo> lstProxyAmount = _manage.GetProxyAmountByCondition(" ProxyAmountType = 1 and  ProxyAmountID ='" + info.ProxyAmountUnitID.ToString()
                     + "' and Sument Like '%" + selectDate.Year + "年%'");
                 if (lstProxyAmount.Count == 0)
                 {
