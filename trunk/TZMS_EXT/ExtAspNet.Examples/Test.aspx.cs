@@ -12,7 +12,7 @@ namespace TZMS.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("http://enroll.sse.ustc.edu.cn/rili/Default.aspx");
+            //Response.Redirect("http://enroll.sse.ustc.edu.cn/rili/Default.aspx");
             //MUDFilesCtrl fileCtrl = new MUDFilesCtrl();
             //fileCtrl.AcceptFiles(string.Empty, "测试", "123", "12345");
             //this.BindAttachsRecordInfo(true);
@@ -27,6 +27,31 @@ namespace TZMS.Web
        
             //MUDFilesCtrl fileCtrl1 = new MUDFilesCtrl();
             //fileCtrl1.ResetFiles(string.Empty, "测试", "123", "属性");
+            Decimal temp = 198.00M;
+            Decimal hh = GetDecimal(temp);
+            Response.Write(hh.ToString());
+        }
+
+        public Decimal GetDecimal(Decimal temp)
+        {
+            string strTemp = temp.ToString();
+            string[] strs = strTemp.Split('.');
+            if (strs.Length > 1)
+            {
+                string str = strs[1];
+                if (str.Contains("00") )
+                    return Decimal.Parse(strs[0]);
+                if (strTemp.Contains(".0"))
+                {
+                    return temp;
+                }
+                if (str.Contains("0"))
+                {
+                    string ss = strTemp.Substring(0, strTemp.Length - 1);
+                    return Decimal.Parse(ss);
+                }
+            }
+            return temp;
         }
     }
 }

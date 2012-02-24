@@ -46,5 +46,32 @@ namespace com.TZMS.Model
         /// 数据库空int
         /// </summary>
         public const int DBEmptyTinyInt = 0;
+
+        /// <summary>
+        /// 将小数点后面的无效的0去掉
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
+        public Decimal GetDecimal(Decimal temp)
+        {
+            string strTemp = temp.ToString();
+            string[] strs = strTemp.Split('.');
+            if (strs.Length > 1)
+            {
+                string str = strs[1];
+                if (str.Contains("00"))
+                    return Decimal.Parse(strs[0]);
+                if (strTemp.Contains(".0"))
+                {
+                    return temp;
+                }
+                if (str.Contains("0"))
+                {
+                    string ss = strTemp.Substring(0, strTemp.Length - 1);
+                    return Decimal.Parse(ss);
+                }
+            }
+            return temp;
+        }
     }
 }

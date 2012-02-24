@@ -105,7 +105,7 @@ namespace com.TZMS.Model
         /// </summary> 
 		public Decimal AmountOfReceivables
 		{
-			get { return _amountOfReceivables; }
+			get { return GetDecimal(_amountOfReceivables); }
 			set { _amountOfReceivables = value; }
 		}
 

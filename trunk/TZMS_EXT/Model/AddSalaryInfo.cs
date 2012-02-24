@@ -88,7 +88,10 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal BaseSalary
         {
-            get { return _baseSalary; }
+            get
+            {
+                return GetDecimal(_baseSalary);
+            }
             set { _baseSalary = value; }
         }
 
@@ -97,7 +100,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal ExamSalary
         {
-            get { return _examSalary; }
+            get { return GetDecimal(_examSalary); }
             set { _examSalary = value; }
         }
 
@@ -106,7 +109,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal OtherSalary
         {
-            get { return _otherSalary; }
+            get { return GetDecimal(_otherSalary); }
             set { _otherSalary = value; }
         }
 

@@ -97,7 +97,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal AmountOfPayment
         {
-            get { return _amountOfPayment; }
+            get { return GetDecimal(_amountOfPayment); }
             set { _amountOfPayment = value; }
         }
 

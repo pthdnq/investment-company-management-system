@@ -265,7 +265,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             FinancingFeePaymentInfo _Info = (FinancingFeePaymentInfo)e.DataItem;
 
-            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId)  || this.ddlstState.SelectedText.Trim() == "已确认")
             {
                 e.Values[10] = "<span class=\"gray\">支付确认</span>";
             }

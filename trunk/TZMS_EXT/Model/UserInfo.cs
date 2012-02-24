@@ -18,7 +18,7 @@ namespace com.TZMS.Model
     /// UserInfo实体类
     /// </summary>
     [Serializable]
-    public class UserInfo
+    public class UserInfo :ACommonInfo
     {
 
         #region Constructor
@@ -59,7 +59,7 @@ namespace com.TZMS.Model
         private bool _isProbation;
         private DateTime _probationTime;
         private DateTime _leaveTime;
-        private decimal _baseSalary;
+        private Decimal _baseSalary;
         private string _menu = string.Empty;
         private string _record = string.Empty;
         #endregion
@@ -244,9 +244,9 @@ namespace com.TZMS.Model
             set { _leaveTime = value; }
         }
 
-        public decimal BaseSalary
+        public Decimal BaseSalary
         {
-            get { return _baseSalary; }
+            get { return GetDecimal(_baseSalary); }
             set { _baseSalary = value; }
         }
 

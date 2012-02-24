@@ -138,7 +138,7 @@ namespace com.TZMS.Model
         /// </summary> 
         public Decimal SumMoney
         {
-            get { return _sumMoney; }
+            get { return GetDecimal(_sumMoney); }
             set { _sumMoney = value; }
         }
 

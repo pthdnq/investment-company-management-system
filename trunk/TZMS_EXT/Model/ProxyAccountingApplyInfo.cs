@@ -26,7 +26,7 @@ namespace com.TZMS.Model
 		private Guid _objectId;
 		private Guid _payUnitId;
 		private string _cNMoney = DBEmptyString;
-		private decimal _eNMoney = DBEmptyDecimal;
+		private Decimal _eNMoney = DBEmptyDecimal;
 		private string _sument = DBEmptyString;
 		private DateTime _openingDate = DBEmptyDate;
 		private string _collectMethod = DBEmptyString;
@@ -72,9 +72,9 @@ namespace com.TZMS.Model
 		/// <summary>
         /// ENMoney 
         /// </summary> 
-		public decimal ENMoney
+		public Decimal ENMoney
 		{
-			get { return _eNMoney; }
+			get { return GetDecimal(_eNMoney); }
 			set { _eNMoney = value; }
 		}
 
