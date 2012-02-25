@@ -73,7 +73,7 @@
                                 <ItemTemplate>
                                     <%# (DataBinder.Eval(Container.DataItem,"Status").ToString() == "1") ? "借款中" : "已结清" %>
                                 </ItemTemplate>
-                            </ext:TemplateField>
+                            </ext:TemplateField> 
                             <ext:BoundField DataField="Remark" ExpandUnusedSpace="true" HeaderText="备注" />
                             <ext:WindowField Width="76px" Text="编辑" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="CustomerEdit.aspx?ID={0}"
                                 Title="编辑" WindowID="wndEdit" />
