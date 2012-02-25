@@ -327,7 +327,10 @@ namespace com.TZMS.DataAccess
             {
                 CustomerInfoInfo.Remark = DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Remark");
             }
-
+            if (CustomerInfoInfoDataRow["Status"] != null)
+            {
+                CustomerInfoInfo.Status = int.Parse(DataUtil.GetStringValueOfRow(CustomerInfoInfoDataRow, "Status"));
+            }
             return CustomerInfoInfo;
         }
         #endregion
