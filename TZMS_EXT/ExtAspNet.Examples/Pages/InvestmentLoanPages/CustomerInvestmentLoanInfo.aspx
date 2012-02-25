@@ -33,6 +33,7 @@
                                 <ext:ListItem Text="待审核" Value="1" />
                                 <ext:ListItem Text="审核中" Value="3" />
                                 <ext:ListItem Text="已通过" Value="4" Selected="true" />
+                                 <ext:ListItem Text="已确认" Value="5"  />
                                 <ext:ListItem Text="未通过" Value="2" />
                                 <ext:ListItem Text="终止审核中" Value="7" />
                                 <ext:ListItem Text="已终止" Value="8" />

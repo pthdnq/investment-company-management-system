@@ -285,8 +285,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             if (result == -1)
             {
                 //更新用户借款状态
-                _customer.Status = 1;
-                manage.UpdateCustomer(_customer);
+                //_customer.Status = 1;
+                //manage.UpdateCustomer(_customer);
 
                 manage.AddHistory(_Info.ObjectId, "新增", "新增借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
                 new CashFlowManage().AddHistory(_Info.ObjectId, "新增", "投资部借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "InvestmentLoan");
