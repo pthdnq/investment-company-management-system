@@ -406,6 +406,8 @@ namespace TZMS.Web
                 if (result == -1)
                 {
                     //Alert.Show("申请提交成功!");
+                    //发送消息提醒
+                    CheckMsg(_leaveInfo.ApproverId.ToString(), ddlstApproveUser.SelectedText, "假勤审批");
 
                     //// 设置页面各按钮的状态.
                     //LeaveAppID = _leaveInfo.ObjectId.ToString();
@@ -458,6 +460,8 @@ namespace TZMS.Web
                 if (result == -1)
                 {
                     //Alert.Show("申请提交成功!");
+                    //发送消息提醒
+                    CheckMsg(_leaveInfo.ApproverId.ToString(), ddlstApproveUser.SelectedText, "假勤审批");
 
                     //// 设置页面各按钮的状态.
                     //LeaveAppID = _leaveInfo.ObjectId.ToString();

@@ -310,11 +310,11 @@ namespace TZMS.Web
 
             _leaveApproveInfo.ApproveComment = string.IsNullOrEmpty(taaApproveComment.Text.Trim()) ? "同意" : taaApproveComment.Text.Trim();
             _leaveAppManage.UpdateLeaveApprove(_leaveApproveInfo);
-
+            LeaveApproveInfo _newLeaveApproveInfo = new LeaveApproveInfo();
             // 插入新的记录到流程申请表.
             if (ddlstNext.SelectedText == "审批")
             {
-                LeaveApproveInfo _newLeaveApproveInfo = new LeaveApproveInfo();
+                //LeaveApproveInfo _newLeaveApproveInfo = new LeaveApproveInfo();
                 _newLeaveApproveInfo.ObjectId = Guid.NewGuid();
                 _newLeaveApproveInfo.LeaveId = _leaveInfo.ObjectId;
                 _newLeaveApproveInfo.ApproverId = _leaveInfo.ApproverId;
@@ -324,7 +324,7 @@ namespace TZMS.Web
             }
             else if (ddlstNext.SelectedText == "归档")
             {
-                LeaveApproveInfo _newLeaveApproveInfo = new LeaveApproveInfo();
+                //LeaveApproveInfo _newLeaveApproveInfo = new LeaveApproveInfo();
                 _newLeaveApproveInfo.ObjectId = Guid.NewGuid();
                 _newLeaveApproveInfo.LeaveId = _leaveInfo.ObjectId;
                 _newLeaveApproveInfo.ApproverId = _leaveInfo.ApproverId;
@@ -339,6 +339,26 @@ namespace TZMS.Web
                 //btnPass.Enabled = false;
                 //btnRefuse.Enabled = false;
                 //BindApproveHistory();
+
+                if (ddlstNext.SelectedText == "审批")
+                {
+                    CheckMsg(ddlstApproveUser.SelectedValue.Trim(), ddlstApproveUser.SelectedText, "假勤审批");
+                }
+                if (ddlstNext.SelectedText == "归档")
+                {
+                    string funBase = string.Empty;
+                    if (_leaveInfo.Type == "调休")
+                    {
+                        funBase = "调休申请";
+                    }
+                    else
+                    {
+                        funBase = "请假申请";
+                    }
+                    GuiDangMsg(ddlstApproveUser.SelectedValue.Trim(), ddlstApproveUser.SelectedText, "请假归档");
+
+                    //ResultMsg(string receiverID, string receiverName, funBase,"");
+                }
                 this.btnClose_Click(null, null);
             }
             else
@@ -399,6 +419,16 @@ namespace TZMS.Web
                 //btnPass.Enabled = false;
                 //btnRefuse.Enabled = false;
                 //BindApproveHistory();
+                string funBase = string.Empty;
+                if (_leaveInfo.Type == "调休")
+                {
+                    funBase = "调休申请";
+                }
+                else
+                {
+                    funBase = "请假申请";
+                }
+                ResultMsg(_leaveInfo.UserObjectId.ToString(), _leaveInfo.Name, funBase, "打回");
                 this.btnClose_Click(null, null);
             }
             else
