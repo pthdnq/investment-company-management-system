@@ -289,6 +289,9 @@ namespace TZMS.Web
             {
                 //Alert.Show("申请提交成功!");
 
+                //发送消息提醒
+                CheckMsg(_checkInfo.CheckerId.ToString(), ddlstApproveUser.SelectedText, "未打卡审批");
+
                 //// 当提交成功时，禁用提交按钮以及刷新审批历史.
                 //btnSave.Enabled = false;
                 //tabApproveHistory.Hidden = false;

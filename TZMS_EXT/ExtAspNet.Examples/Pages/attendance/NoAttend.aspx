@@ -65,7 +65,7 @@
     </ext:Panel>
     <ext:Window ID="wndNewNoAttend" Title="未打卡申请" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Width="700px" EnableConfirmOnClose="true"
-        Height="500px" OnClose="wndNewNoAttend_Close">
+        Height="499px" OnClose="wndNewNoAttend_Close">
     </ext:Window>
     </form>
 </body>

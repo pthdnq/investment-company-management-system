@@ -163,9 +163,10 @@ namespace TZMS.Web
                 LeaveAppManage leaveAppManage = new LeaveAppManage();
                 LeaveApproveInfo _approveInfo = leaveAppManage.GetLeaveApproveInfoByObjectID(ApproveID);
                 int result = 3;
+                LeaveInfo _leaveInfo = new LeaveInfo();
                 if (_approveInfo != null)
                 {
-                    LeaveInfo _leaveInfo = leaveAppManage.GetLeaveInfoByObjectID(_approveInfo.LeaveId.ToString());
+                    _leaveInfo = leaveAppManage.GetLeaveInfoByObjectID(_approveInfo.LeaveId.ToString());
 
                     // 设置归档信息.
                     _approveInfo.ApproveResult = 4;
@@ -185,13 +186,27 @@ namespace TZMS.Web
                         {
                             _leaveInfo.State = 3;
                         }
-
                         result = leaveAppManage.UpdateLeaveInfo(_leaveInfo);
                     }
                 }
 
                 if (result == -1)
                 {
+                    string funBase = string.Empty;
+                    if (_leaveInfo.Type == "调休")
+                    {
+                        funBase = "调休申请";
+                    }
+                    else
+                    {
+                        funBase = "请假申请";
+                    }
+                    string state = "未通过";
+                    if (_leaveInfo.State == 2)
+                    {
+                        state = "已通过";
+                    }
+                    ResultMsg(_leaveInfo.UserObjectId.ToString(), _leaveInfo.Name, funBase, state);
                     this.btnClose_Click(null, null);
                 }
                 else

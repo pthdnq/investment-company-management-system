@@ -753,6 +753,34 @@ namespace TZMS.Web
         #region 消息提醒 
 
         /// <summary>
+        /// 归档信息提醒
+        /// </summary>
+        /// <param name="receiverID">接收人ID</param>
+        /// <param name="receiverName">接收人姓名</param>
+        /// <param name="funBase">归档模块名称，如：请假归档</param>
+        public void GuiDangMsg(string receiverID, string receiverName, string funBase)
+        {
+            MessageManage _manage = new MessageManage();
+            MessageInfo _info = new MessageInfo();
+            _info = new MessageInfo();
+            _info.ObjectId = Guid.NewGuid();
+            _info.SenderId = CurrentUser.ObjectId;
+            _info.SenderName = CurrentUser.Name;
+            _info.DeptName = CurrentUser.Dept;
+            _info.Tile = "系统提醒";
+            _info.Context = receiverName + " , 您好！\r\n" + funBase + " 中，您有一条 待归档 信息！";
+            _info.ReceviceId = new Guid(receiverID);
+            _info.Recevicer = receiverName;
+            _info.SendDate = DateTime.Now; ;
+            _info.ViewDate = ACommonInfo.DBEmptyDate;
+            _info.IsView = false;
+            _info.IsDelete = false;
+            _info.SentMessageId = Guid.NewGuid(); ;
+
+            _manage.AddNewMessage(_info);
+        }
+
+        /// <summary>
         /// 审批（核）信息提醒
         /// </summary>
         /// <param name="receiverID">接收人ID</param>
