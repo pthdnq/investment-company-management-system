@@ -56,7 +56,7 @@
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
                             <ext:TextBox ID="tbLoanAmount" Label="借款金额" ShowRedStar="true" Text="0.00" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"   Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!"
+                                MaxLength="16" MaxLengthMessage="最多只能输入16个数字！"   Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!"
                                 AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" CompareControl="tbLoanAmount"
                                 CompareType="Float" CompareOperator="LessThanEqual" CompareMessage="现金不能大于借款总金额">
                             </ext:TextBox>
@@ -65,7 +65,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox ID="tbCash" Label="现金(元)" ShowRedStar="true" Text="0.00" Required="true" runat="server"
-                                AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"
+                                AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" MaxLength="16" MaxLengthMessage="最多只能输入16个数字！"
                                   Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" CompareControl="tbLoanAmount" CompareType="Float"
                                 CompareOperator="LessThanEqual" CompareMessage="现金不能大于借款总金额">
                             </ext:TextBox>

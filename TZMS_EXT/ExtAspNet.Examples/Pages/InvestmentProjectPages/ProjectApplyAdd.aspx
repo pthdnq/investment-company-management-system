@@ -56,7 +56,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextArea ID="tbProjectOverview" runat="server" Label="项目概述" MaxLength="200"
-                                MaxLengthMessage="最多只能输入20个字符！">
+                                MaxLengthMessage="最多只能输入200个字符！">
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>
@@ -83,10 +83,10 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextBox ID="tbContractAmount" Label="合同总金额" runat="server" MaxLength="12" MaxLengthMessage="最多只能输入12位数字！"
+                            <ext:TextBox ID="tbContractAmount" Label="合同总金额" runat="server" MaxLength="16" MaxLengthMessage="最多只能输入16位数字！"
                              Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" ShowRedStar="true" Required="true">
                             </ext:TextBox>
-                            <ext:TextBox ID="tbDownPayment" Label="预付定金" runat="server" MaxLength="12" MaxLengthMessage="最多只能输入12位数字！"
+                            <ext:TextBox ID="tbDownPayment" Label="预付定金" runat="server" MaxLength="16" MaxLengthMessage="最多只能输入16位数字！"
                            Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" ShowRedStar="true" Required="true">
                             </ext:TextBox>
                         </Items>
