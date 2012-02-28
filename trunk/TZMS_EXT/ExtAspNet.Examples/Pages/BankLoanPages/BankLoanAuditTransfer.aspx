@@ -44,7 +44,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextArea ID="taAuditOpinion" Label="操作备注" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="200" MaxLengthMessage="最多只能输入20个字母或数字！" />
+                                runat="server" MaxLength="200" MaxLengthMessage="最多只能输入20个字符！" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -76,11 +76,11 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="贷款金额" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="贷款金额" runat="server" MaxLength="16"
+                                                MaxLengthMessage="最多只能输入16个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
-                                            <ext:TextBox ID="tbLoanFee" Enabled="false" Label="贷款手续费" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox ID="tbLoanFee" Enabled="false" Label="贷款手续费" runat="server" MaxLength="16"
+                                                MaxLengthMessage="最多只能输入16个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>

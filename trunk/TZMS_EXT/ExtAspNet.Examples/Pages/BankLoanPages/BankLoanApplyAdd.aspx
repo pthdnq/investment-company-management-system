@@ -69,10 +69,10 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox ID="tbLoanAmount" Label="贷款金额" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"   Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
+                                MaxLength="16" MaxLengthMessage="最多只能输入16个数字！"   Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                             </ext:TextBox>
                             <ext:TextBox ID="tbLoanFee" Label="贷款手续费" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="20" MaxLengthMessage="最多只能输入20个数字！"   Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
+                                MaxLength="16" MaxLengthMessage="最多只能输入16个数字！"   Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>

@@ -77,11 +77,11 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="贷款金额" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="贷款金额" runat="server" MaxLength="16"
+                                                MaxLengthMessage="最多只能输入16个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
-                                            <ext:TextBox ID="tbLoanFee" Enabled="false" Label="贷款手续费" runat="server" MaxLength="20"
-                                                MaxLengthMessage="最多只能输入20个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox ID="tbLoanFee" Enabled="false" Label="贷款手续费" runat="server" MaxLength="16"
+                                                MaxLengthMessage="最多只能输入16个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
@@ -97,8 +97,8 @@
                                         <Items>
                                             <ext:DatePicker ID="dpSignDate" Enabled="false" Label="签订日期" runat="server">
                                             </ext:DatePicker>
-                                            <ext:TextBox ID="tbDownPayment" Enabled="false" Label="预付定金" runat="server" MaxLength="2"
-                                                MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox ID="tbDownPayment" Enabled="false" Label="预付定金" runat="server" MaxLength="16"
+                                                MaxLengthMessage="最多只能输入16个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>

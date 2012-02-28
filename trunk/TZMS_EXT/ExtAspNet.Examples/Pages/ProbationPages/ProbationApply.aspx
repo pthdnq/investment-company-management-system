@@ -66,14 +66,14 @@
                                             <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextArea ID="taaSument" Height="200px" runat="server" Label="事项" Required="true"
-                                                        ShowRedStar="true" MaxLength="1000" EmptyText="请填写转正申请事由" MaxLengthMessage="最多只能输入1000个字！">
+                                                        ShowRedStar="true" MaxLength="1000" EmptyText="请填写转正申请事由" MaxLengthMessage="最多只能输入1000个字符！">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextArea ID="taaOther" Height="100px" runat="server" Label="备注" MaxLength="200"
-                                                        MaxLengthMessage="最多只能输入200个字！">
+                                                        MaxLengthMessage="最多只能输入200个字符！">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
