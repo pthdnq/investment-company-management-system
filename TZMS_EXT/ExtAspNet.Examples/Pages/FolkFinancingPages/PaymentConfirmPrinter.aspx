@@ -66,7 +66,7 @@
         
             <tr>
                 <td>
-                    支付金额（大写）：：<asp:Label runat="server" ID="lbLoanAmountUper"></asp:Label>
+                    支付金额（大写）：<asp:Label runat="server" ID="lbLoanAmountUper"></asp:Label>
                 </td>
                 <td>
                     （小写）：<asp:Label runat="server" ID="lbLoanAmount"></asp:Label>
