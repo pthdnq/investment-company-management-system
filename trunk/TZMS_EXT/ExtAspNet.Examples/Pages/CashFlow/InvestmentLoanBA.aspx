@@ -116,8 +116,8 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbRateOfReturn" Enabled="false" Label="投资回报率" runat="server" MaxLength="2"
-                                                Hidden="true" MaxLengthMessage="最多只能输入2个数字！" Regex="^[0-9]*$" RegexMessage="只能输入数字!" />
+                                            <ext:TextBox ID="tbRateOfReturn" Enabled="false" Label="投资回报率" runat="server" MaxLength="10"
+                                                Hidden="true" MaxLengthMessage="最多只能输入10个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!" />
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
