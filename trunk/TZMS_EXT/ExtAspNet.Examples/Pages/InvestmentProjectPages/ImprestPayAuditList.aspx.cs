@@ -244,7 +244,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             ProjectProcessInfo _userInfo = (ProjectProcessInfo)e.DataItem;
 
-            if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId) || ddlstState.SelectedValue != "1")
             {
                 e.Values[9] = "<span class=\"gray\">审核</span>";
 

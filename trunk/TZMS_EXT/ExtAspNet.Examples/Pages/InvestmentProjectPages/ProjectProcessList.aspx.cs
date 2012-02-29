@@ -252,7 +252,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             ProjectProcessInfo _Info = (ProjectProcessInfo)e.DataItem;
 
-            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId))
+            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId) || ddlstState.SelectedValue != "5")
             {
                 e.Values[9] = "<span class=\"gray\">审核</span>";
 

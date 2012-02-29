@@ -180,9 +180,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             FolkFinancingInfo _Info = (FolkFinancingInfo)e.DataItem;
 
-            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId) || _Info.Status != 4)
+            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId) || ddlstState.SelectedValue != "4")
             {
-                e.Values[11] = "<span class=\"gray\">审核</span>";
+                e.Values[11] = "<span class=\"gray\">审核</span>"; 
             }
         }
         #endregion

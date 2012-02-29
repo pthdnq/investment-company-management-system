@@ -193,7 +193,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         protected void gridData_RowDataBound(object sender, GridRowEventArgs e)
         {
             FolkFinancingInfo _Info = (FolkFinancingInfo)e.DataItem;
-            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId) || _Info.Status != 7)
+            if (!_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId) || ddlstState.SelectedValue != "7")
             {
                 e.Values[11] = "<span class=\"gray\">审核</span>";
             }

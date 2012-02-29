@@ -263,9 +263,9 @@ namespace TZMS.Web.Pages.BankLoanPages
         {
             BankLoanProjectProcessInfo _Info = (BankLoanProjectProcessInfo)e.DataItem;
 
-            if (!(_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId)))
+            if (!(_Info.NextOperaterId.Equals(this.CurrentUser.ObjectId)) || ddlstState.SelectedValue != "5")
             {
-                e.Values[10] = "<span class=\"gray\">审核</span>";
+                e.Values[10] = "<span class=\"gray\">审核</span>"; 
             }
         }
 
