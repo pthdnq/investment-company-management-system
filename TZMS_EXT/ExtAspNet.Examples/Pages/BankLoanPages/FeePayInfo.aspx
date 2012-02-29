@@ -30,28 +30,28 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox Enabled="false" ID="TextBox1" Label="项目名称" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" 
                                 RegexMessage="不能输入特殊字符!" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox Enabled="false" ID="TextBox2" Label="贷款银行" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" 
                                 RegexMessage="不能输入特殊字符!" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox Enabled="false" ID="TextBox3" Label="担保公司" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" 
                                 RegexMessage="不能输入特殊字符!" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox Enabled="false" ID="TextBox4" Label="项目实施阶段" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="100" MaxLengthMessage="最多只能输入100个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                runat="server" MaxLength="100" MaxLengthMessage="最多只能输入100个字符！" 
                                 RegexMessage="不能输入特殊字符!" />
                         </Items>
                     </ext:FormRow>
@@ -77,21 +77,21 @@
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
-                            <ext:TextArea ID="taRemark" Enabled="false"  Label="备注" runat="server" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                            <ext:TextArea ID="taRemark" Enabled="false"  Label="备注" runat="server" 
                                 RegexMessage="不能输入特殊字符!" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextArea ID="TextArea2" Enabled="false"  Label="审核意见" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" 
                                 RegexMessage="不能输入特殊字符!" />
                         </Items>
                     </ext:FormRow>
                             <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextArea ID="TextArea1" Enabled="false"  Label="支付确认备注" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" 
                                 RegexMessage="不能输入特殊字符!" />
                         </Items>
                     </ext:FormRow>

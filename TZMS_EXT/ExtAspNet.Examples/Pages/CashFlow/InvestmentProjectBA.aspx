@@ -62,7 +62,7 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox Enabled="false" ID="tbProjectName" Label="项目名称"  
-                                                runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                                runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！" 
                                                 RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                         </Items>
@@ -77,7 +77,7 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextArea Enabled="false" ID="tbProjectOverview" runat="server" Label="项目概述"
-                                                Hidden="true" MaxLength="200" MaxLengthMessage="最多只能输入20个字符！">
+                                                Hidden="true" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！">
                                             </ext:TextArea>
                                         </Items>
                                     </ext:FormRow>

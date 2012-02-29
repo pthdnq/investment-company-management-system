@@ -178,7 +178,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             // 获取选中一行.
             if (gridUnSelectUser.SelectedRowIndexArray.Length == 0)
             {
-                Alert.Show("请在左边选择部门总监！");
+                Alert.Show("请在左边选择借款人！");
                 return;
             }
 

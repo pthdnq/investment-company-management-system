@@ -48,7 +48,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextArea Height="56px" ID="tbProjectOverview" Label="项目概述" ShowRedStar="true"
-                                Required="true" runat="server" MaxLength="300" MaxLengthMessage="最多只能输入300个字符！" />
+                                Required="true" runat="server" MaxLength="300"  MaxLengthMessage="最多只能输入300个字符！" />
                         </Items>
                     </ext:FormRow>
                     <ext:FormRow ColumnWidths="50% 50%">

@@ -57,11 +57,11 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox ID="tbCustomerName" Label="客户名称" ShowRedStar="true" Required="true"
-                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" 
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
                             <ext:TextBox ID="tbLoanCompany" Label="贷款公司" ShowRedStar="true" Required="true" runat="server"
-                                MaxLength="100" MaxLengthMessage="最多只能输入100个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                MaxLength="100" MaxLengthMessage="最多只能输入100个字符！" 
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
                         </Items>
@@ -79,7 +79,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox ID="tbCollateralCompany" Label="抵押物公司" runat="server" MaxLength="20"
-                                ShowRedStar="true" Required="true" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                ShowRedStar="true" Required="true" MaxLengthMessage="最多只能输入20个字符！" 
                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
                         </Items>
