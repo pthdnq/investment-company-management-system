@@ -116,7 +116,7 @@
                                                 MaxLengthMessage="最多只能输入16个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
                                             </ext:TextBox>
                                                <ext:TextBox Hidden="true" ID="tbLoanTimeLimit" Label="借款期限" Enabled="false" runat="server"
-                                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                                MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" 
                                                 RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                             <ext:DropDownList ID="ddlLoanType"  Hidden="true" HideMode="Display"  Label="借款方式" runat="server" Enabled="false">

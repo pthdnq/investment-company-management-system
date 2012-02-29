@@ -87,11 +87,11 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox ID="tbCustomerName" Enabled="false" Label="客户名称" runat="server" MaxLength="20"
-                                                Hidden="true" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                                Hidden="true" MaxLengthMessage="最多只能输入20个字符！" 
                                                 RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                             <ext:TextBox ID="tbLoanCompany" Enabled="false" Label="贷款公司" runat="server" MaxLength="20"
-                                                Hidden="true" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                                Hidden="true" MaxLengthMessage="最多只能输入20个字符！" 
                                                 RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                         </Items>
@@ -109,7 +109,7 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox ID="tbCollateralCompany" Enabled="false" Label="抵押物公司" runat="server"
-                                                Hidden="true" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                                Hidden="true" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！" 
                                                 RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                         </Items>
@@ -126,7 +126,7 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextArea ID="taContact" Enabled="false" Label="联系方式" runat="server" MaxLength="100"
-                                                Hidden="true" MaxLengthMessage="最多只能输入100个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
+                                                Hidden="true" MaxLengthMessage="最多只能输入100个字符！"
                                                 RegexMessage="不能输入特殊字符!">
                                             </ext:TextArea>
                                         </Items>

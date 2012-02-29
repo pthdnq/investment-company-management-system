@@ -162,7 +162,13 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             strCondition.Append(" ORDER BY OperationTime DESC");
             List<FolkFinancingHistoryInfo> lstInfo = new FolkFinancingManage().GetHistoryByCondtion(strCondition.ToString());
             //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
-
+            for (int i = 0; i < lstInfo.Count; i++)
+            {
+                if (lstInfo[i].OperationType == "编辑")
+                {
+                    lstInfo[i].Remark = "";
+                }
+            }
             gridHistory.RecordCount = lstInfo.Count;
             this.gridHistory.DataSource = lstInfo;
             this.gridHistory.DataBind();

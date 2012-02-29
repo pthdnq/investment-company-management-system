@@ -83,7 +83,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextBox ID="tbxGraduatedSchool" Label="毕业院校" runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
                             <ext:DropDownList ID="ddlstEducational" Label="学历" runat="server">
                                 <ext:ListItem Text="博士及以上" Value="博士及以上" />
@@ -146,7 +146,7 @@
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
                             <ext:TextBox ID="tbxAddress" Label="住址" runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！"
-                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                                 RegexMessage="不能输入特殊字符!">
                             </ext:TextBox>
                         </Items>
                     </ext:FormRow>
