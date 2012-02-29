@@ -69,7 +69,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             com.TZMS.Model.FolkFinancingInfo _Info = new FolkFinancingManage().GetUserByObjectID(strID);
 
             MUDAttachment.RecordID = _Info.ObjectId.ToString();
-            if (_Info.Status == 2 || _Info.BAStatus != 2)
+           //if (_Info.Status == 2 || _Info.BAStatus != 2)
+            if (_Info.BAStatus == 2 && this.CurrentRoles.Contains(RoleType.TZZJ))
             {
                 this.btnSave.Hidden = false;
             }

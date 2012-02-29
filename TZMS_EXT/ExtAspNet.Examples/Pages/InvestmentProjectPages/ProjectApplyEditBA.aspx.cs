@@ -66,7 +66,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             InvestmentProjectInfo _Info = new InvestmentProjectManage().GetUserByObjectID(strID);
             MUDAttachment.RecordID = _Info.ObjectId.ToString();
 
-            if (_Info.Status == 2 || _Info.BAStatus != 2)
+            //if (_Info.Status == 2 || _Info.BAStatus != 2)
+            if (_Info.BAStatus == 2)
             {
                 this.btnSave.Hidden = false;
             }
@@ -114,7 +115,13 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             strCondition.Append(" ORDER BY OperationTime DESC");
             List<AccountantAuditHistoryInfo> lstInfo = new CashFlowManage().GetHistoryByCondtion(strCondition.ToString());
             //lstInfo.Sort(delegate(BaoxiaoCheckInfo x, BaoxiaoCheckInfo y) { return DateTime.Compare(y.CheckDateTime, x.CheckDateTime); });
-
+            for (int i = 0; i < lstInfo.Count; i++)
+            {
+                if (lstInfo[i].OperationType == "编辑")
+                {
+                    lstInfo[i].Remark = "";
+                }
+            }
             gridHistory.RecordCount = lstInfo.Count;
             this.gridHistory.DataSource = lstInfo;
             this.gridHistory.DataBind();
@@ -130,7 +137,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         protected void btnSave_Click(object sender, EventArgs e)
         {
             saveInfo(1);
-           // saveInfo(3);
+            // saveInfo(3);
         }
         #endregion
 
@@ -184,7 +191,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-               // ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                // ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }
