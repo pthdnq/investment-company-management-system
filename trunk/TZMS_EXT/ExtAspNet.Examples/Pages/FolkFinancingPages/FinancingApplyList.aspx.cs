@@ -88,6 +88,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 BindDDL();
                 // 绑定列表.
                 BindGridData(ViewStateState, ViewStateSearchText);
+
             }
         }
 

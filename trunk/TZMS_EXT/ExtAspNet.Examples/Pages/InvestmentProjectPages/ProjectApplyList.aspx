@@ -106,7 +106,7 @@
         Target="Parent" runat="server" IsModal="true" Height="430px" Width="570px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="wndView" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
-        Target="Parent" runat="server" IsModal="true" Height="410px" Width="550px" OnClose="wndNew_Close">
+        Target="Parent" runat="server" IsModal="true" Height="398px" Width="550px" OnClose="wndNew_Close">
     </ext:Window>
     <ext:Window ID="wndEnding" Popup="false" EnableIFrame="true" IFrameUrl="about:blank"
         Target="Parent" runat="server" IsModal="true" Height="495px" Width="570px" OnClose="wndNew_Close">
