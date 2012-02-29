@@ -247,7 +247,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         {
             InvestmentLoanInfo _userInfo = (InvestmentLoanInfo)e.DataItem;
 
-            if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId) || _userInfo.Status != 7)
+            if (!_userInfo.NextOperaterId.Equals(this.CurrentUser.ObjectId) ||  ddlstState.SelectedValue != "7")
             {
                 e.Values[11] = "<span class=\"gray\">审核</span>";
             }

@@ -238,7 +238,7 @@ namespace TZMS.Web.Pages.CashFlow
         {
             InvestmentProjectInfo _Info = (InvestmentProjectInfo)e.DataItem;
 
-            if (!_Info.NextBAOperaterId.Equals(this.CurrentUser.ObjectId))
+            if (!_Info.NextBAOperaterId.Equals(this.CurrentUser.ObjectId) || ddlstState.SelectedValue != "1")
             {
                 e.Values[10] = "<span class=\"gray\">审核</span>";
             }

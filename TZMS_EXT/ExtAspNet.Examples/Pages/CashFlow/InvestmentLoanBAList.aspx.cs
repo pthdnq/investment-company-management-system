@@ -242,7 +242,7 @@ namespace TZMS.Web.Pages.CashFlow
         {
             InvestmentLoanInfo _Info = (InvestmentLoanInfo)e.DataItem;
 
-            if (!_Info.NextBAOperaterId.Equals(this.CurrentUser.ObjectId))
+            if (!_Info.NextBAOperaterId.Equals(this.CurrentUser.ObjectId) || ddlstState.SelectedValue != "1")
             { 
                 e.Values[11] = "<span class=\"gray\">审核</span>";
             }

@@ -238,9 +238,9 @@ namespace TZMS.Web.Pages.CashFlow
         {
             BankLoanInfo _Info = (BankLoanInfo)e.DataItem;
 
-            if (!_Info.NextBAOperaterId.Equals(this.CurrentUser.ObjectId))
+            if (!_Info.NextBAOperaterId.Equals(this.CurrentUser.ObjectId) || ddlstState.SelectedValue != "1")
             {
-                e.Values[11] = "<span class=\"gray\">审核</span>";
+                e.Values[11] = "<span class=\"gray\">审核</span>"; 
             }
         }
 
