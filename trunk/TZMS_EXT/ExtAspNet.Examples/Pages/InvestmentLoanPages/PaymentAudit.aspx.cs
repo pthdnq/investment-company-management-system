@@ -281,7 +281,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 }
                    
 
-                Alert.Show("更新成功!");
+                //Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
