@@ -191,7 +191,7 @@ namespace TZMS.Web.Pages.CashFlow
             InvestmentLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
 
             _Info.BAStatus = status;
-           // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+            // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
 
             //下一步操作
             if (status == 4 || status == 2)
@@ -218,17 +218,26 @@ namespace TZMS.Web.Pages.CashFlow
             {
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意，归档";
                 new CashFlowManage().AddHistory(_Info.ObjectId, "审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text, "InvestmentLoan");
-                            #region 调用发送消息
+                #region 调用发送消息
                 if (status == 4)
                 {
                     List<Guid> receives = new List<Guid>();
                     receives.Add(_Info.CreaterId);
                     string strTitle = "投资部借款会计核算通过提醒";
-                    string strContent = string.Format("{0} 项目已于{1}通过会计审核，请查看。", _Info.ProjectName,  _Info.SubmitBATime.ToShortDateString());
-                    new MessageManage().SendMessage(_Info.ObjectId,  this.CurrentUser.ObjectId, receives, strTitle, strContent);
+                    string strContent = string.Format("{0} 项目已于{1}通过会计审核，请查看。", _Info.ProjectName, _Info.SubmitBATime.ToShortDateString());
+                    new MessageManage().SendMessage(_Info.ObjectId, this.CurrentUser.ObjectId, receives, strTitle, strContent);
+                }
+                else if (status == 3)
+                {
+                    //继续审批
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "投资部借款会计核算");
+                }
+                else
+                {
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您的借款申请，会计核算 未通过！");
                 }
                 #endregion
-                Alert.Show("更新成功!");
+                //Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

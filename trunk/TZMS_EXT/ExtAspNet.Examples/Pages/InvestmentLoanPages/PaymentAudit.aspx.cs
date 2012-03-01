@@ -58,9 +58,9 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 string strID = Request.QueryString["ID"];
                 ObjectID = strID;
 
-                OperateType = Request.QueryString["Type"]; 
+                OperateType = Request.QueryString["Type"];
 
-                bindInterface(strID); 
+                bindInterface(strID);
                 // 绑定审批历史.
                 BindHistory();
             }
@@ -260,8 +260,26 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             result = manage.Update(_Info);
             if (result == -1)
             {
-                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
+                string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计确认";
                 manage.AddHistory(_Info.ObjectId, "审批", string.Format("借款审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+
+                if (status == 2)
+                {
+                    //不同意，发送消息给表单申请人
+                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "借款申请", "未通过");
+                }
+                else if(status == 3)
+                {
+                    //继续审核，发消息给下一步执行人
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "借款审核列表");
+                }
+                else
+                {
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "借款确认列表");
+                    //提醒申请人，审核通过，待会计确认
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条借款申请，已通过审核，待会计确认！");
+                }
+                   
 
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

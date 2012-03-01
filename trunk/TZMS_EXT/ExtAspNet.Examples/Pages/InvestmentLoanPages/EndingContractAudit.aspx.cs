@@ -273,8 +273,23 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     //结清客户的借款状态
                     manage.CleanCustomerStatus(_Info.BorrowerAId.ToString());
                 }
+                if (status == 11)
+                {
+                    //不同意，发送消息给表单申请人
+                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "合同终止申请（来自集团风险控制部）", "未通过");
+                }
+                else if (status == 7)
+                {
+                    //继续审核，发消息给下一步执行人
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "终止审核列表（来自集团风险控制部）");
+                }
+                else
+                {
+                    //提醒申请人，审核通过
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条合同终止申请，已通过审核并归档！（来自集团风险控制部）");
+                }
 
-                Alert.Show("更新成功!");
+                //Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

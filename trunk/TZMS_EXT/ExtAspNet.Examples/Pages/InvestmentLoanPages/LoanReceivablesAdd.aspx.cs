@@ -155,8 +155,11 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             if (result == -1)
             {
                 manage.AddHistory(true,_Info.ObjectId, "新增", "新增收款信息", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, string.Empty);
-           
-                Alert.Show("添加成功!");
+
+                //进展提醒
+                ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条收款 待确认 信息（来自集团风险控制部）！");
+
+                //Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

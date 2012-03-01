@@ -214,8 +214,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 string statusName = string.Format("从 {0} 转移至 {1}", strLastNextOperaterName, this.ddlstApproveUser.SelectedText);// (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
                 manage.AddHistory(_Info.ObjectId, strOperationType, string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
-
-                Alert.Show("操作成功!");
+                
+                //提醒 新的审批人
+                ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 待审批 借款申请信息（来自风险控制部，通过审批人转移方式）！");
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
