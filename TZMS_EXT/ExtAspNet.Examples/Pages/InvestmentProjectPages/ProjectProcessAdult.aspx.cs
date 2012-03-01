@@ -245,7 +245,24 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 string statusName = (status == 2) ? "不同意" : (status == 5) ? "同意，继续审批" : "同意，归档";
                 manage.AddHistory(true, _Info.ObjectId, "进展审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
-                Alert.Show("操作成功!");
+                if (status == 2)
+                {
+                    //不同意，发送消息给表单申请人
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条项目进展申请，审核未通过！（来自集团外项目）");
+
+                }
+                else if (status == 5)
+                {
+                    //继续审核，发消息给下一步执行人
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "项目进展审核列表（来自集团外项目）");
+                }
+                else
+                {
+                    //提醒申请人，审核通过
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条项目进展申请，已通过审核并归档！（来自集团外项目）");
+                }
+
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

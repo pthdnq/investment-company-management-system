@@ -219,7 +219,10 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
                 manage.AddHistory(true, _Info.ObjectId, "会计审核", string.Format("出纳确认-{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
 
-                Alert.Show("操作成功!");
+                //提醒申请人，审核通过，会计已确认
+                ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条备用金申请（集团外项目），会计已确认！");
+                   
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference("操作成功"));
 
             }

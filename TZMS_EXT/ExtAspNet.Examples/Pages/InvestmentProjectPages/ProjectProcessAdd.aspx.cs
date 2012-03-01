@@ -366,7 +366,16 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                 manage.AddHistory(true, _Info.ObjectId, strOpertationType, strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
 
-                Alert.Show("添加成功!");
+                //信息审核
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "进展审核列表（集团外项目）");
+
+                if (cbIsAmountExpended.Checked)
+                {
+                    //备用金审核
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "备用金审核列表（集团外项目）");
+                }
+
+                //Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
