@@ -203,8 +203,6 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// </summary>
         private void saveInfo()
         {
-
-
             InvestmentLoanInfo _Info = null;
             InvestmentLoanManage manage = new InvestmentLoanManage();
             CustomerInfo _customer = null;
@@ -290,7 +288,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
 
                 manage.AddHistory(_Info.ObjectId, "新增", "新增借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
                 new CashFlowManage().AddHistory(_Info.ObjectId, "新增", "投资部借款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "InvestmentLoan");
-                Alert.Show("添加成功!");
+
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "借款审核列表");
+
+                CheckMsg(ddlstApproveUserBA.SelectedValue.ToString(), ddlstApproveUserBA.SelectedText, "投资部借款会计核算");
+
+                //Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

@@ -837,6 +837,34 @@ namespace TZMS.Web
             _manage.AddNewMessage(_info);
         }
 
+        /// <summary>
+        /// 审批（核）结果信息提醒
+        /// </summary>
+        /// <param name="receiverID">接收人ID</param>
+        /// <param name="receiverName">接收人姓名</param>
+        /// <param name="state">自定义信息</param>
+        public void ResultMsgMore(string receiverID, string receiverName, string msg)
+        {
+            MessageManage _manage = new MessageManage();
+            MessageInfo _info = new MessageInfo();
+            _info = new MessageInfo();
+            _info.ObjectId = Guid.NewGuid();
+            _info.SenderId = CurrentUser.ObjectId;
+            _info.SenderName = CurrentUser.Name;
+            _info.DeptName = CurrentUser.Dept;
+            _info.Tile = "系统提醒";
+            _info.Context = receiverName + " , 您好！\r\n " +  msg  ;
+            _info.ReceviceId = new Guid(receiverID);
+            _info.Recevicer = receiverName;
+            _info.SendDate = DateTime.Now; ;
+            _info.ViewDate = ACommonInfo.DBEmptyDate;
+            _info.IsView = false;
+            _info.IsDelete = false;
+            _info.SentMessageId = Guid.NewGuid(); ;
+
+            _manage.AddNewMessage(_info);
+        }
+
         #endregion
     }
 }

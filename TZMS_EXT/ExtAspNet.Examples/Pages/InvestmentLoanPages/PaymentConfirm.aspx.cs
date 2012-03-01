@@ -244,7 +244,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 string statusName = "借款，已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
                 manage.AddHistory(_Info.ObjectId, "会计审核", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
 
-                Alert.Show("操作成功!");
+                //提醒申请人，审核通过，会计已确认
+                ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条借款申请，会计已确认！");
+                   
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

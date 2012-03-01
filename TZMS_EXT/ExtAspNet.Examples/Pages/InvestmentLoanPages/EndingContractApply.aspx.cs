@@ -284,8 +284,10 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 string statusName = "合同终止申请";// (status == 11) ? "不同意" : (status == 7) ? "同意，继续审批" : "同意，归档";
                 manage.AddHistory(_Info.ObjectId, "合同终止", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.OpationRemark);
-
-                Alert.Show("操作成功!");
+                //继续审核，发消息给下一步执行人
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "终止审核列表（来自集团风险控制部）");
+               
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
