@@ -241,7 +241,24 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 string statusName = (status == 11) ? "不同意" : (status == 7) ? "同意，继续审核" : "同意，归档";
                 manage.AddHistory(_Info.ObjectId, "合同终止", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
-                Alert.Show("操作成功!");
+                if (status == 11)
+                {
+                    //不同意，发送消息给表单申请人
+                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "合同终止申请(来自集团外项目)", "未通过");
+                }
+                else if (status ==7)
+                {
+                    //继续审核，发消息给下一步执行人
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "终止审核列表(来自集团外项目)");
+                }
+                else
+                {
+                    //提醒申请人，审核通过
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条合同终止申请，已通过审核并归档(来自集团外项目)！");
+                }
+
+
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

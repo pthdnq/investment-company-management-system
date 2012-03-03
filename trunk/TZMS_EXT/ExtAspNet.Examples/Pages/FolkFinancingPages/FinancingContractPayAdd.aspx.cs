@@ -260,7 +260,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 string strRemark = _Info.Remark;// OperateType.Equals("Edit") ? "" : _Info.Remark;
                 manage.AddHistory(true, _Info.ObjectId, strOpertationType, strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, strRemark);
 
-                Alert.Show("操作成功!");
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "支付审核列表（财务部融资）");
+
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

@@ -244,7 +244,18 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, this.ddlstApproveUser.SelectedText);//  (status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
                 manage.AddHistory(_Info.ObjectId, strOperationType, string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
 
-                Alert.Show("操作成功!");
+
+                if (strOperationType == "业务转移")
+                {
+                    //提醒 新的审批人
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1个融资合同，" + statusName + "（来自财务部融资，通过业务移交方式）！");
+                }
+                else
+                {
+                    //提醒 新的审批人
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的领导审核列表，有1条 待审批 信息（来自财务部融资，通过业务移交方式）！");
+                }
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

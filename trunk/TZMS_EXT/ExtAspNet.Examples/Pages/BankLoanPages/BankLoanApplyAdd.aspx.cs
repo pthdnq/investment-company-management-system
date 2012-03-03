@@ -71,7 +71,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 Alert.Show("贷款手续费 整数部分不能超过16位！");
                 return;
             }
-            saveInfo(); 
+            saveInfo();
         }
 
         #endregion
@@ -102,7 +102,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.Remark = this.tbRemark.Text.Trim();
             _Info.Status = 1;
             //补充申请人及下一步审核人信息
-         
+
             _Info.CreateTime = DateTime.Now;
             _Info.CreaterId = this.CurrentUser.ObjectId;
             _Info.CreaterName = this.CurrentUser.Name;
@@ -111,22 +111,25 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.SubmitTime = DateTime.Now;
             _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-        
+
             //会计核算
             _Info.NextBAOperaterName = this.ddlstApproveUserBA.SelectedText;
             _Info.NextBAOperaterId = new Guid(this.ddlstApproveUserBA.SelectedValue);
             _Info.SubmitBATime = DateTime.Now;
-            _Info.BAStatus = 1;            
+            _Info.BAStatus = 1;
 
-            int result = 3; 
+            int result = 3;
             result = manage.Add(_Info);
 
             if (result == -1)
             {
                 manage.AddHistory(_Info.ObjectId, "申请", "银行贷款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
-                 new CashFlowManage().AddHistory(_Info.ObjectId, "申请", "银行贷款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark,"BankLoan");
-          
-                Alert.Show("添加成功!");
+                new CashFlowManage().AddHistory(_Info.ObjectId, "申请", "银行贷款申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "BankLoan");
+
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "贷款申请审核列表");
+                CheckMsg(ddlstApproveUserBA.SelectedValue.ToString(), ddlstApproveUserBA.SelectedText, "银行贷款会计核算");
+
+                //Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
@@ -157,9 +160,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
                 ddlstApproveUserBA.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
-        
             }
-
             ddlstApproveUser.SelectedIndex = 0;
             ddlstApproveUserBA.SelectedIndex = 0;
         }

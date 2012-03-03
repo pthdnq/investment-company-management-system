@@ -181,7 +181,10 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, _Info.NextOperaterName);//(status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
                 manage.AddHistory(true, _Info.ObjectId, "审批转移", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
 
-                Alert.Show("操作成功!");
+                //提醒 新的审批人
+                ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的支付审核列表，有1条 待审批 信息（来自财务部融资，通过审批人转移方式）！");
+
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

@@ -232,7 +232,23 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意，待出纳会计审核";
                 manage.AddHistory(true, _Info.ObjectId, "审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
-                Alert.Show("操作成功!");
+                if (status == 2)
+                {
+                    //不同意，发送消息给表单申请人
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条支付申请，未通过审核（来自财务部融资）！");
+                }
+                else if (status == 3)
+                {
+                    //继续审核，发消息给下一步执行人
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "支付审核列表（来自财务部融资）！");
+                }
+                else
+                {
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 待出纳会计确认 信息（来自财务部融资）！");
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条支付申请，待出纳会计确认（来自财务部融资）！");
+                }
+
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

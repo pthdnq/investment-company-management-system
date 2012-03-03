@@ -265,7 +265,22 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 string statusName = (status == 2) ? "不同意" : (status == 3) ? "同意，继续审批" : "同意，归档";
                 manage.AddHistory(_Info.ObjectId, "审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
-                Alert.Show("操作成功!");
+                if (status == 2)
+                {
+                    //不同意，发送消息给表单申请人
+                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "融资申请（财务部融资）", "领导审核未通过");
+                }
+                else if (status == 3)
+                {
+                    //继续审核，发消息给下一步执行人
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "领导审核列表（财务部融资）");
+                }
+                else
+                {
+                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "融资申请（财务部融资）", "领导审核已通过并归档");
+                }
+
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

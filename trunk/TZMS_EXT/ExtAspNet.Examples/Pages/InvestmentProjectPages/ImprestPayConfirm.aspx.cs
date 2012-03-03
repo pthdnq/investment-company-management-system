@@ -212,7 +212,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 List<Guid> receives = new List<Guid>();
                 receives.Add(_Info.CreaterId);
                 string strTitle = "投资部项目实施备用金支付提醒";
-                string strContent = string.Format("{0}-{1}备用金{2}.00元已通过领导审核确认支付，谢谢", _Info.ProjectName, _Info.ImplementationPhase, _Info.PrepaidAmount);
+                string strContent = string.Format("{0}-{1}备用金{2}元已通过领导审核确认支付，谢谢", _Info.ProjectName, _Info.ImplementationPhase, _Info.PrepaidAmount);
                 new MessageManage().SendMessage(Guid.NewGuid(), this.CurrentUser.ObjectId, receives, strTitle, strContent);
                 #endregion
 
@@ -220,7 +220,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 manage.AddHistory(true, _Info.ObjectId, "会计审核", string.Format("出纳确认-{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
 
                 //提醒申请人，审核通过，会计已确认
-                ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条备用金申请（集团外项目），会计已确认！");
+                //ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条备用金申请（集团外项目），会计已确认！");
                    
                 //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference("操作成功"));

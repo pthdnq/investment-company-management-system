@@ -140,8 +140,10 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 manage.AddHistory(_Info.ObjectId, "新增", "新增民间融资申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
                 new CashFlowManage().AddHistory(_Info.ObjectId, "新增", "新增民间融资申请", this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "FolkFinancing");
-                
-                Alert.Show("添加成功!");
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "会计审核列表（财务部融资）");
+                CheckMsg(ddlstApproveUserBA.SelectedValue.ToString(), ddlstApproveUserBA.SelectedText, "民间融资会计核算");
+
+                //Alert.Show("添加成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

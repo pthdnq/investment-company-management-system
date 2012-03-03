@@ -263,8 +263,10 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 string statusName = "合同终止申请";//(status == 11) ? "不同意" : (status == 7) ? "同意，继续审批" : "同意，归档";
                 manage.AddHistory(_Info.ObjectId, "合同终止", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
-
-                Alert.Show("操作成功!");
+                //发送消息提醒
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "终止审核列表(财务部融资)");
+   
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
