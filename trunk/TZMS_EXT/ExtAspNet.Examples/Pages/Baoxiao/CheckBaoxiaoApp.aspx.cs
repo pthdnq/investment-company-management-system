@@ -267,6 +267,15 @@ namespace TZMS.Web
                 //btnPass.Enabled = false;
                 //btnRefuse.Enabled = false;
                 //BindApproveHistory();
+                if (ddlstNext.SelectedText == "审批")
+                {
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "报销审批（来自财务报销）");
+                }
+                else
+                {
+                    ResultMsgMore(_baoxiaoInfo.UserId.ToString(), _baoxiaoInfo.UserName, "您有1条报销申请（来自费用管理），已通过审核并归档！");
+                }
+
                 this.btnClose_Click(null, null);
             }
             else
