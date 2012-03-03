@@ -227,6 +227,15 @@ namespace TZMS.Web.Pages.CashFlow
                     string strContent = string.Format("{0} 项目已于{1}通过会计审核，请查看。", _Info.ProjectName, _Info.SubmitBATime.ToShortDateString());
                     new MessageManage().SendMessage(_Info.ObjectId, this.CurrentUser.ObjectId, receives, strTitle, strContent);
                 }
+                else if (status == 3)
+                {
+                    //继续审批
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "银行贷款会计核算");
+                }
+                else
+                {
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您的贷款申请，会计核算 未通过！");
+                }
                 #endregion
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

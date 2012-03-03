@@ -103,13 +103,13 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextArea ID="taContact" Enabled="false" Label="联系方式(贷款人，抵押物方)" runat="server">
+                                            <ext:TextArea ID="taContact"  Readonly="true" Label="联系方式(贷款人，抵押物方)" runat="server">
                                             </ext:TextArea>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="100%">
                                         <Items>
-                                            <ext:TextArea ID="tbRemark" Enabled="false" Label="备注" runat="server" MaxLength="300"
+                                            <ext:TextArea ID="tbRemark" Readonly="true" Label="备注" runat="server" MaxLength="300"
                                                 MaxLengthMessage="最多只能输入300个字符！">
                                             </ext:TextArea>
                                         </Items>

@@ -216,8 +216,17 @@ namespace TZMS.Web.Pages.CashFlow
                     List<Guid> receives = new List<Guid>();
                     receives.Add(_Info.CreaterId);
                     string strTitle = "投资部项目实施会计核算通过提醒";
-                    string strContent = string.Format("{0} 项目已于{1}通过会计审核，请查看。", _Info.ProjectName,  _Info.SubmitBATime.ToShortDateString());
+                    string strContent = string.Format("{0} 项目已于 {1} 通过会计审核，请查看。", _Info.ProjectName,  _Info.SubmitBATime.ToShortDateString());
                     new MessageManage().SendMessage(_Info.ObjectId,  this.CurrentUser.ObjectId, receives, strTitle, strContent);
+                }
+                else if (status == 3)
+                {
+                    //继续审批
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "投资部项目实施会计核算");
+                }
+                else
+                {
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您的投资部项目实施申请，会计核算 未通过！");
                 }
                 #endregion
                 Alert.Show("操作成功!");

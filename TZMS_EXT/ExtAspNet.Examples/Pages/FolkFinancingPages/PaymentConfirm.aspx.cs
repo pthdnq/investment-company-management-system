@@ -244,7 +244,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
                 manage.AddHistory(true, _Info.ObjectId, "会计审核", string.Format("审核:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AccountingRemark);
 
-                Alert.Show("操作成功!");
+                ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条支付申请，出纳会计已确认（来自财务部融资）！");
+
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference("操作成功"));
             }
             else

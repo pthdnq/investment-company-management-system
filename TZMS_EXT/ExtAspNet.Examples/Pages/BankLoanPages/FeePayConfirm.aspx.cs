@@ -221,7 +221,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 List<Guid> receives = new List<Guid>();
                 receives.Add(_Info.CreaterId);
                 string strTitle = "银行贷款项目备用金支付提醒";
-                string strContent = string.Format("{0}-{1}备用金{2}.00元已通过领导审核确认支付，谢谢", _Info.ProjectName, _Info.ImplementationPhase, _Info.AmountExpended);
+                string strContent = string.Format("{0}-{1}备用金{2}元已通过领导审核确认支付，谢谢", _Info.ProjectName, _Info.ImplementationPhase, _Info.AmountExpended);
                 new MessageManage().SendMessage(Guid.NewGuid(), this.CurrentUser.ObjectId, receives, strTitle, strContent);
                 #endregion
           
