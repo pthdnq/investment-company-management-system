@@ -273,7 +273,8 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                 //  string statusName = "重新修改后提交";//(status == 2) ? "不同意" : (status == 3) ? "同意，继续审核" : "同意,归档";
                 manage.AddHistory(_Info.ObjectId, operationName, string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, remark);
 
-                Alert.Show("操作成功!");
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "行政付款审核列表（来自费用管理）");
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else

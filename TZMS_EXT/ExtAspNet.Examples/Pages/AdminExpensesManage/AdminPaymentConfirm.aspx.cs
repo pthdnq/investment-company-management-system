@@ -278,8 +278,9 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
                 string statusName = "已确认";//(status == 2) ? "不同意" : (status == 3) ? "同意，继续审批" : "同意，提交出纳确认";
                 manage.AddHistory(_Info.ObjectId, "出纳确认", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+                ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条行政付款申请（来自费用管理），出纳已确认！");
 
-                Alert.Show("操作成功!");
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
