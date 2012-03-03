@@ -256,6 +256,7 @@ namespace TZMS.Web
                 //tabApproveHistory.Hidden = false;
                 //BaoxiaoObjectID = _baoxiaoInfo.ObjectId.ToString();
                 //BindApproveHistory();
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "报销审批（来自财务报销）");
 
                 this.btnClose_Click(null, null);
             }
