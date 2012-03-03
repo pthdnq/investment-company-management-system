@@ -284,6 +284,7 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "物资领用审批（来自物资管理）");
 
                 this.btnClose_Click(null, null);
             }
