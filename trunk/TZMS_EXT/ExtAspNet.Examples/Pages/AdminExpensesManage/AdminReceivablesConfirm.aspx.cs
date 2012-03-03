@@ -276,7 +276,11 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                 string statusName = "出纳确认，提交领导确认";//(status == 2) ? "不同意" : (status == 3) ? "同意，继续确认" : "同意，归档";
                 manage.AddHistory(_Info.ObjectId, "出纳确认", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
-                Alert.Show("操作成功!");
+                ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条收款上交申请（来自费用管理），出纳已确认！");
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "收款上交审核列表（来自费用管理）");
+
+
+                //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
