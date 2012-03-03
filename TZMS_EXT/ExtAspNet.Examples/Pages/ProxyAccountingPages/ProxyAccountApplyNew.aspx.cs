@@ -274,6 +274,7 @@ namespace TZMS.Web
                 //tabApproveHistory.Hidden = false;
                 //ApplyID = _applyInfo.ObjectID.ToString();
                 //BindApproveHistory();
+                //CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "代账单审批");
 
                 this.btnClose_Click(null, null);
             }

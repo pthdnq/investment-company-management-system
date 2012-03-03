@@ -305,6 +305,8 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "代账单模板审批");
+
                 this.btnClose_Click(null, null);
             }
             else

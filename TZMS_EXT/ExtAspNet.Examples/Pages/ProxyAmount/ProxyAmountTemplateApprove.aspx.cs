@@ -252,6 +252,14 @@ namespace TZMS.Web
             }
             if (result == -1)
             {
+                if (ddlstNext.SelectedText == "审批")
+                {
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "物资领用审批（来自物资管理）");
+                }
+                else
+                {
+                    ResultMsgMore(_applyInfo.ApproverID.ToString(), "用户", "您有1条物资领用申请（来自物资管理），已通过审核并归档！");
+                }
                 this.btnClose_Click(null, null);
             }
             else
