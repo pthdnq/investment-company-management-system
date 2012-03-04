@@ -109,7 +109,7 @@
                                             <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="yggl" AutoPostBack="false" OnClientClick=" tabs('yggl','UserKey');"
                                                 Text="员工管理">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="zzns" AutoPostBack="false" OnClientClick=" tabs('zzns','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="StatusAway" NodeID="zzns" AutoPostBack="false" OnClientClick=" tabs('zzns','UserKey');"
                                                 Text="转正年数">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/系统配置.png" NodeID="xtpz" AutoPostBack="false"
@@ -139,10 +139,10 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/招聘归档.png" NodeID="zpsqgd" AutoPostBack="false"
                                                 OnClientClick=" tabs('zpsqgd','UserKey');" Text="招聘归档">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="cmdj" AutoPostBack="false" OnClientClick=" tabs('cmdj','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="UserGo" NodeID="cmdj" AutoPostBack="false" OnClientClick=" tabs('cmdj','UserKey');"
                                                 Text="出门登记">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" Icon="UserKey" NodeID="rmdj" AutoPostBack="false" OnClientClick=" tabs('rmdj','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="UserTick" NodeID="rmdj" AutoPostBack="false" OnClientClick=" tabs('rmdj','UserKey');"
                                                 Text="入门登记">
                                             </ext:TreeNode>
                                             <%--                                            <ext:TreeNode Leaf="true"  Icon="UserKey" NodeID="cs" AutoPostBack="false" OnClientClick=" tabs('cs','UserKey');"
@@ -195,7 +195,7 @@
                                     <ext:Tree ID="treeXZGL1" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息管理.png" NodeID="wdxz" OnClientClick=" tabs('wdxz','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="MedalGold1" NodeID="wdxz" OnClientClick=" tabs('wdxz','UserKey');"
                                                 Text="我的薪资">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息管理.png" NodeID="xzxxgl" OnClientClick=" tabs('xzxxgl','UserKey');"
@@ -207,7 +207,7 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息审批.png" NodeID="xzsp" OnClientClick=" tabs('xzsp','UserKey');"
                                                 Text="薪资信息审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/薪资信息管理.png" NodeID="xzff" OnClientClick=" tabs('xzff','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="MoneyYen" NodeID="xzff" OnClientClick=" tabs('xzff','UserKey');"
                                                 Text="工资发放">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/加薪申请.png" NodeID="jxsq" OnClientClick=" tabs('jxsq','UserKey');"
@@ -260,7 +260,7 @@
                                     <ext:Tree ID="treeWZGL" EnableLines="false" ShowHeader="false" ShowBorder="false"
                                         runat="server">
                                         <Nodes>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzgl" OnClientClick=" tabs('wzgl','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="BookKey" NodeID="wzgl" OnClientClick=" tabs('wzgl','UserKey');"
                                                 Text="物资管理">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzcgsq" OnClientClick=" tabs('wzcgsq','UserKey');"
@@ -269,16 +269,16 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/物资审批.gif" NodeID="wzcgsp" OnClientClick=" tabs('wzcgsp','UserKey');"
                                                 Text="物资采购审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资审批.gif" NodeID="wzcgrk" OnClientClick=" tabs('wzcgrk','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="BookEdit" NodeID="wzcgrk" OnClientClick=" tabs('wzcgrk','UserKey');"
                                                 Text="物资采购入库">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资申请.gif" NodeID="wzsq" OnClientClick=" tabs('wzsq','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="BookmarkAdd" NodeID="wzsq" OnClientClick=" tabs('wzsq','UserKey');"
                                                 Text="物资领用申请">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资审批.gif" NodeID="wzsp" OnClientClick=" tabs('wzsp','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="BookGo" NodeID="wzsp" OnClientClick=" tabs('wzsp','UserKey');"
                                                 Text="物资领用审批">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/物资审批.gif" NodeID="wzlytj" OnClientClick=" tabs('wzlytj','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="BookOpen" NodeID="wzlytj" OnClientClick=" tabs('wzlytj','UserKey');"
                                                 Text="物资领用统计">
                                             </ext:TreeNode>
                                         </Nodes>
@@ -331,7 +331,7 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/代账申请.gif" NodeID="dzdmbzz" OnClientClick=" tabs('dzdmbzz','UserKey');"
                                                 Text="代账单模板制作">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/代账审批.gif" NodeID="dzdmbsp" OnClientClick=" tabs('dzdmbsp','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="Coins" NodeID="dzdmbsp" OnClientClick=" tabs('dzdmbsp','UserKey');"
                                                 Text="代账单模板审批">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/代账审批.gif" NodeID="dzdgl" OnClientClick=" tabs('dzdgl','UserKey');"
@@ -340,7 +340,7 @@
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/代帐单打印.png" NodeID="wddzd" OnClientClick=" tabs('wddzd','UserKey');"
                                                 Text="我的代帐单">
                                             </ext:TreeNode>
-                                            <ext:TreeNode Leaf="true" IconUrl="images/16/代帐单打印.png" NodeID="dzfygl" OnClientClick=" tabs('dzfygl','UserKey');"
+                                            <ext:TreeNode Leaf="true" Icon="Drive" NodeID="dzfygl" OnClientClick=" tabs('dzfygl','UserKey');"
                                                 Text="代帐费用管理">
                                             </ext:TreeNode>
                                         </Nodes>
