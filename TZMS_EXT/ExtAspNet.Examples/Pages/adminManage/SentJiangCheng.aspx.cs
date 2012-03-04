@@ -211,6 +211,9 @@ namespace TZMS.Web
             }
             else
             {
+                ResultMsgMore(_JCUser.ObjectId.ToString(), _JCUser.Name, "奖惩单确认中（来自行政管理），您有1条 待确认 信息！");
+                ResultMsgMore(_ZJUser.ObjectId.ToString(), _ZJUser.Name, "奖惩单确认中（来自行政管理），您有1条 待确认 信息！");
+                
                 Alert.Show("申请提交失败!");
             }
 

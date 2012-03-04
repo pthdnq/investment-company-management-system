@@ -349,6 +349,8 @@ namespace TZMS.Web
                     BindApproveHistory();
                     BindTransferHistory();
                     DisableAllControls();
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "离职审批（来自转正离职）");
+
                 }
                 else
                 {

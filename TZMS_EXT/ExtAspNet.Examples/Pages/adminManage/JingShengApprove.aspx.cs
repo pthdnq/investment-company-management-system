@@ -251,6 +251,16 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                if (ddlstNext.SelectedText == "审批")
+                {
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "晋升调岗审批（来自行政管理）");
+                }
+                else
+                {
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "晋升调岗中，您有1条 待归档 信息！");
+                    ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.Name, "您有1条晋升调岗申请（来自行政管理），已通过审核,待归档！");
+                }
+
                 this.btnClose_Click(null, null);
             }
             else
@@ -313,6 +323,8 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "晋升调岗归档中，您有1条 待归档 信息！");
+                ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.Name, "您有1条晋升调岗申请（来自行政管理），未通过审核,待归档！");
                 this.btnClose_Click(null, null);
             }
             else

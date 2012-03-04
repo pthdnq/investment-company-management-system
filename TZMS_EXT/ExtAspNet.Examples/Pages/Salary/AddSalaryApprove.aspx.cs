@@ -260,6 +260,14 @@ namespace TZMS.Web
             }
             if (result == -1)
             {
+                if (ddlstNext.SelectedText == "审批")
+                {
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "加薪审批（来自薪资管理）");
+                }
+                else
+                {
+                    ResultMsgMore(_applyInfo.UserId.ToString(), _applyInfo.Name, "您有1条加薪申请（来自薪资管理），已通过审核并归档！");
+                }
                 this.btnClose_Click(null, null);
             }
             else
