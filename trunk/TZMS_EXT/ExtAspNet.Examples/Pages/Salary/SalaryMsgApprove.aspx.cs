@@ -263,6 +263,14 @@ namespace TZMS.Web
             }
             if (result == -1)
             {
+                if (ddlstNext.SelectedText == "审批")
+                {
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "薪资信息审批（来自薪资管理）");
+                }
+                else
+                {
+                    ResultMsgMore(_applyInfo.CreaterId.ToString(), _applyInfo.Name, "您有1条薪资信息申请（来自薪资管理），已通过审核并归档！");
+                }
                 this.btnClose_Click(null, null);
             }
             else
@@ -307,6 +315,8 @@ namespace TZMS.Web
 
                 if (result == -1)
                 {
+                    ResultMsgMore(_applyInfo.CreaterId.ToString(), _applyInfo.Name, "您有1条薪资信息申请（来自薪资管理），未通过审核！");
+
                     this.btnClose_Click(null, null);
                 }
                 else

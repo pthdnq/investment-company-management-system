@@ -196,6 +196,7 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.Name, "您有1条晋升调岗申请（来自行政管理），已归档！");
                 this.btnClose_Click(null, null);
             }
             else

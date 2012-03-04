@@ -243,6 +243,8 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "薪资信息审批（来自薪资管理）");
+
                 this.btnClose_Click(null, null);
             }
             else

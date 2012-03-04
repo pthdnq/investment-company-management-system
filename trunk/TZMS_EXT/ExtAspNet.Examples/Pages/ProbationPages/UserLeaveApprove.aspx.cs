@@ -382,7 +382,9 @@ namespace TZMS.Web
             _approveInfo.ApproveResult = 1;
             _approveInfo.ApproverSugest = string.IsNullOrEmpty(taaApproveSugest.Text.Trim()) ? "同意" : taaApproveSugest.Text.Trim();
             _manage.UpdateApprove(_approveInfo);
-
+            UserInfo _ssUser = new UserInfo();
+            UserInfo _cwUser = new UserInfo();
+            UserInfo _xzUser = new UserInfo();
             // 插入新的记录到流程申请表.
             if (ddlstNext.SelectedText == "审批")
             {
@@ -420,7 +422,7 @@ namespace TZMS.Web
                 // 插入交接信息.
                 // 所属部门.
                 UserLeaveTransferInfo _transferInfo = new UserLeaveTransferInfo();
-                UserInfo _ssUser = _userManage.GetUserByObjectID(ddlstTransferSSDept.SelectedValue);
+                 _ssUser = _userManage.GetUserByObjectID(ddlstTransferSSDept.SelectedValue);
                 if (_ssUser != null)
                 {
                     _transferInfo.ObjectID = Guid.NewGuid();
@@ -437,7 +439,7 @@ namespace TZMS.Web
 
                 // 财务交接人.
                 _transferInfo = new UserLeaveTransferInfo();
-                UserInfo _cwUser = _userManage.GetUserByObjectID(ddlstTransferCWDept.SelectedValue);
+                 _cwUser = _userManage.GetUserByObjectID(ddlstTransferCWDept.SelectedValue);
                 if (_cwUser != null)
                 {
                     _transferInfo.ObjectID = Guid.NewGuid();
@@ -454,7 +456,7 @@ namespace TZMS.Web
 
                 // 行政交接人.
                 _transferInfo = new UserLeaveTransferInfo();
-                UserInfo _xzUser = _userManage.GetUserByObjectID(ddlstTransferXZDept.SelectedValue);
+                 _xzUser = _userManage.GetUserByObjectID(ddlstTransferXZDept.SelectedValue);
                 if (_xzUser != null)
                 {
                     _transferInfo.ObjectID = Guid.NewGuid();
@@ -473,6 +475,20 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                if (ddlstNext.SelectedText == "审批")
+                {
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "离职审批（来自转正离职）");
+                }
+                else
+                {
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "离职归档（来自转正离职）");
+                    ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您的 离职申请（来自转正离职），已通过审核，待工作交接！");
+                    
+                    ResultMsgMore(_ssUser.ObjectId.ToString(), _applyInfo.UserName, "您有1条离职交接信息（来自转正离职）！");
+                    ResultMsgMore(_xzUser.ObjectId.ToString(), _applyInfo.UserName, "您有1条离职交接信息（来自转正离职）！");
+                    ResultMsgMore(_cwUser.ObjectId.ToString(), _applyInfo.UserName, "您有1条离职交接信息（来自转正离职）！");
+                  
+                }
                 this.btnClose_Click(null, null);
             }
             else

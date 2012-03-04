@@ -213,7 +213,7 @@ namespace TZMS.Web
 
             if (result == -1)
             {
-
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "晋升调岗审批（来自行政管理）");
                 this.btnClose_Click(null, null);
             }
             else

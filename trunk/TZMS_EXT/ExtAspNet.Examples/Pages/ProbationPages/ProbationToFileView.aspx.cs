@@ -188,6 +188,8 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条转正申请（来自转正离职），已归档！");
+
                 this.btnClose_Click(null, null);
             }
             else
