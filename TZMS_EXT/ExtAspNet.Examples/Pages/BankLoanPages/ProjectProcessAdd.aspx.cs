@@ -343,13 +343,16 @@ namespace TZMS.Web.Pages.BankLoanPages
                 string strDesc = string.Format("进展{0}-{1}备用金", strOpertationType, (_Info.NeedImprest == 1) ? "申请" : "无");
                 manage.AddHistory(true, _Info.ObjectId, strOpertationType, strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
 
-                //信息审核
-                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "进展审核列表（集团内项目）");
 
                 if (cbIsAmountExpended.Checked)
                 {
                     //备用金审核
                     CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "备用金审核列表（集团内项目）");
+                }
+                else
+                {
+                    //信息审核
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "进展审核列表（集团内项目）");
                 }
 
                 //Alert.Show("添加成功!");
