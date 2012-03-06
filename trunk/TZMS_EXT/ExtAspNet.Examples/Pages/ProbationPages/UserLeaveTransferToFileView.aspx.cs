@@ -160,6 +160,8 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您的 离职申请（来自转正离职），已通过交接！");
+
                 this.btnClose_Click(null, null);
             }
             else

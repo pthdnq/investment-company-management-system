@@ -254,6 +254,15 @@ namespace TZMS.Web
             }
             if (result == -1)
             {
+                if (ddlstNext.SelectedText == "审批")
+                {
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "备用金审批");
+                }
+                else
+                {
+                    ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条备用金申请，已通过审核并归档！");
+                }
+
                 this.btnClose_Click(null, null);
             }
             else

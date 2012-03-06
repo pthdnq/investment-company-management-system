@@ -338,6 +338,8 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "业务费用收取确认(来自吉信企业管理公司)");
+
                 this.btnClose_Click(null, null);
             }
             else

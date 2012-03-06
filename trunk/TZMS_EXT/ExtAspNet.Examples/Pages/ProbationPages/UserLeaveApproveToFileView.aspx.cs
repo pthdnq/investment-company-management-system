@@ -198,6 +198,7 @@ namespace TZMS.Web
                             {
                                 item.TransferState = 0;
                                 _manage.UpdateTransfer(item);
+                                ResultMsgMore(item.TransferID.ToString(), item.TransferName, "您有1条离职交接信息（来自转正离职）！");
                             }
                         }
                         else
