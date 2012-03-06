@@ -257,6 +257,14 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                if (ddlstNext.SelectedText == "确认")
+                {
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "业务费用收取确认(来自吉信企业管理公司)");
+                }
+                else {
+                    ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条业务费用收取申请，已通过确认并归档！");
+                }
+
                 this.btnClose_Click(null, null);
             }
             else

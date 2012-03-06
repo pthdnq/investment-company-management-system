@@ -361,6 +361,8 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "备用金审批");
+
                 this.btnClose_Click(null, null);
             }
             else

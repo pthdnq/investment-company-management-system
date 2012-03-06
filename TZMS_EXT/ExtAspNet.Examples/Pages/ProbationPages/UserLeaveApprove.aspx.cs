@@ -483,11 +483,6 @@ namespace TZMS.Web
                 {
                     CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "离职归档（来自转正离职）");
                     ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您的 离职申请（来自转正离职），已通过审核，待工作交接！");
-
-                    ResultMsgMore(_ssUser.ObjectId.ToString(), _ssUser.Name, "您有1条离职交接信息（来自转正离职）！");
-                    ResultMsgMore(_xzUser.ObjectId.ToString(), _xzUser.Name, "您有1条离职交接信息（来自转正离职）！");
-                    ResultMsgMore(_cwUser.ObjectId.ToString(), _cwUser.Name, "您有1条离职交接信息（来自转正离职）！");
-                  
                 }
                 this.btnClose_Click(null, null);
             }
