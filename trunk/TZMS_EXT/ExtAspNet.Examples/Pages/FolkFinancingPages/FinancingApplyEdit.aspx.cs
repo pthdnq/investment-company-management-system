@@ -272,7 +272,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 string statusName = "修改后重新提交"; // (status == 2) ? "不同意" : (status == 5) ? "同意，继续审批" : "同意，归档";
                 manage.AddHistory(_Info.ObjectId, "编辑", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
-
+         
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "会计审核列表（财务部融资）");
+        
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

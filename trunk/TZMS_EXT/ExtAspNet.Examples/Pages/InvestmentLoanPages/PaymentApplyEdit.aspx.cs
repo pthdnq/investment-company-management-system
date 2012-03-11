@@ -385,7 +385,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 string statusName = "修改后重新提交";//  (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
                 manage.AddHistory(_Info.ObjectId, "编辑", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
 
+                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "借款审核列表");
+
                 Alert.Show("更新成功!");
+
+
+
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
             else
