@@ -201,7 +201,7 @@ namespace TZMS.Web
                     _info.ProxyAmounterName = info.ProxyAmounterName;
                     _info.CNMoney = info.CNMoney;
                     _info.ENMoney = info.ENMoney;
-                    _info.Sument = selectDate.Year + "年" + selectDate.Month + "月份代帐费" + info.ENMoney.ToString() + "元";
+                    _info.Sument = selectDate.Year + "年" + selectDate.Month + "月份代账费" + info.ENMoney.ToString() + "元";
                     _info.OpeningDate = DateTime.Now;
                     _info.CollectMethod = info.CollectMethod;
                     _info.CollecterName = "合肥吉信财务管理有限公司";
@@ -243,7 +243,7 @@ namespace TZMS.Web
                 }
                 DateTime selectDate = Convert.ToDateTime(dpkGenerateNJDate.SelectedDate);
                 List<ProxyAmountInfo> lstProxyAmount = _manage.GetProxyAmountByCondition(" ProxyAmountType = 1 and  ProxyAmountID ='" + info.ProxyAmountUnitID.ToString()
-                    + "' and Sument Like '%" + selectDate.Year + "年%'");
+                    + "' and Sument Like '%" + selectDate.Year + "年%' and IsDelete = 0");
                 if (lstProxyAmount.Count == 0)
                 {
                     ProxyAmountInfo _info = new ProxyAmountInfo();
@@ -328,7 +328,7 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[2] = e.Values[2].ToString() == "0" ? "代帐费" : "年检费";
+                e.Values[2] = e.Values[2].ToString() == "0" ? "代账费" : "年检费";
                 e.Values[9] = DateTime.Parse(e.Values[9].ToString()).ToString("yyyy-MM-dd");
                 switch (e.Values[11].ToString())
                 {

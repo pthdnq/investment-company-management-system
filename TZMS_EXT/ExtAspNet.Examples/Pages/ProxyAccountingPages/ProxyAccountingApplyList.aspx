@@ -65,7 +65,7 @@
                             <ext:BoundField DataField="ObjectID" Hidden="true" />
                             <ext:BoundField DataField="PayUnitID" Hidden="true" />
                             <ext:BoundField DataField="PayUnitName" Width="220px" HeaderText="交款单位" />
-                            <ext:BoundField DataField="ProxyAccountingName" HeaderText="代帐人" />
+                            <ext:BoundField DataField="ProxyAccountingName" HeaderText="代账人" />
                             <ext:BoundField DataField="CNMoney" Hidden="true" HeaderText="金额(大写)" />
                             <ext:BoundField DataField="ENMoney" HeaderText="金额(小写)" />
                             <ext:BoundField DataField="Sument" HeaderText="收款事由" DataTooltipField="Sument" ExpandUnusedSpace="true" />

@@ -78,9 +78,9 @@
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextBox ID="taaOther" runat="server" Label="备注" Height="60px" MaxLength="100"
+                                                    <ext:TextArea ID="taaOther" runat="server" Label="备注" Height="60px" MaxLength="100"
                                                         MaxLengthMessage="最多只能输入100个字!">
-                                                    </ext:TextBox>
+                                                    </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
                                         </Rows>

@@ -326,7 +326,7 @@ namespace TZMS.Web
                     //btnPass.Enabled = false;
                     //btnRefuse.Enabled = false;
                     //BindApproveHistory();
-
+                    ResultMsgMore(_currentInfo.UserId.ToString(), _currentInfo.UserName, "您有1条报销申请（来自费用管理），未通过审核！");
                     this.btnClose_Click(null, null);
                 }
                 else

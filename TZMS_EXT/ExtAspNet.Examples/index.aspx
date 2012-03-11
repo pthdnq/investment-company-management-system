@@ -61,7 +61,11 @@
                              <br />
                            
                                 <asp:Label  ID="labuserName" ForeColor="White" runat="server" Text="您好！ 李海（业务员）"></asp:Label>
-                               <br />                               <table><tr><td> <img  src="images/help_circle.png"/></td><td> <asp:LinkButton ID="likButuon"  ToolTip="点击打开系统帮助" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="帮助"></asp:LinkButton></td>                                                              <td> <img  src="images/cross.png"/></td><td><asp:LinkButton ID="labuserNasme"  ToolTip="点击退出系统" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="退出系统"></asp:LinkButton></td></tr></table>
+                               <br />
+                               <table><tr><td> <img  src="images/help_circle.png"/></td><td> <asp:LinkButton ID="likButuon"  ToolTip="点击打开系统帮助" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="帮助"></asp:LinkButton></td>
+                               
+                               <td> <img  src="images/cross.png"/></td><td><asp:LinkButton ID="labuserNasme"  ToolTip="点击退出系统" ForeColor="White" OnClientClick="return SystemBack();" runat="server" Text="退出系统"></asp:LinkButton></td></tr></table>
+
                                
                                
                                
@@ -338,10 +342,10 @@
                                                 Text="代账单管理">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" IconUrl="images/16/代帐单打印.png" NodeID="wddzd" OnClientClick=" tabs('wddzd','UserKey');"
-                                                Text="我的代帐单">
+                                                Text="我的代账单">
                                             </ext:TreeNode>
                                             <ext:TreeNode Leaf="true" Icon="Drive" NodeID="dzfygl" OnClientClick=" tabs('dzfygl','UserKey');"
-                                                Text="代帐费用管理">
+                                                Text="代账费用管理">
                                             </ext:TreeNode>
                                         </Nodes>
                                     </ext:Tree>
@@ -809,24 +813,24 @@
                     LoadTab("Pages/MaterialsPages/MaterialsStatistics.aspx", "物资领用统计", icon);
                     break;
 
-                // 代帐管理                                                   
+                // 代账管理                                                    
                 case "dzdwgl":
-                    LoadTab("Pages/ProxyAmount/ProxyAmountUnit.aspx", "代帐单位管理", icon);
+                    LoadTab("Pages/ProxyAmount/ProxyAmountUnit.aspx", "代账单位管理", icon);
                     break;
                 case "dzdmbzz":
-                    LoadTab("Pages/ProxyAmount/ProxyAmountTemplateApplyList.aspx", "代帐单模板制作", icon);
+                    LoadTab("Pages/ProxyAmount/ProxyAmountTemplateApplyList.aspx", "代账单模板制作", icon);
                     break;
                 case "dzdmbsp":
-                    LoadTab("Pages/ProxyAmount/ProxyAmountTemplateApproveList.aspx", "代帐单模板审批", icon);
+                    LoadTab("Pages/ProxyAmount/ProxyAmountTemplateApproveList.aspx", "代账单模板审批", icon);
                     break;
                 case "dzdgl":
-                    LoadTab("Pages/ProxyAmount/GenerateProxyAmount.aspx", "代帐单管理", icon);
+                    LoadTab("Pages/ProxyAmount/GenerateProxyAmount.aspx", "代账单管理", icon);
                     break;
                 case "wddzd":
-                    LoadTab("Pages/ProxyAmount/MyProxyAmount.aspx", "我的代帐单", icon);
+                    LoadTab("Pages/ProxyAmount/MyProxyAmount.aspx", "我的代账单", icon);
                     break;
                 case "dzfygl":
-                    LoadTab("Pages/ProxyAmount/ProxyAmountMoneyManage.aspx", "代帐费用管理", icon);
+                    LoadTab("Pages/ProxyAmount/ProxyAmountMoneyManage.aspx", "代账费用管理", icon);
                     break;
 
                 //投资部借款 InvestmentLoan                                                                         

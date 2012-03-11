@@ -261,7 +261,7 @@ namespace TZMS.Web
                     case "总经办":
                         lstUserRoles = GetUsersByRole(RoleType.ZJZG, "1 = 1");
                         break;
-                    case "":
+                    case "结算中心":
                         lstUserRoles = GetUsersByRole(RoleType.JSZXZG, "1 = 1");
                         break;
                     default:
@@ -477,11 +477,11 @@ namespace TZMS.Web
             {
                 if (ddlstNext.SelectedText == "审批")
                 {
-                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "离职审批（来自转正离职）");
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "离职审批（来自转正离职）中，您有1条 待审核 信息！");
                 }
                 else
                 {
-                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "离职归档（来自转正离职）");
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "离职归档（来自转正离职）中，您有1条 待归档 信息！");
                     ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您的 离职申请（来自转正离职），已通过审核，待工作交接！");
                 }
                 this.btnClose_Click(null, null);
@@ -543,6 +543,8 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条离职申请（来自转正离职），未通过审核， 待归档！");
+                ResultMsgMore(_archiveUser.ObjectId.ToString(), _archiveUser.Name, "离职归档（来自转正离职）中， 您有1条 待归档 信息！");
                 this.btnClose_Click(null, null);
             }
             else

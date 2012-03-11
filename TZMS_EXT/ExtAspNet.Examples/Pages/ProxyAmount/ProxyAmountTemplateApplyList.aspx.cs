@@ -168,7 +168,7 @@ namespace TZMS.Web
         {
             if (e.DataItem != null)
             {
-                e.Values[2] = e.Values[2].ToString() == "0" ? "代帐费" : "年检费";
+                e.Values[2] = e.Values[2].ToString() == "0" ? "代账费" : "年检费";
 
                 if (e.Values[8].ToString() == SystemUser.ObjectId.ToString())
                 {

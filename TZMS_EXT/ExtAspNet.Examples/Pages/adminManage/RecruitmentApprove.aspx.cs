@@ -326,7 +326,7 @@ namespace TZMS.Web
 
             if (result == -1)
             {
-                ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "招聘归档中，您有1条 待归档 信息！");
+                ResultMsgMore(_archiveUser.ObjectId.ToString(), _archiveUser.Name, "招聘归档中，您有1条 待归档 信息！");
                 ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.Name, "您有1条招聘申请（来自行政管理），未通过审核,待归档！");
                 
                 this.btnClose_Click(null, null);

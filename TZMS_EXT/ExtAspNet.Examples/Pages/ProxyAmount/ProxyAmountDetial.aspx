@@ -17,7 +17,7 @@
                     <ext:Button ID="btnClose" Text="关闭" Icon="Cancel" runat="server" OnClick="btnClose_Click">
                     </ext:Button>
                     <ext:Button ID="btnSubmit" Text="保存" Icon="Disk" runat="server" ValidateForms="pelMain"
-                        OnClick="btnSubmit_Click" ConfirmText="您确定保存该代帐单吗?">
+                        OnClick="btnSubmit_Click" ConfirmText="您确定保存该代账单吗?">
                     </ext:Button>
                 </Items>
             </ext:Toolbar>

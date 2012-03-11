@@ -181,7 +181,7 @@ namespace TZMS.Web
 
                         CashFlowManage _cashFlowManage = new CashFlowManage();
                         _cashFlowManage.Add(_info.ENMoney, DateTime.Now, TZMS.Common.FlowDirection.Receive, TZMS.Common.Biz.ProxyAccounting,
-                            _info.ProxyAmountUnitName + "的代帐费收取", string.Empty);
+                            _info.ProxyAmountUnitName + "的代账费收取", string.Empty);
 
                         BindGrid();
                     }

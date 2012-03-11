@@ -266,7 +266,7 @@ namespace TZMS.Web
                     strRole = "投融资业务款(备用金)>30w归档";
                     break;
                 case RoleType.DZKJ:
-                    strRole = "交款单位代帐会计";
+                    strRole = "交款单位代账会计";
                     break;
                 //case RoleType.FZJL:
                 //    strRole = "副总经理";
@@ -386,10 +386,10 @@ namespace TZMS.Web
                     strRole = "业务费用收取确认归档<30W";
                     break;
                 case RoleType.DZDMBGD:
-                    strRole = "代帐单模板归档";
+                    strRole = "代账单模板归档";
                     break;
                 case RoleType.DZFSQCNQR:
-                    strRole = "代帐费收取出纳确认";
+                    strRole = "代账费收取出纳确认";
                     break;
                 case RoleType.WZCGQRGDDY30W:
                     strRole = "物资采购确认归档>30W";

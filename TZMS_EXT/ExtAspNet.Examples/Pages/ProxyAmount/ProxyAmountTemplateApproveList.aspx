@@ -58,7 +58,7 @@
                             <ext:BoundField DataField="ApplyID" Hidden="true" />
                             <ext:BoundField DataField="ProxyAmountUnitName" HeaderText="交款单位" ExpandUnusedSpace="true"
                                 DataTooltipField="ProxyAmountUnitName" />
-                            <ext:BoundField DataField="ProxyAmounterName" HeaderText="代帐人" />
+                            <ext:BoundField DataField="ProxyAmounterName" HeaderText="代账人" />
                             <ext:BoundField DataField="CNMoney" Hidden="true" HeaderText="金额(大写)" />
                             <ext:BoundField DataField="ENMoney" HeaderText="金额(小写)" />
                             <ext:BoundField DataField="CollectMethod" HeaderText="收款方式" />

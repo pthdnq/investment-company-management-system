@@ -111,7 +111,7 @@ namespace TZMS.Web
                 ProxyAmountTemplateApplyInfo _info = new ProxyAmountManage().GetTemplateApplyByObjectID(ApplyID);
                 if (_info != null)
                 {
-                    lblProxyAmountType.Text = _info.TemplateType == 0 ? "代帐费" : "年检费";
+                    lblProxyAmountType.Text = _info.TemplateType == 0 ? "代账费" : "年检费";
                     lblUnit.Text = _info.ProxyAmountUnitName;
                     lblCNMoney.Text = _info.CNMoney;
                     lblENMoney.Text = _info.ENMoney + "元";
@@ -254,11 +254,11 @@ namespace TZMS.Web
             {
                 if (ddlstNext.SelectedText == "审批")
                 {
-                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "物资领用审批（来自物资管理）");
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "代账单模板审批（来自吉信财务管理有限公司）中，您有1条 待审批 信息！");
                 }
                 else
                 {
-                    ResultMsgMore(_applyInfo.ApproverID.ToString(), "用户", "您有1条物资领用申请（来自物资管理），已通过审核并归档！");
+                    ResultMsgMore(_applyInfo.ProxyAmounterID.ToString(), _applyInfo.ProxyAmounterName, "您有1条代账单模板申请（来自吉信财务管理有限公司），已通过审核并归档！");
                 }
                 this.btnClose_Click(null, null);
             }
@@ -304,6 +304,7 @@ namespace TZMS.Web
 
                 if (result == -1)
                 {
+                    ResultMsgMore(_applyInfo.ProxyAmounterID.ToString(), _applyInfo.ProxyAmounterName, "您有1条代账单模板申请（来自吉信财务管理有限公司），未通过审核！");
                     this.btnClose_Click(null, null);
                 }
                 else

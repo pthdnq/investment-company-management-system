@@ -120,7 +120,7 @@ namespace TZMS.Web
             }
             else
             {
-                Alert.Show("编辑代帐单失败!");
+                Alert.Show("编辑代账单失败!");
             }
         }
 
@@ -133,7 +133,7 @@ namespace TZMS.Web
             ProxyAmountInfo _info = _manage.GetProxyAmountByObjectID(ApplyID);
             if (_info != null)
             {
-                lblAmountType.Text = _info.ProxyAmountType == 0 ? "代帐费" : "年检费";
+                lblAmountType.Text = _info.ProxyAmountType == 0 ? "代账费" : "年检费";
                 lblUnitName.Text = _info.ProxyAmountUnitName;
                 lblCNMoney.Text = _info.CNMoney;
                 tbxMoney.Text = _info.ENMoney.ToString();
@@ -447,7 +447,7 @@ namespace TZMS.Web
             if (double.TryParse(tbxMoney.Text.Trim(), out money))
             {
                 lblCNMoney.Text = Format(money);
-                if (lblAmountType.Text == "代帐费")
+                if (lblAmountType.Text == "代账费")
                 {
                     tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月代账") + tbxMoney.Text.Trim() + "元";
                 }

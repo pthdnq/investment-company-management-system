@@ -332,7 +332,7 @@ namespace TZMS.Web
 
                     // 插入出纳记录.
                     CashFlowManage _cashFlowManage = new CashFlowManage();
-                    _cashFlowManage.Add(_applyInfo.ENMoney, DateTime.Now, "Payment", TZMS.Common.Biz.ProxyAccounting, _applyInfo.PayUnitName + "的代帐费", string.Empty);
+                    _cashFlowManage.Add(_applyInfo.ENMoney, DateTime.Now, "Payment", TZMS.Common.Biz.ProxyAccounting, _applyInfo.PayUnitName + "的代账费", string.Empty);
                 }
 
                 #endregion
