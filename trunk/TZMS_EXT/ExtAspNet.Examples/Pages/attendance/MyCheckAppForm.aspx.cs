@@ -342,7 +342,8 @@ namespace TZMS.Web
 
                 if (ddlstNext.SelectedText == "审批")
                 {
-                    CheckMsg(ddlstApproveUser.SelectedValue.Trim(), ddlstApproveUser.SelectedText, "假勤审批");
+                    ResultMsgMore(_newLeaveApproveInfo.ApproverId.ToString(), _newLeaveApproveInfo.ApproverName, "请假审批(来自假勤管理)中,您有1条 待审核 信息！");
+                    //CheckMsg(ddlstApproveUser.SelectedValue.Trim(), ddlstApproveUser.SelectedText, "假勤审批");
                 }
                 if (ddlstNext.SelectedText == "归档")
                 {
@@ -355,7 +356,9 @@ namespace TZMS.Web
                     {
                         funBase = "请假申请";
                     }
-                    GuiDangMsg(ddlstApproveUser.SelectedValue.Trim(), ddlstApproveUser.SelectedText, "请假归档");
+                    ResultMsgMore(_leaveInfo.UserObjectId.ToString(), _leaveInfo.Name, "您有1条" + funBase + "(来自假勤管理)，已通过审核，待归档！");
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.Trim(), ddlstApproveUser.SelectedText, "请假归档(来自假勤管理)中，你有1条 待归档 信息！");
+                    //GuiDangMsg(ddlstApproveUser.SelectedValue.Trim(), ddlstApproveUser.SelectedText, "请假归档");
 
                     //ResultMsg(string receiverID, string receiverName, funBase,"");
                 }
@@ -428,7 +431,9 @@ namespace TZMS.Web
                 {
                     funBase = "请假申请";
                 }
-                ResultMsg(_leaveInfo.UserObjectId.ToString(), _leaveInfo.Name, funBase, "打回");
+                //ResultMsg(_leaveInfo.UserObjectId.ToString(), _leaveInfo.Name, funBase, "打回");
+                ResultMsgMore(_archiveUser.ObjectId.ToString(), _archiveUser.Name, "请假归档中，您有1条 待归档 信息！");
+                ResultMsgMore(_leaveInfo.UserObjectId.ToString(), _leaveInfo.Name, "您有1条" + funBase + "（来自假勤管理），未通过审核,待归档！");
                 this.btnClose_Click(null, null);
             }
             else

@@ -53,7 +53,7 @@
                                                 <Items>
                                                     <ext:DropDownList ID="ddlstProxyAmountType" Label="费用类型" Required="true" ShowRedStar="true"
                                                         runat="server">
-                                                        <ext:ListItem Text="代帐费" Value="0" Selected="true" />
+                                                        <ext:ListItem Text="代账费" Value="0" Selected="true" />
                                                         <ext:ListItem Text="年检费" Value="1" />
                                                     </ext:DropDownList>
                                                 </Items>

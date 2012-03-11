@@ -21,7 +21,7 @@
                         <Items>
                             <ext:TextBox ID="tbxSearch" runat="server" EmptyText="请输入交款单位查询" ShowLabel="false">
                             </ext:TextBox>
-                            <ext:DropDownList ID="ddlstProxyAmounter" runat="server" Label="代帐会计">
+                            <ext:DropDownList ID="ddlstProxyAmounter" runat="server" Label="代账会计">
                             </ext:DropDownList>
                             <ext:Button ID="btnSearch" runat="server" Text="查询" Icon="Magnifier" OnClick="btnSearch_Click">
                             </ext:Button>
@@ -55,7 +55,7 @@
                             <ext:BoundField DataField="ProxyAmountID" Hidden="true" />
                             <ext:BoundField DataField="ProxyAmountUnitName" HeaderText="交款单位" ExpandUnusedSpace="true"
                                 DataTooltipField="ProxyAmountUnitName" />
-                            <ext:BoundField DataField="ProxyAmounterName" HeaderText="代帐人" />
+                            <ext:BoundField DataField="ProxyAmounterName" HeaderText="代账人" />
                             <ext:BoundField DataField="CNMoney" Hidden="true" HeaderText="金额(大写)" />
                             <ext:BoundField DataField="ENMoney" HeaderText="金额(小写)" />
                             <ext:BoundField DataField="Sument" HeaderText="收款事由" DataTooltipField="Sument" />

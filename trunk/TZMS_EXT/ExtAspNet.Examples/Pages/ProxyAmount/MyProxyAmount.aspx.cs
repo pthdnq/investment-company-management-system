@@ -307,7 +307,7 @@ namespace TZMS.Web
                 row4.ColumnWidths = "100%";
                 ExtAspNet.Button btnButton = new ExtAspNet.Button();
                 btnButton.ID = "btnDynamic" + i;
-                btnButton.Text = "上交代帐费";
+                btnButton.Text = "上交代账费";
                 btnButton.Click += new EventHandler(btnButton_Click);
                 if (info.State != 0)
                 {

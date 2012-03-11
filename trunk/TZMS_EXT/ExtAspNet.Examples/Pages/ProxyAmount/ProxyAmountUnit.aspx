@@ -64,7 +64,7 @@
             </ext:Panel>
         </Items>
     </ext:Panel>
-    <ext:Window ID="wndProxyAmountUnit" Title="新增代帐单位" Popup="false" EnableIFrame="true"
+    <ext:Window ID="wndProxyAmountUnit" Title="新增代账单位" Popup="false" EnableIFrame="true"
         IFrameUrl="about:blank" Target="Parent" runat="server" IsModal="true" Width="700px"
         EnableConfirmOnClose="true" Height="500px" OnClose="wndProxyAmountUnit_Close">
     </ext:Window>

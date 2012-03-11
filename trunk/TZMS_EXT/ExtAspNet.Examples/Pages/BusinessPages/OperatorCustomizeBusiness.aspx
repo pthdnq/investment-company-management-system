@@ -141,13 +141,13 @@
                                             <ext:FormRow ColumnWidths="60%">
                                                 <Items>
                                                     <ext:TextArea ID="taaContent" runat="server" Label="内容" Required="true" ShowRedStar="true"
-                                                        Height="60px" EmptyText="请填写业务的大致内容">
+                                                        Height="50px" EmptyText="请填写业务的大致内容">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextArea ID="taaOther" runat="server" Label="备注" Height="60px">
+                                                    <ext:TextArea ID="taaOther" runat="server" Label="备注" Height="50px">
                                                     </ext:TextArea>
                                                 </Items>
                                             </ext:FormRow>

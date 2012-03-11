@@ -274,7 +274,7 @@ namespace TZMS.Web
             {
                 if (ddlstNext.SelectedText == "审批")
                 {
-                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "物资采购审批（来自物资管理）");
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "物资采购审批（来自物资管理）中，您有1条 待审核 信息！");
                 }
                 else
                 {
@@ -325,6 +325,7 @@ namespace TZMS.Web
 
                 if (result == -1)
                 {
+                    ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条物资采购申请（来自物资管理），未通过审核！");
                     this.btnClose_Click(null, null);
                 }
                 else

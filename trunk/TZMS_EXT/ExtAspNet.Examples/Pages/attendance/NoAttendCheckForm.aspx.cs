@@ -234,6 +234,8 @@ namespace TZMS.Web
                     _nextCheckInfo.Checkstate = 0;
                     _nextCheckInfo.ApplyId = _info.ObjectId;
                     _manage.AddNewNoAttendCheckInfo(_nextCheckInfo);
+
+                    ResultMsgMore(_nextCheckUserInfo.ObjectId.ToString(), _nextCheckUserInfo.Name, "未打卡审批(来自假勤管理)中，您有1条 待审核 信息！");
                 }
                 #endregion
 
@@ -253,6 +255,8 @@ namespace TZMS.Web
                     _nextCheckInfo.CheckOp = "3";
                     _nextCheckInfo.ApplyId = _info.ObjectId;
                     _manage.AddNewNoAttendCheckInfo(_nextCheckInfo);
+                    ResultMsgMore(_info.UserId.ToString(), _info.UserName, "你有1条未打卡申请(来自假勤管理)，已通过审核，待归档！");
+                    ResultMsgMore(_nextCheckUserInfo.ObjectId.ToString(), _nextCheckUserInfo.Name, "未打卡归档(来自假勤管理)中，您有1条 待归档 信息！");
                 }
 
                 #endregion

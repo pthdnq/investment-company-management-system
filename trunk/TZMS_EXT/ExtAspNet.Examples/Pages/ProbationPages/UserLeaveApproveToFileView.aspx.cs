@@ -207,6 +207,7 @@ namespace TZMS.Web
                         }
 
                         result = _manage.UpdateApply(_applyInfo);
+                        ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条离职申请（来自转正离职），已归档， 待交接！");
                     }
                 }
 

@@ -312,6 +312,7 @@ namespace TZMS.Web
 
                 if (result == -1)
                 {
+                    ResultMsgMore(_applyInfo.UserId.ToString(), _applyInfo.Name, "您有1条加薪申请（来自薪资管理），未通过审核！");
                     this.btnClose_Click(null, null);
                 }
                 else

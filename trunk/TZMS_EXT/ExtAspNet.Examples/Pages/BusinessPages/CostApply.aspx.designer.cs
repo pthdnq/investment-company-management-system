@@ -190,7 +190,7 @@ namespace TZMS.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::ExtAspNet.TextBox taaOther;
+        protected global::ExtAspNet.TextArea taaOther;
         
         /// <summary>
         /// tabApproveHistory control.

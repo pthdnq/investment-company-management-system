@@ -748,7 +748,7 @@
                                         </Nodes>
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="wddzd" OnClientClick="return false;"
-                                        Text="我的代帐单">
+                                        Text="我的代账单">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">
@@ -759,7 +759,7 @@
                                         </Nodes>
                                     </ext:TreeNode>
                                     <ext:TreeNode AutoPostBack="false" EnableCheckBox="true" NodeID="dzfygl" OnClientClick="return false;"
-                                        Text="代帐费用管理">
+                                        Text="代账费用管理">
                                         <Nodes>
                                             <ext:TreeNode EnableCheckBox="true" AutoPostBack="false" Leaf="true" OnClientClick="return false;"
                                                 Text="查看">

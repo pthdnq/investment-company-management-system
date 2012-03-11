@@ -198,7 +198,7 @@ namespace TZMS.Web
                         _manage.AddNewTransfer(_newTransferInfo);
                     }
 
-                    CheckMsg(_archiverUser.ObjectId.ToString(), _archiverUser.Name, "离职交接归档（来自转正离职）");
+                    ResultMsgMore(_archiverUser.ObjectId.ToString(), _archiverUser.Name, "离职交接归档（来自转正离职）中，您有1条 待归档 信息！");
                 }
 
                 if (result == -1)

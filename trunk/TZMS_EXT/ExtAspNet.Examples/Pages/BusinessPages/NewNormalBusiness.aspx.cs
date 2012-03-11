@@ -154,6 +154,9 @@ namespace TZMS.Web
             BusinessInfo _info = _manage.GetBusinessByObjectID(ApplyID);
             if (_info != null)
             {
+                if (ddlstSigner.SelectedValue != _info.SignerID.ToString()) {
+                    ddlstSigner.Items.Add(new ExtAspNet.ListItem(_info.SignerName, _info.SignerID.ToString()));
+                }
                 ddlstSigner.SelectedValue = _info.SignerID.ToString();
                 dpkSignTime.SelectedDate = _info.SignTime;
                 tbxCompanyName.Text = _info.CompanyName;

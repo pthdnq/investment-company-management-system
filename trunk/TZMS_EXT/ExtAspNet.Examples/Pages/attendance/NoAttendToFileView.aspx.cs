@@ -172,6 +172,8 @@ namespace TZMS.Web
 
             if (result == -1)
             {
+                ResultMsgMore(_info.UserId.ToString(), _info.UserName, "您有1条未打卡申请(来自假勤管理)，已归档！");
+
                 this.btnClose_Click(null, null);
             }
             else

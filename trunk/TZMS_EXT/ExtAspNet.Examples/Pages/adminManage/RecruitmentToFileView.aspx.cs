@@ -183,10 +183,13 @@ namespace TZMS.Web
 
                     result = _manage.UpdateApply(_applyInfo);
                 }
+
+                ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.Name, "您有1条招聘申请（来自行政管理），已归档！");
             }
 
             if (result == -1)
             {
+                
                 this.btnClose_Click(null, null);
             }
             else

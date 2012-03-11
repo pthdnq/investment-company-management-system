@@ -107,7 +107,7 @@ namespace TZMS
             /// <summary>
             /// 代帐费
             /// </summary>
-            public static string ProxyAccounting = "代帐费";
+            public static string ProxyAccounting = "代账费";
 
             /// <summary>
             /// 业务费用收取

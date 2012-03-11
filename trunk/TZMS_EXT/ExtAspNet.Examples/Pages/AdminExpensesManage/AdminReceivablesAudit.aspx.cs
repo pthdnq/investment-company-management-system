@@ -270,7 +270,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                 {
                     //CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "收款上交确认列表（来自费用管理）");
                     //提醒申请人，审核通过，待会计确认
-                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条行收款上交申请（来自费用管理），领导同意并归档！");
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条收款上交申请（来自费用管理），领导同意并归档！");
                 }
                 //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

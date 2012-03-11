@@ -305,7 +305,7 @@ namespace TZMS.Web
 
             if (result == -1)
             {
-                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "代账单模板审批");
+                ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "代账单模板审批（来自吉信财务管理有限公司）中，您有1条 待审批 消息！");
 
                 this.btnClose_Click(null, null);
             }

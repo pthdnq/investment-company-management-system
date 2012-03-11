@@ -319,11 +319,11 @@ namespace TZMS.Web
             {
                 if (ddlstNext.SelectedText == "审批")
                 {
-                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "转正审批（来自转正离职）");
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "转正审批（来自转正离职）中，您有1条 待审核 信息！");
                 }
                 else
                 {
-                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "转正归档（来自转正离职）");
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "转正归档（来自转正离职）中，您有1条 待归档 信息！");
                     ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条转正申请（来自转正离职），已通过审核，待归档！");
                 }
                 this.btnClose_Click(null, null);
@@ -387,8 +387,8 @@ namespace TZMS.Web
 
             if (result == -1)
             {
-                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "转正归档（来自转正离职）");
-                ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条转正申请（来自转正离职），未通过审核，待归档！");
+                ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "转正归档(来自转正离职)， 您有1条 待归档 信息！");
+                ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条转正申请(来自转正离职)，未通过审核，待归档！");
                 this.btnClose_Click(null, null);
             }
             else

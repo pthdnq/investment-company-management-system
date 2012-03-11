@@ -206,7 +206,8 @@ namespace TZMS.Web
                     {
                         state = "已通过";
                     }
-                    ResultMsg(_leaveInfo.UserObjectId.ToString(), _leaveInfo.Name, funBase, state);
+                    ResultMsgMore(_leaveInfo.UserObjectId.ToString(), _leaveInfo.Name, "您有1条" + funBase + "(来自假勤管理)，已归档！");
+                    //ResultMsg(_leaveInfo.UserObjectId.ToString(), _leaveInfo.Name, funBase, state);
                     this.btnClose_Click(null, null);
                 }
                 else

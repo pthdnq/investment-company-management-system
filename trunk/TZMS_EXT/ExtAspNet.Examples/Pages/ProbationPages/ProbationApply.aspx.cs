@@ -279,6 +279,8 @@ namespace TZMS.Web
                     tabApproveHistory.Hidden = false;
                     BindApproveHistory();
                     DisableAllControls();
+
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "转正审批（来自转正离职）中，您有1条 待审核 信息！");
                 }
                 else
                 {
@@ -322,7 +324,7 @@ namespace TZMS.Web
                         tabApproveHistory.Hidden = false;
                         BindApproveHistory();
                         DisableAllControls();
-                        CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "转正审批（来自转正离职）");
+                        ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "转正审批（来自转正离职）中，您有1条 待审核 信息！");
 
                     }
                     else
