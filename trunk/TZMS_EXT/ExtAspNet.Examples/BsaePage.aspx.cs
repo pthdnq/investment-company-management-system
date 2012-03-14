@@ -275,7 +275,7 @@ namespace TZMS.Web
             /// </summary>
             CWZJ = 5,
             /// <summary>
-            /// 投资部门总监
+            /// 投资部门总监-投融资项目进展归档、民间融资申请
             /// </summary>
             TZZJ = 6,
             /// <summary>
