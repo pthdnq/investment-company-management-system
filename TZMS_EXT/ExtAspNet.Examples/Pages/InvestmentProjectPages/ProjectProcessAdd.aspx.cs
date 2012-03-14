@@ -367,7 +367,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 manage.AddHistory(true, _Info.ObjectId, strOpertationType, strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
 
 
-                if (cbIsAmountExpended.Checked)
+              //  if (cbIsAmountExpended.Checked)
+                if (_Info.NeedImprest)
                 {
                     //备用金审核
                     CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "备用金审核列表（集团外项目）");

@@ -244,8 +244,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 }
                 else
                 {
-                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 待出纳会计确认 信息（来自财务部融资）！");
-                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条支付申请，待出纳会计确认（来自财务部融资）！");
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 支付确认列表（来自财务部融资）！");
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, " 支付确认列表（来自财务部融资）中，您有一条 待确认 信息！");
                 }
 
                 //Alert.Show("操作成功!");

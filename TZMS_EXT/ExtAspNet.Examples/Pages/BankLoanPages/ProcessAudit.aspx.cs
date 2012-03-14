@@ -253,7 +253,25 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 string statusName = (status == 2) ? "不同意" : (status == 5) ? "同意，继续审核" : "同意，归档";
                 manage.AddHistory(true, _Info.ObjectId, "审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
+             
+                if (status == 2)
+                {
+                    //不同意，发送消息给表单申请人
+                  //  ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条项目进展申请，审核未通过！项目信息列表（来自集团外项目）");
+                    //不同意，发送消息给表单申请人
+                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, " 项目进展（集团内项目）- 项目情况列表", "未通过");
 
+                }
+                else if (status == 5)
+                {
+                    //继续审核，发消息给下一步执行人
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "项目进展审核列表（来自集团内项目）");
+                }
+                else
+                {
+                    //提醒申请人，审核通过
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条项目进展申请，已通过审核并归档！（来自集团内项目）");
+                }
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

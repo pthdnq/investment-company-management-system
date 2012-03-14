@@ -88,7 +88,7 @@
                                 Title="查看" WindowID="wndView" />
                             <ext:TemplateField Width="60px" HeaderText="核算状态">
                                 <ItemTemplate>
-                                    <%# GetStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
+                                    <%# GetBAStatusName(DataBinder.Eval(Container.DataItem, "BAStatus").ToString())%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:WindowField Width="60px" Text="查看" DataIFrameUrlFields="ObjectId" DataIFrameUrlFormatString="FinancingApplyEditBA.aspx?Type=Edit&ID={0}"

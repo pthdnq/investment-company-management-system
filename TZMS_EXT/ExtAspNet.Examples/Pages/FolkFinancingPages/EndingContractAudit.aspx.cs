@@ -265,7 +265,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 if (status == 11)
                 {
                     //不同意，发送消息给表单申请人
-                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "融资合同列表(来自财务部融资)", "未通过 终止合同");
+                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "融资申请列表(来自财务部融资)", "终止未通过");
                 }
                 else if (status == 7)
                 {

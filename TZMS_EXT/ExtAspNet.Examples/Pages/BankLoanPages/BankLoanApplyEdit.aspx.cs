@@ -70,7 +70,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 return;
             }
             BankLoanInfo _Info = new BankLoanManage().GetUserByObjectID(ObjectID);
-        
+
             if (CurrentRoles.Contains(RoleType.DSZ))
             {
                 BindNext(true);
@@ -81,9 +81,13 @@ namespace TZMS.Web.Pages.BankLoanPages
                 BindNext(true);
             }
             else
+            { 
+                BindNext(false);
+            }
+
+            if (_Info.LoanAmount >= 300000)
             {
                 HighMoneyTips.Text = "提醒：本次操作资金总额大于30W。";
-                BindNext(false);
             }
 
             this.tbCollateralCompany.Text = _Info.CollateralCompany;
@@ -256,7 +260,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 manage.AddHistory(_Info.ObjectId, "编辑", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
 
                 CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "贷款申请审核列表");
-              
+
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

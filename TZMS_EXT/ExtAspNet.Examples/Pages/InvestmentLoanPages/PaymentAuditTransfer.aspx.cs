@@ -214,9 +214,26 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             {
                 string statusName = string.Format("从 {0} 转移至 {1}", strLastNextOperaterName, this.ddlstApproveUser.SelectedText);// (status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
                 manage.AddHistory(_Info.ObjectId, strOperationType, string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
-                
-                //提醒 新的审批人
-                ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 待审批 借款申请信息（来自风险控制部，通过审批人转移方式）！");
+
+                if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("Owner"))
+                {
+                    //提醒 新的审批人  业务转移
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 借款申请列表（来自风险控制部，通过业务移交方式）！");
+                }
+                else
+                {
+                    if (_Info.Status == 7)
+                    {
+                        //提醒 新的审批人 终止审批转移
+                        ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 待审批 终止审核列表（来自风险控制部，通过审批人转移方式）！");
+                  
+                    }
+                    else
+                    {
+                        //提醒 新的审批人 审批转移
+                        ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 待审批 借款审核列表（来自风险控制部，通过审批人转移方式）！");
+                    }
+                }
                 //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

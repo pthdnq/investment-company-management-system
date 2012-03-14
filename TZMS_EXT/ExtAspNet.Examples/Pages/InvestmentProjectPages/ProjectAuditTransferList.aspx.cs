@@ -265,7 +265,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     //  strCondtion.Append(" AND Status = 1 ");
                     break;
                 case "1":
-                    StrStatusName = "审核中";
+                    StrStatusName = "待审核";
                     break;
                 case "2":
                     StrStatusName = "未通过";
@@ -282,8 +282,17 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 case "6":
                     StrStatusName = "已通过";
                     break;
+                case "7":
+                    StrStatusName = "终止审核中";
+                    break;
+                case "8":
+                    StrStatusName = "已终止";
+                    break;
                 case "9":
                     StrStatusName = "已删除";
+                    break;
+                case "11":
+                    StrStatusName = "终止未通过";
                     break;
                 default:
                     break;

@@ -221,7 +221,9 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                 //提醒申请人，审核通过，会计已确认
                 //ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条备用金申请（集团外项目），会计已确认！");
-                   
+
+                ResultMsgMore(_Info.FirstOperaterID.ToString(), _Info.FirstOperaterName, string.Format("{0}，您好！进展审核列表（集团外项目）中，您有一条 待审核 信息！", _Info.FirstOperaterName));
+
                 //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference("操作成功"));
 

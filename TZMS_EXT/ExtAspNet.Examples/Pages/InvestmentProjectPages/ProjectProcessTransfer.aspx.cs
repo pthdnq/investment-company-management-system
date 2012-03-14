@@ -196,6 +196,9 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, _Info.NextOperaterName);//(status == 2) ? "不同意" : (status == 3) ? "同意" : "同意，待会计审核";
                 manage.AddHistory(true, _Info.ObjectId, "审批转移", string.Format("审批:{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
 
+                //提醒 新的审批人
+                ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, " 您有1条 待审批 进展审核列表（来自集团外项目，通过审批人转移方式）！");
+             
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
