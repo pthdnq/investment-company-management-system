@@ -256,7 +256,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
 
             //下一步操作人
-            if (status == 4)
+            if (status == 4 || status == 2)
             {
                 _Info.NextOperaterName = "";
                 _Info.NextOperaterId = Guid.Empty;
@@ -292,7 +292,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 }
                 else
                 {
-                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "借款确认列表");
+                  //  CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "借款确认列表");
                     //提醒申请人，审核通过，待会计确认
                     ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条贷款申请，已通过审核并归档！");
                 }
@@ -332,6 +332,6 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             ddlstApproveUser.SelectedIndex = 0;
         }
-        #endregion 
+        #endregion
     }
 }

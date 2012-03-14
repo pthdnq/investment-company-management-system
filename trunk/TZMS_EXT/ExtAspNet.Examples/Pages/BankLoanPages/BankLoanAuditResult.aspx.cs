@@ -132,7 +132,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                         strCondtion.Append(" AND Status = 1  ");
                         break;
                     case "2":
-                        strCondtion.Append(" AND Status = 2 OR  Status = 11 ) ");
+                        strCondtion.Append(" AND ( Status = 2 OR Status = 11 ) ");
                         break;
                     case "3":
                         strCondtion.Append(" AND ( Status = 3 OR  Status = 7 )  ");
@@ -285,33 +285,42 @@ namespace TZMS.Web.Pages.BankLoanPages
         protected string GetStatusName(string strStatus)
         {
             string StrStatusName = string.Empty;
-            StrStatusName = this.ddlstState.SelectedText;
-            //switch (strStatus)
-            //{
-            //    case "0":
-            //        //  strCondtion.Append(" AND Status = 1 ");
-            //        break;
-            //    case "1":
-            //        StrStatusName = "待审核";
-            //        break;
-            //    case "2":
-            //        StrStatusName = "未通过";
-            //        break;
-            //    case "3":
-            //        StrStatusName = "待审核";
-            //        break;
-            //    case "4":
-            //        StrStatusName = "已通过";
-            //        break;
-            //    case "5":
-            //        StrStatusName = "已确认";
-            //        break;
-            //    case "9":
-            //        StrStatusName = "已删除";
-            //        break;
-            //    default:
-            //        break;
-            //}
+            //   StrStatusName = this.ddlstState.SelectedText;
+            switch (strStatus)
+            {
+                case "0":
+                    //  strCondtion.Append(" AND Status = 1 ");
+                    break;
+                case "1":
+                    StrStatusName = "待审核";
+                    break;
+                case "2":
+                    StrStatusName = "未通过";
+                    break;
+                case "3":
+                    StrStatusName = "审核中";
+                    break;
+                case "4":
+                    StrStatusName = "已通过";
+                    break;
+                case "5":
+                    StrStatusName = "已确认";
+                    break;
+                case "7":
+                    StrStatusName = "终止审核中";
+                    break;
+                case "8":
+                    StrStatusName = "已终止";
+                    break;
+                case "9":
+                    StrStatusName = "已删除";
+                    break;
+                case "11":
+                    StrStatusName = "终止未通过";
+                    break;
+                default:
+                    break;
+            }
             return StrStatusName;
         }
         #endregion

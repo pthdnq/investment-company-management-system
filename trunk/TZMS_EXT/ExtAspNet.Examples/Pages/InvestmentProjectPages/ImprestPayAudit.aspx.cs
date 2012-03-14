@@ -221,7 +221,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 if (status == 2)
                 {
                     //不同意，发送消息给表单申请人
-                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "备用金申请（集团外项目）", "未通过");
+                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "备用金申请  项目信息列表（集团外项目）", "未通过");
                 }
                 else if (status == 3)
                 {
@@ -230,7 +230,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 }
                 else
                 {
-                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "备用金支付确认列表");
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "备用金支付确认列表（来自集团外项目）");
                     //提醒申请人，审核通过，待会计确认
                     ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条备用金申请（集团外项目），已通过审核，待会计支付确认！");
                 }

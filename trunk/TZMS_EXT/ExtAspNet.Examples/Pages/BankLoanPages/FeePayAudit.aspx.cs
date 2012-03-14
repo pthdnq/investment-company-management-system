@@ -220,7 +220,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 if (status == 2)
                 {
                     //不同意，发送消息给表单申请人
-                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "备用金申请（集团内项目）", "未通过");
+                    ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "备用金申请（集团内项目）项目情况列表", "未通过");
                 }
                 else if (status == 3)
                 {

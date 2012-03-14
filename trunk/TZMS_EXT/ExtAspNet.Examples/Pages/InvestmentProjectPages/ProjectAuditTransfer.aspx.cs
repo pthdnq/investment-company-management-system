@@ -195,13 +195,22 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                 if (strOperationType == "业务转移")
                 {
-                    //提醒 新的审批人
-                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的项目审核列表，有1条 待审批 信息（来自集团外项目，通过审批人转移方式）！");
+                    //提醒 新的审批人 业务转移
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 项目申请列表（来自集团外项目，通过业务移交方式）！");
                 }
                 else
                 {
-                    //提醒 新的审批人
-                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的进展审核列表，有1条 待审批 信息（来自集团外项目，通过审批人转移方式）！");
+                    if (_Info.Status == 7)
+                    {
+                        //提醒 新的审批人 终止审核列表
+                        ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 待审批 终止审核列表（来自集团外项目，通过审批人转移方式）！");
+             
+                    }
+                    else
+                    {
+                        //提醒 新的审批人
+                        ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 待审批 项目审核列表（来自集团外项目，通过审批人转移方式）！");
+                    }
                 }
                 //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

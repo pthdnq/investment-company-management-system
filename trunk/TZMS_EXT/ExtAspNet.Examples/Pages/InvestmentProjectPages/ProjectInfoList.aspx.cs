@@ -121,6 +121,9 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
                         break;
+                    case "8":
+                        strCondtion.Append(" AND Status = 5 ");
+                        break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
                         break;

@@ -62,7 +62,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("Owner"))
                 {
                     btnSave.Hidden = true;
-                    btnDismissed.Hidden = false; 
+                    btnDismissed.Hidden = false;
                 }
 
                 bindUserInterface(strID);
@@ -232,25 +232,25 @@ namespace TZMS.Web.Pages.BankLoanPages
             BankLoanManage manage = new BankLoanManage();
             BankLoanInfo _Info = manage.GetUserByObjectID(ObjectID);
 
-           // _Info.Status = status;
-           // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+            // _Info.Status = status;
+            // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
 
             string strLastNextOperaterName = _Info.NextOperaterName;
-                 string strOperationType = "审批转移";
-                 if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("Owner"))
-                 {
-                     strOperationType = "业务转移";
-                     strLastNextOperaterName = _Info.CreaterName;
-                     //下一步操作
-                     _Info.CreaterName = this.ddlstApproveUser.SelectedText;
-                     _Info.CreaterId = new Guid(this.ddlstApproveUser.SelectedValue);
-                 }
-                 else
-                 {
-                     //下一步操作
-                     _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-                     _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
-                 }
+            string strOperationType = "审批转移";
+            if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("Owner"))
+            {
+                strOperationType = "业务转移";
+                strLastNextOperaterName = _Info.CreaterName;
+                //下一步操作
+                _Info.CreaterName = this.ddlstApproveUser.SelectedText;
+                _Info.CreaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            }
+            else
+            {
+                //下一步操作
+                _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+                _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            }
             _Info.SubmitTime = DateTime.Now;
 
 
@@ -260,10 +260,25 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 string statusName = string.Format("转移从 {0} 至 {1}", strLastNextOperaterName, this.ddlstApproveUser.SelectedText);//  (status == 2) ? "不同意" : (status == 3) ? "同意" : "待会计审核";
                 manage.AddHistory(_Info.ObjectId, strOperationType, string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, this.taAuditOpinion.Text.Trim());
-
-                //提醒 新的审批人
-                ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的申请审核列表，有1条 待审批 信息（来自集团内项目，通过审批人转移方式）！");
-
+                if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("Owner"))
+                {
+                    //提醒 新的审批人 业务转移
+                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 贷款申请列表（来自集团内项目，通过业务移交方式）！");
+                }
+                else
+                {
+                    if (_Info.Status == 7)
+                    {
+                        //提醒 新的审批人 终止审核
+                        ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的终止审核列表，有1条 待审批 信息（来自集团内项目，通过审批人转移方式）！");
+        
+                    }
+                    else
+                    {
+                        //提醒 新的审批人
+                        ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的审核列表，有1条 待审批 信息（来自集团内项目，通过审批人转移方式）！");
+                    }
+                }
                 //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
@@ -282,7 +297,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("移交至", "0"));
             if (needAccountant)
             {
-              //  ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                //  ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

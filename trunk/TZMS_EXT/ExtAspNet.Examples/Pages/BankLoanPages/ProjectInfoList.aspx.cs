@@ -125,6 +125,9 @@ namespace TZMS.Web.Pages.BankLoanPages
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");
                         break;
+                    case "8":
+                        strCondtion.Append(" AND Status = 8 ");
+                        break;
                     case "9":
                         strCondtion.Append(" AND Status = 9 ");
                         break;

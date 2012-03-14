@@ -248,7 +248,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 if (status == 2)
                 {
                     //不同意，发送消息给表单申请人
-                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条项目进展申请，审核未通过！（来自集团外项目）");
+                    ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条项目进展申请，审核未通过！项目信息列表（来自集团外项目）");
 
                 }
                 else if (status == 5)

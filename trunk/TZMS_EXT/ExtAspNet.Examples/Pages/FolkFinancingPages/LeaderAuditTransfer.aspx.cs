@@ -252,8 +252,18 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 }
                 else
                 {
-                    //提醒 新的审批人
-                    ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的领导审核列表，有1条 待审批 信息（来自财务部融资，通过业务移交方式）！");
+                    if (_Info.Status == 7)
+                    {
+                        //提醒 新的审批人
+                        ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的终止审核列表，有1条 待审批 信息（来自财务部融资，通过审批人转移方式）！");
+               
+                    }
+                    else
+                    {
+
+                        //提醒 新的审批人
+                        ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的领导审核列表，有1条 待审批 信息（来自财务部融资，通过审批人转移方式）！");
+                    }
                 }
                 //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());

@@ -224,7 +224,11 @@ namespace TZMS.Web.Pages.BankLoanPages
                 string strContent = string.Format("{0}-{1}备用金{2}元已通过领导审核确认支付，谢谢", _Info.ProjectName, _Info.ImplementationPhase, _Info.AmountExpended);
                 new MessageManage().SendMessage(Guid.NewGuid(), this.CurrentUser.ObjectId, receives, strTitle, strContent);
                 #endregion
-          
+
+                ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, string.Format("{0}，您好！银行贷款项目备用金支付（集团内项目）中，您有一条 信息进入进展审核阶段！", _Info.CreaterName));
+
+                ResultMsgMore(_Info.FirstOperaterID.ToString(), _Info.FirstOperaterName, string.Format("{0}，您好！进展审核列表（集团内项目）中，您有一条 待审核 信息！", _Info.FirstOperaterName));
+
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
