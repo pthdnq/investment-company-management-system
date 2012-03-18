@@ -276,6 +276,28 @@ namespace TZMS.Web
         {
             if (string.IsNullOrEmpty(OperatorType))
                 return;
+
+            Decimal SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Trim());
+            Decimal PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Trim());
+            Decimal BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Trim());
+
+            if (SumMoney < PreMoney)
+            {
+                Alert.Show("合同总金额不可小于预付金额!");
+                return;
+            }
+
+            if (SumMoney < BalanceMoney)
+            {
+                Alert.Show("合同总金额不可小于业务余款金额!");
+                return;
+            }
+
+            if (SumMoney < (PreMoney + BalanceMoney))
+            {
+                Alert.Show("合同总金额不正确，请重新填写!");
+            }
+
             BusinessManage _manage = new BusinessManage();
             BusinessInfo _info = null;
             int result = 3;

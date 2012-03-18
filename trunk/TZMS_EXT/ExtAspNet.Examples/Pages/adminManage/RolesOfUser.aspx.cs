@@ -261,6 +261,9 @@ namespace TZMS.Web
                 case RoleType.YWZJ:
                     strRole = "业务成本变更";
                     break;
+                case RoleType.YWZY:
+                    strRole = "业务转移";
+                    break;
                 case RoleType.DSZ:
                     //strRole = "董事长";
                     strRole = "投融资业务款(备用金)>30w归档";

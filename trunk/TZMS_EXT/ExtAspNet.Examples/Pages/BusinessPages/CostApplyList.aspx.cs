@@ -177,7 +177,6 @@ namespace TZMS.Web
                         break;
                     case "2":
                         e.Values[7] = "已归档";
-                        e.Values[4] = "";
                         if (CurrentLevel == VisitLevel.View)
                         {
                             //e.Values[9] = "<span class=\"gray\">编辑</span>";

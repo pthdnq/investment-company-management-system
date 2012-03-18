@@ -50,7 +50,12 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" CheckerID = '" + CurrentUser.ObjectId.ToString() + "' and CurrentBusiness <> 0 and CurrentBusiness <> 13 and CurrentBusiness <> 14 and BusinessType = 0");
+            strCondition.Append(" 1 = 1");
+            if (!this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZY))
+            {
+                strCondition.Append(" and CheckerID = '" + CurrentUser.ObjectId.ToString() + "'");
+            }
+            strCondition.Append(" and CurrentBusiness <> 0 and CurrentBusiness <> 13 and CurrentBusiness <> 14 and BusinessType = 0");
 
             // 查询文本
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
@@ -191,7 +196,7 @@ namespace TZMS.Web
                         e.Values[4] = "待办理";
                         e.Values[5] = "";
 
-                        if (!this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZJ))
+                        if (!this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZY))
                         {
                             e.Values[7] = "<span class=\"gray\">业务转移</span>";
                         }

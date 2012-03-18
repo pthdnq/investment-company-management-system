@@ -457,19 +457,19 @@ namespace TZMS.Web
                 }
 
                 // 插入下一步记录.
-                _recordInfo = new BusinessRecordInfo();
-                _recordInfo.ObjectID = Guid.NewGuid();
-                _recordInfo.CheckerID = CurrentUser.ObjectId;
-                _recordInfo.CheckerName = CurrentUser.Name;
-                _recordInfo.CheckrDept = CurrentUser.Dept;
-                _recordInfo.CheckDateTime = DateTime.Now;
-                _recordInfo.State = 1;
-                _recordInfo.CurrentBusiness = 17;
-                _recordInfo.BusinessID = _info.ObjectID;
+                BusinessRecordInfo _FinishOperatorInfo = new BusinessRecordInfo();
+                _FinishOperatorInfo.ObjectID = Guid.NewGuid();
+                _FinishOperatorInfo.CheckerID = CurrentUser.ObjectId;
+                _FinishOperatorInfo.CheckerName = CurrentUser.Name;
+                _FinishOperatorInfo.CheckrDept = CurrentUser.Dept;
+                _FinishOperatorInfo.CheckDateTime = _recordInfo.CheckDateTime.AddSeconds(1);
+                _FinishOperatorInfo.State = 1;
+                _FinishOperatorInfo.CurrentBusiness = 17;
+                _FinishOperatorInfo.BusinessID = _info.ObjectID;
 
-                _manage.AddNewBusinessRecord(_recordInfo);
+                _manage.AddNewBusinessRecord(_FinishOperatorInfo);
 
-                _info.CurrentBusinessRecordID = _recordInfo.ObjectID;
+                _info.CurrentBusinessRecordID = _FinishOperatorInfo.ObjectID;
                 result = _manage.UpdateBusiness(_info);
 
                 if (result == -1)
