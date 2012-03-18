@@ -66,6 +66,7 @@
                                 ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="CostType" HeaderText="费用类型" />
                             <ext:BoundField DataField="ApplyMoney" HeaderText="金额" />
+                            <ext:BoundField DataField="ActualMoney" HeaderText="实际金额" />
                             <ext:BoundField DataField="ApproveState" Width="60px" HeaderText="确认状态" />
                             <ext:BoundField DataField="ApproveOp" Width="60px" HeaderText="审批结果" Hidden="true" />
                             <ext:BoundField DataField="ApproveTime" Width="100px" HeaderText="确认时间" />

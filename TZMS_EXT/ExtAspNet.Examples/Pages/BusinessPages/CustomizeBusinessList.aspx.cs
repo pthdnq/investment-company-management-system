@@ -153,6 +153,7 @@ namespace TZMS.Web
         protected void gridCustomizeBusiness_RowCommand(object sender, ExtAspNet.GridCommandEventArgs e)
         {
             string strApplyID = ((GridRow)gridCustomizeBusiness.Rows[e.RowIndex]).Values[0];
+            string strState = ((GridRow)gridCustomizeBusiness.Rows[e.RowIndex]).Values[5];
             if (e.CommandName == "View")
             {
                 wndNewCustomizeBusiness.IFrameUrl = "NewCustomizeBusiness.aspx?Type=View&ID=" + strApplyID;
@@ -161,8 +162,16 @@ namespace TZMS.Web
 
             if (e.CommandName == "Edit")
             {
-                wndNewCustomizeBusiness.IFrameUrl = "NewCustomizeBusiness.aspx?Type=Edit&ID=" + strApplyID;
-                wndNewCustomizeBusiness.Hidden = false;
+                if (strState == "未完成")
+                {
+                    wndNewCustomizeBusiness.IFrameUrl = "NewCustomizeBusiness.aspx?Type=Reset&ID=" + strApplyID;
+                    wndNewCustomizeBusiness.Hidden = false;
+                }
+                else
+                {
+                    wndNewCustomizeBusiness.IFrameUrl = "NewCustomizeBusiness.aspx?Type=Edit&ID=" + strApplyID;
+                    wndNewCustomizeBusiness.Hidden = false;
+                }
             }
 
             if (e.CommandName == "Change")
@@ -219,6 +228,7 @@ namespace TZMS.Web
                         break;
                     case "2":
                         e.Values[5] = "异常终止";
+                        e.Values[8] = "<span class=\"gray\">编辑</span>";
                         e.Values[7] = "<span class=\"gray\">成本变更</span>";
                         break;
                     default:

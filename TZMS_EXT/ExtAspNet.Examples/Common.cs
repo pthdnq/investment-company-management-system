@@ -133,6 +133,11 @@ namespace TZMS
             /// 物资采购
             /// </summary>
             public static string MaterialsPurchase = "物资采购";
+
+            /// <summary>
+            /// 业务部备用金
+            /// </summary>
+            public static string ImprestBussiness = "业务部备用金";
         }
 
         #region 附件

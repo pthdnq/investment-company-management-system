@@ -229,6 +229,7 @@ namespace TZMS.Web
                         break;
                     case "2":
                         e.Values[5] = "异常终止";
+                        e.Values[8] = "<span class=\"gray\">编辑</span>";
                         e.Values[7] = "<span class=\"gray\">成本变更</span>";
                         break;
                     default:

@@ -525,7 +525,7 @@ namespace TZMS.Web
                 _recordInfo.CheckerID = CurrentUser.ObjectId;
                 _recordInfo.CheckerName = CurrentUser.Name;
                 _recordInfo.CheckrDept = CurrentUser.Dept;
-                _recordInfo.CheckDateTime = DateTime.Now;
+                _recordInfo.CheckDateTime = DateTime.Now.AddSeconds(1);
                 _recordInfo.State = 1;
                 _recordInfo.CurrentBusiness = 13;
                 _recordInfo.BusinessID = _info.ObjectID;

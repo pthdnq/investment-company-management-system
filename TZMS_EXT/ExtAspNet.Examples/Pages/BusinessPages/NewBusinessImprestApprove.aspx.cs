@@ -248,6 +248,11 @@ namespace TZMS.Web
                     _archiveApproveInfo.ApproveOp = 3;
                     _archiveApproveInfo.ApplyID = _applyInfo.ObjectID;
                     _manage.AddNewImprestApprove(_archiveApproveInfo);
+
+                    // 流量记录.
+                    CashFlowManage _cashFlowManage = new CashFlowManage();
+                    _cashFlowManage.Add(_applyInfo.SumMoney, DateTime.Now, TZMS.Common.FlowDirection.Payment, TZMS.Common.Biz.ImprestBussiness,
+                        _applyInfo.BusinessName + "的" + (_applyInfo.BusinessType == 0 ? "普通业务" : "定制业务") + "的备用金", string.Empty);
                 }
 
                 #endregion
@@ -256,11 +261,11 @@ namespace TZMS.Web
             {
                 if (ddlstNext.SelectedText == "审批")
                 {
-                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "备用金审批");
+                    CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "备用金审批(来自吉信企业管理公司)");
                 }
                 else
                 {
-                    ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条备用金申请，已通过审核并归档！");
+                    ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条备用金申请(来自吉信企业管理公司)，已通过审核并归档！");
                 }
 
                 this.btnClose_Click(null, null);
@@ -307,6 +312,7 @@ namespace TZMS.Web
 
                 if (result == -1)
                 {
+                    ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条备用金申请(来自吉信企业管理公司)，未通过审核！");
                     this.btnClose_Click(null, null);
                 }
                 else

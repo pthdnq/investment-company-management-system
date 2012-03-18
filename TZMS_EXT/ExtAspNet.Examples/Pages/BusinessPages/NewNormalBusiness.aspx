@@ -157,7 +157,7 @@
                                 <Items>
                                     <ext:Grid ID="gridoperateHistory" Title="Grid1" ShowBorder="true" ShowHeader="false"
                                         runat="server" IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true"
-                                        AutoHeight="true" OnRowDataBound="gridoperateHistory_RowDataBound">
+                                        AutoHeight="true" OnRowDataBound="gridoperateHistory_RowDataBound" Height="460px">
                                         <Columns>
                                             <ext:BoundField DataField="CheckerName" HeaderText="办理人" />
                                             <ext:BoundField DataField="CheckDateTime" HeaderText="办理时间" />

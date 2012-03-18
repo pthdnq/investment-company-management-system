@@ -511,7 +511,12 @@ namespace TZMS.Web
             /// <summary>
             /// 结算中心员工离职审批
             /// </summary>
-            JSZXZG = 55
+            JSZXZG = 55,
+
+            /// <summary>
+            /// 业务转移
+            /// </summary>
+            YWZY = 56
         }
 
         /// <summary>

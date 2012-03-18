@@ -220,6 +220,10 @@ namespace TZMS.Web
                 _recordInfo.CheckDateTime = DateTime.Now;
                 _recordInfo.Explain = _manage.ConvertBusinessTypeToString(false, _recordInfo.CurrentBusiness) + "由"
                     + _recordInfo.CheckerName + "转移到" + ddlstApproveUser.SelectedText;
+                _recordInfo.CurrentBusiness = -1;
+                _recordInfo.CheckerID = CurrentUser.ObjectId;
+                _recordInfo.CheckerName = CurrentUser.Name;
+                _recordInfo.CheckrDept = CurrentUser.Dept;
                 _recordInfo.CostMoney = 0;
                 _recordInfo.OtherMoney = 0;
                 _recordInfo.State = 2;
@@ -247,8 +251,8 @@ namespace TZMS.Web
 
             if (result == -1)
             {
-                CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "定制业务转移(来自吉信企业管理公司)");
-
+                //CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "定制业务转移(来自吉信企业管理公司)");
+                ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "定制业务转移(来自吉信企业管理公司)中，您有一条 转移待办理 信息！");
                 this.btnClose_Click(null, null);
             }
             else

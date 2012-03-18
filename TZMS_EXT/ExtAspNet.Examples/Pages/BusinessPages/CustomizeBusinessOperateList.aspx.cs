@@ -50,7 +50,12 @@ namespace TZMS.Web
             }
 
             StringBuilder strCondition = new StringBuilder();
-            strCondition.Append(" CheckerID = '" + CurrentUser.ObjectId.ToString() + "' and CurrentBusiness <> 0 and CurrentBusiness <> 17 and CurrentBusiness <> 18 and BusinessType = 1");
+            strCondition.Append(" 1 = 1");
+            if (!this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZY))
+            {
+                strCondition.Append(" and CheckerID = '" + CurrentUser.ObjectId.ToString() + "'");
+            }
+            strCondition.Append("  and CurrentBusiness <> 0 and CurrentBusiness <> 17 and CurrentBusiness <> 18 and BusinessType = 1");
 
             // 查询文本
             if (!string.IsNullOrEmpty(tbxSearch.Text.Trim()))
@@ -81,6 +86,40 @@ namespace TZMS.Web
 
             gridCustomizeBusiness.DataSource = dtbLeaveApproves.Rows;
             gridCustomizeBusiness.DataBind();
+        }
+
+        /// <summary>
+        /// 判断某用户是否包含某特定角色
+        /// </summary>
+        /// <param name="strObjectID"></param>
+        /// <param name="roleType"></param>
+        /// <returns></returns>
+        public bool ContainsRole(string strObjectID, RoleType roleType)
+        {
+            bool isContain = false;
+
+            if (!string.IsNullOrEmpty(strObjectID))
+            {
+                RolesManage _rolesManage = new RolesManage();
+                UserRoles _userRoles = _rolesManage.GetRolesByObjectID(strObjectID);
+                if (_userRoles != null)
+                {
+                    string[] roles = _userRoles.Roles.Split(',');
+                    foreach (string role in roles)
+                    {
+                        if (!string.IsNullOrEmpty(role))
+                        {
+                            if (role == ((int)roleType).ToString())
+                            {
+                                isContain = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return isContain;
         }
 
         #endregion
@@ -147,6 +186,12 @@ namespace TZMS.Web
                     case "0":
                         e.Values[4] = "待办理";
                         e.Values[5] = "";
+
+                        if (!this.ContainsRole(CurrentUser.ObjectId.ToString(), RoleType.YWZY))
+                        {
+                            e.Values[7] = "<span class=\"gray\">业务转移</span>";
+                        }
+
                         if (CurrentLevel == VisitLevel.View)
                         {
                             e.Values[6] = "<span class=\"gray\">办理</span>";

@@ -119,6 +119,21 @@ namespace TZMS.Web
                         taaOtherMoneyExplain.Enabled = false;
                         break;
 
+                    case "Reset":
+                        BindSigner();
+                        BindBusinessInfo();
+                        BindOperateHistory();
+                        DisableAllControls();
+                        tbxCompanyName.Required = true;
+                        tbxCompanyName.ShowRedStar = true;
+                        tbxCompanyName.Enabled = true;
+                        taaContent.Required = true;
+                        taaContent.ShowRedStar = true;
+                        taaContent.Enabled = true;
+                        taaOther.Enabled = true;
+                        btnSubmit.Enabled = true;
+                        break;
+
                     default:
                         break;
                 }
@@ -368,6 +383,27 @@ namespace TZMS.Web
             BusinessInfo _info = null;
             int result = 3;
 
+            Decimal SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Trim());
+            Decimal PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Trim());
+            Decimal BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Trim());
+
+            if (SumMoney < PreMoney) 
+            {
+                Alert.Show("合同总金额不可小于预付金额!");
+                return;
+            }
+
+            if (SumMoney < BalanceMoney) 
+            {
+                Alert.Show("合同总金额不可小于业务余款金额!");
+                return;
+            }
+
+            if (SumMoney < (PreMoney + BalanceMoney)) 
+            {
+                Alert.Show("合同总金额不正确，请重新填写!");
+            }
+
             string strCell = GetCells();
 
             if (OperatorType == "Add")
@@ -517,6 +553,18 @@ namespace TZMS.Web
                     result = _manage.UpdateBusiness(_info);
                 }
             }
+            else if (OperatorType == "Reset")
+            {
+                _info = _manage.GetBusinessByObjectID(ApplyID);
+                if (_info != null)
+                {
+                    _info.CompanyName = tbxCompanyName.Text.Trim();
+                    _info.Content = taaContent.Text.Trim();
+                    _info.Other = taaOther.Text.Trim();
+
+                    result = _manage.UpdateBusiness(_info);
+                }
+            }
 
             if (result == -1)
             {
@@ -621,7 +669,7 @@ namespace TZMS.Web
                 {
                     Alert.Show("增资和名称不可同时变更!");
                 }
-                if (IsComplete)
+                if (!IsComplete)
                     cbxZCZBBG.Checked = !cbxCMBG.Checked;
             }
         }
