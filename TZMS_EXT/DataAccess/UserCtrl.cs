@@ -77,7 +77,8 @@ namespace com.TZMS.DataAccess
                 new SqlParameter("@LeaveTime",DbType.DateTime),
                 new SqlParameter("@BaseSalary",DbType.Decimal),
                 new SqlParameter("@Menu",DbType.String),
-                new SqlParameter("@Record",DbType.String)
+                new SqlParameter("@Record",DbType.String),
+                new SqlParameter("@BaseSalaryFlag",DbType.String)
 				};
 
                 int i = 0;
@@ -105,6 +106,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.BaseSalary;
                 sqlparam[i++].Value = UserInfo.Menu;
                 sqlparam[i++].Value = UserInfo.Record;
+                sqlparam[i++].Value = UserInfo.BaseSalaryFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -183,7 +185,8 @@ namespace com.TZMS.DataAccess
                 new SqlParameter("@LeaveTime",DbType.DateTime),
                 new SqlParameter("@BaseSalary",DbType.Decimal),
                 new SqlParameter("@Menu",DbType.String),
-                new SqlParameter("@Record",DbType.String)
+                new SqlParameter("@Record",DbType.String) ,
+                new SqlParameter("@BaseSalaryFlag",DbType.String)
                 };
 
                 int i = 0;
@@ -211,6 +214,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = UserInfo.BaseSalary;
                 sqlparam[i++].Value = UserInfo.Menu;
                 sqlparam[i++].Value = UserInfo.Record;
+                sqlparam[i++].Value = UserInfo.BaseSalaryFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -398,6 +402,12 @@ namespace com.TZMS.DataAccess
                 if (!string.IsNullOrEmpty(UserInfoInfoDataRow["Record"].ToString()))
                     UserInfoInfo.Record = UserInfoInfoDataRow["Record"].ToString();
             }
+
+            if (UserInfoInfoDataRow["BaseSalaryFlag"] != null)
+            {
+                UserInfoInfo.BaseSalaryFlag = UserInfoInfoDataRow["BaseSalaryFlag"].ToString();
+            }
+
             return UserInfoInfo;
         }
         #endregion
