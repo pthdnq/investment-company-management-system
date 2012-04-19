@@ -57,6 +57,8 @@ namespace TZMS.Web
         }
         #endregion
 
+        public const string BT = "-";
+
         /// <summary>
         /// 当前登录用户
         /// </summary>
@@ -755,7 +757,7 @@ namespace TZMS.Web
 
         #endregion
 
-        #region 消息提醒 
+        #region 消息提醒
 
         /// <summary>
         /// 归档信息提醒
@@ -791,7 +793,7 @@ namespace TZMS.Web
         /// <param name="receiverID">接收人ID</param>
         /// <param name="receiverName">接收人姓名</param>
         /// <param name="funBase">审批模块名称，如：假勤审批</param>
-        public void CheckMsg(string receiverID, string receiverName,string funBase)
+        public void CheckMsg(string receiverID, string receiverName, string funBase)
         {
             MessageManage _manage = new MessageManage();
             MessageInfo _info = new MessageInfo();
@@ -820,7 +822,7 @@ namespace TZMS.Web
         /// <param name="receiverName">接收人姓名</param>
         /// <param name="funBase">模块名称，如：请假申请</param>
         /// <param name="state">审批结果，如未通过，通过，打回</param>
-        public void ResultMsg(string receiverID, string receiverName, string funBase,string state)
+        public void ResultMsg(string receiverID, string receiverName, string funBase, string state)
         {
             MessageManage _manage = new MessageManage();
             MessageInfo _info = new MessageInfo();
@@ -858,7 +860,7 @@ namespace TZMS.Web
             _info.SenderName = CurrentUser.Name;
             _info.DeptName = CurrentUser.Dept;
             _info.Tile = "系统提醒";
-            _info.Context = receiverName + " , 您好！\r\n " +  msg  ;
+            _info.Context = receiverName + " , 您好！\r\n " + msg;
             _info.ReceviceId = new Guid(receiverID);
             _info.Recevicer = receiverName;
             _info.SendDate = DateTime.Now; ;
