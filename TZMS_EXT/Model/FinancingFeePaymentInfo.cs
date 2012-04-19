@@ -53,9 +53,18 @@ namespace com.TZMS.Model
         private string _accountingRemark = DBEmptyString;
         private int _status = DBEmptyChar;
         private string _adulters = DBEmptyString;
+        private string _amountOfPaymentFlag = DBEmptyString;
+
         #endregion
 
         #region Property
+
+        public string AmountOfPaymentFlag
+        {
+            get { return _amountOfPaymentFlag; }
+            set { _amountOfPaymentFlag = value; }
+        }
+
         /// <summary>
         /// ObjectID 
         /// </summary> 

@@ -54,9 +54,25 @@ namespace com.TZMS.Model
         private string _summary = DBEmptyString;
         private string _matter = DBEmptyString;
         private string _remark = DBEmptyString;
+        private string _amountFlag = DBEmptyString;
+        private string _remainingAmountFlag = DBEmptyString;
+     
 		#endregion 
 
 		#region Property
+
+        public string AmountFlag
+        {
+            get { return _amountFlag; }
+            set { _amountFlag = value; }
+        }
+
+        public string RemainingAmountFlag
+        {
+            get { return _remainingAmountFlag; }
+            set { _remainingAmountFlag = value; }
+        }
+
 		/// <summary>
         /// ObjectID 
         /// </summary> 

@@ -62,6 +62,13 @@ namespace com.TZMS.Model
         private Decimal _baseSalary;
         private string _menu = string.Empty;
         private string _record = string.Empty;
+        private string _baseSalaryFlag = string.Empty;
+
+        public string BaseSalaryFlag
+        {
+            get { return _baseSalaryFlag; }
+            set { _baseSalaryFlag = value; }
+        }
         #endregion
 
         #region Property

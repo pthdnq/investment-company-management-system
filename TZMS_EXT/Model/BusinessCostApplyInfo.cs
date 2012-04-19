@@ -50,9 +50,24 @@ namespace com.TZMS.Model
         private short _state = -1;
         private Guid _approverId;
         private bool _isDelete = false;
+        private string _applyMoneyFlag = DBEmptyString;
+        private string _actualMoneyFlag = DBEmptyString;
+     
         #endregion
 
         #region Property
+
+        public string ApplyMoneyFlag
+        {
+            get { return _applyMoneyFlag; }
+            set { _applyMoneyFlag = value; }
+        }
+
+        public string ActualMoneyFlag
+        {
+            get { return _actualMoneyFlag; }
+            set { _actualMoneyFlag = value; }
+        }
         /// <summary>
         /// ObjectID 
         /// </summary> 

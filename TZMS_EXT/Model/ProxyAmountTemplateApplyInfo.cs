@@ -48,6 +48,13 @@ namespace com.TZMS.Model
         private Guid _approverId;
         private short _templateType = 0;
         private bool _isDelete = false;
+        private string _eNMoneyFlag = DBEmptyString;
+
+        public string ENMoneyFlag
+        {
+            get { return _eNMoneyFlag; }
+            set { _eNMoneyFlag = value; }
+        }
         #endregion
 
         #region Property

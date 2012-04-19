@@ -61,7 +61,21 @@ namespace com.TZMS.Model
         private string _adulters = DBEmptyString;
         private string _baadulters = DBEmptyString;
         private int _bastatus = DBEmptyInt;
-  
+
+        private string _contractAmountFlag = DBEmptyString;
+
+        public string ContractAmountFlag
+        {
+            get { return _contractAmountFlag; }
+            set { _contractAmountFlag = value; }
+        }
+        private string _downPaymentFlag = DBEmptyString;
+
+        public string DownPaymentFlag
+        {
+            get { return _downPaymentFlag; }
+            set { _downPaymentFlag = value; }
+        }
         #endregion
 
         #region Property

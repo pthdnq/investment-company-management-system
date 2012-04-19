@@ -51,6 +51,13 @@ namespace com.TZMS.Model
         private DateTime _needsDate = DBMAXDate;
         private bool _hasImport = false;
         private DateTime _importTime = DBMAXDate;
+        private string _moneyFlag = DBEmptyString;
+
+        public string MoneyFlag
+        {
+            get { return _moneyFlag; }
+            set { _moneyFlag = value; }
+        }
         #endregion
 
         #region Property

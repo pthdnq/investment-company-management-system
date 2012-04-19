@@ -50,9 +50,16 @@ namespace com.TZMS.Model
         private Guid _checkId;
         private DateTime _startTime;
         private DateTime _endTime;
+        private string _moneyFlag = DBEmptyString;
         #endregion
 
         #region Property
+
+        public string MoneyFlag
+        {
+            get { return _moneyFlag; }
+            set { _moneyFlag = value; }
+        }
 
         /// <summary>
         /// TellPhone

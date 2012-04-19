@@ -66,9 +66,54 @@ namespace com.TZMS.Model
         private short _businessType = -1;
         private string _businessCells = DBEmptyString;
         private string _checkOther = DBEmptyString;
+        private string _registeredMoneyFlag = DBEmptyString;
+        private string _sumMoneyFlag = DBEmptyString;
+        private string _preMoneyFlag = DBEmptyString;
+        private string _balanceMoneyFlag = DBEmptyString;
+        private string _costMoneyFlag = DBEmptyString;
+        private string _otherMoneyFlag = DBEmptyString;
+
         #endregion
 
         #region Property
+
+        public string RegisteredMoneyFlag
+        {
+            get { return _registeredMoneyFlag; }
+            set { _registeredMoneyFlag = value; }
+        }
+
+        public string SumMoneyFlag
+        {
+            get { return _sumMoneyFlag; }
+            set { _sumMoneyFlag = value; }
+        }
+
+        public string PreMoneyFlag
+        {
+            get { return _preMoneyFlag; }
+            set { _preMoneyFlag = value; }
+        }
+
+        public string BalanceMoneyFlag
+        {
+            get { return _balanceMoneyFlag; }
+            set { _balanceMoneyFlag = value; }
+        }
+
+        public string CostMoneyFlag
+        {
+            get { return _costMoneyFlag; }
+            set { _costMoneyFlag = value; }
+        }
+
+
+        public string OtherMoneyFlag
+        {
+            get { return _otherMoneyFlag; }
+            set { _otherMoneyFlag = value; }
+        }
+
         /// <summary>
         /// ObjectID 
         /// </summary> 

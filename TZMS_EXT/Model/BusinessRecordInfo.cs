@@ -44,9 +44,25 @@ namespace com.TZMS.Model
         private Decimal _otherMoney = DBEmptyDecimal;
         private string _explain = DBEmptyString;
         private Guid _businessId;
+        private string _costMoneyFlag = DBEmptyString;
+        private string _otherMoneyFlag = DBEmptyString;
+     
         #endregion
 
         #region Property
+
+        public string CostMoneyFlag
+        {
+            get { return _costMoneyFlag; }
+            set { _costMoneyFlag = value; }
+        }
+
+        public string OtherMoneyFlag
+        {
+            get { return _otherMoneyFlag; }
+            set { _otherMoneyFlag = value; }
+        }
+
         /// <summary>
         /// ObjectID 
         /// </summary> 

@@ -52,6 +52,13 @@ namespace com.TZMS.Model
         private short _state = -1;
         private bool _isDelete = false;
         private short _proxyAmountType;
+        private string _eNMoneyFlag = DBEmptyString;
+
+        public string ENMoneyFlag
+        {
+            get { return _eNMoneyFlag; }
+            set { _eNMoneyFlag = value; }
+        }
         #endregion
 
         #region Property

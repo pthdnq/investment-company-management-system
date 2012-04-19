@@ -49,9 +49,17 @@ namespace com.TZMS.Model
         private Guid _approverId;
         private short _state = -1;
         private bool _isDelete = false;
+        private string _sumMoneyFlag = DBEmptyString;
         #endregion
 
         #region Property
+
+        public string SumMoneyFlag
+        {
+            get { return _sumMoneyFlag; }
+            set { _sumMoneyFlag = value; }
+        }
+
         /// <summary>
         /// ObjectID 
         /// </summary> 
