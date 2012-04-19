@@ -153,7 +153,7 @@ namespace TZMS.Web
                     dpkBirthday.SelectedDate = _userInfo.Birthday;
                 }
                 // 基本工资.
-                tbxBaseSalary.Text = _userInfo.BaseSalary.ToString();
+                tbxBaseSalary.Text = _userInfo.BaseSalaryFlag + _userInfo.BaseSalary.ToString();
                 // 学历.
                 ddlstEducational.SelectedValue = _userInfo.Educational;
                 // 工作年限.
@@ -243,7 +243,11 @@ namespace TZMS.Web
                 _userInfo.EntryDate = Convert.ToDateTime(dpkEntryDate.SelectedDate);
             }
             // 基本工资.
-            _userInfo.BaseSalary = Convert.ToDecimal(tbxBaseSalary.Text.Trim());
+            _userInfo.BaseSalary = Convert.ToDecimal(tbxBaseSalary.Text.Replace(BT,"").Trim());
+            if (tbxBaseSalary.Text.Contains(BT))
+            {
+                _userInfo.BaseSalaryFlag = BT;
+            }
             // 出生日期.
             if (dpkBirthday.SelectedDate is DateTime)
             {
