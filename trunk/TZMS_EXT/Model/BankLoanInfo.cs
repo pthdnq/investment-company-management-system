@@ -62,7 +62,10 @@ namespace com.TZMS.Model
         private string _baadulters = DBEmptyString;
         private int _bastatus = DBEmptyInt;
         private string _projectName = DBEmptyString;
- 
+        private string _loanAmountFlag = DBEmptyString;
+        private string _loanFeeFlag = DBEmptyString;
+        private string _downPaymentFlag = DBEmptyString;
+       
         #endregion
 
         #region Property
@@ -322,6 +325,25 @@ namespace com.TZMS.Model
         {
             get { return _projectName; }
             set { _projectName = value; }
+        }
+
+        public string LoanAmountFlag
+        {
+            get { return _loanAmountFlag; }
+            set { _loanAmountFlag = value; }
+        }
+
+        public string LoanFeeFlag
+        {
+            get { return _loanFeeFlag; }
+            set { _loanFeeFlag = value; }
+        }
+
+
+        public string DownPaymentFlag
+        {
+            get { return _downPaymentFlag; }
+            set { _downPaymentFlag = value; }
         }
          
         #endregion 

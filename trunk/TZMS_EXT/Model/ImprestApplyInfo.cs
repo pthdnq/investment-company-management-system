@@ -46,6 +46,13 @@ namespace com.TZMS.Model
         private Guid _currentApproverId;
         private short _state = DBEmptyShort;
         private bool _isDelete = false;
+        private string _moneyFlag = DBEmptyString;
+
+        public string MoneyFlag
+        {
+            get { return _moneyFlag; }
+            set { _moneyFlag = value; }
+        }
         #endregion
 
         #region Property

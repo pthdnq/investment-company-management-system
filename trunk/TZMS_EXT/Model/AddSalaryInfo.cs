@@ -44,6 +44,10 @@ namespace com.TZMS.Model
         private Guid _currentCheckerId;
         private short _state;
         private DateTime _applyTime = DBMAXDate;
+        string _baseSalaryFlag = DBEmptyString;
+        string _examSalaryFlag = DBEmptyString;
+        string _otherSalaryFlag = DBEmptyString;
+    
         #endregion
 
         #region Property
@@ -141,6 +145,25 @@ namespace com.TZMS.Model
         {
             get { return _applyTime; }
             set { _applyTime = value; }
+        }
+
+        public string BaseSalaryFlag
+        {
+            get { return _baseSalaryFlag; }
+            set { _baseSalaryFlag = value; }
+        }
+
+        public string ExamSalaryFlag
+        {
+            get { return _examSalaryFlag; }
+            set { _examSalaryFlag = value; }
+        }
+
+
+        public string OtherSalaryFlag
+        {
+            get { return _otherSalaryFlag; }
+            set { _otherSalaryFlag = value; }
         }
 
         #endregion

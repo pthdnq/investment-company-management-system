@@ -60,6 +60,28 @@ namespace com.TZMS.Model
         private bool _isPassImprest;
         private Guid _firstOperaterID;
         private string _firstOperaterName = DBEmptyString;
+
+        private string _amountExpendedFlag = DBEmptyString;
+
+        public string AmountExpendedFlag
+        {
+            get { return _amountExpendedFlag; }
+            set { _amountExpendedFlag = value; }
+        }
+        private string _imprestAmountFlag = DBEmptyString;
+
+        public string ImprestAmountFlag
+        {
+            get { return _imprestAmountFlag; }
+            set { _imprestAmountFlag = value; }
+        }
+        private string _prepaidAmountFlag = DBEmptyString;
+
+        public string PrepaidAmountFlag
+        {
+            get { return _prepaidAmountFlag; }
+            set { _prepaidAmountFlag = value; }
+        }
         #endregion
 
         #region Property

@@ -42,6 +42,13 @@ namespace com.TZMS.Model
         private short _state =DBEmptyShort;
         private Guid _currentCheckerId;
         private Decimal _sumMoney;
+        private string _sumMoneyFlag = DBEmptyString;
+
+        public string SumMoneyFlag
+        {
+            get { return _sumMoneyFlag; }
+            set { _sumMoneyFlag = value; }
+        }
         #endregion
 
         #region Property

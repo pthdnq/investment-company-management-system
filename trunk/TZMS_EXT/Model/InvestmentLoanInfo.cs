@@ -88,6 +88,28 @@ namespace com.TZMS.Model
             get { return GetDecimal(_TransferAccount); }
             set { _TransferAccount = value; }
         }
+
+        private string _loanAmountFlag = DBEmptyString;
+
+        public string LoanAmountFlag
+        {
+            get { return _loanAmountFlag; }
+            set { _loanAmountFlag = value; }
+        }
+        private string _cashFlag = DBEmptyString;
+
+        public string CashFlag
+        {
+            get { return _cashFlag; }
+            set { _cashFlag = value; }
+        }
+        private string _transferAccountFlag = DBEmptyString;
+
+        public string TransferAccountFlag
+        {
+            get { return _transferAccountFlag; }
+            set { _transferAccountFlag = value; }
+        }
         #endregion
 
         #region Property

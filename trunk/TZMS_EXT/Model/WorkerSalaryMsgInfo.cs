@@ -65,6 +65,50 @@ namespace com.TZMS.Model
         private string _bjf = "0.00";
         private string _lyf = "0.00";
         private string _sfgz = "0.00";
+
+        private string _baseSalaryFlag = DBEmptyString;
+
+        public string BaseSalaryFlag
+        {
+            get { return _baseSalaryFlag; }
+            set { _baseSalaryFlag = value; }
+        }
+        private string _examSalaryFlag = DBEmptyString;
+
+        public string ExamSalaryFlag
+        {
+            get { return _examSalaryFlag; }
+            set { _examSalaryFlag = value; }
+        }
+        private string _backSalaryFlag = DBEmptyString;
+
+        public string BackSalaryFlag
+        {
+            get { return _backSalaryFlag; }
+            set { _backSalaryFlag = value; }
+        }
+        private string _otherSalaryFlag = DBEmptyString;
+
+        public string OtherSalaryFlag
+        {
+            get { return _otherSalaryFlag; }
+            set { _otherSalaryFlag = value; }
+        }
+        private string _shouldSalaryFlag = DBEmptyString;
+
+        public string ShouldSalaryFlag
+        {
+            get { return _shouldSalaryFlag; }
+            set { _shouldSalaryFlag = value; }
+        }
+        private string _salaryFlag = DBEmptyString;
+
+        public string SalaryFlag
+        {
+            get { return _salaryFlag; }
+            set { _salaryFlag = value; }
+        }
+
         #endregion
 
         #region Property

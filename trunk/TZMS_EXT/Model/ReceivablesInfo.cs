@@ -64,6 +64,29 @@ namespace com.TZMS.Model
             get { return GetDecimal(_TransferAccount); }
             set { _TransferAccount = value; }
         }
+
+        private string _amountofpaidUpFlag = DBEmptyString;
+
+        public string AmountofpaidUpFlag
+        {
+            get { return _amountofpaidUpFlag; }
+            set { _amountofpaidUpFlag = value; }
+        }
+        private string _cashFlag = DBEmptyString;
+
+        public string CashFlag
+        {
+            get { return _cashFlag; }
+            set { _cashFlag = value; }
+        }
+        private string _transferAccountFlag = DBEmptyString;
+
+        public string TransferAccountFlag
+        {
+            get { return _transferAccountFlag; }
+            set { _transferAccountFlag = value; }
+        }
+
         #endregion
 
         #region Property
