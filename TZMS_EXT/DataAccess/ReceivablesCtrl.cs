@@ -70,8 +70,12 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@CreaterName",DbType.String),
 				new SqlParameter("@CreateTime",DbType.DateTime),
 				new SqlParameter("@Status",DbType.Byte),
-                        	new SqlParameter("@Cash",DbType.Decimal),
-                                	new SqlParameter("@TransferAccount",DbType.Decimal),
+                new SqlParameter("@Cash",DbType.Decimal),
+                new SqlParameter("@TransferAccount",DbType.Decimal),
+
+                new SqlParameter("@AmountofpaidUpFlag",DbType.String),
+                new SqlParameter("@CashFlag",DbType.String),
+                new SqlParameter("@TransferAccountFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -93,6 +97,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ReceivablesInfo.Status;
                 sqlparam[i++].Value = ReceivablesInfo.Cash;
                 sqlparam[i++].Value = ReceivablesInfo.TransferAccount;
+                sqlparam[i++].Value = ReceivablesInfo.AmountofpaidUpFlag;
+                sqlparam[i++].Value = ReceivablesInfo.CashFlag;
+                sqlparam[i++].Value = ReceivablesInfo.TransferAccountFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -165,6 +172,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Status",DbType.Byte),
                         	new SqlParameter("@Cash",DbType.Decimal),
                                 	new SqlParameter("@TransferAccount",DbType.Decimal),
+                                                    new SqlParameter("@AmountofpaidUpFlag",DbType.String),
+                new SqlParameter("@CashFlag",DbType.String),
+                new SqlParameter("@TransferAccountFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -186,6 +196,10 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ReceivablesInfo.Status;
                 sqlparam[i++].Value = ReceivablesInfo.Cash;
                 sqlparam[i++].Value = ReceivablesInfo.TransferAccount;
+
+                sqlparam[i++].Value = ReceivablesInfo.AmountofpaidUpFlag;
+                sqlparam[i++].Value = ReceivablesInfo.CashFlag;
+                sqlparam[i++].Value = ReceivablesInfo.TransferAccountFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

@@ -81,6 +81,10 @@ namespace com.TZMS.DataAccess
                             	new SqlParameter("@IsPassImprest",DbType.Boolean),
                                 	new SqlParameter("@FirstOperaterID",DbType.Guid),
                     			new SqlParameter("@FirstOperaterName",DbType.String),
+
+                                new SqlParameter("@AmountExpendedFlag",DbType.String),
+                                new SqlParameter("@ImprestAmountFlag",DbType.String),
+                                new SqlParameter("@PrepaidAmountFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -111,6 +115,10 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProjectProcessInfo.IsPassImprest;
                 sqlparam[i++].Value = ProjectProcessInfo.FirstOperaterID;
                 sqlparam[i++].Value = ProjectProcessInfo.FirstOperaterName;
+
+                sqlparam[i++].Value = ProjectProcessInfo.AmountExpendedFlag;
+                sqlparam[i++].Value = ProjectProcessInfo.ImprestAmountFlag;
+                sqlparam[i++].Value = ProjectProcessInfo.PrepaidAmountFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -192,6 +200,10 @@ namespace com.TZMS.DataAccess
                      	new SqlParameter("@IsPassImprest",DbType.Boolean),
                         	new SqlParameter("@FirstOperaterID",DbType.Guid),
                     			new SqlParameter("@FirstOperaterName",DbType.String),
+                                
+                                new SqlParameter("@AmountExpendedFlag",DbType.String),
+                                new SqlParameter("@ImprestAmountFlag",DbType.String),
+                                new SqlParameter("@PrepaidAmountFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -222,6 +234,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProjectProcessInfo.IsPassImprest;
                 sqlparam[i++].Value = ProjectProcessInfo.FirstOperaterID;
                 sqlparam[i++].Value = ProjectProcessInfo.FirstOperaterName;
+                sqlparam[i++].Value = ProjectProcessInfo.AmountExpendedFlag;
+                sqlparam[i++].Value = ProjectProcessInfo.ImprestAmountFlag;
+                sqlparam[i++].Value = ProjectProcessInfo.PrepaidAmountFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

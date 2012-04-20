@@ -77,12 +77,15 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@AuditOpinion",DbType.String),
 				new SqlParameter("@AccountingRemark",DbType.String),
-                 new SqlParameter("@Use",DbType.String),
-                 new SqlParameter("@ImprestRemark",DbType.String),
-                      new SqlParameter("@Adulters",DbType.String),
-                       new SqlParameter("@IsPassImprest",DbType.Boolean),
-                       	new SqlParameter("@FirstOperaterID",DbType.Guid),
-                    			new SqlParameter("@FirstOperaterName",DbType.String),
+                new SqlParameter("@Use",DbType.String),
+                new SqlParameter("@ImprestRemark",DbType.String),
+                new SqlParameter("@Adulters",DbType.String),
+                new SqlParameter("@IsPassImprest",DbType.Boolean),
+                new SqlParameter("@FirstOperaterID",DbType.Guid),
+                new SqlParameter("@FirstOperaterName",DbType.String),
+                     new SqlParameter("@ImprestAmountFlag",DbType.String),
+                          new SqlParameter("@AmountExpendedFlag",DbType.String),
+                               new SqlParameter("@ImprestAmountBalanceFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -115,6 +118,10 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.IsPassImprest;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.FirstOperaterID;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.FirstOperaterName;
+
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.ImprestAmountFlag;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.AmountExpendedFlag;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.ImprestAmountBalanceFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -192,12 +199,15 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@AuditOpinion",DbType.String),
 				new SqlParameter("@AccountingRemark",DbType.String),
-                    new SqlParameter("@Use",DbType.String),
+                   new SqlParameter("@Use",DbType.String),
                  new SqlParameter("@ImprestRemark",DbType.String),
-                       new SqlParameter("@Adulters",DbType.String),
-                               new SqlParameter("@IsPassImprest",DbType.Boolean),
-                               	new SqlParameter("@FirstOperaterID",DbType.Guid),
-                    			new SqlParameter("@FirstOperaterName",DbType.String),
+                  new SqlParameter("@Adulters",DbType.String),
+                     new SqlParameter("@IsPassImprest",DbType.Boolean),
+                   	new SqlParameter("@FirstOperaterID",DbType.Guid),
+                    new SqlParameter("@FirstOperaterName",DbType.String),
+                    new SqlParameter("@ImprestAmountFlag",DbType.String),
+                    new SqlParameter("@AmountExpendedFlag",DbType.String),
+                    new SqlParameter("@ImprestAmountBalanceFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -230,6 +240,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.IsPassImprest;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.FirstOperaterID;
                 sqlparam[i++].Value = BankLoanProjectProcessInfo.FirstOperaterName;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.ImprestAmountFlag;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.AmountExpendedFlag;
+                sqlparam[i++].Value = BankLoanProjectProcessInfo.ImprestAmountBalanceFlag;
 
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程

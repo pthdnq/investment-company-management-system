@@ -72,7 +72,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@CollecterName",DbType.String),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@IsDelete",DbType.Boolean),
-                new SqlParameter("@ProxyAmountType",DbType.Int16)
+                new SqlParameter("@ProxyAmountType",DbType.Int16),
+                      new SqlParameter("@ENMoneyFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -95,6 +96,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProxyAmountInfo.State;
                 sqlparam[i++].Value = ProxyAmountInfo.IsDelete;
                 sqlparam[i++].Value = ProxyAmountInfo.ProxyAmountType;
+                sqlparam[i++].Value = ProxyAmountInfo.ENMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -167,7 +169,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@CollecterName",DbType.String),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@IsDelete",DbType.Boolean),
-                new SqlParameter("@ProxyAmountType",DbType.Int16)
+                new SqlParameter("@ProxyAmountType",DbType.Int16),
+                      new SqlParameter("@ENMoneyFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -190,6 +193,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProxyAmountInfo.State;
                 sqlparam[i++].Value = ProxyAmountInfo.IsDelete;
                 sqlparam[i++].Value = ProxyAmountInfo.ProxyAmountType;
+                sqlparam[i++].Value = ProxyAmountInfo.ENMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

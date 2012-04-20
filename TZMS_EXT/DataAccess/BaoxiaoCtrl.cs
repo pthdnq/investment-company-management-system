@@ -69,7 +69,8 @@ namespace com.TZMS.DataAccess
                 new SqlParameter("@TellPhone",DbType.String),
                 new SqlParameter("@CheckerId",DbType.Guid),
                 new SqlParameter("@StartTime",DbType.DateTime),
-                new SqlParameter("@EndTime",DbType.DateTime)
+                new SqlParameter("@EndTime",DbType.DateTime),
+                 new SqlParameter("@MoneyFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -89,6 +90,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BaoxiaoInfo.CheckerId;
                 sqlparam[i++].Value = BaoxiaoInfo.StartTime;
                 sqlparam[i++].Value = BaoxiaoInfo.EndTime;
+                sqlparam[i++].Value = BaoxiaoInfo.MoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -158,7 +160,8 @@ namespace com.TZMS.DataAccess
                 new SqlParameter("@TellPhone",DbType.String),
                 new SqlParameter("@CheckerId",DbType.Guid),
                 new SqlParameter("@StartTime",DbType.DateTime),
-                new SqlParameter("@EndTime",DbType.DateTime)
+                new SqlParameter("@EndTime",DbType.DateTime),
+                  new SqlParameter("@MoneyFlag",DbType.String),
 
                 };
 
@@ -177,9 +180,12 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BaoxiaoInfo.Isdelete;
                 sqlparam[i++].Value = BaoxiaoInfo.TellPhone;
                 sqlparam[i++].Value = BaoxiaoInfo.CheckerId;
+             
+
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 sqlparam[i++].Value = BaoxiaoInfo.StartTime;
-                sqlparam[i++].Value = BaoxiaoInfo.EndTime;
+                sqlparam[i++].Value = BaoxiaoInfo.EndTime;  
+                sqlparam[i++].Value = BaoxiaoInfo.MoneyFlag;
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
                 return i;

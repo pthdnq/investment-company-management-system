@@ -74,6 +74,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@AccountingRemark",DbType.String),
 				new SqlParameter("@Status",DbType.Byte),
                 	new SqlParameter("@Adulters",DbType.Byte),
+                    new SqlParameter("@AmountOfPaymentFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -97,6 +98,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = FinancingFeePaymentInfo.AccountingRemark;
                 sqlparam[i++].Value = FinancingFeePaymentInfo.Status;
                 sqlparam[i++].Value = FinancingFeePaymentInfo.Adulters;
+                sqlparam[i++].Value = FinancingFeePaymentInfo.AmountOfPaymentFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -171,6 +173,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@AccountingRemark",DbType.String),
 				new SqlParameter("@Status",DbType.Byte),
                    	new SqlParameter("@Adulters",DbType.Byte),
+                      new SqlParameter("@AmountOfPaymentFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -194,6 +197,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = FinancingFeePaymentInfo.AccountingRemark;
                 sqlparam[i++].Value = FinancingFeePaymentInfo.Status;
                 sqlparam[i++].Value = FinancingFeePaymentInfo.Adulters;
+                sqlparam[i++].Value = FinancingFeePaymentInfo.AmountOfPaymentFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

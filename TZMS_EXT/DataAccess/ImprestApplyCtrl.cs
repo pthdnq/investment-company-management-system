@@ -67,6 +67,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@CurrentApproverID",DbType.Guid),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                		new SqlParameter("@MoneyFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -83,6 +84,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ImprestApplyInfo.CurrentApproverID;
                 sqlparam[i++].Value = ImprestApplyInfo.State;
                 sqlparam[i++].Value = ImprestApplyInfo.IsDelete;
+
+                sqlparam[i++].Value = ImprestApplyInfo.MoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -150,6 +153,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@CurrentApproverID",DbType.Guid),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                	new SqlParameter("@MoneyFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -166,6 +170,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ImprestApplyInfo.CurrentApproverID;
                 sqlparam[i++].Value = ImprestApplyInfo.State;
                 sqlparam[i++].Value = ImprestApplyInfo.IsDelete;
+                sqlparam[i++].Value = ImprestApplyInfo.MoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

@@ -88,6 +88,13 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@BusinessType",DbType.Int16),
 				new SqlParameter("@BusinessCells",DbType.String),
 				new SqlParameter("@CheckOther",DbType.String),
+
+                new SqlParameter("@RegisteredMoneyFlag",DbType.String),
+                new SqlParameter("@SumMoneyFlag",DbType.String),
+                new SqlParameter("@PreMoneyFlag",DbType.String),
+                new SqlParameter("@BalanceMoneyFlag",DbType.String),
+                new SqlParameter("@CostMoneyFlag",DbType.String),
+                new SqlParameter("@OtherMoneyFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -124,6 +131,13 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BusinessInfo.BusinessType;
                 sqlparam[i++].Value = BusinessInfo.BusinessCells;
                 sqlparam[i++].Value = BusinessInfo.CheckOther;
+
+                sqlparam[i++].Value = BusinessInfo.RegisteredMoneyFlag;
+                sqlparam[i++].Value = BusinessInfo.SumMoneyFlag;
+                sqlparam[i++].Value = BusinessInfo.PreMoneyFlag;
+                sqlparam[i++].Value = BusinessInfo.BalanceMoneyFlag;
+                sqlparam[i++].Value = BusinessInfo.CostMoneyFlag;
+                sqlparam[i++].Value = BusinessInfo.OtherMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -211,6 +225,12 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@BusinessType",DbType.Int16),
 				new SqlParameter("@BusinessCells",DbType.String),
 				new SqlParameter("@CheckOther",DbType.String),
+                new SqlParameter("@RegisteredMoneyFlag",DbType.String),
+                new SqlParameter("@SumMoneyFlag",DbType.String),
+                new SqlParameter("@PreMoneyFlag",DbType.String),
+                new SqlParameter("@BalanceMoneyFlag",DbType.String),
+                new SqlParameter("@CostMoneyFlag",DbType.String),
+                new SqlParameter("@OtherMoneyFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -247,6 +267,12 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BusinessInfo.BusinessType;
                 sqlparam[i++].Value = BusinessInfo.BusinessCells;
                 sqlparam[i++].Value = BusinessInfo.CheckOther;
+                sqlparam[i++].Value = BusinessInfo.RegisteredMoneyFlag;
+                sqlparam[i++].Value = BusinessInfo.SumMoneyFlag;
+                sqlparam[i++].Value = BusinessInfo.PreMoneyFlag;
+                sqlparam[i++].Value = BusinessInfo.BalanceMoneyFlag;
+                sqlparam[i++].Value = BusinessInfo.CostMoneyFlag;
+                sqlparam[i++].Value = BusinessInfo.OtherMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

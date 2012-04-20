@@ -64,7 +64,10 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Context",DbType.String),
 				new SqlParameter("@CurrentCheckerId",DbType.Guid),
                 new SqlParameter("@State",DbType.Int16),
-                new SqlParameter("@ApplyTime",DbType.DateTime)
+                new SqlParameter("@ApplyTime",DbType.DateTime),
+                new SqlParameter("@BaseSalaryFlag",DbType.String),
+                new SqlParameter("@ExamSalaryFlag",DbType.String),
+                new SqlParameter("@OtherSalaryFlag",DbType.String)
 				};
 
                 int i = 0;
@@ -79,6 +82,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = AddSalaryInfo.CurrentCheckerId;
                 sqlparam[i++].Value = AddSalaryInfo.State;
                 sqlparam[i++].Value = AddSalaryInfo.ApplyTime;
+                sqlparam[i++].Value = AddSalaryInfo.BaseSalaryFlag;
+                sqlparam[i++].Value = AddSalaryInfo.ExamSalaryFlag;
+                sqlparam[i++].Value = AddSalaryInfo.OtherSalaryFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -143,7 +149,10 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Context",DbType.String),
 				new SqlParameter("@CurrentCheckerId",DbType.Guid),
                 new SqlParameter("@State",DbType.Int16),
-                new SqlParameter("@ApplyTime",DbType.DateTime)
+                new SqlParameter("@ApplyTime",DbType.DateTime),
+                new SqlParameter("@BaseSalaryFlag",DbType.String),
+                new SqlParameter("@ExamSalaryFlag",DbType.String),
+                new SqlParameter("@OtherSalaryFlag",DbType.String)
                 };
 
                 int i = 0;
@@ -158,6 +167,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = AddSalaryInfo.CurrentCheckerId;
                 sqlparam[i++].Value = AddSalaryInfo.State;
                 sqlparam[i++].Value = AddSalaryInfo.ApplyTime;
+                sqlparam[i++].Value = AddSalaryInfo.BaseSalaryFlag;
+                sqlparam[i++].Value = AddSalaryInfo.ExamSalaryFlag;
+                sqlparam[i++].Value = AddSalaryInfo.OtherSalaryFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

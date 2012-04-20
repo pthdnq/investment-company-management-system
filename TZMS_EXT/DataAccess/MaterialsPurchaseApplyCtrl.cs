@@ -71,7 +71,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@IsDelete",DbType.Boolean),
                 new SqlParameter("@NeedsDate",DbType.DateTime),
                 new SqlParameter("@HasImport",DbType.Boolean),
-                new SqlParameter("@ImportTime",DbType.DateTime)
+                new SqlParameter("@ImportTime",DbType.DateTime),
+                new SqlParameter("@MoneyFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -93,6 +94,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.NeedsDate;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.HasImport;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.ImportTime;
+                sqlparam[i++].Value = MaterialsPurchaseApplyInfo.MoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -164,7 +166,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@IsDelete",DbType.Boolean),
                 new SqlParameter("@NeedsDate",DbType.DateTime),
                 new SqlParameter("@HasImport",DbType.Boolean),
-                new SqlParameter("@ImportTime",DbType.DateTime)
+                new SqlParameter("@ImportTime",DbType.DateTime),
+                  new SqlParameter("@MoneyFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -186,6 +189,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.NeedsDate;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.HasImport;
                 sqlparam[i++].Value = MaterialsPurchaseApplyInfo.ImportTime;
+                sqlparam[i++].Value = MaterialsPurchaseApplyInfo.MoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

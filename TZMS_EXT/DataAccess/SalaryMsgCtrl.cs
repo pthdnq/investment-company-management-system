@@ -62,7 +62,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Name",DbType.String),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@CurrentCheckerId",DbType.Guid),
-                new SqlParameter("@SumMoney",DbType.Decimal)
+                new SqlParameter("@SumMoney",DbType.Decimal),
+                new SqlParameter("@SumMoneyFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -75,6 +76,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = SalaryMsgInfo.State;
                 sqlparam[i++].Value = SalaryMsgInfo.CurrentCheckerId;
                 sqlparam[i++].Value = SalaryMsgInfo.SumMoney;
+                sqlparam[i++].Value = SalaryMsgInfo.SumMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -137,7 +139,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Name",DbType.String),
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@CurrentCheckerId",DbType.Guid),
-                new SqlParameter("@SumMoney",DbType.Decimal)
+                new SqlParameter("@SumMoney",DbType.Decimal),
+                        new SqlParameter("@SumMoneyFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -150,6 +153,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = SalaryMsgInfo.State;
                 sqlparam[i++].Value = SalaryMsgInfo.CurrentCheckerId;
                 sqlparam[i++].Value = SalaryMsgInfo.SumMoney;
+                sqlparam[i++].Value = SalaryMsgInfo.SumMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

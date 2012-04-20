@@ -83,6 +83,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Adulters",DbType.String),
 				new SqlParameter("@BAAdulters",DbType.String),
          
+               new SqlParameter("@ContractAmountFlag",DbType.String),
+				new SqlParameter("@DownPaymentFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -114,7 +116,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = InvestmentProjectInfo.SubmitBATime;
                 sqlparam[i++].Value = InvestmentProjectInfo.Adulters;
                 sqlparam[i++].Value = InvestmentProjectInfo.BAAdulters;
-           
+
+                sqlparam[i++].Value = InvestmentProjectInfo.ContractAmountFlag;
+                sqlparam[i++].Value = InvestmentProjectInfo.DownPaymentFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -197,7 +201,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@SubmitBATime",DbType.DateTime),
 				new SqlParameter("@Adulters",DbType.String),
 				new SqlParameter("@BAAdulters",DbType.String),
-                
+                               new SqlParameter("@ContractAmountFlag",DbType.String),
+				new SqlParameter("@DownPaymentFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -229,7 +234,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = InvestmentProjectInfo.SubmitBATime;
                 sqlparam[i++].Value = InvestmentProjectInfo.Adulters;
                 sqlparam[i++].Value = InvestmentProjectInfo.BAAdulters;
-        
+                sqlparam[i++].Value = InvestmentProjectInfo.ContractAmountFlag;
+                sqlparam[i++].Value = InvestmentProjectInfo.DownPaymentFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
