@@ -71,6 +71,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@ApproverID",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+
+                new SqlParameter("@ApplyMoneyFlag",DbType.String),
+                new SqlParameter("@ActualMoneyFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -91,6 +94,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BusinessCostApplyInfo.State;
                 sqlparam[i++].Value = BusinessCostApplyInfo.ApproverID;
                 sqlparam[i++].Value = BusinessCostApplyInfo.IsDelete;
+
+                sqlparam[i++].Value = BusinessCostApplyInfo.ApplyMoneyFlag;
+                sqlparam[i++].Value = BusinessCostApplyInfo.ActualMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -162,6 +168,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@ApproverID",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
+                new SqlParameter("@ApplyMoneyFlag",DbType.String),
+                new SqlParameter("@ActualMoneyFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -182,6 +190,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BusinessCostApplyInfo.State;
                 sqlparam[i++].Value = BusinessCostApplyInfo.ApproverID;
                 sqlparam[i++].Value = BusinessCostApplyInfo.IsDelete;
+                sqlparam[i++].Value = BusinessCostApplyInfo.ApplyMoneyFlag;
+                sqlparam[i++].Value = BusinessCostApplyInfo.ActualMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

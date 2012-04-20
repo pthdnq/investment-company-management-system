@@ -88,6 +88,10 @@ namespace com.TZMS.DataAccess
                             	new SqlParameter("@InterestType",DbType.String),
                                    	new SqlParameter("@Cash",DbType.Decimal),
                                 	new SqlParameter("@TransferAccount",DbType.Decimal),
+                	new SqlParameter("@LoanAmountFlag",DbType.String),
+                    	new SqlParameter("@BorrowingCostFlag",DbType.String),
+                        	new SqlParameter("@CashFlag",DbType.String),
+                            	new SqlParameter("@TransferAccountFlag",DbType.String),
 				};
 				
 				int i=0;
@@ -125,6 +129,11 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = FolkFinancingInfo.InterestType;
                 sqlparam[i++].Value = FolkFinancingInfo.Cash;
                 sqlparam[i++].Value = FolkFinancingInfo.TransferAccount;
+
+                sqlparam[i++].Value = FolkFinancingInfo.LoanAmountFlag;
+                sqlparam[i++].Value = FolkFinancingInfo.BorrowingCostFlag;
+                sqlparam[i++].Value = FolkFinancingInfo.CashFlag;
+                sqlparam[i++].Value = FolkFinancingInfo.TransferAccountFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -213,6 +222,10 @@ namespace com.TZMS.DataAccess
                          	new SqlParameter("@InterestType",DbType.String),
                                	new SqlParameter("@Cash",DbType.Decimal),
                                 	new SqlParameter("@TransferAccount",DbType.Decimal),
+                    new SqlParameter("@LoanAmountFlag",DbType.String),
+                    	new SqlParameter("@BorrowingCostFlag",DbType.String),
+                        	new SqlParameter("@CashFlag",DbType.String),
+                            	new SqlParameter("@TransferAccountFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -250,6 +263,10 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = FolkFinancingInfo.InterestType;
                 sqlparam[i++].Value = FolkFinancingInfo.Cash;
                 sqlparam[i++].Value = FolkFinancingInfo.TransferAccount;
+                sqlparam[i++].Value = FolkFinancingInfo.LoanAmountFlag;
+                sqlparam[i++].Value = FolkFinancingInfo.BorrowingCostFlag;
+                sqlparam[i++].Value = FolkFinancingInfo.CashFlag;
+                sqlparam[i++].Value = FolkFinancingInfo.TransferAccountFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

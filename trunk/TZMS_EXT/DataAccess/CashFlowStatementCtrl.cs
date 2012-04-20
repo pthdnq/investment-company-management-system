@@ -75,6 +75,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Summary",DbType.String),
 				new SqlParameter("@Matter",DbType.String),
 				new SqlParameter("@Remark",DbType.String),
+
+                				new SqlParameter("@AmountFlag",DbType.String),
+				new SqlParameter("@RemainingAmountFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -99,6 +102,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = CashFlowStatementInfo.Summary;
                 sqlparam[i++].Value = CashFlowStatementInfo.Matter;
                 sqlparam[i++].Value = CashFlowStatementInfo.Remark;
+
+                sqlparam[i++].Value = CashFlowStatementInfo.AmountFlag;
+                sqlparam[i++].Value = CashFlowStatementInfo.RemainingAmountFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -174,6 +180,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Summary",DbType.String),
 				new SqlParameter("@Matter",DbType.String),
 				new SqlParameter("@Remark",DbType.String),
+                new SqlParameter("@AmountFlag",DbType.String),
+				new SqlParameter("@RemainingAmountFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -198,6 +206,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = CashFlowStatementInfo.Summary;
                 sqlparam[i++].Value = CashFlowStatementInfo.Matter;
                 sqlparam[i++].Value = CashFlowStatementInfo.Remark;
+                sqlparam[i++].Value = CashFlowStatementInfo.AmountFlag;
+                sqlparam[i++].Value = CashFlowStatementInfo.RemainingAmountFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

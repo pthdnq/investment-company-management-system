@@ -86,6 +86,13 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Bjf",DbType.String),
 				new SqlParameter("@Lyf",DbType.String),
 				new SqlParameter("@Sfgz",DbType.String),
+
+                				new SqlParameter("@BaseSalaryFlag",DbType.String),
+                                				new SqlParameter("@ExamSalaryFlag",DbType.String),
+                                                				new SqlParameter("@BackSalaryFlag",DbType.String),
+                                                                				new SqlParameter("@OtherSalaryFlag",DbType.String),
+                                                                                				new SqlParameter("@ShouldSalaryFlag",DbType.String),
+                                                                                                				new SqlParameter("@SalaryFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -121,6 +128,13 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.Bjf;
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.Lyf;
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.Sfgz;
+
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.BaseSalaryFlag;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.ExamSalaryFlag;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.BackSalaryFlag;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.OtherSalaryFlag;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.ShouldSalaryFlag;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.SalaryFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -207,6 +221,12 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Bjf",DbType.String),
 				new SqlParameter("@Lyf",DbType.String),
 				new SqlParameter("@Sfgz",DbType.String),
+                                				new SqlParameter("@BaseSalaryFlag",DbType.String),
+                                				new SqlParameter("@ExamSalaryFlag",DbType.String),
+                                                				new SqlParameter("@BackSalaryFlag",DbType.String),
+                                                                				new SqlParameter("@OtherSalaryFlag",DbType.String),
+                                                                                				new SqlParameter("@ShouldSalaryFlag",DbType.String),
+                                                                                                				new SqlParameter("@SalaryFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -242,6 +262,12 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.Bjf;
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.Lyf;
                 sqlparam[i++].Value = WorkerSalaryMsgInfo.Sfgz;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.BaseSalaryFlag;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.ExamSalaryFlag;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.BackSalaryFlag;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.OtherSalaryFlag;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.ShouldSalaryFlag;
+                sqlparam[i++].Value = WorkerSalaryMsgInfo.SalaryFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

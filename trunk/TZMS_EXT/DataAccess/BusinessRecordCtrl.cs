@@ -65,6 +65,9 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@OtherMoney",DbType.Guid),
 				new SqlParameter("@Explain",DbType.String),
 				new SqlParameter("@BusinessID",DbType.Guid),
+
+                new SqlParameter("@CostMoneyFlag",DbType.String),
+                new SqlParameter("@OtherMoneyFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -79,6 +82,9 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BusinessRecordInfo.OtherMoney;
                 sqlparam[i++].Value = BusinessRecordInfo.Explain;
                 sqlparam[i++].Value = BusinessRecordInfo.BusinessID;
+
+                sqlparam[i++].Value = BusinessRecordInfo.CostMoneyFlag;
+                sqlparam[i++].Value = BusinessRecordInfo.OtherMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -144,6 +150,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@OtherMoney",DbType.Guid),
 				new SqlParameter("@Explain",DbType.String),
 				new SqlParameter("@BusinessID",DbType.Guid),
+                new SqlParameter("@CostMoneyFlag",DbType.String),
+                new SqlParameter("@OtherMoneyFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -158,6 +166,8 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = BusinessRecordInfo.OtherMoney;
                 sqlparam[i++].Value = BusinessRecordInfo.Explain;
                 sqlparam[i++].Value = BusinessRecordInfo.BusinessID;
+                sqlparam[i++].Value = BusinessRecordInfo.CostMoneyFlag;
+                sqlparam[i++].Value = BusinessRecordInfo.OtherMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);

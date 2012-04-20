@@ -69,7 +69,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@ApproverID",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
-                new SqlParameter("@PayUnitName",DbType.String)
+                new SqlParameter("@PayUnitName",DbType.String),
+                new SqlParameter("@ENMoneyFlag",DbType.String)
 				};
 
                 int i = 0;
@@ -89,6 +90,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProxyAccountingApplyInfo.ApproverID;
                 sqlparam[i++].Value = ProxyAccountingApplyInfo.IsDelete;
                 sqlparam[i++].Value = ProxyAccountingApplyInfo.PayUnitName;
+                sqlparam[i++].Value = ProxyAccountingApplyInfo.ENMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -158,7 +160,8 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@State",DbType.Int16),
 				new SqlParameter("@ApproverID",DbType.Guid),
 				new SqlParameter("@IsDelete",DbType.Boolean),
-                new SqlParameter("@PayUnitName",DbType.String)
+                new SqlParameter("@PayUnitName",DbType.String),
+                  new SqlParameter("@ENMoneyFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -178,6 +181,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = ProxyAccountingApplyInfo.ApproverID;
                 sqlparam[i++].Value = ProxyAccountingApplyInfo.IsDelete;
                 sqlparam[i++].Value = ProxyAccountingApplyInfo.PayUnitName;
+                sqlparam[i++].Value = ProxyAccountingApplyInfo.ENMoneyFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //执行存储过程
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
