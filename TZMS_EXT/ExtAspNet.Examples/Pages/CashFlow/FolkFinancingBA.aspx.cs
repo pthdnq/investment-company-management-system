@@ -79,7 +79,7 @@ namespace TZMS.Web.Pages.CashFlow
                 if (CurrentRoles.Contains(RoleType.HSKJ))
                 {
                     BindNext(true);
-                } 
+                }
                 else
                 {
                     BindNext(false);
@@ -89,7 +89,7 @@ namespace TZMS.Web.Pages.CashFlow
                 }
                 #endregion
                 this.tbBorrowerNameA.Text = _Info.BorrowerNameA;
-                this.tbBorrowingCost.Text = _Info.BorrowingCost.ToString();
+                this.tbBorrowingCost.Text = _Info.BorrowingCostFlag + _Info.BorrowingCost.ToString();
                 this.tbCollateral.Text = _Info.Collateral;
                 this.tbContactPhone.Text = _Info.ContactPhone;
                 this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
@@ -185,7 +185,7 @@ namespace TZMS.Web.Pages.CashFlow
             FolkFinancingManage manage = new FolkFinancingManage();
 
             com.TZMS.Model.FolkFinancingInfo _Info = manage.GetUserByObjectID(ObjectID);
-           // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
+            // _Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             _Info.BAStatus = status;
 
             //下一步操作

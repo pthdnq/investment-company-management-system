@@ -297,6 +297,15 @@ namespace com.TZMS.DataAccess
                 Info.BusinessID = new Guid(DataUtil.GetStringValueOfRow(InfoDataRow, "BusinessID"));
             }
 
+            if (InfoDataRow["CostMoneyFlag"] != null)
+            {
+                Info.CostMoneyFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "CostMoneyFlag");
+            }
+            if (InfoDataRow["OtherMoneyFlag"] != null)
+            {
+                Info.OtherMoneyFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "OtherMoneyFlag");
+            }
+
             return Info;
         }
         #endregion

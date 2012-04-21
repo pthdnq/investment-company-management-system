@@ -307,7 +307,10 @@ namespace com.TZMS.DataAccess
             {
                 Info.IsDelete = bool.Parse(DataUtil.GetStringValueOfRow(InfoDataRow, "IsDelete"));
             }
-
+            if (InfoDataRow["MoneyFlag"] != null)
+            {
+                Info.MoneyFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "MoneyFlag");
+            }
             return Info;
         }
         #endregion

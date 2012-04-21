@@ -358,7 +358,10 @@ namespace com.TZMS.DataAccess
             {
                 FinancingFeePaymentInfoInfo.Status = int.Parse(DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "Status"));
             }
-
+            if (FinancingFeePaymentInfoInfoDataRow["AmountOfPaymentFlag"] != null)
+            {
+                FinancingFeePaymentInfoInfo.AmountOfPaymentFlag = DataUtil.GetStringValueOfRow(FinancingFeePaymentInfoInfoDataRow, "AmountOfPaymentFlag");
+            }
             return FinancingFeePaymentInfoInfo;
         }
         #endregion

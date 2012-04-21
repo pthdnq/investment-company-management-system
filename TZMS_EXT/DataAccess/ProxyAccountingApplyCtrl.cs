@@ -330,6 +330,10 @@ namespace com.TZMS.DataAccess
             {
                 Info.PayUnitName = DataUtil.GetStringValueOfRow(InfoDataRow, "PayUnitName");
             }
+            if (InfoDataRow["ENMoneyFlag"] != null)
+            {
+                Info.ENMoneyFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "ENMoneyFlag");
+            }
             return Info;
         }
         #endregion

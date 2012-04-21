@@ -449,6 +449,19 @@ namespace com.TZMS.DataAccess
                 BankLoanInfoInfo.ProjectName = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "ProjectName");
             }
 
+            if (BankLoanInfoInfoDataRow["LoanAmountFlag"] != null)
+            {
+                BankLoanInfoInfo.LoanAmountFlag = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanAmountFlag");
+            }
+            if (BankLoanInfoInfoDataRow["LoanFeeFlag"] != null)
+            {
+                BankLoanInfoInfo.LoanFeeFlag = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "LoanFeeFlag");
+            }
+            if (BankLoanInfoInfoDataRow["DownPaymentFlag"] != null)
+            {
+                BankLoanInfoInfo.DownPaymentFlag = DataUtil.GetStringValueOfRow(BankLoanInfoInfoDataRow, "DownPaymentFlag");
+            }
+
             return BankLoanInfoInfo;
         }
         #endregion

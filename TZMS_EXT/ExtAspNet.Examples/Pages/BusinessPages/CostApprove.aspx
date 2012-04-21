@@ -44,7 +44,7 @@
                             <ext:FormRow ColumnWidths="60%">
                                 <Items>
                                     <ext:TextBox ID="tbxActualMoney" runat="server" Label="实际金额" Required="true" ShowRedStar="true"
-                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
+                                        Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!">
                                     </ext:TextBox>
                                 </Items>
                             </ext:FormRow>

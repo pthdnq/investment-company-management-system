@@ -346,6 +346,10 @@ namespace com.TZMS.DataAccess
             {
                 MaterialsPurchaseApplyInfoInfo.ImportTime = DateTime.Parse(DataUtil.GetStringValueOfRow(MaterialsPurchaseApplyInfoInfoDataRow, "ImportTime"));
             }
+            if (MaterialsPurchaseApplyInfoInfoDataRow["MoneyFlag"] != null)
+            {
+                MaterialsPurchaseApplyInfoInfo.MoneyFlag = DataUtil.GetStringValueOfRow(MaterialsPurchaseApplyInfoInfoDataRow, "MoneyFlag");
+            }
             return MaterialsPurchaseApplyInfoInfo;
         }
         #endregion

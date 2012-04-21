@@ -90,10 +90,10 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             this.tbCollateralCompany.Text = _Info.CollateralCompany;
             this.tbCustomerName.Text = _Info.CustomerName;
-            this.tbDownPayment.Text = _Info.DownPayment.ToString();
-            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+            this.tbDownPayment.Text = _Info.DownPaymentFlag + _Info.DownPayment.ToString();
+            this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
             this.tbLoanCompany.Text = _Info.LoanCompany;
-            this.tbLoanFee.Text = _Info.LoanFee.ToString();
+            this.tbLoanFee.Text = _Info.LoanFeeFlag + _Info.LoanFee.ToString();
             // this.tbRemark.Text = _Info.Remark;
             this.taRemark.Text = _Info.Remark;
             this.taContact.Text = _Info.Contact;
@@ -215,7 +215,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 new CashFlowManage().AddHistory(_Info.ObjectId, "编辑", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "BankLoan");
 
                 CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "银行贷款会计核算");
-              
+
                 Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

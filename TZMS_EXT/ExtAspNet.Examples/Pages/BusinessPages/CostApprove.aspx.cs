@@ -261,7 +261,11 @@ namespace TZMS.Web
             // 更新申请表.
             BusinessCostApplyInfo _applyInfo = _manage.GetCostApplyByObjectID(ApplyID);
             _applyInfo.State = 1;
-            _applyInfo.ActualMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
+            _applyInfo.ActualMoney = Convert.ToDecimal(tbxActualMoney.Text.Replace(BT, "").Trim());
+            if (tbxActualMoney.Text.Contains(BT))
+            {
+                _applyInfo.ActualMoneyFlag = BT;
+            }
             _applyInfo.ApproverID = new Guid(ddlstApproveUser.SelectedValue);
             int result = _manage.UpdateCostApply(_applyInfo);
 
@@ -278,12 +282,12 @@ namespace TZMS.Web
             {
                 if (_applyInfo.CostType == 0)
                 {
-                    _info.PreMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
+                    _info.PreMoney = Convert.ToDecimal(tbxActualMoney.Text.Replace(BT, "").Trim());
                     _info.PreMoneyType = 1;
                 }
                 else if (_applyInfo.CostType == 1)
                 {
-                    _info.BalanceMoney = Convert.ToDecimal(tbxActualMoney.Text.Trim());
+                    _info.BalanceMoney = Convert.ToDecimal(tbxActualMoney.Text.Replace(BT, "").Trim());
                     _info.BalanceMoneyType = 1;
                 }
 

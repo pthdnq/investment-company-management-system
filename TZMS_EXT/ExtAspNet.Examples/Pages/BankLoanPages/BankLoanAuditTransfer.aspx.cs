@@ -111,10 +111,10 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             this.tbCollateralCompany.Text = _Info.CollateralCompany;
             this.tbCustomerName.Text = _Info.CustomerName;
-            this.tbDownPayment.Text = _Info.DownPayment.ToString();
-            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+            this.tbDownPayment.Text = _Info.DownPaymentFlag + _Info.DownPayment.ToString();
+            this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
             this.tbLoanCompany.Text = _Info.LoanCompany;
-            this.tbLoanFee.Text = _Info.LoanFee.ToString();
+            this.tbLoanFee.Text = _Info.LoanFeeFlag + _Info.LoanFee.ToString();
             this.tbRemark.Text = _Info.Remark;
             this.taContact.Text = _Info.Contact;
 
@@ -157,12 +157,12 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <param name="e"></param>
         protected void btnDismissed_Click(object sender, EventArgs e)
         {
-            if (Decimal.Parse(tbLoanAmount.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbLoanAmount.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("贷款金额 整数部分不能超过16位！");
                 return;
             }
-            if (Decimal.Parse(tbLoanFee.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbLoanFee.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("贷款手续费 整数部分不能超过16位！");
                 return;
@@ -173,12 +173,12 @@ namespace TZMS.Web.Pages.BankLoanPages
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (Decimal.Parse(tbLoanAmount.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbLoanAmount.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("贷款金额 整数部分不能超过16位！");
                 return;
             }
-            if (Decimal.Parse(tbLoanFee.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbLoanFee.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("贷款手续费 整数部分不能超过16位！");
                 return;
@@ -271,7 +271,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                     {
                         //提醒 新的审批人 终止审核
                         ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的终止审核列表，有1条 待审批 信息（来自集团内项目，通过审批人转移方式）！");
-        
+
                     }
                     else
                     {

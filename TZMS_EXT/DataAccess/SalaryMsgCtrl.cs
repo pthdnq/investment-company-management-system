@@ -276,7 +276,10 @@ namespace com.TZMS.DataAccess
                 if (!string.IsNullOrEmpty(DataUtil.GetStringValueOfRow(SalaryMsgInfoInfoDataRow, "SumMoney")))
                     SalaryMsgInfoInfo.SumMoney = Convert.ToDecimal(DataUtil.GetStringValueOfRow(SalaryMsgInfoInfoDataRow, "SumMoney"));
             }
-
+            if (SalaryMsgInfoInfoDataRow["SumMoneyFlag"] != null)
+            {
+                SalaryMsgInfoInfo.SumMoneyFlag = DataUtil.GetStringValueOfRow(SalaryMsgInfoInfoDataRow, "SumMoneyFlag");
+            }
             return SalaryMsgInfoInfo;
         }
         #endregion

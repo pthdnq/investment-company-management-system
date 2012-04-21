@@ -38,17 +38,27 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         #region 页面及控件事件
         protected void tbCash_OnTextChanged(object sender, EventArgs e)
         {
-            decimal loanAmount = 0;
-            decimal cash = 0;
-            decimal transfer = 0;
-            if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text))
+            this.btnSave.Enabled = false;
+            decimal loanAmount = decimal.Parse(tbLoanAmount.Text.Replace(BT, "").Trim());
+            decimal cash = decimal.Parse(tbCash.Text.Replace(BT, "").Trim());
+            if (cash > loanAmount)
             {
-                decimal.TryParse(this.tbLoanAmount.Text.Trim(), out loanAmount);
+                Alert.Show("现金不能大于借款总金额");
+                return;
+            }
+            this.btnSave.Enabled = true;
+
+            loanAmount = 0;
+            cash = 0;
+            decimal transfer = 0;
+            if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text.Replace(BT, "").Trim()))
+            {
+                decimal.TryParse(this.tbLoanAmount.Text..Replace(BT, "").Trim(), out loanAmount);
                 transfer = loanAmount;
             }
-            if (!string.IsNullOrWhiteSpace(this.tbCash.Text))
+            if (!string.IsNullOrWhiteSpace(this.tbCash.Text.Replace(BT, "").Trim()))
             {
-                decimal.TryParse(this.tbCash.Text.Trim(), out cash);
+                decimal.TryParse(this.tbCash.Text..Replace(BT, "").Trim(), out cash);
                 if (loanAmount != 0)
                 {
                     transfer = loanAmount - cash;
@@ -66,12 +76,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (Decimal.Parse(tbLoanAmount.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbLoanAmount.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("借款金额 整数部分不能超过16位！");
                 return;
             }
-            if (Decimal.Parse(tbCash.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbCash.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("现金 整数部分不能超过16位！");
                 return;
@@ -92,20 +102,33 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             _Info.ObjectId = Guid.NewGuid();
             _Info.BorrowerNameA = this.tbBorrowerNameA.Text.Trim();
-            if (!string.IsNullOrEmpty(this.tbBorrowingCost.Text))
+            if (!string.IsNullOrEmpty(this.tbBorrowingCost.Text.Replace(BT, "").Trim()))
             {
-                _Info.BorrowingCost = decimal.Parse(this.tbBorrowingCost.Text.Trim());
+                _Info.BorrowingCost = decimal.Parse(this.tbBorrowingCost.Text.Replace(BT, "").Trim());
+                if (tbBorrowingCost.Text.Contains(BT))
+                {
+                    _Info.BorrowingCostFlag = BT;
+                }
             }
             _Info.Collateral = this.tbCollateral.Text.Trim();
             _Info.ContactPhone = this.tbContactPhone.Text.Trim();
             _Info.DueDateForPay = int.Parse(this.dpDueDateForPay.Text.Trim());
             _Info.Guarantee = this.tbGuarantee.Text;
             _Info.Lenders = this.tbLenders.Text;
-            if (!string.IsNullOrEmpty(this.tbLoanAmount.Text))
+            if (!string.IsNullOrEmpty(this.tbLoanAmount.Text.Replace(BT, "").Trim()))
             {
-                _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Trim());
-            } 
-            _Info.Cash = decimal.Parse(this.tbCash.Text.Trim());
+                _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Replace(BT, "").Trim());
+                if (tbLoanAmount.Text.Contains(BT))
+                {
+                    _Info.LoanAmountFlag = BT;
+                }
+            }
+            _Info.Cash = decimal.Parse(this.tbCash.Text.Replace(BT, "").Trim());
+
+            if (tbCash.Text.Contains(BT))
+            {
+                _Info.CashFlag = BT;
+            }
             _Info.TransferAccount = _Info.LoanAmount - _Info.Cash;
 
             _Info.LoanDate = this.dpLoanDate.SelectedDate.Value;
@@ -131,7 +154,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.NextBAOperaterName = this.ddlstApproveUserBA.SelectedText;
             _Info.NextBAOperaterId = new Guid(this.ddlstApproveUserBA.SelectedValue);
             _Info.SubmitBATime = DateTime.Now;
-            _Info.BAStatus = 1; 
+            _Info.BAStatus = 1;
 
             int result = 3;
             result = manage.Add(_Info);
@@ -175,7 +198,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
                 ddlstApproveUserBA.Items.Add(new ExtAspNet.ListItem(user.Name, user.ObjectId.ToString()));
-        
+
             }
 
             ddlstApproveUser.SelectedIndex = 0;

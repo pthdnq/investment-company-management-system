@@ -133,13 +133,13 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             BindNext(false);
             //  }
 
-            #endregion 
+            #endregion
 
             this.tbProjectName.Text = _Info.ProjectName;
             this.tbRemark.Text = _Info.Remark;
             this.tbCompany.Text = _Info.Company;
             this.taCause.Text = _Info.Cause;
-            this.tbAmountOfPayment.Text = _Info.AmountOfPayment.ToString();
+            this.tbAmountOfPayment.Text = _Info.AmountOfPaymentFlag + _Info.AmountOfPayment.ToString();
             this.dpDateFor.SelectedDate = _Info.DateFor;
             this.ddlPaymentType.SelectedValue = _Info.PaymentType;
             //  taAuditOpinion.Text = _Info.AuditOpinion;
@@ -229,7 +229,11 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             _Info.ProjectName = this.tbProjectName.Text.Trim();
             _Info.PaymentType = this.ddlPaymentType.SelectedValue;
             _Info.Cause = this.taCause.Text.Trim();
-            _Info.AmountOfPayment = decimal.Parse(this.tbAmountOfPayment.Text.Trim());
+            _Info.AmountOfPayment = decimal.Parse(this.tbAmountOfPayment.Text.Replace(BT, "").Trim());
+            if (tbAmountOfPayment.Text.Contains(BT))
+            {
+                _Info.AmountOfPaymentFlag = BT;
+            }
             _Info.Remark = this.tbRemark.Text.Trim();
             _Info.DateFor = this.dpDateFor.SelectedDate.Value;
             _Info.Company = this.tbCompany.Text;

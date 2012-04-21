@@ -81,7 +81,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 BindNext(true);
             }
             else
-            { 
+            {
                 BindNext(false);
             }
 
@@ -92,10 +92,10 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             this.tbCollateralCompany.Text = _Info.CollateralCompany;
             this.tbCustomerName.Text = _Info.CustomerName;
-            this.tbDownPayment.Text = _Info.DownPayment.ToString();
-            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+            this.tbDownPayment.Text = _Info.DownPaymentFlag + _Info.DownPayment.ToString();
+            this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
             this.tbLoanCompany.Text = _Info.LoanCompany;
-            this.tbLoanFee.Text = _Info.LoanFee.ToString();
+            this.tbLoanFee.Text = _Info.LoanFeeFlag + _Info.LoanFee.ToString();
             this.tbRemark.Text = _Info.Remark;
             this.taContact.Text = _Info.Contact;
 
@@ -140,12 +140,12 @@ namespace TZMS.Web.Pages.BankLoanPages
         /// <param name="e"></param>
         protected void btnDismissed_Click(object sender, EventArgs e)
         {
-            if (Decimal.Parse(tbLoanAmount.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbLoanAmount.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("贷款金额 整数部分不能超过16位！");
                 return;
             }
-            if (Decimal.Parse(tbLoanFee.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbLoanFee.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("贷款手续费 整数部分不能超过16位！");
                 return;
@@ -156,12 +156,12 @@ namespace TZMS.Web.Pages.BankLoanPages
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (Decimal.Parse(tbLoanAmount.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbLoanAmount.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("贷款金额 整数部分不能超过16位！");
                 return;
             }
-            if (Decimal.Parse(tbLoanFee.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbLoanFee.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("贷款手续费 整数部分不能超过16位！");
                 return;
@@ -226,9 +226,22 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.CollateralCompany = this.tbCollateralCompany.Text.Trim();
             _Info.Contact = this.taContact.Text.Trim();
 
-            _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Trim());
-            _Info.DownPayment = decimal.Parse(this.tbDownPayment.Text.Trim());
-            _Info.LoanFee = decimal.Parse(this.tbLoanFee.Text.Trim());
+            _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Replace(BT, "").Trim());
+            _Info.DownPayment = decimal.Parse(this.tbDownPayment.Text.Replace(BT, "").Trim());
+            _Info.LoanFee = decimal.Parse(this.tbLoanFee.Text.Replace(BT, "").Trim());
+            if (tbLoanAmount.Text.Contains(BT))
+            {
+                _Info.LoanAmountFlag = BT;
+            }
+            if (tbDownPayment.Text.Contains(BT))
+            {
+                _Info.DownPaymentFlag = BT;
+            }
+            if (tbLoanFee.Text.Contains(BT))
+            {
+                _Info.LoanFeeFlag = BT;
+            }
+
             _Info.SignDate = this.dpSignDate.SelectedDate.Value;
             _Info.LoanCompany = this.tbLoanCompany.Text;
 

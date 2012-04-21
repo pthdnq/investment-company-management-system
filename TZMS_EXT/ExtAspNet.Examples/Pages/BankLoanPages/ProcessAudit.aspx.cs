@@ -64,7 +64,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
                 bindInterface(strID);
                 // 绑定审批人.
-             //   ApproveUser();
+                //   ApproveUser();
                 BindHistory();
             }
         }
@@ -130,14 +130,14 @@ namespace TZMS.Web.Pages.BankLoanPages
                 #endregion
 
                 this.taImplementationPhase.Text = _info.ImplementationPhase;
-                this.tbAmountExpended.Text = _info.AmountExpended.ToString();
-                this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
+                this.tbAmountExpended.Text = _info.AmountExpendedFlag + _info.AmountExpended.ToString();
+                this.tbImprestAmount.Text = _info.ImprestAmountFlag + _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.Remark;
 
-               // if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
-             //   {
-                    this.dpExpendedTime.Text = _info.ExpendedTime;
-             //   }
+                // if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
+                //   {
+                this.dpExpendedTime.Text = _info.ExpendedTime;
+                //   }
 
             }
         }
@@ -253,11 +253,11 @@ namespace TZMS.Web.Pages.BankLoanPages
             {
                 string statusName = (status == 2) ? "不同意" : (status == 5) ? "同意，继续审核" : "同意，归档";
                 manage.AddHistory(true, _Info.ObjectId, "审批", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.AuditOpinion);
-             
+
                 if (status == 2)
                 {
                     //不同意，发送消息给表单申请人
-                  //  ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条项目进展申请，审核未通过！项目信息列表（来自集团外项目）");
+                    //  ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条项目进展申请，审核未通过！项目信息列表（来自集团外项目）");
                     //不同意，发送消息给表单申请人
                     ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, " 项目进展（集团内项目）- 项目情况列表", "未通过");
 

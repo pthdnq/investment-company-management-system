@@ -132,7 +132,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             this.tbRemark.Text = _Info.Remark;
             this.tbCompany.Text = _Info.Company;
             this.taCause.Text = _Info.Cause;
-            this.tbAmountOfReceivables.Text = _Info.AmountOfReceivables.ToString();
+            this.tbAmountOfReceivables.Text =_Info.AmountOfReceivablesFlag+ _Info.AmountOfReceivables.ToString();
             this.dpDateFor.SelectedDate = _Info.DateFor;
             this.tbProjectName.Text = _Info.ProjectName;
         }

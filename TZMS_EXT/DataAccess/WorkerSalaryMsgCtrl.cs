@@ -481,6 +481,31 @@ namespace com.TZMS.DataAccess
                 Info.Sfgz = DataUtil.GetStringValueOfRow(InfoDataRow, "Sfgz");
             }
 
+            if (InfoDataRow["BaseSalaryFlag"] != null)
+            {
+                Info.BaseSalaryFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "BaseSalaryFlag");
+            }
+            if (InfoDataRow["SalaryFlag"] != null)
+            {
+                Info.SalaryFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "SalaryFlag");
+            }
+            if (InfoDataRow["ExamSalaryFlag"] != null)
+            {
+                Info.ExamSalaryFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "ExamSalaryFlag");
+            }
+            if (InfoDataRow["BackSalaryFlag"] != null)
+            {
+                Info.BackSalaryFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "BackSalaryFlag");
+            }
+            if (InfoDataRow["OtherSalaryFlag"] != null)
+            {
+                Info.OtherSalaryFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "OtherSalaryFlag");
+            }
+            if (InfoDataRow["ShouldSalaryFlag"] != null)
+            {
+                Info.ShouldSalaryFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "ShouldSalaryFlag");
+            }
+
             return Info;
         }
         #endregion

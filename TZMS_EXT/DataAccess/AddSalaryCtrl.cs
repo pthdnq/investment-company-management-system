@@ -299,6 +299,19 @@ namespace com.TZMS.DataAccess
                 AddSalaryInfoInfo.ApplyTime = DateTime.Parse(DataUtil.GetStringValueOfRow(AddSalaryInfoInfoDataRow, "ApplyTime"));
             }
 
+            if (AddSalaryInfoInfoDataRow["BaseSalaryFlag"] != null)
+            {
+                AddSalaryInfoInfo.BaseSalaryFlag = DataUtil.GetStringValueOfRow(AddSalaryInfoInfoDataRow, "BaseSalaryFlag");
+            }
+            if (AddSalaryInfoInfoDataRow["ExamSalaryFlag"] != null)
+            {
+                AddSalaryInfoInfo.ExamSalaryFlag = DataUtil.GetStringValueOfRow(AddSalaryInfoInfoDataRow, "ExamSalaryFlag");
+            }
+            if (AddSalaryInfoInfoDataRow["OtherSalaryFlag"] != null)
+            {
+                AddSalaryInfoInfo.OtherSalaryFlag = DataUtil.GetStringValueOfRow(AddSalaryInfoInfoDataRow, "OtherSalaryFlag");
+            }
+
             return AddSalaryInfoInfo;
         }
         #endregion

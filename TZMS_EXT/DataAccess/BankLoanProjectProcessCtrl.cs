@@ -444,6 +444,19 @@ namespace com.TZMS.DataAccess
             {
                 BankLoanProjectProcessInfoInfo.FirstOperaterName = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "FirstOperaterName");
             }
+
+            if (BankLoanProjectProcessInfoInfoDataRow["ImprestAmountFlag"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.ImprestAmountFlag = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImprestAmountFlag");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["AmountExpendedFlag"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.AmountExpendedFlag = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "AmountExpendedFlag");
+            }
+            if (BankLoanProjectProcessInfoInfoDataRow["ImprestAmountBalanceFlag"] != null)
+            {
+                BankLoanProjectProcessInfoInfo.ImprestAmountBalanceFlag = DataUtil.GetStringValueOfRow(BankLoanProjectProcessInfoInfoDataRow, "ImprestAmountBalanceFlag");
+            }
             return BankLoanProjectProcessInfoInfo;
         }
         #endregion

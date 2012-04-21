@@ -490,6 +490,31 @@ namespace com.TZMS.DataAccess
                 Info.CheckOther = DataUtil.GetStringValueOfRow(InfoDataRow, "CheckOther");
             }
 
+            if (InfoDataRow["RegisteredMoneyFlag"] != null)
+            {
+                Info.RegisteredMoneyFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "RegisteredMoneyFlag");
+            }
+            if (InfoDataRow["SumMoneyFlag"] != null)
+            {
+                Info.SumMoneyFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "SumMoneyFlag");
+            }
+            if (InfoDataRow["PreMoneyFlag"] != null)
+            {
+                Info.PreMoneyFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "PreMoneyFlag");
+            }
+            if (InfoDataRow["BalanceMoneyFlag"] != null)
+            {
+                Info.BalanceMoneyFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "BalanceMoneyFlag");
+            }
+            if (InfoDataRow["CostMoneyFlag"] != null)
+            {
+                Info.CostMoneyFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "CostMoneyFlag");
+            }
+            if (InfoDataRow["OtherMoneyFlag"] != null)
+            {
+                Info.OtherMoneyFlag = DataUtil.GetStringValueOfRow(InfoDataRow, "OtherMoneyFlag");
+            }
+
             return Info;
         }
         #endregion
