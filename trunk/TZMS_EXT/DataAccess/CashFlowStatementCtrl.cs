@@ -377,6 +377,15 @@ namespace com.TZMS.DataAccess
                 CashFlowStatementInfoInfo.Remark = DataUtil.GetStringValueOfRow(CashFlowStatementInfoInfoDataRow, "Remark");
             }
 
+            if (CashFlowStatementInfoInfoDataRow["AmountFlag"] != null)
+            {
+                CashFlowStatementInfoInfo.AmountFlag = DataUtil.GetStringValueOfRow(CashFlowStatementInfoInfoDataRow, "AmountFlag");
+            }
+            if (CashFlowStatementInfoInfoDataRow["RemainingAmountFlag"] != null)
+            {
+                CashFlowStatementInfoInfo.RemainingAmountFlag = DataUtil.GetStringValueOfRow(CashFlowStatementInfoInfoDataRow, "RemainingAmountFlag");
+            }
+
             return CashFlowStatementInfoInfo;
         }
         #endregion

@@ -86,7 +86,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             BankLoanInfo _Info = new BankLoanManage().GetUserByObjectID(ObjectID);
 
             #region View
-         //   if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
+            //   if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
             if (_Info.Status > 6 && _Info.Status != 11)
             {
                 this.btnDismissed.Hidden = true;
@@ -119,8 +119,8 @@ namespace TZMS.Web.Pages.BankLoanPages
             //}
             //else
             //{
-                BindNext(false);
-         //   }
+            BindNext(false);
+            //   }
 
             if (_Info.LoanAmount > 300000)
             {
@@ -130,10 +130,10 @@ namespace TZMS.Web.Pages.BankLoanPages
 
             this.tbCollateralCompany.Text = _Info.CollateralCompany;
             this.tbCustomerName.Text = _Info.CustomerName;
-            this.tbDownPayment.Text = _Info.DownPayment.ToString();
-            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+            this.tbDownPayment.Text = _Info.DownPaymentFlag + _Info.DownPayment.ToString();
+            this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
             this.tbLoanCompany.Text = _Info.LoanCompany;
-            this.tbLoanFee.Text = _Info.LoanFee.ToString();
+            this.tbLoanFee.Text = _Info.LoanFeeFlag + _Info.LoanFee.ToString();
             this.tbRemark.Text = _Info.Remark;
             this.taContact.Text = _Info.Contact;
 
@@ -243,9 +243,9 @@ namespace TZMS.Web.Pages.BankLoanPages
             //}
             //else
             //{
-                _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-                _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
-          //  }
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+            //  }
             _Info.SubmitTime = DateTime.Now;
             //审批人
             //if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))

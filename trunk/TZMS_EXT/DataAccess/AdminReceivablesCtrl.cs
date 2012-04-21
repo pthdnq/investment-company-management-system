@@ -73,6 +73,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@NextOperateDesc",DbType.String),
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@Adulters",DbType.String),
+                new SqlParameter("@AmountOfReceivablesFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -95,6 +96,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = AdminReceivablesInfo.NextOperateDesc;
                 sqlparam[i++].Value = AdminReceivablesInfo.SubmitTime;
                 sqlparam[i++].Value = AdminReceivablesInfo.Adulters;
+                sqlparam[i++].Value = AdminReceivablesInfo.AmountOfReceivablesFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -168,6 +170,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@NextOperateDesc",DbType.String),
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@Adulters",DbType.String),
+                new SqlParameter("@AmountOfReceivablesFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -190,6 +193,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = AdminReceivablesInfo.NextOperateDesc;
                 sqlparam[i++].Value = AdminReceivablesInfo.SubmitTime;
                 sqlparam[i++].Value = AdminReceivablesInfo.Adulters;
+                sqlparam[i++].Value = AdminReceivablesInfo.AmountOfReceivablesFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -351,6 +355,10 @@ namespace com.TZMS.DataAccess
                 adminReceivablesInfoInfo.Adulters = DataUtil.GetStringValueOfRow(adminReceivablesInfoInfoDataRow, "Adulters");
             }
 
+            if (adminReceivablesInfoInfoDataRow["AmountOfReceivablesFlag"] != null)
+            {
+                adminReceivablesInfoInfo.AmountOfReceivablesFlag = DataUtil.GetStringValueOfRow(adminReceivablesInfoInfoDataRow, "AmountOfReceivablesFlag");
+            }
             return adminReceivablesInfoInfo;
         }
         #endregion

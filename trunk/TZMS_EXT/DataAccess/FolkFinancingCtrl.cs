@@ -489,6 +489,23 @@ namespace com.TZMS.DataAccess
             {
                 FolkFinancingInfoInfo.TransferAccount = Decimal.Parse(DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "TransferAccount"));
             }
+
+            if (FolkFinancingInfoInfoDataRow["LoanAmountFlag"] != null)
+            {
+                FolkFinancingInfoInfo.LoanAmountFlag = DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "LoanAmountFlag");
+            }
+            if (FolkFinancingInfoInfoDataRow["BorrowingCostFlag"] != null)
+            {
+                FolkFinancingInfoInfo.BorrowingCostFlag = DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "BorrowingCostFlag");
+            }
+            if (FolkFinancingInfoInfoDataRow["CashFlag"] != null)
+            {
+                FolkFinancingInfoInfo.CashFlag = DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "CashFlag");
+            }
+            if (FolkFinancingInfoInfoDataRow["TransferAccountFlag"] != null)
+            {
+                FolkFinancingInfoInfo.TransferAccountFlag = DataUtil.GetStringValueOfRow(FolkFinancingInfoInfoDataRow, "TransferAccountFlag");
+            }
             return FolkFinancingInfoInfo;
         }
 		#endregion

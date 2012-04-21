@@ -52,6 +52,13 @@ namespace com.TZMS.Model
         private string _nextOperateDesc = DBEmptyString;
         private DateTime _submitTime = DBEmptyDate;
         private string _adulters = DBEmptyString;
+        private string _amountOfReceivablesFlag = DBEmptyString;
+
+        public string AmountOfReceivablesFlag
+        {
+            get { return _amountOfReceivablesFlag; }
+            set { _amountOfReceivablesFlag = value; }
+        }
 		#endregion 
 
 		#region Property

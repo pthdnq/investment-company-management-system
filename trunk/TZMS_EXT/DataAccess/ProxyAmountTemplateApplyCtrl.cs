@@ -323,7 +323,10 @@ namespace com.TZMS.DataAccess
             {
                 ProxyAmountTemplateApplyInfoInfo.IsDelete = bool.Parse(DataUtil.GetStringValueOfRow(ProxyAmountTemplateApplyInfoInfoDataRow, "IsDelete"));
             }
-
+            if (ProxyAmountTemplateApplyInfoInfoDataRow["ENMoneyFlag"] != null)
+            {
+                ProxyAmountTemplateApplyInfoInfo.ENMoneyFlag = DataUtil.GetStringValueOfRow(ProxyAmountTemplateApplyInfoInfoDataRow, "ENMoneyFlag");
+            }
             return ProxyAmountTemplateApplyInfoInfo;
         }
         #endregion

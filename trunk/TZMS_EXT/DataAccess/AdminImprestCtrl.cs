@@ -71,6 +71,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@NextOperateDesc",DbType.String),
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@Adulters",DbType.String),
+                new SqlParameter("@PrepaidAmountFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -91,6 +92,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = AdminImprestInfo.NextOperateDesc;
                 sqlparam[i++].Value = AdminImprestInfo.SubmitTime;
                 sqlparam[i++].Value = AdminImprestInfo.Adulters;
+                sqlparam[i++].Value = AdminImprestInfo.PrepaidAmountFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -162,6 +164,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@NextOperateDesc",DbType.String),
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@Adulters",DbType.String),
+                 new SqlParameter("@PrepaidAmountFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -182,6 +185,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = AdminImprestInfo.NextOperateDesc;
                 sqlparam[i++].Value = AdminImprestInfo.SubmitTime;
                 sqlparam[i++].Value = AdminImprestInfo.Adulters;
+                sqlparam[i++].Value = AdminImprestInfo.PrepaidAmountFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -333,6 +337,10 @@ namespace com.TZMS.DataAccess
             if (adminImprestInfoInfoDataRow["Adulters"] != null)
             {
                 adminImprestInfoInfo.Adulters = DataUtil.GetStringValueOfRow(adminImprestInfoInfoDataRow, "Adulters");
+            }
+            if (adminImprestInfoInfoDataRow["PrepaidAmountFlag"] != null)
+            {
+                adminImprestInfoInfo.PrepaidAmountFlag = DataUtil.GetStringValueOfRow(adminImprestInfoInfoDataRow, "PrepaidAmountFlag");
             }
 
             return adminImprestInfoInfo;

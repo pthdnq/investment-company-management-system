@@ -134,8 +134,8 @@ namespace TZMS.Web.Pages.BankLoanPages
 
                 this.taImplementationPhase.Text = _info.ImplementationPhase;
 
-                this.tbAmountExpended.Text = _info.AmountExpended.ToString();
-                this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
+                this.tbAmountExpended.Text = _info.AmountExpendedFlag + _info.AmountExpended.ToString();
+                this.tbImprestAmount.Text = _info.ImprestAmountFlag + _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.Remark;
                 this.tbUse.Text = _info.Use;
 
@@ -244,12 +244,12 @@ namespace TZMS.Web.Pages.BankLoanPages
             //有备用金
             if (cbIsAmountExpended.Checked)
             {
-                if (string.IsNullOrEmpty(tbImprestAmount.Text.Trim()))
+                if (string.IsNullOrEmpty(tbImprestAmount.Text.Replace(BT, "").Trim()))
                 {
                     Alert.Show("备用金额 必填!");
                     return;
                 }
-                if (string.IsNullOrEmpty(tbAmountExpended.Text.Trim()))
+                if (string.IsNullOrEmpty(tbAmountExpended.Text.Replace(BT, "").Trim()))
                 {
                     Alert.Show("预支金额 必填!");
                     return;
@@ -311,12 +311,20 @@ namespace TZMS.Web.Pages.BankLoanPages
             //备用金部分
             if (!string.IsNullOrEmpty(tbImprestAmount.Text))
             {
-                _Info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Trim());
+                _Info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Replace(BT, "").Trim());
+                if (tbImprestAmount.Text.Contains(BT))
+                {
+                    _Info.ImprestAmountFlag = BT;
+                }
             }
 
             if (!string.IsNullOrEmpty(tbAmountExpended.Text))
             {
-                _Info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Trim());
+                _Info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Replace(BT, "").Trim());
+                if (tbAmountExpended.Text.Contains(BT))
+                {
+                    _Info.AmountExpendedFlag = BT;
+                }
             }
 
             _Info.ExpendedTime = this.tbExpendedTime.Text;

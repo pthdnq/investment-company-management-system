@@ -432,6 +432,15 @@ namespace com.TZMS.DataAccess
             {
                 InvestmentProjectInfoInfo.BAAdulters = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "BAAdulters");
             }
+
+            if (InvestmentProjectInfoInfoDataRow["ContractAmountFlag"] != null)
+            {
+                InvestmentProjectInfoInfo.ContractAmountFlag = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "ContractAmountFlag");
+            }
+            if (InvestmentProjectInfoInfoDataRow["DownPaymentFlag"] != null)
+            {
+                InvestmentProjectInfoInfo.DownPaymentFlag = DataUtil.GetStringValueOfRow(InvestmentProjectInfoInfoDataRow, "DownPaymentFlag");
+            }
          
             return InvestmentProjectInfoInfo;
         }

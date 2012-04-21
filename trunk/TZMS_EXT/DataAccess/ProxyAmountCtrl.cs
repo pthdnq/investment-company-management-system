@@ -354,6 +354,10 @@ namespace com.TZMS.DataAccess
             {
                 ProxyAmountInfoInfo.ProxyAmountType = short.Parse(DataUtil.GetStringValueOfRow(ProxyAmountInfoInfoDataRow, "ProxyAmountType"));
             }
+            if (ProxyAmountInfoInfoDataRow["ENMoneyFlag"] != null)
+            {
+                ProxyAmountInfoInfo.ENMoneyFlag = DataUtil.GetStringValueOfRow(ProxyAmountInfoInfoDataRow, "ENMoneyFlag");
+            }
             return ProxyAmountInfoInfo;
         }
         #endregion

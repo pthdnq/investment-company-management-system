@@ -50,6 +50,13 @@ namespace com.TZMS.Model
         private string _nextOperateDesc = DBEmptyString;
         private DateTime _submitTime = DBEmptyDate;
         private string _adulters = DBEmptyString;
+        private string _prepaidAmountFlag = DBEmptyString;
+
+        public string PrepaidAmountFlag
+        {
+            get { return _prepaidAmountFlag; }
+            set { _prepaidAmountFlag = value; }
+        }
         #endregion
 
         #region Property

@@ -74,6 +74,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@NextOperateDesc",DbType.String),
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@Adulters",DbType.String),
+                new SqlParameter("@AmountOfPaymentFlag",DbType.String),
 				};
 
                 int i = 0;
@@ -97,6 +98,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = AdminPaymentInfo.NextOperateDesc;
                 sqlparam[i++].Value = AdminPaymentInfo.SubmitTime;
                 sqlparam[i++].Value = AdminPaymentInfo.Adulters;
+                sqlparam[i++].Value = AdminPaymentInfo.AmountOfPaymentFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -171,6 +173,7 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@NextOperateDesc",DbType.String),
 				new SqlParameter("@SubmitTime",DbType.DateTime),
 				new SqlParameter("@Adulters",DbType.String),
+                new SqlParameter("@AmountOfPaymentFlag",DbType.String),
                 };
 
                 int i = 0;
@@ -194,6 +197,7 @@ namespace com.TZMS.DataAccess
                 sqlparam[i++].Value = AdminPaymentInfo.NextOperateDesc;
                 sqlparam[i++].Value = AdminPaymentInfo.SubmitTime;
                 sqlparam[i++].Value = AdminPaymentInfo.Adulters;
+                sqlparam[i++].Value = AdminPaymentInfo.AmountOfPaymentFlag;
                 SqlDBAccess dbaccess = new SqlDBAccess();
                 //??????
                 i = dbaccess.ExecuteNonQuery(boName, CommandType.StoredProcedure, strsql, sqlparam);
@@ -357,6 +361,11 @@ namespace com.TZMS.DataAccess
             if (adminPaymentInfoInfoDataRow["Adulters"] != null)
             {
                 adminPaymentInfoInfo.Adulters = DataUtil.GetStringValueOfRow(adminPaymentInfoInfoDataRow, "Adulters");
+            }
+
+            if (adminPaymentInfoInfoDataRow["AmountOfPaymentFlag"] != null)
+            {
+                adminPaymentInfoInfo.AmountOfPaymentFlag = DataUtil.GetStringValueOfRow(adminPaymentInfoInfoDataRow, "AmountOfPaymentFlag");
             }
 
             return adminPaymentInfoInfo;

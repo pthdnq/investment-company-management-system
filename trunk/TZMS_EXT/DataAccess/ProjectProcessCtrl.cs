@@ -429,6 +429,19 @@ namespace com.TZMS.DataAccess
             {
                 ProjectProcessInfoInfo.FirstOperaterName = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "FirstOperaterName");
             }
+
+            if (ProjectProcessInfoInfoDataRow["AmountExpendedFlag"] != null)
+            {
+                ProjectProcessInfoInfo.AmountExpendedFlag = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "AmountExpendedFlag");
+            }
+            if (ProjectProcessInfoInfoDataRow["ImprestAmountFlag"] != null)
+            {
+                ProjectProcessInfoInfo.ImprestAmountFlag = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "ImprestAmountFlag");
+            }
+            if (ProjectProcessInfoInfoDataRow["PrepaidAmountFlag"] != null)
+            {
+                ProjectProcessInfoInfo.PrepaidAmountFlag = DataUtil.GetStringValueOfRow(ProjectProcessInfoInfoDataRow, "PrepaidAmountFlag");
+            }
             return ProjectProcessInfoInfo;
         }
         #endregion

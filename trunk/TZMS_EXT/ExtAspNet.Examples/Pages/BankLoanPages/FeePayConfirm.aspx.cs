@@ -64,8 +64,8 @@ namespace TZMS.Web.Pages.BankLoanPages
                 BindHistory();
 
                 // 绑定审批人.
-              //  ApproveUser();
-              //  BindNext();
+                //  ApproveUser();
+                //  BindNext();
             }
             InitControl();
         }
@@ -97,7 +97,7 @@ namespace TZMS.Web.Pages.BankLoanPages
                 #region View
                 if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
                 {
-                  //  this.btnDismissed.Hidden = true;
+                    //  this.btnDismissed.Hidden = true;
                     this.btnSave.Hidden = true;
                     this.taFeeConfirm.Text = _info.AccountingRemark;
                     this.taFeeConfirm.Enabled = false;
@@ -109,8 +109,8 @@ namespace TZMS.Web.Pages.BankLoanPages
                 #endregion
 
                 this.taImplementationPhase.Text = _info.ImplementationPhase;
-                this.tbAmountExpended.Text = _info.AmountExpended.ToString();
-                this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
+                this.tbAmountExpended.Text = _info.AmountExpendedFlag + _info.AmountExpended.ToString();
+                this.tbImprestAmount.Text = _info.ImprestAmountFlag + _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.ImprestRemark;
                 this.taAuditOpinion.Text = _info.AuditOpinion;
                 //   if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
@@ -181,14 +181,14 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.NextOperaterId = _Info.FirstOperaterID;
 
             _Info.SubmitTime = DateTime.Now;
-         
+
             //已审批人
             if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))
             {
                 _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + ";";
             }
             // 执行操作.
-            int result = 3;  
+            int result = 3;
             result = manage.UpdateProcess(_Info);
 
             if (result == -1)

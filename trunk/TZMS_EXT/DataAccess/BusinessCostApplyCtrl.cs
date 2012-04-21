@@ -345,6 +345,16 @@ namespace com.TZMS.DataAccess
                 BusinessCostApplyInfoInfo.IsDelete = bool.Parse( DataUtil.GetStringValueOfRow(BusinessCostApplyInfoInfoDataRow, "IsDelete"));
             }
 
+            if (BusinessCostApplyInfoInfoDataRow["ApplyMoneyFlag"] != null)
+            {
+                BusinessCostApplyInfoInfo.ApplyMoneyFlag = DataUtil.GetStringValueOfRow(BusinessCostApplyInfoInfoDataRow, "ApplyMoneyFlag");
+            }
+            if (BusinessCostApplyInfoInfoDataRow["ActualMoneyFlag"] != null)
+            {
+                BusinessCostApplyInfoInfo.ActualMoneyFlag = DataUtil.GetStringValueOfRow(BusinessCostApplyInfoInfoDataRow, "ActualMoneyFlag");
+            }
+
+
             return BusinessCostApplyInfoInfo;
         }
         #endregion

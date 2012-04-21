@@ -333,6 +333,10 @@ namespace com.TZMS.DataAccess
             {
                 BaoxiaoInfoInfo.EndTime = DateTime.Parse(DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "EndTime"));
             }
+            if (BaoxiaoInfoInfoDataRow["MoneyFlag"] != null)
+            {
+                BaoxiaoInfoInfo.MoneyFlag = DataUtil.GetStringValueOfRow(BaoxiaoInfoInfoDataRow, "MoneyFlag");
+            }
 
             return BaoxiaoInfoInfo;
         }

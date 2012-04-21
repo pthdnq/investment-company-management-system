@@ -356,6 +356,19 @@ namespace com.TZMS.DataAccess
             {
                 ReceivablesInfoInfo.TransferAccount = Decimal.Parse(DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "TransferAccount"));
             }
+
+            if (ReceivablesInfoInfoDataRow["AmountofpaidUpFlag"] != null)
+            {
+                ReceivablesInfoInfo.AmountofpaidUpFlag = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "AmountofpaidUpFlag");
+            }
+            if (ReceivablesInfoInfoDataRow["CashFlag"] != null)
+            {
+                ReceivablesInfoInfo.CashFlag = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "CashFlag");
+            }
+            if (ReceivablesInfoInfoDataRow["TransferAccountFlag"] != null)
+            {
+                ReceivablesInfoInfo.TransferAccountFlag = DataUtil.GetStringValueOfRow(ReceivablesInfoInfoDataRow, "TransferAccountFlag");
+            }
             return ReceivablesInfoInfo;
         }
         #endregion

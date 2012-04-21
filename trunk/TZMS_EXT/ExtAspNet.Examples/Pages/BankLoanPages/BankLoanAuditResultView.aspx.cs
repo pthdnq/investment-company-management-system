@@ -83,10 +83,10 @@ namespace TZMS.Web.Pages.BankLoanPages
             tbProjectName.Text = _Info.ProjectName;
             this.tbCollateralCompany.Text = _Info.CollateralCompany;
             this.tbCustomerName.Text = _Info.CustomerName;
-            this.tbDownPayment.Text = _Info.DownPayment.ToString();
-            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+            this.tbDownPayment.Text = _Info.DownPaymentFlag + _Info.DownPayment.ToString();
+            this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
             this.tbLoanCompany.Text = _Info.LoanCompany;
-            this.tbLoanFee.Text = _Info.LoanFee.ToString();
+            this.tbLoanFee.Text = _Info.LoanFeeFlag + _Info.LoanFee.ToString();
             this.tbRemark.Text = _Info.Remark;
             this.taContact.Text = _Info.Contact;
 

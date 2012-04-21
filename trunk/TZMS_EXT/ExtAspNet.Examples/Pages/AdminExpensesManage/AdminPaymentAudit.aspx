@@ -76,7 +76,7 @@
                                             <ext:DatePicker ID="dpDateFor" Enabled="false" Label="时间" runat="server">
                                             </ext:DatePicker>
                                             <ext:TextBox ID="tbAmountOfPayment" Enabled="false" Label="金额" runat="server" MaxLength="16"
-                                                MaxLengthMessage="最多只能输入16个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                                MaxLengthMessage="最多只能输入16位！" Regex="^\-?[0-9]*\.?[0-9]{1,2}$" RegexMessage="格式不正确!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>

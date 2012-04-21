@@ -135,7 +135,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 //}
                 #endregion
                 this.tbBorrowerNameA.Text = _Info.BorrowerNameA;
-                this.tbBorrowingCost.Text = _Info.BorrowingCost.ToString();
+                this.tbBorrowingCost.Text = _Info.BorrowingCostFlag + _Info.BorrowingCost.ToString();
                 this.tbCollateral.Text = _Info.Collateral;
                 this.tbContactPhone.Text = _Info.ContactPhone;
                 this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
@@ -144,12 +144,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.dpLoanDate.SelectedDate = _Info.LoanDate;
                 this.ddlLoanType.SelectedValue = _Info.LoanType;
                 this.tbRemark.Text = _Info.Remark;
-                this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+                this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
                 this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
 
                 this.ddlInterestType.SelectedValue = _Info.InterestType;
-                this.tbCash.Text = _Info.Cash.ToString();
-                this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
+                this.tbCash.Text = _Info.CashFlag + _Info.Cash.ToString();
+                this.lbTransferAccount.Text = _Info.TransferAccountFlag + _Info.TransferAccount.ToString();
             }
         }
 
@@ -190,6 +190,23 @@ namespace TZMS.Web.Pages.FolkFinancingPages
         {
             //（会计）审核通过
             saveInfo(3);
+        }
+        /// <summary>
+        /// 验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Cash_OnTextChanged(object sender, EventArgs e)
+        {
+            this.btnSave.Enabled = false;
+            decimal loanAmount = decimal.Parse(tbLoanAmount.Text.Replace(BT, "").Trim());
+            decimal cash = decimal.Parse(tbCash.Text.Replace(BT, "").Trim());
+            if (cash > loanAmount)
+            {
+                Alert.Show("现金不能大于借款总金额");
+                return;
+            }
+            this.btnSave.Enabled = true;
         }
         #endregion
 

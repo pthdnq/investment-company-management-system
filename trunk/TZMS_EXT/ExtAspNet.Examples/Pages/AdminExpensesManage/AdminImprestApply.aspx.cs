@@ -141,7 +141,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             //this.taContact.Text = _Info.Contact;
 
             this.taUse.Text = _Info.Use;
-            this.tbPrepaidAmount.Text = _Info.PrepaidAmount.ToString();
+            this.tbPrepaidAmount.Text =_Info.PrepaidAmountFlag+ _Info.PrepaidAmount.ToString();
             this.tbRemark.Text = _Info.Remark;
             this.tbProjectName.Text = _Info.ProjectName;
 
@@ -230,7 +230,11 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             #region content
 
             _Info.ProjectName = this.tbProjectName.Text.Trim();
-            _Info.PrepaidAmount = decimal.Parse(this.tbPrepaidAmount.Text.Trim());
+            _Info.PrepaidAmount = decimal.Parse(this.tbPrepaidAmount.Text.Replace(BT, "").Trim());
+            if (tbPrepaidAmount.Text.Contains(BT))
+            {
+                _Info.PrepaidAmountFlag = BT;
+            }
             _Info.Use = this.taUse.Text.Trim();
             _Info.Remark = this.tbRemark.Text.Trim();
             //_Info.CustomerName = this.tbCustomerName.Text.Trim();
