@@ -53,12 +53,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             decimal transfer = 0;
             if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text.Replace(BT, "").Trim()))
             {
-                decimal.TryParse(this.tbLoanAmount.Text..Replace(BT, "").Trim(), out loanAmount);
+                decimal.TryParse(this.tbLoanAmount.Text.Replace(BT, "").Trim(), out loanAmount);
                 transfer = loanAmount;
             }
             if (!string.IsNullOrWhiteSpace(this.tbCash.Text.Replace(BT, "").Trim()))
             {
-                decimal.TryParse(this.tbCash.Text..Replace(BT, "").Trim(), out cash);
+                decimal.TryParse(this.tbCash.Text.Replace(BT, "").Trim(), out cash);
                 if (loanAmount != 0)
                 {
                     transfer = loanAmount - cash;
