@@ -91,7 +91,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
                 this.tbPaymentAccount.Text = _info.PaymentAccount;
                 this.tbReceivablesAccount.Text = _info.ReceivablesAccount;
-                this.tbAmountOfPayment.Text = _info.AmountOfPayment.ToString();
+                this.tbAmountOfPayment.Text = _info.AmountOfPaymentFlag + _info.AmountOfPayment.ToString();
 
                 this.taRemark.Text = _info.Remark;
 
@@ -166,7 +166,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             com.TZMS.Model.FinancingFeePaymentInfo _Info = manage.GetProcessByObjectID(ObjectID);
             //_Info.AuditOpinion = this.taAuditOpinion.Text.Trim();
             //_Info.Status = status; 
-             
+
             string strLastNextOperaterName = _Info.NextOperaterName;
 
             _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
@@ -202,7 +202,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批转移", "0"));
             if (needAccountant)
             {
-              //  ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
+                //  ddlstNext.Items.Add(new ExtAspNet.ListItem("会计审核", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

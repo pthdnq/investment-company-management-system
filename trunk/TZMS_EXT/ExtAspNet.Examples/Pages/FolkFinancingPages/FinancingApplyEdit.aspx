@@ -77,10 +77,8 @@
                                                 RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                             <ext:TextBox ID="tbLoanAmount" Enabled="false" Label="借款金额" ShowRedStar="true" Required="true"
-                                                runat="server" MaxLength="16" MaxLengthMessage="最多只能输入16个数字！" Regex="^[0-9]*$"
-                                                RegexMessage="只能输入数字!" AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged"
-                                                CompareControl="tbLoanAmount" CompareType="Int" CompareOperator="LessThanEqual"
-                                                CompareMessage="现金不能大于借款总金额">
+                                                runat="server" MaxLength="16" MaxLengthMessage="最多只能输入16位！" Regex="^\-?[0-9]*\.?[0-9]{1,2}$"
+                                                RegexMessage="只能输入数字!" AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
@@ -88,8 +86,8 @@
                                         <Items>
                                             <ext:TextBox ID="tbCash" Enabled="false" Label="现金(元)" ShowRedStar="true" Required="true"
                                                 runat="server" AutoPostBack="true" OnTextChanged="tbCash_OnTextChanged" MaxLength="16"
-                                                MaxLengthMessage="最多只能输入16个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!" CompareControl="tbLoanAmount"
-                                                CompareType="Int" CompareOperator="LessThanEqual" CompareMessage="现金不能大于借款总金额">
+                                                MaxLengthMessage="最多只能输入16位！" Regex="^\-?[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!"
+                                                CompareControl="tbLoanAmount">
                                             </ext:TextBox>
                                             <ext:Label runat="server" ID="lbTransferAccount" Text="转账：0 元">
                                             </ext:Label>
@@ -114,7 +112,7 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox ID="tbBorrowingCost" Label="借款成本" ShowRedStar="true" Required="true"
-                                                runat="server" MaxLength="16" MaxLengthMessage="最多只能输入16个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                                runat="server" MaxLength="16" MaxLengthMessage="最多只能输入16个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$"
                                                 RegexMessage="只能输入数字!">
                                             </ext:TextBox>
                                             <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" ShowRedStar="true" Required="true"

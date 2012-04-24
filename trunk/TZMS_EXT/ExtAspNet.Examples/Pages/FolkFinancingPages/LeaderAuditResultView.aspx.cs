@@ -73,9 +73,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
             // 绑定数据.
             if (_Info != null)
-            { 
+            {
                 this.tbBorrowerNameA.Text = _Info.BorrowerNameA;
-                this.tbBorrowingCost.Text = _Info.BorrowingCost.ToString();
+                this.tbBorrowingCost.Text = _Info.BorrowingCostFlag + _Info.BorrowingCost.ToString();
                 this.tbCollateral.Text = _Info.Collateral;
                 this.tbContactPhone.Text = _Info.ContactPhone;
                 this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
@@ -84,12 +84,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.dpLoanDate.SelectedDate = _Info.LoanDate;
                 this.ddlLoanType.SelectedValue = _Info.LoanType;
                 this.tbRemark.Text = _Info.Remark;
-                this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+                this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
                 this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
 
                 this.ddlInterestType.SelectedValue = _Info.InterestType;
 
-                this.tbCash.Text = _Info.Cash.ToString();
+                this.tbCash.Text = _Info.CashFlag + _Info.Cash.ToString();
                 this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
 
             }
@@ -167,8 +167,8 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 Alert.Show("操作失败!");
             }
         }
-         
-    
+
+
         #endregion
     }
 }

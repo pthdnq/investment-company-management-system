@@ -113,7 +113,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 }
                 #endregion
                 this.tbBorrowerNameA.Text = _Info.BorrowerNameA;
-                this.tbBorrowingCost.Text = _Info.BorrowingCost.ToString();
+                this.tbBorrowingCost.Text = _Info.BorrowingCostFlag + _Info.BorrowingCost.ToString();
                 this.tbCollateral.Text = _Info.Collateral;
                 this.tbContactPhone.Text = _Info.ContactPhone;
                 this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
@@ -122,12 +122,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.dpLoanDate.SelectedDate = _Info.LoanDate;
                 this.ddlLoanType.SelectedValue = _Info.LoanType;
                 this.tbRemark.Text = _Info.Remark;
-                this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+                this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
                 this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
 
                 this.ddlInterestType.SelectedValue = _Info.InterestType;
 
-                this.tbCash.Text = _Info.Cash.ToString();
+                this.tbCash.Text = _Info.CashFlag + _Info.Cash.ToString();
                 this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
 
             }
@@ -225,7 +225,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("Owner"))
             {
                 strOperationType = "业务转移";
-                strLastNextOperaterName =   _Info.CreaterName ;
+                strLastNextOperaterName = _Info.CreaterName;
                 //下一步操作
                 _Info.CreaterName = this.ddlstApproveUser.SelectedText;
                 _Info.CreaterId = new Guid(this.ddlstApproveUser.SelectedValue);
@@ -256,7 +256,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                     {
                         //提醒 新的审批人
                         ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您的终止审核列表，有1条 待审批 信息（来自财务部融资，通过审批人转移方式）！");
-               
+
                     }
                     else
                     {

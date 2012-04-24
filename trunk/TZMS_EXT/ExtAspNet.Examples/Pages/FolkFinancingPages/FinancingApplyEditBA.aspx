@@ -100,7 +100,7 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox Enabled="false" ID="tbLoanAmount" Label="借款金额" runat="server" MaxLength="16"
-                                                Hidden="true" MaxLengthMessage="最多只能输入16个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                                Hidden="true" MaxLengthMessage="最多只能输入16位！"  Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
@@ -124,7 +124,7 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox Enabled="false" ID="tbBorrowingCost" Label="借款成本" runat="server" MaxLength="16"
-                                                Hidden="true" MaxLengthMessage="最多只能输入16个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                                Hidden="true" MaxLengthMessage="最多只能输入16位！"  Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!">
                                             </ext:TextBox>
                                             <ext:DropDownList Hidden="true" Enabled="false" ID="ddlLoanType" Label="借款方式" runat="server">
                                                 <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
