@@ -71,16 +71,15 @@
                                             <ext:TextBox Enabled="false" ID="tbGuarantee" Label="担保人" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
- <ext:TextBox Enabled="false" ID="tbLoanAmount" Label="借款金额" runat="server" MaxLength="16"
-                                                MaxLengthMessage="最多只能输入16个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox Enabled="false" ID="tbLoanAmount" Label="借款金额" runat="server" MaxLength="16"
+                                                MaxLengthMessage="最多只能输入16位！" Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                              <ext:TextBox ID="tbCash" Enabled="false" Label="现金(元)" runat="server" MaxLength="16"
-                                                MaxLengthMessage="最多只能输入20个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!" CompareControl="tbLoanAmount"
-                                                CompareType="Int" CompareOperator="LessThanEqual" CompareMessage="现金不能大于借款总金额">
+                                            <ext:TextBox ID="tbCash" Enabled="false" Label="现金(元)" runat="server" MaxLength="16"
+                                                MaxLengthMessage="最多只能输入16位！" Regex="^\-?[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                                             </ext:TextBox>
                                             <ext:Label runat="server" ID="lbTransferAccount" Label="转账(元)" Text=" 0  ">
                                             </ext:Label>
@@ -105,12 +104,13 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox Enabled="false" ID="tbBorrowingCost" Label="借款成本" runat="server" MaxLength="16"
-                                                MaxLengthMessage="最多只能输入16个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                                MaxLengthMessage="最多只能输入16位！" Regex="^\-?[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
                                             </ext:TextBox>
-                                              <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" Enabled="false" runat="server" MaxLength="20"
+                                            <ext:TextBox ID="tbLoanTimeLimit" Label="借款期限" Enabled="false" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
-                                            <ext:DropDownList Enabled="false"  Hidden="true" HideMode="Display"  ID="ddlLoanType" Label="借款方式" runat="server">
+                                            <ext:DropDownList Enabled="false" Hidden="true" HideMode="Display" ID="ddlLoanType"
+                                                Label="借款方式" runat="server">
                                                 <ext:ListItem Text="转账" Value="TransferAccount" Selected="true" />
                                                 <ext:ListItem Text="现金" Value="Cash" />
                                             </ext:DropDownList>
@@ -118,7 +118,7 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:DropDownList Enabled="false"  ID="ddlInterestType" Label="利息" runat="server">
+                                            <ext:DropDownList Enabled="false" ID="ddlInterestType" Label="利息" runat="server">
                                                 <ext:ListItem Text="先付" Value="先付" Selected="true" />
                                                 <ext:ListItem Text="后付" Value="后付" />
                                             </ext:DropDownList>

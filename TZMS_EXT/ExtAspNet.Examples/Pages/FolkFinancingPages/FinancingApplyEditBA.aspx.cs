@@ -69,7 +69,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             com.TZMS.Model.FolkFinancingInfo _Info = new FolkFinancingManage().GetUserByObjectID(strID);
 
             MUDAttachment.RecordID = _Info.ObjectId.ToString();
-           //if (_Info.Status == 2 || _Info.BAStatus != 2)
+            //if (_Info.Status == 2 || _Info.BAStatus != 2)
             if (_Info.BAStatus == 2 && this.CurrentRoles.Contains(RoleType.TZZJ))
             {
                 this.btnSave.Hidden = false;
@@ -97,7 +97,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 }
                 #endregion
                 this.tbBorrowerNameA.Text = _Info.BorrowerNameA;
-                this.tbBorrowingCost.Text = _Info.BorrowingCost.ToString();
+                this.tbBorrowingCost.Text = _Info.BorrowingCostFlag + _Info.BorrowingCost.ToString();
                 this.tbCollateral.Text = _Info.Collateral;
                 this.tbContactPhone.Text = _Info.ContactPhone;
                 this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
@@ -106,7 +106,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.dpLoanDate.SelectedDate = _Info.LoanDate;
                 this.ddlLoanType.SelectedValue = _Info.LoanType;
                 this.tbRemark.Text = _Info.Remark;
-                this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+                this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
 
             }
         }
@@ -213,7 +213,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 new CashFlowManage().AddHistory(_Info.ObjectId, "编辑", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark, "FolkFinancing");
 
                 CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "民间融资会计核算");
-        
+
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

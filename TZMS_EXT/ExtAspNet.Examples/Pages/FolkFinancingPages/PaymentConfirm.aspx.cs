@@ -126,7 +126,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
                 this.tbPaymentAccount.Text = _info.PaymentAccount;
                 this.tbReceivablesAccount.Text = _info.ReceivablesAccount;
-                this.tbAmountOfPayment.Text = _info.AmountOfPayment.ToString();
+                this.tbAmountOfPayment.Text = _info.AmountOfPaymentFlag + _info.AmountOfPayment.ToString();
                 this.taAuditOpinion.Text = _info.AuditOpinion;
                 this.taRemark.Text = _info.Remark;
 

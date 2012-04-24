@@ -149,7 +149,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbCollateral.Text = _Info.Collateral;
             this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
             this.dpLoanDate.SelectedDate = _Info.LoanDate;
-            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+            this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
             this.tbRemark.Text = _Info.Remark;
 
             this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
@@ -157,8 +157,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
 
-            this.tbCash.Text = _Info.Cash.ToString();
-            this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
+            this.tbCash.Text = _Info.CashFlag + _Info.Cash.ToString();
+            this.lbTransferAccount.Text = _Info.TransferAccountFlag + _Info.TransferAccount.ToString();
         }
 
         /// <summary>
@@ -286,7 +286,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 manage.AddHistory(_Info.ObjectId, "合同终止", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.OpationRemark);
                 //继续审核，发消息给下一步执行人
                 CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "终止审核列表（来自集团风险控制部）");
-               
+
                 //Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

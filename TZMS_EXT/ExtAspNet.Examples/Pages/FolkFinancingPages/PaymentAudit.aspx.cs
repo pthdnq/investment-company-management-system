@@ -64,7 +64,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
                 bindInterface(strID);
                 // 绑定审批人.
-              //  ApproveUser();
+                //  ApproveUser();
                 // 绑定审批历史.
                 BindHistory();
             }
@@ -131,7 +131,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
                 this.tbPaymentAccount.Text = _info.PaymentAccount;
                 this.tbReceivablesAccount.Text = _info.ReceivablesAccount;
-                this.tbAmountOfPayment.Text = _info.AmountOfPayment.ToString();
+                this.tbAmountOfPayment.Text = _info.AmountOfPaymentFlag + _info.AmountOfPayment.ToString();
 
                 this.taRemark.Text = _info.Remark;
 

@@ -102,13 +102,13 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 this.dpLoanDate.SelectedDate = _Info.LoanDate;
                 this.ddlLoanType.SelectedValue = _Info.LoanType;
                 this.tbRemark.Text = _Info.Remark;
-                this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
-            
+                this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
+
                 this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
                 this.ddlInterestType.SelectedValue = _Info.InterestType;
                 this.taAuditOpinion.Text = _Info.AuditOpinion;
 
-                this.tbCash.Text = _Info.Cash.ToString();
+                this.tbCash.Text = _Info.CashFlag + _Info.Cash.ToString();
                 this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
             }
         }
@@ -147,12 +147,12 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             decimal transfer = 0;
             if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text))
             {
-                decimal.TryParse(this.tbLoanAmount.Text.Trim(), out loanAmount);
+                decimal.TryParse(this.tbLoanAmount.Text.Replace(BT, "").Trim(), out loanAmount);
                 transfer = loanAmount;
             }
             if (!string.IsNullOrWhiteSpace(this.tbCash.Text))
             {
-                decimal.TryParse(this.tbCash.Text.Trim(), out cash);
+                decimal.TryParse(this.tbCash.Text.Replace(BT, "").Trim(), out cash);
                 if (loanAmount != 0)
                 {
                     transfer = loanAmount - cash;
@@ -238,13 +238,24 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.Lenders = this.tbLenders.Text;
             if (!string.IsNullOrEmpty(this.tbLoanAmount.Text))
             {
-                _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Trim());
+                _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Replace(BT, "").Trim());
+
+                if (tbLoanAmount.Text.Contains(BT))
+                {
+                    _Info.LoanAmountFlag = BT;
+                }
+
             }
             _Info.LoanDate = this.dpLoanDate.SelectedDate.Value;
             _Info.LoanType = this.ddlLoanType.SelectedValue;
             _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
             #endregion
-            _Info.Cash = decimal.Parse(this.tbCash.Text.Trim());
+            _Info.Cash = decimal.Parse(this.tbCash.Text.Replace(BT, "").Trim());
+
+            if (tbCash.Text.Contains(BT))
+            {
+                _Info.CashFlag = BT;
+            }
             _Info.TransferAccount = _Info.LoanAmount - _Info.Cash;
 
 
@@ -272,9 +283,9 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             {
                 string statusName = "修改后重新提交"; // (status == 2) ? "不同意" : (status == 5) ? "同意，继续审批" : "同意，归档";
                 manage.AddHistory(_Info.ObjectId, "编辑", string.Format("{0}", statusName), this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, "");
-         
+
                 CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "会计审核列表（财务部融资）");
-        
+
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }

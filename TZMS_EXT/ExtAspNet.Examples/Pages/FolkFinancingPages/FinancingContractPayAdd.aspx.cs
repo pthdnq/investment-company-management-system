@@ -133,7 +133,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
                 this.tbPaymentAccount.Text = _info.PaymentAccount;
                 this.tbReceivablesAccount.Text = _info.ReceivablesAccount;
-                this.tbAmountOfPayment.Text = _info.AmountOfPayment.ToString();
+                this.tbAmountOfPayment.Text = _info.AmountOfPaymentFlag + _info.AmountOfPayment.ToString();
 
                 this.tbRemark.Text = _info.Remark;
 
@@ -230,7 +230,11 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.ReceivablesAccount = this.tbReceivablesAccount.Text.Trim();
             if (!string.IsNullOrEmpty(this.tbAmountOfPayment.Text))
             {
-                _Info.AmountOfPayment = decimal.Parse(this.tbAmountOfPayment.Text.Trim());
+                _Info.AmountOfPayment = decimal.Parse(this.tbAmountOfPayment.Text.Replace(BT, "").Trim());
+                if (tbAmountOfPayment.Text.Contains(BT))
+                {
+                    _Info.AmountOfPaymentFlag = BT;
+                }
             }
 
             _Info.DateForPay = this.dpDateForPay.SelectedDate.Value;
