@@ -118,9 +118,9 @@
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="80% 20%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxSumMoney" runat="server" Label="合同总金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                                        RegexMessage="金额格式不正确!" Required="true" ShowRedStar="true" MaxLength="21" 
-                                                        MaxLengthMessage="最大只能输入21个长度的金额!" AutoPostBack="True" 
+                                                    <ext:TextBox ID="tbxSumMoney" runat="server" Label="合同总金额" Regex="^\-?[0-9]*\.?[0-9]{1,2}$" 
+                                                        RegexMessage="金额格式不正确!" Required="true" ShowRedStar="true" MaxLength="16" 
+                                                        MaxLengthMessage="最多只能输入16位!" AutoPostBack="True" 
                                                         OnTextChanged="tbxPreMoney_TextChanged">
                                                     </ext:TextBox>
                                                     <ext:CheckBox ID="CheckBox1" Text="业务办理结束付款" runat="server" ShowLabel="false">
@@ -129,16 +129,16 @@
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="30% 20% 30% 20%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxPreMoney" runat="server" Label="预付金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                                        RegexMessage="金额格式不正确!" Required="true" ShowRedStar="true" MaxLength="21" 
-                                                        MaxLengthMessage="最大只能输入21个长度的金额!" AutoPostBack="True" 
+                                                    <ext:TextBox ID="tbxPreMoney" runat="server" Label="预付金额" Regex="^\-?[0-9]*\.?[0-9]{1,2}$" 
+                                                        RegexMessage="金额格式不正确!" Required="true" ShowRedStar="true" MaxLength="16" 
+                                                        MaxLengthMessage="最多只能输入16位!" AutoPostBack="True" 
                                                         OnTextChanged="tbxPreMoney_TextChanged">
                                                     </ext:TextBox>
                                                     <ext:Image ID="imgPreMoney" ImageUrl="../../images/ico_leaveALLOW.gif" ShowLabel="false"
                                                         runat="server">
                                                     </ext:Image>
-                                                    <ext:TextBox ID="tbxBalanceMoney" runat="server" Label="业务余款金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                                        RegexMessage="金额格式不正确!" Required="true" ShowRedStar="true" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!"
+                                                    <ext:TextBox ID="tbxBalanceMoney" runat="server" Label="业务余款金额" Regex="^\-?[0-9]*\.?[0-9]{1,2}$" 
+                                                        RegexMessage="金额格式不正确!" Required="true" ShowRedStar="true" MaxLength="16" MaxLengthMessage="最多只能输入16位!"
                                                         Enabled="false">
                                                     </ext:TextBox>
                                                     <ext:Image ID="imgBalanceMoney" ImageUrl="../../images/ico_leaveALLOW.gif" ShowLabel="false"
@@ -148,11 +148,11 @@
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="50% 50%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxCostMoney" runat="server" Label="成本金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                                        RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
+                                                    <ext:TextBox ID="tbxCostMoney" runat="server" Label="成本金额" Regex="^\-?[0-9]*\.?[0-9]{1,2}$" 
+                                                        RegexMessage="金额格式不正确!" MaxLength="16" MaxLengthMessage="最多只能输入16位!">
                                                     </ext:TextBox>
-                                                    <ext:TextBox ID="tbxOtherMoney" runat="server" Label="其它费用" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                                        RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
+                                                    <ext:TextBox ID="tbxOtherMoney" runat="server" Label="其它费用" Regex="^\-?[0-9]*\.?[0-9]{1,2}$" 
+                                                        RegexMessage="金额格式不正确!" MaxLength="16" MaxLengthMessage="最多只能输入16位!">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>

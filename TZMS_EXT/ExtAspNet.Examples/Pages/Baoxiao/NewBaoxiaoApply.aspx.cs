@@ -170,7 +170,11 @@ namespace TZMS.Web
                 _baoxiaoInfo.UserAccountNo = _currentUser.AccountNo;
                 _baoxiaoInfo.Dept = _currentUser.Dept;
                 _baoxiaoInfo.Sument = taaSument.Text.Trim();
-                _baoxiaoInfo.Money = Decimal.Parse(tbxMoney.Text.Trim());
+                _baoxiaoInfo.Money = Decimal.Parse(tbxMoney.Text.Replace(BT, "").Trim());
+                if (tbxMoney.Text.Contains(BT))
+                {
+                    _baoxiaoInfo.MoneyFlag = BT;
+                }
                 _baoxiaoInfo.Other = taaOther.Text.Trim();
                 _baoxiaoInfo.ApplyTime = DateTime.Now;
                 _baoxiaoInfo.State = 0;
@@ -220,7 +224,12 @@ namespace TZMS.Web
                 if (_baoxiaoInfo != null)
                 {
                     // 更新申请单中的数据.
-                    _baoxiaoInfo.Money = Decimal.Parse(tbxMoney.Text.Trim());
+                    _baoxiaoInfo.Money = Decimal.Parse(tbxMoney.Text.Replace(BT, "").Trim());
+
+                    if (tbxMoney.Text.Contains(BT))
+                    {
+                        _baoxiaoInfo.MoneyFlag = BT;
+                    }
                     _baoxiaoInfo.Sument = taaSument.Text.Trim();
                     _baoxiaoInfo.Other = taaOther.Text.Trim();
                     _baoxiaoInfo.ApplyTime = DateTime.Now;
@@ -280,7 +289,7 @@ namespace TZMS.Web
                 lblAppDate.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
                 dpkStartTime.SelectedDate = _info.StartTime;
                 dpkEndTime.SelectedDate = _info.EndTime;
-                tbxMoney.Text = _info.Money.ToString();
+                tbxMoney.Text = _info.MoneyFlag + _info.Money.ToString();
                 taaSument.Text = _info.Sument;
                 taaOther.Text = _info.Other;
 

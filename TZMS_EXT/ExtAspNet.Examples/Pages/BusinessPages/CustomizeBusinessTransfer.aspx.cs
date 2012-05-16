@@ -115,13 +115,13 @@ namespace TZMS.Web
                 ddlstSigner.Items.Add(new ExtAspNet.ListItem(_info.SignerName, _info.SignerID.ToString()));
                 dpkSignTime.SelectedDate = _info.SignTime;
                 tbxCompanyName.Text = _info.CompanyName;
-                tbxSumMoney.Text = _info.SumMoney.ToString();
-                tbxPreMoney.Text = _info.PreMoney.ToString();
-                tbxBalanceMoney.Text = _info.BalanceMoney.ToString();
+                tbxSumMoney.Text = _info.SumMoneyFlag + _info.SumMoney.ToString();
+                tbxPreMoney.Text = _info.PreMoneyFlag + _info.PreMoney.ToString();
+                tbxBalanceMoney.Text = _info.BalanceMoneyFlag + _info.BalanceMoney.ToString();
                 tbxContact.Text = _info.Contact;
                 tbxContactPhoneNumber.Text = _info.ContactPhoneNumber;
-                tbxCostMoney.Text = _info.CostMoney.ToString();
-                tbxOtherMoney.Text = _info.OtherMoney.ToString();
+                tbxCostMoney.Text = _info.CostMoneyFlag + _info.CostMoney.ToString();
+                tbxOtherMoney.Text = _info.OtherMoneyFlag + _info.OtherMoney.ToString();
                 taaOtherMoneyExplain.Text = _info.OtherMoneyExplain;
                 taaContent.Text = _info.Content;
                 taaOther.Text = _info.Other;

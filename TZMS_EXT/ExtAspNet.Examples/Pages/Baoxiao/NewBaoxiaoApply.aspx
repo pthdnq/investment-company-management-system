@@ -68,7 +68,7 @@
                                             </ext:FormRow>
                                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="60%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxMoney" runat="server" Label="金额(元)" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                                    <ext:TextBox ID="tbxMoney" runat="server" MaxLength="16" MaxLengthMessage="最多只能输入16位" Label="金额(元)" Regex="^\-?[0-9]*\.?[0-9]{1,2}$"
                                                         RegexMessage="金额格式不正确!">
                                                     </ext:TextBox>
                                                 </Items>
