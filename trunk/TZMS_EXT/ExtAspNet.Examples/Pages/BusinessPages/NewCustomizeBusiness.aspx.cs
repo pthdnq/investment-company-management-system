@@ -151,7 +151,7 @@ namespace TZMS.Web
 
             //if (!CurrentChecker.Contains(CurrentUser))
             //{
-                ddlstSigner.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
+            ddlstSigner.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
             //}
 
             //foreach (UserInfo user in CurrentChecker)
@@ -181,13 +181,13 @@ namespace TZMS.Web
                 ddlstSigner.SelectedValue = _info.SignerID.ToString();
                 dpkSignTime.SelectedDate = _info.SignTime;
                 tbxCompanyName.Text = _info.CompanyName;
-                tbxSumMoney.Text = _info.SumMoney.ToString();
-                tbxPreMoney.Text = _info.PreMoney.ToString();
-                tbxBalanceMoney.Text = _info.BalanceMoney.ToString();
+                tbxSumMoney.Text = _info.SumMoneyFlag + _info.SumMoney.ToString();
+                tbxPreMoney.Text = _info.PreMoneyFlag + _info.PreMoney.ToString();
+                tbxBalanceMoney.Text = _info.BalanceMoneyFlag + _info.BalanceMoney.ToString();
                 tbxContact.Text = _info.Contact;
                 tbxContactPhoneNumber.Text = _info.ContactPhoneNumber;
-                tbxCostMoney.Text = _info.CostMoney.ToString();
-                tbxOtherMoney.Text = _info.OtherMoney.ToString();
+                tbxCostMoney.Text = _info.CostMoneyFlag + _info.CostMoney.ToString();
+                tbxOtherMoney.Text = _info.OtherMoneyFlag + _info.OtherMoney.ToString();
                 taaOtherMoneyExplain.Text = _info.OtherMoneyExplain;
                 taaContent.Text = _info.Content;
                 taaOther.Text = _info.Other;
@@ -383,23 +383,23 @@ namespace TZMS.Web
             BusinessInfo _info = null;
             int result = 3;
 
-            Decimal SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Trim());
-            Decimal PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Trim());
-            Decimal BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Trim());
+            Decimal SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Replace(BT, "").Trim());
+            Decimal PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Replace(BT, "").Trim());
+            Decimal BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Replace(BT, "").Trim());
 
-            if (SumMoney < PreMoney) 
+            if (SumMoney < PreMoney)
             {
                 Alert.Show("合同总金额不可小于预付金额!");
                 return;
             }
 
-            if (SumMoney < BalanceMoney) 
+            if (SumMoney < BalanceMoney)
             {
                 Alert.Show("合同总金额不可小于业务余款金额!");
                 return;
             }
 
-            if (SumMoney < (PreMoney + BalanceMoney)) 
+            if (SumMoney < (PreMoney + BalanceMoney))
             {
                 Alert.Show("合同总金额不正确，请重新填写!");
             }
@@ -426,9 +426,9 @@ namespace TZMS.Web
                 _info.SignerName = ddlstSigner.SelectedText;
                 _info.SignTime = Convert.ToDateTime(dpkSignTime.SelectedDate);
                 _info.CompanyName = tbxCompanyName.Text.Trim();
-                _info.SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Trim());
-                _info.PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Trim());
-                _info.BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Trim());
+                _info.SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Replace(BT, "").Trim());
+                _info.PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Replace(BT,"").Trim());
+                _info.BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Replace(BT,"").Trim());
                 _info.Contact = tbxContact.Text.Trim();
                 _info.ContactPhoneNumber = tbxContactPhoneNumber.Text.Trim();
                 _info.CostMoney = 0;
@@ -481,9 +481,9 @@ namespace TZMS.Web
                     _info.SignerName = ddlstSigner.SelectedText;
                     _info.SignTime = Convert.ToDateTime(dpkSignTime.SelectedDate);
                     _info.CompanyName = tbxCompanyName.Text.Trim();
-                    _info.SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Trim());
-                    _info.PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Trim());
-                    _info.BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Trim());
+                    _info.SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Replace(BT, "").Trim());
+                    _info.PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Replace(BT, "").Trim());
+                    _info.BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Replace(BT, "").Trim());
                     _info.Contact = tbxContact.Text.Trim();
                     _info.ContactPhoneNumber = tbxContactPhoneNumber.Text.Trim();
                     _info.CostMoney = 0;
@@ -516,7 +516,7 @@ namespace TZMS.Web
 
                         _info.CurrentBusinessRecordID = _recordInfo.ObjectID;
                     }
-                    
+
                     result = _manage.UpdateBusiness(_info);
                 }
             }
@@ -757,16 +757,16 @@ namespace TZMS.Web
         protected void tbxPreMoney_TextChanged(object sender, EventArgs e)
         {
             decimal sumMoney = 0;
-            if (Decimal.TryParse(tbxSumMoney.Text.Trim(), out sumMoney))
+            if (Decimal.TryParse(tbxSumMoney.Text.Replace(BT, "").Trim(), out sumMoney))
             {
-                if (string.IsNullOrEmpty(tbxPreMoney.Text.Trim()))
+                if (string.IsNullOrEmpty(tbxPreMoney.Text.Replace(BT, "").Trim()))
                 {
                     tbxBalanceMoney.Text = sumMoney.ToString();
                 }
                 else
                 {
                     decimal preMoney = 0;
-                    if (decimal.TryParse(tbxPreMoney.Text.Trim(), out preMoney))
+                    if (decimal.TryParse(tbxPreMoney.Text.Replace(BT, "").Trim(), out preMoney))
                     {
                         tbxBalanceMoney.Text = (sumMoney - preMoney).ToString();
                     }

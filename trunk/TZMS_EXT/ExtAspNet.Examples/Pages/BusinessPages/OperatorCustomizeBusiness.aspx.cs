@@ -135,13 +135,13 @@ namespace TZMS.Web
                 ddlstSigner.Items.Add(new ExtAspNet.ListItem(_info.SignerName, _info.SignerID.ToString()));
                 dpkSignTime.SelectedDate = _info.SignTime;
                 tbxCompanyName.Text = _info.CompanyName;
-                tbxSumMoney.Text = _info.SumMoney.ToString();
-                tbxPreMoney.Text = _info.PreMoney.ToString();
-                tbxBalanceMoney.Text = _info.BalanceMoney.ToString();
+                tbxSumMoney.Text = _info.SumMoneyFlag+_info.SumMoney.ToString();
+                tbxPreMoney.Text = _info.PreMoneyFlag+_info.PreMoney.ToString();
+                tbxBalanceMoney.Text =_info.BalanceMoneyFlag+ _info.BalanceMoney.ToString();
                 tbxContact.Text = _info.Contact;
                 tbxContactPhoneNumber.Text = _info.ContactPhoneNumber;
-                tbxCostMoney.Text = _info.CostMoney.ToString();
-                tbxOtherMoney.Text = _info.OtherMoney.ToString();
+                tbxCostMoney.Text = _info.CostMoneyFlag+_info.CostMoney.ToString();
+                tbxOtherMoney.Text =_info.OtherMoneyFlag+ _info.OtherMoney.ToString();
                 taaOtherMoneyExplain.Text = _info.OtherMoneyExplain;
                 taaContent.Text = _info.Content;
                 taaOther.Text = _info.Other;
@@ -261,9 +261,21 @@ namespace TZMS.Web
                     {
                         _recordInfo.State = 1;
                         if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
-                            _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Trim());
+                        {
+                            _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
+                            if (tbxCBJE.Text.Contains(BT))
+                            {
+                                _recordInfo.CostMoneyFlag = BT;
+                            }
+                        }
                         if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
-                            _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Trim());
+                        {
+                            _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
+                            if (tbxQTFY.Text.Contains(BT))
+                            {
+                                _recordInfo.OtherMoneyFlag = BT;
+                            }
+                        }
                         _recordInfo.Explain = taaQTFYSM.Text.Trim();
                         _recordInfo.CheckDateTime = DateTime.Now;
 
@@ -302,9 +314,22 @@ namespace TZMS.Web
 
                 {
                     if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
-                        _info.CostMoney += Convert.ToDecimal(tbxCBJE.Text.Trim());
+                    {
+                        _info.CostMoney += Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
+                        if (tbxCBJE.Text.Contains(BT))
+                        {
+                            _info.CostMoneyFlag = BT;
+                        }
+                    }
                     if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
-                        _info.OtherMoney += Convert.ToDecimal(tbxQTFY.Text.Trim());
+                    {
+                        _info.OtherMoney += Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
+
+                        if (tbxQTFY.Text.Contains(BT))
+                        {
+                            _info.OtherMoneyFlag = BT;
+                        }
+                    }
                     if (!string.IsNullOrEmpty(taaQTFYSM.Text.Trim()))
                         _info.OtherMoneyExplain += "\r\n" + taaQTFYSM.Text.Trim();
                     _info.CurrentUserID = new Guid(ddlstApproveUser.SelectedValue);
@@ -315,9 +340,21 @@ namespace TZMS.Web
                     {
                         _recordInfo.State = 1;
                         if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
-                            _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Trim());
+                        {
+                            _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
+                            if (tbxCBJE.Text.Contains(BT))
+                            {
+                                _info.CostMoneyFlag = BT;
+                            }
+                        }
                         if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
-                            _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Trim());
+                        {
+                            _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
+                            if (tbxQTFY.Text.Contains(BT))
+                            {
+                                _info.OtherMoneyFlag = BT;
+                            }
+                        }
                         _recordInfo.Explain = taaQTFYSM.Text.Trim();
                         _recordInfo.CheckDateTime = DateTime.Now;
 
@@ -433,9 +470,21 @@ namespace TZMS.Web
                 {
                     _recordInfo.State = 1;
                     if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
-                        _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Trim());
+                    {
+                        _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
+                        if (tbxCBJE.Text.Contains(BT))
+                        {
+                            _recordInfo.CostMoneyFlag = BT;
+                        }
+                    }
                     if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
-                        _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Trim());
+                    {
+                        _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
+                        if (tbxQTFY.Text.Contains(BT))
+                        {
+                            _recordInfo.OtherMoneyFlag = BT;
+                        }
+                    }
                     _recordInfo.Explain = taaQTFYSM.Text.Trim();
                     _recordInfo.CheckDateTime = DateTime.Now;
 
