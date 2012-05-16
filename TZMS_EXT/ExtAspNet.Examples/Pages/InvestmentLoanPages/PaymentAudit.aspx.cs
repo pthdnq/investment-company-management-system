@@ -130,7 +130,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbCollateral.Text = _Info.Collateral;
             this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
             this.dpLoanDate.SelectedDate = _Info.LoanDate;
-            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+            this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
             this.tbRemark.Text = _Info.Remark;
 
             this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
@@ -138,7 +138,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbLoanTimeLimit.Text = _Info.LoanTimeLimit;
             this.ddlLoanType.SelectedValue = _Info.LoanType;
 
-            this.tbCash.Text = _Info.Cash.ToString();
+            this.tbCash.Text = _Info.CashFlag + _Info.Cash.ToString();
             this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
 
         }
@@ -268,7 +268,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     //不同意，发送消息给表单申请人
                     ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "借款申请", "未通过");
                 }
-                else if(status == 3)
+                else if (status == 3)
                 {
                     //继续审核，发消息给下一步执行人
                     CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "借款审核列表");
@@ -279,7 +279,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                     //提醒申请人，审核通过，待会计确认
                     ResultMsgMore(_Info.CreaterId.ToString(), _Info.CreaterName, "您有1条借款申请，已通过审核，待会计确认！");
                 }
-                   
+
 
                 //Alert.Show("更新成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
