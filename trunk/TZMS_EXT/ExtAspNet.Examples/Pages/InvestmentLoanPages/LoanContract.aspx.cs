@@ -99,8 +99,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbPenalbond.Text = _Info.Penalbond;
             this.tbImprest.Text = _Info.Imprest;
 
-            this.tbCash.Text = _Info.Cash.ToString();
-            this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
+            this.tbCash.Text = _Info.CashFlag + _Info.Cash.ToString();
+            this.lbTransferAccount.Text = _Info.TransferAccountFlag + _Info.TransferAccount.ToString();
         }
 
         /// <summary>

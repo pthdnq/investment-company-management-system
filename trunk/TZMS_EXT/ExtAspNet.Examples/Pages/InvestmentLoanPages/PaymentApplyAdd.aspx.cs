@@ -120,14 +120,24 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             decimal loanAmount = 0;
             decimal cash = 0;
             decimal transfer = 0;
-            if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text))
+            this.btnSave.Enabled = false;
+             loanAmount = decimal.Parse(tbLoanAmount.Text.Replace(BT, "").Trim());
+             cash = decimal.Parse(tbCash.Text.Replace(BT, "").Trim());
+            if (cash > loanAmount)
             {
-                decimal.TryParse(this.tbLoanAmount.Text.Trim(), out loanAmount);
+                Alert.Show("现金不能大于借款总金额");
+                return;
+            }
+            this.btnSave.Enabled = true;
+
+            if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text.Replace(BT, "").Trim()))
+            {
+                decimal.TryParse(this.tbLoanAmount.Text.Replace(BT, "").Trim(), out loanAmount);
                 transfer = loanAmount;
             }
-            if (!string.IsNullOrWhiteSpace(this.tbCash.Text))
+            if (!string.IsNullOrWhiteSpace(this.tbCash.Text.Replace(BT, "").Trim()))
             {
-                decimal.TryParse(this.tbCash.Text.Trim(), out cash);
+                decimal.TryParse(this.tbCash.Text.Replace(BT, "").Trim(), out cash);
                 if (loanAmount != 0)
                 {
                     transfer = loanAmount - cash;
@@ -144,12 +154,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (Decimal.Parse(tbLoanAmount.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbLoanAmount.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("借款金额 整数部分不能超过16位！");
                 return;
             }
-            if (Decimal.Parse(tbCash.Text.Trim()) > Common.MaxMoney)
+            if (Decimal.Parse(tbCash.Text.Replace(BT, "").Trim()) > Common.MaxMoney)
             {
                 Alert.Show("现金 整数部分不能超过16位！");
                 return;
@@ -242,7 +252,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.BorrowerNameA = _customer.Name;
             _Info.BorrowerAId = _customer.ObjectId;
 
-            _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text);
+            _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Replace(BT, "").Trim());
             _Info.BorrowerPhone = this.tbBorrowerPhone.Text.Trim();
             _Info.PayerBName = this.tbPayerBName.Text.Trim();
             _Info.Guarantor = this.tbGuarantor.Text.Trim();
@@ -256,7 +266,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
             _Info.RateOfReturn = this.tbRateOfReturn.Text;
 
-            _Info.Cash = decimal.Parse(this.tbCash.Text.Trim());
+            _Info.Cash = decimal.Parse(this.tbCash.Text.Replace(BT, "").Trim());
             _Info.TransferAccount = _Info.LoanAmount - _Info.Cash;
             // 创建人
             _Info.CreateTime = DateTime.Now;

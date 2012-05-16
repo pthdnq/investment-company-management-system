@@ -51,7 +51,7 @@
                     <ext:FormRow ColumnWidths="50% 50%">
                         <Items>
                             <ext:TextArea ID="taAuditOpinion" Height="44px" Enabled="false" Label="审核意见" runat="server"
-                              Hidden="true"   MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
+                                Hidden="true" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！" />
                         </Items>
                     </ext:FormRow>
                 </Rows>
@@ -133,8 +133,7 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox Hidden="true" ID="tbLoanAmount" Enabled="false" Label="借款金额(元)" runat="server"
-                                                MaxLength="16" MaxLengthMessage="最多只能输入16个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox Hidden="true" ID="tbLoanAmount" Enabled="false" Label="借款金额(元)" runat="server">
                                             </ext:TextBox>
                                             <ext:TextBox Hidden="true" ID="tbLoanTimeLimit" Label="借款期限" runat="server" Enabled="false">
                                             </ext:TextBox>
@@ -143,7 +142,8 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox ID="tbRateOfReturn" Enabled="false" Label="投资回报率(%)" runat="server"
-                                                Hidden="true" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!" />
+                                                Hidden="true" MaxLength="10" MaxLengthMessage="最多只能输入10个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                                RegexMessage="只能输入数字!" />
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">

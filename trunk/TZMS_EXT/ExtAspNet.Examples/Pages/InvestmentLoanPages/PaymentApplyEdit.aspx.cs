@@ -154,7 +154,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbCollateral.Text = _Info.Collateral;
             this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
             this.dpLoanDate.SelectedDate = _Info.LoanDate;
-            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+            this.tbLoanAmount.Text = _Info.LoanAmountFlag + _Info.LoanAmount.ToString();
             this.tbRemark.Text = _Info.Remark;
 
             this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
@@ -168,8 +168,8 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbBorrowerPhone.Enabled = false;
             tbBorrowerNameA.ShowTrigger = false;
 
-            this.tbCash.Text = _Info.Cash.ToString();
-            this.lbTransferAccount.Text = _Info.TransferAccount.ToString();
+            this.tbCash.Text = _Info.CashFlag + _Info.Cash.ToString();
+            this.lbTransferAccount.Text = _Info.TransferAccountFlag + _Info.TransferAccount.ToString();
 
         }
 
@@ -205,14 +205,24 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             decimal loanAmount = 0;
             decimal cash = 0;
             decimal transfer = 0;
-            if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text))
+            this.btnSave.Enabled = false;
+            loanAmount = decimal.Parse(tbLoanAmount.Text.Replace(BT, "").Trim());
+            cash = decimal.Parse(tbCash.Text.Replace(BT, "").Trim());
+            if (cash > loanAmount)
             {
-                decimal.TryParse(this.tbLoanAmount.Text.Trim(), out loanAmount);
+                Alert.Show("现金不能大于借款总金额");
+                return;
+            }
+            this.btnSave.Enabled = true;
+
+            if (!string.IsNullOrWhiteSpace(this.tbLoanAmount.Text.Replace(BT, "").Trim()))
+            {
+                decimal.TryParse(this.tbLoanAmount.Text.Replace(BT, "").Trim(), out loanAmount);
                 transfer = loanAmount;
             }
-            if (!string.IsNullOrWhiteSpace(this.tbCash.Text))
+            if (!string.IsNullOrWhiteSpace(this.tbCash.Text.Replace(BT, "").Trim()))
             {
-                decimal.TryParse(this.tbCash.Text.Trim(), out cash);
+                decimal.TryParse(this.tbCash.Text.Replace(BT, "").Trim(), out cash);
                 if (loanAmount != 0)
                 {
                     transfer = loanAmount - cash;
@@ -353,7 +363,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.BorrowerNameA = _customer.Name;
             _Info.BorrowerAId = _customer.ObjectId;
 
-            _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text);
+            _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Replace(BT, "").Trim());
             _Info.BorrowerPhone = this.tbBorrowerPhone.Text.Trim();
             _Info.PayerBName = this.tbPayerBName.Text.Trim();
             _Info.Guarantor = this.tbGuarantor.Text.Trim();
