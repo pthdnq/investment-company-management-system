@@ -84,7 +84,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             this.tbCollateral.Text = _Info.Collateral;
             this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
             this.dpLoanDate.SelectedDate = _Info.LoanDate;
-            this.tbLoanAmount.Text = _Info.LoanAmount.ToString();
+            this.tbLoanAmount.Text =_Info.LoanAmountFlag+ _Info.LoanAmount.ToString();
             this.tbRemark.Text = _Info.Remark;
 
             this.tbRateOfReturn.Text = _Info.RateOfReturn.ToString();
