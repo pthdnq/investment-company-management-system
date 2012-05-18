@@ -253,6 +253,13 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             _Info.BorrowerAId = _customer.ObjectId;
 
             _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Replace(BT, "").Trim());
+
+            if (tbLoanAmount.Text.Contains(BT))
+            {
+                _Info.LoanAmountFlag = BT;
+            }
+
+
             _Info.BorrowerPhone = this.tbBorrowerPhone.Text.Trim();
             _Info.PayerBName = this.tbPayerBName.Text.Trim();
             _Info.Guarantor = this.tbGuarantor.Text.Trim();
