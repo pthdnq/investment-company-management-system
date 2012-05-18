@@ -66,7 +66,7 @@
                                                     <ext:Label ID="lblCNMoney" runat="server" Label="大写金额">
                                                     </ext:Label>
                                                     <ext:TextBox ID="tbxMoney" runat="server" Label="小写金额" Required="true" ShowRedStar="true"
-                                                        AutoPostBack="true" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" OnTextChanged="tbxMoney_TextChanged">
+                                                        AutoPostBack="true" Regex="^\-?[0-9]*\.?[0-9]{1,2}$" MaxLength="16"  RegexMessage="金额格式不正确!" OnTextChanged="tbxMoney_TextChanged">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>

@@ -39,7 +39,7 @@
                             </ext:FormRow>
                             <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                                 <Items>
-                                    <ext:TextBox ID="tbxName" runat="server" Label="员工名称" runat="server" Required="true"
+                                    <ext:TextBox ID="tbxName" runat="server" Label="员工名称"  Required="true"
                                         ShowRedStar="true" Enabled="false">
                                     </ext:TextBox>
                                     <ext:Button ID="btnChooseUser" runat="server" Text="选取员工..." OnClick="btnChooseUser_Click">
@@ -49,30 +49,30 @@
                             <ext:FormRow ID="FormRow3" runat="server" ColumnWidths="50% 50%" Hidden="true">
                                 <Items>
                                     <ext:TextBox ID="tbxBaseSalary" Label="基本工资" runat="server" Required="true" ShowRedStar="true"
-                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
+                                        Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
                                     </ext:TextBox>
                                     <ext:TextBox ID="tbxExamSalary" Label="提成工资" runat="server" Required="true" ShowRedStar="true"
-                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
+                                       Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
                                     </ext:TextBox>
                                 </Items>
                             </ext:FormRow>
                             <ext:FormRow ID="FormRow4" runat="server" ColumnWidths="50% 50%" Hidden="true">
                                 <Items>
                                     <ext:TextBox ID="tbxBackSalary" Label="补贴" runat="server" Required="true" ShowRedStar="true"
-                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
+                                        Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
                                     </ext:TextBox>
                                     <ext:TextBox ID="tbxOtherSalary" Label="其它" runat="server" Required="true" ShowRedStar="true"
-                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
+                                        Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
                                     </ext:TextBox>
                                 </Items>
                             </ext:FormRow>
                             <ext:FormRow ID="FormRow5" runat="server" ColumnWidths="50% 50%" Hidden="true">
                                 <Items>
                                     <ext:TextBox ID="tbxShouldSalary" Label="应发工资总额" runat="server" Required="true" ShowRedStar="true"
-                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
+                                        Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
                                     </ext:TextBox>
                                     <ext:TextBox ID="tbxSalary" Label="实发工资总额" runat="server" Required="true" ShowRedStar="true"
-                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
+                                      Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!" Text="0.0" Hidden="true">
                                     </ext:TextBox>
                                 </Items>
                             </ext:FormRow>

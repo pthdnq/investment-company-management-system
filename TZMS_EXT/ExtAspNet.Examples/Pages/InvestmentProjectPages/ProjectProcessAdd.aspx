@@ -70,7 +70,7 @@
                                             <ext:FormRow ColumnWidths="60% 40%">
                                                 <Items>
                                                     <ext:TextBox Hidden="true" ID="tbImprestAmount" Label="备用金额" ShowRedStar="true" Required="true"
-                                                        runat="server" MaxLength="16" MaxLengthMessage="最多只能输入16个数字！"   Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" >
+                                                        runat="server" MaxLength="16" MaxLengthMessage="最多只能输入16位！"   Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!" >
                                                     </ext:TextBox>
                                                     <ext:Label ID="Label2" runat="server" />
                                                 </Items>
@@ -78,8 +78,8 @@
                                             <ext:FormRow ColumnWidths="60% 40%">
                                                 <Items>
                                                     <ext:TextBox Hidden="true" ID="tbAmountExpended" Label="预支金额" ShowRedStar="true"
-                                                        Required="true" runat="server" MaxLength="16" MaxLengthMessage="最多只能输入16个数字！"
-                                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!" >
+                                                        Required="true" runat="server" MaxLength="16" MaxLengthMessage="最多只能输入16位！"
+                                                       Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!" >
                                                     </ext:TextBox>
                                                     <ext:Label runat="server" />
                                                 </Items>

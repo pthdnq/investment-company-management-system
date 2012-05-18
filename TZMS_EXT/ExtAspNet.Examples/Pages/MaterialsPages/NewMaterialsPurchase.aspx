@@ -73,7 +73,7 @@
                                                         Regex="^\d*$" RegexMessage="只能输入数字!">
                                                     </ext:TextBox>
                                                     <ext:TextBox ID="tbxMoney" runat="server" Required="true" ShowRedStar="true" Label="金额"
-                                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
+                                                        Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="金额格式不正确!" MaxLength="16">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>

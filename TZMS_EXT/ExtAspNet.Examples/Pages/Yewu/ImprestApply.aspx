@@ -62,7 +62,7 @@
                                                     <ext:DropDownList ID="ddlstYeWu" runat="server" Label="项目名称" Required="true" ShowRedStar="true">
                                                     </ext:DropDownList>
                                                     <ext:TextBox ID="tbxMoney" runat="server" Label="金额(元)" Required="true" ShowRedStar="true"
-                                                        Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="金额格式不正确!">
+                                                       Regex="^\-?[0-9]*\.?[0-9]{1,2}$" MaxLength="16"  RegexMessage="金额格式不正确!">
                                                     </ext:TextBox>
                                                 </Items>
                                             </ext:FormRow>

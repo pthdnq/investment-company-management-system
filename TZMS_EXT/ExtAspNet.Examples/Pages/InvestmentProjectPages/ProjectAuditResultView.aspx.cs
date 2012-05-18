@@ -72,8 +72,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             this.tbContact.Text = _Info.Contact;
             this.tbContactPhone.Text = _Info.ContactPhone;
-            this.tbContractAmount.Text = _Info.ContractAmount.ToString();
-            this.tbDownPayment.Text = _Info.DownPayment.ToString();
+            this.tbContractAmount.Text =_Info.ContractAmountFlag+ _Info.ContractAmount.ToString();
+            this.tbDownPayment.Text =_Info.DownPaymentFlag+ _Info.DownPayment.ToString();
             this.dpSignDate.SelectedDate = _Info.SignDate;
             this.tbRemark.Text = _Info.Remark;
 

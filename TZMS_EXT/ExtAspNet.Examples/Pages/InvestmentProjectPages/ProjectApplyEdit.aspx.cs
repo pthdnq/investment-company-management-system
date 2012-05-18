@@ -92,8 +92,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             this.tbContact.Text = _Info.Contact;
             this.tbContactPhone.Text = _Info.ContactPhone;
-            this.tbContractAmount.Text = _Info.ContractAmount.ToString();
-            this.tbDownPayment.Text = _Info.DownPayment.ToString();
+            this.tbContractAmount.Text = _Info.ContractAmountFlag + _Info.ContractAmount.ToString();
+            this.tbDownPayment.Text = _Info.DownPaymentFlag + _Info.DownPayment.ToString();
             this.dpSignDate.SelectedDate = _Info.SignDate;
             this.tbRemark.Text = _Info.Remark;
 
@@ -141,7 +141,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             //}
         }
 
- 
+
         #endregion
 
         #region 自定义方法
@@ -159,19 +159,29 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             _Info.Contact = this.tbContact.Text.Trim();
             _Info.ContactPhone = this.tbContactPhone.Text.Trim();
-            _Info.ContractAmount = decimal.Parse(this.tbContractAmount.Text.Trim());
-            _Info.DownPayment = decimal.Parse(this.tbDownPayment.Text.Trim());
+            _Info.ContractAmount = decimal.Parse(this.tbContractAmount.Text.Replace(BT, "").Trim());
+            _Info.DownPayment = decimal.Parse(this.tbDownPayment.Text.Replace(BT, "").Trim());
+            if (tbContractAmount.Text.Contains(BT))
+            {
+                _Info.ContractAmountFlag = BT;
+            }
+
+            if (tbDownPayment.Text.Contains(BT))
+            {
+                _Info.DownPaymentFlag = BT;
+            }
+
             _Info.SignDate = this.dpSignDate.SelectedDate.Value;
             //_Info.Remark = this.tbRemark.Text.Trim();
 
             //_Info.AuditOpinion = this.tbAuditOpinion.Text.Trim();
             _Info.Status = status;
             //下一步操作 
-                _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
-                _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
-         
+            _Info.NextOperaterName = this.ddlstApproveUser.SelectedText;
+            _Info.NextOperaterId = new Guid(this.ddlstApproveUser.SelectedValue);
+
             _Info.SubmitTime = DateTime.Now;
-          
+
             int result = 3;
 
             result = manage.Update(_Info);
@@ -201,7 +211,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批", "0"));
             if (needAccountant)
             {
-               // ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                // ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

@@ -220,7 +220,12 @@ namespace TZMS.Web
                 _applyInfo.ProxyAmountUnitID = new Guid(ddlstUnit.SelectedValue);
                 _applyInfo.ProxyAmountUnitName = ddlstUnit.SelectedText;
                 _applyInfo.CNMoney = lblCNMoney.Text;
-                _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Trim());
+                _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                if (tbxMoney.Text.Contains(BT))
+                {
+                    _applyInfo.ENMoneyFlag = BT;
+                }
+
                 //_applyInfo.Sument = tbxSument.Text.Trim();
                 //_applyInfo.OpeningDate = Convert.ToDateTime(dpkOpeningDate.SelectedDate);
                 _applyInfo.CollectMethod = ddlstCollectMethod.SelectedText;
@@ -274,7 +279,11 @@ namespace TZMS.Web
                     _applyInfo.ProxyAmountUnitID = new Guid(ddlstUnit.SelectedValue);
                     _applyInfo.ProxyAmountUnitName = ddlstUnit.SelectedText;
                     _applyInfo.CNMoney = lblCNMoney.Text;
-                    _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Trim());
+                    _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                    if (tbxMoney.Text.Contains(BT))
+                    {
+                        _applyInfo.ENMoneyFlag = BT;
+                    }
                     _applyInfo.Sument = tbxSument.Text.Trim();
                     //_applyInfo.OpeningDate = Convert.ToDateTime(dpkOpeningDate.SelectedDate);
                     _applyInfo.CollectMethod = ddlstCollectMethod.SelectedText;
@@ -327,7 +336,7 @@ namespace TZMS.Web
             {
                 ddlstUnit.SelectedValue = _info.ProxyAmountUnitID.ToString();
                 lblCNMoney.Text = _info.CNMoney;
-                tbxMoney.Text = _info.ENMoney.ToString();
+                tbxMoney.Text = _info.ENMoneyFlag + _info.ENMoney.ToString();
                 //tbxSument.Text = _info.Sument;
                 ddlstProxyAmountType.SelectedValue = _info.TemplateType.ToString();
                 ddlstCollectMethod.SelectedValue = _info.CollectMethod;
@@ -670,7 +679,7 @@ namespace TZMS.Web
         protected void tbxMoney_TextChanged(object sender, EventArgs e)
         {
             double money;
-            if (double.TryParse(tbxMoney.Text.Trim(), out money))
+            if (double.TryParse(tbxMoney.Text.Replace(BT, "").Trim(), out money))
             {
                 lblCNMoney.Text = Format(money);
                 //if (!this.ckYear.Checked)

@@ -186,7 +186,12 @@ namespace TZMS.Web
                 _applyInfo.PayUnitID = new Guid(ddlstUnit.SelectedValue);
                 _applyInfo.PayUnitName = ddlstUnit.SelectedText;
                 _applyInfo.CNMoney = lblCNMoney.Text;
-                _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Trim());
+                _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                if (tbxMoney.Text.Contains(BT))
+                {
+                    _applyInfo.ENMoneyFlag = BT;
+                }
+
                 _applyInfo.Sument = tbxSument.Text.Trim();
                 _applyInfo.OpeningDate = Convert.ToDateTime(dpkOpeningDate.SelectedDate);
                 _applyInfo.CollectMethod = ddlstCollectMethod.SelectedText;
@@ -239,7 +244,11 @@ namespace TZMS.Web
                     _applyInfo.PayUnitID = new Guid(ddlstUnit.SelectedValue);
                     _applyInfo.PayUnitName = ddlstUnit.SelectedText;
                     _applyInfo.CNMoney = lblCNMoney.Text;
-                    _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Trim());
+                    _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                    if (tbxMoney.Text.Contains(BT))
+                    {
+                        _applyInfo.ENMoneyFlag = BT;
+                    }
                     _applyInfo.Sument = tbxSument.Text.Trim();
                     _applyInfo.OpeningDate = Convert.ToDateTime(dpkOpeningDate.SelectedDate);
                     _applyInfo.CollectMethod = ddlstCollectMethod.SelectedText;
@@ -296,7 +305,7 @@ namespace TZMS.Web
             {
                 ddlstUnit.SelectedValue = _info.PayUnitID.ToString();
                 lblCNMoney.Text = _info.CNMoney;
-                tbxMoney.Text = _info.ENMoney.ToString();
+                tbxMoney.Text = _info.ENMoneyFlag + _info.ENMoney.ToString();
                 tbxSument.Text = _info.Sument;
                 ddlstCollectMethod.SelectedValue = _info.CollectMethod;
                 dpkOpeningDate.SelectedDate = _info.OpeningDate;
@@ -618,7 +627,7 @@ namespace TZMS.Web
         protected void tbxMoney_TextChanged(object sender, EventArgs e)
         {
             double money;
-            if (double.TryParse(tbxMoney.Text.Trim(), out money))
+            if (double.TryParse(tbxMoney.Text.Replace(BT, "").Trim(), out money))
             {
                 lblCNMoney.Text = Format(money);
                 if (!this.ckYear.Checked)
@@ -641,7 +650,7 @@ namespace TZMS.Web
         {
             //tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月代账") + tbxMoney.Text.Trim() + "元";
             double money;
-            if (double.TryParse(tbxMoney.Text.Trim(), out money))
+            if (double.TryParse(tbxMoney.Text.Replace(BT, "").Trim(), out money))
             {
                 lblCNMoney.Text = Format(money);
                 if (!this.ckYear.Checked)

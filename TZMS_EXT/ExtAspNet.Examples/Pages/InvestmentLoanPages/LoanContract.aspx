@@ -102,7 +102,7 @@
                                             <ext:Label runat="server" ID="lbTransferAccount" Label="转账(元)" Text=" 0  ">
                                             </ext:Label>
                                             <ext:TextBox ID="tbRateOfReturn" Enabled="false" Label="投资回报率" runat="server" MaxLength="10"
-                                                MaxLengthMessage="最多只能输入10个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!" />
+                                                MaxLengthMessage="最多只能输入10位！" Regex="^\-?[0-9]*\.?[0-9]{1,2}$"  RegexMessage="格式不正确!" />
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">

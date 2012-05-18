@@ -429,6 +429,22 @@ namespace TZMS.Web
                 _info.SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Replace(BT, "").Trim());
                 _info.PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Replace(BT,"").Trim());
                 _info.BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Replace(BT,"").Trim());
+
+                if (tbxSumMoney.Text.Contains(BT))
+                {
+                    _info.SumMoneyFlag = BT;
+                }
+                if (tbxPreMoney.Text.Contains(BT))
+                {
+                    _info.PreMoneyFlag = BT;
+                }
+
+                if (tbxBalanceMoney.Text.Contains(BT))
+                {
+                    _info.BalanceMoneyFlag = BT;
+                }
+
+
                 _info.Contact = tbxContact.Text.Trim();
                 _info.ContactPhoneNumber = tbxContactPhoneNumber.Text.Trim();
                 _info.CostMoney = 0;
@@ -484,6 +500,20 @@ namespace TZMS.Web
                     _info.SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Replace(BT, "").Trim());
                     _info.PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Replace(BT, "").Trim());
                     _info.BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Replace(BT, "").Trim());
+
+                    if (tbxSumMoney.Text.Contains(BT))
+                    {
+                        _info.SumMoneyFlag = BT;
+                    }
+                    if (tbxPreMoney.Text.Contains(BT))
+                    {
+                        _info.PreMoneyFlag = BT;
+                    }
+                    if (tbxBalanceMoney.Text.Contains(BT))
+                    {
+                        _info.BalanceMoneyFlag = BT;
+                    }
+
                     _info.Contact = tbxContact.Text.Trim();
                     _info.ContactPhoneNumber = tbxContactPhoneNumber.Text.Trim();
                     _info.CostMoney = 0;
