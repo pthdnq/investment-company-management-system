@@ -82,7 +82,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             ObjectID = strID;
 
             InvestmentProjectInfo _Info = new InvestmentProjectManage().GetUserByObjectID(strID);
-         
+
             #region View
             if (!string.IsNullOrEmpty(OperateType) && OperateType.Equals("View"))
             {
@@ -128,8 +128,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             this.tbContact.Text = _Info.Contact;
             this.tbContactPhone.Text = _Info.ContactPhone;
-            this.tbContractAmount.Text = _Info.ContractAmount.ToString();
-            this.tbDownPayment.Text = _Info.DownPayment.ToString();
+            this.tbContractAmount.Text = _Info.ContractAmountFlag + _Info.ContractAmount.ToString();
+            this.tbDownPayment.Text = _Info.DownPaymentFlag + _Info.DownPayment.ToString();
             this.dpSignDate.SelectedDate = _Info.SignDate;
             this.tbRemark.Text = _Info.Remark;
 
@@ -246,7 +246,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     //不同意，发送消息给表单申请人
                     ResultMsg(_Info.CreaterId.ToString(), _Info.CreaterName, "项目申请列表(来自集团外项目)", "终止未通过");
                 }
-                else if (status ==7)
+                else if (status == 7)
                 {
                     //继续审核，发消息给下一步执行人
                     CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "终止审核列表(来自集团外项目)");

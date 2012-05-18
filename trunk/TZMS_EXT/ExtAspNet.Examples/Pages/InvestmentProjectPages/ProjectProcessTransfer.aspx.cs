@@ -90,14 +90,14 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 #endregion
 
                 this.tbImplementationPhase.Text = _info.ImplementationPhase;
-                this.tbAmountExpended.Text = _info.AmountExpended.ToString();
-                this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
+                this.tbAmountExpended.Text = _info.AmountExpendedFlag + _info.AmountExpended.ToString();
+                this.tbImprestAmount.Text = _info.ImprestAmountFlag + _info.ImprestAmount.ToString();
                 this.taRemark.Text = _info.Remark;
 
-              //  if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
-               // {
-                    this.dpExpendedTime.Text = _info.ExpendedTime;
-             //   }
+                //  if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
+                // {
+                this.dpExpendedTime.Text = _info.ExpendedTime;
+                //   }
 
             }
         }
@@ -198,7 +198,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                 //提醒 新的审批人
                 ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, " 您有1条 待审批 进展审核列表（来自集团外项目，通过审批人转移方式）！");
-             
+
                 Alert.Show("操作成功!");
                 PageContext.RegisterStartupScript(ActiveWindow.GetHidePostBackReference());
             }
@@ -217,7 +217,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             ddlstNext.Items.Add(new ExtAspNet.ListItem("审批转移", "0"));
             if (needAccountant)
             {
-               // ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
+                // ddlstNext.Items.Add(new ExtAspNet.ListItem("归档", "1"));
             }
             ddlstNext.SelectedIndex = 0;
         }

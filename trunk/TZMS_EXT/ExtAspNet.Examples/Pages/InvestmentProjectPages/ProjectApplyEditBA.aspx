@@ -125,11 +125,9 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox Enabled="false" ID="tbContractAmount" Label="合同金额" runat="server" MaxLength="8"
-                                                Hidden="true" MaxLengthMessage="最多只能输入16位数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox Enabled="false" ID="tbContractAmount" Label="合同金额" runat="server" Hidden="true">
                                             </ext:TextBox>
-                                            <ext:TextBox Enabled="false" ID="tbDownPayment" Label="预付订金" runat="server" MaxLength="8"
-                                                Hidden="true" MaxLengthMessage="最多只能输入16位数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox Enabled="false" ID="tbDownPayment" Label="预付订金" runat="server" Hidden="true">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>

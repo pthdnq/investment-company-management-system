@@ -55,7 +55,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         private void InitControl()
         {
             this.btnClose.OnClientClick = ActiveWindow.GetConfirmHideReference();
-        } 
+        }
 
         /// <summary>
         /// 绑定指定用户ID的数据到界面.
@@ -73,7 +73,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             tbxName.Text = info.ProjectName;
             dpDueDateForReceivables.SelectedDate = info.DueDateForReceivables;
             dpDateForReceivables.SelectedDate = info.DateForReceivables;
-            tbAmountofpaidUp.Text = info.AmountofpaidUp.ToString();
+            tbAmountofpaidUp.Text = info.AmountofpaidUpFlag + info.AmountofpaidUp.ToString();
             tbReceivablesAccount.Text = info.ReceivablesAccount;
             taRemark.Text = info.Remark;
             taAuditOpinionRemark.Text = info.AuditOpinion;
@@ -100,11 +100,11 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
         #endregion
 
         #region 页面及控件事件
-        
+
         #endregion
 
         #region 自定义方法
-      
+
         #endregion
     }
 }

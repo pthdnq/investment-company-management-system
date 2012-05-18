@@ -113,8 +113,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
             this.tbContact.Text = _Info.Contact;
             this.tbContactPhone.Text = _Info.ContactPhone;
-            this.tbContractAmount.Text = _Info.ContractAmount.ToString();
-            this.tbDownPayment.Text = _Info.DownPayment.ToString();
+            this.tbContractAmount.Text = _Info.ContractAmountFlag + _Info.ContractAmount.ToString();
+            this.tbDownPayment.Text = _Info.DownPaymentFlag + _Info.DownPayment.ToString();
             this.dpSignDate.SelectedDate = _Info.SignDate;
             this.tbRemark.Text = _Info.Remark;
 
@@ -204,7 +204,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     {
                         //提醒 新的审批人 终止审核列表
                         ResultMsgMore(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "您有1条 待审批 终止审核列表（来自集团外项目，通过审批人转移方式）！");
-             
+
                     }
                     else
                     {

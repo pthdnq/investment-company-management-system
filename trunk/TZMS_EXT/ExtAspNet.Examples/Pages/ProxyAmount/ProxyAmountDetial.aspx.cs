@@ -105,7 +105,11 @@ namespace TZMS.Web
             {
                 // 更新申请单中的数据.
                 _applyInfo.CNMoney = lblCNMoney.Text;
-                _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Trim());
+                _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                if (tbxMoney.Text.Contains(BT))
+                {
+                    _applyInfo.ENMoneyFlag = BT;
+                }
                 _applyInfo.Sument = tbxSument.Text.Trim();
                 _applyInfo.OpeningDate = Convert.ToDateTime(dpkOpeningDate.SelectedDate);
                 _applyInfo.CollectMethod = ddlstCollectMethod.SelectedText;
@@ -136,7 +140,7 @@ namespace TZMS.Web
                 lblAmountType.Text = _info.ProxyAmountType == 0 ? "代账费" : "年检费";
                 lblUnitName.Text = _info.ProxyAmountUnitName;
                 lblCNMoney.Text = _info.CNMoney;
-                tbxMoney.Text = _info.ENMoney.ToString();
+                tbxMoney.Text = _info.ENMoneyFlag + _info.ENMoney.ToString();
                 ddlstCollectMethod.SelectedValue = _info.CollectMethod;
                 tbxSument.Text = _info.Sument;
                 ddlstCollectMethod.SelectedValue = _info.CollectMethod;
@@ -430,7 +434,7 @@ namespace TZMS.Web
         protected void tbxMoney_TextChanged(object sender, EventArgs e)
         {
             double money;
-            if (double.TryParse(tbxMoney.Text.Trim(), out money))
+            if (double.TryParse(tbxMoney.Text.Replace(BT, "").Trim(), out money))
             {
                 lblCNMoney.Text = Format(money);
             }
@@ -444,7 +448,7 @@ namespace TZMS.Web
         protected void dpkOpeningDate_TextChanged(object sender, EventArgs e)
         {
             double money;
-            if (double.TryParse(tbxMoney.Text.Trim(), out money))
+            if (double.TryParse(tbxMoney.Text.Replace(BT, "").Trim(), out money))
             {
                 lblCNMoney.Text = Format(money);
                 if (lblAmountType.Text == "代账费")

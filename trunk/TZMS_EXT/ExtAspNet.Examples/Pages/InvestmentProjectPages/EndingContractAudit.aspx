@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EndingContractAudit.aspx.cs" Inherits="TZMS.Web.Pages.InvestmentProjectPages.EndingContractAudit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EndingContractAudit.aspx.cs"
+    Inherits="TZMS.Web.Pages.InvestmentProjectPages.EndingContractAudit" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -43,7 +43,7 @@
                     <ext:FormRow ColumnWidths="100%">
                         <Items>
                             <ext:TextArea ID="tbAuditOpinion" Label="审核意见" runat="server" MaxLength="200" MaxLengthMessage="最多只能输入200个字符！"
-                                Required="true" ShowRedStar="true" >
+                                Required="true" ShowRedStar="true">
                             </ext:TextArea>
                         </Items>
                     </ext:FormRow>
@@ -59,16 +59,15 @@
                                 <Rows>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox Enabled="false" ID="tbProjectName" Label="项目名称"  
-                                                runat="server" MaxLength="50" MaxLengthMessage="最多只能输入50个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$"
-                                                RegexMessage="不能输入特殊字符!">
+                                            <ext:TextBox Enabled="false" ID="tbProjectName" Label="项目名称" runat="server" MaxLength="50"
+                                                MaxLengthMessage="最多只能输入50个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox Enabled="false" ID="tbCustomerName" Label="客户名称"   runat="server" MaxLength="20" MaxLengthMessage="最多只能输入20个字符！"
-                                                Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
+                                            <ext:TextBox Enabled="false" ID="tbCustomerName" Label="客户名称" runat="server" MaxLength="20"
+                                                MaxLengthMessage="最多只能输入20个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
@@ -82,8 +81,7 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:DatePicker Enabled="false" ID="dpSignDate" Label="签订日期" 
-                                                runat="server">
+                                            <ext:DatePicker Enabled="false" ID="dpSignDate" Label="签订日期" runat="server">
                                             </ext:DatePicker>
                                             <ext:Label runat="server" ID="lblsmp">
                                             </ext:Label>
@@ -94,8 +92,7 @@
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
                                             <ext:TextBox Enabled="false" ID="tbContact" Label="联系人" runat="server" MaxLength="50"
-                                                MaxLengthMessage="最多只能输入50个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!"
-                                                >
+                                                MaxLengthMessage="最多只能输入50个字符！" Regex="^[a-zA-Z0-9\u4e00-\u9fa5]*$" RegexMessage="不能输入特殊字符!">
                                             </ext:TextBox>
                                             <ext:TextBox Enabled="false" ID="tbContactPhone" Label="联系人电话" runat="server" MaxLength="20"
                                                 MaxLengthMessage="最多只能输入20个字符！" Regex="(\(?\d{3,4}\)?)?[\s-]?\d{7,8}[\s-]?\d{0,4}"
@@ -105,11 +102,9 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox Enabled="false" ID="tbContractAmount" Label="合同总金额" runat="server" MaxLength="16"
-                                                MaxLengthMessage="最多只能输入16位数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!"  >
+                                            <ext:TextBox Enabled="false" ID="tbContractAmount" Label="合同总金额" runat="server">
                                             </ext:TextBox>
-                                            <ext:TextBox Enabled="false" ID="tbDownPayment" Label="预付定金" runat="server" MaxLength="16"
-                                                MaxLengthMessage="最多只能输入16位数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!"  >
+                                            <ext:TextBox Enabled="false" ID="tbDownPayment" Label="预付定金" runat="server">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
@@ -125,13 +120,13 @@
                         </Items>
                     </ext:Tab>
                     <ext:Tab ID="tabHistory" Title="操作历史" EnableBackgroundColor="true" runat="server"
-                    Layout="Fit"     BodyPadding="5px">
+                        Layout="Fit" BodyPadding="5px">
                         <Items>
                             <ext:Grid ID="gridHistory" Title="Grid1" ShowBorder="true" ShowHeader="false" runat="server"
                                 IsDatabasePaging="true" EnableRowNumber="True" AutoScroll="true" AutoHeight="true">
                                 <Columns>
                                     <ext:BoundField Width="52px" DataField="OperationerName" HeaderText="操作人" />
-                       <%--             <ext:BoundField Width="50px" DataField="OperationerAccount" HeaderText="帐号" />--%>
+                                    <%--             <ext:BoundField Width="50px" DataField="OperationerAccount" HeaderText="帐号" />--%>
                                     <ext:BoundField Width="100px" DataField="OperationTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
                                         HeaderText="操作时间" />
                                     <ext:BoundField Width="56px" DataField="OperationType" HeaderText="操作类型" />

@@ -202,7 +202,12 @@ namespace TZMS.Web
                 _applyInfo.ApplyTime = DateTime.Now;
                 _applyInfo.MaterialsID = new Guid(ddlstMaterialName.SelectedValue);
                 _applyInfo.Count = Convert.ToInt32(tbxCount.Text.Trim());
-                _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Trim());
+                _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                if (tbxMoney.Text.Contains(BT))
+                {
+                    _applyInfo.MoneyFlag = BT;
+                }
+
                 _applyInfo.NeedsDate = Convert.ToDateTime(dpkNeedsDate.SelectedDate);
                 _applyInfo.Sument = taaSument.Text.Trim();
                 _applyInfo.Other = taaOther.Text.Trim();
@@ -252,6 +257,10 @@ namespace TZMS.Web
                     _applyInfo.MaterialsID = new Guid(ddlstMaterialName.SelectedValue);
                     _applyInfo.Count = Convert.ToInt32(tbxCount.Text.Trim());
                     _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Trim());
+                    if (tbxMoney.Text.Contains(BT))
+                    {
+                        _applyInfo.MoneyFlag = BT;
+                    }
                     _applyInfo.NeedsDate = Convert.ToDateTime(dpkNeedsDate.SelectedDate);
                     _applyInfo.Sument = taaSument.Text.Trim();
                     _applyInfo.Other = taaOther.Text.Trim();
@@ -308,7 +317,7 @@ namespace TZMS.Web
                 lblName.Text = _info.UserName;
                 lblApplyTime.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
                 tbxCount.Text = _info.Count.ToString();
-                tbxMoney.Text = _info.Money.ToString();
+                tbxMoney.Text = _info.MoneyFlag + _info.Money.ToString();
                 dpkNeedsDate.SelectedDate = _info.NeedsDate;
                 taaSument.Text = _info.Sument;
                 taaOther.Text = _info.Other;

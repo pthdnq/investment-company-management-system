@@ -94,7 +94,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 //   this.btnDismissed.Hidden = true;
                 this.btnSave.Hidden = true;
                 this.taAuditOpinionRemark.Text = info.AuditOpinion;
-                this.taAuditOpinionRemark.Enabled = false; 
+                this.taAuditOpinionRemark.Enabled = false;
 
                 //    this.ddlstApproveUser.Items.Add(new ListItem() { Text = _Info.NextOperaterName, Value = "0", Selected = true });
                 //   this.ddlstNext.Enabled = false;
@@ -104,7 +104,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             tbProjectName.Text = info.ProjectName;
             dpDueDateForReceivables.SelectedDate = info.DueDateForReceivables;
             dpDateForReceivables.SelectedDate = info.DateForReceivables;
-            tbAmountofpaidUp.Text = info.AmountofpaidUp.ToString();
+            tbAmountofpaidUp.Text = info.AmountofpaidUpFlag + info.AmountofpaidUp.ToString();
             tbReceivablesAccount.Text = info.ReceivablesAccount;
             taRemark.Text = info.Remark;
         }

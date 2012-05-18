@@ -82,8 +82,18 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         
             _Info.Contact = this.tbContact.Text.Trim();
             _Info.ContactPhone = this.tbContactPhone.Text.Trim();
-            _Info.ContractAmount =decimal.Parse( this.tbContractAmount.Text.Trim());
-            _Info.DownPayment =decimal.Parse( this.tbDownPayment.Text.Trim());
+            _Info.ContractAmount =decimal.Parse( this.tbContractAmount.Text.Replace(BT,"").Trim());
+            _Info.DownPayment =decimal.Parse( this.tbDownPayment.Text.Replace(BT,"").Trim());
+            if (tbContractAmount.Text.Contains(BT))
+            {
+                _Info.ContractAmountFlag = BT;
+            }
+
+            if (tbDownPayment.Text.Contains(BT))
+            {
+                _Info.DownPaymentFlag = BT;
+            }
+
             _Info.SignDate = this.dpSignDate.SelectedDate.Value;
             _Info.Remark = this.tbRemark.Text.Trim();
             _Info.Status = 1;

@@ -188,7 +188,12 @@ namespace TZMS.Web
                 _applyInfo.UserDept = CurrentUser.Dept;
                 _applyInfo.YeWuID = new Guid(ddlstYeWu.SelectedValue);
                 _applyInfo.Sument = tbxSument.Text.Trim();
-                _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Trim());
+                _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                if (tbxMoney.Text.Contains(BT))
+                {
+                    _applyInfo.MoneyFlag = BT;
+                }
+
                 _applyInfo.ApplyTime = DateTime.Now;
                 _applyInfo.CurrentApproverID = new Guid(ddlstApproveUser.SelectedValue);
                 _applyInfo.State = 0;
@@ -234,7 +239,11 @@ namespace TZMS.Web
                 {
                     // 更新申请单中的数据.
                     _applyInfo.YeWuID = new Guid(ddlstYeWu.SelectedValue);
-                    _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Trim());
+                    _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                    if (tbxMoney.Text.Contains(BT))
+                    {
+                        _applyInfo.MoneyFlag = BT;
+                    }
                     _applyInfo.Sument = tbxSument.Text.Trim();
                     _applyInfo.State = 0;
                     _applyInfo.CurrentApproverID = new Guid(ddlstApproveUser.SelectedValue);
@@ -281,7 +290,7 @@ namespace TZMS.Web
                 lblName.Text = _info.UserName;
                 lblApplyTime.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
                 ddlstYeWu.SelectedValue = _info.YeWuID.ToString();
-                tbxMoney.Text = _info.Money.ToString();
+                tbxMoney.Text =_info.MoneyFlag+ _info.Money.ToString();
                 tbxSument.Text = _info.Sument;
 
                 // 查找最早的审批记录.

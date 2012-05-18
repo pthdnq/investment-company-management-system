@@ -140,8 +140,8 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 this.cbIsAmountExpended.Checked = _Info.NeedImprest;
 
                 this.tbImplementationPhase.Text = _Info.ImplementationPhase;
-                this.tbAmountExpended.Text = _Info.AmountExpended.ToString();
-                this.tbImprestAmount.Text = _Info.ImprestAmount.ToString();
+                this.tbAmountExpended.Text = _Info.AmountExpendedFlag + _Info.AmountExpended.ToString();
+                this.tbImprestAmount.Text = _Info.ImprestAmountFlag + _Info.ImprestAmount.ToString();
                 this.taRemark.Text = _Info.Remark;
 
                 //if (DateTime.Compare(_info.ExpendedTime, DateTime.Parse("1900-1-1 12:00")) != 0)
@@ -223,7 +223,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void cbIsAmountExpended_OnCheckedChanged(object sender, EventArgs e)
-        {              
+        {
             if (cbIsAmountExpended.Checked)
             {
                 //    gpAmount.Hidden = false;
@@ -255,12 +255,12 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
         {
             if (cbIsAmountExpended.Checked)
             {
-                if (string.IsNullOrEmpty(tbImprestAmount.Text.Trim()))
+                if (string.IsNullOrEmpty(tbImprestAmount.Text.Replace(BT, "").Trim()))
                 {
                     Alert.Show("备用金额 必填");
                     return;
                 }
-                if (string.IsNullOrEmpty(tbAmountExpended.Text.Trim()))
+                if (string.IsNullOrEmpty(tbAmountExpended.Text.Replace(BT, "").Trim()))
                 {
                     Alert.Show("预支金额 必填");
                     return;
@@ -333,12 +333,24 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             _Info.Use = this.tbUse.Text.Trim();
             if (!string.IsNullOrEmpty(tbAmountExpended.Text))
             {
-                _Info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Trim());
-                _Info.PrepaidAmount = Decimal.Parse(tbAmountExpended.Text.Trim());
+                _Info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Replace(BT, "").Trim());
+                _Info.PrepaidAmount = Decimal.Parse(tbAmountExpended.Text.Replace(BT, "").Trim());
+                if (tbAmountExpended.Text.Contains(BT))
+                {
+                    _Info.AmountExpendedFlag = BT;
+                }
+                if (tbAmountExpended.Text.Contains(BT))
+                {
+                    _Info.PrepaidAmountFlag = BT;
+                }
             }
             if (!string.IsNullOrEmpty(tbImprestAmount.Text))
             {
-                _Info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Trim());
+                _Info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Replace(BT, "").Trim());
+                if (tbImprestAmount.Text.Contains(BT))
+                {
+                    _Info.ImprestAmountFlag = BT;
+                }
             }
             _Info.ImprestRemark = this.tbImprestRemark.Text.Trim();
 
@@ -367,7 +379,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                 manage.AddHistory(true, _Info.ObjectId, strOpertationType, strDesc, this.CurrentUser.AccountNo, this.CurrentUser.Name, DateTime.Now, _Info.Remark);
 
 
-              //  if (cbIsAmountExpended.Checked)
+                //  if (cbIsAmountExpended.Checked)
                 if (_Info.NeedImprest)
                 {
                     //备用金审核

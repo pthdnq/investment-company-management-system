@@ -35,11 +35,10 @@
                 <Rows>
                     <ext:FormRow ID="FormRow2" runat="server" ColumnWidths="50% 50%">
                         <Items>
-                            <ext:DropDownList   ID="ddlstNext" runat="server"
-                                Hidden="true" Label="下一步">
+                            <ext:DropDownList ID="ddlstNext" runat="server" Hidden="true" Label="下一步">
                             </ext:DropDownList>
-                            <ext:DropDownList   ID="ddlstApproveUser" runat="server"
-                                Hidden="true" RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！" Label="执行人">
+                            <ext:DropDownList ID="ddlstApproveUser" runat="server" Hidden="true" RequiredMessage="您的“执行人”为空，请在我的首页设置我的审批人！"
+                                Label="执行人">
                             </ext:DropDownList>
                         </Items>
                     </ext:FormRow>
@@ -72,8 +71,7 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbAmountExpended" Enabled="false" Label="预支金额" runat="server" Text="0"
-                                                MaxLength="16" MaxLengthMessage="最多只能输入16个数字！" Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox ID="tbAmountExpended" Enabled="false" Label="预支金额" runat="server" Text="0">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
@@ -85,8 +83,7 @@
                                     </ext:FormRow>
                                     <ext:FormRow ColumnWidths="50% 50%">
                                         <Items>
-                                            <ext:TextBox ID="tbImprestAmount" Enabled="false" Label="备用金额" runat="server" MaxLength="16"
-                                                MaxLengthMessage="最多只能输入16个数字！"  Regex="^[0-9]*\.?[0-9]{1,2}$" RegexMessage="只能输入数字!">
+                                            <ext:TextBox ID="tbImprestAmount" Enabled="false" Label="备用金额" runat="server">
                                             </ext:TextBox>
                                         </Items>
                                     </ext:FormRow>
