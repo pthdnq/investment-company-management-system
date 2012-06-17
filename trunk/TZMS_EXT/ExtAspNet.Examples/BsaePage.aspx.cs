@@ -13,6 +13,7 @@ using com.TZMS.Model;
 using com.TZMS.Business;
 using System.Xml;
 using System.Data.SqlClient;
+using Com.iFlytek.DatabaseAccess.DAL;
 
 namespace TZMS.Web
 {
@@ -21,6 +22,180 @@ namespace TZMS.Web
     /// </summary>
     public partial class BasePage : System.Web.UI.Page
     {
+
+        public static class ComSearchManage
+        {
+
+            public static DataTable GetSearchResult(string boName, ref  ComSearchHelp searchHelp)
+            {
+
+                DataTable table = new DataTable();
+                try
+                {
+                    //存储过程名称
+                    string strsql = "Common_Select";
+                    SqlParameter[] sqlparam =
+                {
+					new SqlParameter("@TableName",SqlDbType.NVarChar), 
+                    new SqlParameter("@SelectList",SqlDbType.NVarChar), 
+                    new SqlParameter("@SearchCondition",SqlDbType.NVarChar), 
+                    new SqlParameter("@OrderExpression",SqlDbType.NVarChar), 
+                    new SqlParameter("@PageIndex",SqlDbType.Int), 
+                    new SqlParameter("@PageSize",SqlDbType.Int), 
+                    new SqlParameter("@TotalCount",SqlDbType.Int), 
+                    new SqlParameter("@TotalPages",SqlDbType.Int),
+                };
+
+                    sqlparam[0].Value = searchHelp.TableName;
+                    sqlparam[1].Value = searchHelp.SelectFiled;
+                    sqlparam[2].Value = searchHelp.Condition;
+                    sqlparam[3].Value = searchHelp.Order;
+                    sqlparam[4].Value = searchHelp.PageIndex;
+                    sqlparam[5].Value = searchHelp.PageSize;
+                    //sqlparam[6].Value = searchHelp.TotalCount;
+                    sqlparam[6].Direction = ParameterDirection.Output;
+                    //sqlparam[7].Value = searchHelp.TotalPages;
+                    sqlparam[7].Direction = ParameterDirection.Output;
+                    SqlDBAccess dbaccess = new SqlDBAccess();
+                    //执行存储过程
+                    DataSet ds = (DataSet)dbaccess.ExecuteDataset(boName, CommandType.StoredProcedure, strsql, sqlparam);
+                    searchHelp.TotalCount = int.Parse(sqlparam[6].Value.ToString());
+                    searchHelp.TotalPages = int.Parse(sqlparam[7].Value.ToString());
+                    return ds.Tables[0];
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    DataTable datatable = new DataTable();
+                    using (SqlConnection conn = new SqlConnection("User ID=sa;Initial Catalog=TZMS;Data Source=.;Password=123456;Connection Lifetime=25;"))
+                    {
+                        SqlCommand comm = new SqlCommand();
+                        comm.Connection = conn;
+                        try
+                        {
+                            conn.Open();
+                            comm.CommandType = CommandType.StoredProcedure;
+                            comm.CommandText = "Common_Select";
+                            comm.Parameters.AddRange(sqlparam);
+                            da.SelectCommand = comm;
+                            da.Fill(datatable);
+
+                            searchHelp.TotalCount = int.Parse(sqlparam[6].Value.ToString());
+                            searchHelp.TotalPages = int.Parse(sqlparam[7].Value.ToString());
+                            return datatable;
+                        }
+                        catch (Exception e)
+                        { }
+                    }
+
+
+                    return table;
+                }
+                catch (Exception e)
+                {
+                    return table;
+                }
+
+            }
+        }
+
+        [Serializable]
+        public class ComSearchHelp
+        {
+            /// <summary>
+            /// 默认构造方法
+            /// </summary>
+            public ComSearchHelp()
+            {
+            }
+
+            #region  私有属性
+
+            private string tableName = string.Empty;
+            private string selectFiled = "*";
+            private string condition = string.Empty;
+            private string order = string.Empty;
+            private int pageIndex;
+            private int pageSize;
+            private int totalCount;
+            private int totalPages;
+
+            #endregion
+
+            #region 属性
+
+            /// <summary>
+            /// 表(视图)名
+            /// </summary>
+            public string TableName
+            {
+                get { return tableName; }
+                set { tableName = value; }
+            }
+
+            /// <summary>
+            /// 欲选择字段列表
+            /// </summary>
+            public string SelectFiled
+            {
+                get { return selectFiled; }
+                set { selectFiled = value; }
+            }
+
+            /// <summary>
+            /// 查询条件
+            /// </summary>
+            public string Condition
+            {
+                get { return condition; }
+                set { condition = value; }
+            }
+
+            /// <summary>
+            /// 排序表达式
+            /// </summary>
+            public string Order
+            {
+                get { return order; }
+                set { order = value; }
+            }
+
+            /// <summary>
+            /// 页号,从0开始
+            /// </summary>
+            public int PageIndex
+            {
+                get { return pageIndex; }
+                set { pageIndex = value; }
+            }
+
+            /// <summary>
+            /// 页大小
+            /// </summary>
+            public int PageSize
+            {
+                get { return pageSize; }
+                set { pageSize = value; }
+            }
+
+            /// <summary>
+            /// 记录总数
+            /// </summary>
+            public int TotalCount
+            {
+                get { return totalCount; }
+                set { totalCount = value; }
+            }
+
+            /// <summary>
+            /// 页面总数
+            /// </summary>
+            public int TotalPages
+            {
+                get { return totalPages; }
+                set { totalPages = value; }
+            }
+
+            #endregion
+
+        }
 
         #region 配置信息
 
