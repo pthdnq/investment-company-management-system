@@ -63,6 +63,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\iFlytek.Common.dll</HintPath>
     </Reference>
+    <Reference Include="iFlytek.DbAccess, Version=1.0.1235.30758, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DataAccess\bin\Debug\iFlytek.DbAccess.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=0.0.0.0, Culture=neutral, PublicKeyToken=272b84b57c5e120a">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\log4net.dll</HintPath>
@@ -99,6 +103,7 @@
     <Content Include="CommonControls\UploadFile.aspx" />
     <Content Include="config\install_toolbox.htm" />
     <Content Include="config\modify_webconfig.htm" />
+    <Content Include="Demo.aspx" />
     <Content Include="DLL\Aspose.Cells.dll" />
     <Content Include="DLL\blowery.Web.HttpCompress.dll" />
     <Content Include="DLL\Business.dll" />
@@ -899,6 +904,13 @@
     </Compile>
     <Compile Include="CommonControls\UploadFile.aspx.designer.cs">
       <DependentUpon>UploadFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Demo.aspx.cs">
+      <DependentUpon>Demo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Demo.aspx.designer.cs">
+      <DependentUpon>Demo.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
