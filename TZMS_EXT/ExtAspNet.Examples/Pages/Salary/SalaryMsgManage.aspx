@@ -156,7 +156,7 @@
                             <ext:TemplateField HeaderText="应发工资">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxYFGZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"YFGZ") %>'
-                                        MaxLength="50" Width="85px" Style="ime-mode: disabled" onkeypress="if ((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46) event.returnValue=false;"></asp:TextBox>
+                                        MaxLength="50" Width="85px" Style="ime-mode: disabled"></asp:TextBox>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:TemplateField HeaderText="迟到" Width="60px">
@@ -222,7 +222,8 @@
                             <ext:TemplateField HeaderText="实发工资" Width="60px">
                                 <ItemTemplate>
                                     <asp:TextBox ID="tbxSFGZ" runat="server" Text='<%# DataBinder.Eval(Container.DataItem,"SFGZ") %>'
-                                        MaxLength="50" Width="45px" Style="ime-mode: disabled" onkeypress="if ((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46) event.returnValue=false;"></asp:TextBox>
+                                        MaxLength="50" Width="45px" Style="ime-mode: disabled"></asp:TextBox>
+                                    <%-- onkeypress="if ((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46) event.returnValue=false;"--%>
                                 </ItemTemplate>
                             </ext:TemplateField>
                             <ext:TemplateField HeaderText="备注" Width="200px">
