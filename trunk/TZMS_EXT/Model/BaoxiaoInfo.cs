@@ -52,7 +52,14 @@ namespace com.TZMS.Model
         private DateTime _endTime;
         private string _moneyFlag = DBEmptyString;
         #endregion
+        #region 扩展字段（只读）
+        public string MoneyEx
+        {
+            get { return MoneyFlag + Money.ToString(); }
+        }
+      
 
+        #endregion
         #region Property
 
         public string MoneyFlag

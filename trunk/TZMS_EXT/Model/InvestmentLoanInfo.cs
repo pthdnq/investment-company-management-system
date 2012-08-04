@@ -111,7 +111,21 @@ namespace com.TZMS.Model
             set { _transferAccountFlag = value; }
         }
         #endregion
+        #region 扩展字段（只读）
+        public string LoanAmountEx
+        {
+            get { return LoanAmountFlag + LoanAmount.ToString(); }
+        }
+        public string CashEx
+        {
+            get { return CashFlag + Cash.ToString(); }
+        }
+        public string TransferAccountEx
+        {
+            get { return TransferAccountFlag + TransferAccount.ToString(); }
+        }
 
+        #endregion
         #region Property
         /// <summary>
         /// ObjectID 

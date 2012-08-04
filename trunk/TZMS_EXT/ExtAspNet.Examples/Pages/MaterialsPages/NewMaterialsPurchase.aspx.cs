@@ -256,7 +256,7 @@ namespace TZMS.Web
                     // 更新申请单中的数据.
                     _applyInfo.MaterialsID = new Guid(ddlstMaterialName.SelectedValue);
                     _applyInfo.Count = Convert.ToInt32(tbxCount.Text.Trim());
-                    _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Trim());
+                    _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
                     if (tbxMoney.Text.Contains(BT))
                     {
                         _applyInfo.MoneyFlag = BT;

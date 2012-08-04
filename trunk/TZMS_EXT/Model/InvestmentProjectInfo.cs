@@ -77,6 +77,17 @@ namespace com.TZMS.Model
             set { _downPaymentFlag = value; }
         }
         #endregion
+        #region 扩展字段（只读）
+        public string ContractAmountEx
+        {
+            get { return ContractAmountFlag + ContractAmount.ToString(); }
+        }
+        public string DownPaymentEx
+        {
+            get { return DownPaymentFlag + DownPayment.ToString(); }
+        }
+
+        #endregion
 
         #region Property
         /// <summary>

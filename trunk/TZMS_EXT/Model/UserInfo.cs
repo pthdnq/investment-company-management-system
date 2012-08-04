@@ -70,6 +70,13 @@ namespace com.TZMS.Model
             set { _baseSalaryFlag = value; }
         }
         #endregion
+        #region 扩展字段（只读）
+        public string BaseSalaryEx
+        {
+            get { return BaseSalaryFlag + BaseSalary.ToString(); }
+        }
+
+        #endregion
 
         #region Property
         /// <summary>

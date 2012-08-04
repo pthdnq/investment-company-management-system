@@ -58,7 +58,17 @@ namespace com.TZMS.Model
         private string _remainingAmountFlag = DBEmptyString;
      
 		#endregion 
+        #region À©Õ¹×Ö¶Î£¨Ö»¶Á£©
+        public string AmountEx
+        {
+            get { return AmountFlag + Amount.ToString(); }
+        }
+        public string RemainingAmountEx
+        {
+            get { return RemainingAmountFlag + RemainingAmount.ToString(); }
+        }
 
+        #endregion
 		#region Property
 
         public string AmountFlag

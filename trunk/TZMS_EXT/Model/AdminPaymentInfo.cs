@@ -62,6 +62,14 @@ namespace com.TZMS.Model
         }
 		#endregion 
 
+        #region À©Õ¹×Ö¶Î£¨Ö»¶Á£©
+        public string AmountOfPaymentEx
+        {
+            get { return AmountOfPaymentFlag + AmountOfPayment.ToString(); }
+        }
+
+        #endregion
+
 		#region Property
 		/// <summary>
         /// ObjectID 

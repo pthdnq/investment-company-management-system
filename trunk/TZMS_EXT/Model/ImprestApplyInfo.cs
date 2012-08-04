@@ -54,6 +54,13 @@ namespace com.TZMS.Model
             set { _moneyFlag = value; }
         }
         #endregion
+        #region 扩展字段（只读）
+        public string MoneyEx
+        {
+            get { return MoneyFlag + Money.ToString(); }
+        }
+
+        #endregion
 
         #region Property
         /// <summary>

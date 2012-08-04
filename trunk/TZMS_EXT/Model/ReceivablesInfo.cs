@@ -88,7 +88,20 @@ namespace com.TZMS.Model
         }
 
         #endregion
-
+        #region 扩展字段（只读）
+        public string AmountofpaidUpEx
+        {
+            get { return AmountofpaidUpFlag + AmountofpaidUp.ToString(); }
+        }
+        public string CashEx
+        {
+            get { return CashFlag + Cash.ToString(); }
+        }
+        public string TransferAccountEx
+        {
+            get { return TransferAccountFlag + TransferAccount.ToString(); }
+        }
+        #endregion
         #region Property
         /// <summary>
         /// ObjectID 

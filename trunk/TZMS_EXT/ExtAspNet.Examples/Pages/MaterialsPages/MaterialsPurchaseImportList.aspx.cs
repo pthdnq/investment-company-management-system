@@ -77,7 +77,10 @@ namespace TZMS.Web
             {
                 strCondition.Append(" and MaterialsType = " + ddlstWuZhiType.SelectedValue);
             }
-            strCondition.Append(" and HasImport = " + ddlstAproveState.SelectedValue);
+            if (ddlstAproveState.SelectedValue != "-1")
+            {
+                strCondition.Append(" and HasImport = " + ddlstAproveState.SelectedValue);
+            }
             strCondition.Append(" and (ImportTime between '" + startTime.ToString("yyyy-MM-dd 00:00") + "' and '" + endTime.ToString("yyyy-MM-dd 23:59")
                 + "' or ImportTime = '" + ACommonInfo.DBMAXDate.ToString() + "')");
 

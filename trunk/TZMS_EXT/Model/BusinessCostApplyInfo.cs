@@ -54,6 +54,17 @@ namespace com.TZMS.Model
         private string _actualMoneyFlag = DBEmptyString;
      
         #endregion
+        #region 扩展字段（只读）
+        public string ApplyMoneyEx
+        {
+            get { return ApplyMoneyFlag + ApplyMoney.ToString(); }
+        }
+        public string ActualMoneyEx
+        {
+            get { return ActualMoneyFlag + ActualMoney.ToString(); }
+        }
+
+        #endregion
 
         #region Property
 

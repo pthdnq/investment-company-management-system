@@ -114,7 +114,7 @@ namespace TZMS.Web
                     lblProxyAmountType.Text = _info.TemplateType == 0 ? "代账费" : "年检费";
                     lblUnit.Text = _info.ProxyAmountUnitName;
                     lblCNMoney.Text = _info.CNMoney;
-                    lblENMoney.Text = _info.ENMoney + "元";
+                    lblENMoney.Text = _info.ENMoneyFlag+_info.ENMoney + "元";
                     //lblSument.Text = _info.Sument;
                     lblCollectMethod.Text = _info.CollectMethod;
                     //lblOpeningDate.Text = _info.OpeningDate.ToString("yyyy年-MM月-dd日");

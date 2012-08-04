@@ -74,6 +74,38 @@ namespace com.TZMS.Model
         private string _otherMoneyFlag = DBEmptyString;
 
         #endregion
+        #region 扩展字段（只读）
+        public string RegisteredMoneyEx
+        {
+            get { return RegisteredMoneyFlag + RegisteredMoney.ToString(); }
+        }
+        public string SumMoneyEx
+        {
+            get { return SumMoneyFlag + SumMoney.ToString(); }
+        }
+
+        public string PreMoneyEx
+        {
+            get { return PreMoneyFlag + PreMoney.ToString(); }
+        }
+
+        public string BalanceMoneyEx
+        {
+            get { return BalanceMoneyFlag + BalanceMoney.ToString(); }
+        }
+
+        public string CostMoneyEx
+        {
+            get { return CostMoneyFlag + CostMoney.ToString(); }
+        }
+
+        public string OtherMoneyEx
+        {
+            get { return OtherMoneyFlag + OtherMoney.ToString(); }
+        }
+
+
+        #endregion
 
         #region Property
 
