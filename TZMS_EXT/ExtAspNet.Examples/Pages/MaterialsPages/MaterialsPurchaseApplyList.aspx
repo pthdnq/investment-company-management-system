@@ -67,7 +67,7 @@
                             <ext:BoundField DataField="MaterialsType" HeaderText="物资类型" />
                             <ext:BoundField DataField="MaterialsName" HeaderText="物资名称" />
                             <ext:BoundField DataField="Count" HeaderText="申请数量" />
-                            <ext:BoundField DataField="Money" HeaderText="金额" />
+                            <ext:BoundField DataField="MoneyEx" HeaderText="金额" />
                             <ext:BoundField DataField="NeedsDate" HeaderText="需要日期" />
                             <ext:BoundField DataField="Sument" HeaderText="申请事由" ExpandUnusedSpace="true" DataTooltipField="Sument" />
                             <ext:BoundField DataField="ApplyTime" HeaderText="申请时间" />

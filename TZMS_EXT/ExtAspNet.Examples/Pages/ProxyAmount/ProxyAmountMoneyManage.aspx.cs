@@ -180,8 +180,16 @@ namespace TZMS.Web
                         _manage.UpdateProxyAmount(_info);
 
                         CashFlowManage _cashFlowManage = new CashFlowManage();
-                        _cashFlowManage.Add(_info.ENMoney, DateTime.Now, TZMS.Common.FlowDirection.Receive, TZMS.Common.Biz.ProxyAccounting,
-                            _info.ProxyAmountUnitName + "的代账费收取", string.Empty);
+                        if (_info.ProxyAmountType == 0)
+                        {
+                            _cashFlowManage.Add(_info.ENMoney, DateTime.Now, TZMS.Common.FlowDirection.Receive, TZMS.Common.Biz.ProxyAccounting,
+                                _info.ProxyAmountUnitName + "的代账费收取", string.Empty);
+                        }
+                        if (_info.ProxyAmountType == 1)
+                        {
+                            _cashFlowManage.Add(_info.ENMoney, DateTime.Now, TZMS.Common.FlowDirection.Receive, TZMS.Common.Biz.ProxyAccounting,
+                                _info.ProxyAmountUnitName + "的年检费收取", string.Empty);
+                        }
 
                         BindGrid();
                     }

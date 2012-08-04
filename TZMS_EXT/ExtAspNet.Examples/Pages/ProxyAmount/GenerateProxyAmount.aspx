@@ -82,7 +82,7 @@
                                 DataTooltipField="ProxyAmountUnitName" />
                             <ext:BoundField DataField="ProxyAmounterName" HeaderText="代账人" />
                             <ext:BoundField DataField="CNMoney" Hidden="true" HeaderText="金额(大写)" />
-                            <ext:BoundField DataField="ENMoney" HeaderText="金额(小写)" />
+                            <ext:BoundField DataField="ENMoneyEx" HeaderText="金额(小写)" />
                             <ext:BoundField DataField="Sument" HeaderText="收款事由" DataTooltipField="Sument" />
                             <ext:BoundField DataField="CollectMethod" HeaderText="收款方式" />
                             <ext:BoundField DataField="OpeningDate" HeaderText="开票日期" />

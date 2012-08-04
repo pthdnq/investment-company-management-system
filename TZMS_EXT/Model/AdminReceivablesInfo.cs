@@ -60,6 +60,13 @@ namespace com.TZMS.Model
             set { _amountOfReceivablesFlag = value; }
         }
 		#endregion 
+        #region À©Õ¹×Ö¶Î£¨Ö»¶Á£©
+        public string AmountOfReceivablesEx
+        {
+            get { return AmountOfReceivablesFlag + AmountOfReceivables.ToString(); }
+        }
+
+        #endregion
 
 		#region Property
 		/// <summary>

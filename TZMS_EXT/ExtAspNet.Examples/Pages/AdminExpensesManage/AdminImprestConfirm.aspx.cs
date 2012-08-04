@@ -130,7 +130,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             #endregion
 
             this.taUse.Text = _Info.Use;
-            this.tbPrepaidAmount.Text = _Info.PrepaidAmount.ToString();
+            this.tbPrepaidAmount.Text =_Info.PrepaidAmountFlag+ _Info.PrepaidAmount.ToString();
             this.tbRemark.Text = _Info.Remark;
             this.tbProjectName.Text = _Info.ProjectName;
         }

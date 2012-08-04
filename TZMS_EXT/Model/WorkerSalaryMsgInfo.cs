@@ -110,6 +110,33 @@ namespace com.TZMS.Model
         }
 
         #endregion
+        #region 扩展字段（只读）
+        public string BaseSalaryEx
+        {
+            get { return BaseSalaryFlag + BaseSalary.ToString(); }
+        }
+        public string ExamSalaryEx
+        {
+            get { return ExamSalaryFlag + ExamSalary.ToString(); }
+        }
+        public string BackSalaryEx
+        {
+            get { return BackSalaryFlag + BackSalary.ToString(); }
+        }
+        public string OtherSalaryEx
+        {
+            get { return OtherSalaryFlag + OtherSalary.ToString(); }
+        }
+        public string ShouldSalaryEx
+        {
+            get { return ShouldSalaryFlag + ShouldSalary.ToString(); }
+        }
+        public string SalaryEx
+        {
+            get { return SalaryFlag + Salary.ToString(); }
+        }
+
+        #endregion
 
         #region Property
         /// <summary>

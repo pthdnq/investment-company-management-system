@@ -68,6 +68,23 @@ namespace com.TZMS.Model
 
         #endregion
 
+        #region 扩展字段（只读）
+        public string ImprestAmountEx
+        {
+            get { return ImprestAmountFlag + ImprestAmount.ToString(); }
+        }
+        public string AmountExpendedEx
+        {
+            get { return AmountExpendedFlag + AmountExpended.ToString(); }
+        }
+        public string ImprestAmountBalanceEx
+        {
+            get { return ImprestAmountBalanceFlag + ImprestAmountBalance.ToString(); }
+        }
+
+        #endregion
+
+
         #region Property
 
         public string ImprestAmountFlag

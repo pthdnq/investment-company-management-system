@@ -59,6 +59,15 @@ namespace com.TZMS.Model
         }
         #endregion
 
+        #region À©Õ¹×Ö¶Î£¨Ö»¶Á£©
+        public string PrepaidAmountEx
+        {
+            get { return PrepaidAmountFlag + PrepaidAmount.ToString(); }
+        }
+
+        #endregion
+
+
         #region Property
         /// <summary>
         /// ObjectID 

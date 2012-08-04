@@ -48,6 +48,13 @@ namespace com.TZMS.Model
             set { _eNMoneyFlag = value; }
         }
 		#endregion 
+        #region 扩展字段（只读）
+        public string ENMoneyEx
+        {
+            get { return ENMoneyFlag + ENMoney.ToString(); }
+        }
+
+        #endregion
 
 		#region Property
 		/// <summary>

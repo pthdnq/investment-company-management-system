@@ -437,6 +437,14 @@ namespace TZMS.Web
             if (double.TryParse(tbxMoney.Text.Replace(BT, "").Trim(), out money))
             {
                 lblCNMoney.Text = Format(money);
+                if (lblAmountType.Text == "代账费")
+                {
+                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年MM月份代账费") + tbxMoney.Text.Trim() + "元";
+                }
+                else
+                {
+                    tbxSument.Text = Convert.ToDateTime(dpkOpeningDate.SelectedDate).ToString("yyyy年年检费") + tbxMoney.Text.Trim() + "元";
+                }
             }
         }
 

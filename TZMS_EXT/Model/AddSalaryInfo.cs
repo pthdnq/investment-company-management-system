@@ -47,7 +47,7 @@ namespace com.TZMS.Model
         string _baseSalaryFlag = DBEmptyString;
         string _examSalaryFlag = DBEmptyString;
         string _otherSalaryFlag = DBEmptyString;
-    
+
         #endregion
 
         #region Property
@@ -164,6 +164,23 @@ namespace com.TZMS.Model
         {
             get { return _otherSalaryFlag; }
             set { _otherSalaryFlag = value; }
+        }
+
+        #endregion
+
+        #region 扩展字段（只读）
+
+        public string BaseSalaryEx
+        {
+            get { return BaseSalaryFlag + BaseSalary.ToString(); }
+        }
+        public string ExamSalaryEx
+        {
+            get { return ExamSalaryFlag + ExamSalary.ToString(); }
+        }
+        public string OtherSalaryEx
+        {
+            get { return OtherSalaryFlag + OtherSalary.ToString(); }
         }
 
         #endregion

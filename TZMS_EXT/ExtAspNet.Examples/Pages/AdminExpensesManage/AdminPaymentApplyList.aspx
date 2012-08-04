@@ -70,7 +70,7 @@
                             <ext:BoundField Width="80px" DataField="DateFor" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="时间" />
                             <ext:BoundField Width="120px" DataField="Cause" HeaderText="付款事由" />
-                            <ext:BoundField Width="70px" DataField="AmountOfPayment" DataTooltipField="AmountOfPayment"
+                            <ext:BoundField Width="70px" DataField="AmountOfPaymentEx" DataTooltipField="AmountOfPayment"
                                 HeaderText="金额" />
                             <%--    <ext:BoundField Width="65px" DataField="Company" HeaderText="付款方式" />--%>
                             <ext:TemplateField Width="66px" HeaderText="付款方式">

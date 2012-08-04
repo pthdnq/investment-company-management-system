@@ -67,10 +67,10 @@
                             <ext:BoundField ExpandUnusedSpace="true" DataTooltipField="ProjectName" DataField="ProjectName"
                                 HeaderText="项目名称" />
                             <ext:BoundField Width="85px" DataField="Company" HeaderText="单位" />
-                            <ext:BoundField Width="80px" DataField="DateFor" DataFormatString="{0:yyyy/MM/dd}"
+                            <ext:BoundField Width="80px" DataField="DateFor" DataFormatString="{0:yyyy-MM-dd}"
                                 HeaderText="时间" />
                             <ext:BoundField Width="120px" DataField="Cause" HeaderText="收款事由" />
-                            <ext:BoundField Width="70px" DataField="AmountOfReceivables" DataTooltipField="AmountOfReceivables"
+                            <ext:BoundField Width="70px" DataField="AmountOfReceivablesEx" DataTooltipField="AmountOfReceivablesEx"
                                 HeaderText="金额" />
                             <ext:BoundField DataField="NextOperaterName" Width="73px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="66px" HeaderText="状态">

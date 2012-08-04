@@ -50,6 +50,13 @@ namespace com.TZMS.Model
             set { _sumMoneyFlag = value; }
         }
         #endregion
+        #region 扩展字段（只读）
+        public string SumMoneyEx
+        {
+            get { return SumMoneyFlag + SumMoney.ToString(); }
+        }
+
+        #endregion
 
         #region Property
         /// <summary>

@@ -56,7 +56,13 @@ namespace com.TZMS.Model
         private string _amountOfPaymentFlag = DBEmptyString;
 
         #endregion
+        #region 扩展字段（只读）
+        public string AmountOfPaymentEx
+        {
+            get { return AmountOfPaymentFlag + AmountOfPayment.ToString(); }
+        }
 
+        #endregion
         #region Property
 
         public string AmountOfPaymentFlag

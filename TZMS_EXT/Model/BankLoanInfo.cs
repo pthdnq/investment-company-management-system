@@ -347,6 +347,25 @@ namespace com.TZMS.Model
         }
          
         #endregion 
+
+        #region 扩展字段（只读）
+
+        public string LoanAmountEx
+        {
+            get { return LoanAmountFlag + LoanAmount.ToString(); }
+        }
+        public string LoanFeeEx
+        {
+            get { return LoanFeeFlag + LoanFee.ToString(); }
+        }
+        public string DownPaymentEx
+        {
+            get { return DownPaymentFlag + DownPayment.ToString(); }
+        }
+
+        #endregion
+
+
     }
 }
 

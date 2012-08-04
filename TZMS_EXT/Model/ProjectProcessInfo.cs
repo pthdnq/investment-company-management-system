@@ -83,6 +83,21 @@ namespace com.TZMS.Model
             set { _prepaidAmountFlag = value; }
         }
         #endregion
+        #region 扩展字段（只读）
+        public string AmountExpendedEx
+        {
+            get { return AmountExpendedFlag + AmountExpended.ToString(); }
+        }
+        public string ImprestAmountEx
+        {
+            get { return ImprestAmountFlag + ImprestAmount.ToString(); }
+        }
+        public string PrepaidAmountEx
+        {
+            get { return PrepaidAmountFlag + PrepaidAmount.ToString(); }
+        }
+
+        #endregion
 
         #region Property
         /// <summary>
