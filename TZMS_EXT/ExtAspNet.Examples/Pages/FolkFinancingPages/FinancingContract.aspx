@@ -64,7 +64,7 @@
                                 HeaderText="付款帐号" />
                             <ext:BoundField  ExpandUnusedSpace="true" DataTooltipField="PaymentAccount" DataField="ReceivablesAccount"
                                 HeaderText="收款帐号" />
-                            <ext:BoundField Width="90px" DataField="AmountOfPayment" HeaderText="支付金额" />
+                            <ext:BoundField Width="90px" DataField="AmountOfPaymentEx" HeaderText="支付金额" />
                             <ext:BoundField Width="68px" DataField="DateForPay" DataFormatString="{0:yyyy/MM/dd }"
                                 HeaderText="实付账款日" />
                             <ext:BoundField Width="68px" DataField="DueDateForPay" DataFormatString="{0:yyyy/MM/dd }"

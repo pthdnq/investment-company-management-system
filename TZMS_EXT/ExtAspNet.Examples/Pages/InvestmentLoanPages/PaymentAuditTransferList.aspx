@@ -68,12 +68,12 @@
                             <ext:BoundField Width="100px" DataField="BorrowerNameA" HeaderText="借款人（甲方）" />
                             <ext:BoundField Width="100px" DataField="PayerBName" HeaderText="付款人（乙方）" />
                             <ext:BoundField Width="80px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
-                            <ext:BoundField Width="80px" DataField="LoanAmount" HeaderText="借款金额" />
-                            <ext:BoundField Width="115px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
+                            <ext:BoundField Width="80px" DataField="LoanAmountEx" HeaderText="借款金额" />
+                            <ext:BoundField Width="115px" DataField="LoanDate" DataFormatString="{0:yyyy-MM-dd}"
                                 HeaderText="借款日期" />
                             <ext:BoundField DataField="DueDateForPay" Width="85px" HeaderText="应付借款日" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
-                            <ext:BoundField Width="100px" DataField="SubmitTime" DataFormatString="{0:yyyy/MM/dd HH:mm}"
+                            <ext:BoundField Width="100px" DataField="SubmitTime" DataFormatString="{0:yyyy-MM-dd HH:mm}"
                                 HeaderText="提交时间" />
                             <ext:TemplateField Width="60px" HeaderText="状态">
                                 <ItemTemplate>

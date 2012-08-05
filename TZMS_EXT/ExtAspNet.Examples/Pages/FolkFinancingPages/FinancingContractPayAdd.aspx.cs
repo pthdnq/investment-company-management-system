@@ -231,6 +231,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             if (!string.IsNullOrEmpty(this.tbAmountOfPayment.Text))
             {
                 _Info.AmountOfPayment = decimal.Parse(this.tbAmountOfPayment.Text.Replace(BT, "").Trim());
+                _Info.AmountOfPaymentFlag = "";
                 if (tbAmountOfPayment.Text.Contains(BT))
                 {
                     _Info.AmountOfPaymentFlag = BT;

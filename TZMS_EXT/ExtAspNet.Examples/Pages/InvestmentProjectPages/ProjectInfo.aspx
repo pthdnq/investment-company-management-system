@@ -59,9 +59,9 @@
                         <Columns>
                             <ext:BoundField DataField="ObjectId" HeaderText="ID" Hidden="true" />
                             <ext:BoundField Width="100px" DataField="ImplementationPhase" HeaderText="项目实施阶段" />
-                            <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
+                            <ext:BoundField Width="80px" DataField="AmountExpendedEx" HeaderText="支用金额" />
                             <ext:BoundField Width="85px" DataField="ExpendedTime" HeaderText="支用时间" />
-                            <ext:BoundField Width="90px" DataField="ImprestAmount" HeaderText="备用金额" />
+                            <ext:BoundField Width="90px" DataField="ImprestAmountEx" HeaderText="备用金额" />
                             <ext:BoundField DataField="NextOperaterName" Width="73px" HeaderText="当前执行人" />
                             <ext:BoundField ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="58px" HeaderText="状态">

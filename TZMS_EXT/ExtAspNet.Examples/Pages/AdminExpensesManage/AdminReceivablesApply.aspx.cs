@@ -249,6 +249,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
             _Info.Cause = this.taCause.Text.Trim();
             _Info.AmountOfReceivables = decimal.Parse(this.tbAmountOfReceivables.Text.Replace(BT,"").Trim());
+            _Info.AmountOfReceivablesFlag = "";
             if (tbAmountOfReceivables.Text.Contains(BT))
             {
                 _Info.AmountOfReceivablesFlag = BT;

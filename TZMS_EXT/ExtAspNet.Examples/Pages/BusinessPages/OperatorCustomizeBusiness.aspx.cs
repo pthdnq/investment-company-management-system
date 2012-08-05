@@ -263,6 +263,7 @@ namespace TZMS.Web
                         if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
                         {
                             _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
+                            _recordInfo.CostMoneyFlag = "";
                             if (tbxCBJE.Text.Contains(BT))
                             {
                                 _recordInfo.CostMoneyFlag = BT;
@@ -271,6 +272,7 @@ namespace TZMS.Web
                         if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
                         {
                             _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
+                            _recordInfo.OtherMoneyFlag = "";
                             if (tbxQTFY.Text.Contains(BT))
                             {
                                 _recordInfo.OtherMoneyFlag = BT;
@@ -316,6 +318,7 @@ namespace TZMS.Web
                     if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
                     {
                         _info.CostMoney += Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
+                        _info.CostMoneyFlag = "";
                         if (tbxCBJE.Text.Contains(BT))
                         {
                             _info.CostMoneyFlag = BT;
@@ -324,7 +327,7 @@ namespace TZMS.Web
                     if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
                     {
                         _info.OtherMoney += Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
-
+                        _info.OtherMoneyFlag = "";
                         if (tbxQTFY.Text.Contains(BT))
                         {
                             _info.OtherMoneyFlag = BT;
@@ -342,6 +345,7 @@ namespace TZMS.Web
                         if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
                         {
                             _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
+                            _info.CostMoneyFlag = "";
                             if (tbxCBJE.Text.Contains(BT))
                             {
                                 _info.CostMoneyFlag = BT;
@@ -350,6 +354,7 @@ namespace TZMS.Web
                         if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
                         {
                             _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
+                            _info.OtherMoneyFlag = "";
                             if (tbxQTFY.Text.Contains(BT))
                             {
                                 _info.OtherMoneyFlag = BT;
@@ -472,6 +477,7 @@ namespace TZMS.Web
                     if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
                     {
                         _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
+                        _recordInfo.CostMoneyFlag = "";
                         if (tbxCBJE.Text.Contains(BT))
                         {
                             _recordInfo.CostMoneyFlag = BT;
@@ -480,6 +486,7 @@ namespace TZMS.Web
                     if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
                     {
                         _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
+                        _recordInfo.OtherMoneyFlag = "";
                         if (tbxQTFY.Text.Contains(BT))
                         {
                             _recordInfo.OtherMoneyFlag = BT;

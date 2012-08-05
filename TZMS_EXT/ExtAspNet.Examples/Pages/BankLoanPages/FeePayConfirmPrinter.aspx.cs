@@ -67,7 +67,7 @@ namespace TZMS.Web.Pages.BankLoanPages
 
                   Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames(_info.AmountExpended, string.Empty);
                 lbLoanAmountUper.Text = uper;
-                this.tbAmountExpended.Text = _info.AmountExpended.ToString();
+                this.tbAmountExpended.Text = _info.AmountExpendedFlag+_info.AmountExpended.ToString();
               //  this.tbImprestAmount.Text = _info.ImprestAmount.ToString();
 
                 lbApplier.Text = _info.CreaterName;

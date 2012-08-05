@@ -50,7 +50,7 @@
                             <ext:BoundField DataField="CompanyName" HeaderText="公司名称" DataTooltipField="CompanyName"
                                 ExpandUnusedSpace="true" />
                             <ext:BoundField DataField="CostType" HeaderText="费用类型" />
-                            <ext:BoundField DataField="ActualMoney" HeaderText="实际金额" />
+                            <ext:BoundField DataField="ActualMoneyEx" HeaderText="实际金额" />
                             <ext:BoundField HeaderText="执行人" Hidden="true" />
                             <ext:BoundField HeaderText="审批结果" Hidden="true" />
                             <ext:BoundField DataField="ApproveState" HeaderText="确认状态" />

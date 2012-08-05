@@ -129,7 +129,12 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
             }
             if (!string.IsNullOrEmpty(tbAmountofpaidUp.Text))
             {
-                _Info.AmountofpaidUp = Decimal.Parse(tbAmountofpaidUp.Text.Trim());
+                _Info.AmountofpaidUp = Decimal.Parse(tbAmountofpaidUp.Text.Replace(BT, "").Trim());
+                _Info.AmountofpaidUpFlag = "";
+                if (tbAmountofpaidUp.Text.Contains(BT))
+                {
+                    _Info.AmountofpaidUpFlag = BT;
+                }
             }
             _Info.ReceivablesAccount = tbReceivablesAccount.Text.Trim();
 

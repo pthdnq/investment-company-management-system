@@ -66,7 +66,7 @@
                             <ext:BoundField DataField="CompanyName" HeaderText="公司名称" ExpandUnusedSpace="true"
                                 DataTooltipField="CompanyName" />
                             <ext:BoundField DataField="CostType" HeaderText="费用类型" />
-                            <ext:BoundField DataField="ApplyMoney" HeaderText="金额" />
+                            <ext:BoundField DataField="ApplyMoneyEx" HeaderText="金额" />
                             <ext:BoundField DataField="ActualMoney" HeaderText="实际金额" />
                             <ext:BoundField DataField="PayDate" HeaderText="付账日期" />
                             <ext:BoundField DataField="ApproverID" HeaderText="当前执行人" />

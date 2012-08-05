@@ -105,6 +105,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             if (!string.IsNullOrEmpty(this.tbBorrowingCost.Text.Replace(BT, "").Trim()))
             {
                 _Info.BorrowingCost = decimal.Parse(this.tbBorrowingCost.Text.Replace(BT, "").Trim());
+                _Info.BorrowingCostFlag = "";
                 if (tbBorrowingCost.Text.Contains(BT))
                 {
                     _Info.BorrowingCostFlag = BT;
@@ -118,13 +119,14 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             if (!string.IsNullOrEmpty(this.tbLoanAmount.Text.Replace(BT, "").Trim()))
             {
                 _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Replace(BT, "").Trim());
+                _Info.LoanAmountFlag = "";
                 if (tbLoanAmount.Text.Contains(BT))
                 {
                     _Info.LoanAmountFlag = BT;
                 }
             }
             _Info.Cash = decimal.Parse(this.tbCash.Text.Replace(BT, "").Trim());
-
+            _Info.CashFlag = "";
             if (tbCash.Text.Contains(BT))
             {
                 _Info.CashFlag = BT;

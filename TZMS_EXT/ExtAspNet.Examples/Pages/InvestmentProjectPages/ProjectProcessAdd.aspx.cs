@@ -335,10 +335,12 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             {
                 _Info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Replace(BT, "").Trim());
                 _Info.PrepaidAmount = Decimal.Parse(tbAmountExpended.Text.Replace(BT, "").Trim());
+                _Info.AmountExpendedFlag = "";
                 if (tbAmountExpended.Text.Contains(BT))
                 {
                     _Info.AmountExpendedFlag = BT;
                 }
+                _Info.PrepaidAmountFlag = "";
                 if (tbAmountExpended.Text.Contains(BT))
                 {
                     _Info.PrepaidAmountFlag = BT;
@@ -347,6 +349,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             if (!string.IsNullOrEmpty(tbImprestAmount.Text))
             {
                 _Info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Replace(BT, "").Trim());
+                _Info.ImprestAmountFlag = "";
                 if (tbImprestAmount.Text.Contains(BT))
                 {
                     _Info.ImprestAmountFlag = BT;

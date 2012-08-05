@@ -545,7 +545,7 @@ namespace TZMS.Web
                 textbox.AutoPostBack = true;
                 textbox.TextChanged += new EventHandler(textbox_TextChanged);
                 textbox.Label = "金额";
-                textbox.Regex = "^[0-9]*\\.?[0-9]{1,2}$";
+                textbox.Regex = @"^\-?[0-9]*\.?[0-9]{1,2}$";
                 textbox.RegexMessage = "金额格式不正确!";
                 row.Items.Add(textbox);
 
@@ -596,7 +596,7 @@ namespace TZMS.Web
                         ExtAspNet.TextBox textbox = new ExtAspNet.TextBox();
                         textbox.ID = "tbxCustomize" + cell;
                         textbox.Label = "金额(元)";
-                        textbox.Regex = "^[0-9]*\\.?[0-9]{1,2}$";
+                        textbox.Regex =@"^\-?[0-9]*\.?[0-9]{1,2}$" ;
                         textbox.RegexMessage = "金额格式不正确!";
                         textbox.AutoPostBack = true;
                         textbox.TextChanged += new EventHandler(textbox_TextChanged);
@@ -634,8 +634,10 @@ namespace TZMS.Web
                         ExtAspNet.TextBox subTextBox = formRow.FindControl(formRow.ID.Replace("generate", "tbx")) as ExtAspNet.TextBox;
                         if (subCheckBox.Checked)
                         {
-                            string money = string.IsNullOrEmpty(subTextBox.Text.Trim()) ? "0" : subTextBox.Text.Trim();
-                            stringBuilder.AppendLine(subCheckBox.Text + "    " + money + "元");
+                            string money = string.IsNullOrEmpty(subTextBox.Text.Replace(BT, "").Trim()) ? "0" : subTextBox.Text.Replace(BT, "").Trim();
+                            string money0 = string.IsNullOrEmpty(subTextBox.Text.Replace(BT, "").Trim()) ? "0" : subTextBox.Text.Trim();
+                         
+                            stringBuilder.AppendLine(subCheckBox.Text + "    " + money0 + "元");
                             sumMoney += Convert.ToDecimal(money);
                         }
                     }
@@ -666,8 +668,9 @@ namespace TZMS.Web
                         ExtAspNet.TextBox subTextBox = formRow.FindControl(formRow.ID.Replace("generate", "tbx")) as ExtAspNet.TextBox;
                         if (subCheckBox.Checked)
                         {
-                            string money = string.IsNullOrEmpty(subTextBox.Text.Trim()) ? "0" : subTextBox.Text.Trim();
-                            stringBuilder.AppendLine(subCheckBox.Text + "    " + money + "元");
+                            string money = string.IsNullOrEmpty(subTextBox.Text.Replace(BT, "").Trim()) ? "0" : subTextBox.Text.Replace(BT, "").Trim();
+                            string money0 = string.IsNullOrEmpty(subTextBox.Text.Replace(BT, "").Trim()) ? "0" : subTextBox.Text.Trim();
+                            stringBuilder.AppendLine(subCheckBox.Text + "    " + money0 + "元");
                             sumMoney += Convert.ToDecimal(money);
                         }
                     }

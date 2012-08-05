@@ -72,7 +72,6 @@ namespace com.TZMS.DataAccess
 				new SqlParameter("@Status",DbType.Byte),
                 new SqlParameter("@Cash",DbType.Decimal),
                 new SqlParameter("@TransferAccount",DbType.Decimal),
-
                 new SqlParameter("@AmountofpaidUpFlag",DbType.String),
                 new SqlParameter("@CashFlag",DbType.String),
                 new SqlParameter("@TransferAccountFlag",DbType.String),

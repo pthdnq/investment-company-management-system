@@ -66,10 +66,10 @@
                             <ext:BoundField Width="120px" DataField="ProjectName" HeaderText="项目名称" />
                             <%--     <ext:BoundField Width="110px" DataField="GuaranteeCompany" HeaderText="贷款公司" />--%>
                             <ext:BoundField Width="140px" DataField="ImplementationPhase" HeaderText="项目实施阶段" />
-                            <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
+                            <ext:BoundField Width="80px" DataField="AmountExpendedEx" HeaderText="支用金额" />
                             <ext:BoundField Width="80px" DataField="ExpendedTime" HeaderText="支用时间" />
                             <ext:BoundField Width="110px" DataField="Use" HeaderText="用途" />
-                            <ext:BoundField Width="130px" DataField="ImprestAmount" HeaderText="备用金余额" />
+                            <ext:BoundField Width="130px" DataField="ImprestAmountEx" HeaderText="备用金余额" />
                             <ext:TemplateField Width="70px" HeaderText="状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>

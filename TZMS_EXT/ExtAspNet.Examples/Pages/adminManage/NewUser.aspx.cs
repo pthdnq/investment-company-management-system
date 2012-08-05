@@ -244,6 +244,7 @@ namespace TZMS.Web
             }
             // 基本工资.
             _userInfo.BaseSalary = Convert.ToDecimal(tbxBaseSalary.Text.Replace(BT,"").Trim());
+            _userInfo.BaseSalaryFlag = "";
             if (tbxBaseSalary.Text.Contains(BT))
             {
                 _userInfo.BaseSalaryFlag = BT;

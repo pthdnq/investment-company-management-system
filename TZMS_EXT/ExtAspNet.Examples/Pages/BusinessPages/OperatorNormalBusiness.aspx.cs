@@ -105,7 +105,7 @@ namespace TZMS.Web
 
             //if (!CurrentChecker.Contains(CurrentUser))
             //{
-                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
+            ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
             //}
 
             //foreach (UserInfo user in CurrentChecker)
@@ -125,7 +125,7 @@ namespace TZMS.Web
 
             //if (!CurrentChecker.Contains(CurrentUser))
             //{
-                ddlstSigner.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
+            ddlstSigner.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
             //}
 
             //foreach (UserInfo user in CurrentChecker)
@@ -157,8 +157,8 @@ namespace TZMS.Web
                 ddlstCZType.SelectedValue = _info.CZType.ToString();
                 ddlstCompanyType.SelectedValue = _info.CompanyType.ToString();
                 ddlstCompanyNameType.SelectedValue = _info.CompanyNameType.ToString();
-                tbxSumMoney.Text = _info.SumMoney.ToString();
-                tbxPreMoney.Text = _info.PreMoney.ToString();
+                tbxSumMoney.Text = _info.SumMoneyFlag + _info.SumMoney.ToString();
+                tbxPreMoney.Text = _info.PreMoneyFlag + _info.PreMoney.ToString();
                 tbxBalanceMoney.Text = _info.BalanceMoney.ToString();
                 tbxContact.Text = _info.Contact;
                 tbxContactPhoneNumber.Text = _info.ContactPhoneNumber;
@@ -311,10 +311,21 @@ namespace TZMS.Web
                     {
                         _recordInfo.State = 1;
                         if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
-                            _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Trim());
+                            _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
                         if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
-                            _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Trim());
+                            _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
                         _recordInfo.Explain = taaQTFYSM.Text.Trim();
+                        _recordInfo.CostMoneyFlag = "";
+                        if (tbxCBJE.Text.Contains(BT))
+                        {
+                            _recordInfo.CostMoneyFlag = BT;
+                        }
+                        _recordInfo.OtherMoneyFlag = "";
+                        if (tbxQTFY.Text.Contains(BT))
+                        {
+                            _recordInfo.OtherMoneyFlag = BT;
+                        }
+
                         _recordInfo.CheckDateTime = DateTime.Now;
 
                         _manage.UpdateBusinessRecord(_recordInfo);
@@ -352,9 +363,9 @@ namespace TZMS.Web
 
                 {
                     if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
-                        _info.CostMoney += Convert.ToDecimal(tbxCBJE.Text.Trim());
+                        _info.CostMoney += Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
                     if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
-                        _info.OtherMoney += Convert.ToDecimal(tbxQTFY.Text.Trim());
+                        _info.OtherMoney += Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
                     if (!string.IsNullOrEmpty(taaQTFYSM.Text.Trim()))
                         _info.OtherMoneyExplain += "\r\n" + taaQTFYSM.Text.Trim();
                     _info.CurrentUserID = new Guid(ddlstApproveUser.SelectedValue);
@@ -365,10 +376,20 @@ namespace TZMS.Web
                     {
                         _recordInfo.State = 1;
                         if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
-                            _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Trim());
+                            _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
                         if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
-                            _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Trim());
+                            _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
                         _recordInfo.Explain = taaQTFYSM.Text.Trim();
+                        _recordInfo.CostMoneyFlag = "";
+                        if (tbxCBJE.Text.Contains(BT))
+                        {
+                            _recordInfo.CostMoneyFlag = BT;
+                        }
+                        _recordInfo.OtherMoneyFlag = "";
+                        if (tbxQTFY.Text.Contains(BT))
+                        {
+                            _recordInfo.OtherMoneyFlag = BT;
+                        }
                         _recordInfo.CheckDateTime = DateTime.Now;
 
                         _manage.UpdateBusinessRecord(_recordInfo);
@@ -496,10 +517,20 @@ namespace TZMS.Web
                 {
                     _recordInfo.State = 1;
                     if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
-                        _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Trim());
+                        _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
                     if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
-                        _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Trim());
+                        _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
                     _recordInfo.Explain = taaQTFYSM.Text.Trim();
+                    _recordInfo.CostMoneyFlag = "";
+                    if (tbxCBJE.Text.Contains(BT))
+                    {
+                        _recordInfo.CostMoneyFlag = BT;
+                    }
+                    _recordInfo.OtherMoneyFlag = "";
+                    if (tbxQTFY.Text.Contains(BT))
+                    {
+                        _recordInfo.OtherMoneyFlag = BT;
+                    }
                     _recordInfo.CheckDateTime = DateTime.Now;
 
                     _manage.UpdateBusinessRecord(_recordInfo);

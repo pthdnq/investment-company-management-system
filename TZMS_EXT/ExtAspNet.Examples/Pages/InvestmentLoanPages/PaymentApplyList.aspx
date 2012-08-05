@@ -73,9 +73,9 @@
                             <ext:BoundField Width="85px" DataField="BorrowerNameA" HeaderText="借款人(甲方)" />
                             <ext:BoundField Width="85px" DataField="PayerBName" HeaderText="付款人(乙方)" />
                             <ext:BoundField Width="90px" DataField="BorrowerPhone" HeaderText="借款联系电话" />
-                            <ext:BoundField Width="60px" DataTooltipField="LoanAmount" DataField="LoanAmount"
+                            <ext:BoundField Width="60px" DataTooltipField="LoanAmountEx" DataField="LoanAmountEx"
                                 HeaderText="借款金额" />
-                            <ext:BoundField Width="70px" DataField="LoanDate" DataFormatString="{0:yyyy/MM/dd}"
+                            <ext:BoundField Width="70px" DataField="LoanDate" DataFormatString="{0:yyyy-MM-dd}"
                                 HeaderText="借款日期" />
                             <ext:BoundField DataField="DueDateForPay" DataFormatString="每月{0}日" Width="70px"
                                 HeaderText="应付借款日" />

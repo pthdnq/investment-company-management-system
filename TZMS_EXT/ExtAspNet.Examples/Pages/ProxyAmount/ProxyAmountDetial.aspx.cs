@@ -106,6 +106,7 @@ namespace TZMS.Web
                 // 更新申请单中的数据.
                 _applyInfo.CNMoney = lblCNMoney.Text;
                 _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                _applyInfo.ENMoneyFlag = "";
                 if (tbxMoney.Text.Contains(BT))
                 {
                     _applyInfo.ENMoneyFlag = BT;

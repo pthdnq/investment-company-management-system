@@ -130,6 +130,8 @@ namespace TZMS.Web
                 {
                     foreach (string strRole in selectedRolesStringArray)
                     {
+                        if (string.IsNullOrEmpty(strRole))
+                            continue;
                         // 判断枚举与字符串是否相等.
                         if ((RoleType)Enum.Parse(typeof(RoleType), strRole, true) == item)
                         {

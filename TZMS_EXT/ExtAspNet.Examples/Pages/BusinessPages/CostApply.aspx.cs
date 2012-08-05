@@ -187,7 +187,7 @@ namespace TZMS.Web
                 ddlstCompanyname.SelectedValue = _applyInfo.BusinessID.ToString();
                 ddlstCostType.SelectedValue = _applyInfo.CostType.ToString();
                 ddlstPayType.SelectedValue = _applyInfo.PayType.ToString();
-                lblApplyMoney.Text = _applyInfo.ApplyMoney.ToString();
+                lblApplyMoney.Text = _applyInfo.ApplyMoneyFlag + _applyInfo.ApplyMoney.ToString();
                 dpkPayDate.SelectedDate = _applyInfo.PayDate;
                 taaOther.Text = _applyInfo.Other;
 
@@ -284,7 +284,12 @@ namespace TZMS.Web
                 _applyInfo.BusinessID = new Guid(ddlstCompanyname.SelectedValue);
                 _applyInfo.CompanyName = ddlstCompanyname.SelectedText;
                 _applyInfo.CostType = Convert.ToInt16(ddlstCostType.SelectedValue);
-                _applyInfo.ApplyMoney = Convert.ToDecimal(lblApplyMoney.Text.Trim());
+                _applyInfo.ApplyMoney = Convert.ToDecimal(lblApplyMoney.Text.Replace(BT, "").Trim());
+                _applyInfo.ApplyMoneyFlag = "";
+                if (lblApplyMoney.Text.Contains(BT))
+                {
+                    _applyInfo.ApplyMoneyFlag = BT;
+                }
                 _applyInfo.PayType = Convert.ToInt16(ddlstPayType.SelectedValue);
                 _applyInfo.PayDate = Convert.ToDateTime(dpkPayDate.SelectedDate);
                 _applyInfo.Other = taaOther.Text.Trim();
@@ -331,7 +336,12 @@ namespace TZMS.Web
                     _applyInfo.BusinessID = new Guid(ddlstCompanyname.SelectedValue);
                     _applyInfo.CompanyName = ddlstCompanyname.SelectedText;
                     _applyInfo.CostType = Convert.ToInt16(ddlstCostType.SelectedValue);
-                    _applyInfo.ApplyMoney = Convert.ToDecimal(lblApplyMoney.Text.Trim());
+                    _applyInfo.ApplyMoney = Convert.ToDecimal(lblApplyMoney.Text.Replace(BT, "").Trim());
+                    _applyInfo.ApplyMoneyFlag = "";
+                    if (lblApplyMoney.Text.Contains(BT))
+                    {
+                        _applyInfo.ApplyMoneyFlag = BT;
+                    }
                     _applyInfo.PayType = Convert.ToInt16(ddlstPayType.SelectedValue);
                     _applyInfo.PayDate = Convert.ToDateTime(dpkPayDate.SelectedDate);
                     _applyInfo.Other = taaOther.Text.Trim();
@@ -409,11 +419,11 @@ namespace TZMS.Web
             {
                 if (ddlstCostType.SelectedIndex == 0)
                 {
-                    lblApplyMoney.Text = _info.PreMoney.ToString();
+                    lblApplyMoney.Text = _info.PreMoneyFlag + _info.PreMoney.ToString();
                 }
                 else
                 {
-                    lblApplyMoney.Text = _info.BalanceMoney.ToString();
+                    lblApplyMoney.Text = _info.BalanceMoneyFlag + _info.BalanceMoney.ToString();
                 }
             }
         }
@@ -431,11 +441,11 @@ namespace TZMS.Web
             {
                 if (ddlstCostType.SelectedIndex == 0)
                 {
-                    lblApplyMoney.Text = _info.PreMoney.ToString();
+                    lblApplyMoney.Text = _info.PreMoneyFlag + _info.PreMoney.ToString();
                 }
                 else
                 {
-                    lblApplyMoney.Text = _info.BalanceMoney.ToString();
+                    lblApplyMoney.Text = _info.BalanceMoneyFlag + _info.BalanceMoney.ToString();
                 }
             }
         }
