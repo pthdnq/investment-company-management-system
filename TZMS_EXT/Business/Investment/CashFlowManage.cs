@@ -58,6 +58,8 @@ namespace com.TZMS.Business
         /// <returns>返回执行结果</returns>
         public int Add(CashFlowStatementInfo info, string boName = BoName)
         {
+            //Receive ++
+            // --
             return ctrl.Insert(boName, info);
         }
 
