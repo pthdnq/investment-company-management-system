@@ -67,12 +67,12 @@
                             <ext:BoundField ExpandUnusedSpace="true" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="65px" DataField="CustomerName" HeaderText="客户名称" />
                             <ext:BoundField Width="100px" DataField="LoanCompany" HeaderText="贷款公司" />
-                            <ext:BoundField Width="90px" DataField="LoanAmount" HeaderText="贷款金额" />
-                            <ext:BoundField Width="90px" DataField="LoanFee" HeaderText="贷款手续费" />
+                            <ext:BoundField Width="90px" DataField="LoanAmountEx" HeaderText="贷款金额" />
+                            <ext:BoundField Width="90px" DataField="LoanFeeEx" HeaderText="贷款手续费" />
                             <ext:BoundField Width="105px" DataField="CollateralCompany" HeaderText="抵押物公司" />
                             <ext:BoundField Width="75px" DataField="SignDate" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="签订日期" />
-                            <ext:BoundField Width="110px" DataField="DownPayment" HeaderText="预付定金" />
+                            <ext:BoundField Width="110px" DataField="DownPaymentEx" HeaderText="预付定金" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="55px" HeaderText="状态">
                                 <ItemTemplate>

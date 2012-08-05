@@ -67,10 +67,10 @@
                             <ext:BoundField Width="130px" DataField="ProjectName" HeaderText="项目名称" />
                             <ext:BoundField Width="140px" DataField="ImplementationPhase" HeaderText="实施阶段" />
                             <ext:BoundField Width="120px" DataField="GuaranteeCompany" HeaderText="贷款公司" />
-                            <ext:BoundField Width="80px" DataField="AmountExpended" HeaderText="支用金额" />
-                            <ext:BoundField Width="80px" DataField="ExpendedTime" DataFormatString="{0:yyyy/MM/dd}"
+                            <ext:BoundField Width="80px" DataField="AmountExpendedEx" HeaderText="支用金额" />
+                            <ext:BoundField Width="80px" DataField="ExpendedTime" DataFormatString="{0:yyyy-MM-dd}"
                                 HeaderText="支用时间" />
-                            <ext:BoundField Width="80px" DataField="ImprestAmount" HeaderText="备用金余额" />
+                            <ext:BoundField Width="80px" DataField="ImprestAmountEx" HeaderText="备用金余额" />
                             <ext:BoundField DataField="NextOperaterName" Width="75px" HeaderText="当前执行人" />
                             <ext:TemplateField Width="72px" HeaderText="状态">
                                 <ItemTemplate>

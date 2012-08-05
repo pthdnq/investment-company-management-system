@@ -203,6 +203,8 @@ namespace TZMS.Web
                 _applyInfo.MaterialsID = new Guid(ddlstMaterialName.SelectedValue);
                 _applyInfo.Count = Convert.ToInt32(tbxCount.Text.Trim());
                 _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+
+                _applyInfo.MoneyFlag = "";
                 if (tbxMoney.Text.Contains(BT))
                 {
                     _applyInfo.MoneyFlag = BT;
@@ -257,6 +259,7 @@ namespace TZMS.Web
                     _applyInfo.MaterialsID = new Guid(ddlstMaterialName.SelectedValue);
                     _applyInfo.Count = Convert.ToInt32(tbxCount.Text.Trim());
                     _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                    _applyInfo.MoneyFlag = "";
                     if (tbxMoney.Text.Contains(BT))
                     {
                         _applyInfo.MoneyFlag = BT;

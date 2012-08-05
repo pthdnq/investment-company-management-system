@@ -128,7 +128,7 @@ namespace TZMS.Web
                 ddlstCompanyname.Items.Add(new ExtAspNet.ListItem(_applyInfo.CompanyName, _applyInfo.BusinessID.ToString()));
                 ddlstCostType.SelectedValue = _applyInfo.CostType.ToString();
                 ddlstPayType.SelectedValue = _applyInfo.PayType.ToString();
-                lblApplyMoney.Text = _applyInfo.ApplyMoney.ToString();
+                lblApplyMoney.Text = _applyInfo.ApplyMoneyFlag + _applyInfo.ApplyMoney.ToString();
                 dpkPayDate.SelectedDate = _applyInfo.PayDate;
                 taaOther.Text = _applyInfo.Other;
             }
@@ -261,7 +261,8 @@ namespace TZMS.Web
                 {
                     CheckMsg(ddlstApproveUser.SelectedValue.ToString(), ddlstApproveUser.SelectedText, "业务费用收取确认(来自吉信企业管理公司)");
                 }
-                else {
+                else
+                {
                     ResultMsgMore(_applyInfo.UserID.ToString(), _applyInfo.UserName, "您有1条业务费用收取申请，已通过确认并归档！");
                 }
 

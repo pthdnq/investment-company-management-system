@@ -189,6 +189,7 @@ namespace TZMS.Web
                 _applyInfo.YeWuID = new Guid(ddlstYeWu.SelectedValue);
                 _applyInfo.Sument = tbxSument.Text.Trim();
                 _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                _applyInfo.MoneyFlag = "";
                 if (tbxMoney.Text.Contains(BT))
                 {
                     _applyInfo.MoneyFlag = BT;
@@ -240,6 +241,7 @@ namespace TZMS.Web
                     // 更新申请单中的数据.
                     _applyInfo.YeWuID = new Guid(ddlstYeWu.SelectedValue);
                     _applyInfo.Money = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                    _applyInfo.MoneyFlag = "";
                     if (tbxMoney.Text.Contains(BT))
                     {
                         _applyInfo.MoneyFlag = BT;

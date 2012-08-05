@@ -69,7 +69,7 @@
                                 HeaderText="实收借款日" />
                             <ext:BoundField Width="85px" DataField="DueDateForReceivables" DataFormatString="{0:yyyy/MM/dd}"
                                 HeaderText="应收借款日" />
-                            <ext:BoundField Width="80px" DataField="AmountofpaidUp" HeaderText="实收金额" />
+                            <ext:BoundField Width="80px" DataField="AmountofpaidUpEx" HeaderText="实收金额" />
                             <ext:BoundField Width="130px" DataField="ReceivablesAccount" HeaderText="收款帐号或现金" />
                             <ext:BoundField  ExpandUnusedSpace="true" DataField="Remark" HeaderText="备注" />
                             <ext:TemplateField Width="60px" HeaderText="状态">

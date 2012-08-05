@@ -62,7 +62,7 @@
                             <ext:BoundField DataField="ApplyTime"  Hidden="true"  Width="120px" HeaderText="申请时间" />
                             <ext:BoundField DataField="StartTime"  Hidden="true"  Width="70px" HeaderText="开始日期" />
                             <ext:BoundField DataField="EndTime" Width="70px" HeaderText="结束日期" />
-                            <ext:BoundField DataField="Money" Width="60px" HeaderText="金额(元)" />
+                            <ext:BoundField DataField="MoneyEx" Width="60px" HeaderText="金额(元)" />
                             <ext:BoundField DataField="Sument"  HeaderText="事项" ExpandUnusedSpace="true" DataTooltipField="Sument" />
                             <ext:BoundField DataField="Other" Hidden="true"  HeaderText="备注" DataTooltipField="Other" />
                             <ext:BoundField DataField="Checkstate" Width="60px" HeaderText="审批状态" />

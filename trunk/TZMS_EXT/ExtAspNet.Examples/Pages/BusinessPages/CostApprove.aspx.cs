@@ -185,7 +185,7 @@ namespace TZMS.Web
                 //ddlstCompanyname.SelectedValue = _applyInfo.BusinessID.ToString();
                 ddlstCostType.SelectedValue = _applyInfo.CostType.ToString();
                 ddlstPayType.SelectedValue = _applyInfo.PayType.ToString();
-                lblApplyMoney.Text = _applyInfo.ApplyMoney.ToString();
+                lblApplyMoney.Text = _applyInfo.ApplyMoneyFlag+_applyInfo.ApplyMoney.ToString();
                 dpkPayDate.SelectedDate = _applyInfo.PayDate;
                 taaOther.Text = _applyInfo.Other;
             }
@@ -262,6 +262,7 @@ namespace TZMS.Web
             BusinessCostApplyInfo _applyInfo = _manage.GetCostApplyByObjectID(ApplyID);
             _applyInfo.State = 1;
             _applyInfo.ActualMoney = Convert.ToDecimal(tbxActualMoney.Text.Replace(BT, "").Trim());
+            _applyInfo.ActualMoneyFlag = "";
             if (tbxActualMoney.Text.Contains(BT))
             {
                 _applyInfo.ActualMoneyFlag = BT;

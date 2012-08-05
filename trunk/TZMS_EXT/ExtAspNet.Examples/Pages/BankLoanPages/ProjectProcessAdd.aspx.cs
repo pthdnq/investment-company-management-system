@@ -312,6 +312,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (!string.IsNullOrEmpty(tbImprestAmount.Text))
             {
                 _Info.ImprestAmount = Decimal.Parse(tbImprestAmount.Text.Replace(BT, "").Trim());
+                _Info.ImprestAmountFlag = "";
                 if (tbImprestAmount.Text.Contains(BT))
                 {
                     _Info.ImprestAmountFlag = BT;
@@ -321,6 +322,7 @@ namespace TZMS.Web.Pages.BankLoanPages
             if (!string.IsNullOrEmpty(tbAmountExpended.Text))
             {
                 _Info.AmountExpended = Decimal.Parse(tbAmountExpended.Text.Replace(BT, "").Trim());
+                _Info.AmountExpendedFlag = "";
                 if (tbAmountExpended.Text.Contains(BT))
                 {
                     _Info.AmountExpendedFlag = BT;

@@ -171,6 +171,7 @@ namespace TZMS.Web
                 _baoxiaoInfo.Dept = _currentUser.Dept;
                 _baoxiaoInfo.Sument = taaSument.Text.Trim();
                 _baoxiaoInfo.Money = Decimal.Parse(tbxMoney.Text.Replace(BT, "").Trim());
+                _baoxiaoInfo.MoneyFlag = "";
                 if (tbxMoney.Text.Contains(BT))
                 {
                     _baoxiaoInfo.MoneyFlag = BT;
@@ -225,7 +226,7 @@ namespace TZMS.Web
                 {
                     // 更新申请单中的数据.
                     _baoxiaoInfo.Money = Decimal.Parse(tbxMoney.Text.Replace(BT, "").Trim());
-
+                    _baoxiaoInfo.MoneyFlag = "";
                     if (tbxMoney.Text.Contains(BT))
                     {
                         _baoxiaoInfo.MoneyFlag = BT;

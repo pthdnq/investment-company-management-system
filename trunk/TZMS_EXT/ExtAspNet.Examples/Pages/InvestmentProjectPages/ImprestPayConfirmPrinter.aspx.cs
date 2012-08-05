@@ -67,7 +67,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
 
                   Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames(_info.AmountExpended, string.Empty);
                 lbLoanAmountUper.Text = uper;
-                this.lbLoanAmount.Text = _info.AmountExpended.ToString();
+                this.lbLoanAmount.Text = _info.AmountExpendedFlag+_info.AmountExpended.ToString();
               //  this.lbLoanDate.Text = _info.ExpendedTime.ToString();
 
                 lbApplier.Text = _info.CreaterName;

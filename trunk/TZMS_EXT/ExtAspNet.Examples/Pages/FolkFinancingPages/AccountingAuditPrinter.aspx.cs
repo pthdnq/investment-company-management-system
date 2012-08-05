@@ -70,7 +70,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
 
                 Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames(_info.LoanAmount, string.Empty);
                 lbLoanAmountUper.Text = uper;
-                this.lbLoanAmount.Text = _info.LoanAmount.ToString();
+                this.lbLoanAmount.Text =_info.LoanAmountFlag+ _info.LoanAmount.ToString();
                 this.lbLoanDate.Text = _info.LoanDate.ToString("yyyy年MM月dd日");
                 lbPaymenter.Text = this.CurrentUser.Name;
                 //     this.taRemark.Text = _info.Remark;

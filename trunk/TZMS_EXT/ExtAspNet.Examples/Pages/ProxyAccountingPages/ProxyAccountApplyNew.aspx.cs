@@ -187,6 +187,7 @@ namespace TZMS.Web
                 _applyInfo.PayUnitName = ddlstUnit.SelectedText;
                 _applyInfo.CNMoney = lblCNMoney.Text;
                 _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                _applyInfo.ENMoneyFlag = "";
                 if (tbxMoney.Text.Contains(BT))
                 {
                     _applyInfo.ENMoneyFlag = BT;
@@ -245,6 +246,7 @@ namespace TZMS.Web
                     _applyInfo.PayUnitName = ddlstUnit.SelectedText;
                     _applyInfo.CNMoney = lblCNMoney.Text;
                     _applyInfo.ENMoney = Convert.ToDecimal(tbxMoney.Text.Replace(BT, "").Trim());
+                    _applyInfo.ENMoneyFlag = "";
                     if (tbxMoney.Text.Contains(BT))
                     {
                         _applyInfo.ENMoneyFlag = BT;

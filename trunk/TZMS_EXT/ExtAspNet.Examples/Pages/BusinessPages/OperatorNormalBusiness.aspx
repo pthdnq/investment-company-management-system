@@ -41,11 +41,11 @@
                             </ext:FormRow>
                             <ext:FormRow ColumnWidths="35% 35% 15% 15%">
                                 <Items>
-                                    <ext:TextBox ID="tbxCBJE" runat="server" Label="成本金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                        RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
+                                    <ext:TextBox ID="tbxCBJE" runat="server" Label="成本金额" Regex="^\-?[0-9]*\.?[0-9]{1,2}$"
+                                        RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入16个长度的金额!">
                                     </ext:TextBox>
-                                    <ext:TextBox ID="tbxQTFY" runat="server" Label="其它费用" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                        RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
+                                    <ext:TextBox ID="tbxQTFY" runat="server" Label="其它费用" MaxLength="16" Regex="^\-?[0-9]*\.?[0-9]{1,2}$"
+                                        RegexMessage="金额格式不正确!"  MaxLengthMessage="最大只能输入16个长度的金额!">
                                     </ext:TextBox>
                                     <ext:CheckBox ID="cbxSecond" runat="server" Text="是否二次办理" ShowLabel="false" AutoPostBack="true"
                                         OnCheckedChanged="cbxSecond_CheckedChanged">
@@ -123,8 +123,8 @@
                                             </ext:FormRow>--%>
                                             <ext:FormRow ColumnWidths="40% 20% 20% 20%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxSumMoney" runat="server" Label="合同总金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                                        RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
+                                                    <ext:TextBox ID="tbxSumMoney" runat="server" Label="合同总金额"
+                                                        RegexMessage="金额格式不正确!" >
                                                     </ext:TextBox>
                                                     <ext:CheckBox ID="CheckBox1" Text="业务办理结束付款" runat="server" ShowLabel="false">
                                                     </ext:CheckBox>
@@ -136,8 +136,8 @@
                                             </ext:FormRow>
                                             <ext:FormRow ColumnWidths="30% 20% 30% 20%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxPreMoney" runat="server" Label="预付金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
-                                                        RegexMessage="金额格式不正确!" MaxLength="21" MaxLengthMessage="最大只能输入21个长度的金额!">
+                                                    <ext:TextBox ID="tbxPreMoney" runat="server" Label="预付金额"
+                                                        RegexMessage="金额格式不正确!" >
                                                     </ext:TextBox>
                                                     <ext:Image ID="imgPreMoney" ImageUrl="../../images/ico_leaveALLOW.gif" ShowLabel="false"
                                                         runat="server">
@@ -162,10 +162,10 @@
                                             </ext:FormRow>--%>
                                             <ext:FormRow ColumnWidths="50% 50%">
                                                 <Items>
-                                                    <ext:TextBox ID="tbxCostMoney" runat="server" Label="成本金额" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                                    <ext:TextBox ID="tbxCostMoney" runat="server" Label="成本金额" Regex="^\-?[0-9]*\.?[0-9]{1,2}$"
                                                         RegexMessage="金额格式不正确!">
                                                     </ext:TextBox>
-                                                    <ext:TextBox ID="tbxOtherMoney" runat="server" Label="其它费用" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                                    <ext:TextBox ID="tbxOtherMoney" runat="server" Label="其它费用" Regex="^\-?[0-9]*\.?[0-9]{1,2}$"
                                                         RegexMessage="金额格式不正确!">
                                                     </ext:TextBox>
                                                 </Items>
@@ -203,8 +203,8 @@
                                             <ext:BoundField DataField="CheckerName" HeaderText="办理人" />
                                             <ext:BoundField DataField="CheckDateTime" HeaderText="办理时间" />
                                             <ext:BoundField DataField="CurrentBusiness" HeaderText="办理类型" />
-                                            <ext:BoundField DataField="CostMoney" Width="60px" HeaderText="成本金额" />
-                                            <ext:BoundField DataField="OtherMoney" Width="60px" HeaderText="其它费用" />
+                                            <ext:BoundField DataField="CostMoneyEx" Width="60px" HeaderText="成本金额" />
+                                            <ext:BoundField DataField="OtherMoneyEx" Width="60px" HeaderText="其它费用" />
                                             <ext:BoundField DataField="Explain" HeaderText="说明" ExpandUnusedSpace="true" DataTooltipField="Explain" />
                                         </Columns>
                                     </ext:Grid>

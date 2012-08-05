@@ -230,6 +230,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             _Info.PaymentType = this.ddlPaymentType.SelectedValue;
             _Info.Cause = this.taCause.Text.Trim();
             _Info.AmountOfPayment = decimal.Parse(this.tbAmountOfPayment.Text.Replace(BT, "").Trim());
+            _Info.AmountOfPaymentFlag = "";
             if (tbAmountOfPayment.Text.Contains(BT))
             {
                 _Info.AmountOfPaymentFlag = BT;

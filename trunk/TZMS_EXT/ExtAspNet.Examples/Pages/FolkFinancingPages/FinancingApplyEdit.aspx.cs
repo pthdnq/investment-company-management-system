@@ -239,7 +239,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             if (!string.IsNullOrEmpty(this.tbLoanAmount.Text))
             {
                 _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Replace(BT, "").Trim());
-
+                _Info.LoanAmountFlag = "";
                 if (tbLoanAmount.Text.Contains(BT))
                 {
                     _Info.LoanAmountFlag = BT;
@@ -251,7 +251,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.LoanTimeLimit = this.tbLoanTimeLimit.Text.Trim();
             #endregion
             _Info.Cash = decimal.Parse(this.tbCash.Text.Replace(BT, "").Trim());
-
+            _Info.CashFlag = "";
             if (tbCash.Text.Contains(BT))
             {
                 _Info.CashFlag = BT;

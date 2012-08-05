@@ -67,7 +67,7 @@ namespace TZMS.Web.Pages.InvestmentLoanPages
                 Common.MoneyLowToUper common = new Common.MoneyLowToUper();
                 string uper = common.GetUperNumNames(_info.LoanAmount, string.Empty);
                 lbLoanAmountUper.Text = uper;
-                this.lbLoanAmount.Text = _info.LoanAmount.ToString();
+                this.lbLoanAmount.Text = _info.LoanAmountFlag+_info.LoanAmount.ToString();
                 this.lbLoanDate.Text = _info.LoanDate.ToString("yyyy年MM月dd日");
                // this.lbLoanType.Text = _info.LoanType.Equals("TransferAccount") ? "转账" : "现金";
                 lbPaymenter.Text = _info.NextOperaterName;

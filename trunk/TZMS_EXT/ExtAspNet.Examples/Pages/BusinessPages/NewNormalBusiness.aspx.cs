@@ -323,14 +323,17 @@ namespace TZMS.Web
                 _info.SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Replace(BT, "").Trim());
                 _info.PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Replace(BT, "").Trim());
                 _info.BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Replace(BT, "").Trim());
+                _info.SumMoneyFlag = "";
                 if (tbxSumMoney.Text.Contains(BT))
                 {
                     _info.SumMoneyFlag = BT;
                 }
+                _info.PreMoneyFlag = "";
                 if (tbxPreMoney.Text.Contains(BT))
                 {
                     _info.PreMoneyFlag = BT;
                 }
+                _info.BalanceMoneyFlag = "";
                 if (tbxBalanceMoney.Text.Contains(BT))
                 {
                     _info.BalanceMoneyFlag = BT;
@@ -398,14 +401,17 @@ namespace TZMS.Web
                     _info.SumMoney = Convert.ToDecimal(tbxSumMoney.Text.Replace(BT, "").Trim());
                     _info.PreMoney = Convert.ToDecimal(tbxPreMoney.Text.Replace(BT, "").Trim());
                     _info.BalanceMoney = Convert.ToDecimal(tbxBalanceMoney.Text.Replace(BT, "").Trim());
+                    _info.SumMoneyFlag = "";
                     if (tbxSumMoney.Text.Contains(BT))
                     {
                         _info.SumMoneyFlag = BT;
                     }
+                    _info.PreMoneyFlag = "";
                     if (tbxPreMoney.Text.Contains(BT))
                     {
                         _info.PreMoneyFlag = BT;
                     }
+                    _info.BalanceMoneyFlag = "";
                     if (tbxBalanceMoney.Text.Contains(BT))
                     {
                         _info.BalanceMoneyFlag = BT;
@@ -423,14 +429,17 @@ namespace TZMS.Web
                     _info.CurrentUserID = CurrentUser.ObjectId;
                     _info.IsDelete = false;
                     _info.BusinessType = 0;
+                    _info.SumMoneyFlag = "";
                     if (tbxSumMoney.Text.Contains(BT))
                     {
                         _info.SumMoneyFlag = BT;
                     }
+                    _info.PreMoneyFlag = "";
                     if (tbxPreMoney.Text.Contains(BT))
                     {
                         _info.PreMoneyFlag = BT;
                     }
+                    _info.BalanceMoneyFlag = "";
                     if (tbxBalanceMoney.Text.Contains(BT))
                     {
                         _info.BalanceMoneyFlag = BT;
@@ -465,24 +474,26 @@ namespace TZMS.Web
                 {
                     string strExplain = string.Empty;
                     strExplain = "业务总监" + CurrentUser.Name;
-                    if (Decimal.Compare(_info.CostMoney, Convert.ToDecimal(tbxCostMoney.Text.Replace(BT, "").Trim())) != 0)
+                    if (_info.CostMoneyEx != tbxCostMoney.Text.Trim())
                     {
                         _info.CostMoney = Convert.ToDecimal(tbxCostMoney.Text.Replace(BT, "").Trim());
-                        strExplain += "变更成本金额为" + _info.CostMoney.ToString() + "元";
+                        strExplain += "变更成本金额为" + tbxCostMoney.Text.Trim() + "元";
+                        _info.CostMoneyFlag = "";
                         if (tbxCostMoney.Text.Contains(BT))
                         {
                             _info.CostMoneyFlag = BT;
                         }
                     }
 
-                    if (Decimal.Compare(_info.OtherMoney, Convert.ToDecimal(tbxOtherMoney.Text.Replace(BT, "").Trim())) != 0)
+                    if (_info.OtherMoneyEx!=tbxOtherMoney.Text.Trim())
                     {
                         if (strExplain != "业务总监" + CurrentUser.Name)
                         {
                             strExplain += ",";
                         }
                         _info.OtherMoney = Convert.ToDecimal(tbxOtherMoney.Text.Replace(BT, "").Trim());
-                        strExplain += "变更其它金额为" + _info.OtherMoney.ToString() + "元";
+                        strExplain += "变更其它金额为" + tbxOtherMoney.Text.Trim() + "元";
+                        _info.OtherMoneyFlag = "";
                         if (tbxOtherMoney.Text.Contains(BT))
                         {
                             _info.OtherMoneyFlag = BT;

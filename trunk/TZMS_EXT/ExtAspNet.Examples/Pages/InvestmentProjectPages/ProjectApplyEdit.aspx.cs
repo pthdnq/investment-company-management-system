@@ -161,11 +161,12 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
             _Info.ContactPhone = this.tbContactPhone.Text.Trim();
             _Info.ContractAmount = decimal.Parse(this.tbContractAmount.Text.Replace(BT, "").Trim());
             _Info.DownPayment = decimal.Parse(this.tbDownPayment.Text.Replace(BT, "").Trim());
+            _Info.ContractAmountFlag = "";
             if (tbContractAmount.Text.Contains(BT))
             {
                 _Info.ContractAmountFlag = BT;
             }
-
+            _Info.DownPaymentFlag = "";
             if (tbDownPayment.Text.Contains(BT))
             {
                 _Info.DownPaymentFlag = BT;

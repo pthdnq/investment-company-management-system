@@ -69,8 +69,8 @@
                             <ext:BoundField Width="65px" DataField="Contact" HeaderText="联系人" />
                             <ext:BoundField Width="90px" DataField="ContactPhone" HeaderText="联系人电话" />
                             <ext:BoundField Width="75px" DataField="SignDate" HeaderText="签订日期" DataFormatString="{0:yyyy/MM/dd}" />
-                            <ext:BoundField DataField="ContractAmount" Width="115px" HeaderText="合同总金额" />
-                            <ext:BoundField Width="100px" DataField="DownPayment" HeaderText="预付定金" />
+                            <ext:BoundField DataField="ContractAmountEx" Width="115px" HeaderText="合同总金额" />
+                            <ext:BoundField Width="100px" DataField="DownPaymentEx" HeaderText="预付定金" />
                             <ext:TemplateField Width="66px" HeaderText="项目状态">
                                 <ItemTemplate>
                                     <%# GetStatusName(DataBinder.Eval(Container.DataItem, "Status").ToString())%>

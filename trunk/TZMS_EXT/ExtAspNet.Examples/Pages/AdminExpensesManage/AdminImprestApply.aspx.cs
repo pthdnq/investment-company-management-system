@@ -231,6 +231,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
             _Info.ProjectName = this.tbProjectName.Text.Trim();
             _Info.PrepaidAmount = decimal.Parse(this.tbPrepaidAmount.Text.Replace(BT, "").Trim());
+            _Info.PrepaidAmountFlag = "";
             if (tbPrepaidAmount.Text.Contains(BT))
             {
                 _Info.PrepaidAmountFlag = BT;

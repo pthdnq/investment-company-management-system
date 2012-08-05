@@ -96,17 +96,17 @@ namespace TZMS.Web.Pages.BankLoanPages
             _Info.LoanAmount = decimal.Parse(this.tbLoanAmount.Text.Replace(BT, "").Trim());
             _Info.DownPayment = decimal.Parse(this.tbDownPayment.Text.Replace(BT, "").Trim());
             _Info.LoanFee = decimal.Parse(this.tbLoanFee.Text.Replace(BT, "").Trim());
-
+            _Info.LoanAmountFlag = "";
             if (tbLoanAmount.Text.Contains(BT))
             {
                 _Info.LoanAmountFlag = BT;
             }
-
+            _Info.DownPaymentFlag = "";
             if (tbDownPayment.Text.Contains(BT))
             {
                 _Info.DownPaymentFlag = BT;
             }
-
+            _Info.LoanFeeFlag = "";
             if (tbLoanFee.Text.Contains(BT))
             {
                 _Info.LoanFeeFlag = BT;
