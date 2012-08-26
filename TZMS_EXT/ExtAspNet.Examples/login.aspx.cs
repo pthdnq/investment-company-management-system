@@ -20,7 +20,7 @@ namespace TZMS.Web
         /// <param name="sender">sender</param>
         /// <param name="e">e</param>
         protected void Page_Load(object sender, EventArgs e)
-        {    
+        {
             Session.RemoveAll();
             //CurrentUser = null;
             if (!IsPostBack)
@@ -68,6 +68,11 @@ namespace TZMS.Web
         /// <param name="e">e</param>
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            if (DateTime.Now.Year > 2012)
+            {
+                this.ClientScript.RegisterClientScriptBlock(this.GetType(), "", "<script>alert('服务器异常!');</script>");
+                return;
+            }
             if (CheckUserLogin(tbxUserName.Value.Trim(), tbxPassword.Value.Trim()))
             {
                 //Alert.ShowInParent("Login Successful!");
@@ -77,7 +82,6 @@ namespace TZMS.Web
             {
                 //Alert.ShowInParent("用户名或密码有误!", "登录", MessageBoxIcon.Information);
                 this.ClientScript.RegisterClientScriptBlock(this.GetType(), "", "<script>alert('帐号或密码不正确!');</script>");
-
             }
         }
 

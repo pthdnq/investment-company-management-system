@@ -96,7 +96,8 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             StringBuilder strCondtion = new StringBuilder();
             if ((!string.IsNullOrEmpty(state)) && (state.Equals("5")))
             {
-                strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
+                strCondtion.Append("    (Adulters Like '%" + this.CurrentUser.ObjectId + ">%'  and SubmitTime >='"+PublishTime+"' ) or   (Adulters Like '%"+  this.CurrentUser.ObjectId + "%'  and SubmitTime <'"+PublishTime+"' ) ");
+           
             }
             else
             {

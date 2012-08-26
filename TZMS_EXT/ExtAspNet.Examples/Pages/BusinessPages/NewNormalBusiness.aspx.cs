@@ -87,7 +87,7 @@ namespace TZMS.Web
                         btnSubmit.Enabled = true;
                         tbxCostMoney.Enabled = true;
                         tbxOtherMoney.Enabled = true;
-                        taaOtherMoneyExplain.Enabled = false;
+                        taaOtherMoneyExplain.Readonly = true;
                         break;
 
                     case "Edit":
@@ -170,8 +170,8 @@ namespace TZMS.Web
                 tbxBalanceMoney.Text = _info.BalanceMoneyFlag + _info.BalanceMoney.ToString();
                 tbxContact.Text = _info.Contact;
                 tbxContactPhoneNumber.Text = _info.ContactPhoneNumber;
-                tbxCostMoney.Text = _info.CostMoneyFlag + _info.CostMoney.ToString();
-                tbxOtherMoney.Text = _info.OtherMoneyFlag + _info.OtherMoney.ToString();
+                tbxCostMoney.Text = _info.CostMoney.ToString();
+                tbxOtherMoney.Text =  _info.OtherMoney.ToString();
                 taaOtherMoneyExplain.Text = _info.OtherMoneyExplain;
                 taaContent.Text = _info.Content;
                 taaOther.Text = _info.Other;
@@ -266,8 +266,8 @@ namespace TZMS.Web
             taaOtherMoneyExplain.Readonly = true;
             taaContent.Required = false;
             taaContent.ShowRedStar = false;
-            taaContent.Enabled = false;
-            taaOther.Enabled = false;
+            taaContent.Readonly = true;
+            taaOther.Readonly = true;
         }
 
         /// <summary>

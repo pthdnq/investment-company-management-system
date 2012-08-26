@@ -60,6 +60,23 @@ namespace com.TZMS.Business
         {
             //Receive ++
             // --
+            CashFlowSetterInfo cash = new CashFlowSetterInfo();
+            List<CashFlowSetterInfo> list = new CashFlowSetterCtrl().SelectAsList(boName, " [Status]=1 ");
+            if (list.Count > 0)
+                cash = list[0];
+            if (info.FlowDirection.ToLower() == "receive")
+            {
+                cash.OriginalAmount += info.Amount;
+            }
+            else
+            {
+                cash.OriginalAmount -= info.Amount;
+            }
+            if (list.Count > 0)
+            {
+                new CashFlowSetterCtrl().UpDate(boName, cash);
+                info.RemainingAmount = cash.OriginalAmount;
+            }
             return ctrl.Insert(boName, info);
         }
 

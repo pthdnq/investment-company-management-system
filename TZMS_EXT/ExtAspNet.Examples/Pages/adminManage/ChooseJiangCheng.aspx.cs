@@ -102,24 +102,14 @@ namespace TZMS.Web
                 }
             }
 
-            bool bContain;
             foreach (UserInfo use in lstUserInfo)
             {
-                bContain = false;
                 if (strJC == use.ObjectId.ToString())
                 {
-                    bContain = true;
-                    break;
-                }
-
-                if (bContain)
-                {
                     lstSelected.Add(use);
+                    continue;
                 }
-                else
-                {
-                    lstUnSelect.Add(use);
-                }
+                lstUnSelect.Add(use);
             }
 
             lstSelected.Sort(delegate(UserInfo x, UserInfo y) { return string.Compare(x.Dept, y.Dept); });

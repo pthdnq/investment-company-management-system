@@ -230,6 +230,15 @@ namespace TZMS.Web
         {
             get { return WebConfigurationManager.AppSettings["WebSite"].ToString(); }
         }
+
+        /// <summary>
+        /// 部署时间
+        /// </summary>
+        protected string PublishTime
+        {
+            get { return WebConfigurationManager.AppSettings["PublishTime"].ToString(); }
+        }
+
         #endregion
 
         public const string BT = "-";

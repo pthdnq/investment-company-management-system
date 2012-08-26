@@ -68,7 +68,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                 this.lbImplementationPhase.Text = _info.Cause;
                   Common.MoneyLowToUper common = new Common.MoneyLowToUper(); string uper = common.GetUperNumNames(_info.AmountOfReceivables, string.Empty);
                 lbLoanAmountUper.Text = uper;
-                this.lbLoanAmount.Text = _info.AmountOfReceivables.ToString();
+                this.lbLoanAmount.Text =_info.AmountOfReceivablesEx;
                 this.lbLoanDate.Text = _info.DateFor.ToString("yyyy年MM月dd日");
 
                 lbApplier.Text = _info.CreaterName;
@@ -83,6 +83,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                     strHistory.Append(string.Format("<br/>{1}于{0:yyyy年MM月dd日}{2}", info.OperationTime, info.OperationerName, info.OperationDesc));
                 }
                 lbHistory.Text = strHistory.ToString();
+                lbOther.Text = _info.Remark.Trim();
             }
         }
         #endregion

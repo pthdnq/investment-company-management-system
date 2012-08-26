@@ -79,7 +79,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    备注：
+                    备注：<asp:Label runat="server" ID="lbOther" /> 
                 </td>
             </tr>
         </table>

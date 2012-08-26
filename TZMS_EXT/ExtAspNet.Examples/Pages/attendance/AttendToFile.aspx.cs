@@ -117,6 +117,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void gridLeave_PageIndexChange(object sender, ExtAspNet.GridPageEventArgs e)
         {
+            gridLeave.PageIndex = e.NewPageIndex;
             BindGrid();
         }
 
