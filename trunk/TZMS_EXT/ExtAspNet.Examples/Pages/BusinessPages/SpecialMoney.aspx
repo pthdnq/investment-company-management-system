@@ -30,7 +30,7 @@
                         <Rows>
                             <ext:FormRow ColumnWidths="60%">
                                 <Items>
-                                    <ext:TextBox ID="tbxSpcialMoney" runat="server" Label="特殊费用" Regex="^[0-9]*\.?[0-9]{1,2}$"
+                                    <ext:TextBox ID="tbxSpcialMoney" runat="server" Label="特殊费用" Regex="^\-?[0-9]*\.?[0-9]{1,2}$" 
                                         RegexMessage="金额格式不正确!">
                                     </ext:TextBox>
                                 </Items>

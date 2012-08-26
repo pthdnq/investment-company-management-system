@@ -86,6 +86,7 @@ namespace TZMS.Web.Pages.InvestmentProjectPages
                     strHistory.Append(string.Format("<br/>{1}于{0:yyyy年MM月dd日}{2}", info.OperationTime, info.OperationerName, info.OperationDesc));
                 }
                 lbHistory.Text = strHistory.ToString();
+                lbOther.Text = _info.Remark.Trim();
             }
         }
         #endregion

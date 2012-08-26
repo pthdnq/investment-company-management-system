@@ -24,7 +24,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnClose_Click(object sender, EventArgs e)
         {
-            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference());
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference("undefined"));
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference(tbxSpcialMoney.Text.Trim() + "--" + taaSpcialMoney.Text.Trim()));
+            PageContext.RegisterStartupScript(ExtAspNet.ActiveWindow.GetHidePostBackReference(tbxSpcialMoney.Text.Trim() + "@" + taaSpcialMoney.Text.Trim()));
         }
 
         #endregion

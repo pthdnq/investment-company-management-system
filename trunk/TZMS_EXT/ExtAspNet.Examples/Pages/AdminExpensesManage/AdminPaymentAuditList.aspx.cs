@@ -98,7 +98,8 @@ namespace TZMS.Web.Pages.AdminExpensesManage
             StringBuilder strCondtion = new StringBuilder();
             if ((!string.IsNullOrEmpty(state)) && (state.Equals("4")))
             {
-                strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
+                strCondtion.Append("    (Adulters Like '%" + this.CurrentUser.ObjectId + "<%'  and SubmitTime >='" + PublishTime + "' ) or   (Adulters Like '%" + this.CurrentUser.ObjectId + "%'  and SubmitTime <'" + PublishTime + "' ) ");
+           
             }
             else
             {
@@ -122,7 +123,7 @@ namespace TZMS.Web.Pages.AdminExpensesManage
                         strCondtion.Append(" AND Status = 3  ");
                         break;
                     case "4":
-                        strCondtion.Append(" AND  (Status = 4 OR Status = 3 OR Status = 2 )  ");
+                        strCondtion.Append(" AND  (Status = 4 OR Status = 3 OR Status = 2  OR Status = 5)  ");
                         break;
                     case "5":
                         strCondtion.Append(" AND Status = 5 ");

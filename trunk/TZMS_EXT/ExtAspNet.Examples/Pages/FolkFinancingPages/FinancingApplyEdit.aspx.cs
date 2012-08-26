@@ -93,7 +93,7 @@ namespace TZMS.Web.Pages.FolkFinancingPages
                 }
                 #endregion
                 this.tbBorrowerNameA.Text = _Info.BorrowerNameA;
-                this.tbBorrowingCost.Text = _Info.BorrowingCost.ToString();
+                this.tbBorrowingCost.Text =_Info.BorrowingCostFlag+ _Info.BorrowingCost.ToString();
                 this.tbCollateral.Text = _Info.Collateral;
                 this.tbContactPhone.Text = _Info.ContactPhone;
                 this.dpDueDateForPay.Text = _Info.DueDateForPay.ToString();
@@ -229,8 +229,14 @@ namespace TZMS.Web.Pages.FolkFinancingPages
             _Info.BorrowerNameA = this.tbBorrowerNameA.Text.Trim();
             if (!string.IsNullOrEmpty(this.tbBorrowingCost.Text))
             {
-                _Info.BorrowingCost = decimal.Parse(this.tbBorrowingCost.Text.Trim());
+                _Info.BorrowingCost = decimal.Parse(this.tbBorrowingCost.Text.Replace(BT, "").Trim());
             }
+            _Info.BorrowingCostFlag = "";
+            if (tbBorrowingCost.Text.Contains(BT))
+            {
+                _Info.BorrowingCostFlag = BT;
+            }
+            _Info.InterestType= this.ddlInterestType.SelectedValue ;
             _Info.Collateral = this.tbCollateral.Text.Trim();
             _Info.ContactPhone = this.tbContactPhone.Text.Trim();
             _Info.DueDateForPay = int.Parse(this.dpDueDateForPay.Text.Trim());

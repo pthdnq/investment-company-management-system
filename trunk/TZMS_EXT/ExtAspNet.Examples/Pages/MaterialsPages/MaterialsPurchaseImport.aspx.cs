@@ -66,7 +66,7 @@ namespace TZMS.Web
                     lblName.Text = _info.UserName;
                     lblApplyTime.Text = _info.ApplyTime.ToString("yyyy-MM-dd HH:mm");
                     tbxCount.Text = _info.Count.ToString();
-                    tbxMoney.Text = _info.Money.ToString();
+                    tbxMoney.Text =_info.MoneyFlag+ _info.Money.ToString();
                     dpkNeedsDate.Text = _info.NeedsDate.ToString("yyyy-MM-dd");
                     taaSument.Text = _info.Sument;
                     taaOther.Text = _info.Other;

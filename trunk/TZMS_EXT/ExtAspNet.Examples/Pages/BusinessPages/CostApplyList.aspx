@@ -67,7 +67,7 @@
                                 DataTooltipField="CompanyName" />
                             <ext:BoundField DataField="CostType" HeaderText="费用类型" />
                             <ext:BoundField DataField="ApplyMoneyEx" HeaderText="金额" />
-                            <ext:BoundField DataField="ActualMoney" HeaderText="实际金额" />
+                            <ext:BoundField DataField="ActualMoneyEx" HeaderText="实际金额" />
                             <ext:BoundField DataField="PayDate" HeaderText="付账日期" />
                             <ext:BoundField DataField="ApproverID" HeaderText="当前执行人" />
                             <ext:BoundField DataField="State" HeaderText="状态" />

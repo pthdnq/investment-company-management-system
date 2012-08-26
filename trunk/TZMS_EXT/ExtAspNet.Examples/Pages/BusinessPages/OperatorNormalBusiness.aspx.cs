@@ -368,7 +368,20 @@ namespace TZMS.Web
                         _info.OtherMoney += Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
                     if (!string.IsNullOrEmpty(taaQTFYSM.Text.Trim()))
                         _info.OtherMoneyExplain += "\r\n" + taaQTFYSM.Text.Trim();
+                    _info.CostMoneyFlag = "";
+                    if (tbxCBJE.Text.Contains(BT))
+                    {
+                        _info.CostMoneyFlag = BT;
+                    }
+                    _info.OtherMoneyFlag = "";
+                    if (tbxQTFY.Text.Contains(BT))
+                    {
+                        _info.OtherMoneyFlag = BT;
+                    }
+
                     _info.CurrentUserID = new Guid(ddlstApproveUser.SelectedValue);
+
+
 
                     // 更新现有记录.
                     BusinessRecordInfo _recordInfo = _manage.GetBusinessRecordByObjectID(RecordID);
@@ -543,11 +556,21 @@ namespace TZMS.Web
                 }
                 else
                 {
-                    string[] arraySpcimalMoney = Regex.Split(e.CloseArgument, "--", RegexOptions.None);
-                    if (!string.IsNullOrEmpty(arraySpcimalMoney[0]))
-                        _info.OtherMoney += Convert.ToDecimal(arraySpcimalMoney[0]);
-                    if (!string.IsNullOrEmpty(arraySpcimalMoney[1]))
-                        _info.OtherMoneyExplain += "\r\n" + arraySpcimalMoney[1];
+                    string[] arraySpcimalMoney = Regex.Split(e.CloseArgument, "@", RegexOptions.None);
+                    string m1 = arraySpcimalMoney[0].Trim();
+                    string m2 = arraySpcimalMoney[1].Trim();
+                    if (!string.IsNullOrEmpty(m1))
+                    {
+                        _info.OtherMoney += Convert.ToDecimal(m1.Replace(BT, "").Trim());
+                        if (m1.Contains(BT))
+                        {
+                            _info.OtherMoneyFlag = BT;
+                        }
+                    }
+                    if (!string.IsNullOrEmpty(m2))
+                    {
+                        _info.OtherMoneyExplain += "\r\n" + m2;
+                    }
                 }
 
                 // 插入下一步记录.

@@ -99,13 +99,12 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
             if ((!string.IsNullOrEmpty(state)) && (state.Equals("5")))
             {
-                strCondtion.Append("   Adulters Like '%" + this.CurrentUser.ObjectId + "%' ");
+                strCondtion.Append("    (Adulters Like '%" + this.CurrentUser.ObjectId + ">%'  and SubmitTime >='" + PublishTime + "' ) or   (Adulters Like '%" + this.CurrentUser.ObjectId + "%'  and SubmitTime <'" + PublishTime + "' ) ");
+           
             }
             else
             {
-
                 strCondtion.Append("   NextOperaterId = '" + this.CurrentUser.ObjectId + "' ");
-
             }
             //   strCondtion.Append("   Status<>9 "); 
 

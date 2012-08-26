@@ -532,7 +532,7 @@ namespace TZMS.Web
                                 style.Borders[BorderType.RightBorder].LineStyle = CellBorderType.Thin;
                                 style.Borders[BorderType.RightBorder].Color = Color.Black;
                                 cell.SetStyle(style);
-                                strValue = lstAttendInfo[i / 7].ENMoneyFlag.ToString()+"￥" + lstAttendInfo[i / 7].ENMoney.ToString();
+                                strValue = "￥"+lstAttendInfo[i / 7].ENMoneyFlag.ToString() + lstAttendInfo[i / 7].ENMoney.ToString();
                             }
                             else if (i % 7 == 4)
                             {

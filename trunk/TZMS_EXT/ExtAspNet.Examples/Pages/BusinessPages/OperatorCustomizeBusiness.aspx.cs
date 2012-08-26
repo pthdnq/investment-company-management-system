@@ -108,7 +108,7 @@ namespace TZMS.Web
 
             //if (!CurrentChecker.Contains(CurrentUser))
             //{
-                ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
+            ddlstApproveUser.Items.Add(new ExtAspNet.ListItem(CurrentUser.Name, CurrentUser.ObjectId.ToString()));
             //}
 
             //foreach (UserInfo user in CurrentChecker)
@@ -135,13 +135,13 @@ namespace TZMS.Web
                 ddlstSigner.Items.Add(new ExtAspNet.ListItem(_info.SignerName, _info.SignerID.ToString()));
                 dpkSignTime.SelectedDate = _info.SignTime;
                 tbxCompanyName.Text = _info.CompanyName;
-                tbxSumMoney.Text = _info.SumMoneyFlag+_info.SumMoney.ToString();
-                tbxPreMoney.Text = _info.PreMoneyFlag+_info.PreMoney.ToString();
-                tbxBalanceMoney.Text =_info.BalanceMoneyFlag+ _info.BalanceMoney.ToString();
+                tbxSumMoney.Text = _info.SumMoneyFlag + _info.SumMoney.ToString();
+                tbxPreMoney.Text = _info.PreMoneyFlag + _info.PreMoney.ToString();
+                tbxBalanceMoney.Text = _info.BalanceMoneyFlag + _info.BalanceMoney.ToString();
                 tbxContact.Text = _info.Contact;
                 tbxContactPhoneNumber.Text = _info.ContactPhoneNumber;
-                tbxCostMoney.Text = _info.CostMoneyFlag+_info.CostMoney.ToString();
-                tbxOtherMoney.Text =_info.OtherMoneyFlag+ _info.OtherMoney.ToString();
+                tbxCostMoney.Text =  _info.CostMoney.ToString();
+                tbxOtherMoney.Text =  _info.OtherMoney.ToString();
                 taaOtherMoneyExplain.Text = _info.OtherMoneyExplain;
                 taaContent.Text = _info.Content;
                 taaOther.Text = _info.Other;
@@ -260,19 +260,21 @@ namespace TZMS.Web
                     if (_recordInfo != null)
                     {
                         _recordInfo.State = 1;
+                        _recordInfo.CostMoneyFlag = "";
                         if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
                         {
                             _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
-                            _recordInfo.CostMoneyFlag = "";
+
                             if (tbxCBJE.Text.Contains(BT))
                             {
                                 _recordInfo.CostMoneyFlag = BT;
                             }
                         }
+                        _recordInfo.OtherMoneyFlag = "";
                         if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
                         {
                             _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
-                            _recordInfo.OtherMoneyFlag = "";
+
                             if (tbxQTFY.Text.Contains(BT))
                             {
                                 _recordInfo.OtherMoneyFlag = BT;
@@ -298,6 +300,8 @@ namespace TZMS.Web
                     _manage.AddNewBusinessRecord(_recordInfo);
 
                     _info.CurrentBusinessRecordID = _recordInfo.ObjectID;
+
+
                     result = _manage.UpdateBusiness(_info);
 
                     if (result == -1)
@@ -315,19 +319,21 @@ namespace TZMS.Web
                 #endregion
 
                 {
+                    _info.CostMoneyFlag = "";
                     if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
                     {
                         _info.CostMoney += Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
-                        _info.CostMoneyFlag = "";
+
                         if (tbxCBJE.Text.Contains(BT))
                         {
                             _info.CostMoneyFlag = BT;
                         }
                     }
+                    _info.OtherMoneyFlag = "";
                     if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
                     {
                         _info.OtherMoney += Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
-                        _info.OtherMoneyFlag = "";
+
                         if (tbxQTFY.Text.Contains(BT))
                         {
                             _info.OtherMoneyFlag = BT;
@@ -345,19 +351,19 @@ namespace TZMS.Web
                         if (!string.IsNullOrEmpty(tbxCBJE.Text.Trim()))
                         {
                             _recordInfo.CostMoney = Convert.ToDecimal(tbxCBJE.Text.Replace(BT, "").Trim());
-                            _info.CostMoneyFlag = "";
+                            _recordInfo.CostMoneyFlag = "";
                             if (tbxCBJE.Text.Contains(BT))
                             {
-                                _info.CostMoneyFlag = BT;
+                                _recordInfo.CostMoneyFlag = BT;
                             }
                         }
                         if (!string.IsNullOrEmpty(tbxQTFY.Text.Trim()))
                         {
                             _recordInfo.OtherMoney = Convert.ToDecimal(tbxQTFY.Text.Replace(BT, "").Trim());
-                            _info.OtherMoneyFlag = "";
+                            _recordInfo.OtherMoneyFlag = "";
                             if (tbxQTFY.Text.Contains(BT))
                             {
-                                _info.OtherMoneyFlag = BT;
+                                _recordInfo.OtherMoneyFlag = BT;
                             }
                         }
                         _recordInfo.Explain = taaQTFYSM.Text.Trim();
@@ -461,6 +467,11 @@ namespace TZMS.Web
         /// <param name="e"></param>
         protected void wndSpecialMoney_Close(object sender, ExtAspNet.WindowCloseEventArgs e)
         {
+            if (e.CloseArgument == "undefined" || !e.CloseArgument.Contains("@"))
+            {
+                return;
+            }
+
             BusinessManage _manage = new BusinessManage();
             BusinessInfo _info = _manage.GetBusinessByObjectID(BusinessID);
             int result = 3;
@@ -505,11 +516,21 @@ namespace TZMS.Web
                 }
                 else
                 {
-                    string[] arraySpcimalMoney = Regex.Split(e.CloseArgument, "--", RegexOptions.None);
-                    if (!string.IsNullOrEmpty(arraySpcimalMoney[0]))
-                        _info.OtherMoney += Convert.ToDecimal(arraySpcimalMoney[0]);
-                    if (!string.IsNullOrEmpty(arraySpcimalMoney[1]))
-                        _info.OtherMoneyExplain += "\r\n" + arraySpcimalMoney[1];
+                    string[] arraySpcimalMoney = Regex.Split(e.CloseArgument, "@", RegexOptions.None);
+                    string m1 = arraySpcimalMoney[0].Trim();
+                    string m2 = arraySpcimalMoney[1].Trim();
+                    if (!string.IsNullOrEmpty(m1))
+                    {
+                        _info.OtherMoney += Convert.ToDecimal(m1.Replace(BT, "").Trim());
+                        if (m1.Contains(BT))
+                        {
+                            _info.OtherMoneyFlag = BT;
+                        }
+                    }
+                    if (!string.IsNullOrEmpty(m2))
+                    {
+                        _info.OtherMoneyExplain += "\r\n" + m2;
+                    }
                 }
 
                 // 插入下一步记录.

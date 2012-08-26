@@ -201,7 +201,8 @@ namespace TZMS.Web
                     _info.ProxyAmounterName = info.ProxyAmounterName;
                     _info.CNMoney = info.CNMoney;
                     _info.ENMoney = info.ENMoney;
-                    _info.Sument = selectDate.Year + "年" + selectDate.Month + "月份代账费" + info.ENMoney.ToString() + "元";
+                    _info.ENMoneyFlag = info.ENMoneyFlag;
+                    _info.Sument = selectDate.Year + "年" + selectDate.Month + "月份代账费" + info.ENMoneyEx.ToString() + "元";
                     _info.OpeningDate = DateTime.Now;
                     _info.CollectMethod = info.CollectMethod;
                     _info.CollecterName = "合肥吉信财务管理有限公司";
@@ -257,7 +258,8 @@ namespace TZMS.Web
                     _info.ProxyAmounterName = info.ProxyAmounterName;
                     _info.CNMoney = info.CNMoney;
                     _info.ENMoney = info.ENMoney;
-                    _info.Sument = selectDate.Year + "年年检费" + info.ENMoney.ToString() + "元";
+                    _info.ENMoneyFlag = info.ENMoneyFlag;
+                    _info.Sument = selectDate.Year + "年年检费" + info.ENMoneyEx.ToString() + "元";
                     _info.OpeningDate = DateTime.Now;
                     _info.CollectMethod = info.CollectMethod;
                     _info.CollecterName = "合肥吉信财务管理有限公司";

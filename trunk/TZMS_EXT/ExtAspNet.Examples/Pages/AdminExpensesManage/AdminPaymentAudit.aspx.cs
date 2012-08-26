@@ -256,9 +256,9 @@ namespace TZMS.Web.Pages.AdminExpensesManage
 
             _Info.SubmitTime = DateTime.Now;
             //审批人
-            if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()))
+            if (!_Info.Adulters.Contains(this.CurrentUser.ObjectId.ToString()+"<"))
             {
-                _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + ";";
+                _Info.Adulters = _Info.Adulters + this.CurrentUser.ObjectId.ToString() + "<;";
             }
 
             int result = 3;
